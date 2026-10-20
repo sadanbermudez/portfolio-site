@@ -15,6 +15,11 @@
     if (c.width !== Math.round(w * dpr) || c.height !== Math.round(h * dpr)) { c.width = Math.round(w * dpr); c.height = Math.round(h * dpr); }
     return { w: c.width, h: c.height, dpr: dpr };
   }
+  // the longest label that fits the canvas, else the shortest
+  function fitText(ctx, options, room) {
+    for (var i = 0; i < options.length; i++) if (ctx.measureText(options[i]).width <= room) return options[i];
+    return options[options.length - 1];
+  }
   // amber colour map, dark to white-hot
   function heat(v) {
     v = Math.max(0, Math.min(1, v));
@@ -67,18 +72,19 @@
   function planePlot(b1, b2) {
     var s = fit(plot), ctx = plot.getContext('2d'); ctx.setTransform(s.dpr, 0, 0, s.dpr, 0, 0);
     var W = s.w / s.dpr, H = s.h / s.dpr; ctx.clearRect(0, 0, W, H);
-    ctx.strokeStyle = '#1d242d'; ctx.beginPath(); ctx.moveTo(30, H - 22); ctx.lineTo(W - 8, H - 22); ctx.moveTo(30, 8); ctx.lineTo(30, H - 22); ctx.stroke();
+    ctx.strokeStyle = '#1d242d'; ctx.beginPath(); ctx.moveTo(30, H - 22); ctx.lineTo(W - 8, H - 22); ctx.moveTo(30, 44); ctx.lineTo(30, H - 22); ctx.stroke();
     ctx.fillStyle = '#8a94a2'; ctx.font = '10px "Martian Mono", monospace';
     ctx.fillText('−10 µm', 30, H - 6); ctx.fillText('focus', W / 2 - 14, H - 6); ctx.fillText('+10 µm', W - 52, H - 6);
     function curve(f, color) {
       ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.beginPath();
-      for (var k = 0; k <= 200; k++) { var z = -Z + 2 * Z * k / 200, x = 30 + (W - 38) * k / 200, y = H - 22 - f(z) * (H - 34); if (k) ctx.lineTo(x, y); else ctx.moveTo(x, y); }
+      for (var k = 0; k <= 200; k++) { var z = -Z + 2 * Z * k / 200, x = 30 + (W - 38) * k / 200, y = H - 22 - f(z) * (H - 66); if (k) ctx.lineTo(x, y); else ctx.moveTo(x, y); }
       ctx.stroke();
     }
     curve(function () { return 1; }, '#8a6cff');                                         // ∫ I dA is the same in every plane
     curve(function (z) { return 1 / (1 + z * z / (b2.zR * b2.zR)); }, '#ff4a3d');          // ∫ I² dA ∝ 1 / w²
-    ctx.fillStyle = '#8a6cff'; ctx.fillText('one-photon: every plane excited equally', 38, 20);
-    ctx.fillStyle = '#ff4a3d'; ctx.fillText('two-photon: ∝ 1/w², FWHM = 2 zR = ' + (2 * b2.zR).toFixed(2) + ' µm', 38, 34);
+    var room = W - 46, fwhm = (2 * b2.zR).toFixed(2) + ' µm';                          // shorter legend on a phone
+    ctx.fillStyle = '#8a6cff'; ctx.fillText(fitText(ctx, ['one-photon: every plane excited equally', 'one-photon: flat'], room), 38, 20);
+    ctx.fillStyle = '#ff4a3d'; ctx.fillText(fitText(ctx, ['two-photon: ∝ 1/w², FWHM = 2 zR = ' + fwhm, 'two-photon: FWHM ' + fwhm], room), 38, 34);
   }
   function readouts(b1, b2, NA) {
     naOut.textContent = NA.toFixed(2);
@@ -100,17 +106,17 @@
     var W = s.w / s.dpr, H = s.h / s.dpr, L = 40, B = 26, Dmax = 15; ctx.clearRect(0, 0, W, H);
     ctx.strokeStyle = '#1d242d'; ctx.beginPath(); ctx.moveTo(L, 8); ctx.lineTo(L, H - B); ctx.lineTo(W - 8, H - B); ctx.stroke();
     ctx.fillStyle = '#8a94a2'; ctx.font = '10px "Martian Mono", monospace';
-    for (var d = 0; d <= Dmax; d += 5) ctx.fillText(d + ' mm', L + (W - L - 8) * d / Dmax - 12, H - 8);
+    for (var d = 0; d <= Dmax; d += 5) { var lab = d + ' mm', lw = ctx.measureText(lab).width; ctx.fillText(lab, Math.min(L + (W - L - 8) * d / Dmax - 12, W - 4 - lw), H - 8); }
     ctx.fillText('1', L - 14, 14); ctx.fillText('0', L - 14, H - B);
     var lines = [
-      { delta: 4.0, n: 1, color: '#ffae4a', label: '630 nm, one-photon (δ ≈ 4.0 mm)' },
-      { delta: 6.6, n: 1, color: '#ff8a7a', label: '800 nm light (δ ≈ 6.6 mm)' },
-      { delta: 6.6, n: 2, color: '#ff4a3d', label: '800 nm, two-photon excitation ∝ fluence² (δ/2 ≈ 3.3 mm)' }
+      { delta: 4.0, n: 1, color: '#ffae4a', label: ['630 nm, one-photon (δ ≈ 4.0 mm)', '630 nm (δ 4.0 mm)'] },
+      { delta: 6.6, n: 1, color: '#ff8a7a', label: ['800 nm light (δ ≈ 6.6 mm)', '800 nm (δ 6.6 mm)'] },
+      { delta: 6.6, n: 2, color: '#ff4a3d', label: ['800 nm, two-photon excitation ∝ fluence² (δ/2 ≈ 3.3 mm)', '800 nm two-photon (δ/2 3.3 mm)'] }
     ];
     lines.forEach(function (l, idx) {
       ctx.strokeStyle = l.color; ctx.lineWidth = 2; ctx.setLineDash(l.n === 2 ? [6, 4] : []); ctx.beginPath();
       for (var k = 0; k <= 200; k++) { var z = Dmax * k / 200, v = Math.exp(-l.n * z / l.delta), x = L + (W - L - 8) * z / Dmax, y = H - B - v * (H - B - 10); if (k) ctx.lineTo(x, y); else ctx.moveTo(x, y); }
-      ctx.stroke(); ctx.setLineDash([]); ctx.fillStyle = l.color; ctx.fillText(l.label, L + 14, 22 + idx * 15);
+      ctx.stroke(); ctx.setLineDash([]); var txt = fitText(ctx, l.label, W - L - 70); ctx.fillStyle = l.color; ctx.fillText(txt, W - 8 - ctx.measureText(txt).width, 22 + idx * 15);   // top right, clear of the curves
     });
   }
 

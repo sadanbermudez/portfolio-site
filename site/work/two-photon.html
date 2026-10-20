@@ -25,24 +25,27 @@
     <section class="article-head">
       <p class="label">Physics · the subject of my PhD</p>
       <h1>One photon or two</h1>
-      <p class="lede">Two-photon excitation is a quadratic effect, and that one square changes everything: where light acts, how deep it reaches, and how precisely it can treat tissue. Move the sliders; the optics are computed live.</p>
+      <p class="lede">Two-photon excitation grows with the square of the light's intensity. That one square decides where light acts and how precisely it can treat tissue. Move the slider; the optics are computed live.</p>
+      <p class="mono">Why it mattered for my PhD: <a href="research.html">the research in four steps</a>.</p>
     </section>
 
     <section class="block" id="focus">
       <div class="side"><p class="label">01 · The focus</p><p class="mono">Gaussian beam in water</p></div>
       <div class="main wide">
         <h2>Same lens, two very different glows</h2>
-        <p class="kicker" style="max-width:64ch">One-photon excitation of a molecule at 400 nm, and two-photon excitation of the same transition at 800 nm, focused by the same objective. Seen from the side, as a camera would.</p>
+        <p class="kicker narrow">The same molecule excited by one 400 nm photon or by two 800 nm photons, through the same lens, seen from the side.</p>
         <div class="photon-pair">
           <figure class="panel">
             <div class="panel-head"><span style="color:#8a6cff">one-photon · 400 nm · ∝ I</span></div>
             <canvas id="focus-1p" class="focus-canvas" aria-label="One-photon excitation: the whole converging and diverging cone glows"></canvas>
             <p class="caption mono" id="r-1p"></p>
+            <figcaption class="look">Look for the whole cone glowing.</figcaption>
           </figure>
           <figure class="panel">
             <div class="panel-head"><span class="pump">two-photon · 800 nm · ∝ I²</span></div>
             <canvas id="focus-2p" class="focus-canvas" aria-label="Two-photon excitation: only the focal spot glows"></canvas>
             <p class="caption mono" id="r-2p"></p>
+            <figcaption class="look">Look for only the waist glowing. Raise the aperture and it shrinks.</figcaption>
           </figure>
         </div>
         <div class="slider-row">
@@ -50,10 +53,10 @@
           <input id="na" type="range" min="0.2" max="1.0" step="0.05" value="0.5">
           <output id="na-out" class="mono result" for="na">0.50</output>
         </div>
-        <div class="panel"><div class="panel-head"><span>excitation per plane along the axis (normalised)</span><span>±10 µm around the focus</span></div><canvas id="plane-plot" class="plot-canvas"></canvas></div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px 40px">
-          <p><strong>Why the cone glows for one photon.</strong> The same power crosses every plane of the beam, and one-photon excitation is linear in intensity, so every plane is excited equally: the glow fills the whole hourglass.</p>
-          <p><strong>Why only the focus glows for two.</strong> Excitation per plane follows intensity squared integrated over the spot, which falls as 1/w². It is confined to about two Rayleigh ranges: axial sectioning without a pinhole.</p>
+        <figure class="panel"><div class="panel-head"><span>excitation per plane along the axis (normalised)</span><span>±10 µm around the focus</span></div><canvas id="plane-plot" class="plot-canvas" aria-label="Excitation per plane: flat for one photon, peaked at the focus for two"></canvas>
+          <figcaption class="look">Look for the flat purple line against the red peak: two photons excite only near the focus.</figcaption></figure>
+        <div class="two-col">
+          <p><strong>Why.</strong> The same power crosses every plane of the beam, so linear one-photon excitation is equal in each. Two-photon excitation per plane follows intensity squared over the spot, which falls as 1/w², so it is confined to about two Rayleigh ranges: axial sectioning without a pinhole.</p>
           <p><strong>The waist trade-off.</strong> At the same NA the 800 nm spot is twice as wide, but squaring the intensity narrows the excitation by √2. The gain is not lateral sharpness; it is that nothing outside the focus is excited.</p>
         </div>
         <p class="mono">w₀ = λ / (π·NA) is the paraxial Gaussian estimate; z_R = π·w₀²·n / λ with n = 1.33. At high NA the paraxial model is approximate.</p>
@@ -64,9 +67,10 @@
       <div class="side"><p class="label">02 · Penetration</p><p class="mono">the optical window</p></div>
       <div class="main wide">
         <h2>Why near-infrared reaches deeper</h2>
-        <p class="kicker" style="max-width:64ch">Below about 600 nm, blood absorption and scattering stop light within a short distance. Between roughly 600 and 1300 nm sits tissue's optical window. Fluence falls as exp(−z/δ).</p>
-        <div class="panel"><div class="panel-head"><span>relative fluence and excitation against depth</span><span>published δ values</span></div><canvas id="depth" class="plot-canvas tall"></canvas></div>
-        <p>A subtlety worth knowing: two-photon excitation follows fluence squared, so its depth signal decays twice as fast as the 800 nm light itself (δ/2 ≈ 3.3 mm here), similar to 630 nm one-photon light. Its advantage at depth is not more signal; it is that the excitation stays confined to the focus, wherever that focus is placed.</p>
+        <p class="kicker narrow">Below about 600 nm, blood absorption and scattering stop light within a short distance. Between roughly 600 and 1300 nm sits tissue's optical window. Fluence falls as exp(−z/δ).</p>
+        <figure class="panel"><div class="panel-head"><span>relative fluence and excitation against depth</span><span>published δ values</span></div><canvas id="depth" class="plot-canvas tall" aria-label="Fluence and excitation falling with depth for 630 nm and 800 nm light"></canvas>
+          <figcaption class="look">Look for the dashed two-photon curve: it follows fluence squared, so it falls twice as fast as 800 nm light (δ/2 ≈ 3.3 mm), about like 630 nm light.</figcaption></figure>
+        <p>So two photons gain no signal at depth. Their advantage is that excitation stays confined to the focus, wherever the focus is placed.</p>
         <p class="mono">δ values: 630 nm ≈ 4.0 mm (brain-tumour tissue phantom, μ_eff 0.25 mm⁻¹); 750 to 800 nm ≈ 6.6 mm (breast tissue, μ_eff ≈ 1.5 cm⁻¹). Real tissue varies widely.</p>
       </div>
     </section>
@@ -75,17 +79,18 @@
       <div class="side"><p class="label">03 · Photodynamic therapy</p><p class="mono">illustrative model</p></div>
       <div class="main wide">
         <h2>Treating a tumour without touching what is above it</h2>
-        <p class="kicker" style="max-width:64ch">In photodynamic therapy a photosensitiser collects in the tumour; light excites it, and its triplet state makes singlet oxygen, which kills nearby cells. The same molecule, the same 1270 nm glow as the lab agent's experiment.</p>
+        <p class="kicker narrow">Same tumour, two treatments. <a href="research.html">How photodynamic therapy works</a> is on the research page.</p>
         <div class="order-switch static" role="group" aria-label="Treatment">
           <button type="button" data-pdt="1" aria-pressed="true">Standard PDT · 630 nm beam</button>
           <button type="button" data-pdt="2" aria-pressed="false">Two-photon PDT · 800 nm focus</button>
         </div>
-        <div class="panel"><div class="panel-head"><span class="live">singlet-oxygen dose, accumulating</span><span>tissue section 12 × 8 mm</span></div><canvas id="pdt" class="pdt-canvas" aria-label="Tissue cross-section with a tumour; the singlet-oxygen dose builds up as the light is applied"></canvas></div>
-        <div class="readings" style="background:none;border:0;gap:20px 32px">
-          <div style="background:none;padding:12px 0 0;border-top:1px solid var(--ink)"><span class="label">tumour dose reached</span><span class="value result" id="pdt-tumour">0%</span></div>
-          <div style="background:none;padding:12px 0 0;border-top:1px solid var(--ink)"><span class="label">dose to healthy tissue above it, as % of tumour dose</span><span class="value" id="pdt-ratio">–</span></div>
+        <figure class="panel"><div class="panel-head"><span class="live">singlet-oxygen dose, accumulating</span><span>tissue section 12 × 8 mm</span></div><canvas id="pdt" class="pdt-canvas" aria-label="Tissue cross-section with a tumour; the singlet-oxygen dose builds up as the light is applied"></canvas>
+          <figcaption class="look">Look at the skin and tissue above the dashed tumour: the 630 nm beam doses them too, the scanned two-photon focus does not.</figcaption></figure>
+        <div class="readings flat">
+          <div><span class="label">tumour dose reached</span><span class="value result" id="pdt-tumour">0%</span></div>
+          <div><span class="label">dose to healthy tissue above it, as % of tumour dose</span><span class="value" id="pdt-ratio">–</span></div>
         </div>
-        <p>Standard PDT illuminates everything in the beam, so healthy tissue above the tumour, and the skin most of all, receives dose wherever photosensitiser is present. Two-photon PDT scans a focus through the tumour and excites only there. Its practical limits are real: it needs femtosecond lasers, and most photosensitisers absorb two photons weakly, which is why new high-cross-section molecules are an active research area.</p>
+        <p>The catch: two-photon PDT needs femtosecond lasers, and most photosensitisers absorb two photons weakly, which is why new high-cross-section molecules are an active research area.</p>
         <p class="mono">Model: photosensitiser 1.0 in tumour, 0.35 elsewhere; 630 nm δ = 4.0 mm; 800 nm δ = 6.6 mm with excitation ∝ fluence²; focus drawn at 0.12 mm for visibility (a real two-photon focal volume is around 1 µm³ and is scanned). It shows the principle, not a dosimetry calculation.</p>
       </div>
     </section>
