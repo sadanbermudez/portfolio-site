@@ -19,6 +19,7 @@
   --accent: #4b3fd6;        /* 405 nm violet: the laser line of the photonics years */
   --accent-soft: rgba(75, 63, 214, 0.09);
   --good: #11795c;
+  --second: #c2185b;
   --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
   --font-data: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
@@ -32,13 +33,13 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --paper: #0f1218; --surface: #161a22; --ink: #e7eaf0; --ink-soft: #a3abba;
-    --rule: #2a303c; --accent: #9b92ff; --accent-soft: rgba(155, 146, 255, 0.12); --good: #4fc79f;
+    --rule: #2a303c; --accent: #9b92ff; --accent-soft: rgba(155, 146, 255, 0.12); --good: #4fc79f; --second: #f06292;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --paper: #0f1218; --surface: #161a22; --ink: #e7eaf0; --ink-soft: #a3abba;
-  --rule: #2a303c; --accent: #9b92ff; --accent-soft: rgba(155, 146, 255, 0.12); --good: #4fc79f;
+  --rule: #2a303c; --accent: #9b92ff; --accent-soft: rgba(155, 146, 255, 0.12); --good: #4fc79f; --second: #f06292;
   color-scheme: dark;
 }
 
@@ -176,6 +177,7 @@ footer { border-top: 1px solid var(--rule); padding-block: 28px 40px; font-size:
     <a class="brand" href="#top">Sergio Adan Bermudez</a>
     <nav aria-label="Sections">
       <a href="#work">Case study</a>
+      <a href="#lab">Lab agent</a>
       <a href="#system">System</a>
       <a href="#log">Log</a>
       <a href="#projects">Projects</a>
@@ -251,6 +253,72 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
             </tbody>
           </table>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lab">
+    <div class="row">
+      <div class="side">
+        <p class="label">Signature piece</p>
+        <p class="label">photonics-lab-mcp</p>
+      </div>
+      <div class="main">
+        <h2>An AI agent that runs a physics experiment, inside safety limits it cannot override</h2>
+        <p>I built an MCP server that gives an AI agent an optics bench: an 800 nm laser, a spectrometer, peak and power-law fits, and a lab notebook. The bench is a simulator with realistic detector noise and saturation; a real power-meter driver (Thorlabs PM100, SCPI) is included and tested against a simulated instrument, not yet on hardware.</p>
+        <p>The agent, a local 35B model on this laptop, got one question and no procedure: is the 1270 nm emission excited by one photon or two? The answer is hidden in the server. Signal grows as P<sup>n</sup>, so the slope on a log-log plot gives the photon order. The agent had to plan the powers, keep the detector out of saturation, fit and conclude.</p>
+        <figure class="figure">
+          <svg viewBox="0 0 640 350" role="img" aria-labelledby="lab-fig-title">
+            <title id="lab-fig-title">Peak area against laser power on log-log axes. The two-photon sample gives slope 2.004 plus or minus 0.03; the one-photon control gives 1.003 plus or minus 0.002.</title>
+            <g stroke="var(--rule)" stroke-width="1">
+              <line x1="70" y1="20" x2="70" y2="300"/><line x1="70" y1="300" x2="610" y2="300"/>
+              <line x1="70" y1="240.6" x2="610" y2="240.6" stroke-dasharray="2 4"/>
+              <line x1="70" y1="155.8" x2="610" y2="155.8" stroke-dasharray="2 4"/>
+              <line x1="70" y1="70.9" x2="610" y2="70.9" stroke-dasharray="2 4"/>
+            </g>
+            <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-soft)">
+              <text x="107.9" y="318" text-anchor="middle">10</text><text x="221.8" y="318" text-anchor="middle">20</text>
+              <text x="372.5" y="318" text-anchor="middle">50</text><text x="486.4" y="318" text-anchor="middle">100</text>
+              <text x="600.4" y="318" text-anchor="middle">200</text>
+              <text x="62" y="244.6" text-anchor="end">10³</text><text x="62" y="159.8" text-anchor="end">10⁴</text><text x="62" y="74.9" text-anchor="end">10⁵</text>
+              <text x="340" y="342" text-anchor="middle">Laser power at 800 nm (mW)</text>
+              <text x="16" y="160" text-anchor="middle" transform="rotate(-90 16 160)">1270 nm peak area</text>
+            </g>
+            <g stroke="var(--second)" fill="var(--second)">
+              <line x1="204.5" y1="114.3" x2="579.4" y2="30" stroke-width="1.6"/>
+              <circle cx="221.8" cy="110.6" r="4"/><circle cx="372.5" cy="76.5" r="4"/><circle cx="449.7" cy="59.1" r="4"/>
+              <circle cx="516.4" cy="44.1" r="4"/><circle cx="563.7" cy="33.5" r="4"/>
+            </g>
+            <g stroke="var(--accent)" fill="var(--accent)">
+              <line x1="90.5" y1="288.3" x2="579.4" y2="68.7" stroke-width="1.6"/>
+              <line x1="107.9" y1="300" x2="107.9" y2="241.3"/><line x1="288.5" y1="208.4" x2="288.5" y2="198.5"/>
+              <circle cx="107.9" cy="261.3" r="4"/><circle cx="288.5" cy="203.1" r="4"/><circle cx="372.5" cy="158.3" r="4"/>
+              <circle cx="449.7" cy="127.4" r="4"/><circle cx="516.4" cy="97.3" r="4"/><circle cx="563.7" cy="75.5" r="4"/>
+            </g>
+            <g font-family="IBM Plex Sans, sans-serif" font-size="12">
+              <circle cx="392" cy="236" r="4" fill="var(--accent)"/><text x="402" y="240" fill="var(--ink)">two-photon sample: n = 2.004 ± 0.03</text>
+              <circle cx="392" cy="258" r="4" fill="var(--second)"/><text x="402" y="262" fill="var(--ink)">one-photon control: n = 1.003 ± 0.002</text>
+            </g>
+          </svg>
+          <figcaption>Every point was chosen, measured and fitted by the agent through the server's tools. Raw spectra and full transcripts are kept with the code.</figcaption>
+        </figure>
+        <div class="table-scroll" role="region" aria-label="Agent runs" tabindex="0">
+          <table>
+            <thead><tr><th>Hidden truth</th><th>Agent's result</th><th>Tool calls</th><th>Time</th><th>Verdict</th></tr></thead>
+            <tbody>
+              <tr><td>Two-photon</td><td class="n">2.004 ± 0.03</td><td class="n">28</td><td class="n">91 s</td><td class="after">Correct</td></tr>
+              <tr><td>One-photon (control)</td><td class="n">1.003 ± 0.002</td><td class="n">32</td><td class="n">84 s</td><td class="after">Correct</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Why the control matters.</strong> At 800 nm the textbook guess is "two-photon". The control run uses the same setup with a one-photon sample, and the agent still measured 1. It read the slope rather than reciting the expected answer.</p>
+        <p><strong>What it got wrong.</strong> The measurements were sound; the closing physics was not. In both runs the agent confused how singlet oxygen forms: it tied the 3.1 eV of two 800 nm photons to the oxygen emission, and later described singlet oxygen as excited by absorption. In reality the sensitiser absorbs, and its triplet state passes the energy to oxygen. A reliable operator and a careless interpreter, which is why the design puts the safety limits and the statistics in the server and leaves the interpretation to a human.</p>
+        <ul>
+          <li>Safety lives in the server: power cap, arm-then-emit interlock, and read-only, configure and full permission levels. Any unexpected error puts the laser in a safe state.</li>
+          <li>Every action, including every refused one, goes into a lab notebook the agent can read back.</li>
+          <li>Peak fits report the area with its uncertainty and flag saturation; the power-law fit weights each point by its error.</li>
+          <li>22 automated tests, including the instrument driver against a simulated SCPI device.</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -337,6 +405,7 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
           <table>
             <thead><tr><th>Date</th><th>Change</th><th>Measured result</th><th>Decision</th></tr></thead>
             <tbody>
+              <tr><td class="n">20 Oct</td><td>Instrument-control MCP server: the agent runs a photophysics experiment</td><td>Hidden photon order found in both runs (2.004 ± 0.03, control 1.003 ± 0.002); closing physics wrong both times</td><td>Kept; interpretation stays with a human</td></tr>
               <tr><td class="n">20 Oct</td><td>Agent code tool moved into an isolated Docker sandbox</td><td>Code task 7.9 s instead of blocked; a write to a host path fails inside the container</td><td>Kept</td></tr>
               <tr><td class="n">20 Oct</td><td>Observability: live latency dashboard, OpenTelemetry traces (Phoenix), evals in Inspect AI</td><td>13/13 eval tasks in 45 s; one trace per voice turn</td><td>Kept</td></tr>
               <tr><td class="n">20 Oct</td><td>A 284B model streamed from disk (colibri, DeepSeek V4 Flash) as a "think harder" mode</td><td>Correct on a reasoning test, 0.6 tokens/s on CPU</td><td>Kept, on demand only</td></tr>
@@ -369,6 +438,16 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
               <li>Agent code runs in an isolated Docker sandbox, with no host folders mounted</li>
               <li>Observability: live latency dashboard and OpenTelemetry tracing</li>
               <li>Performance work above: voice reply 3 s to 0.7 s</li>
+            </ul>
+          </article>
+          <article class="item">
+            <p class="label">2026 · Personal</p>
+            <h3>photonics-lab-mcp</h3>
+            <p>An MCP server that lets an AI agent run an optics experiment within limits it cannot override. Details above.</p>
+            <ul>
+              <li>10 tools: laser, spectrometer, fits, notebook, safe state</li>
+              <li>Real SCPI power-meter driver, tested on a simulated instrument</li>
+              <li>A local model found the hidden answer in both runs</li>
             </ul>
           </article>
           <article class="item">
@@ -412,6 +491,7 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
             <ul>
               <li>Done: live metrics from the model server (latency per turn, cache reuse)</li>
               <li>Done: tracing and evals on standard tools</li>
+              <li>Done: an MCP server that lets the assistant run a lab experiment and analyse its signal</li>
               <li>Move to an official llama.cpp build with the upstream fix</li>
               <li>Public evaluation dashboard: quality and latency per change</li>
               <li>Two-minute demo video</li>
@@ -421,7 +501,7 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
             <p class="label">Next · Q1 2027</p>
             <h3>Capability</h3>
             <ul>
-              <li>An MCP server that lets the assistant drive a lab instrument and analyse its signal</li>
+              <li>Run the instrument server on real hardware, starting with the power meter</li>
               <li>A free cloud tier between the local model and Claude, for harder text tasks</li>
               <li>A one-click "think harder" mode (the 284B model already runs)</li>
               <li>A second machine as a fast voice brain</li>
@@ -508,7 +588,7 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
   </section>
 
   <footer>
-    <span>All measurements were taken on my own hardware, 19 to 20 October 2026. Numbers are reported as measured, including the failures.</span>
+    <span>All measurements were taken on my own hardware, 19 to 20 October 2026; the lab-agent bench is a simulator. Numbers are reported as measured, including the failures.</span>
     <span>Site designed with Claude Code and reviewed by me.</span>
   </footer>
 </main>
