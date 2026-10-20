@@ -1,13 +1,22 @@
-// Cloudflare deployment for sergioadan.dev: a static-assets Worker (Cloudflare's successor to
-// Pages). No code runs on Cloudflare; it only serves the files build.py writes to dist/.
+// Cloudflare deployment for sergioadan.dev: static files from dist/, plus a small Worker for the
+// public Jarvis demo (/api/chat and /api/transcribe on Workers AI's free daily allowance).
 // Deploy:  python build.py  then  wrangler deploy   (from this folder)
 {
   "name": "sergioadan",
+  "main": "server/worker.js",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
   },
+  "ai": { "binding": "AI" },
+  // Per visitor and Cloudflare location: 8 questions and 6 recordings a minute
+  "ratelimits": [
+    { "name": "CHAT_LIMIT", "namespace_id": "1001", "simple": { "limit": 8, "period": 60 } },
+    { "name": "STT_LIMIT", "namespace_id": "1002", "simple": { "limit": 6, "period": 60 } }
+  ],
   "workers_dev": false,
   "routes": [
     { "pattern": "sergioadan.dev", "custom_domain": true },
