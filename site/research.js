@@ -237,6 +237,7 @@
     b.addEventListener('click', function () {
       solvent = b.dataset.solvent; resetDet();
       document.querySelectorAll('[data-solvent]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      if (reduce) { stepDet(); drawDet(); }                  // no loop runs in reduced motion, so collect and draw now
     });
   });
   resetDet();
