@@ -22,7 +22,7 @@ page = ("<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n
         + src[:head_end].replace('<meta name="claude:viewport-fit-sides" content="cover">\n', "")
         + "\n</head>\n<body>\n" + src[head_end:].lstrip() + "</body>\n</html>\n")
 (dist / "index.html").write_text(page, encoding="utf-8")
-for f in [*here.glob("*.js"), *here.glob("*.css"), here / "404.html"]:
+for f in [*here.glob("*.js"), *here.glob("*.css"), *here.glob("*.svg"), here / "404.html"]:
     shutil.copy2(f, dist / f.name)
 for f in (here / "work").glob("*.html"):
     shutil.copy2(f, dist / "work" / f.name)
