@@ -12,7 +12,8 @@ shutil.rmtree(dist, ignore_errors=True)
 shutil.copy2(here / "data" / "chess-game.js", dist / "data" / "chess-game.js")
 
 src = (here / "index.html").read_text(encoding="utf-8")
-head_end = src.index('<link rel="stylesheet" href="site.css">') + len('<link rel="stylesheet" href="site.css">')
+last_link = '<link rel="stylesheet" href="immersive.css">'      # the head ends after the last stylesheet
+head_end = src.index(last_link) + len(last_link)
 page = ("<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n"
         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\">\n"
         + src[:head_end].replace('<meta name="claude:viewport-fit-sides" content="cover">\n', "")
@@ -22,4 +23,11 @@ for name in ("site.css", "immersive.css", "bench.js", "hero.js", "lab.js", "scro
     shutil.copy2(here / name, dist / name)
 for f in (here / "work").glob("*.html"):
     shutil.copy2(f, dist / "work" / f.name)
-print("built", sorted(str(p.relative_to(dist)) for p in dist.rglob("*") if p.is_file()))
+# Cloudflare Pages response headers for every path
+(dist / "_headers").write_text(
+    "/*\n"
+    "  X-Content-Type-Options: nosniff\n"
+    "  Referrer-Policy: strict-origin-when-cross-origin\n"
+    "  X-Frame-Options: DENY\n"
+    "  Permissions-Policy: camera=(), microphone=(), geolocation=()\n", encoding="utf-8")
+print("built",sorted(str(p.relative_to(dist)) for p in dist.rglob("*") if p.is_file()))
