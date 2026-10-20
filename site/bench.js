@@ -1,7 +1,10 @@
 /* A 3D optical bench (three.js r128): 800 nm pulsed laser, turning mirror, objective, sample
    cuvette, collection lens and InGaAs spectrometer. Shared by the home hero and the lab-agent page.
 
-   createBench(canvas, opts) -> { fly(name), setStep(i), setCycle(bool), setLaser(bool) }
+   createBench(canvas, opts) -> { fly(name), setStep(i), setCycle(bool), setLaser(bool), setOrder(1|2) }
+   setOrder(1) shows one-photon excitation of the same transition: 400 nm light, and the whole
+   beam cone glows in the sample. setOrder(2), the default, is the 800 nm two-photon case, where
+   excitation (proportional to intensity squared) is confined to the focus.
    opts.hud = { canvas, power, peak } elements; opts.shift = push the scene right on wide screens;
    opts.orbit = allow dragging to look around.
    The power steps are the six settings the agent chose, with the peak counts it measured at each. */
@@ -41,7 +44,7 @@ window.createBench = function (canvas, opts) {
     hctx.stroke(); hctx.shadowBlur = 0;
   }
 
-  var api = { fly: function () {}, setStep: function () {}, setCycle: function () {}, setLaser: function () {} };
+  var api = { fly: function () {}, setStep: function () {}, setCycle: function () {}, setLaser: function () {}, setOrder: function () {} };
   if (!canvas || typeof THREE === 'undefined') { drawHud(RUN[4][1], 0); return api; }
   var renderer;
   try { renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); }
@@ -111,8 +114,12 @@ window.createBench = function (canvas, opts) {
   label('objective', 27, 13.5, -4);
   var cuv = new THREE.Mesh(new THREE.BoxGeometry(4, 9, 4), new THREE.MeshStandardMaterial({ color: 0xbfd8ff, transparent: true, opacity: 0.18, metalness: 0.1, roughness: 0.05 }));
   cuv.position.set(24, 4.8, 6); scene.add(cuv);
-  var liquidMat = new THREE.MeshStandardMaterial({ color: 0x5a1f12, emissive: 0xff7a2a, emissiveIntensity: 0.2, transparent: true, opacity: 0.85 });
-  var liquid = new THREE.Mesh(new THREE.BoxGeometry(3.4, 6, 3.4), liquidMat); liquid.position.set(24, 3.4, 6); scene.add(liquid);
+  var liquidMat = new THREE.MeshStandardMaterial({ color: 0x5a1f12, emissive: 0xff7a2a, emissiveIntensity: 0.2, transparent: true, opacity: 0.55, depthWrite: false });
+  var liquid = new THREE.Mesh(new THREE.BoxGeometry(3.4, 8.4, 3.4), liquidMat); liquid.position.set(24, 4.9, 6); scene.add(liquid);
+  // one-photon excitation: the converging and diverging beam cones glow through the liquid
+  var coneMat = new THREE.MeshBasicMaterial({ color: 0xffae4a, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false, depthTest: false, side: THREE.DoubleSide });
+  var coneIn = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 1.5, 2, 32, 1, true), coneMat); coneIn.rotation.x = Math.PI / 2; coneIn.position.set(24, 8, 5); scene.add(coneIn);
+  var coneOut = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 0.06, 2, 32, 1, true), coneMat); coneOut.rotation.x = Math.PI / 2; coneOut.position.set(24, 8, 7); scene.add(coneOut);
   var holder = new THREE.Mesh(new THREE.BoxGeometry(6, 0.8, 6), anod); holder.position.set(24, 0.4, 6); scene.add(holder);
   label('sample', 27, 12, 8);
 
@@ -138,7 +145,8 @@ window.createBench = function (canvas, opts) {
   var emitCore = [beam(E[0], E[1], 0xffae4a, 0.9, 0.08), beam(E[1], E[2], 0xffae4a, 0.35, 0.18)];
   var focus = glow(0xff6a4d, 7, 0.9); focus.position.copy(P[3]);
   var mirrorGlint = glow(0xff4a3d, 5, 0.6); mirrorGlint.position.copy(P[1]);
-  var sampleGlow = glow(0xffae4a, 16, 0.4); sampleGlow.position.set(24, 4.5, 6);
+  var sampleGlow = glow(0xffae4a, 16, 0.4); sampleGlow.position.set(24, 6.5, 6);
+  var focalSpot = glow(0xffd28a, 3, 0); focalSpot.position.set(24, 8, 6); focalSpot.material.depthTest = false;   // drawn through the cuvette walls
 
   var pathLen = [P[0].distanceTo(P[1]), P[1].distanceTo(P[2]), P[2].distanceTo(P[3])];
   var total = pathLen[0] + pathLen[1] + pathLen[2];
@@ -192,11 +200,13 @@ window.createBench = function (canvas, opts) {
   var visible = true;
   if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }).observe(canvas);
 
-  var cycle = true, fixedStep = 4, laserOn = true, laserLevel = 1;
+  var cycle = true, fixedStep = 4, laserOn = true, laserLevel = 1, order = 2;
+  var PUMP_2P = new THREE.Color(0xff4a3d), PUMP_1P = new THREE.Color(0x8a6cff), pumpColor = PUMP_2P.clone();
   api.fly = function (name) { if (SHOTS[name]) { goal = SHOTS[name]; dragA = 0; } };
   api.setCycle = function (on) { cycle = on; };
   api.setStep = function (i) { fixedStep = i; cycle = false; };
   api.setLaser = function (on) { laserOn = on; };
+  api.setOrder = function (n) { order = n === 1 ? 1 : 2; };
 
   function frame(t, dt) {
     var step = cycle ? Math.floor(t / STEP_S) % RUN.length : fixedStep;
@@ -208,7 +218,14 @@ window.createBench = function (canvas, opts) {
     var rel = (counts - BASE) / (RUN[5][1] - BASE) * shutter;
     var pump = (0.25 + 0.75 * pmw / 160) * shutter;
 
-    pumpCore.forEach(function (m) { m.material.opacity = 0.02 + 0.93 * pump; });
+    pumpColor.lerp(order === 1 ? PUMP_1P : PUMP_2P, Math.min(1, dt * 4));
+    pumpCore.forEach(function (m) { m.material.opacity = 0.02 + 0.93 * pump; m.material.color.copy(pumpColor); });
+    pumpHalo.forEach(function (m) { m.material.color.copy(pumpColor); });
+    focus.material.color.copy(pumpColor); mirrorGlint.material.color.copy(pumpColor); redLight.color.copy(pumpColor);
+    var one = order === 1;
+    coneMat.opacity += ((one ? 0.2 + 0.55 * rel : 0) - coneMat.opacity) * Math.min(1, dt * 5);
+    focalSpot.material.opacity += ((one ? 0 : 0.95 * rel) - focalSpot.material.opacity) * Math.min(1, dt * 5);
+    focalSpot.scale.setScalar(1.6 + 2.4 * rel + Math.sin(t * 40) * 0.15);
     pumpHalo.forEach(function (m) { m.material.opacity = 0.12 * pump; });
     emitCore[0].material.opacity = 0.1 * rel; emitCore[1].material.opacity = 0.22 * rel;
     focus.material.opacity = 0.95 * pump; focus.scale.setScalar(4 + 5 * pump + Math.sin(t * 30) * 0.3);
@@ -237,7 +254,7 @@ window.createBench = function (canvas, opts) {
     renderer.render(scene, camera);
 
     if (hudEl.power) hudEl.power.textContent = laserLevel < 0.5 ? 'laser off' : shutter < 0.95 ? 'shutter' : pmw + ' mW';
-    if (hudEl.peak) hudEl.peak.textContent = Math.round(level).toLocaleString('en-GB') + ' counts';
+    if (hudEl.peak) hudEl.peak.textContent = order === 1 ? 'one-photon view' : Math.round(level).toLocaleString('en-GB') + ' counts';
     drawHud(level, t);
   }
 

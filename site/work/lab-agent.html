@@ -23,6 +23,10 @@
   <section class="scrolly" aria-label="The bench, chapter by chapter">
     <div class="stage">
       <canvas class="bench" aria-label="A 3D optics bench: laser, mirror, objective, sample and spectrometer. Drag to look around."></canvas>
+      <div class="order-switch" role="group" aria-label="Excitation">
+        <button type="button" data-order="2" aria-pressed="true">Two-photon · 800 nm</button>
+        <button type="button" data-order="1" aria-pressed="false">One-photon · 400 nm</button>
+      </div>
       <div class="hud" aria-hidden="true">
         <div class="row"><span class="label">InGaAs · 1100 to 1440 nm</span><span class="mono pump" id="hud-power">laser off</span></div>
         <canvas></canvas>
@@ -68,9 +72,24 @@
             <p>Shot noise, read noise, dark current and a hard saturation limit at 65,535 counts. The agent sets the integration time and averages within limits the server enforces, and every action, including every refusal, goes into a lab notebook.</p>
           </div>
         </div>
+        <div class="chapter" data-shot="sample" data-laser="1" data-step="5" data-order="1">
+          <div class="card-x">
+            <span class="chapter-num">05 · ONE PHOTON</span>
+            <h2>The whole cone lights up</h2>
+            <p>To reach the same excited state with one photon you need twice the energy: 400 nm, violet. Excitation now grows with intensity, not its square, and the light crossing every plane of the sample is the same, so the converging and diverging cone glows from wall to wall.</p>
+          </div>
+        </div>
+        <div class="chapter" data-shot="sample" data-laser="1" data-step="5" data-order="2">
+          <div class="card-x">
+            <span class="chapter-num">06 · TWO PHOTONS</span>
+            <h2>Only the focus</h2>
+            <p>At 800 nm two photons must arrive together, so excitation follows intensity squared. Away from the focus the beam spreads and the square collapses: excitation shrinks to a point. That confinement is what makes two-photon microscopy section in 3D and what two-photon photodynamic therapy is built on.</p>
+            <p><a class="go" href="two-photon.html" style="color:var(--emit)">Explore the physics →</a></p>
+          </div>
+        </div>
         <div class="chapter" data-shot="overview" data-laser="1" data-cycle="1">
           <div class="card-x">
-            <span class="chapter-num">05 · THE AGENT AT THE CONTROLS</span>
+            <span class="chapter-num">07 · THE AGENT AT THE CONTROLS</span>
             <h2>Six powers, chosen by the model</h2>
             <p>The agent picked 10, 30, 50, 80, 120 and 160 mW, switching emission off between settings. The readout shows the peak counts it actually recorded at each power. Signal grows as P<sup>n</sup>; the slope of a log-log plot gives n.</p>
           </div>
@@ -226,6 +245,14 @@
     bench.fly(el.dataset.shot || 'overview');
     bench.setLaser(el.dataset.laser === '1');
     if (el.dataset.cycle) bench.setCycle(true); else if (el.dataset.step) bench.setStep(+el.dataset.step);
+    setOrder(el.dataset.order ? +el.dataset.order : 2);
+  });
+  function setOrder(n) {
+    bench.setOrder(n);
+    document.querySelectorAll('.order-switch button').forEach(function (b) { b.setAttribute('aria-pressed', String(+b.dataset.order === n)); });
+  }
+  document.querySelectorAll('.order-switch button').forEach(function (b) {
+    b.addEventListener('click', function () { setOrder(+b.dataset.order); });
   });
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('svg').forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); });

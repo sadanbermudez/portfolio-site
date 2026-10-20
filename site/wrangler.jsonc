@@ -8,5 +8,9 @@
     "directory": "./dist",
     "not_found_handling": "404-page"
   },
-  "workers_dev": true
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "sergioadan.dev", "custom_domain": true },
+    { "pattern": "www.sergioadan.dev", "custom_domain": true }
+  ]
 }

@@ -96,3 +96,37 @@
 .portal h3, .portal p, .portal .go, .portal .label { position: relative; }
 .portal p { color: var(--muted); font-size: var(--step--1); line-height: 1.5; }
 .portal .go { font-family: var(--font-data); font-size: var(--step--2); color: var(--emit); letter-spacing: 0.05em; }
+
+/* one/two-photon switch on the 3D stage */
+.order-switch { position: absolute; z-index: 5; top: 84px; right: max(16px, env(safe-area-inset-right, 0px)); display: flex; gap: 0; border: 1px solid var(--rule); background: rgba(13, 17, 22, 0.8); }
+.order-switch button { font-family: var(--font-data); font-size: var(--step--2); letter-spacing: 0.04em; padding: 9px 12px; background: transparent; color: var(--muted); border: 0; cursor: pointer; }
+.order-switch button[aria-pressed="true"] { color: var(--bg); background: var(--ink); }
+.order-switch button[data-order="1"][aria-pressed="true"] { background: #8a6cff; color: #fff; }
+@media (max-width: 760px) { .order-switch { top: 70px; left: max(16px, env(safe-area-inset-left, 0px)); right: auto; } }
+
+/* two-photon physics page */
+.photon-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 640px) { .photon-pair { grid-template-columns: 1fr; } }
+.focus-canvas { display: block; width: 100%; height: 420px; background: #000; }
+.plot-canvas { display: block; width: 100%; height: 170px; }
+.plot-canvas.tall { height: 240px; }
+.pdt-canvas { display: block; width: 100%; aspect-ratio: 3 / 2; height: auto; }
+.slider-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.slider-row input[type="range"] { flex: 1 1 220px; accent-color: #ff4a3d; }
+.order-switch.static { position: static; display: inline-flex; flex-wrap: wrap; justify-self: start; }
+.order-switch.static button[data-pdt="2"][aria-pressed="true"] { background: var(--accent); color: #fff; }
+
+/* chess: 3D view and import */
+.board-stack { position: relative; }
+.board3d { display: block; width: 100%; aspect-ratio: 1; background: radial-gradient(circle at 50% 40%, #141b24, #07090c 70%); border: 1px solid var(--rule); }
+.board3d[hidden], .board[hidden] { display: none; }
+.import-body { padding: 14px 16px 16px; display: grid; gap: 10px; }
+.import textarea { width: 100%; background: #0b0f14; color: var(--ink); border: 1px solid var(--rule); padding: 10px 12px; font-family: var(--font-data); font-size: var(--step--2); line-height: 1.6; resize: vertical; }
+.import textarea:focus, .import select:focus { outline: 2px solid var(--emit); outline-offset: 1px; }
+.import-row { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
+.import select { background: #0b0f14; color: var(--ink); border: 1px solid var(--rule); padding: 9px 10px; font-family: var(--font-data); font-size: var(--step--2); }
+.file-btn { cursor: pointer; }
+.import progress { width: 100%; height: 4px; appearance: none; -webkit-appearance: none; border: 0; background: #1d242d; }
+.import progress::-webkit-progress-bar { background: #1d242d; }
+.import progress::-webkit-progress-value { background: var(--emit); }
+.import progress::-moz-progress-bar { background: var(--emit); }

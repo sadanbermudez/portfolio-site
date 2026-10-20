@@ -33,13 +33,20 @@
     </section>
 
     <section class="block" id="game">
-      <div class="side"><p class="label">A reviewed game</p><p class="mono" id="game-meta"></p></div>
+      <div class="side"><p class="label">The board</p><p class="mono" id="game-meta"></p></div>
       <div class="main wide">
         <div class="chess-wrap">
           <div>
+            <div class="order-switch static view-switch" role="group" aria-label="Board view" style="margin-bottom:10px">
+              <button type="button" data-view="2d" aria-pressed="true">Board</button>
+              <button type="button" data-view="3d" aria-pressed="false">3D · lines of force</button>
+            </div>
             <div class="board-row">
               <div class="evalbar" aria-hidden="true"><div class="black"></div></div>
-              <div class="board" id="board" role="img" aria-label="Chess board"></div>
+              <div class="board-stack">
+                <div class="board" id="board" role="img" aria-label="Chess board"></div>
+                <canvas id="board3d" class="board3d" hidden aria-label="3D board: every attack drawn as a beam, hanging pieces ringed in red. Drag to turn."></canvas>
+              </div>
             </div>
             <div class="chess-controls">
               <button id="first" type="button" aria-label="Start">⏮</button>
@@ -49,7 +56,7 @@
               <button id="last" type="button" aria-label="End">⏭</button>
               <span class="pos" id="pos"></span>
             </div>
-            <div class="legend-arrows"><span><i style="background:#ffae4a"></i>move played</span><span><i style="background:#7fb6ff"></i>engine's choice, shown on graded moves</span></div>
+            <div class="legend-arrows"><span><i style="background:#ffae4a"></i>move played · White's lines (3D)</span><span><i style="background:#7fb6ff"></i>engine's choice · Black's lines (3D)</span><span><i style="background:#ff4a3d"></i>hanging piece (3D)</span></div>
           </div>
           <div class="detail">
             <div class="panel graph" id="graph"></div>
@@ -60,7 +67,22 @@
             <div class="movelist" id="movelist"></div>
           </div>
         </div>
-        <p class="mono">Lichess blitz, 3+0. In a game this sharp both sides err; the review grades every move by the winning chances it gave away, using Lichess's method: on its −1 to 1 scale, a drop of 0.1 is an inaccuracy, 0.2 a mistake and 0.3 a blunder.</p>
+        <form class="panel import" id="import-form">
+          <div class="panel-head"><span class="live">analyse your own game · Stockfish 19 in your browser</span><span>nothing is uploaded</span></div>
+          <div class="import-body">
+            <label for="pgn-input" class="label">Paste a PGN or a Lichess game link</label>
+            <textarea id="pgn-input" rows="4" spellcheck="false" placeholder="https://lichess.org/dlymlJeF   or   1. e4 e5 2. Nf3 ..."></textarea>
+            <div class="import-row">
+              <label class="btn file-btn" for="pgn-file">Open a .pgn file</label><input id="pgn-file" type="file" accept=".pgn,text/plain" hidden>
+              <label for="import-speed" class="mono">depth</label>
+              <select id="import-speed"><option value="150">quick · 0.15 s/move</option><option value="400" selected>review · 0.4 s/move</option><option value="1000">deep · 1 s/move</option></select>
+              <button class="btn primary" id="import-go" type="submit">Analyse</button>
+            </div>
+            <progress id="import-progress" value="0" max="1"></progress>
+            <p class="mono" id="import-status" aria-live="polite">Shown above: my win over JoseGarciaMolina, reviewed by the jarvis-chess server. Load any game to replace it.</p>
+          </div>
+        </form>
+        <p class="mono">The shown game is Lichess blitz, 3+0. In a game this sharp both sides err; the review grades every move by the winning chances it gave away, using Lichess's method: on its −1 to 1 scale, a drop of 0.1 is an inaccuracy, 0.2 a mistake and 0.3 a blunder.</p>
       </div>
     </section>
 
@@ -87,11 +109,22 @@
   </div>
 </main>
 <script src="../data/chess-game.js"></script>
-<script>
-document.getElementById('game-meta').textContent = (function (g) {
-  return g.white + ' (' + g.white_elo + ') vs ' + g.black + ' (' + g.black_elo + '), ' + g.result + ' · ' + g.opening;
-})(window.CHESS_GAME);
-</script>
+<script src="../chess-core.js"></script>
 <script src="../chess.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../chess3d.js"></script>
+<script src="../analyse.js"></script>
+<script>
+(function () {
+  var b2 = document.getElementById('board'), b3 = document.getElementById('board3d');
+  document.querySelectorAll('.view-switch button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var three = btn.dataset.view === '3d';
+      document.querySelectorAll('.view-switch button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === btn)); });
+      b2.hidden = three; b3.hidden = !three; window.Chess3D.enable(three);
+    });
+  });
+})();
+</script>
 </body>
 </html>
