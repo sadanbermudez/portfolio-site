@@ -1,2 +1,3 @@
 site/dist/
 site/.wrangler/
+site/server/knowledge.json

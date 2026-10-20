@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Talk to Jarvis · Sergio Adan Bermudez</title>
+<meta name="description" content="A public demo of Jarvis, my AI assistant: ask about my work by text or voice. Qwen3 30B on Cloudflare's free tier, a voice generated in your browser, and no access to anything private.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="immersive.css">
+</head>
+<body>
+<div class="top-wrap gutter">
+  <header class="top page">
+    <a class="brand" href="index.html">Sergio Adan Bermudez</a>
+    <nav aria-label="Site"><a href="index.html#worlds">Projects</a><a href="about.html">My story</a><a href="work/chess.html">Chess</a><a href="index.html#contact">Contact</a></nav>
+  </header>
+</div>
+
+<main class="gutter">
+  <div class="page">
+    <section class="jarvis">
+      <div class="j-stage">
+        <p class="label">Public demo · no access to anything private</p>
+        <h1>Talk to Jarvis</h1>
+        <canvas id="orb" aria-hidden="true"></canvas>
+        <p class="j-status mono" id="j-status" aria-live="polite">Ready</p>
+        <div class="j-controls">
+          <button type="button" class="j-mic" id="mic" aria-pressed="false" aria-label="Hold a conversation by voice: press to speak, press again to send">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <button type="button" class="btn" id="voice" aria-pressed="false">Voice off</button>
+        </div>
+        <p class="mono j-note" id="voice-note">Voice uses Kokoro's "Daniel", the same voice as my Jarvis at home, generated on your device. The first time, your browser downloads the model (about 92 MB).</p>
+      </div>
+
+      <div class="j-chat panel">
+        <div class="panel-head"><span class="live">conversation</span><span id="j-model">Qwen3 30B · Cloudflare Workers AI</span></div>
+        <div class="j-log" id="chat-log" aria-live="polite"></div>
+        <div class="j-suggest" id="suggest">
+          <button type="button">Who is Sergio?</button>
+          <button type="button">What did his PhD find?</button>
+          <button type="button">Tell me about his chess.</button>
+          <button type="button">How does the lab agent work?</button>
+          <button type="button">What are you, exactly?</button>
+        </div>
+        <form class="j-form" id="chat-form">
+          <label for="chat-input" class="sr-only">Your question</label>
+          <input id="chat-input" type="text" maxlength="600" autocomplete="off" placeholder="Ask about his work, research or chess…">
+          <button class="btn primary" type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="block" id="how">
+      <div class="side"><p class="label">How it works</p><p class="mono">all free</p></div>
+      <div class="main wide">
+        <h2>The same Jarvis, minus the hands</h2>
+        <dl class="parts">
+          <div><dt>What he knows</dt><dd>The text of this website, and nothing else. Each question searches its pages (BM25), and the best passages go to the model, which must cite them.</dd></div>
+          <div><dt>The brain</dt><dd>Qwen3 30B, the same family as the model my local Jarvis runs, on Cloudflare Workers AI's free daily allowance. When it runs out, Jarvis says so until midnight UTC.</dd></div>
+          <div><dt>The ears</dt><dd>Your recording goes to Whisper large-v3-turbo on Cloudflare and comes back as text. Nothing is stored.</dd></div>
+          <div><dt>The voice</dt><dd>Kokoro-82M with the Daniel voice, running in your browser in a Web Worker. No server speaks for him.</dd></div>
+          <div><dt>What he cannot do</dt><dd>Read my files, email or calendar, run commands, or browse. At home Jarvis has tools on my laptop; this edition has none.</dd></div>
+          <div><dt>Measured</dt><dd>Graded against 33 written questions with fixed checks. Answers stream in under a second. On questions it had not seen during building, it answered 5 to 7 of 8 fully, with a citation, across three runs; the rest were a missing citation or an honest "I don't know", with no false statements in the final runs. The voice starts 2 to 6 seconds after the text on a fast laptop, and later on slower devices. It can still be wrong: the numbered links show where each answer came from.</dd></div>
+          <div><dt>Guard rails</dt><dd>A few questions a minute per visitor, short answers, a fixed persona that declines private or unrelated requests, and a strict security policy on every page.</dd></div>
+        </dl>
+      </div>
+    </section>
+  </div>
+</main>
+<script type="module" src="jarvis.js"></script>
+</body>
+</html>
