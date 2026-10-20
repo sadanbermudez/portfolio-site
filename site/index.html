@@ -184,7 +184,7 @@
           </div>
         </div>
         <div class="grid-2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px 40px">
-          <p><strong>Right twice.</strong> The control run uses a one-photon sample under the same 800 nm question, and the agent measured 1.003. It read the slope instead of reciting the textbook answer.</p>
+          <p><strong>Right twice.</strong> The control run uses a one-photon sample under the same 800 nm question, and the agent measured 1.003. Reciting the textbook answer would have failed; it had to run a measurement good enough for the server's fit to reach the right verdict.</p>
           <p><strong>Wrong twice, too.</strong> Both closing explanations got the photophysics wrong: the sensitiser absorbs, and its triplet state passes the energy to oxygen. So the server owns safety and statistics, and a person owns interpretation.</p>
         </div>
         <p><a class="btn" href="work/lab-agent.html">The full lab-agent write-up →</a></p>
@@ -314,12 +314,12 @@
         <a class="card flagship" href="https://github.com/sadanbermudez/labdesk-copilot">
           <span class="label">Flagship · simulated engagement</span>
           <h3>LabDesk: a support assistant that answers only from the docs</h3>
-          <p>A lab-automation team asked for PyVISA answers they could trust. Brief, testable requirements, BM25 retrieval with checked citations, a refusal rule, a read-only power-meter tool, FastAPI service with telemetry, a 41-question eval run on a local model, ADRs and a handover runbook.</p>
+          <p>A lab-automation team asked for PyVISA answers they could trust. Brief, testable requirements, BM25 retrieval with checked citations, a refusal rule, a read-only power-meter tool, FastAPI service with telemetry, ADRs and a handover runbook. Evaluated on a local model with a development set and a held-out set written as support tickets and committed before the system saw it. On the held-out set it misses the correctness target by one answer, and the report says why.</p>
           <div class="stats">
-            <div><span class="figure-num">31/33</span><span>answers correct</span></div>
-            <div><span class="figure-num">32/33</span><span>cite the right section</span></div>
-            <div><span class="figure-num">6/6</span><span>off-topic questions refused</span></div>
-            <div><span class="figure-num">5.6 s</span><span>p95 latency, local model</span></div>
+            <div><span class="figure-num">26/31</span><span>correct on unseen questions</span></div>
+            <div><span class="figure-num">27/31</span><span>cite the right section</span></div>
+            <div><span class="figure-num">8/8</span><span>off-topic questions refused</span></div>
+            <div><span class="figure-num">4.8 s</span><span>p95 latency, local model</span></div>
           </div>
           <span class="go">Read the engagement on GitHub →</span>
         </a>
@@ -347,6 +347,7 @@
           <table>
             <thead><tr><th>Date</th><th>Change</th><th>Measured result</th><th>Decision</th></tr></thead>
             <tbody>
+              <tr><td class="n">20 Oct</td><td>LabDesk held-out test set, 42 unseen ticket-style questions</td><td>26/31 correct (target 0.85, got 0.84); retrieval recall 1.00 to 0.90 on reworded questions</td><td><span class="tag kept">Next: hybrid retrieval</span></td></tr>
               <tr><td class="n">20 Oct</td><td>LabDesk docs assistant, 41-question eval on a local model</td><td>31/33 correct, 6/6 refusals, p95 5.6 s; 2 real failures left untuned</td><td><span class="tag kept">Shipped</span></td></tr>
               <tr><td class="n">20 Oct</td><td>Instrument-control MCP server, agent runs an experiment</td><td>Hidden answer found in both runs; closing physics wrong both times</td><td><span class="tag kept">Kept</span></td></tr>
               <tr><td class="n">20 Oct</td><td>Agent code tool moved into a Docker sandbox</td><td>Code task 7.9 s instead of blocked; host writes fail inside</td><td><span class="tag kept">Kept</span></td></tr>
