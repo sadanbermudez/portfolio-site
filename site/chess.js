@@ -2,8 +2,8 @@
    ChessViewer.load(game) accepts the reviewed game (data/chess-game.js, Stockfish 19 at 0.4 s per
    move via jarvis-chess) or a game analysed in the browser (analyse.js). Facts come from the server
    review when present, otherwise from ChessCore's attack map. Listeners (onPly) get every move.
-   Explore mode: click a piece to see its legal moves (chess.js) and play your own line from any
-   point of the game; a separate Stockfish worker evaluates each position you reach. */
+   Explore mode: click or drag a piece to see its legal moves (chess.js) and play your own line from
+   any point of the game; a separate Stockfish worker evaluates each position you reach. */
 window.ChessViewer = (function () {
   var GLYPH = { k: '♚', q: '♛', r: '♜', b: '♝', n: '♞', p: '♟' };
   var me = 'dr_namer';
@@ -51,7 +51,7 @@ window.ChessViewer = (function () {
     for (var y = 0; y < 8; y++) for (var x = 0; x < 8; x++) {
       var r = flip ? y : 7 - y, f = flip ? 7 - x : x;
       var c = b[7 - r][f], sq = String.fromCharCode(97 + f) + (r + 1);
-      var cls = 'sq ' + ((r + f) % 2 ? 'l' : 'd') + (hl.indexOf(sq) > -1 ? ' hl' : '') + (X && X.sel === sq ? ' sel' : '');
+      var cls = 'sq ' + ((r + f) % 2 ? 'l' : 'd') + (hl.indexOf(sq) > -1 ? ' hl' : '') + (X && X.sel === sq ? ' sel' : '') + (X && X.lift === sq ? ' lifted' : '');
       var piece = c ? '<span class="' + (c === c.toUpperCase() ? 'pc-w' : 'pc-b') + '">' + GLYPH[c.toLowerCase()] + '︎</span>' : '';
       var mark = tg[sq] ? '<span class="' + tg[sq] + '" aria-hidden="true"></span>' : '';
       var coord = (y === 7 ? '<span class="coord f">' + String.fromCharCode(97 + f) + '</span>' : '') + (x === 0 ? '<span class="coord r">' + (r + 1) + '</span>' : '');
@@ -235,6 +235,7 @@ window.ChessViewer = (function () {
 
   board.addEventListener('click', function (e) {
     if (!G) return;
+    if (dropped) { dropped = false; return; }               // the click that ends a drag is not a second click
     var pb = e.target.closest('[data-promo]');
     var cell = e.target.closest('.sq');
     if (!pb && !cell) return;
@@ -261,6 +262,65 @@ window.ChessViewer = (function () {
       redrawExplore(); notify();
     }).catch(function () { detail.innerHTML = '<p class="mono">The move rules could not load in this browser.</p>'; });
   });
+  // ---------- drag and drop: press a piece, move past a few pixels, drop on a marked square ----------
+  var drag = null, dropped = false, ghost = null;
+  function endDrag() {
+    if (ghost) { ghost.remove(); ghost = null; }
+    if (X) { X.lift = null; }
+    drag = null;
+  }
+  board.addEventListener('pointerdown', function (e) {
+    if (!G || (e.pointerType === 'mouse' && e.button !== 0)) return;
+    var cell = e.target.closest('.sq'), pc = cell && cell.querySelector('.pc-w, .pc-b');
+    if (!pc || (X && X.promo)) return;
+    drag = { from: cell.dataset.sq, x: e.clientX, y: e.clientY, id: e.pointerId, moved: false, ready: false, glyph: pc.textContent, cls: pc.className, size: cell.getBoundingClientRect().width };
+    loadRules();
+  });
+  board.addEventListener('pointermove', function (e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    if (!drag.moved) {
+      if (Math.hypot(e.clientX - drag.x, e.clientY - drag.y) < 6) return;
+      drag.moved = true;
+      try { board.setPointerCapture(e.pointerId); } catch (err) { /* capture is optional */ }
+      var d = drag;
+      loadRules().then(function (mod) {
+        if (drag !== d) return;
+        var g = new mod.Chess(curFen()), piece = g.get(d.from);
+        if (!piece || piece.color !== g.turn() || (X && X.over)) { endDrag(); return; }   // only the side to move can be dragged
+        stop();
+        if (!X) X = { base: ply, line: [], sel: null, targets: null, promo: null, ev: null, over: null, token: 0 };
+        X.sel = d.from; X.targets = g.moves({ square: d.from, verbose: true }); X.lift = d.from; X.promo = null;
+        d.ready = true; d.mod = mod;
+        ghost = document.createElement('span');
+        ghost.className = 'drag-ghost ' + d.cls; ghost.textContent = d.glyph;
+        ghost.style.width = ghost.style.height = d.size + 'px';
+        ghost.style.fontSize = getComputedStyle(board.querySelector('.sq')).fontSize;
+        document.body.appendChild(ghost);
+        placeGhost(d.lastX || e.clientX, d.lastY || e.clientY);
+        redrawExplore();
+      });
+    }
+    drag.lastX = e.clientX; drag.lastY = e.clientY;
+    if (ghost) placeGhost(e.clientX, e.clientY);
+  });
+  function placeGhost(x, y) { ghost.style.left = (x - drag.size / 2) + 'px'; ghost.style.top = (y - drag.size / 2) + 'px'; }
+  board.addEventListener('pointerup', function (e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var d = drag;
+    if (!d.moved) { drag = null; return; }                  // a plain click: the click handler takes it from here
+    dropped = true;
+    var under = document.elementFromPoint(e.clientX, e.clientY), cell = under && under.closest && under.closest('#board .sq');
+    var to = cell && cell.dataset.sq, hit = d.ready && X && X.targets ? X.targets.filter(function (m) { return m.to === to; }) : [];
+    endDrag();
+    if (hit.length) {
+      if (hit[0].promotion) { X.promo = { from: d.from, to: to }; drawBoard(); return; }
+      play(d.mod, d.from, to); return;
+    }
+    if (X && !X.line.length && !X.sel) { X = null; go(ply); return; }
+    if (X) { redrawExplore(); }                            // dropped off a legal square: the piece goes back, still selected
+  });
+  board.addEventListener('pointercancel', function () { if (drag) { endDrag(); if (X) redrawExplore(); } });
+
   detail.addEventListener('click', function (e) {
     var b = e.target.closest('[data-x]'); if (!b || !X) return;
     if (b.dataset.x === 'back') { go(X.base); return; }
