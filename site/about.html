@@ -95,6 +95,30 @@
 
   <div class="gutter">
     <div class="page">
+      <section class="block" id="years">
+        <div class="side"><p class="label">Thirty-four years</p><p class="mono">to scale</p></div>
+        <div class="main wide">
+          <h2>Where the years went</h2>
+          <div class="lifeline" role="img" aria-label="Years lived in each place, to scale: Madrid 22 years, Copenhagen 2, Glasgow 2, Edinburgh 4, Wiesbaden 2 months, Barcelona 4.">
+            <div class="seg c1" style="flex-grow:22"><span>22 years</span></div>
+            <div class="seg c2" style="flex-grow:2"><span>2</span></div>
+            <div class="seg c3" style="flex-grow:2"><span>2</span></div>
+            <div class="seg c4" style="flex-grow:4"><span>4</span></div>
+            <div class="seg c5" style="flex-grow:0.17"></div>
+            <div class="seg c6" style="flex-grow:4"><span>4</span></div>
+          </div>
+          <ol class="lifelegend">
+            <li><i class="c1"></i><b>Madrid</b><span>22 years · school, chess, BSc Biochemistry</span></li>
+            <li><i class="c2"></i><b>Copenhagen</b><span>2 years · MSc Nanoscience, photophysics</span></li>
+            <li><i class="c3"></i><b>Glasgow</b><span>2 years · MSc Engineering, start of the CDT</span></li>
+            <li><i class="c4"></i><b>Edinburgh</b><span>4 years · PhD</span></li>
+            <li><i class="c5"></i><b>Wiesbaden</b><span>2 months</span></li>
+            <li><i class="c6"></i><b>Barcelona</b><span>4 years · postdoc, Sensofar, AI</span></li>
+          </ol>
+          <p class="mono">Twelve years in four countries since leaving Madrid at 22.</p>
+        </div>
+      </section>
+
       <section class="block" id="thread">
         <div class="side"><p class="label">One thread</p><p class="mono">four fields</p></div>
         <div class="main wide">
@@ -105,6 +129,15 @@
             <li><span class="mono">Engineering</span><strong>Instruments to measure it</strong><span>Fibres, lasers, photon counting, seven experiment designs.</span></li>
             <li><span class="mono">AI</span><strong>Systems that use the measurements</strong><span>Agents, evaluation, local models, tools with safety limits.</span></li>
           </ol>
+          <div class="panel fields">
+            <div class="panel-head"><span class="live">the science behind each field</span>
+              <span class="order-switch static" role="group" aria-label="Field">
+                <button type="button" data-field="bio" aria-pressed="true">Biochemistry</button><button type="button" data-field="photo" aria-pressed="false">Photophysics</button><button type="button" data-field="eng" aria-pressed="false">Engineering</button><button type="button" data-field="ai" aria-pressed="false">AI</button>
+              </span>
+            </div>
+            <canvas id="field-canvas" aria-label="Animated diagram of the selected field"></canvas>
+            <p class="caption" id="field-caption"></p>
+          </div>
         </div>
       </section>
 
@@ -117,6 +150,7 @@
             <div><span class="label">Peak FIDE rating</span><span class="value result">2402</span></div>
             <div><span class="label">Chess.com blitz peak</span><span class="value">2830</span></div>
           </div>
+          <div class="panel"><div class="panel-head"><span class="live">ratings today</span><span>Chess.com and Lichess, dr_namer</span></div><div class="ratings" id="ratings"><p class="mono">Loading live ratings…</p></div></div>
           <p>I started at four and earned the FIDE Master title at sixteen. When university and then research began, my progress levelled off; my peak FIDE rating is 2402. I still play online as dr_namer on Lichess and Chess.com, mostly blitz.</p>
           <p>I also teach chess on Superprof, to players who want to start or to get better.</p>
           <div class="cta"><a class="btn" href="work/chess.html">Analyse a game on the site →</a></div>
@@ -156,6 +190,35 @@
         </div>
       </section>
 
+      <section class="block" id="lens">
+        <div class="side"><p class="label">Two numbers</p></div>
+        <div class="main wide">
+          <div class="two-up">
+            <div class="panel">
+              <div class="panel-head"><span>Through the lens · sensor sizes</span></div>
+              <div class="sensor-body">
+                <span class="order-switch static" role="group" aria-label="Sensor">
+                  <button type="button" data-sensor="phone" aria-pressed="false">Phone 1-inch</button><button type="button" data-sensor="apsc" aria-pressed="false">APS-C</button><button type="button" data-sensor="ff" aria-pressed="false">Full frame</button><button type="button" data-sensor="x2d" aria-pressed="true">X2D</button>
+                </span>
+                <svg id="sensor-svg" viewBox="0 0 434 340" role="img" aria-label="Camera sensor sizes drawn to scale"></svg>
+                <p class="mono" id="sensor-text" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-head"><span>On the road · seven half marathons</span></div>
+              <div class="road-body">
+                <div class="road" role="img" aria-label="Seven half marathons of 21.1 km each, 147.7 km in total">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="road-scale mono"><span>0 km</span><span>73.8</span><span>147.7 km</span></div>
+                <p class="big-num">147.7 <small>km</small></p>
+                <p class="mono">Seven races of 21.1 km each: the distance of three and a half marathons.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="block" id="languages">
         <div class="side"><p class="label">Languages</p></div>
         <div class="main">
@@ -168,5 +231,6 @@
 </main>
 <script src="scrolly.js"></script>
 <script src="story.js"></script>
+<script src="story-viz.js"></script>
 </body>
 </html>
