@@ -172,3 +172,21 @@
   .game-log table { min-width: 520px; }
   .game-log th:nth-child(4), .game-log td:nth-child(4), .game-log th:nth-child(5), .game-log td:nth-child(5) { display: none; }
 }
+
+/* story page: journey map, the four-field thread, hobbies */
+.stage canvas.journey { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.thread { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; position: relative; }
+.thread li { display: grid; gap: 6px; align-content: start; padding: 26px 18px 0 0; border-top: 2px solid var(--rule); position: relative; }
+.thread li::before { content: ""; position: absolute; top: -7px; left: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--emit); box-shadow: 0 0 12px rgba(255, 174, 74, 0.6); }
+.thread li:last-child::before { background: var(--accent); box-shadow: 0 0 12px rgba(255, 74, 61, 0.6); }
+.thread li .mono { color: var(--emit); font-size: var(--step--2); letter-spacing: 0.06em; text-transform: uppercase; }
+.thread li strong { font-family: var(--font-display); font-size: var(--step-1); font-weight: 600; }
+.thread li span:last-child { color: var(--muted); font-size: var(--step--1); line-height: 1.5; }
+@media (max-width: 760px) { .thread { grid-template-columns: 1fr; } .thread li { border-top: 0; border-left: 2px solid var(--rule); padding: 0 0 22px 22px; } .thread li::before { top: 4px; left: -7px; } }
+.hobbies { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.hobby { background: var(--panel); border: 1px solid var(--rule); padding: 20px; display: grid; gap: 8px; align-content: start; transition: border-color 0.2s, transform 0.2s; }
+.hobby:hover { border-color: var(--muted); transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) { .hobby:hover { transform: none; } }
+.hobby svg { width: 48px; height: 48px; }
+.hobby p { color: var(--muted); font-size: var(--step--1); line-height: 1.55; }
+.chess-story > p { max-width: var(--measure); }
