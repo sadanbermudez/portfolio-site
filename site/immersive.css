@@ -54,9 +54,21 @@
 /* chess */
 .chess-wrap { display: grid; grid-template-columns: minmax(0, 560px) minmax(0, 1fr); gap: 28px; align-items: start; }
 @media (max-width: 980px) { .chess-wrap { grid-template-columns: 1fr; } }
-.board-row { display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 8px; }
-.evalbar { position: relative; background: #e9e4d8; border: 1px solid var(--rule); overflow: hidden; }
-.evalbar .black { position: absolute; left: 0; right: 0; top: 0; background: #14181e; transition: height 0.5s ease; }
+.board-row { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 8px; }
+/* evaluation bar: White's winning chances fill from White's side, the number sits at the leading side's end */
+.evalbar { position: relative; background: #e9e4d8; border: 1px solid var(--rule); overflow: hidden; transition: opacity 0.3s; }
+.evalbar .black { position: absolute; left: 0; right: 0; top: 0; height: 50%; background: #14181e; transition: height 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.evalbar.flipped { background: #14181e; }
+.evalbar.flipped .black { background: #e9e4d8; }
+.evalbar.idle { opacity: 0.3; }
+.evalbar.pending { opacity: 0.65; }
+.evalbar .evalnum { position: absolute; left: 0; right: 0; z-index: 1; text-align: center; font-family: var(--font-data); font-size: 0.6rem; line-height: 1; letter-spacing: -0.04em; pointer-events: none; }
+.evalbar .evalnum.top { top: 5px; }
+.evalbar .evalnum.bottom { bottom: 5px; }
+.evalbar .evalnum.on-light { color: #14181e; }
+.evalbar .evalnum.on-dark { color: #e9e4d8; }
+@media (max-width: 520px) { .board-row { grid-template-columns: 20px minmax(0, 1fr); gap: 5px; } .evalbar .evalnum { font-size: 0.5rem; } }
+@media (prefers-reduced-motion: reduce) { .evalbar, .evalbar .black { transition: none; } }
 .board { position: relative; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); grid-template-rows: repeat(8, minmax(0, 1fr)); aspect-ratio: 1; width: 100%; border: 1px solid var(--rule); user-select: none; }
 .board .sq { position: relative; display: grid; place-items: center; min-width: 0; min-height: 0; overflow: hidden; font-family: "Noto Sans Symbols 2", "Segoe UI Symbol", serif; font-size: clamp(1.5rem, 6.4vw, 3.2rem); line-height: 1; }
 .board .sq.l { background: #b7bfcb; }
@@ -213,6 +225,8 @@ figure.panel:has(> .look) { gap: 0; }
 
 /* chess: click-to-move explore mode */
 .board .sq { cursor: pointer; }
+.board .sq.mk { box-shadow: inset 0 0 0 3px rgba(255, 74, 61, 0.9); }
+.board .sq.hl.mk { box-shadow: inset 0 0 0 3px rgba(255, 74, 61, 0.9), inset 0 0 0 999px rgba(255, 174, 74, 0.34); }
 .board .sq.sel { box-shadow: inset 0 0 0 3px var(--emit), inset 0 0 0 999px rgba(255, 174, 74, 0.22); }
 .board .sq .dot { position: absolute; width: 28%; height: 28%; border-radius: 50%; background: rgba(12, 16, 22, 0.42); pointer-events: none; }
 .board .sq .ring { position: absolute; inset: 5%; border-radius: 50%; box-shadow: inset 0 0 0 5px rgba(12, 16, 22, 0.42); pointer-events: none; }
@@ -418,3 +432,22 @@ figure.panel:has(> .look) { gap: 0; }
 .apps-grid .app-card { position: relative; }
 .app-swatch { display: inline-flex; gap: 4px; padding: 6px; border: 1px solid; border-radius: 10px; width: max-content; }
 .app-swatch span { width: 14px; height: 14px; border-radius: 4px; display: block; }
+
+/* chess: coach notes (chess-teach.js) and folded rule facts */
+.coach { display: grid; gap: 4px; padding: 10px 12px; border-left: 3px solid var(--muted); background: rgba(232, 236, 241, 0.03); }
+.coach p { margin: 0; font-size: var(--step--1); line-height: 1.5; }
+.coach .verdict { font-family: var(--font-data); font-size: var(--step--2); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.coach[data-v="best"], .coach[data-v="good"] { border-color: #6fcf97; }
+.coach[data-v="best"] .verdict, .coach[data-v="good"] .verdict { color: #6fcf97; }
+.coach[data-v="fine"] { border-color: var(--cool); }
+.coach[data-v="fine"] .verdict { color: var(--cool); }
+.coach[data-v="inaccuracy"] { border-color: #d6b45a; }
+.coach[data-v="inaccuracy"] .verdict { color: #d6b45a; }
+.coach[data-v="mistake"] { border-color: #ff8a5c; }
+.coach[data-v="mistake"] .verdict { color: #ff8a5c; }
+.coach[data-v="blunder"] { border-color: var(--accent); }
+.coach[data-v="blunder"] .verdict { color: var(--accent); }
+.coach.wait { border-color: var(--rule); }
+.detail .pv { overflow-wrap: anywhere; }
+details.more summary { cursor: pointer; font-family: var(--font-data); font-size: var(--step--2); letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+details.more[open] summary { margin-bottom: 8px; }
