@@ -13,6 +13,8 @@ jobs:
           python-version: "3.11"
       - name: Rules module agrees with the jarvis-chess test positions
         run: node site/tests/chess-core.test.js
+      - name: Move explanations (fork, pin, skewer, discovered check, back-rank mate, hanging piece, honesty rules)
+        run: node site/tests/chess-teach.test.mjs
       - name: Build, failing on any page that references a missing file
         run: python site/build.py
       - name: Jarvis server logic (search, limits, prompt, stream filter, knowledge extraction)
