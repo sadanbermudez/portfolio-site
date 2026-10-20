@@ -1,0 +1,318 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_preposiciones",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Preposiciones", "translations": {"fr": "Les prépositions"}},
+  "emoji": "📍",
+  "order": 23,
+  "entries": [
+    {
+      "id": "d_por_para",
+      "question": {"es": "¿Por o para? ¿Cuál es la diferencia?", "translations": {"fr": "« Por » ou « para » ? Quelle est la différence ?"}},
+      "aliases": ["por y para", "diferencia entre por y para", "cuándo se usa para", "pour en espagnol", "par ou pour espagnol", "por para différence"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "↔️",
+      "answer": {"es": "Para mira hacia delante: el objetivo, el destino, el plazo, para quién es algo. Por mira hacia atrás o a través: la causa, el camino, el medio, el precio, el intercambio.", "translations": {"fr": "« Para » regarde vers l'avant : le but, la destination, l'échéance, à qui c'est destiné. « Por » regarde vers l'arrière ou à travers : la cause, le chemin, le moyen, le prix, l'échange."}},
+      "compare": [
+        {"title": {"es": "PARA →", "translations": {"fr": "PARA →"}}, "items": [
+          {"es": "Objetivo: Estudio para viajar.", "translations": {"fr": "But : J'étudie pour voyager."}},
+          {"es": "Destino: Salgo para Madrid.", "translations": {"fr": "Destination : Je pars pour Madrid."}},
+          {"es": "Plazo: Es para el lunes.", "translations": {"fr": "Échéance : C'est pour lundi."}},
+          {"es": "Destinatario: Es para ti.", "translations": {"fr": "Destinataire : C'est pour toi."}},
+          {"es": "Opinión: Para mí, es caro.", "translations": {"fr": "Opinion : Pour moi, c'est cher."}}
+        ]},
+        {"title": {"es": "POR ←", "translations": {"fr": "POR ←"}}, "items": [
+          {"es": "Causa: Lo hago por ti.", "translations": {"fr": "Cause : Je le fais pour toi (à cause de toi)."}},
+          {"es": "Camino: Paseo por el parque.", "translations": {"fr": "Chemin : Je me promène dans le parc."}},
+          {"es": "Medio: Te llamo por teléfono.", "translations": {"fr": "Moyen : Je t'appelle au téléphone."}},
+          {"es": "Precio: Lo compré por diez euros.", "translations": {"fr": "Prix : Je l'ai acheté pour dix euros."}},
+          {"es": "Gracias: Gracias por todo.", "translations": {"fr": "Remerciement : Merci pour tout."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Este regalo es para ti, por ayudarme tanto.", "translations": {"fr": "Ce cadeau est pour toi, pour m'avoir tant aidée."}, "highlight": ["para ti", "por ayudarme"]},
+        {"es": "Vamos por la costa para llegar antes.", "translations": {"fr": "On passe par la côte pour arriver plus tôt."}, "highlight": ["por la costa", "para llegar"]},
+        {"es": "Trabajo para una empresa alemana.", "translations": {"fr": "Je travaille pour une entreprise allemande."}, "highlight": ["para una empresa"], "note": "Para + empresa = quien te paga. Por + persona = el motivo: Lo hago por mis hijos.", "noteTranslations": {"fr": "Para + entreprise = ton employeur. Por + personne = le motif : Lo hago por mis hijos (je le fais pour mes enfants)."}}
+      ],
+      "trick": {"es": "Para = una flecha hacia la meta (→). Por = el motivo que te empuja (←) o el camino por donde pasas.", "translations": {"fr": "Para = une flèche vers le but (→). Por = le motif qui te pousse (←) ou le chemin par où tu passes."}},
+      "frenchTrap": {"es": "«Pour» es a veces por y a veces para. «Par» casi siempre es por: par la fenêtre = por la ventana. Pero «deux fois par jour» = dos veces al día.", "translations": {"fr": "« Pour » se traduit tantôt par « por », tantôt par « para ». « Par » se dit presque toujours « por » : par la fenêtre = por la ventana. Mais « deux fois par jour » = dos veces al día."}},
+      "seeAlso": ["tp_prep_por_para", "d_por_para_tiempo", "d_para_que", "tp_a2_preposiciones"],
+      "sources": [
+        {"label": "Instituto Cervantes · Plan curricular, Gramática A2–B2: las preposiciones por y para"},
+        {"label": "RAE y ASALE · Nueva gramática de la lengua española, cap. 29: la preposición"}
+      ],
+      "tags": ["por", "para", "preposiciones"]
+    },
+    {
+      "id": "d_por_para_tiempo",
+      "question": {"es": "¿Por la mañana o para mañana?", "translations": {"fr": "« Por la mañana » ou « para mañana » ?"}},
+      "aliases": ["por la mañana", "para mañana", "por la tarde", "en la mañana", "mañana por la mañana", "le matin espagnol", "pour demain espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🌅",
+      "answer": {"es": "Son cosas distintas. Por la mañana = «le matin», una parte del día. Para mañana = «pour demain», un plazo. Y ojo: mañana, sin artículo = «demain»; la mañana = «le matin».", "translations": {"fr": "Ce sont deux choses différentes. Por la mañana = « le matin », un moment de la journée. Para mañana = « pour demain », une échéance. Attention : « mañana » sans article = « demain » ; « la mañana » = « le matin »."}},
+      "compare": [
+        {"title": {"es": "POR: PARTE DEL DÍA", "translations": {"fr": "POR : MOMENT DE LA JOURNÉE"}}, "items": [
+          {"es": "Por la mañana voy al mercado.", "translations": {"fr": "Le matin, je vais au marché."}},
+          {"es": "Por la tarde descanso.", "translations": {"fr": "L'après-midi, je me repose."}},
+          {"es": "Por la noche leo un poco.", "translations": {"fr": "Le soir, je lis un peu."}}
+        ]},
+        {"title": {"es": "PARA: PLAZO", "translations": {"fr": "PARA : ÉCHÉANCE"}}, "items": [
+          {"es": "El vestido estará listo para mañana.", "translations": {"fr": "La robe sera prête pour demain."}},
+          {"es": "Necesito la receta para el lunes.", "translations": {"fr": "J'ai besoin de l'ordonnance pour lundi."}},
+          {"es": "Para Navidad estaremos en casa.", "translations": {"fr": "Pour Noël, nous serons à la maison."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Mañana por la mañana tengo cita con el dentista.", "translations": {"fr": "Demain matin, j'ai rendez-vous chez le dentiste."}, "highlight": ["Mañana por la mañana"], "note": "«Mañana por la mañana» = «demain matin»: ¡dos mañanas seguidas!", "noteTranslations": {"fr": "« Mañana por la mañana » = « demain matin » : deux « mañana » à la suite !"}},
+        {"es": "Los deberes son para el jueves.", "translations": {"fr": "Les devoirs sont pour jeudi."}, "highlight": ["para el jueves"]},
+        {"es": "Iré a Francia por Navidad.", "translations": {"fr": "J'irai en France vers Noël."}, "highlight": ["por Navidad"], "note": "Por + fecha = «hacia, más o menos». Para + fecha = «como muy tarde».", "noteTranslations": {"fr": "Por + date = « vers, à peu près ». Para + date = « au plus tard »."}}
+      ],
+      "trick": {"es": "La mañana (con artículo) = le matin. Mañana (sin artículo) = demain. Y el mañana = l'avenir.", "translations": {"fr": "La mañana (avec article) = le matin. Mañana (sans article) = demain. Et el mañana = l'avenir."}},
+      "frenchTrap": {"es": "En España, «le matin» no es «a la mañana» ni «en la mañana»: se dice por la mañana. «En la mañana» es normal en América.", "translations": {"fr": "En Espagne, « le matin » ne se dit ni « a la mañana » ni « en la mañana » : on dit por la mañana. « En la mañana » est courant en Amérique."}},
+      "seeAlso": ["d_por_para", "d_a_las_en", "tp_prep_por_para"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «a» (§ 6, partes del día)", "url": "https://www.rae.es/dpd/a"}
+      ],
+      "tags": ["por", "para", "tiempo", "mañana"]
+    },
+    {
+      "id": "d_pensar_en",
+      "question": {"es": "¿Pensar a o pensar en?", "translations": {"fr": "« Pensar a » ou « pensar en » ?"}},
+      "aliases": ["pensar en", "pienso en ti", "pensar de", "pensar que", "penser à espagnol", "penser de espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "💭",
+      "answer": {"es": "Pensar en: Pienso en ti = «je pense à toi». Para dar una opinión: pensar que (Pienso que es caro) o ¿qué piensas de…? (= qu'est-ce que tu penses de…). Nunca «pensar a».", "translations": {"fr": "Pensar en : Pienso en ti = « je pense à toi ». Pour donner une opinion : pensar que (Pienso que es caro : je pense que c'est cher) ou ¿qué piensas de…? (= qu'est-ce que tu penses de… ?). Jamais « pensar a »."}},
+      "points": [
+        {"es": "Pensar en + persona o cosa = penser à: Pienso mucho en mi madre.", "translations": {"fr": "Pensar en + personne ou chose = penser à : Je pense beaucoup à ma mère."}},
+        {"es": "Pensar en + infinitivo = penser à faire: ¿Has pensado en jubilarte?", "translations": {"fr": "Pensar en + infinitif = penser à faire : Tu as pensé à prendre ta retraite ?"}},
+        {"es": "Pensar que = opinión: Pienso que tienes razón.", "translations": {"fr": "Pensar que = opinion : Je pense que tu as raison."}},
+        {"es": "Pensar + infinitivo = tener la intención: Pienso ir a Granada.", "translations": {"fr": "Pensar + infinitif = avoir l'intention : Je compte aller à Grenade."}},
+        {"es": "Pensar de = opinión sobre algo: ¿Qué piensas de mi idea?", "translations": {"fr": "Pensar de = opinion sur quelque chose : Qu'est-ce que tu penses de mon idée ?"}}
+      ],
+      "examples": [
+        {"es": "Siempre pienso en vosotros cuando veo el mar.", "translations": {"fr": "Je pense toujours à vous quand je vois la mer."}, "highlight": ["pienso en vosotros"]},
+        {"es": "¿Qué piensas de la nueva alcaldesa?", "translations": {"fr": "Qu'est-ce que tu penses de la nouvelle maire ?"}, "highlight": ["piensas de"]},
+        {"es": "Pienso pasar el verano en Asturias.", "translations": {"fr": "Je compte passer l'été dans les Asturies."}, "highlight": ["Pienso pasar"]}
+      ],
+      "trick": {"es": "Pensar en = tener a alguien «dentro» de la cabeza.", "translations": {"fr": "Pensar en = avoir quelqu'un « dans » la tête."}},
+      "frenchTrap": {"es": "«Penser à» = pensar en, no «pensar a». Y cuidado: «pienso de que…» es un error; se dice pienso que.", "translations": {"fr": "« Penser à » = pensar en, et non « pensar a ». Attention aussi : « pienso de que… » est une faute ; on dit pienso que."}},
+      "seeAlso": ["d_sonar_con", "d_depender_de", "tp_a2_preposiciones", "d_dequeismo"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «pensar»", "url": "https://www.rae.es/dpd/pensar"}
+      ],
+      "tags": ["pensar", "preposiciones", "verbos con preposición"]
+    },
+    {
+      "id": "d_sonar_con",
+      "question": {"es": "¿Soñar de o soñar con?", "translations": {"fr": "« Soñar de » ou « soñar con » ?"}},
+      "aliases": ["soñar con", "sueño con", "soñé contigo", "soñar despierta", "rêver de espagnol", "rêver de toi espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🌙",
+      "answer": {"es": "Soñar con: Anoche soñé contigo = «cette nuit, j'ai rêvé de toi». Vale para los sueños de la noche y para los deseos: Sueño con ver la aurora boreal.", "translations": {"fr": "Soñar con : Anoche soñé contigo = « cette nuit, j'ai rêvé de toi ». Ça marche pour les rêves de la nuit et pour les désirs : Sueño con ver la aurora boreal (je rêve de voir une aurore boréale)."}},
+      "points": [
+        {"es": "Con + mí, ti → conmigo, contigo: Soñé contigo.", "translations": {"fr": "Con + mí, ti → conmigo, contigo : J'ai rêvé de toi."}},
+        {"es": "Soñar que = rêver que: Soñé que volaba.", "translations": {"fr": "Soñar que = rêver que : J'ai rêvé que je volais."}},
+        {"es": "Soñar despierta = rêver tout éveillée.", "translations": {"fr": "Soñar despierta = rêver tout éveillée, rêvasser."}},
+        {"es": "¡Ni lo sueñes! = «N'y compte pas !»", "translations": {"fr": "¡Ni lo sueñes! = « N'y compte pas ! »"}}
+      ],
+      "examples": [
+        {"es": "De pequeña soñaba con ser bailarina.", "translations": {"fr": "Petite, je rêvais d'être danseuse."}, "highlight": ["soñaba con ser"]},
+        {"es": "Esta noche he soñado con mi abuela.", "translations": {"fr": "Cette nuit, j'ai rêvé de ma grand-mère."}, "highlight": ["he soñado con"]},
+        {"es": "Mi marido sueña con un viaje a Cuba.", "translations": {"fr": "Mon mari rêve d'un voyage à Cuba."}, "highlight": ["sueña con"]}
+      ],
+      "trick": {"es": "En el sueño, estás CON la persona: soñar con.", "translations": {"fr": "Dans le rêve, tu es AVEC la personne : soñar con."}},
+      "frenchTrap": {"es": "«Rêver de» = soñar con, no «soñar de». Es uno de los errores más típicos de los francófonos.", "translations": {"fr": "« Rêver de » = soñar con, et non « soñar de ». C'est l'une des erreurs les plus typiques des francophones."}},
+      "seeAlso": ["d_pensar_en", "d_casarse_con", "tp_a2_preposiciones"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «soñar»", "url": "https://www.rae.es/dpd/so%C3%B1ar"}
+      ],
+      "tags": ["soñar", "preposiciones", "verbos con preposición"]
+    },
+    {
+      "id": "d_casarse_con",
+      "question": {"es": "¿Cómo se dice «épouser» o «se marier avec»?", "translations": {"fr": "Comment dit-on « épouser » ou « se marier avec » ?"}},
+      "aliases": ["casarse con", "casado con", "estoy casada", "casarse a", "épouser espagnol", "se marier avec espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "💍",
+      "answer": {"es": "Casarse con alguien: Me casé con Luis en 1990 = «j'ai épousé Luis». Y para el estado se usa estar: Estoy casada con un andaluz.", "translations": {"fr": "Casarse con quelqu'un : Me casé con Luis en 1990 = « j'ai épousé Luis ». Et pour l'état, on utilise « estar » : Estoy casada con un andaluz (je suis mariée avec un Andalou)."}},
+      "points": [
+        {"es": "Casarse con = épouser, se marier avec.", "translations": {"fr": "Casarse con = épouser, se marier avec."}},
+        {"es": "Estar casado / casada con = être marié(e) avec.", "translations": {"fr": "Estar casado / casada con = être marié(e) avec."}},
+        {"es": "Casar, sin «se» = celebrar la boda: El alcalde los casó.", "translations": {"fr": "Casar, sans « se » = célébrer le mariage : Le maire les a mariés."}},
+        {"es": "Mismo modelo: enamorarse de, divorciarse de, separarse de.", "translations": {"fr": "Même modèle : enamorarse de (tomber amoureux de), divorciarse de, separarse de."}}
+      ],
+      "examples": [
+        {"es": "Mi hija se casa con un chico de Cádiz en junio.", "translations": {"fr": "Ma fille épouse un garçon de Cadix en juin."}, "highlight": ["se casa con"]},
+        {"es": "Llevamos cuarenta años casados.", "translations": {"fr": "Nous sommes mariés depuis quarante ans."}, "highlight": ["casados"]},
+        {"es": "Se enamoró de una italiana y se casó con ella.", "translations": {"fr": "Il est tombé amoureux d'une Italienne et l'a épousée."}, "highlight": ["Se enamoró de", "se casó con"]}
+      ],
+      "trick": {"es": "Te casas CON alguien porque vas a vivir con él.", "translations": {"fr": "On se marie AVEC quelqu'un (con) parce qu'on va vivre avec lui."}},
+      "frenchTrap": {"es": "«Il a épousé Marie» no es «casó a María» (eso lo hace el cura o el alcalde): es Se casó con María. Y «je suis mariée» = estoy casada, con estar.", "translations": {"fr": "« Il a épousé Marie » ne se dit pas « casó a María » (c'est ce que fait le prêtre ou le maire) : on dit Se casó con María. Et « je suis mariée » = estoy casada, avec « estar »."}},
+      "seeAlso": ["d_depender_de", "d_sonar_con", "tp_a2_preposiciones"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «casar(se)»", "url": "https://www.rae.es/dpd/casar"}
+      ],
+      "tags": ["casarse", "preposiciones", "familia"]
+    },
+    {
+      "id": "d_depender_de",
+      "question": {"es": "¿Cómo se usa «depender»: depende de, depende de que…?", "translations": {"fr": "Comment utiliser « depender » : depende de, depende de que… ?"}},
+      "aliases": ["depende de", "depende de que", "depende de si", "depender de", "ça dépend espagnol", "dépendre de espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "⚖️",
+      "answer": {"es": "Depender lleva siempre de, como en francés: Depende del tiempo. Con un verbo: depende de que + subjuntivo (Depende de que llueva). Y para responder sin más: —¿Vienes? —Depende.", "translations": {"fr": "« Depender » se construit toujours avec « de », comme en français : Depende del tiempo (ça dépend du temps). Avec un verbe : depende de que + subjonctif (Depende de que llueva : ça dépend s'il pleut). Et pour répondre tout court : — Tu viens ? — Depende."}},
+      "points": [
+        {"es": "De + el = del: Depende del precio.", "translations": {"fr": "De + el = del : Ça dépend du prix."}},
+        {"es": "Depende de si…: Depende de si tengo tiempo.", "translations": {"fr": "Depende de si… : Ça dépend si j'ai le temps."}},
+        {"es": "Depende de que + subjuntivo: Depende de que me den las vacaciones.", "translations": {"fr": "Depende de que + subjonctif : Ça dépend si on me donne mes vacances."}}
+      ],
+      "examples": [
+        {"es": "El precio depende de la temporada.", "translations": {"fr": "Le prix dépend de la saison."}, "highlight": ["depende de la temporada"]},
+        {"es": "Iremos a la playa; depende del tiempo que haga.", "translations": {"fr": "Nous irons à la plage ; ça dépend du temps qu'il fera."}, "highlight": ["depende del tiempo que haga"]},
+        {"es": "Todo depende de que llegue el tren a su hora.", "translations": {"fr": "Tout dépend si le train arrive à l'heure."}, "highlight": ["depende de que llegue"]}
+      ],
+      "trick": {"es": "Ça dépend = Depende. Ça dépend de… = Depende de…: el mismo «de» que en francés.", "translations": {"fr": "Ça dépend = Depende. Ça dépend de… = Depende de… : le même « de » qu'en français."}},
+      "frenchTrap": {"es": "«Ça dépend si…» = depende de si…: no olvides el «de». Y con «que», subjuntivo: depende de que venga.", "translations": {"fr": "« Ça dépend si… » = depende de si… : n'oublie pas le « de ». Et avec « que », subjonctif : depende de que venga."}},
+      "seeAlso": ["d_ca_depend", "d_pensar_en", "tp_a2_preposiciones"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «depender»", "url": "https://www.rae.es/dpd/depender"}
+      ],
+      "tags": ["depender", "preposiciones", "subjuntivo"]
+    },
+    {
+      "id": "d_en_coche_a_pie",
+      "question": {"es": "¿En pie o a pie?", "translations": {"fr": "« En pie » ou « a pie » ?"}},
+      "aliases": ["a pie", "en coche", "ir andando", "de pie", "en tren", "à pied espagnol", "en voiture espagnol", "à vélo espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🚶",
+      "answer": {"es": "A pie = «à pied». Pero los vehículos van con en: en coche, en tren, en avión, en bici. También a caballo. Y de pie = «debout».", "translations": {"fr": "A pie = « à pied ». Mais les véhicules prennent « en » : en coche, en tren, en avión, en bici (à vélo). Aussi a caballo (à cheval). Et de pie = « debout »."}},
+      "compare": [
+        {"title": {"es": "EN + VEHÍCULO", "translations": {"fr": "EN + VÉHICULE"}}, "items": [
+          {"es": "en coche", "translations": {"fr": "en voiture"}},
+          {"es": "en autobús", "translations": {"fr": "en bus"}},
+          {"es": "en tren / en avión / en barco", "translations": {"fr": "en train / en avion / en bateau"}},
+          {"es": "en bici / en moto", "translations": {"fr": "à vélo / à moto"}}
+        ]},
+        {"title": {"es": "A PIE, DE PIE…", "translations": {"fr": "À PIED, DEBOUT…"}}, "items": [
+          {"es": "a pie (= andando)", "translations": {"fr": "à pied"}},
+          {"es": "a caballo", "translations": {"fr": "à cheval"}},
+          {"es": "de pie (una persona)", "translations": {"fr": "debout (une personne)"}},
+          {"es": "en pie: El castillo sigue en pie.", "translations": {"fr": "debout : Le château est toujours debout."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Voy al trabajo a pie: son diez minutos.", "translations": {"fr": "Je vais au travail à pied : c'est à dix minutes."}, "highlight": ["a pie"]},
+        {"es": "Fuimos a Oporto en tren y volvimos en avión.", "translations": {"fr": "Nous sommes allés à Porto en train et nous sommes rentrés en avion."}, "highlight": ["en tren", "en avión"]},
+        {"es": "En el autobús iba de pie.", "translations": {"fr": "Dans le bus, j'étais debout."}, "highlight": ["de pie"]},
+        {"es": "Los domingos paseo en bici junto al río.", "translations": {"fr": "Le dimanche, je me promène à vélo au bord de la rivière."}, "highlight": ["en bici"]}
+      ],
+      "trick": {"es": "Con tus pies: a pie. Con motor o ruedas: en.", "translations": {"fr": "Avec tes pieds : a pie. Avec un moteur ou des roues : en."}},
+      "frenchTrap": {"es": "«À pied» es a pie, no «en pie» (eso significa «debout»). Y «à vélo», «à moto» van con en: en bici, en moto.", "translations": {"fr": "« À pied » se dit a pie, et non « en pie » (qui veut dire « debout »). Et « à vélo », « à moto » prennent « en » : en bici, en moto."}},
+      "seeAlso": ["d_ir_a_estar_en", "tp_a2_preposiciones", "d_a_las_en"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «pie» (a pie, de pie, en pie)", "url": "https://www.rae.es/dpd/pie"}
+      ],
+      "tags": ["preposiciones", "transporte", "a pie", "en coche"]
+    },
+    {
+      "id": "d_desde_hace",
+      "question": {"es": "¿Desde hace o hace? ¿Cómo se dice «depuis» e «il y a»?", "translations": {"fr": "« Desde hace » ou « hace » ? Comment dit-on « depuis » et « il y a » ?"}},
+      "aliases": ["desde hace", "hace dos años", "desde cuándo", "hace tiempo que", "depuis espagnol", "il y a deux ans espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "⏱️",
+      "answer": {"es": "Hace + tiempo = «il y a», algo terminado: Llegué hace dos años. Desde hace + tiempo = «depuis», algo que sigue: Vivo aquí desde hace dos años. Con una fecha, solo desde: desde 2020.", "translations": {"fr": "Hace + durée = « il y a », quelque chose de terminé : Llegué hace dos años (je suis arrivée il y a deux ans). Desde hace + durée = « depuis », quelque chose qui continue : Vivo aquí desde hace dos años. Avec une date, seulement desde : desde 2020."}},
+      "compare": [
+        {"title": {"es": "HACE = il y a", "translations": {"fr": "HACE = il y a"}}, "items": [
+          {"es": "Me jubilé hace un año.", "translations": {"fr": "J'ai pris ma retraite il y a un an."}},
+          {"es": "La vi hace un rato.", "translations": {"fr": "Je l'ai vue il y a un moment."}},
+          {"es": "Nos conocimos hace treinta años.", "translations": {"fr": "Nous nous sommes rencontrés il y a trente ans."}}
+        ]},
+        {"title": {"es": "DESDE HACE = depuis", "translations": {"fr": "DESDE HACE = depuis"}}, "items": [
+          {"es": "Estudio español desde hace tres años.", "translations": {"fr": "J'apprends l'espagnol depuis trois ans."}},
+          {"es": "Hace tres años que estudio español.", "translations": {"fr": "Ça fait trois ans que j'apprends l'espagnol."}},
+          {"es": "Vivo aquí desde 2020.", "translations": {"fr": "J'habite ici depuis 2020."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Conozco a Lola desde hace veinte años.", "translations": {"fr": "Je connais Lola depuis vingt ans."}, "highlight": ["desde hace veinte años"]},
+        {"es": "Hace una semana que no llueve.", "translations": {"fr": "Ça fait une semaine qu'il ne pleut pas."}, "highlight": ["Hace una semana que"]},
+        {"es": "Estuve en Cuba hace mucho tiempo.", "translations": {"fr": "Je suis allée à Cuba il y a longtemps."}, "highlight": ["hace mucho tiempo"]}
+      ],
+      "trick": {"es": "Desde hace = depuis (sigue). Hace = il y a (se acabó).", "translations": {"fr": "Desde hace = depuis (ça continue). Hace = il y a (c'est fini)."}},
+      "frenchTrap": {"es": "«Il y a deux ans» no es «hay dos años»: es hace dos años. Y siempre en singular: hace dos años, nunca «hacen dos años».", "translations": {"fr": "« Il y a deux ans » ne se dit pas « hay dos años » : c'est hace dos años. Et toujours au singulier : hace dos años, jamais « hacen dos años »."}},
+      "seeAlso": ["d_hace_desde", "d_llevar_tiempo", "d_de_a_desde_hasta"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «hacer(se)» (§ 2, hace + tiempo)", "url": "https://www.rae.es/dpd/hacer"}
+      ],
+      "tags": ["hace", "desde", "tiempo"]
+    },
+    {
+      "id": "d_a_las_en",
+      "question": {"es": "¿A las tres o en las tres?", "translations": {"fr": "« A las tres » ou « en las tres » ?"}},
+      "aliases": ["a qué hora", "a las tres", "en verano", "en mayo", "à trois heures espagnol", "à quelle heure espagnol"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "🕒",
+      "answer": {"es": "Para la hora, a: a las tres. Para meses, estaciones y años, en: en mayo, en verano, en 2026. Para los días y las fechas, solo el artículo: el lunes, el 14 de julio.", "translations": {"fr": "Pour l'heure, « a » : a las tres (à trois heures). Pour les mois, les saisons et les années, « en » : en mayo, en verano, en 2026. Pour les jours et les dates, seulement l'article : el lunes (lundi), el 14 de julio (le 14 juillet)."}},
+      "points": [
+        {"es": "Hora: a la una, a las tres y media. ¿A qué hora…?", "translations": {"fr": "Heure : à une heure, à trois heures et demie. À quelle heure… ?"}},
+        {"es": "Mes, estación, año: en abril, en invierno, en 1998.", "translations": {"fr": "Mois, saison, année : en avril, en hiver, en 1998."}},
+        {"es": "Día y fecha, con «el» y sin «en»: el martes, el 3 de mayo.", "translations": {"fr": "Jour et date, avec « el » et sans « en » : mardi, le 3 mai."}},
+        {"es": "Partes del día: por la mañana, por la tarde, por la noche.", "translations": {"fr": "Moments de la journée : le matin, l'après-midi, le soir."}},
+        {"es": "Fiestas: en Navidad, en Semana Santa.", "translations": {"fr": "Fêtes : à Noël, pendant la semaine sainte."}}
+      ],
+      "examples": [
+        {"es": "El concierto empieza a las nueve.", "translations": {"fr": "Le concert commence à neuf heures."}, "highlight": ["a las nueve"]},
+        {"es": "Nací en marzo, en 1966.", "translations": {"fr": "Je suis née en mars, en 1966."}, "highlight": ["en marzo", "en 1966"]},
+        {"es": "Nos vemos el viernes a las ocho.", "translations": {"fr": "On se voit vendredi à huit heures."}, "highlight": ["el viernes", "a las ocho"]}
+      ],
+      "trick": {"es": "Hora → a. Calendario grande (mes, año, estación) → en. Día concreto → el.", "translations": {"fr": "Heure → a. Grand calendrier (mois, année, saison) → en. Jour précis → el."}},
+      "frenchTrap": {"es": "«Lundi» = el lunes (con artículo, sin «en»). Y la hora siempre lleva artículo: «à deux heures» = a las dos.", "translations": {"fr": "« Lundi » = el lunes (avec article, sans « en »). Et l'heure prend toujours l'article : « à deux heures » = a las dos."}},
+      "seeAlso": ["d_hora", "d_dias_el_lunes", "d_por_para_tiempo"],
+      "sources": [
+        {"label": "Instituto Cervantes · Plan curricular, Gramática A1–A2: preposiciones de tiempo (a, en)"}
+      ],
+      "tags": ["preposiciones", "tiempo", "hora", "fechas"]
+    },
+    {
+      "id": "d_de_a_desde_hasta",
+      "question": {"es": "¿De… a o desde… hasta?", "translations": {"fr": "« De… a » ou « desde… hasta » ?"}},
+      "aliases": ["de lunes a viernes", "desde hasta", "de 9 a 2", "hasta", "du lundi au vendredi espagnol", "jusqu'à espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🗓️",
+      "answer": {"es": "Las dos parejas valen. De… a es la más corriente: de lunes a viernes, de nueve a dos. Desde… hasta insiste en el principio y el final: desde Madrid hasta Lisboa.", "translations": {"fr": "Les deux paires marchent. De… a est la plus courante : de lunes a viernes (du lundi au vendredi), de nueve a dos (de neuf heures à quatorze heures). Desde… hasta insiste sur le début et la fin : desde Madrid hasta Lisboa (de Madrid jusqu'à Lisbonne)."}},
+      "points": [
+        {"es": "Horarios: Abrimos de nueve a dos.", "translations": {"fr": "Horaires : Nous ouvrons de neuf heures à quatorze heures."}},
+        {"es": "Días: de lunes a viernes, sin artículo.", "translations": {"fr": "Jours : du lundi au vendredi, sans article en espagnol."}},
+        {"es": "Fechas: del 1 al 15 de agosto, con artículo (del, al).", "translations": {"fr": "Dates : du 1er au 15 août, avec article (del, al)."}},
+        {"es": "Solo el final: hasta = jusqu'à: Hasta mañana. Hasta el lunes.", "translations": {"fr": "Seulement la fin : hasta = jusqu'à : À demain. Jusqu'à lundi."}},
+        {"es": "Solo el principio: desde o a partir de: A partir del lunes cierro por vacaciones.", "translations": {"fr": "Seulement le début : desde ou a partir de : À partir de lundi, je ferme pour congés."}}
+      ],
+      "examples": [
+        {"es": "La farmacia abre de lunes a sábado, de nueve a dos.", "translations": {"fr": "La pharmacie est ouverte du lundi au samedi, de neuf heures à quatorze heures."}, "highlight": ["de lunes a sábado", "de nueve a dos"]},
+        {"es": "Fuimos andando desde la catedral hasta el puerto.", "translations": {"fr": "Nous sommes allés à pied de la cathédrale jusqu'au port."}, "highlight": ["desde la catedral hasta el puerto"]},
+        {"es": "Estaremos fuera del 2 al 20 de julio.", "translations": {"fr": "Nous serons absents du 2 au 20 juillet."}, "highlight": ["del 2 al 20 de julio"]}
+      ],
+      "trick": {"es": "Lo más natural: de con a, desde con hasta, como dos parejas de baile.", "translations": {"fr": "Le plus naturel : de avec a, desde avec hasta, comme deux couples de danseurs."}},
+      "frenchTrap": {"es": "«Du lundi au vendredi» = de lunes a viernes, sin artículos; con fechas, sí: del 1 al 15. Y «jusqu'à» es hasta, sin «a»: hasta las cinco, no «hasta a las cinco».", "translations": {"fr": "« Du lundi au vendredi » = de lunes a viernes, sans articles ; avec les dates, si : del 1 al 15. Et « jusqu'à » = hasta, sans « a » : hasta las cinco, et non « hasta a las cinco »."}},
+      "seeAlso": ["d_desde_hace", "d_a_las_en", "d_fechas"],
+      "sources": [
+        {"label": "RAE y ASALE · Nueva gramática: correlaciones de preposiciones (de… a, desde… hasta)", "url": "https://www.rae.es/gram%C3%A1tica/sintaxis/correlaciones-de-preposiciones"}
+      ],
+      "tags": ["preposiciones", "desde", "hasta", "horarios"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

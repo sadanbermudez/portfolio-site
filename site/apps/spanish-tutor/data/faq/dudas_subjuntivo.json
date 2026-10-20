@@ -1,0 +1,354 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_subjuntivo",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "El subjuntivo", "translations": {"fr": "Le subjonctif"}},
+  "emoji": "🌱",
+  "order": 20,
+  "entries": [
+    {
+      "id": "d_subjuntivo_cuando",
+      "question": {"es": "¿Cuándo se usa el subjuntivo?", "translations": {"fr": "Quand est-ce qu'on utilise le subjonctif en espagnol ?"}},
+      "aliases": ["para qué sirve el subjuntivo", "indicativo o subjuntivo", "usos del subjuntivo", "subjonctif espagnol quand", "quand utiliser le subjonctif", "subjonctif ou indicatif"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🌱",
+      "answer": {"es": "El indicativo cuenta hechos: lo que es o lo que sabes. El subjuntivo habla de lo que no afirmas: deseos, órdenes, emociones, dudas y lo que todavía no ha pasado. Casi siempre aparece después de «que».", "translations": {"fr": "L'indicatif raconte des faits : ce qui est ou ce que tu sais. Le subjonctif parle de ce que tu n'affirmes pas : souhaits, ordres, émotions, doutes et ce qui n'est pas encore arrivé. Il vient presque toujours après « que »."}},
+      "points": [
+        {"es": "Deseo u orden: Quiero que vengas. Te pido que me llames.", "translations": {"fr": "Souhait ou ordre : Je veux que tu viennes. Je te demande de m'appeler."}},
+        {"es": "Emoción o valoración: Me alegra que estés aquí. Es normal que estés cansada.", "translations": {"fr": "Émotion ou jugement : Je suis contente que tu sois là. C'est normal que tu sois fatiguée."}},
+        {"es": "Duda o negación: No creo que llueva. Dudo que venga.", "translations": {"fr": "Doute ou négation : Je ne crois pas qu'il pleuve. Je doute qu'il vienne."}},
+        {"es": "Futuro después de cuando, en cuanto, hasta que: Cuando llegues, llámame.", "translations": {"fr": "Futur après cuando, en cuanto, hasta que : Quand tu arriveras, appelle-moi."}},
+        {"es": "Finalidad y buenos deseos: Te lo digo para que lo sepas. ¡Que te mejores!", "translations": {"fr": "But et vœux : Je te le dis pour que tu le saches. Bon rétablissement !"}}
+      ],
+      "examples": [
+        {"es": "Sé que vienes mañana, pero quiero que vengas hoy.", "translations": {"fr": "Je sais que tu viens demain, mais je veux que tu viennes aujourd'hui."}, "highlight": ["Sé que vienes", "quiero que vengas"], "note": "Hecho → indicativo. Deseo → subjuntivo.", "noteTranslations": {"fr": "Fait → indicatif. Souhait → subjonctif."}},
+        {"es": "Cuando tenga tiempo, te escribo una carta larga.", "translations": {"fr": "Quand j'aurai le temps, je t'écrirai une longue lettre."}, "highlight": ["Cuando tenga"]},
+        {"es": "¡Que tengas un buen viaje!", "translations": {"fr": "Bon voyage !"}, "highlight": ["Que tengas"]}
+      ],
+      "trick": {"es": "Pregúntate: ¿lo afirmo como un hecho? → indicativo. ¿Lo deseo, lo dudo, lo valoro o aún no ha pasado? → subjuntivo.", "translations": {"fr": "Demande-toi : est-ce que je l'affirme comme un fait ? → indicatif. Est-ce que je le souhaite, j'en doute, je le juge, ou ce n'est pas encore arrivé ? → subjonctif."}},
+      "frenchTrap": {"es": "El francés también tiene subjuntivo, pero el español lo usa más: con «cuando» + futuro (Cuando vengas) y con «esperar que» (Espero que vengas).", "translations": {"fr": "Le français a aussi un subjonctif, mais l'espagnol l'utilise davantage : avec « cuando » au sens futur (Cuando vengas = quand tu viendras) et avec « esperar que » (Espero que vengas = j'espère que tu viendras)."}},
+      "seeAlso": ["tp_subj_presente_emociones", "d_querer_que", "d_cuando_subjuntivo", "d_creo_no_creo", "tp_b1_subjuntivo_intro"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: modo subjuntivo", "url": "https://www.rae.es/gtg/modo-subjuntivo"},
+        {"label": "Instituto Cervantes · Plan curricular, Gramática B1–B2: el subjuntivo"}
+      ],
+      "tags": ["subjuntivo", "indicativo", "modo"]
+    },
+    {
+      "id": "d_querer_que",
+      "question": {"es": "¿Quiero que vienes o quiero que vengas?", "translations": {"fr": "Faut-il dire « quiero que vienes » ou « quiero que vengas » ?"}},
+      "aliases": ["querer que subjuntivo", "quiero que + subjuntivo", "quiero ir o quiero que vaya", "pedir que subjuntivo", "je veux que tu viennes espagnol", "vouloir que espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🙋",
+      "answer": {"es": "Quiero que vengas. Con querer, pedir, necesitar, preferir o aconsejar + que, el segundo verbo va en subjuntivo. Si el sujeto es el mismo, no hay «que»: se usa el infinitivo (Quiero ir).", "translations": {"fr": "Quiero que vengas. Avec querer, pedir, necesitar, preferir ou aconsejar + que, le second verbe se met au subjonctif. Si le sujet est le même, pas de « que » : on utilise l'infinitif (Quiero ir : je veux y aller)."}},
+      "compare": [
+        {"title": {"es": "UNA PERSONA → INFINITIVO", "translations": {"fr": "UNE SEULE PERSONNE → INFINITIF"}}, "items": [
+          {"es": "Quiero ir al cine.", "translations": {"fr": "Je veux aller au cinéma."}},
+          {"es": "Prefiero quedarme en casa.", "translations": {"fr": "Je préfère rester à la maison."}},
+          {"es": "Necesito descansar.", "translations": {"fr": "J'ai besoin de me reposer."}}
+        ]},
+        {"title": {"es": "DOS PERSONAS → QUE + SUBJUNTIVO", "translations": {"fr": "DEUX PERSONNES → QUE + SUBJONCTIF"}}, "items": [
+          {"es": "Quiero que vengas al cine.", "translations": {"fr": "Je veux que tu viennes au cinéma."}},
+          {"es": "Prefiero que te quedes en casa.", "translations": {"fr": "Je préfère que tu restes à la maison."}},
+          {"es": "Necesito que me ayudes.", "translations": {"fr": "J'ai besoin que tu m'aides."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Mi hija quiere que pasemos la Navidad en Valencia.", "translations": {"fr": "Ma fille veut que nous passions Noël à Valence."}, "highlight": ["quiere que pasemos"]},
+        {"es": "El médico me ha pedido que camine media hora al día.", "translations": {"fr": "Le médecin m'a demandé de marcher une demi-heure par jour."}, "highlight": ["me ha pedido que camine"]},
+        {"es": "¿Quieres que te ayude con las maletas?", "translations": {"fr": "Tu veux que je t'aide avec les valises ?"}, "highlight": ["Quieres que te ayude"]}
+      ],
+      "trick": {"es": "Dos personas, dos verbos: «que» + subjuntivo en medio. Una sola persona: infinitivo.", "translations": {"fr": "Deux personnes, deux verbes : « que » + subjonctif au milieu. Une seule personne : infinitif."}},
+      "frenchTrap": {"es": "En francés se dice «demander de faire»; en español, pedir que + subjuntivo: Te pido que vengas (no «te pido de venir»).", "translations": {"fr": "En français, on dit « demander de faire » ; en espagnol, pedir que + subjonctif : Te pido que vengas (et non « te pido de venir »)."}},
+      "seeAlso": ["tp_subj_presente_emociones", "d_subjuntivo_cuando", "d_esperar_que", "d_dijo_que_viniera"],
+      "sources": [
+        {"label": "Instituto Cervantes · Plan curricular, Gramática B1: subjuntivo con verbos de deseo e influencia"},
+        {"label": "RAE · Glosario de términos gramaticales: modo subjuntivo", "url": "https://www.rae.es/gtg/modo-subjuntivo"}
+      ],
+      "tags": ["subjuntivo", "querer", "pedir", "infinitivo"]
+    },
+    {
+      "id": "d_cuando_subjuntivo",
+      "question": {"es": "¿Cuando vienes o cuando vengas?", "translations": {"fr": "« Cuando vienes » ou « cuando vengas » ?"}},
+      "aliases": ["cuando + subjuntivo", "cuando vendrás", "cuando con futuro", "en cuanto subjuntivo", "quand tu viendras espagnol", "quand + futur espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "⏳",
+      "answer": {"es": "Si hablas del futuro, «cuando» va con subjuntivo: Cuando vengas, comemos. Si hablas de una costumbre o del pasado, va con indicativo: Cuando vienes, comemos; Cuando viniste, comimos. Nunca «cuando vendrás».", "translations": {"fr": "Si tu parles du futur, « cuando » se construit avec le subjonctif : Cuando vengas, comemos (quand tu viendras, on mangera). Pour une habitude ou le passé, avec l'indicatif : Cuando vienes, comemos ; Cuando viniste, comimos. Jamais « cuando vendrás »."}},
+      "compare": [
+        {"title": {"es": "FUTURO → SUBJUNTIVO", "translations": {"fr": "FUTUR → SUBJONCTIF"}}, "items": [
+          {"es": "Cuando llegues, llámame.", "translations": {"fr": "Quand tu arriveras, appelle-moi."}},
+          {"es": "Cuando me jubile, viajaré más.", "translations": {"fr": "Quand je serai à la retraite, je voyagerai plus."}},
+          {"es": "En cuanto tenga noticias, te aviso.", "translations": {"fr": "Dès que j'aurai des nouvelles, je te préviens."}}
+        ]},
+        {"title": {"es": "COSTUMBRE O PASADO → INDICATIVO", "translations": {"fr": "HABITUDE OU PASSÉ → INDICATIF"}}, "items": [
+          {"es": "Cuando llego a casa, me hago un té.", "translations": {"fr": "Quand j'arrive à la maison, je me fais un thé."}},
+          {"es": "Cuando era niña, vivía en Lyon.", "translations": {"fr": "Quand j'étais petite, j'habitais à Lyon."}},
+          {"es": "Cuando llamaste, estaba en la ducha.", "translations": {"fr": "Quand tu as appelé, j'étais sous la douche."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Cuando vuelvas de Sevilla, cuéntamelo todo.", "translations": {"fr": "Quand tu reviendras de Séville, raconte-moi tout."}, "highlight": ["Cuando vuelvas"]},
+        {"es": "Te llamo en cuanto salga del médico.", "translations": {"fr": "Je t'appelle dès que je sors de chez le médecin."}, "highlight": ["en cuanto salga"]},
+        {"es": "Espera aquí hasta que vuelva.", "translations": {"fr": "Attends ici jusqu'à ce que je revienne."}, "highlight": ["hasta que vuelva"]},
+        {"es": "¿Cuándo vendrás a vernos?", "translations": {"fr": "Quand viendras-tu nous voir ?"}, "highlight": ["Cuándo vendrás"], "note": "En una pregunta, «cuándo» lleva tilde y admite el futuro.", "noteTranslations": {"fr": "Dans une question, « cuándo » prend un accent écrit et accepte le futur."}}
+      ],
+      "trick": {"es": "¿Ya ha pasado o pasa siempre? → indicativo. ¿Todavía no ha pasado? → subjuntivo.", "translations": {"fr": "C'est déjà arrivé ou ça arrive toujours ? → indicatif. Ce n'est pas encore arrivé ? → subjonctif."}},
+      "frenchTrap": {"es": "El francés dice «quand tu viendras», con futuro. En español, el futuro después de «cuando» es un error: Cuando vengas, no «cuando vendrás».", "translations": {"fr": "Le français dit « quand tu viendras », au futur. En espagnol, le futur après « cuando » est une faute : Cuando vengas, et non « cuando vendrás »."}},
+      "seeAlso": ["tp_subj_temporales", "d_subjuntivo_cuando", "d_si_presente"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «cuando»", "url": "https://www.rae.es/dpd/cuando"}
+      ],
+      "tags": ["subjuntivo", "cuando", "futuro", "tiempo"]
+    },
+    {
+      "id": "d_ojala",
+      "question": {"es": "¿Qué significa «ojalá» y cómo se usa?", "translations": {"fr": "Que veut dire « ojalá » et comment l'utiliser ?"}},
+      "aliases": ["ojalá + subjuntivo", "ojalá que", "ojalá venga", "pourvu que espagnol", "si seulement espagnol", "j'espère bien espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🌠",
+      "answer": {"es": "Ojalá expresa un deseo fuerte, como «pourvu que». Siempre va con subjuntivo: Ojalá haga sol mañana. El «que» es opcional: Ojalá que haga sol.", "translations": {"fr": "« Ojalá » exprime un souhait fort, comme « pourvu que ». Il est toujours suivi du subjonctif : Ojalá haga sol mañana (pourvu qu'il fasse beau demain). Le « que » est facultatif : Ojalá que haga sol."}},
+      "points": [
+        {"es": "Presente de subjuntivo: deseo posible. Ojalá llegue a tiempo.", "translations": {"fr": "Subjonctif présent : souhait possible. Pourvu qu'il arrive à l'heure."}},
+        {"es": "Imperfecto de subjuntivo: deseo difícil o imposible ahora. Ojalá tuviera veinte años.", "translations": {"fr": "Subjonctif imparfait : souhait difficile ou impossible maintenant. Si seulement j'avais vingt ans."}},
+        {"es": "Sola, como respuesta: —¿Vendrás a la boda? —¡Ojalá!", "translations": {"fr": "Seul, comme réponse : — Tu viendras au mariage ? — J'espère bien !"}},
+        {"es": "Curiosidad: viene del árabe de al-Ándalus y lleva dentro el nombre de Dios, Alá.", "translations": {"fr": "Curiosité : il vient de l'arabe d'al-Andalus et contient le nom de Dieu, Allah."}}
+      ],
+      "examples": [
+        {"es": "¡Ojalá no llueva el día de la boda!", "translations": {"fr": "Pourvu qu'il ne pleuve pas le jour du mariage !"}, "highlight": ["Ojalá no llueva"]},
+        {"es": "Ojalá que te mejores pronto.", "translations": {"fr": "J'espère que tu vas vite te remettre."}, "highlight": ["Ojalá que te mejores"]},
+        {"es": "Ojalá pudiera ir contigo, pero tengo médico.", "translations": {"fr": "Si seulement je pouvais venir avec toi, mais j'ai rendez-vous chez le médecin."}, "highlight": ["Ojalá pudiera"]}
+      ],
+      "trick": {"es": "Ojalá es como una varita mágica: detrás, siempre subjuntivo.", "translations": {"fr": "« Ojalá », c'est comme une baguette magique : derrière, toujours le subjonctif."}},
+      "frenchTrap": {"es": "No digas «ojalá vendrá» ni «ojalá viene»: después de ojalá no va el futuro ni el indicativo.", "translations": {"fr": "Ne dis pas « ojalá vendrá » ni « ojalá viene » : après « ojalá », ni futur ni indicatif."}},
+      "seeAlso": ["d_ojala_hubiera", "d_esperar_que", "tp_subj_presente_emociones"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «ojalá»", "url": "https://www.rae.es/dpd/ojal%C3%A1"},
+        {"label": "RAE · Diccionario de la lengua española: «ojalá» (etimología)", "url": "https://dle.rae.es/ojal%C3%A1"}
+      ],
+      "tags": ["ojalá", "deseo", "subjuntivo"]
+    },
+    {
+      "id": "d_para_que",
+      "question": {"es": "¿Para + infinitivo o para que + subjuntivo?", "translations": {"fr": "« Para » + infinitif ou « para que » + subjonctif ?"}},
+      "aliases": ["para que subjuntivo", "para que + indicativo", "para que vengas", "pour que espagnol", "afin que espagnol", "pour + infinitif espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🎯",
+      "answer": {"es": "Para que siempre lleva subjuntivo: Te lo explico para que lo entiendas. Si el sujeto es el mismo, se usa para + infinitivo: Lo leo dos veces para entenderlo.", "translations": {"fr": "« Para que » est toujours suivi du subjonctif : Te lo explico para que lo entiendas (je te l'explique pour que tu le comprennes). Si le sujet est le même, on utilise « para » + infinitif : Lo leo dos veces para entenderlo (je le lis deux fois pour le comprendre)."}},
+      "compare": [
+        {"title": {"es": "MISMA PERSONA → PARA + INFINITIVO", "translations": {"fr": "MÊME PERSONNE → PARA + INFINITIF"}}, "items": [
+          {"es": "Ahorro para viajar.", "translations": {"fr": "J'économise pour voyager."}},
+          {"es": "Llamo para reservar.", "translations": {"fr": "J'appelle pour réserver."}}
+        ]},
+        {"title": {"es": "OTRA PERSONA → PARA QUE + SUBJUNTIVO", "translations": {"fr": "AUTRE PERSONNE → PARA QUE + SUBJONCTIF"}}, "items": [
+          {"es": "Ahorro para que viajen mis nietos.", "translations": {"fr": "J'économise pour que mes petits-enfants voyagent."}},
+          {"es": "Llamo para que nos reserven mesa.", "translations": {"fr": "J'appelle pour qu'on nous réserve une table."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Habla más alto para que te oiga la abuela.", "translations": {"fr": "Parle plus fort pour que grand-mère t'entende."}, "highlight": ["para que te oiga"]},
+        {"es": "Te dejo las llaves para que entres cuando quieras.", "translations": {"fr": "Je te laisse les clés pour que tu entres quand tu veux."}, "highlight": ["para que entres"]},
+        {"es": "Me apunté a clases de baile para conocer gente.", "translations": {"fr": "Je me suis inscrite à des cours de danse pour rencontrer du monde."}, "highlight": ["para conocer"]},
+        {"es": "Se lo expliqué despacio para que lo entendiera.", "translations": {"fr": "Je le lui ai expliqué lentement pour qu'il comprenne."}, "highlight": ["para que lo entendiera"], "note": "En pasado: imperfecto de subjuntivo.", "noteTranslations": {"fr": "Au passé : subjonctif imparfait."}}
+      ],
+      "trick": {"es": "Para que = «pour que». Los dos piden subjuntivo: ¡aquí el francés te ayuda!", "translations": {"fr": "Para que = « pour que ». Les deux demandent le subjonctif : ici, le français t'aide !"}},
+      "frenchTrap": {"es": "«Pour que» es para que, nunca «por que». Y cuidado con la forma: para que puedas, no «para que puedes».", "translations": {"fr": "« Pour que » se dit para que, jamais « por que ». Et attention à la forme : para que puedas, et non « para que puedes »."}},
+      "seeAlso": ["d_por_para", "d_subjuntivo_cuando", "tp_prep_por_para"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: oración subordinada final", "url": "https://www.rae.es/gtg/oraci%C3%B3n-subordinada-adverbial-final"}
+      ],
+      "tags": ["para que", "finalidad", "subjuntivo"]
+    },
+    {
+      "id": "d_creo_no_creo",
+      "question": {"es": "¿Creo que es o no creo que sea?", "translations": {"fr": "« Creo que es » ou « no creo que sea » ?"}},
+      "aliases": ["no creo que + subjuntivo", "creo que + indicativo", "pienso que subjuntivo", "no pienso que", "je ne pense pas que espagnol", "je crois que subjonctif"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🤔",
+      "answer": {"es": "Las dos, según el sentido. Para opinar en afirmativo: creo que + indicativo (Creo que es verdad). En negativo: no creo que + subjuntivo (No creo que sea verdad). Igual con pensar y parecer.", "translations": {"fr": "Les deux, selon le sens. Pour donner ton avis à l'affirmatif : creo que + indicatif (Creo que es verdad : je crois que c'est vrai). Au négatif : no creo que + subjonctif (No creo que sea verdad : je ne crois pas que ce soit vrai). Pareil avec pensar et parecer."}},
+      "compare": [
+        {"title": {"es": "AFIRMO → INDICATIVO", "translations": {"fr": "J'AFFIRME → INDICATIF"}}, "items": [
+          {"es": "Creo que tiene razón.", "translations": {"fr": "Je crois qu'il a raison."}},
+          {"es": "Pienso que es caro.", "translations": {"fr": "Je pense que c'est cher."}},
+          {"es": "Me parece que va a llover.", "translations": {"fr": "J'ai l'impression qu'il va pleuvoir."}}
+        ]},
+        {"title": {"es": "NIEGO O DUDO → SUBJUNTIVO", "translations": {"fr": "JE NIE OU JE DOUTE → SUBJONCTIF"}}, "items": [
+          {"es": "No creo que tenga razón.", "translations": {"fr": "Je ne crois pas qu'il ait raison."}},
+          {"es": "No pienso que sea caro.", "translations": {"fr": "Je ne pense pas que ce soit cher."}},
+          {"es": "Dudo que llueva.", "translations": {"fr": "Je doute qu'il pleuve."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Creo que el museo abre los lunes.", "translations": {"fr": "Je crois que le musée ouvre le lundi."}, "highlight": ["Creo que el museo abre"]},
+        {"es": "No creo que el museo abra los lunes.", "translations": {"fr": "Je ne crois pas que le musée ouvre le lundi."}, "highlight": ["No creo que el museo abra"]},
+        {"es": "¿No crees que es un poco tarde?", "translations": {"fr": "Tu ne trouves pas qu'il est un peu tard ?"}, "highlight": ["No crees que es"], "note": "Pregunta que espera un «sí»: indicativo.", "noteTranslations": {"fr": "Question qui attend un « oui » : indicatif."}}
+      ],
+      "trick": {"es": "¿Lo creo? → indicativo. ¿No lo creo? → subjuntivo. El «no» abre la puerta al subjuntivo.", "translations": {"fr": "Je le crois ? → indicatif. Je ne le crois pas ? → subjonctif. Le « no » ouvre la porte au subjonctif."}},
+      "frenchTrap": {"es": "Es como en francés («je ne crois pas qu'il soit»), pero en español la regla es más estricta. Y nunca subjuntivo en afirmativo: no «creo que sea».", "translations": {"fr": "C'est comme en français (« je ne crois pas qu'il soit »), mais en espagnol la règle est plus stricte. Et jamais de subjonctif à l'affirmatif : pas « creo que sea »."}},
+      "seeAlso": ["tp_subj_presente_emociones", "tp_com_opinar", "d_quiza"],
+      "sources": [
+        {"label": "Instituto Cervantes · Plan curricular, Gramática B1: verbos de opinión (creer, pensar, parecer)"},
+        {"label": "RAE · Glosario de términos gramaticales: modo subjuntivo", "url": "https://www.rae.es/gtg/modo-subjuntivo"}
+      ],
+      "tags": ["creer", "pensar", "opinión", "subjuntivo"]
+    },
+    {
+      "id": "d_esperar_que",
+      "question": {"es": "¿Espero que vienes o espero que vengas?", "translations": {"fr": "« Espero que vienes » ou « espero que vengas » ?"}},
+      "aliases": ["esperar que subjuntivo", "espero que vendrás", "espero que + subjuntivo", "j'espère que espagnol", "espérer que subjonctif", "espérer + futur espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🤞",
+      "answer": {"es": "Espero que vengas. En español, esperar que (= espérer) va con subjuntivo, aunque el francés use el indicativo o el futuro. Si el sujeto es el mismo: espero + infinitivo (Espero llegar pronto).", "translations": {"fr": "Espero que vengas (j'espère que tu viendras). En espagnol, « esperar que » se construit avec le subjonctif, même si le français utilise l'indicatif ou le futur. Si le sujet est le même : espero + infinitif (Espero llegar pronto : j'espère arriver bientôt)."}},
+      "points": [
+        {"es": "Esperar que + subjuntivo: Espero que estés bien.", "translations": {"fr": "Esperar que + subjonctif : J'espère que tu vas bien."}},
+        {"es": "Mismo sujeto, infinitivo: Espero aprobar el examen.", "translations": {"fr": "Même sujet, infinitif : J'espère réussir l'examen."}},
+        {"es": "Respuesta corta: —¿Vendrá Luis? —Espero que sí. / Espero que no.", "translations": {"fr": "Réponse courte : — Luis viendra ? — J'espère bien. / J'espère que non."}}
+      ],
+      "examples": [
+        {"es": "Espero que te guste el regalo.", "translations": {"fr": "J'espère que le cadeau te plaira."}, "highlight": ["Espero que te guste"]},
+        {"es": "Esperamos que lo paséis muy bien en la boda.", "translations": {"fr": "Nous espérons que vous vous amuserez bien au mariage."}, "highlight": ["Esperamos que lo paséis"]},
+        {"es": "Espero verte pronto.", "translations": {"fr": "J'espère te voir bientôt."}, "highlight": ["Espero verte"]},
+        {"es": "Esperaba que me llamaras.", "translations": {"fr": "J'espérais que tu m'appellerais."}, "highlight": ["Esperaba que me llamaras"], "note": "En pasado: imperfecto de subjuntivo.", "noteTranslations": {"fr": "Au passé : subjonctif imparfait."}}
+      ],
+      "trick": {"es": "Esperar es desear, y los deseos van con subjuntivo, como ojalá.", "translations": {"fr": "Esperar, c'est souhaiter, et les souhaits demandent le subjonctif, comme « ojalá »."}},
+      "frenchTrap": {"es": "Es el error número uno: el francés dice «j'espère que tu viendras», con futuro. En español: Espero que vengas (no «espero que vendrás»).", "translations": {"fr": "C'est l'erreur numéro un : le français dit « j'espère que tu viendras », au futur. En espagnol : Espero que vengas (et non « espero que vendrás »)."}},
+      "seeAlso": ["d_ojala", "d_querer_que", "tp_subj_presente_emociones"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «esperar»", "url": "https://www.rae.es/dpd/esperar"},
+        {"label": "Instituto Cervantes · Plan curricular, Gramática B1: esperar que + subjuntivo"}
+      ],
+      "tags": ["esperar", "deseo", "subjuntivo"]
+    },
+    {
+      "id": "d_aunque",
+      "question": {"es": "¿Aunque llueve o aunque llueva?", "translations": {"fr": "« Aunque llueve » ou « aunque llueva » ?"}},
+      "aliases": ["aunque + subjuntivo", "aunque indicativo", "aunque llueva", "même si espagnol", "bien que espagnol", "quoique espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "☔",
+      "answer": {"es": "Las dos existen. Aunque + indicativo = «bien que»: es un hecho (Aunque llueve, salgo: llueve de verdad). Aunque + subjuntivo = «même si»: es una posibilidad o algo que no importa (Aunque llueva, saldré).", "translations": {"fr": "Les deux existent. Aunque + indicatif = « bien que » : c'est un fait (Aunque llueve, salgo : il pleut vraiment). Aunque + subjonctif = « même si » : c'est une possibilité ou quelque chose qui ne compte pas (Aunque llueva, saldré : même s'il pleut, je sortirai)."}},
+      "compare": [
+        {"title": {"es": "HECHO → INDICATIVO", "translations": {"fr": "FAIT → INDICATIF"}}, "items": [
+          {"es": "Aunque está cansada, sigue trabajando.", "translations": {"fr": "Bien qu'elle soit fatiguée, elle continue à travailler."}},
+          {"es": "Aunque hace frío, vamos a la playa.", "translations": {"fr": "Bien qu'il fasse froid, nous allons à la plage."}}
+        ]},
+        {"title": {"es": "HIPÓTESIS → SUBJUNTIVO", "translations": {"fr": "HYPOTHÈSE → SUBJONCTIF"}}, "items": [
+          {"es": "Aunque esté cansada, irá a la fiesta.", "translations": {"fr": "Même si elle est fatiguée, elle ira à la fête."}},
+          {"es": "Aunque haga frío, iremos a la playa.", "translations": {"fr": "Même s'il fait froid, nous irons à la plage."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Aunque no me gusta el fútbol, veré la final con mi nieto.", "translations": {"fr": "Bien que je n'aime pas le foot, je regarderai la finale avec mon petit-fils."}, "highlight": ["Aunque no me gusta"]},
+        {"es": "Aunque me lo pidas de rodillas, no voy a cantar.", "translations": {"fr": "Même si tu me le demandes à genoux, je ne chanterai pas."}, "highlight": ["Aunque me lo pidas"]},
+        {"es": "Aunque sea caro, merece la pena.", "translations": {"fr": "Même si c'est cher, ça vaut la peine."}, "highlight": ["Aunque sea caro"], "note": "Puede ser un hecho que no importa: «sí, es caro, pero da igual».", "noteTranslations": {"fr": "Ça peut être un fait qui ne compte pas : « oui, c'est cher, mais peu importe »."}}
+      ],
+      "trick": {"es": "Aunque + indicativo: «lo sé». Aunque + subjuntivo: «puede ser, me da igual».", "translations": {"fr": "Aunque + indicatif : « je le sais ». Aunque + subjonctif : « peut-être, peu importe »."}},
+      "frenchTrap": {"es": "¡Al revés que en francés! «Bien qu'il pleuve» (subjuntivo) = Aunque llueve (indicativo). «Même s'il pleut» (indicativo) = Aunque llueva (subjuntivo).", "translations": {"fr": "C'est l'inverse du français ! « Bien qu'il pleuve » (subjonctif) = Aunque llueve (indicatif). « Même s'il pleut » (indicatif) = Aunque llueva (subjonctif)."}},
+      "seeAlso": ["tp_conect_contraste", "d_pero_sino", "d_subjuntivo_cuando"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: oración concesiva", "url": "https://www.rae.es/gtg/oraci%C3%B3n-subordinada-adverbial-concesiva"}
+      ],
+      "tags": ["aunque", "concesión", "subjuntivo", "conectores"]
+    },
+    {
+      "id": "d_quiza",
+      "question": {"es": "¿Después de «quizás» va el subjuntivo?", "translations": {"fr": "Après « quizás », faut-il le subjonctif ?"}},
+      "aliases": ["quizá o quizás", "tal vez subjuntivo", "a lo mejor subjuntivo", "puede que", "peut-être espagnol", "peut-être que + subjonctif"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🎲",
+      "answer": {"es": "Con quizá(s) y tal vez puedes usar los dos: indicativo si lo ves probable, subjuntivo si lo ves dudoso. Pero a lo mejor va siempre con indicativo, y puede que siempre con subjuntivo.", "translations": {"fr": "Avec quizá(s) et tal vez, tu peux utiliser les deux : l'indicatif si tu trouves ça probable, le subjonctif si tu en doutes. Mais « a lo mejor » est toujours suivi de l'indicatif, et « puede que », toujours du subjonctif."}},
+      "points": [
+        {"es": "Quizá y quizás son iguales: las dos formas son correctas.", "translations": {"fr": "Quizá et quizás, c'est pareil : les deux formes sont correctes."}},
+        {"es": "Quizás viene / Quizás venga: las dos valen.", "translations": {"fr": "Quizás viene / Quizás venga : les deux sont possibles."}},
+        {"es": "A lo mejor + indicativo: A lo mejor viene (nunca «a lo mejor venga»).", "translations": {"fr": "A lo mejor + indicatif : A lo mejor viene, il viendra peut-être (jamais « a lo mejor venga »)."}},
+        {"es": "Puede que + subjuntivo: Puede que venga.", "translations": {"fr": "Puede que + subjonctif : Puede que venga (il se peut qu'il vienne)."}},
+        {"es": "Si quizás va detrás del verbo, solo indicativo: Vendrá, quizás, el lunes.", "translations": {"fr": "Si « quizás » vient après le verbe, seulement l'indicatif : Vendrá, quizás, el lunes (il viendra peut-être lundi)."}}
+      ],
+      "examples": [
+        {"es": "Quizás llueva esta tarde: llévate el paraguas.", "translations": {"fr": "Il va peut-être pleuvoir cet après-midi : prends ton parapluie."}, "highlight": ["Quizás llueva"]},
+        {"es": "A lo mejor vamos a Toledo el domingo.", "translations": {"fr": "On ira peut-être à Tolède dimanche."}, "highlight": ["A lo mejor vamos"]},
+        {"es": "Puede que Ana llegue un poco tarde.", "translations": {"fr": "Il se peut qu'Ana arrive un peu en retard."}, "highlight": ["Puede que Ana llegue"]}
+      ],
+      "trick": {"es": "Puede que = «il se peut que»: subjuntivo en las dos lenguas. A lo mejor = «peut-être que»: indicativo en las dos.", "translations": {"fr": "Puede que = « il se peut que » : subjonctif dans les deux langues. A lo mejor = « peut-être que » : indicatif dans les deux."}},
+      "frenchTrap": {"es": "No digas «se puede que»: se dice puede que, sin «se». Y no pongas subjuntivo después de a lo mejor.", "translations": {"fr": "Ne dis pas « se puede que » : on dit puede que, sans « se ». Et pas de subjonctif après « a lo mejor »."}},
+      "seeAlso": ["tp_subj_probabilidad", "d_creo_no_creo"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «quizá»", "url": "https://www.rae.es/dpd/quiz%C3%A1"},
+        {"label": "Instituto Cervantes · Plan curricular, Gramática B1–B2: expresar probabilidad"}
+      ],
+      "tags": ["quizás", "probabilidad", "a lo mejor", "subjuntivo"]
+    },
+    {
+      "id": "d_subjuntivo_imperfecto",
+      "question": {"es": "¿Hablara o hablase?", "translations": {"fr": "« Hablara » ou « hablase » ?"}},
+      "aliases": ["imperfecto de subjuntivo", "ra o se", "tuviera o tuviese", "fuera o fuese", "subjonctif imparfait espagnol", "hablara hablase différence"],
+      "cefr": "B2",
+      "category": "grammar",
+      "emoji": "👯",
+      "answer": {"es": "Son dos formas del mismo tiempo, el imperfecto de subjuntivo, y casi siempre valen igual: Si hablara / Si hablase. La forma en -ra es la más frecuente, sobre todo en América.", "translations": {"fr": "Ce sont deux formes du même temps, le subjonctif imparfait, et elles sont presque toujours interchangeables : Si hablara / Si hablase. La forme en -ra est la plus fréquente, surtout en Amérique."}},
+      "points": [
+        {"es": "Cómo se forma: «ellos» del indefinido sin -ron, más -ra o -se: tuvieron → tuviera / tuviese.", "translations": {"fr": "Formation : « ellos » du passé simple sans -ron, plus -ra ou -se : tuvieron → tuviera / tuviese."}},
+        {"es": "Sin excepciones: si el indefinido es irregular, el subjuntivo también: fueron → fuera, dijeron → dijera.", "translations": {"fr": "Sans exception : si le passé simple est irrégulier, le subjonctif l'est aussi : fueron → fuera, dijeron → dijera."}},
+        {"es": "Para la cortesía, solo -ra: Quisiera un café (no «quisiese»).", "translations": {"fr": "Pour la politesse, seulement -ra : Quisiera un café, je voudrais un café (pas « quisiese »)."}},
+        {"es": "Nosotros lleva tilde: habláramos, tuviésemos.", "translations": {"fr": "« Nosotros » prend un accent écrit : habláramos, tuviésemos."}}
+      ],
+      "examples": [
+        {"es": "Si tuviera más tiempo, aprendería a bailar flamenco.", "translations": {"fr": "Si j'avais plus de temps, j'apprendrais à danser le flamenco."}, "highlight": ["tuviera"]},
+        {"es": "Mi madre quería que estudiase Medicina.", "translations": {"fr": "Ma mère voulait que je fasse médecine."}, "highlight": ["estudiase"]},
+        {"es": "Quisiera reservar una mesa para dos, por favor.", "translations": {"fr": "Je voudrais réserver une table pour deux, s'il vous plaît."}, "highlight": ["Quisiera"]}
+      ],
+      "trick": {"es": "Usa -ra: vale para todo y es la más corriente. La forma en -se, reconócela cuando la leas.", "translations": {"fr": "Utilise -ra : elle marche partout et c'est la plus courante. La forme en -se, reconnais-la quand tu la lis."}},
+      "frenchTrap": {"es": "En francés el «subjonctif imparfait» ya casi no se usa («qu'il parlât»). En español está vivo: se oye todos los días.", "translations": {"fr": "En français, le subjonctif imparfait ne s'utilise presque plus (« qu'il parlât »). En espagnol, il est bien vivant : on l'entend tous les jours."}},
+      "seeAlso": ["tp_subj_imperfecto", "d_si_imperfecto", "d_condicional_cortesia"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: pretérito imperfecto de subjuntivo", "url": "https://www.rae.es/gtg/pret%C3%A9rito-imperfecto-de-subjuntivo"}
+      ],
+      "tags": ["imperfecto de subjuntivo", "formas", "-ra", "-se"]
+    },
+    {
+      "id": "d_es_importante_que",
+      "question": {"es": "¿Es importante que vienes o que vengas?", "translations": {"fr": "« Es importante que vienes » ou « que vengas » ?"}},
+      "aliases": ["es necesario que", "es normal que subjuntivo", "es mejor que", "es verdad que indicativo", "il faut que espagnol", "c'est important que espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "❗",
+      "answer": {"es": "Es importante que vengas. Con es + adjetivo + que (importante, necesario, normal, mejor, una pena…), el verbo va en subjuntivo. Pero lo que es cierto (es verdad, es evidente, está claro que) va con indicativo.", "translations": {"fr": "Es importante que vengas (c'est important que tu viennes). Avec es + adjectif + que (importante, necesario, normal, mejor, una pena…), le verbe se met au subjonctif. Mais ce qui est certain (es verdad, es evidente, está claro que) prend l'indicatif."}},
+      "compare": [
+        {"title": {"es": "VALORO → SUBJUNTIVO", "translations": {"fr": "JE JUGE → SUBJONCTIF"}}, "items": [
+          {"es": "Es normal que estés cansada.", "translations": {"fr": "C'est normal que tu sois fatiguée."}},
+          {"es": "Es mejor que vayamos en tren.", "translations": {"fr": "C'est mieux qu'on y aille en train."}},
+          {"es": "Es una pena que no puedas venir.", "translations": {"fr": "C'est dommage que tu ne puisses pas venir."}}
+        ]},
+        {"title": {"es": "ES CIERTO → INDICATIVO", "translations": {"fr": "C'EST CERTAIN → INDICATIF"}}, "items": [
+          {"es": "Es verdad que estoy cansada.", "translations": {"fr": "C'est vrai que je suis fatiguée."}},
+          {"es": "Está claro que el tren es más cómodo.", "translations": {"fr": "C'est clair que le train est plus confortable."}},
+          {"es": "Es evidente que no puede venir.", "translations": {"fr": "C'est évident qu'elle ne peut pas venir."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Es importante que bebas mucha agua con este calor.", "translations": {"fr": "C'est important que tu boives beaucoup d'eau avec cette chaleur."}, "highlight": ["Es importante que bebas"]},
+        {"es": "Es necesario reservar con antelación.", "translations": {"fr": "Il faut réserver à l'avance."}, "highlight": ["Es necesario reservar"], "note": "Sin persona concreta: infinitivo.", "noteTranslations": {"fr": "Sans personne précise : infinitif."}},
+        {"es": "Hay que llegar antes de las ocho.", "translations": {"fr": "Il faut arriver avant huit heures."}, "highlight": ["Hay que llegar"]}
+      ],
+      "trick": {"es": "Si das tu opinión sobre algo (normal, raro, mejor, una pena) → subjuntivo. Si dices que es verdad → indicativo.", "translations": {"fr": "Si tu donnes ton avis sur quelque chose (normal, bizarre, mieux, dommage) → subjonctif. Si tu dis que c'est vrai → indicatif."}},
+      "frenchTrap": {"es": "«Il faut que tu viennes» no se traduce palabra por palabra: Tienes que venir, o Es necesario que vengas. Para todo el mundo: Hay que venir.", "translations": {"fr": "« Il faut que tu viennes » ne se traduit pas mot à mot : Tienes que venir, ou Es necesario que vengas. Pour tout le monde en général : Hay que venir."}},
+      "seeAlso": ["tp_subj_presente_emociones", "d_creo_no_creo", "d_tener_que_hay_que"],
+      "sources": [
+        {"label": "Instituto Cervantes · Plan curricular, Gramática B1–B2: subjuntivo con expresiones de valoración"},
+        {"label": "RAE · Glosario de términos gramaticales: modo subjuntivo", "url": "https://www.rae.es/gtg/modo-subjuntivo"}
+      ],
+      "tags": ["subjuntivo", "valoración", "hay que"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

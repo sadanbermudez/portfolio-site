@@ -17,12 +17,15 @@ Two rules for reading it:
  site.css, immersive.css, 11 scripts           -->    copies          -->  same names
  data/chess-game.js  (reviewed game)           -->    copies          -->  data/
  engine/  Stockfish 19 WASM + GPLv3 licence    -->    copies tree     -->  engine/
- vendor/  chess.js + BSD-2-Clause licence      -->    copies tree     -->  vendor/
+ vendor/  chess.js, kokoro-js + licences       -->    copies tree     -->  vendor/
+ apps/    three app demos (decision 12)         -->    copies tree     -->  apps/
                                                       writes          -->  _headers  (CSP + 6 security headers)
+                                                      writes          -->  server/knowledge.json (decision 11)
                                                                                 |
                                                          wrangler deploy  (site/wrangler.jsonc)
                                                                                 v
-                                   Cloudflare Worker "sergioadan": static assets only, no Worker code
+                                   Cloudflare Worker "sergioadan": static assets, plus server/worker.js
+                                   for /api/chat, /api/tutor and /api/transcribe (Workers AI)
                                                                                 |
                                    sergioadan.dev and www.sergioadan.dev  (custom domains)
                                    (workers_dev: false, so no second hostname)
@@ -43,6 +46,9 @@ Two rules for reading it:
                              story-viz.js (life strip, four field diagrams, live ratings via fetch() from
                              api.chess.com and lichess.org, sensor sizes to scale, running distance)
  work/research.html ........ research.js
+ apps/la-pina/ ............. ES modules (engine, data, charts, ui, app) + vendored Lightweight Charts 5.0.9
+ apps/spanish-tutor/ ....... ES modules (logic/, ui/), curriculum JSON in data/; tutor replies from /api/tutor
+ apps/olympus/ ............. ES modules (engine, i18n, app, tour)
 ```
 
 The repo root also holds an earlier single-page version of the site (`index.html`, `index-v1.html`, `build.py`, `dist/index.html`). The root `README.md` describes that version. The live site is built from `site/` only.
@@ -73,14 +79,17 @@ The repo root also holds an earlier single-page version of the site (`index.html
 /*
   Content-Security-Policy: default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'wasm-unsafe-eval';
     style-src 'self' https://fonts.googleapis.com; style-src-attr 'unsafe-inline'; font-src https://fonts.gstatic.com;
-    connect-src 'self' https://lichess.org https://api.chess.com; img-src 'self' data:; worker-src 'self';
+    connect-src 'self' https://lichess.org https://api.chess.com https://huggingface.co https://*.hf.co;
+    img-src 'self' data:; worker-src 'self';
     object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Cross-Origin-Opener-Policy: same-origin
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
-  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Permissions-Policy: camera=(), microphone=(self), geolocation=()
+/jarvis, /jarvis.html, /tts-worker.js, /vendor/kokoro/*
+  Cross-Origin-Embedder-Policy: credentialless
 ```
 
 **Why.** One source file serves both the preview and the live site. Deleting `dist/` first means a file removed from `site/` can never linger in a deploy. `src.index(last_link)` raises an error if the marker is missing, so a broken head stops the build instead of shipping a malformed page. Each header closes one specific door:
@@ -88,7 +97,7 @@ The repo root also holds an earlier single-page version of the site (`index.html
 - `nosniff` makes the browser trust the declared content type instead of guessing, so a file served as text cannot be run as a script.
 - `strict-origin-when-cross-origin` means other sites the pages link or fetch from (Lichess, GitHub, LinkedIn) see only `https://sergioadan.dev`, not the full path, and nothing at all over plain HTTP.
 - `X-Frame-Options: DENY` stops any other site from loading these pages in an iframe, which is the setup for clickjacking.
-- The `Permissions-Policy` line means no script on the site, first-party or third-party, can even ask for the camera, microphone or location.
+- The `Permissions-Policy` line means no script, first-party or third-party, can even ask for the camera or location, and only the site's own pages can ask for the microphone (Jarvis's voice input and the Spanish Tutor's 🎤 button; the browser still asks the visitor first).
 - The **Content-Security-Policy** is an allow-list: the browser runs scripts only from the site's own files and cdnjs, loads fonts only from Google, and lets pages talk only to the site, Lichess and Chess.com. If an attacker ever got text onto a page, an injected `<script>` would not run. That is why the three pages' inline scripts moved into `home.js`, `lab-page.js` and `chess-page.js`. `'wasm-unsafe-eval'` is the one relaxation scripts need, to compile Stockfish's WebAssembly. `style-src-attr 'unsafe-inline'` allows the `style=""` attributes the pages use for layout tweaks; that is far less dangerous than inline scripts, and `<style>` blocks stay forbidden. `frame-ancestors 'none'` is the modern form of `X-Frame-Options`, kept for older browsers.
 - `Strict-Transport-Security` tells browsers to use HTTPS for a year without trying HTTP first. `Cross-Origin-Opener-Policy: same-origin` cuts the link between these pages and any window that opened them.
 
@@ -104,7 +113,7 @@ The repo root also holds an earlier single-page version of the site (`index.html
 
 **Decision.** `site/wrangler.jsonc`: a Worker named `sergioadan` whose `assets.directory` is `./dist`, with `not_found_handling: "404-page"`, `workers_dev: true`, and two routes, `sergioadan.dev` and `www.sergioadan.dev`, each with `custom_domain: true`. The domain's nameservers were moved from Porkbun to Cloudflare. Deploying is two commands from `site/`: `python build.py`, then `wrangler deploy`.
 
-**Why.** A static-assets Worker serves files straight from Cloudflare's network and runs no code, so there is nothing to patch, scale or monitor beyond the files themselves. Marking a route as a custom domain lets Cloudflare create the DNS record and the TLS certificate for that hostname. That only works when Cloudflare runs the domain's DNS, which is why the nameservers moved. The notes record what was verified on deploy: every page returned 200 on the workers.dev hostname, both custom domains returned 200, `.html` URLs are redirected (307) to clean URLs and relative asset paths still resolve, and unknown paths return 404.
+**Why.** A static-assets Worker serves files straight from Cloudflare's network and, for every path outside `/api/` (decision 11), runs no code, so there is nothing to patch, scale or monitor beyond the files themselves. Marking a route as a custom domain lets Cloudflare create the DNS record and the TLS certificate for that hostname. That only works when Cloudflare runs the domain's DNS, which is why the nameservers moved. The notes record what was verified on deploy: every page returned 200 on the workers.dev hostname, both custom domains returned 200, `.html` URLs are redirected (307) to clean URLs and relative asset paths still resolve, and unknown paths return 404.
 
 **Alternatives.** Considered (from the notes): Porkbun static hosting, ruled out as paid only; GitHub Pages, ruled out while the repo was private without a paid plan; Cloudflare Pages, the free route the research found, which Wrangler now routes to Workers.
 
@@ -279,15 +288,44 @@ For small screens: breakpoints at 520, 640, 760, 900 and 980 px. Side gutters ar
 
 **Check it yourself.** `node site/tests/jarvis-core.test.mjs`; `wrangler dev` from `site/`, then `node site/tests/jarvis-eval.mjs http://127.0.0.1:8787 --set heldout2`. Each answer response carries `X-Jarvis-Search: hybrid` or `words`.
 
+### 12. The three apps as browser recreations, with their real logic ported
+
+**Context.** Sergio has built three Android apps: La Piña Investments (Kotlin and Jetpack Compose, a rules engine for a trading method, in development), Spanish Tutor (Kotlin, an offline B2 to C1 course with an on-device language model) and Olympus (Flutter, training, nutrition and running). A visitor should be able to use them, not only read about them. None of them can run in a browser as it is: two are native Kotlin, and Olympus depends on ML Kit, the camera, Health Connect, encrypted SQLite and platform channels, and Flutter is not installed on this machine.
+
+**Decision.** Each app is recreated in `site/apps/<app>/` as plain ES modules (no framework, as in decision 1), shown inside a phone frame with a guided tour beside it. The logic that makes each app what it is was ported line by line and is tested in Node against the app's own cases. The screens are rebuilt from the app's layouts and colours, and they run on sample data.
+
+- **La Piña** (`engine.js`): the Analyzer (rules H1 to H6, B1 to B5, the 0 to 100 score, the plan), the four bases, PAVA, overhead supply, the RS line, the market-regime state machine, sizing and the treemap. `site/tests/la-pina.test.mjs` runs the Kotlin fixtures and expects the same verdicts (28 checks). Prices come from a bit-for-bit port of `java.util.Random`, seeded as in the app's screenshot tool, so every company and price is invented and reproducible. Charts use the same library as the app, TradingView Lightweight Charts 5.0.9, vendored with its Apache 2.0 licence. Its attribution logo injects a `<style>` element that the CSP blocks, so it is off (`attributionLogo: false`) and the page credits TradingView in text.
+- **Spanish Tutor** (`logic/`): BM25 search, grading for nine exercise formats, the role-play goal matcher and the reply parser. The search port ranks all 223 questions' own answers first, as on Android (`site/tests/spanish-tutor.test.mjs`, 22 groups). One real topic of 68 is included ("Ser o estar"), with its lessons, exam and audio; all of that content was written for the app with Claude and is marked as such.
+- **Olympus** (`engine.js`): the pure-Dart engines for lifting plans, progressive overload, VDOT paces, race prediction, nutrition targets, caffeine and readiness. `site/tests/olympus.test.mjs` checks them against the values the Dart code gives, for example VDOT 49.8 from a 20-minute 5K, as in Daniels' tables. The coach is a scripted replay; the number guard that checks its replies is the real logic.
+- **The Spanish tutor is live.** `POST /api/tutor` in `server/worker.js` builds the app's hidden prompt (`server/tutor-prompt.js`, a port of `TutorPromptBuilder.systemPrompt`) and streams the reply from Workers AI, with the same rate limit as Jarvis.
+
+**Why.** A recreation runs anywhere with nothing to install, and porting the engines means the demos make the same decisions the apps make. The tests are what make "same" a checkable claim rather than a description. Recreating each app also kept its private material out by construction. Only content written for the app is published: no course books, CD audio, licensed exercise or food datasets, screenshots, build files or personal details.
+
+**How the tutor's model was chosen.** `site/tests/tutor-eval.mjs` sends five kinds of message, four times each, to a running site: correct sentences and sentences with ser/estar errors, in the role-play and in free talk. A reply passes only when the page shows the right verdict, at least one right fix, and no wrong Spanish presented as a correction. With Qwen3 30B, the model behind Jarvis, it surfaced four problems:
+
+1. The lesson's sample corrections, written in the reply format, were copied onto correct sentences: 10 of 10 correct sentences got a "correction". The samples are now labelled as other learners' errors, a deliberate difference from the app.
+2. "Corrections" that repeat the learner's own words. The page now drops any correction found word for word in her message (`withoutEchoes`).
+3. Reply shapes the app's parser did not expect: a repeated line, a second correction, a stray ✔, and reasons in brackets mid-sentence. All are now parsed, each with a test.
+4. A stalled model call that hung for two minutes in 2 of 20 requests. The Worker now gives up on a silent start after 25 s (with one retry) and on a silent stream after 30 s.
+
+Even with those fixes, Qwen3 showed a wrong form as the correction in 6 of 20 turns ("Está morena", "hoy soy de buen humor"). Gemma 4 26B scored 20 of 20 on the same test, run against the shipping configuration. Mistral Small 3.1 ignored the ✔ protocol and invented corrections ("porque" to "ya que"). DeepSeek V4.1 Flash is not on the Workers Free plan. Gemma 4 thinks before answering by default, and its first test produced empty replies because the token budget went on reasoning; the Worker turns that off with `chat_template_kwargs.enable_thinking: false`. A tutor turn costs about 13 neurons, against about 9 for Qwen3, well inside the free allocation.
+
+**Alternatives.** A Flutter web build of Olympus: blocked by its mobile-only plugins, and the source is not on this machine (it was recovered from the build cache for reference). Recorded videos of the apps, which show the app exactly but cannot be used. An Android emulator in the browser, which is heavy and would ship the full apps.
+
+**Trade-offs.** The screens are recreations, so they can drift from the apps; each page says what is ported and what is left out. Only one Spanish Tutor topic is included. Olympus's camera rep counter, voice logging, GPS runs and barcode scanning are described, not shown. The live tutor needs a connection and shares the daily free allowance with Jarvis. It corrects at most two errors per turn, as the app asks, so it can leave one uncorrected.
+
+**Check it yourself.** `node site/tests/la-pina.test.mjs`, `spanish-tutor.test.mjs` and `olympus.test.mjs` (all three run in CI). With `wrangler dev` running from `site/`, `node site/tests/tutor-eval.mjs http://127.0.0.1:8787` prints each reply and the score.
+
 ## Known limits and what comes next
 
 - **Old version at the root.** `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first single-page site, kept for reference (the README says so). Next: move them into an `archive/` folder.
-- **Thin automated checks.** CI (`.github/workflows/site.yml`) runs the rules-module tests in `site/tests/` and the build with its reference check. There is no browser test yet. Next: a smoke test that loads each page and fails on console errors. Deploys are manual.
+- **Thin automated checks.** CI (`.github/workflows/site.yml`) runs the unit tests in `site/tests/` (chess rules, Jarvis server logic, the three app engines) and the build with its reference and CSP checks. The two model evaluations need a running site and Workers AI, so they run by hand. There is no browser test yet. Next: a smoke test that loads each page and fails on console errors. Deploys are manual.
 - **Numbers repeated across files** (decision 4).
 - **Lifetime fit reads high.** `fitTau()` in `research.js` takes the mean time after 6 µs, which is correct for a single exponential but here still includes the 2 µs triplet rise and the uniform dark counts. Re-running the same model in Python with 60,000 events gives about 3.8 µs for an input of 3.5 µs, and about 71 µs for 68 µs. The page now states the bias next to the readout. Next: fit the full rise-and-decay model, or start the window later and subtract the dark-count level.
 - **Fewer facts for imported games and explore lines.** Pins and mate in one are not computed in the browser (decision 7).
 - **Explore mode needs a pointer.** No keyboard access to squares yet (decision 7b).
 - **Public Jarvis knows only page text.** Facts drawn by JavaScript are invisible to it; citations are sometimes omitted; a current employer is not on the site, so it says it does not know (decision 11).
+- **App demos are recreations.** They run the apps' ported logic on sample data, with one Spanish Tutor topic of 68; device features such as the camera, GPS and Health Connect are described, not shown (decision 12).
 - **Browser grades are indicative.** The lite single-threaded engine grades fewer moves as blunders than full Stockfish on the same game (decision 6).
 
 ## Questions a reviewer might ask
@@ -299,7 +337,7 @@ The site is six mostly static pages with a handful of interactive canvases, and 
 Multithreaded WebAssembly shares memory through `SharedArrayBuffer`, which browsers only expose on cross-origin isolated pages: that takes the COOP and COEP headers. Under COEP, cross-origin resources like Google Fonts and three.js from cdnjs must send CORS or CORP headers or be blocked. The single-threaded lite build avoids all of that, in exchange for weaker analysis per second.
 
 **What actually runs on Cloudflare?**
-No code. It is a Worker with only static assets: Cloudflare serves the files `build.py` writes to `dist/`, plus the `_headers` file. The two hostnames are custom domains, so Cloudflare manages their DNS records and certificates, which is why the nameservers moved from Porkbun. Porkbun hosting was paid only and GitHub Pages needed a public repo or a paid plan at the time.
+Mostly files. Cloudflare serves what `build.py` writes to `dist/`, plus the `_headers` file. The only code is `server/worker.js`, which runs for `/api/*` alone: the public Jarvis's chat and transcription, and the Spanish Tutor demo's tutor, all on Workers AI's free allocation (decisions 11 and 12). The two hostnames are custom domains, so Cloudflare manages their DNS records and certificates, which is why the nameservers moved from Porkbun. Porkbun hosting was paid only and GitHub Pages needed a public repo or a paid plan at the time.
 
 **What do your security headers protect against, and what is missing?**
 `nosniff` stops content-type guessing, `X-Frame-Options: DENY` blocks clickjacking through iframes, the referrer policy sends other sites only the origin, and the permissions policy turns off camera, microphone and location for every script. The Content-Security-Policy is the main defence: an allow-list of where scripts, styles, fonts and network requests may come from, so an injected script does not run. Getting there meant moving three inline scripts into files and allowing WebAssembly compilation for Stockfish; the build now fails if inline script ever comes back.

@@ -281,3 +281,10 @@
 .j-form input { flex: 1; min-width: 0; background: #0b0f14; color: var(--ink); border: 1px solid var(--rule); padding: 10px 12px; font-family: var(--font-data); font-size: var(--step--2); }
 .j-form input:focus { outline: 2px solid var(--emit); outline-offset: 1px; }
 .j-src span { font-family: var(--font-data); font-size: var(--step--2); color: var(--muted); align-self: center; }
+
+/* home: apps grid */
+.apps-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }   /* three across or stacked, never two plus an orphan */
+@media (max-width: 1000px) { .apps-grid { grid-template-columns: 1fr; } }
+.apps-grid .app-card { position: relative; }
+.app-swatch { display: inline-flex; gap: 4px; padding: 6px; border: 1px solid; border-radius: 10px; width: max-content; }
+.app-swatch span { width: 14px; height: 14px; border-radius: 4px; display: block; }

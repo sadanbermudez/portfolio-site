@@ -1,0 +1,228 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_si_condicional",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Si… y el condicional", "translations": {"fr": "Si… et le conditionnel"}},
+  "emoji": "🔮",
+  "order": 21,
+  "entries": [
+    {
+      "id": "d_si_imperfecto",
+      "question": {"es": "¿Si tendría o si tuviera?", "translations": {"fr": "« Si tendría » ou « si tuviera » ?"}},
+      "aliases": ["si tuviera", "si + imperfecto de subjuntivo", "si tendría dinero", "si yo fuera", "si j'avais espagnol", "si + imparfait espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "💭",
+      "answer": {"es": "Si tuviera. Después de «si» nunca va el condicional. Para imaginar algo: si + imperfecto de subjuntivo, y en la otra parte, condicional: Si tuviera tiempo, viajaría más.", "translations": {"fr": "Si tuviera. Après « si », jamais de conditionnel. Pour imaginer quelque chose : si + subjonctif imparfait, et dans l'autre partie, le conditionnel : Si tuviera tiempo, viajaría más (si j'avais le temps, je voyagerais plus)."}},
+      "points": [
+        {"es": "Fórmula: si + tuviera, fuera, pudiera… → tendría, haría, iría, podría…", "translations": {"fr": "Formule : si + tuviera, fuera, pudiera… → tendría, haría, iría, podría…"}},
+        {"es": "El orden puede cambiar: Viajaría más si tuviera tiempo.", "translations": {"fr": "On peut inverser l'ordre : Viajaría más si tuviera tiempo."}},
+        {"es": "El francés usa el imperfecto (si j'avais); el español, el imperfecto de SUBJUNTIVO: si tuviera, no «si tenía».", "translations": {"fr": "Le français utilise l'imparfait (si j'avais) ; l'espagnol, l'imparfait du SUBJONCTIF : si tuviera, et non « si tenía »."}}
+      ],
+      "examples": [
+        {"es": "Si fuera más joven, aprendería a surfear.", "translations": {"fr": "Si j'étais plus jeune, j'apprendrais à surfer."}, "highlight": ["Si fuera", "aprendería"]},
+        {"es": "Si viviéramos en la costa, iríamos a la playa cada día.", "translations": {"fr": "Si nous vivions sur la côte, nous irions à la plage tous les jours."}, "highlight": ["Si viviéramos", "iríamos"]},
+        {"es": "¿Qué harías si te tocara la lotería?", "translations": {"fr": "Que ferais-tu si tu gagnais au loto ?"}, "highlight": ["harías", "si te tocara"]}
+      ],
+      "trick": {"es": "Nunca «si» + «-ría». Si la frase lleva «si», el «-ría» va en la otra parte.", "translations": {"fr": "Jamais « si » + « -ría ». Si la phrase contient « si », le « -ría » va dans l'autre partie."}},
+      "frenchTrap": {"es": "Para imaginar, «si j'avais» no es «si tenía» ni «si tendría», sino si tuviera. El condicional va solo en la otra parte: tendría.", "translations": {"fr": "Pour imaginer, « si j'avais » ne se dit ni « si tenía » ni « si tendría », mais si tuviera. Le conditionnel va seulement dans l'autre partie : tendría."}},
+      "seeAlso": ["tp_cond_hipotesis", "d_si_presente", "d_si_hubiera", "d_subjuntivo_imperfecto", "tp_b1_condicional"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «si» (condicionales)", "url": "https://www.rae.es/dpd/si"},
+        {"label": "RAE · Glosario de términos gramaticales: oración condicional", "url": "https://www.rae.es/gtg/oraci%C3%B3n-subordinada-adverbial-condicional"}
+      ],
+      "tags": ["si", "condicional", "hipótesis", "imperfecto de subjuntivo"]
+    },
+    {
+      "id": "d_si_presente",
+      "question": {"es": "¿Si llueve, me quedo o me quedaré?", "translations": {"fr": "« Si llueve, me quedo » ou « me quedaré » ?"}},
+      "aliases": ["si + presente", "si llueve", "si lloverá", "si + futuro", "si il pleut espagnol", "si + présent espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🌦️",
+      "answer": {"es": "Las dos valen. Si algo es posible: si + presente, y después presente, futuro o una orden: Si llueve, me quedo / me quedaré / quédate en casa. Después de «si» no va el futuro ni el presente de subjuntivo.", "translations": {"fr": "Les deux sont possibles. Si quelque chose est possible : si + présent, puis présent, futur ou impératif : Si llueve, me quedo / me quedaré / quédate en casa. Après « si », ni futur ni subjonctif présent."}},
+      "points": [
+        {"es": "Si + presente → presente: Si quieres, vamos juntas.", "translations": {"fr": "Si + présent → présent : Si tu veux, on y va ensemble."}},
+        {"es": "Si + presente → futuro: Si llegas tarde, perderás el tren.", "translations": {"fr": "Si + présent → futur : Si tu arrives en retard, tu rateras le train."}},
+        {"es": "Si + presente → imperativo: Si ves a Marta, salúdala de mi parte.", "translations": {"fr": "Si + présent → impératif : Si tu vois Marta, salue-la de ma part."}}
+      ],
+      "examples": [
+        {"es": "Si hace buen tiempo el sábado, comemos en el jardín.", "translations": {"fr": "S'il fait beau samedi, on mange dans le jardin."}, "highlight": ["Si hace buen tiempo", "comemos"]},
+        {"es": "Si necesitas algo, llámame.", "translations": {"fr": "Si tu as besoin de quelque chose, appelle-moi."}, "highlight": ["Si necesitas", "llámame"]},
+        {"es": "Si no te gusta el pescado, te preparo otra cosa.", "translations": {"fr": "Si tu n'aimes pas le poisson, je te prépare autre chose."}, "highlight": ["Si no te gusta", "te preparo"]}
+      ],
+      "trick": {"es": "Igual que en francés: «s'il pleut» = si llueve. ¡Aquí puedes traducir sin miedo!", "translations": {"fr": "Comme en français : « s'il pleut » = si llueve. Ici, tu peux traduire sans crainte !"}},
+      "frenchTrap": {"es": "No lo confundas con «cuando»: Si llueve (presente), pero Cuando llueva (subjuntivo). Y nunca «si lloverá» ni «si llueva».", "translations": {"fr": "Ne le confonds pas avec « cuando » : Si llueve (présent), mais Cuando llueva (subjonctif). Et jamais « si lloverá » ni « si llueva »."}},
+      "seeAlso": ["d_si_imperfecto", "d_cuando_subjuntivo", "tp_cond_hipotesis"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: oración condicional", "url": "https://www.rae.es/gtg/oraci%C3%B3n-subordinada-adverbial-condicional"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «si» (condicionales)", "url": "https://www.rae.es/dpd/si"}
+      ],
+      "tags": ["si", "condición", "presente"]
+    },
+    {
+      "id": "d_condicional_cortesia",
+      "question": {"es": "¿Quiero o querría? ¿Cómo pido algo con educación?", "translations": {"fr": "« Quiero » ou « querría » ? Comment demander poliment ?"}},
+      "aliases": ["me gustaría", "quisiera", "podría", "pedir con educación", "je voudrais espagnol", "conditionnel de politesse", "j'aimerais espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🎩",
+      "answer": {"es": "Quiero es directo, pero no grosero. Para sonar más amable usa el condicional: querría, me gustaría, ¿podría…? O quisiera, la forma más educada: Quisiera una habitación doble.", "translations": {"fr": "« Quiero » est direct, mais pas impoli. Pour être plus aimable, utilise le conditionnel : querría, me gustaría, ¿podría…? Ou « quisiera », la forme la plus polie : Quisiera una habitación doble (je voudrais une chambre double)."}},
+      "points": [
+        {"es": "Me gustaría + infinitivo: Me gustaría probar el vino de la casa.", "translations": {"fr": "Me gustaría + infinitif : J'aimerais goûter le vin de la maison."}},
+        {"es": "¿Podría + infinitivo?: ¿Podría traerme la cuenta, por favor?", "translations": {"fr": "¿Podría + infinitif ? : Pourriez-vous m'apporter l'addition, s'il vous plaît ?"}},
+        {"es": "Quisiera + infinitivo o nombre: Quisiera hablar con la directora.", "translations": {"fr": "Quisiera + infinitif ou nom : Je voudrais parler à la directrice."}},
+        {"es": "En un bar de España se pide sin rodeos: ¿Me pone un café, por favor?", "translations": {"fr": "Dans un bar en Espagne, on demande sans détour : ¿Me pone un café, por favor? (Vous me servez un café, s'il vous plaît ?)"}}
+      ],
+      "examples": [
+        {"es": "Me gustaría reservar una mesa para el sábado.", "translations": {"fr": "J'aimerais réserver une table pour samedi."}, "highlight": ["Me gustaría reservar"]},
+        {"es": "¿Podría hablar un poco más despacio, por favor?", "translations": {"fr": "Pourriez-vous parler un peu plus lentement, s'il vous plaît ?"}, "highlight": ["Podría hablar"]},
+        {"es": "Quisiera cambiar estos zapatos por una talla más.", "translations": {"fr": "Je voudrais échanger ces chaussures contre la taille au-dessus."}, "highlight": ["Quisiera cambiar"]}
+      ],
+      "trick": {"es": "Del más directo al más suave: quiero → querría → quisiera.", "translations": {"fr": "Du plus direct au plus doux : quiero → querría → quisiera."}},
+      "frenchTrap": {"es": "«Pourriez-vous…?» a una sola persona = ¿Podría…? (usted, como «él»), no «¿podríais…?», que es para varias personas a las que tuteas.", "translations": {"fr": "« Pourriez-vous… ? » à une seule personne = ¿Podría…? (usted, comme « il »), et non « ¿podríais…? », qui s'adresse à plusieurs personnes que tu tutoies."}},
+      "seeAlso": ["d_subjuntivo_imperfecto", "d_tu_usted", "tp_matices_registro", "tp_b1_condicional"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: condicional simple (de cortesía)", "url": "https://www.rae.es/gtg/condicional-simple"},
+        {"label": "RAE y ASALE · Nueva gramática: el condicional simple (§ 23.15)", "url": "https://www.rae.es/gram%C3%A1tica/sintaxis/el-condicional-simple-cantar%C3%ADa"}
+      ],
+      "tags": ["condicional", "cortesía", "pedir"]
+    },
+    {
+      "id": "d_deberia_haber",
+      "question": {"es": "¿Cómo se dice «j'aurais dû»?", "translations": {"fr": "Comment dit-on « j'aurais dû » ?"}},
+      "aliases": ["debería haber", "tendría que haber", "podría haber", "j'aurais dû espagnol", "j'aurais pu espagnol", "tu aurais dû espagnol"],
+      "cefr": "B2",
+      "category": "grammar",
+      "emoji": "😬",
+      "answer": {"es": "Debería haber + participio, o tendría que haber + participio: Debería haberte llamado. Y «j'aurais pu» = podría haber + participio: Podrías haberme avisado.", "translations": {"fr": "Debería haber + participe, ou tendría que haber + participe : Debería haberte llamado (j'aurais dû t'appeler). Et « j'aurais pu » = podría haber + participe : Podrías haberme avisado (tu aurais pu me prévenir)."}},
+      "points": [
+        {"es": "Debería haber… = j'aurais dû: Deberías haber traído un abrigo.", "translations": {"fr": "Debería haber… = j'aurais dû : Tu aurais dû apporter un manteau."}},
+        {"es": "Tendría que haber… = lo mismo, más coloquial: Tendría que haber salido antes.", "translations": {"fr": "Tendría que haber… = la même chose, plus familier : J'aurais dû partir plus tôt."}},
+        {"es": "Podría haber… = j'aurais pu: Podríamos haber ido en tren.", "translations": {"fr": "Podría haber… = j'aurais pu : Nous aurions pu y aller en train."}},
+        {"es": "El pronombre se pega a haber o va delante: Debería haberlo dicho = Lo debería haber dicho.", "translations": {"fr": "Le pronom se colle à « haber » ou se met devant : Debería haberlo dicho = Lo debería haber dicho (j'aurais dû le dire)."}}
+      ],
+      "examples": [
+        {"es": "Deberías haberme dicho que venías.", "translations": {"fr": "Tu aurais dû me dire que tu venais."}, "highlight": ["Deberías haberme dicho"]},
+        {"es": "Tendríamos que haber reservado antes: ¡no hay mesa!", "translations": {"fr": "On aurait dû réserver plus tôt : il n'y a pas de table !"}, "highlight": ["Tendríamos que haber reservado"]},
+        {"es": "Podrías haber llamado para avisar.", "translations": {"fr": "Tu aurais pu appeler pour prévenir."}, "highlight": ["Podrías haber llamado"]}
+      ],
+      "trick": {"es": "Piensa en «je devrais avoir fait»: debería + haber + hecho.", "translations": {"fr": "Pense à « je devrais avoir fait » : debería + haber + hecho."}},
+      "frenchTrap": {"es": "No digas «debería llamarte ayer»: para el pasado hace falta haber: Debería haberte llamado ayer.", "translations": {"fr": "Ne dis pas « debería llamarte ayer » : pour le passé, il faut « haber » : Debería haberte llamado ayer."}},
+      "seeAlso": ["tp_cond_reproches", "d_si_hubiera", "d_ojala_hubiera"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «deber»", "url": "https://www.rae.es/dpd/deber"},
+        {"label": "Instituto Cervantes · Plan curricular, Gramática B2: reproches y lamentos sobre el pasado"}
+      ],
+      "tags": ["deber", "reproche", "condicional", "pasado"]
+    },
+    {
+      "id": "d_como_si",
+      "question": {"es": "¿Como si es o como si fuera?", "translations": {"fr": "« Como si es » ou « como si fuera » ?"}},
+      "aliases": ["como si + subjuntivo", "como si fuera", "como si hubiera", "como si nada", "comme si espagnol", "comme si + imparfait espagnol"],
+      "cefr": "B2",
+      "category": "grammar",
+      "emoji": "🎭",
+      "answer": {"es": "Como si fuera. Después de «como si» va siempre el imperfecto de subjuntivo (o hubiera + participio para el pasado), nunca el indicativo: Habla como si fuera la jefa.", "translations": {"fr": "Como si fuera. Après « como si », on met toujours le subjonctif imparfait (ou hubiera + participe pour le passé), jamais l'indicatif : Habla como si fuera la jefa (elle parle comme si elle était la cheffe)."}},
+      "examples": [
+        {"es": "Me trata como si fuera su hija.", "translations": {"fr": "Il me traite comme si j'étais sa fille."}, "highlight": ["como si fuera"]},
+        {"es": "Come como si no hubiera comido en una semana.", "translations": {"fr": "Il mange comme s'il n'avait pas mangé depuis une semaine."}, "highlight": ["como si no hubiera comido"]},
+        {"es": "Hace frío y vas vestida como si estuviéramos en agosto.", "translations": {"fr": "Il fait froid et tu es habillée comme si on était en août."}, "highlight": ["como si estuviéramos"]},
+        {"es": "Se lo dije y siguió como si nada.", "translations": {"fr": "Je le lui ai dit et il a continué comme si de rien n'était."}, "highlight": ["como si nada"], "note": "Expresión fija: «como si nada» = «comme si de rien n'était».", "noteTranslations": {"fr": "Expression figée : « como si nada » = « comme si de rien n'était »."}}
+      ],
+      "trick": {"es": "Como si = «comme si», con un escalón más: imparfait → imperfecto de subjuntivo.", "translations": {"fr": "Como si = « comme si », avec une marche de plus : imparfait → subjonctif imparfait."}},
+      "frenchTrap": {"es": "En francés va el imperfecto de indicativo («comme si j'étais»). En español, el subjuntivo: no «como si era», sino como si fuera.", "translations": {"fr": "En français, on met l'imparfait de l'indicatif (« comme si j'étais »). En espagnol, le subjonctif : pas « como si era », mais como si fuera."}},
+      "seeAlso": ["tp_subj_imperfecto", "d_si_imperfecto", "d_subjuntivo_imperfecto"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «como» (como si)", "url": "https://www.rae.es/dpd/como"}
+      ],
+      "tags": ["como si", "comparación", "subjuntivo"]
+    },
+    {
+      "id": "d_ojala_hubiera",
+      "question": {"es": "¿Qué significa «ojalá hubiera…»?", "translations": {"fr": "Que veut dire « ojalá hubiera… » ?"}},
+      "aliases": ["ojalá hubiera", "ojalá lo hubiera sabido", "ojalá + pluscuamperfecto", "lamentar el pasado", "si seulement j'avais espagnol", "regret passé espagnol"],
+      "cefr": "B2",
+      "category": "grammar",
+      "emoji": "🥀",
+      "answer": {"es": "Ojalá + hubiera + participio expresa un deseo sobre el pasado, que ya no se puede cambiar: es un lamento. Ojalá hubiera estudiado música = «si seulement j'avais étudié la musique».", "translations": {"fr": "Ojalá + hubiera + participe exprime un souhait sur le passé, qu'on ne peut plus changer : c'est un regret. Ojalá hubiera estudiado música = « si seulement j'avais étudié la musique »."}},
+      "points": [
+        {"es": "Ojalá venga: es posible (futuro).", "translations": {"fr": "Ojalá venga : c'est possible (futur)."}},
+        {"es": "Ojalá viniera: es difícil o imposible (ahora).", "translations": {"fr": "Ojalá viniera : c'est difficile ou impossible (maintenant)."}},
+        {"es": "Ojalá hubiera venido: ya es tarde (pasado).", "translations": {"fr": "Ojalá hubiera venido : c'est trop tard (passé)."}}
+      ],
+      "examples": [
+        {"es": "¡Ojalá te hubiera conocido antes!", "translations": {"fr": "Si seulement je t'avais connu plus tôt !"}, "highlight": ["Ojalá te hubiera conocido"]},
+        {"es": "Ojalá no hubiéramos vendido la casa del pueblo.", "translations": {"fr": "Si seulement nous n'avions pas vendu la maison du village."}, "highlight": ["Ojalá no hubiéramos vendido"]},
+        {"es": "¡Si lo hubiera sabido, no habría venido!", "translations": {"fr": "Si j'avais su, je ne serais pas venue !"}, "highlight": ["Si lo hubiera sabido"], "note": "Otra forma de lamentar: «¡Si lo hubiera sabido!».", "noteTranslations": {"fr": "Une autre façon d'exprimer un regret : « ¡Si lo hubiera sabido! » (si j'avais su !)."}}
+      ],
+      "trick": {"es": "Tres escalones: venga (posible) → viniera (difícil) → hubiera venido (demasiado tarde).", "translations": {"fr": "Trois marches : venga (possible) → viniera (difficile) → hubiera venido (trop tard)."}},
+      "frenchTrap": {"es": "No digas «ojalá había sabido» ni «ojalá habría sabido»: después de ojalá, solo subjuntivo: Ojalá hubiera sabido.", "translations": {"fr": "Ne dis pas « ojalá había sabido » ni « ojalá habría sabido » : après « ojalá », seulement le subjonctif : Ojalá hubiera sabido."}},
+      "seeAlso": ["d_ojala", "d_si_hubiera", "tp_cond_reproches"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «ojalá»", "url": "https://www.rae.es/dpd/ojal%C3%A1"},
+        {"label": "RAE · Glosario de términos gramaticales: oración desiderativa", "url": "https://www.rae.es/gtg/oraci%C3%B3n-de-modalidad-desiderativa"}
+      ],
+      "tags": ["ojalá", "lamento", "pluscuamperfecto de subjuntivo"]
+    },
+    {
+      "id": "d_si_hubiera",
+      "question": {"es": "¿Si hubiera sabido o si habría sabido?", "translations": {"fr": "« Si hubiera sabido » ou « si habría sabido » ?"}},
+      "aliases": ["si hubiera sabido", "si habría sabido", "hubiera o habría", "condicional compuesto", "si j'avais su espagnol", "si + plus-que-parfait espagnol"],
+      "cefr": "B2",
+      "category": "grammar",
+      "emoji": "⏪",
+      "answer": {"es": "Si hubiera sabido. Para imaginar un pasado distinto: si + hubiera + participio, y en la otra parte habría (o hubiera) + participio: Si hubiera sabido que venías, habría hecho una tarta.", "translations": {"fr": "Si hubiera sabido. Pour imaginer un passé différent : si + hubiera + participe, et dans l'autre partie habría (ou hubiera) + participe : Si hubiera sabido que venías, habría hecho una tarta (si j'avais su que tu venais, j'aurais fait un gâteau)."}},
+      "points": [
+        {"es": "Fórmula: si + hubiera + participio → habría + participio.", "translations": {"fr": "Formule : si + hubiera + participe → habría + participe."}},
+        {"es": "En la otra parte, hubiera también vale: …, hubiera hecho una tarta.", "translations": {"fr": "Dans l'autre partie, « hubiera » marche aussi : …, hubiera hecho una tarta."}},
+        {"es": "Después de «si», nunca habría: «si habría sabido» es un error.", "translations": {"fr": "Après « si », jamais « habría » : « si habría sabido » est une faute."}},
+        {"es": "El participio no cambia nunca: Si la hubiera visto (no «vista»).", "translations": {"fr": "Le participe ne change jamais : Si la hubiera visto, si je l'avais vue (et non « vista »)."}}
+      ],
+      "examples": [
+        {"es": "Si hubieras venido, te habrías divertido.", "translations": {"fr": "Si tu étais venue, tu te serais amusée."}, "highlight": ["Si hubieras venido", "te habrías divertido"]},
+        {"es": "Si hubiéramos salido antes, no habríamos perdido el avión.", "translations": {"fr": "Si nous étions partis plus tôt, nous n'aurions pas raté l'avion."}, "highlight": ["Si hubiéramos salido", "no habríamos perdido"]},
+        {"es": "Si me lo hubieras dicho, te habría ayudado.", "translations": {"fr": "Si tu me l'avais dit, je t'aurais aidée."}, "highlight": ["Si me lo hubieras dicho", "te habría ayudado"]}
+      ],
+      "trick": {"es": "Una «h» a cada lado: si hubiera…, habría…", "translations": {"fr": "Un « h » de chaque côté : si hubiera…, habría…"}},
+      "frenchTrap": {"es": "En francés cambia el auxiliar (si j'étais venue, je serais allée). En español, siempre haber: Si hubiera venido, habría ido. Nunca «si fuera venida».", "translations": {"fr": "En français, l'auxiliaire change (si j'étais venue, je serais allée). En espagnol, toujours « haber » : Si hubiera venido, habría ido. Jamais « si fuera venida »."}},
+      "seeAlso": ["tp_cond_hipotesis", "d_si_imperfecto", "d_ojala_hubiera", "d_deberia_haber"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «si» (condicionales irreales)", "url": "https://www.rae.es/dpd/si"},
+        {"label": "RAE · Glosario de términos gramaticales: oración condicional", "url": "https://www.rae.es/gtg/oraci%C3%B3n-subordinada-adverbial-condicional"}
+      ],
+      "tags": ["si", "hipótesis", "pasado", "pluscuamperfecto de subjuntivo"]
+    },
+    {
+      "id": "d_yo_que_tu",
+      "question": {"es": "¿Cómo se dice «à ta place, je…»?", "translations": {"fr": "Comment dit-on « à ta place, je… » ?"}},
+      "aliases": ["yo que tú", "yo en tu lugar", "si yo fuera tú", "dar un consejo", "à ta place espagnol", "si j'étais toi espagnol", "à votre place espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "💡",
+      "answer": {"es": "Yo que tú… o Yo, en tu lugar… + condicional: Yo que tú, iría al médico. También: Si yo fuera tú, iría al médico. Es un consejo amable, sin dar órdenes.", "translations": {"fr": "Yo que tú… ou Yo, en tu lugar… + conditionnel : Yo que tú, iría al médico (à ta place, j'irais chez le médecin). Aussi : Si yo fuera tú, iría al médico. C'est un conseil gentil, sans donner d'ordre."}},
+      "points": [
+        {"es": "Yo que tú + condicional: Yo que tú, no lo compraría.", "translations": {"fr": "Yo que tú + conditionnel : À ta place, je ne l'achèterais pas."}},
+        {"es": "Yo, en tu lugar, + condicional: Yo, en tu lugar, hablaría con ella.", "translations": {"fr": "Yo, en tu lugar + conditionnel : À ta place, je lui parlerais."}},
+        {"es": "Deberías + infinitivo: Deberías descansar más.", "translations": {"fr": "Deberías + infinitif : Tu devrais te reposer davantage."}},
+        {"es": "Con usted: Yo que usted… / Yo, en su lugar…", "translations": {"fr": "Avec usted : Yo que usted… / Yo, en su lugar… (à votre place)."}}
+      ],
+      "examples": [
+        {"es": "Yo que tú, me llevaría un paraguas.", "translations": {"fr": "À ta place, je prendrais un parapluie."}, "highlight": ["Yo que tú", "me llevaría"]},
+        {"es": "Yo, en tu lugar, llamaría al seguro.", "translations": {"fr": "À ta place, j'appellerais l'assurance."}, "highlight": ["en tu lugar", "llamaría"]},
+        {"es": "Si yo fuera usted, no firmaría todavía.", "translations": {"fr": "Si j'étais vous, je ne signerais pas encore."}, "highlight": ["Si yo fuera usted", "no firmaría"]}
+      ],
+      "trick": {"es": "«Yo que tú» no tiene verbo: es una fórmula fija. Apréndela como un bloque.", "translations": {"fr": "« Yo que tú » n'a pas de verbe : c'est une formule figée. Apprends-la d'un bloc."}},
+      "frenchTrap": {"es": "No traduzcas «à ta place» por «a tu lugar»: se dice en tu lugar. Y no digas «si sería tú»: Si yo fuera tú.", "translations": {"fr": "Ne traduis pas « à ta place » par « a tu lugar » : on dit en tu lugar. Et ne dis pas « si sería tú » : Si yo fuera tú."}},
+      "seeAlso": ["tp_cond_hipotesis", "d_si_imperfecto", "d_condicional_cortesia", "tp_b1_condicional"],
+      "sources": [
+        {"label": "Instituto Cervantes · Plan curricular, Funciones B1: aconsejar (yo que tú, yo en tu lugar)"}
+      ],
+      "tags": ["consejo", "condicional", "yo que tú"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

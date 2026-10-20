@@ -1,0 +1,293 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_basico_pasados",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Pasado y futuro", "translations": {"fr": "Le passé et le futur"}},
+  "emoji": "⏳",
+  "order": 12,
+  "entries": [
+    {
+      "id": "d_perfecto_indefinido",
+      "question": {"es": "¿«He comido» o «comí»? ¿Cuál es la diferencia?", "translations": {"fr": "« He comido » ou « comí » ? Quelle est la différence ?"}},
+      "aliases": ["he comido o comí", "perfecto o indefinido", "pretérito perfecto", "passé composé en espagnol", "différence entre he comido et comí", "hoy he ido o hoy fui", "ayer comí o ayer he comido"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🍽️",
+      "answer": {"es": "En España depende del momento. Tiempo que todavía no ha terminado (hoy, esta semana, este año, alguna vez) → he comido. Tiempo terminado (ayer, el lunes, en 2010, hace dos años) → comí.", "translations": {"fr": "En Espagne, ça dépend du moment. Période pas encore terminée (aujourd'hui, cette semaine, cette année, déjà dans la vie) → he comido. Période terminée (hier, lundi dernier, en 2010, il y a deux ans) → comí."}},
+      "compare": [
+        {"title": {"es": "HE COMIDO (perfecto)", "translations": {"fr": "HE COMIDO (perfecto)"}}, "items": [
+          {"es": "Hoy: Hoy he comido paella.", "translations": {"fr": "Aujourd'hui : Aujourd'hui, j'ai mangé une paella."}},
+          {"es": "Esta semana: He ido dos veces al cine.", "translations": {"fr": "Cette semaine : Je suis allée deux fois au cinéma."}},
+          {"es": "Experiencia: ¿Has probado el pulpo?", "translations": {"fr": "Expérience : Tu as déjà goûté le poulpe ?"}},
+          {"es": "Ya, todavía no: Ya he terminado.", "translations": {"fr": "Déjà, pas encore : J'ai déjà fini."}}
+        ]},
+        {"title": {"es": "COMÍ (indefinido)", "translations": {"fr": "COMÍ (indefinido)"}}, "items": [
+          {"es": "Ayer: Ayer comí paella.", "translations": {"fr": "Hier : Hier, j'ai mangé une paella."}},
+          {"es": "Fecha: En 2019 fui a México.", "translations": {"fr": "Date : En 2019, je suis allée au Mexique."}},
+          {"es": "Hace…: Hace un mes vi a Juan.", "translations": {"fr": "Il y a… : Il y a un mois, j'ai vu Juan."}},
+          {"es": "El año pasado: Viajamos mucho.", "translations": {"fr": "L'année dernière : Nous avons beaucoup voyagé."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Esta mañana he desayunado churros, y ayer cené en casa de Pilar.", "translations": {"fr": "Ce matin, j'ai mangé des churros au petit-déjeuner, et hier, j'ai dîné chez Pilar."}, "highlight": ["he desayunado", "cené"]},
+        {"es": "—¿Has estado alguna vez en Granada? —Sí, fui en 2015.", "translations": {"fr": "— Tu es déjà allée à Grenade ? — Oui, j'y suis allée en 2015."}, "highlight": ["Has estado", "fui en 2015"]},
+        {"es": "Hoy comí con mi hermana.", "translations": {"fr": "Aujourd'hui, j'ai déjeuné avec ma sœur."}, "highlight": ["Hoy comí"], "note": "En gran parte de América se usa mucho el indefinido, también con «hoy».", "noteTranslations": {"fr": "Dans une grande partie de l'Amérique latine, on utilise beaucoup le indefinido, même avec « hoy »."}}
+      ],
+      "trick": {"es": "¿El tiempo sigue abierto (hoy, este mes)? → he comido. ¿Está cerrado (ayer, el mes pasado)? → comí.", "translations": {"fr": "La période est encore ouverte (aujourd'hui, ce mois-ci) ? → he comido. Elle est fermée (hier, le mois dernier) ? → comí."}},
+      "frenchTrap": {"es": "El passé composé francés sirve para todo; en español, no. «Hier j'ai mangé» = ayer comí (no «ayer he comido»). Y el indefinido no es literario como el passé simple: se usa todos los días.", "translations": {"fr": "Le passé composé français sert pour tout ; en espagnol, non. « Hier j'ai mangé » = ayer comí (pas « ayer he comido »). Et le indefinido n'est pas littéraire comme le passé simple : on l'utilise tous les jours."}},
+      "seeAlso": ["d_indefinido_imperfecto", "tp_a2_perfecto", "tp_a2_indefinido", "tp_pasado_perf_indef"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de gramática A2 (pretérito perfecto y pretérito indefinido)"}],
+      "tags": ["pasado", "perfecto", "indefinido"]
+    },
+    {
+      "id": "d_indefinido_imperfecto",
+      "question": {"es": "¿«Comí» o «comía»? ¿Cuándo uso el imperfecto?", "translations": {"fr": "« Comí » ou « comía » ? Quand utiliser l'imparfait ?"}},
+      "aliases": ["comí o comía", "indefinido o imperfecto", "fui o iba", "era o fue", "imparfait en espagnol", "passé composé ou imparfait en espagnol", "cuando era pequeña"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🎞️",
+      "answer": {"es": "El indefinido cuenta los hechos, acciones terminadas: comí, llegó, llamaste. El imperfecto describe el decorado y las costumbres: hacía sol, comíamos a las dos, era alta.", "translations": {"fr": "Le indefinido raconte les faits, des actions terminées : comí (j'ai mangé), llegó (il est arrivé), llamaste (tu as appelé). L'imperfecto décrit le décor et les habitudes : hacía sol (il faisait beau), comíamos a las dos (nous mangions à deux heures), era alta (elle était grande)."}},
+      "compare": [
+        {"title": {"es": "INDEFINIDO (la acción)", "translations": {"fr": "INDEFINIDO (l'action)"}}, "items": [
+          {"es": "Hecho: Ayer llamó mi hijo.", "translations": {"fr": "Fait : Hier, mon fils a appelé."}},
+          {"es": "Serie de acciones: Llegué, me duché y cené.", "translations": {"fr": "Suite d'actions : Je suis arrivée, je me suis douchée et j'ai dîné."}},
+          {"es": "Tiempo cerrado: Viví diez años en Roma.", "translations": {"fr": "Durée fermée : J'ai vécu dix ans à Rome."}}
+        ]},
+        {"title": {"es": "IMPERFECTO (el decorado)", "translations": {"fr": "IMPERFECTO (le décor)"}}, "items": [
+          {"es": "Descripción: La casa era grande.", "translations": {"fr": "Description : La maison était grande."}},
+          {"es": "Costumbre: Cada verano íbamos a la playa.", "translations": {"fr": "Habitude : Chaque été, nous allions à la plage."}},
+          {"es": "Hora y edad: Eran las diez. Tenía ocho años.", "translations": {"fr": "Heure et âge : Il était dix heures. J'avais huit ans."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Dormía tranquilamente cuando sonó el teléfono.", "translations": {"fr": "Je dormais tranquillement quand le téléphone a sonné."}, "highlight": ["Dormía", "sonó"]},
+        {"es": "De pequeña vivía en el campo y todos los días iba andando al colegio.", "translations": {"fr": "Petite, je vivais à la campagne et tous les jours j'allais à l'école à pied."}, "highlight": ["vivía", "iba"]},
+        {"es": "El sábado fuimos a la playa: hacía un sol precioso.", "translations": {"fr": "Samedi, nous sommes allés à la plage : il faisait un soleil magnifique."}, "highlight": ["fuimos", "hacía"]}
+      ],
+      "trick": {"es": "Imagina una película: el imperfecto es el decorado (hacía sol, había gente); el indefinido es lo que pasa (llegó, gritó).", "translations": {"fr": "Imagine un film : l'imperfecto, c'est le décor (il faisait beau, il y avait du monde) ; le indefinido, c'est ce qui se passe (il est arrivé, il a crié)."}},
+      "frenchTrap": {"es": "Buena noticia: imparfait ≈ imperfecto, casi siempre. La trampa es el passé composé: si cuenta un hecho terminado, en español es indefinido (fue, llegó). Y «il y avait» = había.", "translations": {"fr": "Bonne nouvelle : imparfait ≈ imperfecto, presque toujours. Le piège, c'est le passé composé : s'il raconte un fait terminé, en espagnol c'est le indefinido (fue, llegó). Et « il y avait » = había."}},
+      "seeAlso": ["d_perfecto_indefinido", "d_soler", "tp_a2_imperfecto", "tp_b1_pasados_juntos", "tp_pasado_indef_imperf"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de gramática A2–B1 (pretérito imperfecto)"}],
+      "tags": ["imperfecto", "indefinido", "contar"]
+    },
+    {
+      "id": "d_participios_irregulares",
+      "question": {"es": "¿Cuáles son los participios irregulares más importantes?", "translations": {"fr": "Quels sont les participes passés irréguliers les plus importants ?"}},
+      "aliases": ["participios irregulares", "hecho dicho visto", "he hacido", "he escribido o he escrito", "participes irréguliers en espagnol", "participe passé espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "📝",
+      "answer": {"es": "Los regulares son fáciles: -ar → -ado (hablado), -er, -ir → -ido (comido, vivido). Los irregulares más usados son unos doce: hecho, dicho, visto, puesto, escrito, vuelto, abierto, roto, muerto, cubierto, descubierto, resuelto.", "translations": {"fr": "Les réguliers sont faciles : -ar → -ado (hablado), -er, -ir → -ido (comido, vivido). Les irréguliers les plus courants sont une douzaine : hecho, dicho, visto, puesto, escrito, vuelto, abierto, roto, muerto, cubierto, descubierto, resuelto."}},
+      "points": [
+        {"es": "hacer → hecho, decir → dicho, ver → visto, poner → puesto, escribir → escrito.", "translations": {"fr": "hacer → hecho (fait), decir → dicho (dit), ver → visto (vu), poner → puesto (mis), escribir → escrito (écrit)."}},
+        {"es": "volver → vuelto, abrir → abierto, romper → roto, morir → muerto.", "translations": {"fr": "volver → vuelto (revenu), abrir → abierto (ouvert), romper → roto (cassé), morir → muerto (mort)."}},
+        {"es": "cubrir → cubierto, descubrir → descubierto, resolver → resuelto.", "translations": {"fr": "cubrir → cubierto (couvert), descubrir → descubierto (découvert), resolver → resuelto (résolu)."}},
+        {"es": "Los compuestos hacen lo mismo: deshacer → deshecho, devolver → devuelto, componer → compuesto.", "translations": {"fr": "Les composés font pareil : deshacer → deshecho (défait), devolver → devuelto (rendu), componer → compuesto (composé)."}},
+        {"es": "Dos formas correctas: freír → freído o frito; imprimir → imprimido o impreso.", "translations": {"fr": "Deux formes correctes : freír → freído ou frito (frit) ; imprimir → imprimido ou impreso (imprimé)."}}
+      ],
+      "examples": [
+        {"es": "¿Has visto mis gafas? Creo que las he puesto en la cocina.", "translations": {"fr": "Tu as vu mes lunettes ? Je crois que je les ai mises dans la cuisine."}, "highlight": ["Has visto", "he puesto"], "note": "«Puesto» no cambia, aunque «gafas» sea femenino plural.", "noteTranslations": {"fr": "« Puesto » ne s'accorde pas, même si « gafas » est féminin pluriel."}},
+        {"es": "Mi nieto ha roto un vaso y no me lo ha dicho.", "translations": {"fr": "Mon petit-fils a cassé un verre et il ne me l'a pas dit."}, "highlight": ["ha roto", "ha dicho"]},
+        {"es": "¿Ya has hecho la maleta para el viaje?", "translations": {"fr": "Tu as déjà fait ta valise pour le voyage ?"}, "highlight": ["has hecho"]}
+      ],
+      "trick": {"es": "Muchos se parecen al francés: escrito (écrit), dicho (dit), hecho (fait), muerto (mort), abierto (ouvert), cubierto (couvert).", "translations": {"fr": "Beaucoup ressemblent au français : escrito (écrit), dicho (dit), hecho (fait), muerto (mort), abierto (ouvert), cubierto (couvert)."}},
+      "frenchTrap": {"es": "No digas «he hacido» ni «he escribido». Y con «haber» el participio nunca cambia: «je les ai écrites» = las he escrito.", "translations": {"fr": "Ne dis pas « he hacido » ni « he escribido ». Et avec « haber », le participe ne change jamais : « je les ai écrites » = las he escrito."}},
+      "seeAlso": ["d_haber_auxiliar", "d_perfecto_indefinido", "tp_a2_perfecto"],
+      "sources": [
+        {"label": "Instituto Cervantes · Plan curricular, inventario de gramática A2 (participios irregulares)"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «imprimir» (dos participios)", "url": "https://www.rae.es/dpd/imprimir"}
+      ],
+      "tags": ["participio", "irregulares", "perfecto"]
+    },
+    {
+      "id": "d_haber_auxiliar",
+      "question": {"es": "¿Se dice «he ido» o «soy ido»? ¿Cómo digo «je suis allée»?", "translations": {"fr": "Dit-on « he ido » ou « soy ido » ? Comment dire « je suis allée » ?"}},
+      "aliases": ["he ido o soy ido", "auxiliar haber", "soy llegado", "je suis allée en espagnol", "auxiliaire être en espagnol", "me he levantado", "être ou avoir en espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🔧",
+      "answer": {"es": "Siempre con «haber»: he ido, ha llegado, nos hemos levantado. En español «ser» y «estar» nunca forman los tiempos compuestos, y el participio no cambia: ella ha ido, ellas han ido.", "translations": {"fr": "Toujours avec « haber » : he ido (je suis allée), ha llegado (il est arrivé), nos hemos levantado (nous nous sommes levés). En espagnol, « ser » et « estar » ne forment jamais les temps composés, et le participe ne change pas : ella ha ido, ellas han ido."}},
+      "points": [
+        {"es": "Verbos de movimiento: he ido, has venido, ha salido, hemos llegado.", "translations": {"fr": "Verbes de mouvement : he ido (je suis allée), has venido (tu es venu), ha salido (il est sorti), hemos llegado (nous sommes arrivés)."}},
+        {"es": "Verbos con «se»: me he levantado, se ha caído, nos hemos casado.", "translations": {"fr": "Verbes pronominaux : me he levantado (je me suis levée), se ha caído (il est tombé), nos hemos casado (nous nous sommes mariés)."}},
+        {"es": "Nacer y morir también: ha nacido, ha muerto.", "translations": {"fr": "Naître et mourir aussi : ha nacido (il est né), ha muerto (il est mort)."}},
+        {"es": "Sin concordancia: María ha llegado; las chicas han salido.", "translations": {"fr": "Pas d'accord : María ha llegado (María est arrivée) ; las chicas han salido (les filles sont sorties)."}}
+      ],
+      "examples": [
+        {"es": "Mi hermana ha llegado esta mañana de París.", "translations": {"fr": "Ma sœur est arrivée de Paris ce matin."}, "highlight": ["ha llegado"]},
+        {"es": "Hoy me he levantado tarde.", "translations": {"fr": "Aujourd'hui, je me suis levée tard."}, "highlight": ["me he levantado"]},
+        {"es": "¿Ya se han ido tus amigas?", "translations": {"fr": "Tes amies sont déjà parties ?"}, "highlight": ["se han ido"]}
+      ],
+      "trick": {"es": "Si en francés usas «être» o «avoir» + participio, en español es siempre «haber».", "translations": {"fr": "Si en français tu utilises « être » ou « avoir » + participe, en espagnol c'est toujours « haber »."}},
+      "frenchTrap": {"es": "«Je suis allée» = he ido (o fui), nunca «soy ida». ¡Y cuidado: «estoy ida» significa «estoy en las nubes»!", "translations": {"fr": "« Je suis allée » = he ido (ou fui), jamais « soy ida ». Et attention : « estoy ida » veut dire « je suis dans la lune » !"}},
+      "seeAlso": ["d_tener_haber", "d_participios_irregulares", "tp_a2_perfecto"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «haber» (verbo auxiliar)", "url": "https://www.rae.es/dpd/haber"}],
+      "tags": ["haber", "auxiliar", "perfecto"]
+    },
+    {
+      "id": "d_futuro_ir_a",
+      "question": {"es": "¿«Iré» o «voy a ir»? ¿Cómo hablo del futuro?", "translations": {"fr": "« Iré » ou « voy a ir » ? Comment parler du futur ?"}},
+      "aliases": ["iré o voy a ir", "futuro o ir a", "ir a más infinitivo", "futur proche en espagnol", "je vais faire en espagnol", "futur simple ou futur proche"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🔭",
+      "answer": {"es": "Para planes e intenciones, lo más natural es «ir a + infinitivo»: voy a visitar a mi hija. El futuro (visitaré) sirve para predicciones, promesas y planes más lejanos o menos seguros. ¡No olvides la «a»!", "translations": {"fr": "Pour les projets et les intentions, le plus naturel est « ir a + infinitif » : voy a visitar a mi hija (je vais rendre visite à ma fille). Le futur (visitaré) sert pour les prévisions, les promesses et les projets plus lointains ou moins sûrs. N'oublie pas le « a » !"}},
+      "compare": [
+        {"title": {"es": "VOY A + INFINITIVO", "translations": {"fr": "VOY A + INFINITIF"}}, "items": [
+          {"es": "Plan: Este verano voy a ir a Galicia.", "translations": {"fr": "Projet : Cet été, je vais aller en Galice."}},
+          {"es": "Decisión: Voy a llamar a Ana.", "translations": {"fr": "Décision : Je vais appeler Ana."}},
+          {"es": "Lo ves venir: ¡Va a llover!", "translations": {"fr": "Tu le vois venir : Il va pleuvoir !"}}
+        ]},
+        {"title": {"es": "FUTURO: iré, haré…", "translations": {"fr": "FUTUR : iré, haré…"}}, "items": [
+          {"es": "Predicción: Mañana lloverá en el norte.", "translations": {"fr": "Prévision : Demain, il pleuvra dans le nord."}},
+          {"es": "Promesa: Te llamaré, te lo prometo.", "translations": {"fr": "Promesse : Je t'appellerai, promis."}},
+          {"es": "Suposición: Estará en casa.", "translations": {"fr": "Supposition : Il doit être à la maison."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "El sábado vamos a comer en casa de mis padres.", "translations": {"fr": "Samedi, nous allons déjeuner chez mes parents."}, "highlight": ["vamos a comer"]},
+        {"es": "Algún día viviré junto al mar.", "translations": {"fr": "Un jour, je vivrai au bord de la mer."}, "highlight": ["viviré"]},
+        {"es": "Mañana voy al médico a las diez.", "translations": {"fr": "Demain, je vais chez le médecin à dix heures."}, "highlight": ["voy al médico"], "note": "Plan fijo: el presente también vale.", "noteTranslations": {"fr": "Projet fixé : le présent marche aussi."}}
+      ],
+      "trick": {"es": "«Je vais + infinitif» = voy a + infinitivo: solo añade la «a».", "translations": {"fr": "« Je vais + infinitif » = voy a + infinitif : ajoute juste le « a »."}},
+      "frenchTrap": {"es": "El error típico es olvidar la «a»: «voy hacer» ✗ → voy a hacer ✓. Y «dans deux jours» = dentro de dos días.", "translations": {"fr": "L'erreur typique, c'est d'oublier le « a » : « voy hacer » ✗ → voy a hacer ✓. Et « dans deux jours » = dentro de dos días."}},
+      "seeAlso": ["d_futuro_irregular", "tp_a2_futuro_planes"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «ir» (ir a + infinitivo)", "url": "https://www.rae.es/dpd/ir"}],
+      "tags": ["futuro", "ir a", "planes"]
+    },
+    {
+      "id": "d_futuro_irregular",
+      "question": {"es": "¿Se dice «tendré» o «teneré»? ¿Qué futuros son irregulares?", "translations": {"fr": "Dit-on « tendré » ou « teneré » ? Quels futurs sont irréguliers ?"}},
+      "aliases": ["tendré o teneré", "futuro irregular", "haré o haceré", "podré o poderé", "futur irrégulier en espagnol", "futur de tener"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🔮",
+      "answer": {"es": "El futuro se hace con el infinitivo + -é, -ás, -á, -emos, -éis, -án: hablaré, comeré. Unos doce verbos cambian la raíz, como en francés: tendré, haré, diré, podré, saldré, vendré, pondré, querré, sabré, habrá.", "translations": {"fr": "Le futur se forme avec l'infinitif + -é, -ás, -á, -emos, -éis, -án : hablaré, comeré. Une douzaine de verbes changent de radical, comme en français : tendré, haré, diré, podré, saldré, vendré, pondré, querré, sabré, habrá."}},
+      "points": [
+        {"es": "Con «-dr-»: tener → tendré, poner → pondré, salir → saldré, venir → vendré.", "translations": {"fr": "Avec « -dr- » : tener → tendré (j'aurai), poner → pondré (je mettrai), salir → saldré (je sortirai), venir → vendré (je viendrai)."}},
+        {"es": "Pierden una vocal: poder → podré, saber → sabré, querer → querré, haber → habrá, caber → cabré.", "translations": {"fr": "Perdent une voyelle : poder → podré (je pourrai), saber → sabré (je saurai), querer → querré (je voudrai), haber → habrá (il y aura), caber → cabré (je tiendrai)."}},
+        {"es": "Muy cortos: hacer → haré, decir → diré.", "translations": {"fr": "Très courts : hacer → haré (je ferai), decir → diré (je dirai)."}},
+        {"es": "El condicional usa la misma raíz: tendría, haría, podría.", "translations": {"fr": "Le conditionnel utilise le même radical : tendría (j'aurais), haría (je ferais), podría (je pourrais)."}}
+      ],
+      "examples": [
+        {"es": "El año que viene tendré más tiempo para viajar.", "translations": {"fr": "L'année prochaine, j'aurai plus de temps pour voyager."}, "highlight": ["tendré"]},
+        {"es": "Mañana no podré salir: haré la maleta.", "translations": {"fr": "Demain, je ne pourrai pas sortir : je ferai ma valise."}, "highlight": ["podré", "haré"]},
+        {"es": "Este fin de semana habrá mucha gente en la playa.", "translations": {"fr": "Ce week-end, il y aura beaucoup de monde à la plage."}, "highlight": ["habrá"]}
+      ],
+      "trick": {"es": "Si conoces el futuro francés, ya conoces el truco: «j'aurai, je ferai, je viendrai» también cambian. Tendré, haré, vendré.", "translations": {"fr": "Si tu connais le futur français, tu connais déjà le truc : « j'aurai, je ferai, je viendrai » changent aussi. Tendré, haré, vendré."}},
+      "frenchTrap": {"es": "No digas «teneré», «haceré» ni «poderé». Y ojo: «quand je serai à Madrid» = cuando esté en Madrid, no «cuando estaré» (después de «cuando», subjuntivo).", "translations": {"fr": "Ne dis pas « teneré », « haceré » ni « poderé ». Et attention : « quand je serai à Madrid » = cuando esté en Madrid, pas « cuando estaré » (après « cuando », subjonctif)."}},
+      "seeAlso": ["d_futuro_ir_a", "tp_a2_futuro_planes", "tp_b1_condicional", "tp_subj_temporales"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de gramática A2 (futuro imperfecto)"}],
+      "tags": ["futuro", "irregulares", "verbos"]
+    },
+    {
+      "id": "d_hace_desde",
+      "question": {"es": "¿«Hace», «desde» o «desde hace»? ¿Cómo digo «il y a» y «depuis»?", "translations": {"fr": "« Hace », « desde » ou « desde hace » ? Comment dire « il y a » et « depuis » ?"}},
+      "aliases": ["hace o desde", "desde hace", "il y a deux ans en espagnol", "depuis en espagnol", "depuis deux ans en espagnol", "hace dos años", "desde cuándo"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "⏱️",
+      "answer": {"es": "«Hace + tiempo» = il y a: llegué hace dos años. «Desde + fecha» = depuis un momento: vivo aquí desde 2020. «Desde hace + tiempo» = depuis una duración: vivo aquí desde hace seis años.", "translations": {"fr": "« Hace + durée » = il y a : llegué hace dos años (je suis arrivée il y a deux ans). « Desde + date » = depuis un moment : vivo aquí desde 2020 (j'habite ici depuis 2020). « Desde hace + durée » = depuis une durée : vivo aquí desde hace seis años (j'habite ici depuis six ans)."}},
+      "compare": [
+        {"title": {"es": "HACE (il y a)", "translations": {"fr": "HACE (il y a)"}}, "items": [
+          {"es": "Pasado: Me casé hace 35 años.", "translations": {"fr": "Passé : Je me suis mariée il y a 35 ans."}},
+          {"es": "Hace… que: Hace un año que no la veo.", "translations": {"fr": "Ça fait… que : Ça fait un an que je ne la vois pas."}},
+          {"es": "Pregunta: ¿Hace mucho que esperas?", "translations": {"fr": "Question : Ça fait longtemps que tu attends ?"}}
+        ]},
+        {"title": {"es": "DESDE / DESDE HACE (depuis)", "translations": {"fr": "DESDE / DESDE HACE (depuis)"}}, "items": [
+          {"es": "Desde + momento: desde el lunes, desde 2020", "translations": {"fr": "Depuis + moment : depuis lundi, depuis 2020"}},
+          {"es": "Desde hace + tiempo: desde hace un mes", "translations": {"fr": "Depuis + durée : depuis un mois"}},
+          {"es": "Pregunta: ¿Desde cuándo vives aquí?", "translations": {"fr": "Question : Depuis quand tu habites ici ?"}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Vivo en Valencia desde hace diez años: llegué en 2016.", "translations": {"fr": "J'habite à Valence depuis dix ans : je suis arrivée en 2016."}, "highlight": ["desde hace diez años", "llegué en 2016"]},
+        {"es": "Conocí a mi marido hace cuarenta años.", "translations": {"fr": "J'ai rencontré mon mari il y a quarante ans."}, "highlight": ["hace cuarenta años"]},
+        {"es": "Te estoy esperando desde las nueve.", "translations": {"fr": "Je t'attends depuis neuf heures."}, "highlight": ["desde las nueve"]}
+      ],
+      "trick": {"es": "Fecha u hora → desde. Cantidad de tiempo → desde hace. Un momento del pasado → hace.", "translations": {"fr": "Date ou heure → desde. Durée → desde hace. Moment du passé (il y a) → hace."}},
+      "frenchTrap": {"es": "«Il y a deux ans» no es «hay dos años»: es «hace dos años». Y «depuis deux ans» necesita «hace»: desde hace dos años (no «desde dos años»).", "translations": {"fr": "« Il y a deux ans » ne se dit pas « hay dos años » : c'est « hace dos años ». Et « depuis deux ans » a besoin de « hace » : desde hace dos años (pas « desde dos años »)."}},
+      "seeAlso": ["d_hay_esta", "d_perfecto_indefinido", "tp_a2_indefinido", "tp_a2_preposiciones"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «hacer» (hace dos años)", "url": "https://www.rae.es/dpd/hacer"}],
+      "tags": ["hace", "desde", "tiempo"]
+    },
+    {
+      "id": "d_acabar_de",
+      "question": {"es": "¿Cómo se dice «je viens de manger»?", "translations": {"fr": "Comment dit-on « je viens de manger » ?"}},
+      "aliases": ["acabar de", "venir de faire en espagnol", "je viens de en espagnol", "acabo de llegar", "vengo de comer", "passé récent en espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🏁",
+      "answer": {"es": "Con «acabar de + infinitivo»: acabo de comer = je viens de manger. «Vengo de comer» existe, pero significa otra cosa: llego del sitio donde he comido.", "translations": {"fr": "Avec « acabar de + infinitif » : acabo de comer = je viens de manger. « Vengo de comer » existe, mais ça veut dire autre chose : je reviens de l'endroit où j'ai mangé."}},
+      "points": [
+        {"es": "Presente = acaba de pasar: Acabo de llegar.", "translations": {"fr": "Présent = ça vient d'arriver : Acabo de llegar (je viens d'arriver)."}},
+        {"es": "Imperfecto = je venais de: Acababa de salir cuando llamaste.", "translations": {"fr": "Imparfait = je venais de : Acababa de salir cuando llamaste (je venais de sortir quand tu as appelé)."}},
+        {"es": "Con pronombres, dos posibilidades: Acabo de verlo / Lo acabo de ver.", "translations": {"fr": "Avec des pronoms, deux possibilités : Acabo de verlo / Lo acabo de ver (je viens de le voir)."}},
+        {"es": "Ojo: «acabar» solo significa «terminar»: ¿Has acabado?", "translations": {"fr": "Attention : « acabar » tout seul veut dire « finir » : ¿Has acabado? (tu as fini ?)"}}
+      ],
+      "examples": [
+        {"es": "Acabo de hablar con tu madre: está muy bien.", "translations": {"fr": "Je viens de parler avec ta mère : elle va très bien."}, "highlight": ["Acabo de hablar"]},
+        {"es": "—¿Está Carmen? —No, acaba de salir.", "translations": {"fr": "— Carmen est là ? — Non, elle vient de sortir."}, "highlight": ["acaba de salir"]},
+        {"es": "Acabábamos de cenar cuando llegaron los vecinos.", "translations": {"fr": "Nous venions de dîner quand les voisins sont arrivés."}, "highlight": ["Acabábamos de cenar"]}
+      ],
+      "trick": {"es": "Venir de faire = acabar de hacer: la acción «acaba» (termina) justo ahora.", "translations": {"fr": "Venir de faire = acabar de hacer : l'action « acaba » (se termine) à l'instant."}},
+      "frenchTrap": {"es": "No traduzcas palabra por palabra: «je viens de manger» no es «vengo de comer» (eso es «je reviens du repas»). Es «acabo de comer».", "translations": {"fr": "Ne traduis pas mot à mot : « je viens de manger » n'est pas « vengo de comer » (ça veut dire « je reviens du repas »). C'est « acabo de comer »."}},
+      "seeAlso": ["d_volver_a", "tp_b1_estar_gerundio", "tp_verbos_perifrasis"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: «acabar» (acabar de + infinitivo)", "url": "https://dle.rae.es/acabar"}],
+      "tags": ["acabar de", "perífrasis", "pasado reciente"]
+    },
+    {
+      "id": "d_volver_a",
+      "question": {"es": "¿Cómo se dice «refaire», «relire» o «recommencer»?", "translations": {"fr": "Comment dit-on « refaire », « relire » ou « recommencer » ?"}},
+      "aliases": ["volver a", "refaire en espagnol", "recommencer en espagnol", "relire en espagnol", "de nuevo", "otra vez o volver a"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🔄",
+      "answer": {"es": "Con «volver a + infinitivo»: vuelvo a leer = je relis; ha vuelto a llover = il pleut de nouveau. También puedes decir «otra vez» o «de nuevo»: lo leo otra vez.", "translations": {"fr": "Avec « volver a + infinitif » : vuelvo a leer = je relis ; ha vuelto a llover = il pleut de nouveau. Tu peux aussi dire « otra vez » ou « de nuevo » : lo leo otra vez (je le relis)."}},
+      "points": [
+        {"es": "Releer y rehacer existen, pero «volver a» es mucho más frecuente y sirve con todos los verbos.", "translations": {"fr": "Releer et rehacer existent, mais « volver a » est beaucoup plus courant et marche avec tous les verbes."}},
+        {"es": "Recommencer = volver a empezar: Vamos a volver a empezar.", "translations": {"fr": "Recommencer = volver a empezar : Vamos a volver a empezar (on va recommencer)."}},
+        {"es": "En negativo, casi una promesa: ¡No vuelvo a comer aquí!", "translations": {"fr": "À la forme négative, c'est presque une promesse : ¡No vuelvo a comer aquí! (je ne mangerai plus jamais ici !)"}},
+        {"es": "Con verbos que ya repiten, sobra: no «volver a rehacer», sino «rehacer» o «volver a hacer».", "translations": {"fr": "Avec des verbes qui expriment déjà la répétition, c'est de trop : pas « volver a rehacer », mais « rehacer » ou « volver a hacer »."}}
+      ],
+      "examples": [
+        {"es": "Me encantó el libro y lo voy a volver a leer.", "translations": {"fr": "J'ai adoré le livre et je vais le relire."}, "highlight": ["volver a leer"]},
+        {"es": "¡Ha vuelto a llover! No olvides el paraguas.", "translations": {"fr": "Il pleut de nouveau ! N'oublie pas le parapluie."}, "highlight": ["Ha vuelto a llover"]},
+        {"es": "¿Puede volver a explicarlo, por favor?", "translations": {"fr": "Vous pouvez l'expliquer encore une fois, s'il vous plaît ?"}, "highlight": ["volver a explicarlo"]}
+      ],
+      "trick": {"es": "El «re-» francés → volver a + infinitivo: relire = volver a leer, revoir = volver a ver, se remarier = volver a casarse.", "translations": {"fr": "Le « re- » français → volver a + infinitif : relire = volver a leer, revoir = volver a ver, se remarier = volver a casarse."}},
+      "frenchTrap": {"es": "Cuidado con «re-»: «revenir» = volver, «rentrer» = volver a casa. Para «refaire, relire, revoir», lo más natural es «volver a + infinitivo».", "translations": {"fr": "Attention avec « re- » : « revenir » = volver, « rentrer » = volver a casa. Pour « refaire, relire, revoir », le plus naturel est « volver a + infinitif »."}},
+      "seeAlso": ["d_acabar_de", "d_otro", "tp_verbos_perifrasis"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «volver» (volver a + infinitivo)", "url": "https://www.rae.es/dpd/volver"}],
+      "tags": ["volver a", "repetición", "perífrasis"]
+    },
+    {
+      "id": "d_soler",
+      "question": {"es": "¿Cómo se dice «avoir l'habitude de»?", "translations": {"fr": "Comment dit-on « avoir l'habitude de » ?"}},
+      "aliases": ["soler", "suelo o solía", "avoir l'habitude en espagnol", "d'habitude en espagnol", "j'avais l'habitude de en espagnol", "normalmente"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🔁",
+      "answer": {"es": "Con «soler + infinitivo»: suelo cenar a las nueve = j'ai l'habitude de dîner à neuf heures. Para el pasado, «solía»: solía ir a la playa = j'avais l'habitude d'aller à la plage.", "translations": {"fr": "Avec « soler + infinitif » : suelo cenar a las nueve = j'ai l'habitude de dîner à neuf heures. Pour le passé, « solía » : solía ir a la playa = j'avais l'habitude d'aller à la plage."}},
+      "points": [
+        {"es": "Presente: suelo, sueles, suele, solemos, soléis, suelen (o → ue).", "translations": {"fr": "Présent : suelo, sueles, suele, solemos, soléis, suelen (o → ue)."}},
+        {"es": "Pasado: solía, solías, solía, solíamos, solíais, solían.", "translations": {"fr": "Passé : solía, solías, solía, solíamos, solíais, solían."}},
+        {"es": "No tiene futuro. Para «d'habitude» también puedes decir «normalmente» o «por lo general».", "translations": {"fr": "Il n'a pas de futur. Pour « d'habitude », tu peux aussi dire « normalmente » ou « por lo general »."}}
+      ],
+      "examples": [
+        {"es": "Los domingos suelo comer con mis hijos.", "translations": {"fr": "Le dimanche, je déjeune en général avec mes enfants."}, "highlight": ["suelo comer"]},
+        {"es": "De joven solía bailar todos los sábados.", "translations": {"fr": "Jeune, j'avais l'habitude de danser tous les samedis."}, "highlight": ["solía bailar"]},
+        {"es": "En España se suele cenar tarde, hacia las nueve o las diez.", "translations": {"fr": "En Espagne, on dîne généralement tard, vers neuf ou dix heures."}, "highlight": ["se suele cenar"]}
+      ],
+      "trick": {"es": "Suelo = d'habitude, je… Solía = avant, je… (+ imparfait).", "translations": {"fr": "Suelo = d'habitude, je… Solía = avant, je… (+ imparfait)."}},
+      "frenchTrap": {"es": "«Soler» necesita un verbo detrás. «J'ai l'habitude du bruit» (ya no me molesta) se dice «estoy acostumbrada al ruido», no «suelo el ruido».", "translations": {"fr": "« Soler » a besoin d'un verbe après. « J'ai l'habitude du bruit » (il ne me gêne plus) se dit « estoy acostumbrada al ruido », pas « suelo el ruido »."}},
+      "seeAlso": ["d_indefinido_imperfecto", "tp_a2_reflexivos_rutina", "tp_a2_imperfecto"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «soler»", "url": "https://www.rae.es/dpd/soler"}],
+      "tags": ["soler", "costumbres", "hábitos"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

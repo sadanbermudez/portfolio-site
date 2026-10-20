@@ -1,0 +1,102 @@
+{
+  "$schema": "../../schema/curriculum.schema.json",
+  "type": "speaking",
+  "id": "s_verbos_ser_estar_clara_atocha",
+  "version": "1.0.0",
+  "status": "published",
+  "title": { "es": "Clara llega a Atocha: descríbela", "translations": { "fr": "Clara arrive à Atocha : décris-la" } },
+  "summary": { "es": "Diego va a recoger a tu amiga Clara y no la conoce. Descríbela y explica dónde os encontráis.", "translations": { "fr": "Diego va chercher ton amie Clara et ne la connaît pas. Décris-la et explique où vous vous retrouvez." } },
+  "emoji": "🗣️",
+  "keyIdeas": [
+    { "es": "Ser para cómo es · estar para cómo está y dónde.", "translations": { "fr": "Ser pour comment elle est · estar pour comment elle va et où." } }
+  ],
+  "cefr": "B2",
+  "difficulty": 3,
+  "packId": "temas_lengua",
+  "unitNumber": 4,
+  "orderInUnit": 30,
+  "tags": ["ser", "estar", "describir", "juego de rol"],
+  "estimatedMinutes": 10,
+  "mode": "role_play",
+  "scenario": {
+    "es": "Tu amiga Clara llega en tren a la estación de Atocha, en Madrid, pero tú no puedes ir a buscarla. Diego, un amigo, va a recogerla, aunque nunca la ha visto.",
+    "translations": { "fr": "Ton amie Clara arrive en train à la gare d'Atocha, à Madrid, mais tu ne peux pas aller la chercher. Diego, un ami, va l'accueillir, même s'il ne l'a jamais vue." }
+  },
+  "prompt": {
+    "es": "Describe a Clara a Diego (cómo es, de dónde es, cómo está hoy) y dile dónde está el punto de encuentro.",
+    "translations": { "fr": "Décris Clara à Diego (comment elle est, d'où elle vient, comment elle va aujourd'hui) et dis-lui où se trouve le point de rendez-vous." }
+  },
+  "preparation": {
+    "seconds": 60,
+    "usefulLanguage": ["Es alta / morena / simpática…", "Es de… y es…", "Hoy está cansada / contenta…", "Está esperando en…", "La cafetería está al lado de…", "La cena es en… a las…"],
+    "usefulLanguageFr": ["Elle est grande / brune / sympathique…", "Elle est de… et elle est…", "Aujourd'hui, elle est fatiguée / contente…", "Elle attend à…", "La cafétéria est à côté de…", "Le dîner a lieu à… à…"],
+    "ideasPrompt": ["¿Cómo es de aspecto y de carácter?", "¿De dónde es y a qué se dedica?", "¿Dónde os encontráis y a qué hora es la cena?"]
+  },
+  "aiPersona": {
+    "name": "Diego",
+    "role": "amigo que va a recoger a Clara en la estación",
+    "personality": "simpático y un poco despistado; hace preguntas cortas",
+    "register": "neutral",
+    "variety": "es-ES",
+    "openingLine": "¡Hola! Estoy en la estación de Atocha, pero no conozco a Clara. ¿Cómo es? ¿Y dónde nos encontramos?",
+    "escalationQuestions": [
+      "¿De dónde es Clara y a qué se dedica?",
+      "¿Cómo está hoy? ¿Ha tenido un viaje largo?",
+      "¿Dónde está la cafetería? ¿Y dónde es la cena de esta noche?"
+    ],
+    "counterArguments": [
+      "En la estación hay muchísima gente. ¿Cómo la reconozco?",
+      "No encuentro la cafetería. ¿Está cerca de la salida?"
+    ],
+    "closingLine": "¡Genial, ya sé cómo es! Gracias, ahora la busco."
+  },
+  "keywordTriggers": [
+    { "id": "t_es_aspecto", "label": "es + aspecto o carácter (ser)", "category": "target_grammar", "patterns": ["\\bes (muy |bastante |un poco |algo |super )?(alt|baj|delgad|moren|rubi|pelirroj|simpatic|divertid|jove|may|tranquil|habladur|timid|extrovertid|amabl|guap)\\w*"], "surfaceForms": ["es alta", "es morena", "es muy simpática"], "weight": 0.8, "feedbackOnHit": { "es": "¡Bien! Ser para describir cómo es.", "translations": { "fr": "Bien ! Ser pour décrire comment elle est." } }, "feedbackOnMiss": { "es": "Prueba: «Es alta y muy simpática».", "translations": { "fr": "Essaie : « Es alta y muy simpática »." } }, "linkedRuleId": "r_ser_que_es" },
+    { "id": "t_es_origen", "label": "es de… / es + profesión (ser)", "category": "target_grammar", "patterns": ["\\b(es|son) (de|medic|profesor|ingenier|enfermer|abogad|periodist|arquitect|estudiant|disen|cocinero|cocinera|veterinari|doctor)\\w*"], "surfaceForms": ["es de", "es ingeniera"], "weight": 0.7, "feedbackOnMiss": { "es": "Prueba: «Es de Sevilla y es ingeniera».", "translations": { "fr": "Essaie : « Es de Sevilla y es ingeniera »." } }, "linkedRuleId": "r_ser_que_es" },
+    { "id": "t_esta_estado", "label": "está + estado del momento (estar)", "category": "target_grammar", "patterns": ["\\besta (muy |bastante |un poco |algo |super )?(cansad|nervios|content|emocionad|agotad|preocupad|enfadad|tranquil|feliz|triste|enferm|resfriad|maread|hecha polvo|hecho polvo|de buen humor|de mal humor|despistad)\\w*"], "surfaceForms": ["está cansada", "está contenta", "está de buen humor"], "weight": 0.8, "feedbackOnHit": { "es": "¡Muy bien! Estar para el estado de hoy.", "translations": { "fr": "Très bien ! Estar pour l'état du jour." } }, "feedbackOnMiss": { "es": "Prueba: «Hoy está cansada».", "translations": { "fr": "Essaie : « Hoy está cansada »." } }, "linkedRuleId": "r_estar_donde_como" },
+    { "id": "t_esta_lugar", "label": "está + lugar (estar)", "category": "target_grammar", "patterns": ["\\besta(n)? (justo |muy |bastante |ahi )?(en|cerca|lejos|al lado|enfrente|detras|delante|junto|entre|a la (derecha|izquierda)|a \\w+ minutos)\\b"], "surfaceForms": ["está al lado de", "está enfrente de", "está cerca de"], "weight": 0.7, "feedbackOnMiss": { "es": "Prueba: «La cafetería está al lado de la farmacia».", "translations": { "fr": "Essaie : « La cafetería está al lado de la farmacia »." } }, "linkedRuleId": "r_estar_donde_como" },
+    { "id": "t_gerundio", "label": "está + gerundio", "category": "target_grammar", "patterns": ["\\besta(n)? (\\w+ )?\\w+(ando|iendo|yendo)\\b"], "surfaceForms": ["está esperando", "está leyendo"], "weight": 0.6, "linkedRuleId": "r_estar_donde_como" },
+    { "id": "t_evento", "label": "la cena / fiesta + es en… (evento con ser)", "category": "target_grammar", "patterns": ["\\b(cena|fiesta|reunion|concierto|boda|cumpleanos|quedada|encuentro|plan|comida) (de (\\w+ ){1,3})?es (en|a las|a la|el|esta|manana|hoy)\\b"], "surfaceForms": ["la cena es en", "la fiesta es en"], "weight": 0.7, "feedbackOnMiss": { "es": "Prueba: «La cena es en casa de Marta».", "translations": { "fr": "Essaie : « La cena es en casa de Marta »." } }, "linkedRuleId": "r_eventos_valoraciones" },
+    { "id": "t_adj_doble", "label": "adjetivo con doble sentido (listo, atento, seguro…)", "category": "target_vocab", "patterns": ["\\b(es|esta) (muy |bastante |un poco |super |siempre )?(list|aburrid|abiert|orgullos|atent|ric|segur|verde|viv|cansad)\\w*"], "surfaceForms": ["es muy atenta", "está aburrida", "está segura"], "weight": 0.6, "linkedRuleId": "r_cambio_sentido" },
+    { "id": "t_contraste", "label": "es… pero hoy está… (contraste ser / estar)", "category": "target_grammar", "patterns": ["\\bes [^.]{0,60}?[, ]+(pero|aunque) (\\w+ ){0,2}esta \\w+"], "surfaceForms": ["es simpática pero hoy está cansada"], "weight": 0.6, "feedbackOnHit": { "es": "¡Excelente contraste ser / estar!", "translations": { "fr": "Excellent contraste ser / estar !" } }, "linkedRuleId": "r_estar_donde_como" }
+  ],
+  "grammarTargets": [
+    { "construction": "ser (cómo es) + estar (cómo y dónde está)", "pattern": "\\b(es|son|soy)\\b.*\\b(esta|estan|estoy)\\b", "requiredCount": 3, "ruleId": "r_estar_donde_como", "examples": ["Es alta y simpática, pero hoy está cansada.", "La cafetería está al lado de la salida."] }
+  ],
+  "turnPlan": {
+    "minLearnerTurns": 4,
+    "maxLearnerTurns": 8,
+    "targetUtteranceSeconds": 20,
+    "correctionMode": "inline_brief",
+    "maxCorrectionsPerTurn": 2,
+    "allowL1Clarification": true
+  },
+  "scoring": {
+    "rubric": {
+      "dimensions": [
+        { "name": "accuracy", "weight": 0.35 },
+        { "name": "range", "weight": 0.2 },
+        { "name": "fluency", "weight": 0.2 },
+        { "name": "interaction", "weight": 0.15 },
+        { "name": "task_completion", "weight": 0.1 }
+      ],
+      "passingScore": 0.6
+    },
+    "keywordCoverageWeight": 0.3,
+    "wordsPerMinuteTarget": 90,
+    "fillerWords": ["eh", "em", "o sea", "bueno"]
+  },
+  "stt": { "engine": "auto", "language": "es", "maxUtteranceSeconds": 60, "partialResults": true },
+  "modelAnswer": "Clara es mi mejor amiga: es de Sevilla y es ingeniera. Es alta, morena y muy simpática, pero hoy está bastante cansada porque ha madrugado mucho. Ahora está esperando en el andén, con una maleta roja. Diego, la cafetería está justo enfrente de la salida, al lado de la farmacia. No te preocupes: es muy atenta y siempre está de buen humor. La cena de esta noche es en casa de Marta, a las nueve.",
+  "tutorContext": {
+    "focusPoints": ["Ser para cómo es (aspecto, carácter, origen, profesión)", "Estar para cómo está hoy y dónde está", "La cena o la fiesta es en… (evento con ser)"],
+    "mustElicit": ["Es + adjetivo / de + ciudad", "Está + estado o lugar", "La cena es en…"],
+    "avoid": ["No hablar francés salvo que ella lo pida."],
+    "sampleCorrections": [
+      { "learner": "Ella está ingeniera.", "corrected": "Ella es ingeniera.", "why": "profesión = ser" },
+      { "learner": "La cena está en casa de Marta.", "corrected": "La cena es en casa de Marta.", "why": "evento = ser" }
+    ]
+  },
+  "createdAt": "2026-10-09",
+  "author": "Claude"
+}

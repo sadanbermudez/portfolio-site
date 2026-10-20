@@ -1,0 +1,328 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_tildes",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Las tildes", "translations": {"fr": "Les accents écrits"}},
+  "emoji": "✍️",
+  "order": 30,
+  "entries": [
+    {
+      "id": "d_tilde_reglas",
+      "question": {"es": "¿Cuándo lleva tilde una palabra?", "translations": {"fr": "Quand un mot prend-il un accent écrit ?"}},
+      "aliases": ["reglas de acentuación", "cuándo se pone tilde", "agudas llanas esdrújulas", "acento escrito", "règles des accents en espagnol", "quand mettre un accent en espagnol", "accent aigu espagnol"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "✍️",
+      "answer": {"es": "Busca la sílaba que suena más fuerte. Llevan tilde: las agudas que terminan en vocal, -n o -s (café), las llanas que NO terminan así (árbol) y todas las esdrújulas (médico).", "translations": {"fr": "Repère la syllabe la plus forte. Prennent un accent : les « agudas » (force sur la dernière) qui finissent par une voyelle, -n ou -s (café), les « llanas » (force sur l'avant-dernière) qui ne finissent PAS ainsi (árbol), et toutes les « esdrújulas » (médico)."}},
+      "points": [
+        {"es": "Aguda (fuerza en la última sílaba): café, sofá, canción, París. Pero reloj, Madrid y hablar, sin tilde.", "translations": {"fr": "Aguda (force sur la dernière syllabe) : café, sofá, canción, París. Mais reloj, Madrid et hablar, sans accent."}},
+        {"es": "Llana (fuerza en la penúltima): árbol, fácil, lápiz, azúcar. Pero casa, joven y lunes, sin tilde.", "translations": {"fr": "Llana (force sur l'avant-dernière) : árbol, fácil, lápiz, azúcar. Mais casa, joven et lunes, sans accent."}},
+        {"es": "Esdrújula (fuerza en la antepenúltima): siempre con tilde. Médico, teléfono, sábado, música, plátano.", "translations": {"fr": "Esdrújula (force sur l'antépénultième) : toujours avec accent. Médico, teléfono, sábado, música, plátano."}}
+      ],
+      "examples": [
+        {"es": "El sábado tomamos un café en el jardín.", "translations": {"fr": "Samedi, on prend un café dans le jardin."}, "highlight": ["sábado", "café", "jardín"]},
+        {"es": "Mi hermano es médico y vive en París.", "translations": {"fr": "Mon frère est médecin et vit à Paris."}, "highlight": ["médico", "París"]},
+        {"es": "El árbol del patio es muy joven.", "translations": {"fr": "L'arbre de la cour est très jeune."}, "highlight": ["árbol", "joven"], "note": "Joven no lleva tilde: es llana y termina en -n.", "noteTranslations": {"fr": "Joven n'a pas d'accent : force sur l'avant-dernière et fin en -n."}}
+      ],
+      "trick": {"es": "Las palabras más corrientes no llevan tilde: si terminan en vocal, -n o -s, la fuerza va en la penúltima (casa, hablan). La tilde avisa de lo inesperado.", "translations": {"fr": "Les mots les plus courants n'ont pas d'accent : s'ils finissent par une voyelle, -n ou -s, la force tombe sur l'avant-dernière (casa, hablan). L'accent signale l'inattendu."}},
+      "frenchTrap": {"es": "En francés el acento cambia el sonido (é, è, ê). En español solo existe una tilde (´) y marca la fuerza, no el sonido: la e de «café» suena como la de «mesa».", "translations": {"fr": "En français, l'accent change le son (é, è, ê). En espagnol, il n'existe qu'un accent (´) et il marque la force, pas le son : le e de « café » sonne comme celui de « mesa »."}},
+      "seeAlso": ["d_acento_tonico", "d_hiatos", "tp_a1_pronunciacion"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «tilde»", "url": "https://www.rae.es/dpd/tilde"}],
+      "tags": ["tilde", "acentuación", "agudas", "llanas", "esdrújulas"]
+    },
+    {
+      "id": "d_tilde_diacritica",
+      "question": {"es": "¿Tú o tu, él o el, sí o si?", "translations": {"fr": "« Tú » ou « tu », « él » ou « el », « sí » ou « si » ?"}},
+      "aliases": ["tu o tú", "el o él", "si o sí", "mi o mí", "te o té", "tilde diacrítica", "accent sur tu el si", "tu avec accent espagnol"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "👯",
+      "answer": {"es": "Algunas palabras cortas tienen una gemela sin tilde. La tilde marca la palabra fuerte: tú, él, mí (pronombres), sí (= oui), té, dé, sé, más. Sin tilde: tu casa, el coche, mi hijo, si quieres.", "translations": {"fr": "Certains mots courts ont un jumeau sans accent. L'accent marque le mot fort : tú, él, mí (pronoms), sí (= oui), té, dé, sé, más. Sans accent : tu casa (ta maison), el coche (la voiture), mi hijo (mon fils), si quieres (si tu veux)."}},
+      "compare": [
+        {"title": {"es": "CON TILDE", "translations": {"fr": "AVEC ACCENT"}}, "items": [
+          {"es": "tú (pronombre): Tú eres mi amiga.", "translations": {"fr": "tú (pronom) : Tu es mon amie."}},
+          {"es": "él (pronombre): Él cocina hoy.", "translations": {"fr": "él (pronom) : Il cuisine aujourd'hui."}},
+          {"es": "mí (pronombre): Es para mí.", "translations": {"fr": "mí (pronom) : C'est pour moi."}},
+          {"es": "sí (afirmación): Sí, claro.", "translations": {"fr": "sí (affirmation) : Oui, bien sûr."}},
+          {"es": "té (bebida): Un té con limón.", "translations": {"fr": "té (boisson) : Un thé au citron."}},
+          {"es": "sé (saber): No lo sé.", "translations": {"fr": "sé (savoir) : Je ne sais pas."}}
+        ]},
+        {"title": {"es": "SIN TILDE", "translations": {"fr": "SANS ACCENT"}}, "items": [
+          {"es": "tu (posesivo): Tu casa es bonita.", "translations": {"fr": "tu (possessif) : Ta maison est jolie."}},
+          {"es": "el (artículo): El coche es nuevo.", "translations": {"fr": "el (article) : La voiture est neuve."}},
+          {"es": "mi (posesivo): Mi hijo vive aquí.", "translations": {"fr": "mi (possessif) : Mon fils habite ici."}},
+          {"es": "si (condición): Si quieres, vamos.", "translations": {"fr": "si (condition) : Si tu veux, on y va."}},
+          {"es": "te (pronombre): Te llamo luego.", "translations": {"fr": "te (pronom) : Je t'appelle plus tard."}},
+          {"es": "se (pronombre): Se llama Ana.", "translations": {"fr": "se (pronom) : Elle s'appelle Ana."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "¿Tú vienes a mi casa o voy yo a la tuya?", "translations": {"fr": "Tu viens chez moi ou c'est moi qui vais chez toi ?"}, "highlight": ["Tú", "mi casa"]},
+        {"es": "Él dice que el pan está en la mesa.", "translations": {"fr": "Il dit que le pain est sur la table."}, "highlight": ["Él", "el pan"]},
+        {"es": "Para mí, un té; para mi marido, un café.", "translations": {"fr": "Pour moi, un thé ; pour mon mari, un café."}, "highlight": ["mí", "té", "mi marido"]},
+        {"es": "Quiero que me dé un kilo de naranjas.", "translations": {"fr": "Je veux qu'il me donne un kilo d'oranges."}, "highlight": ["dé", "de naranjas"], "note": "dé = verbo dar; de = preposición.", "noteTranslations": {"fr": "dé = verbe dar (donner) ; de = préposition."}}
+      ],
+      "trick": {"es": "Pronombres y «sí» de afirmación, con tilde: tú (tu/toi), él (il/lui), mí (moi), sí (oui). Posesivos, artículo y «si» de condición, sin tilde.", "translations": {"fr": "Les pronoms et le « sí » d'affirmation prennent l'accent : tú (tu/toi), él (il/lui), mí (moi), sí (oui). Possessifs, article et « si » de condition : sans accent."}},
+      "frenchTrap": {"es": "El «tu» francés de «tu es» se escribe con tilde en español: tú eres. El «tu» español sin tilde significa «ton, ta»: tu casa.", "translations": {"fr": "Le « tu » français de « tu es » s'écrit avec accent en espagnol : tú eres. Le « tu » espagnol sans accent veut dire « ton, ta » : tu casa."}},
+      "seeAlso": ["d_monosilabos", "d_que_tilde", "d_solo_tilde"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «tilde» (tilde diacrítica)", "url": "https://www.rae.es/dpd/tilde"}],
+      "tags": ["diacrítica", "monosílabos", "pronombres", "tilde"]
+    },
+    {
+      "id": "d_solo_tilde",
+      "question": {"es": "¿Solo o sólo?", "translations": {"fr": "« Solo » ou « sólo » ?"}},
+      "aliases": ["solo con tilde", "sólo lleva tilde", "solo solamente tilde", "tilde en solo rae", "solo accent espagnol", "seul ou seulement en espagnol", "solo avec accent"],
+      "cefr": "B1",
+      "category": "spelling",
+      "emoji": "☝️",
+      "answer": {"es": "Escribe «solo», sin tilde, tanto si significa «solamente» como «sin compañía». Según la RAE (aclaración de 2023), la tilde solo se permite si tú ves un riesgo real de doble sentido; sin ambigüedad, es un error.", "translations": {"fr": "Écris « solo » sans accent, qu'il veuille dire « seulement » ou « seul ». Selon la RAE (précision de 2023), l'accent n'est permis que si tu vois un vrai risque de double sens ; sans ambiguïté, c'est une faute."}},
+      "points": [
+        {"es": "Antes era muy común escribir «sólo» por «solamente». Desde la Ortografía de 2010 la regla general es «solo»: por eso ves la tilde en libros antiguos.", "translations": {"fr": "Avant, on écrivait très souvent « sólo » pour « solamente ». Depuis l'Ortografía de 2010, la règle générale est « solo » : voilà pourquoi tu vois l'accent dans les livres anciens."}},
+        {"es": "En 2023 la RAE lo aclaró: sin ambigüedad, la tilde es incorrecta; con ambigüedad, es opcional si quien escribe la ve necesaria. Igual para este, ese, aquel.", "translations": {"fr": "En 2023, la RAE a précisé : sans ambiguïté, l'accent est fautif ; avec ambiguïté, il est facultatif si celui qui écrit le juge utile. Pareil pour este, ese, aquel."}},
+        {"es": "Contra el doble sentido, mejor cambiar la frase: «Solo trabajo los domingos» o «Trabajo solamente los domingos».", "translations": {"fr": "Contre le double sens, mieux vaut changer la phrase : « Solo trabajo los domingos » ou « Trabajo solamente los domingos »."}}
+      ],
+      "examples": [
+        {"es": "Solo quiero un café, gracias.", "translations": {"fr": "Je veux juste un café, merci."}, "highlight": ["Solo"]},
+        {"es": "Mi madre vive sola desde 2020.", "translations": {"fr": "Ma mère vit seule depuis 2020."}, "highlight": ["sola"]},
+        {"es": "Trabajo solo los domingos.", "translations": {"fr": "Je travaille seule le dimanche / seulement le dimanche."}, "highlight": ["solo"], "note": "¿Sin compañía o únicamente? Si hay duda real, la RAE permite «sólo» para «únicamente».", "noteTranslations": {"fr": "Seule ou uniquement ? En cas de vrai doute, la RAE permet « sólo » pour « uniquement »."}}
+      ],
+      "trick": {"es": "¿Dudas? Escríbelo sin tilde: acertarás casi siempre. Y si hay doble sentido, usa «solamente».", "translations": {"fr": "Un doute ? Écris-le sans accent : tu auras presque toujours raison. Et en cas de double sens, utilise « solamente »."}},
+      "frenchTrap": {"es": "El francés tiene dos palabras, «seul» y «seulement»; el español usa «solo» para las dos. Ojo: el adjetivo cambia (sola, solos); el adverbio, no.", "translations": {"fr": "Le français a deux mots, « seul » et « seulement » ; l'espagnol utilise « solo » pour les deux. Attention : l'adjectif s'accorde (sola, solos) ; l'adverbe, non."}},
+      "seeAlso": ["d_este_tilde", "d_tilde_diacritica"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «solo»", "url": "https://www.rae.es/dpd/solo"},
+        {"label": "RAE · Nota informativa sobre la tilde en «solo» (9 de marzo de 2023)", "url": "https://www.rae.es/noticia/nota-informativa-sobre-la-tilde-en-solo"}
+      ],
+      "tags": ["solo", "tilde", "rae", "ambigüedad"]
+    },
+    {
+      "id": "d_este_tilde",
+      "question": {"es": "¿Este o éste?", "translations": {"fr": "« Este » ou « éste » ?"}},
+      "aliases": ["éste con tilde", "ese o ése", "aquel o aquél", "demostrativos con tilde", "esto con tilde", "celui-ci en espagnol accent", "este avec accent"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "👉",
+      "answer": {"es": "Sin tilde: este, ese, aquel (y esta, esos, aquellas…) se escriben igual delante de un nombre (este libro) que solos (quiero este). Esto, eso y aquello no llevan tilde nunca.", "translations": {"fr": "Sans accent : este, ese, aquel (et esta, esos, aquellas…) s'écrivent pareil devant un nom (este libro, ce livre) que seuls (quiero este, je veux celui-ci). Esto, eso et aquello n'ont jamais d'accent."}},
+      "points": [
+        {"es": "Antes era habitual poner tilde al pronombre (éste, ésa). Desde 2010 la regla general es sin tilde.", "translations": {"fr": "Avant, on mettait souvent l'accent au pronom (éste, ésa). Depuis 2010, la règle générale est sans accent."}},
+        {"es": "Como con «solo», la RAE (2023) solo admite la tilde si quien escribe ve un doble sentido real. Es muy raro.", "translations": {"fr": "Comme pour « solo », la RAE (2023) n'admet l'accent que si celui qui écrit voit un vrai double sens. C'est très rare."}}
+      ],
+      "examples": [
+        {"es": "¿Qué vestido prefieres, este o ese?", "translations": {"fr": "Quelle robe préfères-tu, celle-ci ou celle-là ?"}, "highlight": ["este", "ese"]},
+        {"es": "Esta tarde voy al mercado.", "translations": {"fr": "Cet après-midi, je vais au marché."}, "highlight": ["Esta tarde"]},
+        {"es": "¿Qué es esto? —Eso es un regalo para ti.", "translations": {"fr": "Qu'est-ce que c'est ? — Ça, c'est un cadeau pour toi."}, "highlight": ["esto", "Eso"]}
+      ],
+      "trick": {"es": "¿Dudas? Sin tilde: este, ese, aquel. Y esto, eso, aquello, jamás.", "translations": {"fr": "Un doute ? Sans accent : este, ese, aquel. Et esto, eso, aquello, jamais."}},
+      "frenchTrap": {"es": "En francés cambia la palabra (ce livre / celui-ci). En español es la misma (este libro / este), y no hace falta tilde para distinguirlas.", "translations": {"fr": "En français, le mot change (ce livre / celui-ci). En espagnol, c'est le même (este libro / este), et pas besoin d'accent pour les distinguer."}},
+      "seeAlso": ["d_solo_tilde", "d_demostrativos"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «tilde» (demostrativos)", "url": "https://www.rae.es/dpd/tilde"},
+        {"label": "RAE · Nota informativa sobre la tilde en «solo» y los demostrativos (2023)", "url": "https://www.rae.es/noticia/nota-informativa-sobre-la-tilde-en-solo"}
+      ],
+      "tags": ["demostrativos", "este", "tilde"]
+    },
+    {
+      "id": "d_que_tilde",
+      "question": {"es": "¿Qué o que? ¿Cómo o como?", "translations": {"fr": "« Qué » ou « que » ? « Cómo » ou « como » ?"}},
+      "aliases": ["que con tilde", "como o cómo", "donde o dónde", "cuando o cuándo", "quien o quién", "accent sur que en espagnol", "que interrogatif accent"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "❓",
+      "answer": {"es": "Con tilde cuando preguntas o te sorprendes, también dentro de otra frase: ¿Qué quieres?, ¡Qué bonito!, No sé qué hacer. Sin tilde si solo une ideas: el pan que compro, Creo que sí. Igual: cómo, dónde, cuándo, quién, cuál.", "translations": {"fr": "Avec accent quand tu poses une question ou t'étonnes, même à l'intérieur d'une phrase : ¿Qué quieres?, ¡Qué bonito!, No sé qué hacer. Sans accent s'il relie seulement des idées : el pan que compro, Creo que sí. Pareil : cómo, dónde, cuándo, quién, cuál."}},
+      "compare": [
+        {"title": {"es": "CON TILDE", "translations": {"fr": "AVEC ACCENT"}}, "items": [
+          {"es": "Pregunta: ¿Qué hora es?", "translations": {"fr": "Question : Quelle heure est-il ?"}},
+          {"es": "Exclamación: ¡Qué calor!", "translations": {"fr": "Exclamation : Quelle chaleur !"}},
+          {"es": "Pregunta escondida: No sé qué hacer.", "translations": {"fr": "Question cachée : Je ne sais pas quoi faire."}},
+          {"es": "Lugar: ¿Dónde vives?", "translations": {"fr": "Lieu : Où habites-tu ?"}}
+        ]},
+        {"title": {"es": "SIN TILDE", "translations": {"fr": "SANS ACCENT"}}, "items": [
+          {"es": "Relativo: El pan que compro.", "translations": {"fr": "Relatif : Le pain que j'achète."}},
+          {"es": "Conjunción: Dice que viene.", "translations": {"fr": "Conjonction : Il dit qu'il vient."}},
+          {"es": "Comparación: Más alto que yo.", "translations": {"fr": "Comparaison : Plus grand que moi."}},
+          {"es": "Lugar: La casa donde vivo.", "translations": {"fr": "Lieu : La maison où j'habite."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "¿Cómo estás? Te llamo cuando salga del trabajo.", "translations": {"fr": "Comment vas-tu ? Je t'appelle quand je sors du travail."}, "highlight": ["Cómo", "cuando"]},
+        {"es": "¡Qué bien que hayas venido!", "translations": {"fr": "Comme c'est bien que tu sois venue !"}, "highlight": ["Qué", "que hayas"]},
+        {"es": "Pregúntale dónde está la farmacia.", "translations": {"fr": "Demande-lui où est la pharmacie."}, "highlight": ["dónde"], "note": "Pregunta indirecta: lleva tilde aunque no haya signos de interrogación.", "noteTranslations": {"fr": "Question indirecte : accent même sans points d'interrogation."}}
+      ],
+      "trick": {"es": "Si suena fuerte y pregunta o se sorprende → tilde. Si solo une dos partes de la frase → sin tilde.", "translations": {"fr": "S'il sonne fort et interroge ou s'étonne → accent. S'il relie seulement deux parties de la phrase → pas d'accent."}},
+      "frenchTrap": {"es": "«Je ne sais pas quoi faire» = No sé qué hacer, con tilde: es una pregunta escondida. Y «Quelle journée!» = ¡Qué día!", "translations": {"fr": "« Je ne sais pas quoi faire » = No sé qué hacer, avec accent : c'est une question cachée. Et « Quelle journée ! » = ¡Qué día!"}},
+      "seeAlso": ["d_porque_formas", "d_que_cual", "d_tilde_diacritica"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «qué»", "url": "https://www.rae.es/dpd/qu%C3%A9"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «tilde» (interrogativos y exclamativos)", "url": "https://www.rae.es/dpd/tilde"}
+      ],
+      "tags": ["qué", "interrogativos", "exclamativos", "tilde"]
+    },
+    {
+      "id": "d_tilde_mayusculas",
+      "question": {"es": "¿Las mayúsculas llevan tilde?", "translations": {"fr": "Les majuscules prennent-elles l'accent ?"}},
+      "aliases": ["tilde en mayúsculas", "acento en mayúsculas", "Ángel o Angel", "mayúscula con tilde", "accent sur les majuscules", "majuscules accentuées espagnol"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "🔠",
+      "answer": {"es": "Sí. Una palabra en mayúscula lleva tilde igual que en minúscula: Ángel, Óscar, África, ÉL. Quitarla es una falta de ortografía.", "translations": {"fr": "Oui. Un mot en majuscule prend l'accent comme en minuscule : Ángel, Óscar, África, ÉL. L'enlever est une faute d'orthographe."}},
+      "points": [
+        {"es": "También en carteles y títulos todo en mayúsculas: ÚLTIMA LLAMADA, ESTACIÓN DE AUTOBUSES.", "translations": {"fr": "Aussi sur les panneaux et les titres tout en majuscules : ÚLTIMA LLAMADA (dernier appel), ESTACIÓN DE AUTOBUSES (gare routière)."}},
+        {"es": "Antes se omitía por culpa de las máquinas de escribir, pero la norma siempre la ha pedido.", "translations": {"fr": "Autrefois, on l'omettait à cause des machines à écrire, mais la norme l'a toujours demandé."}}
+      ],
+      "examples": [
+        {"es": "Óscar y Álvaro viven en Ávila.", "translations": {"fr": "Óscar et Álvaro habitent à Ávila."}, "highlight": ["Óscar", "Álvaro", "Ávila"]},
+        {"es": "En la puerta pone: ATENCIÓN, PERRO PELIGROSO.", "translations": {"fr": "Sur la porte, c'est écrit : ATTENTION, CHIEN DANGEREUX."}, "highlight": ["ATENCIÓN"]},
+        {"es": "Él me lo contó ayer.", "translations": {"fr": "Il me l'a raconté hier."}, "highlight": ["Él"], "note": "Al empezar la frase: Él, con tilde (no es el artículo El).", "noteTranslations": {"fr": "En début de phrase : Él, avec accent (ce n'est pas l'article El)."}}
+      ],
+      "trick": {"es": "La mayúscula no borra nada: la tilde se queda.", "translations": {"fr": "La majuscule n'efface rien : l'accent reste."}},
+      "frenchTrap": {"es": "En Francia mucha gente quita los acentos de las mayúsculas (ECOLE). En español, no: ESTACIÓN, Ángel, Él.", "translations": {"fr": "En France, beaucoup de gens enlèvent les accents des majuscules (ECOLE). En espagnol, non : ESTACIÓN, Ángel, Él."}},
+      "seeAlso": ["d_tilde_reglas", "d_mayusculas_dias"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «mayúsculas»", "url": "https://www.rae.es/dpd/may%C3%BAsculas"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «tilde»", "url": "https://www.rae.es/dpd/tilde"}
+      ],
+      "tags": ["mayúsculas", "tilde"]
+    },
+    {
+      "id": "d_monosilabos",
+      "question": {"es": "¿Fue o fué? ¿Ti o tí?", "translations": {"fr": "« Fue » ou « fué » ? « Ti » ou « tí » ?"}},
+      "aliases": ["fue con tilde", "ti con tilde", "dio o dió", "vio o vió", "fui o fuí", "monosílabos tilde", "mots d'une syllabe accent", "para ti avec accent"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "🔹",
+      "answer": {"es": "Sin tilde: fue, fui, dio, vio, ti, fe, pie, bien, pan. Las palabras de una sílaba no llevan tilde, salvo las gemelas tú, él, mí, sí, té, dé, sé, más, y qué, quién, cuál en preguntas y exclamaciones.", "translations": {"fr": "Sans accent : fue, fui, dio, vio, ti, fe, pie, bien, pan. Les mots d'une syllabe ne prennent pas d'accent, sauf les jumeaux tú, él, mí, sí, té, dé, sé, más, et qué, quién, cuál dans les questions et les exclamations."}},
+      "points": [
+        {"es": "«Ti» nunca lleva tilde (para ti, a ti), aunque «mí» sí: mí tiene una gemela (mi casa); ti no tiene ninguna.", "translations": {"fr": "« Ti » ne prend jamais d'accent (para ti, a ti), alors que « mí », si : mí a un jumeau (mi casa) ; ti n'en a pas."}},
+        {"es": "En libros antiguos verás «fué» o «dió»: hace muchas décadas que se escriben sin tilde.", "translations": {"fr": "Dans les vieux livres, tu verras « fué » ou « dió » : depuis des décennies, on les écrit sans accent."}},
+        {"es": "Guion, truhan o hui cuentan como una sola sílaba al escribir: tampoco llevan tilde.", "translations": {"fr": "Guion, truhan ou hui comptent pour une seule syllabe à l'écrit : pas d'accent non plus."}}
+      ],
+      "examples": [
+        {"es": "Ayer fue mi cumpleaños y mi hijo me dio una sorpresa.", "translations": {"fr": "Hier, c'était mon anniversaire et mon fils m'a fait une surprise."}, "highlight": ["fue", "dio"]},
+        {"es": "Este regalo es para ti.", "translations": {"fr": "Ce cadeau est pour toi."}, "highlight": ["para ti"]},
+        {"es": "Vi el anuncio de la exposición y fui a verla.", "translations": {"fr": "J'ai vu la pub de l'exposition et je suis allée la voir."}, "highlight": ["Vi", "fui"]}
+      ],
+      "trick": {"es": "Una sílaba = sin tilde. Se salvan las ocho gemelas (tú, él, mí, sí, té, dé, sé, más) y qué, quién, cuál al preguntar o exclamar.", "translations": {"fr": "Une syllabe = pas d'accent. Exceptions : les huit jumeaux (tú, él, mí, sí, té, dé, sé, más) et qué, quién, cuál pour interroger ou s'exclamer."}},
+      "frenchTrap": {"es": "En francés «à», «où» o «là» llevan acento. No copies esa costumbre: en español ti, fue, vio y fe van sin tilde.", "translations": {"fr": "En français, « à », « où » ou « là » ont un accent. Ne copie pas cette habitude : en espagnol, ti, fue, vio et fe s'écrivent sans accent."}},
+      "seeAlso": ["d_tilde_diacritica", "d_guion"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «tilde» (monosílabos)", "url": "https://www.rae.es/dpd/tilde"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «ti»", "url": "https://www.rae.es/dpd/ti"}
+      ],
+      "tags": ["monosílabos", "tilde", "fue", "ti"]
+    },
+    {
+      "id": "d_guion",
+      "question": {"es": "¿Guion o guión?", "translations": {"fr": "« Guion » ou « guión » ?"}},
+      "aliases": ["guion con tilde", "guión tilde", "truhan o truhán", "guion rae 2010", "guion accent", "scénario en espagnol accent"],
+      "cefr": "B1",
+      "category": "spelling",
+      "emoji": "🎬",
+      "answer": {"es": "Guion, sin tilde. Desde la Ortografía de 2010 cuenta como una sola sílaba al escribir, aunque mucha gente la pronuncie en dos. Igual: truhan, hui, fie, Sion.", "translations": {"fr": "Guion, sans accent. Depuis l'Ortografía de 2010, le mot compte pour une seule syllabe à l'écrit, même si beaucoup le prononcent en deux. Pareil : truhan, hui, fie, Sion."}},
+      "points": [
+        {"es": "La Ortografía de 1999 aceptaba «guión»; la de 2010 dejó solo «guion», igual para todos los países.", "translations": {"fr": "L'Ortografía de 1999 acceptait « guión » ; celle de 2010 n'a gardé que « guion », pareil pour tous les pays."}},
+        {"es": "En España muchos lo dicen en dos sílabas (gui-on) y en México, en una; pero se escribe igual en todas partes.", "translations": {"fr": "En Espagne, beaucoup le prononcent en deux syllabes (gui-on) et au Mexique en une seule ; mais on l'écrit pareil partout."}},
+        {"es": "El plural tampoco lleva tilde: guiones.", "translations": {"fr": "Le pluriel n'a pas d'accent non plus : guiones."}}
+      ],
+      "examples": [
+        {"es": "El guion de esta película es buenísimo.", "translations": {"fr": "Le scénario de ce film est excellent."}, "highlight": ["guion"]},
+        {"es": "Escribe el número de teléfono sin guiones.", "translations": {"fr": "Écris le numéro de téléphone sans tirets."}, "highlight": ["guiones"]},
+        {"es": "Hui de la lluvia y entré en una cafetería.", "translations": {"fr": "J'ai fui la pluie et je suis entrée dans un café."}, "highlight": ["Hui"], "note": "Hui (de huir), también sin tilde.", "noteTranslations": {"fr": "Hui (du verbe huir, fuir) : sans accent, lui aussi."}}
+      ],
+      "trick": {"es": "Guion es como «Dios» o «pie»: una sola sílaba para la ortografía, así que sin tilde.", "translations": {"fr": "Guion est comme « Dios » ou « pie » : une seule syllabe pour l'orthographe, donc pas d'accent."}},
+      "frenchTrap": {"es": "No escribas «guión» por imitar «camión» o «avión»: esas tienen dos sílabas (ca-mión). Y «guion» sirve para «scénario» y para «trait d'union».", "translations": {"fr": "N'écris pas « guión » pour imiter « camión » ou « avión » : ces mots ont deux syllabes (ca-mión). Et « guion » veut dire « scénario » et « trait d'union »."}},
+      "seeAlso": ["d_monosilabos", "d_hiatos"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «guion»", "url": "https://www.rae.es/dpd/guion"},
+        {"label": "RAE · Ortografía de la lengua española (2010): palabras con diptongo", "url": "https://www.rae.es/ortograf%C3%ADa/palabras-con-diptongo"}
+      ],
+      "tags": ["guion", "tilde", "diptongo"]
+    },
+    {
+      "id": "d_aun_aun",
+      "question": {"es": "¿Aun o aún?", "translations": {"fr": "« Aun » ou « aún » ?"}},
+      "aliases": ["aún con tilde", "aun así", "aún no", "aun cuando", "todavía o aún", "encore en espagnol", "même en espagnol aun"],
+      "cefr": "B1",
+      "category": "spelling",
+      "emoji": "⏳",
+      "answer": {"es": "Aún, con tilde, significa «todavía»: Aún no ha llegado. Aun, sin tilde, significa «incluso» o «aunque»: Aun así, iremos.", "translations": {"fr": "« Aún », avec accent, veut dire « todavía » (encore, toujours) : Aún no ha llegado. « Aun », sans accent, veut dire « incluso » ou « aunque » (même, même si) : Aun así, iremos."}},
+      "compare": [
+        {"title": {"es": "AÚN = todavía", "translations": {"fr": "AÚN = encore, toujours"}}, "items": [
+          {"es": "Tiempo: Aún vive en Lyon.", "translations": {"fr": "Temps : Elle habite toujours à Lyon."}},
+          {"es": "Con «no»: Aún no he comido.", "translations": {"fr": "Avec « no » : Je n'ai pas encore mangé."}},
+          {"es": "Más todavía: Es aún más caro.", "translations": {"fr": "Encore plus : C'est encore plus cher."}}
+        ]},
+        {"title": {"es": "AUN = incluso, aunque", "translations": {"fr": "AUN = même, même si"}}, "items": [
+          {"es": "Incluso: Aun los niños lo saben.", "translations": {"fr": "Même : Même les enfants le savent."}},
+          {"es": "A pesar de eso: Aun así, iré.", "translations": {"fr": "Malgré ça : Même comme ça, j'irai."}},
+          {"es": "Aunque: Aun cuando llueva, saldremos.", "translations": {"fr": "Même si : Même s'il pleut, nous sortirons."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Son las diez y aún no ha llegado el autobús.", "translations": {"fr": "Il est dix heures et le bus n'est pas encore arrivé."}, "highlight": ["aún no"]},
+        {"es": "Estaba cansada y, aun así, fue a la fiesta.", "translations": {"fr": "Elle était fatiguée et, malgré tout, elle est allée à la fête."}, "highlight": ["aun así"]},
+        {"es": "Este pastel está aún más rico que el de ayer.", "translations": {"fr": "Ce gâteau est encore meilleur que celui d'hier."}, "highlight": ["aún más"]}
+      ],
+      "trick": {"es": "¿Puedes decir «todavía»? → aún, con tilde. ¿Puedes decir «incluso»? → aun, sin tilde.", "translations": {"fr": "Tu peux dire « todavía » ? → aún, avec accent. Tu peux dire « incluso » ? → aun, sans accent."}},
+      "frenchTrap": {"es": "Ojo: «encore un café» = otro café y «encore une fois» = otra vez, no «aún». Pero «pas encore» = aún no / todavía no.", "translations": {"fr": "Attention : « encore un café » = otro café et « encore une fois » = otra vez, pas « aún ». Mais « pas encore » = aún no / todavía no."}},
+      "seeAlso": ["d_tilde_diacritica", "tp_conect_contraste", "d_volver_a"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «aun»", "url": "https://www.rae.es/dpd/aun"}],
+      "tags": ["aún", "aun", "todavía", "tilde"]
+    },
+    {
+      "id": "d_hiatos",
+      "question": {"es": "¿Por qué país lleva tilde?", "translations": {"fr": "Pourquoi « país » prend-il un accent ?"}},
+      "aliases": ["tilde en país", "día con tilde", "río o rio", "hiato", "María con tilde", "accent sur le i espagnol", "pais ou pays accent"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "🌍",
+      "answer": {"es": "Porque la i suena fuerte al lado de la a y se dice en otra sílaba: pa-ís. Cuando la i o la u fuertes están junto a a, e, o, llevan tilde siempre, aunque las reglas generales digan lo contrario.", "translations": {"fr": "Parce que le i est accentué à côté du a et se prononce dans une autre syllabe : pa-ís. Quand un i ou un u accentué est à côté de a, e, o, il prend toujours l'accent, même si les règles générales disent le contraire."}},
+      "points": [
+        {"es": "Sin tilde, «pais» sonaría como el principio de «paisaje»: una sola sílaba. La tilde separa las vocales: pa-ís, Ra-úl, ma-íz.", "translations": {"fr": "Sans accent, « pais » se prononcerait comme le début de « paisaje » (paysage) : une seule syllabe. L'accent sépare les voyelles : pa-ís, Ra-úl, ma-íz."}},
+        {"es": "Por eso llevan tilde día, frío, María (llanas en vocal) y oír, baúl, maíz (agudas en consonante).", "translations": {"fr": "C'est pourquoi día, frío, María (force sur l'avant-dernière, fin en voyelle) et oír, baúl, maíz (force sur la dernière, fin en consonne) prennent un accent."}},
+        {"es": "Una h en medio no cambia nada: búho, prohíbe.", "translations": {"fr": "Un h au milieu ne change rien : búho (hibou), prohíbe (il interdit)."}}
+      ],
+      "examples": [
+        {"es": "Mi tía vive en un país muy frío.", "translations": {"fr": "Ma tante vit dans un pays très froid."}, "highlight": ["tía", "país", "frío"]},
+        {"es": "Raúl se ríe mucho con su tío.", "translations": {"fr": "Raúl rit beaucoup avec son oncle."}, "highlight": ["Raúl", "ríe", "tío"]},
+        {"es": "Por la noche se oye un búho en el jardín.", "translations": {"fr": "La nuit, on entend un hibou dans le jardin."}, "highlight": ["búho"]}
+      ],
+      "trick": {"es": "i o u fuerte junto a a, e, o → tilde siempre, sin mirar nada más.", "translations": {"fr": "i ou u accentué à côté de a, e, o → toujours un accent, sans regarder autre chose."}},
+      "frenchTrap": {"es": "El francés separa vocales con la diéresis (maïs, naïf). El español pone tilde en la i o la u fuerte: maíz, país, Raúl.", "translations": {"fr": "Le français sépare les voyelles avec le tréma (maïs, naïf). L'espagnol met l'accent sur le i ou le u fort : maíz, país, Raúl."}},
+      "seeAlso": ["d_tilde_reglas", "d_guion", "tp_a1_pronunciacion"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «tilde» (hiatos)", "url": "https://www.rae.es/dpd/tilde"}],
+      "tags": ["hiato", "tilde", "vocales"]
+    },
+    {
+      "id": "d_mente_tilde",
+      "question": {"es": "¿Rápidamente lleva tilde?", "translations": {"fr": "« Rápidamente » prend-il un accent ?"}},
+      "aliases": ["adverbios en -mente tilde", "fácilmente con tilde", "rápidamente tilde", "lenta y claramente", "adverbes en -ment accent", "rapidement en espagnol"],
+      "cefr": "B1",
+      "category": "spelling",
+      "emoji": "🏃",
+      "answer": {"es": "Sí. Los adverbios en -mente guardan la tilde del adjetivo: rápida → rápidamente, fácil → fácilmente. Si el adjetivo no la tiene, el adverbio tampoco: lenta → lentamente.", "translations": {"fr": "Oui. Les adverbes en -mente gardent l'accent de l'adjectif : rápida → rápidamente, fácil → fácilmente. Si l'adjectif n'en a pas, l'adverbe non plus : lenta → lentamente."}},
+      "points": [
+        {"es": "Se forman sobre el femenino: tranquila → tranquilamente, última → últimamente.", "translations": {"fr": "Ils se forment sur le féminin : tranquila → tranquilamente, última → últimamente."}},
+        {"es": "Al hablar tienen dos fuerzas: RÁ-pida-MEN-te.", "translations": {"fr": "À l'oral, ils ont deux accents : RÁ-pida-MEN-te."}},
+        {"es": "Con dos adverbios seguidos, -mente va solo en el último: Habla lenta y claramente.", "translations": {"fr": "Avec deux adverbes à la suite, -mente ne va que sur le dernier : Habla lenta y claramente."}}
+      ],
+      "examples": [
+        {"es": "El médico me lo explicó rápidamente.", "translations": {"fr": "Le médecin me l'a expliqué rapidement."}, "highlight": ["rápidamente"]},
+        {"es": "Normalmente desayuno tranquilamente en la terraza.", "translations": {"fr": "D'habitude, je prends tranquillement mon petit-déjeuner sur la terrasse."}, "highlight": ["Normalmente", "tranquilamente"]},
+        {"es": "Por favor, hable lenta y claramente.", "translations": {"fr": "S'il vous plaît, parlez lentement et clairement."}, "highlight": ["lenta y claramente"], "note": "Solo el último lleva -mente.", "noteTranslations": {"fr": "Seul le dernier prend -mente."}},
+        {"es": "Esta receta se hace fácilmente en casa.", "translations": {"fr": "Cette recette se fait facilement à la maison."}, "highlight": ["fácilmente"]}
+      ],
+      "trick": {"es": "Quita «-mente»: si lo que queda lleva tilde (rápida, fácil), el adverbio también.", "translations": {"fr": "Enlève « -mente » : si ce qui reste a un accent (rápida, fácil), l'adverbe aussi."}},
+      "frenchTrap": {"es": "«Rapidement» no lleva acento en francés, pero «rápidamente» sí. Y el francés repite -ment (lentement et clairement); el español, no: lenta y claramente.", "translations": {"fr": "« Rapidement » n'a pas d'accent en français, mais « rápidamente », si. Et le français répète -ment (lentement et clairement) ; l'espagnol, non : lenta y claramente."}},
+      "seeAlso": ["d_tilde_reglas", "d_acento_tonico"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «tilde» (adverbios en -mente)", "url": "https://www.rae.es/dpd/tilde"},
+        {"label": "RAE · Ortografía de la lengua española (2010): adverbios en -mente", "url": "https://www.rae.es/ortograf%C3%ADa/adverbios-en-mente"}
+      ],
+      "tags": ["adverbios", "mente", "tilde"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

@@ -1,0 +1,255 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_basico_comunicacion",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Saludar y tratar", "translations": {"fr": "Saluer et s'adresser aux gens"}},
+  "emoji": "👋",
+  "order": 14,
+  "entries": [
+    {
+      "id": "d_tu_usted",
+      "question": {"es": "¿Cuándo hablo de «tú» y cuándo de «usted»?", "translations": {"fr": "Quand dire « tú » et quand dire « usted » ?"}},
+      "aliases": ["tú o usted", "tutear", "vous en espagnol", "tutoyer ou vouvoyer en espagnol", "usted o vosotros", "ustedes", "hablar de usted"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "🎩",
+      "answer": {"es": "En España se tutea mucho: familia, amigos, compañeros, gente de tu edad, muchas tiendas. «Usted» es para personas mayores, desconocidos en situaciones formales, el médico o un cliente. Si dudas, empieza con «usted».", "translations": {"fr": "En Espagne, on tutoie beaucoup : la famille, les amis, les collègues, les gens de ton âge, beaucoup de magasins. « Usted » est pour les personnes âgées, les inconnus dans une situation formelle, le médecin ou un client. Dans le doute, commence par « usted »."}},
+      "compare": [
+        {"title": {"es": "TÚ (informal)", "translations": {"fr": "TÚ (familier)"}}, "items": [
+          {"es": "Verbo en 2.ª persona: ¿Cómo estás?", "translations": {"fr": "Verbe à la 2e personne : Comment vas-tu ?"}},
+          {"es": "Plural en España: vosotros (¿Cómo estáis?)", "translations": {"fr": "Pluriel en Espagne : vosotros (Comment allez-vous ?)"}},
+          {"es": "Te, tu, tuyo: ¿Te ayudo?", "translations": {"fr": "Te, tu, tuyo : Je t'aide ?"}}
+        ]},
+        {"title": {"es": "USTED (formal)", "translations": {"fr": "USTED (vouvoiement)"}}, "items": [
+          {"es": "Verbo en 3.ª persona: ¿Cómo está?", "translations": {"fr": "Verbe à la 3e personne : Comment allez-vous ?"}},
+          {"es": "Plural: ustedes (¿Cómo están?)", "translations": {"fr": "Pluriel : ustedes (Comment allez-vous ?)"}},
+          {"es": "Le, su, suyo: ¿Le ayudo?", "translations": {"fr": "Le, su, suyo : Je vous aide ?"}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Perdone, señora, ¿sabe usted dónde está la estación?", "translations": {"fr": "Excusez-moi, madame, vous savez où est la gare ?"}, "highlight": ["Perdone", "sabe usted"]},
+        {"es": "—¿Nos tuteamos? —¡Claro! Llámame Carmen.", "translations": {"fr": "— On se tutoie ? — Bien sûr ! Appelle-moi Carmen."}, "highlight": ["Nos tuteamos", "Llámame"]},
+        {"es": "Chicos, ¿queréis un café?", "translations": {"fr": "Les amis, vous voulez un café ?"}, "highlight": ["queréis"], "note": "En América se dice «¿quieren un café?» (ustedes).", "noteTranslations": {"fr": "En Amérique latine, on dit « ¿quieren un café? » (ustedes)."}}
+      ],
+      "trick": {"es": "«Usted» se conjuga como «él»: usted es, usted tiene, usted quiere.", "translations": {"fr": "« Usted » se conjugue comme « él » : usted es, usted tiene, usted quiere."}},
+      "frenchTrap": {"es": "«Vous» tiene dos caras: a una persona, con respeto = usted (¿Cómo está?); a varias personas = vosotros en España (¿Cómo estáis?) o ustedes. ¡Y con «usted» el verbo va en 3.ª persona!", "translations": {"fr": "« Vous » a deux visages : à une personne, poliment = usted (¿Cómo está?) ; à plusieurs personnes = vosotros en Espagne (¿Cómo estáis?) ou ustedes. Et avec « usted », le verbe se met à la 3e personne !"}},
+      "seeAlso": ["d_pronombre_sujeto", "d_saludos", "tp_a1_presentarse", "tp_matices_registro"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «usted»", "url": "https://www.rae.es/dpd/usted"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «tú»", "url": "https://www.rae.es/dpd/t%C3%BA"}
+      ],
+      "tags": ["tú", "usted", "cortesía"]
+    },
+    {
+      "id": "d_saludos",
+      "question": {"es": "¿Hasta qué hora se dice «buenos días»?", "translations": {"fr": "Jusqu'à quelle heure dit-on « buenos días » ?"}},
+      "aliases": ["buenos días", "buenas tardes", "buenas noches", "saludos en español", "bonjour en espagnol", "bonsoir en espagnol", "hola qué tal"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "☀️",
+      "answer": {"es": "«Buenos días» hasta la hora de comer (en España, hacia las dos). Después, «buenas tardes» hasta que se hace de noche. Luego, «buenas noches», que sirve para saludar y para despedirse. «Hola» vale a cualquier hora.", "translations": {"fr": "« Buenos días » jusqu'au déjeuner (en Espagne, vers deux heures). Ensuite, « buenas tardes » jusqu'à la nuit. Puis « buenas noches », qui sert à dire bonsoir et bonne nuit. « Hola » marche à toute heure."}},
+      "points": [
+        {"es": "Muy usado: «¡Hola! ¿Qué tal?» o «¡Hola, buenos días!».", "translations": {"fr": "Très courant : « ¡Hola! ¿Qué tal? » (salut, ça va ?) ou « ¡Hola, buenos días! »."}},
+        {"es": "Corto y familiar: «¡Buenas!», a cualquier hora.", "translations": {"fr": "Court et familier : « ¡Buenas! », à n'importe quelle heure."}},
+        {"es": "Al entrar en una tienda, una consulta o un ascensor, se saluda: «Buenos días».", "translations": {"fr": "En entrant dans un magasin, une salle d'attente ou un ascenseur, on salue : « Buenos días »."}},
+        {"es": "En Argentina y Uruguay también se oye «buen día» por la mañana.", "translations": {"fr": "En Argentine et en Uruguay, on entend aussi « buen día » le matin."}}
+      ],
+      "examples": [
+        {"es": "¡Buenos días, Carmen! ¿Qué tal has dormido?", "translations": {"fr": "Bonjour, Carmen ! Tu as bien dormi ?"}, "highlight": ["Buenos días"]},
+        {"es": "Buenas tardes, ¿tiene pan sin sal?", "translations": {"fr": "Bonjour, vous avez du pain sans sel ?"}, "highlight": ["Buenas tardes"], "note": "A las cinco de la tarde, en francés todavía se dice «bonjour».", "noteTranslations": {"fr": "À cinq heures de l'après-midi, en français, on dit encore « bonjour »."}},
+        {"es": "Bueno, me voy a la cama. ¡Buenas noches!", "translations": {"fr": "Bon, je vais me coucher. Bonne nuit !"}, "highlight": ["Buenas noches"]}
+      ],
+      "trick": {"es": "«Días» hasta comer, «tardes» hasta la noche, «noches» después.", "translations": {"fr": "« Días » jusqu'au déjeuner, « tardes » jusqu'à la nuit, « noches » après."}},
+      "frenchTrap": {"es": "«Bonjour» no siempre es «buenos días»: a las cinco de la tarde se dice «buenas tardes». Y «buenas noches» es a la vez «bonsoir» y «bonne nuit».", "translations": {"fr": "« Bonjour » ne se dit pas toujours « buenos días » : à cinq heures de l'après-midi, on dit « buenas tardes ». Et « buenas noches » veut dire à la fois « bonsoir » et « bonne nuit »."}},
+      "seeAlso": ["d_despedirse", "d_hora", "tp_a1_presentarse"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «día» (buenos días, buen día)", "url": "https://www.rae.es/dpd/d%C3%ADa"},
+        {"label": "Instituto Cervantes · Plan curricular, inventario de funciones A1 (saludar)"}
+      ],
+      "tags": ["saludos", "buenos días", "cortesía"]
+    },
+    {
+      "id": "d_presentarse",
+      "question": {"es": "¿Cómo me presento en español?", "translations": {"fr": "Comment me présenter en espagnol ?"}},
+      "aliases": ["presentarse", "me llamo", "cómo te llamas", "se présenter en espagnol", "je m'appelle en espagnol", "enchanté en espagnol", "mucho gusto"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "👋",
+      "answer": {"es": "Lo básico: «Hola, me llamo Claire. Soy francesa, de Lyon, y vivo en Madrid». Al conocer a alguien: «Encantada» o «Mucho gusto». Y para devolver la pregunta: «¿Y tú?» o «¿Y usted?».", "translations": {"fr": "L'essentiel : « Hola, me llamo Claire. Soy francesa, de Lyon, y vivo en Madrid » (bonjour, je m'appelle Claire, je suis française, de Lyon, et j'habite à Madrid). Quand on rencontre quelqu'un : « Encantada » ou « Mucho gusto » (enchantée). Et pour retourner la question : « ¿Y tú? » ou « ¿Y usted? » (et toi ? et vous ?)."}},
+      "points": [
+        {"es": "Nombre: Me llamo… / Soy… (Soy Claire).", "translations": {"fr": "Prénom : Me llamo… / Soy… (Soy Claire = je suis Claire)."}},
+        {"es": "Origen y casa: Soy de Lyon. Vivo en Madrid.", "translations": {"fr": "Origine et domicile : Soy de Lyon (je suis de Lyon). Vivo en Madrid (j'habite à Madrid)."}},
+        {"es": "Edad y trabajo: Tengo 60 años. Soy profesora. / Estoy jubilada.", "translations": {"fr": "Âge et métier : Tengo 60 años (j'ai 60 ans). Soy profesora (je suis professeure). / Estoy jubilada (je suis à la retraite)."}},
+        {"es": "Encantado si eres hombre, encantada si eres mujer; «mucho gusto» no cambia.", "translations": {"fr": "Encantado si tu es un homme, encantada si tu es une femme ; « mucho gusto » ne change pas."}},
+        {"es": "En España, entre amigos y conocidos, dos besos; en una situación formal, la mano.", "translations": {"fr": "En Espagne, entre amis et connaissances, deux bises ; dans une situation formelle, on se serre la main."}}
+      ],
+      "examples": [
+        {"es": "—Hola, soy Claire, la nueva vecina del tercero. —¡Encantada! Yo soy Lola.", "translations": {"fr": "— Bonjour, je suis Claire, la nouvelle voisine du troisième. — Enchantée ! Moi, c'est Lola."}, "highlight": ["soy Claire", "Encantada", "Yo soy Lola"]},
+        {"es": "—¿De dónde eres? —Soy de Francia, de Burdeos.", "translations": {"fr": "— Tu viens d'où ? — Je suis française, de Bordeaux."}, "highlight": ["Soy de Francia"]},
+        {"es": "Le presento a mi marido, Jean.", "translations": {"fr": "Je vous présente mon mari, Jean."}, "highlight": ["Le presento a mi marido"]}
+      ],
+      "trick": {"es": "Tres verbos para presentarte: me llamo (nombre), soy (de dónde y qué), tengo (años).", "translations": {"fr": "Trois verbes pour te présenter : me llamo (prénom), soy (d'où et quoi), tengo (l'âge)."}},
+      "frenchTrap": {"es": "«Enchantée» = encantada (con «-a» si eres mujer). «Je suis de Lyon» = soy de Lyon, con «ser». Y al teléfono, «c'est Claire» = «Soy Claire», no «es Claire».", "translations": {"fr": "« Enchantée » = encantada (avec « -a » si tu es une femme). « Je suis de Lyon » = soy de Lyon, avec « ser ». Et au téléphone, « c'est Claire » = « Soy Claire », pas « es Claire »."}},
+      "seeAlso": ["d_edad", "d_articulo_profesion", "d_ser_estar", "tp_a1_presentarse"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de funciones A1 (presentarse y presentar a alguien)"}],
+      "tags": ["presentarse", "saludos", "me llamo"]
+    },
+    {
+      "id": "d_edad",
+      "question": {"es": "¿Cómo digo mi edad? ¿«Tengo 60 años» o «soy 60»?", "translations": {"fr": "Comment dire mon âge ? « Tengo 60 años » ou « soy 60 » ?"}},
+      "aliases": ["cuántos años tienes", "tengo años", "edad en español", "j'ai 60 ans en espagnol", "dire son âge en espagnol", "quel âge as-tu en espagnol", "cumplir años"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "🎂",
+      "answer": {"es": "Como en francés, con «tener»: tengo 60 años. Para preguntar: ¿Cuántos años tienes? (con usted: ¿Cuántos años tiene?). El día del cumpleaños: hoy cumplo 61 años.", "translations": {"fr": "Comme en français, avec « tener » (avoir) : tengo 60 años. Pour demander : ¿Cuántos años tienes? (avec usted : ¿Cuántos años tiene?). Le jour de l'anniversaire : hoy cumplo 61 años (aujourd'hui, j'ai 61 ans)."}},
+      "points": [
+        {"es": "Cumplir años: Mañana cumplo 61 = demain j'aurai 61 ans.", "translations": {"fr": "Cumplir años : Mañana cumplo 61 (demain, j'aurai 61 ans)."}},
+        {"es": "Más o menos: Tiene unos setenta años. Tiene sesenta y tantos.", "translations": {"fr": "À peu près : Tiene unos setenta años (il a environ soixante-dix ans). Tiene sesenta y tantos (il a soixante ans et quelques)."}},
+        {"es": "Con tacto: «una persona mayor» suena mejor que «viejo».", "translations": {"fr": "Avec tact : « una persona mayor » (une personne âgée) sonne mieux que « viejo » (vieux)."}},
+        {"es": "En el pasado, imperfecto: Cuando tenía diez años…", "translations": {"fr": "Au passé, imparfait : Cuando tenía diez años… (quand j'avais dix ans…)"}}
+      ],
+      "examples": [
+        {"es": "—¿Cuántos años tiene tu nieto? —Tiene siete años.", "translations": {"fr": "— Quel âge a ton petit-fils ? — Il a sept ans."}, "highlight": ["Cuántos años tiene", "Tiene siete años"]},
+        {"es": "El sábado mi madre cumple noventa años.", "translations": {"fr": "Samedi, ma mère fête ses quatre-vingt-dix ans."}, "highlight": ["cumple noventa años"]},
+        {"es": "Cuando tenía veinte años, vivía en Barcelona.", "translations": {"fr": "Quand j'avais vingt ans, j'habitais à Barcelone."}, "highlight": ["tenía veinte años"]}
+      ],
+      "trick": {"es": "Edad = tener, como «avoir»: ¡aquí el francés te ayuda!", "translations": {"fr": "L'âge = tener, comme « avoir » : ici, le français t'aide !"}},
+      "frenchTrap": {"es": "«Demain, j'aurai 61 ans» se dice muy a menudo en presente: «Mañana cumplo 61 años». Y ojo a los números: soixante-dix = setenta, quatre-vingts = ochenta, quatre-vingt-dix = noventa.", "translations": {"fr": "« Demain, j'aurai 61 ans » se dit très souvent au présent : « Mañana cumplo 61 años ». Et attention aux nombres : soixante-dix = setenta, quatre-vingts = ochenta, quatre-vingt-dix = noventa."}},
+      "seeAlso": ["d_tener_haber", "d_presentarse", "d_veintiun", "tp_a1_numeros_hora"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de funciones A1 (dar información personal)"}],
+      "tags": ["edad", "tener", "cumpleaños"]
+    },
+    {
+      "id": "d_pedir_bar",
+      "question": {"es": "¿Cómo pido algo en un bar o en un restaurante?", "translations": {"fr": "Comment commander dans un bar ou au restaurant ?"}},
+      "aliases": ["pedir en un bar", "pedir en un restaurante", "me pone un café", "commander au restaurant en espagnol", "commander un café en espagnol", "la cuenta por favor", "quería un café"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "☕",
+      "answer": {"es": "Lo más natural en España: «¿Me pone un café, por favor?» o «Para mí, un café con leche». «Quería…» también es muy educado. Para pagar: «¿Me cobra?» o «La cuenta, por favor».", "translations": {"fr": "Le plus naturel en Espagne : « ¿Me pone un café, por favor? » (vous me servez un café, s'il vous plaît ?) ou « Para mí, un café con leche » (pour moi, un café au lait). « Quería… » (je voudrais…) est aussi très poli. Pour payer : « ¿Me cobra? » (je peux payer ?) ou « La cuenta, por favor » (l'addition, s'il vous plaît)."}},
+      "points": [
+        {"es": "Llamar al camarero: «¡Perdone!» o «¡Por favor!», con una sonrisa.", "translations": {"fr": "Appeler le serveur : « ¡Perdone! » ou « ¡Por favor! », avec un sourire."}},
+        {"es": "Pedir: ¿Me pone…? / ¿Me trae…? / Quería… / Para mí…", "translations": {"fr": "Commander : ¿Me pone…? / ¿Me trae…? / Quería… / Para mí…"}},
+        {"es": "Preguntar: ¿Qué tapas tienen? ¿Qué lleva este plato?", "translations": {"fr": "Demander : ¿Qué tapas tienen? (vous avez quelles tapas ?) ¿Qué lleva este plato? (qu'est-ce qu'il y a dans ce plat ?)"}},
+        {"es": "Pagar: ¿Me cobra? / ¿Cuánto es? / ¿Puedo pagar con tarjeta?", "translations": {"fr": "Payer : ¿Me cobra? / ¿Cuánto es? (c'est combien ?) / ¿Puedo pagar con tarjeta? (je peux payer par carte ?)"}}
+      ],
+      "examples": [
+        {"es": "Perdone, ¿me pone una caña y una tapa de tortilla?", "translations": {"fr": "Excusez-moi, vous me servez un demi et une part de tortilla ?"}, "highlight": ["me pone"], "note": "Una caña = un vaso pequeño de cerveza de barril.", "noteTranslations": {"fr": "Una caña = un petit verre de bière pression (un demi)."}},
+        {"es": "Para mí, el menú del día con pescado.", "translations": {"fr": "Pour moi, le menu du jour avec du poisson."}, "highlight": ["Para mí"]},
+        {"es": "¿Nos trae la cuenta, por favor?", "translations": {"fr": "Vous pouvez nous apporter l'addition, s'il vous plaît ?"}, "highlight": ["Nos trae la cuenta"]}
+      ],
+      "trick": {"es": "«¿Me pone…?» es la llave mágica de los bares en España.", "translations": {"fr": "« ¿Me pone…? », c'est la formule magique des bars en Espagne."}},
+      "frenchTrap": {"es": "«Je voudrais», en el bar, se dice más «quería» o «¿me pone…?» que «querría». Y «l'addition» es «la cuenta», no «la adición».", "translations": {"fr": "Au bar, « je voudrais » se dit plutôt « quería » ou « ¿me pone…? » que « querría ». Et « l'addition », c'est « la cuenta », pas « la adición »."}},
+      "seeAlso": ["d_pedir_preguntar", "d_por_favor", "d_otro", "d_llevar_traer"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de funciones A1–A2 (pedir algo)"}],
+      "tags": ["bar", "restaurante", "pedir"]
+    },
+    {
+      "id": "d_perdon_lo_siento",
+      "question": {"es": "¿«Perdón», «lo siento» o «disculpe»? ¿Cuál uso?", "translations": {"fr": "« Perdón », « lo siento » ou « disculpe » ? Lequel utiliser ?"}},
+      "aliases": ["perdón o lo siento", "disculpe o perdone", "pardon en espagnol", "je suis désolée en espagnol", "excusez-moi en espagnol", "con permiso"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "😅",
+      "answer": {"es": "Para llamar la atención o para pasar: «perdone» o «disculpe» (con usted), «perdona» o «disculpa» (con tú). Para pedir perdón por algo: «¡perdón!» o, si es más serio, «lo siento (mucho)».", "translations": {"fr": "Pour attirer l'attention ou pour passer : « perdone » ou « disculpe » (avec usted), « perdona » ou « disculpa » (avec tú). Pour s'excuser de quelque chose : « ¡perdón! » ou, si c'est plus grave, « lo siento (mucho) » (je suis vraiment désolée)."}},
+      "points": [
+        {"es": "Preguntar en la calle: Perdone, ¿la calle Mayor, por favor?", "translations": {"fr": "Demander dans la rue : Perdone, ¿la calle Mayor, por favor? (excusez-moi, la rue Mayor, s'il vous plaît ?)"}},
+        {"es": "Pasar entre la gente: ¡Perdón! / Con permiso.", "translations": {"fr": "Passer entre les gens : ¡Perdón! / Con permiso (pardon, je peux passer ?)."}},
+        {"es": "Un pequeño error, como un pisotón: ¡Uy, perdón!", "translations": {"fr": "Une petite maladresse, comme marcher sur un pied : ¡Uy, perdón! (oh, pardon !)"}},
+        {"es": "Una mala noticia: Lo siento mucho. En un entierro: Te acompaño en el sentimiento.", "translations": {"fr": "Une mauvaise nouvelle : Lo siento mucho (je suis vraiment désolée). À un enterrement : Te acompaño en el sentimiento (toutes mes condoléances)."}},
+        {"es": "No has entendido: ¿Perdón? ¿Cómo? ¿Puede repetir?", "translations": {"fr": "Tu n'as pas compris : ¿Perdón? ¿Cómo? ¿Puede repetir? (pardon ? comment ? vous pouvez répéter ?)"}}
+      ],
+      "examples": [
+        {"es": "Disculpe, ¿sabe si este autobús va al centro?", "translations": {"fr": "Excusez-moi, vous savez si ce bus va au centre ?"}, "highlight": ["Disculpe"]},
+        {"es": "Siento llegar tarde: había mucho tráfico.", "translations": {"fr": "Désolée d'arriver en retard : il y avait beaucoup de circulation."}, "highlight": ["Siento llegar tarde"]},
+        {"es": "—Mi gato está enfermo. —Vaya, lo siento mucho.", "translations": {"fr": "— Mon chat est malade. — Oh, je suis vraiment désolée."}, "highlight": ["lo siento mucho"]}
+      ],
+      "trick": {"es": "Perdón = pardon (rápido y ligero). Lo siento = je suis désolée (lo sientes de verdad).", "translations": {"fr": "Perdón = pardon (rapide et léger). Lo siento = je suis désolée (tu le ressens vraiment)."}},
+      "frenchTrap": {"es": "«Excusez-moi» no es «excúseme» (se oye poco): di «perdone» o «disculpe». Y «je suis désolée» no es «estoy desolada» (suena dramático): es «lo siento».", "translations": {"fr": "« Excusez-moi » ne se dit pas « excúseme » (rare) : dis « perdone » ou « disculpe ». Et « je suis désolée » ne se dit pas « estoy desolada » (très dramatique) : c'est « lo siento »."}},
+      "seeAlso": ["d_tu_usted", "d_por_favor", "d_gracias_de_nada"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de funciones A1–A2 (disculparse)"}],
+      "tags": ["perdón", "disculpas", "cortesía"]
+    },
+    {
+      "id": "d_gracias_de_nada",
+      "question": {"es": "¿Qué se responde cuando alguien dice «gracias»?", "translations": {"fr": "Que répondre quand quelqu'un dit « gracias » ?"}},
+      "aliases": ["de nada", "muchas gracias", "no hay de qué", "merci en espagnol", "de rien en espagnol", "je vous en prie en espagnol", "comment répondre à gracias"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "💐",
+      "answer": {"es": "Lo normal es «de nada». También: «no hay de qué», «a ti» o «a usted» (cuando tú también das las gracias) y «con mucho gusto», muy usado en América. Para agradecer más: «muchas gracias», «mil gracias».", "translations": {"fr": "Le plus courant : « de nada » (de rien). Aussi : « no hay de qué » (il n'y a pas de quoi), « a ti » ou « a usted » (merci à toi, merci à vous, quand tu remercies aussi) et « con mucho gusto » (avec plaisir), très utilisé en Amérique latine. Pour remercier davantage : « muchas gracias », « mil gracias »."}},
+      "points": [
+        {"es": "Gracias por + nombre o infinitivo: Gracias por el regalo. Gracias por venir.", "translations": {"fr": "Gracias por + nom ou infinitif : Gracias por el regalo (merci pour le cadeau). Gracias por venir (merci d'être venu)."}},
+        {"es": "Muy amable: «Es usted muy amable» = c'est très gentil de votre part.", "translations": {"fr": "Très gentil : « Es usted muy amable » = c'est très gentil de votre part."}},
+        {"es": "Al recibir un regalo: ¡Qué detalle! ¡Muchísimas gracias!", "translations": {"fr": "Quand on reçoit un cadeau : ¡Qué detalle! (quelle délicate attention !) ¡Muchísimas gracias! (merci infiniment !)"}}
+      ],
+      "examples": [
+        {"es": "—Gracias por la ayuda. —¡De nada, mujer!", "translations": {"fr": "— Merci pour ton aide. — De rien, voyons !"}, "highlight": ["Gracias por la ayuda", "De nada"], "note": "«Mujer» y «hombre» se usan mucho así, con cariño.", "noteTranslations": {"fr": "« Mujer » et « hombre » s'utilisent souvent ainsi, avec affection, un peu comme « voyons »."}},
+        {"es": "—Muchas gracias, señor. —A usted.", "translations": {"fr": "— Merci beaucoup, monsieur. — Merci à vous."}, "highlight": ["A usted"]},
+        {"es": "Mil gracias por venir a mi cumpleaños.", "translations": {"fr": "Merci mille fois d'être venus à mon anniversaire."}, "highlight": ["Mil gracias por venir"]}
+      ],
+      "trick": {"es": "Merci → gracias; de rien → de nada; merci à vous → a usted.", "translations": {"fr": "Merci → gracias ; de rien → de nada ; merci à vous → a usted."}},
+      "frenchTrap": {"es": "«Merci d'être venu» = gracias por venir: con «por», no con «de». Y «je vous en prie» no se traduce palabra por palabra: di «de nada» o «no hay de qué».", "translations": {"fr": "« Merci d'être venu » = gracias por venir : avec « por », pas avec « de ». Et « je vous en prie » ne se traduit pas mot à mot : dis « de nada » ou « no hay de qué »."}},
+      "seeAlso": ["d_por_favor", "d_perdon_lo_siento", "tp_a1_presentarse"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de funciones A1 (agradecer y responder)"}],
+      "tags": ["gracias", "de nada", "cortesía"]
+    },
+    {
+      "id": "d_despedirse",
+      "question": {"es": "¿Cómo me despido en español?", "translations": {"fr": "Comment dire au revoir en espagnol ?"}},
+      "aliases": ["despedirse", "adiós", "hasta luego", "hasta mañana", "au revoir en espagnol", "à bientôt en espagnol", "à demain en espagnol", "nos vemos"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "🚪",
+      "answer": {"es": "«Adiós» sirve siempre. «Hasta luego» es el más usado, aunque no vayas a ver a la persona hoy. Si sabes cuándo os veréis: hasta mañana, hasta el lunes. Entre amigos: «¡Nos vemos!», «¡Chao!».", "translations": {"fr": "« Adiós » marche toujours. « Hasta luego » est le plus courant, même si tu ne revois pas la personne aujourd'hui. Si tu sais quand vous vous reverrez : hasta mañana (à demain), hasta el lunes (à lundi). Entre amis : « ¡Nos vemos! » (à plus !), « ¡Chao! » (salut !)."}},
+      "points": [
+        {"es": "Al salir de una tienda: «¡Hasta luego!» o «¡Adiós, buenos días!».", "translations": {"fr": "En sortant d'un magasin : « ¡Hasta luego! » ou « ¡Adiós, buenos días! » (au revoir, bonne journée !)."}},
+        {"es": "Por la noche: ¡Buenas noches! ¡Que descanses!", "translations": {"fr": "Le soir : ¡Buenas noches! ¡Que descanses! (bonne nuit ! repose-toi bien !)"}},
+        {"es": "Buenos deseos: ¡Que te vaya bien! ¡Buen fin de semana!", "translations": {"fr": "Bons vœux : ¡Que te vaya bien! (bonne continuation !) ¡Buen fin de semana! (bon week-end !)"}},
+        {"es": "En un mensaje: Un beso, Un abrazo, Besos.", "translations": {"fr": "Dans un message : Un beso (je t'embrasse), Un abrazo (amitiés), Besos (bisous)."}}
+      ],
+      "examples": [
+        {"es": "Bueno, me voy. ¡Hasta luego, Pilar!", "translations": {"fr": "Bon, j'y vais. À plus tard, Pilar !"}, "highlight": ["Hasta luego"]},
+        {"es": "¡Adiós! ¡Que tengáis buen viaje!", "translations": {"fr": "Au revoir ! Faites bon voyage !"}, "highlight": ["Adiós", "Que tengáis buen viaje"]},
+        {"es": "Nos vemos el jueves en la clase de baile.", "translations": {"fr": "On se voit jeudi au cours de danse."}, "highlight": ["Nos vemos el jueves"]}
+      ],
+      "trick": {"es": "«Hasta» = «à» en las despedidas: hasta luego (à plus tard), hasta pronto (à bientôt), hasta mañana (à demain).", "translations": {"fr": "« Hasta » = « à » dans les au revoir : hasta luego (à plus tard), hasta pronto (à bientôt), hasta mañana (à demain)."}},
+      "frenchTrap": {"es": "No digas «a mañana» ni «a pronto» (calcos de «à demain», «à bientôt»): se dice «hasta mañana», «hasta pronto».", "translations": {"fr": "Ne dis pas « a mañana » ni « a pronto » (calques de « à demain », « à bientôt ») : on dit « hasta mañana », « hasta pronto »."}},
+      "seeAlso": ["d_saludos", "tp_a1_presentarse"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «adiós»", "url": "https://www.rae.es/dpd/adi%C3%B3s"},
+        {"label": "Instituto Cervantes · Plan curricular, inventario de funciones A1 (despedirse)"}
+      ],
+      "tags": ["despedidas", "adiós", "hasta luego"]
+    },
+    {
+      "id": "d_por_favor",
+      "question": {"es": "¿Se dice mucho «por favor» en español?", "translations": {"fr": "Dit-on souvent « por favor » en espagnol ?"}},
+      "aliases": ["por favor", "s'il vous plaît en espagnol", "s'il te plaît en espagnol", "pedir con educación", "politesse en espagnol", "ponme un café"],
+      "cefr": "A2",
+      "category": "usage",
+      "emoji": "🙏",
+      "answer": {"es": "Sí, pero a menudo menos que «s'il vous plaît» en francés. En España, la cortesía está sobre todo en el tono y en las preguntas: «¿Me pasas la sal?», «¿Me pone un café?». Un «por favor» y una sonrisa bastan.", "translations": {"fr": "Oui, mais souvent moins que « s'il vous plaît » en français. En Espagne, la politesse passe surtout par le ton et par les questions : « ¿Me pasas la sal? » (tu me passes le sel ?), « ¿Me pone un café? » (vous me servez un café ?). Un « por favor » et un sourire suffisent."}},
+      "points": [
+        {"es": "Pedir con una pregunta ya es educado: ¿Puedes…?, ¿Me das…?, ¿Me ayudas?", "translations": {"fr": "Demander avec une question, c'est déjà poli : ¿Puedes…? (tu peux… ?), ¿Me das…? (tu me donnes… ?), ¿Me ayudas? (tu m'aides ?)"}},
+        {"es": "Más formal: ¿Podría…?, ¿Sería tan amable de…?", "translations": {"fr": "Plus formel : ¿Podría…? (pourriez-vous… ?), ¿Sería tan amable de…? (auriez-vous l'amabilité de… ?)"}},
+        {"es": "Entre amigos y en el bar, frases directas como «Ponme un café» son normales, no groseras.", "translations": {"fr": "Entre amis et au bar, des phrases directes comme « Ponme un café » (sers-moi un café) sont normales, pas grossières."}},
+        {"es": "«Por favor» también sirve para llamar al camarero: «¡Por favor!».", "translations": {"fr": "« Por favor » sert aussi à appeler le serveur : « ¡Por favor! »."}}
+      ],
+      "examples": [
+        {"es": "¿Me ayudas con las bolsas, por favor?", "translations": {"fr": "Tu m'aides à porter les sacs, s'il te plaît ?"}, "highlight": ["Me ayudas", "por favor"]},
+        {"es": "¿Podría hablar un poco más despacio, por favor?", "translations": {"fr": "Pourriez-vous parler un peu plus lentement, s'il vous plaît ?"}, "highlight": ["Podría hablar", "por favor"]},
+        {"es": "—Ponme un vino, Manolo. —¡Ahora mismo!", "translations": {"fr": "— Sers-moi un verre de vin, Manolo. — Tout de suite !"}, "highlight": ["Ponme un vino"], "note": "Entre conocidos se habla así de directo, y nadie se ofende.", "noteTranslations": {"fr": "Entre habitués, on parle aussi directement, et personne ne se vexe."}}
+      ],
+      "trick": {"es": "Una pregunta con «¿me…?» ya es educada: ¿Me pasas el pan? ¿Me dice la hora?", "translations": {"fr": "Une question avec « ¿me…? » est déjà polie : ¿Me pasas el pan? (tu me passes le pain ?) ¿Me dice la hora? (vous pouvez me dire l'heure ?)"}},
+      "frenchTrap": {"es": "No te ofendas si te hablan de forma directa: en España no es de mala educación. Y «s'il te plaît» (tú) y «s'il vous plaît» (usted) son lo mismo: por favor.", "translations": {"fr": "Ne te vexe pas si on te parle de façon directe : en Espagne, ce n'est pas impoli. Et « s'il te plaît » (tú) et « s'il vous plaît » (usted) se disent pareil : por favor."}},
+      "seeAlso": ["d_pedir_bar", "d_gracias_de_nada", "tp_b1_condicional", "tp_matices_registro"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, saberes y comportamientos socioculturales (cortesía)"}],
+      "tags": ["por favor", "cortesía", "pedir"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

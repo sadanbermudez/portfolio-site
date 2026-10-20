@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La Piña Investments · Sergio Adan Bermudez</title>
+<meta name="description" content="Web demo of La Piña Investments, my Android app that applies a trend and breakout method to stocks and explains every rule. The real engine, ported to JavaScript, over simulated data.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="../../site.css">
+<link rel="stylesheet" href="../../immersive.css">
+<link rel="stylesheet" href="la-pina.css">
+</head>
+<body>
+<div class="top-wrap gutter">
+  <header class="top page">
+    <a class="brand" href="../../index.html">Sergio Adan Bermudez</a>
+    <nav aria-label="Site"><a href="../../index.html#apps">Apps</a><a href="../../index.html#worlds">Projects</a><a href="../../work/chess.html">Chess</a><a href="../../jarvis.html">Jarvis</a><a href="../../about.html">About</a><a href="../../index.html#contact">Contact</a></nav>
+  </header>
+</div>
+
+<main class="gutter">
+  <div class="page">
+    <section class="lp-hero" aria-labelledby="lp-title">
+      <p class="label">Android app · in development, v0.2</p>
+      <h1 id="lp-title">La Piña Investments</h1>
+      <p class="lede">An Android app that applies one trend and breakout method to stocks and tells you, rule by rule, whether each one is a buy today, one to watch, or a no.</p>
+      <ul class="lp-chips" aria-label="Built with">
+        <li>Kotlin</li><li>Jetpack Compose</li><li>Room</li><li>WorkManager</li><li>Lightweight Charts</li><li>330+ unit tests</li>
+      </ul>
+      <p class="mono lp-status">Status: in development, v0.2, Android.</p>
+      <p class="lp-demo-note"><strong>Web demo:</strong> a recreation of the Android app's screens with simulated data. The real app runs on Android. The verdicts below come from the app's engine, ported line by line from Kotlin to JavaScript; the companies, prices and indices are invented and generated from fixed seeds.</p>
+    </section>
+
+    <section class="lp-demo" aria-label="Interactive demo">
+      <div class="lp-phone-col">
+        <div class="lp-phone" id="phone">
+          <div class="lp-screen" id="app" lang="es" role="region" aria-label="Recreación de la app La Piña Investments (en español, datos simulados)"></div>
+        </div>
+        <p class="mono lp-under">Spanish interface, as in the app. Tap anything. <span class="lp-sim">Datos simulados</span><br>Charts by <a href="https://www.tradingview.com/" rel="noopener" target="_blank">TradingView</a></p>
+      </div>
+      <aside class="lp-tour" aria-labelledby="tour-title">
+        <p class="label">Guided tour</p>
+        <h2 id="tour-title">Seven stops through the app</h2>
+        <ol class="lp-steps" id="tour-steps"></ol>
+        <div class="lp-tour-text" id="tour-text" aria-live="polite"><p>Pick a step to drive the phone, or tap around the app yourself.</p></div>
+        <div class="lp-tour-nav">
+          <button type="button" class="btn" id="tour-prev" disabled>Previous</button>
+          <button type="button" class="btn primary" id="tour-next">Next step</button>
+          <button type="button" class="btn" id="tour-reset">Reset demo</button>
+        </div>
+        <noscript><p>The demo needs JavaScript.</p></noscript>
+      </aside>
+    </section>
+
+    <section class="block" id="method">
+      <div class="side"><p class="label">The method</p><p class="mono">methodology v2</p></div>
+      <div class="main wide">
+        <h2>Every verdict is a list of rules</h2>
+        <p>The method combines a trend template, the classic base patterns (cup with handle, Darvas box, flags) and a breakout volume rule the app calls PAVA. Structural filters reject; temporary blocks only hold an asset on watch; a 0 to 100 score decides the rest. Only closed daily bars count, never intraday prices.</p>
+        <div class="lp-table-wrap">
+          <table class="lp-rules">
+            <caption class="sr-only">The rules of the method, in evaluation order</caption>
+            <thead><tr><th scope="col">Rule</th><th scope="col">What it checks</th><th scope="col">If it fails</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">H1 Data</th><td>At least 260 closed sessions, no gaps, volume present</td><td class="bad">RECHAZADO</td></tr>
+              <tr><th scope="row">H2 Liquidity</th><td>Price of at least $5 or 2 EUR; 50-day traded value of at least $10M or 2M EUR</td><td class="bad">RECHAZADO</td></tr>
+              <tr><th scope="row">H3 Trend template</th><td>TT1-TT7: price over the 50, 150 and 200-day averages, averages stacked, the 200-day rising for a month, 30 % or more above the 52-week low, within 25 % of the high</td><td class="bad">RECHAZADO</td></tr>
+              <tr><th scope="row">H4 Relative strength</th><td>RS rating of 80 or more: percentile of the 12-month return weighted 40/20/20/20</td><td class="bad">RECHAZADO</td></tr>
+              <tr><th scope="row">H5 Pattern</th><td>Darvas box, cup with handle, high tight flag or bull flag, pivot within 10 % of the 52-week high</td><td class="bad">RECHAZADO</td></tr>
+              <tr><th scope="row">H6 Pivot</th><td>Close in the buy range (pivot to +5 %) and not stretched from the 50-day average; inside the base is a no</td><td class="bad">RECHAZADO (within 5 % below: watch)</td></tr>
+              <tr><th scope="row">B1 PAVA</th><td>Close above the pivot on at least 1.4 times the 50-day volume, in the upper half of the day's range, confirmed within 5 sessions</td><td class="watch">VIGILANCIA</td></tr>
+              <tr><th scope="row">B2 RS leader</th><td>RS of 90 or more</td><td class="watch">VIGILANCIA</td></tr>
+              <tr><th scope="row">B3 Market regime</th><td>Correction or rally attempt: no new buys. Under pressure: only RS 95 or more</td><td class="watch">VIGILANCIA</td></tr>
+              <tr><th scope="row">B4 Earnings</th><td>No new buys in the 10 sessions before a report</td><td class="watch">VIGILANCIA</td></tr>
+              <tr><th scope="row">B5 Simple flag</th><td>A bull flag needs a strong breakout (2 times the volume)</td><td class="watch">VIGILANCIA</td></tr>
+              <tr><th scope="row">S Score</th><td>RS and RS line 25, pattern 20, volume 20, overhead supply 15, trend 10, fundamentals 10 (rescaled when absent)</td><td>70+: APROBADO · 50-69: watch · under 50: no</td></tr>
+              <tr><th scope="row">V1-V8 Selling</th><td>Initial stop at the base low or 8 % at most, breakeven at +15 %, 10-week average and SMA20 exits, half off at +20 % (later for fast leaders), climax and bearish-pattern warnings</td><td>Sell at the next open</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="built">
+      <div class="side"><p class="label">How it's built</p><p class="mono">Kotlin · four modules</p></div>
+      <div class="main wide">
+        <h2>A pure engine, a data layer, and an Android shell</h2>
+        <div class="lp-modules">
+          <article><h3>engine</h3><p class="mono">pure Kotlin/JVM · 263 tests</p><p>Indicators, the trend template, RS, the bases, PAVA, overhead supply, the regime state machine, score, verdict, stops, sizing, the paper portfolio's sell rules, the backtest, the heat map layout. No Android imports, so it runs and is tested on the JVM.</p></article>
+          <article><h3>marketdata</h3><p class="mono">pure Kotlin/JVM · 67 tests</p><p>Data sources behind one interface, the symbol catalog, the nightly scan service, the cache refresh, SEC EDGAR's filings and the macro panel's sources.</p></article>
+          <article><h3>learn</h3><p class="mono">pure Kotlin/JVM</p><p>The course: 85 lessons in Markdown, links from lessons into the app, progress, tests and card review.</p></article>
+          <article><h3>app</h3><p class="mono">Android · Compose</p><p>Jetpack Compose with Material 3 and fixed brand colours, Room (schema v7) for the cache, lists, alerts and the paper portfolio, WorkManager for the nightly scan, manual dependency injection instead of Hilt, and Lightweight Charts in a WebView.</p></article>
+        </div>
+        <h3 class="lp-h3">Data, all free</h3>
+        <p>Daily bars from Yahoo's chart endpoint by default; US companies' filings and earnings dates from SEC EDGAR; macro figures from the ECB, the BLS, the US Treasury and the New York Fed. No keys and no subscriptions. Only closed daily bars enter a verdict.</p>
+        <h3 class="lp-h3">What this web demo ports</h3>
+        <p>engine.js reproduces the Analyzer (H1-H6, B1-B5, score, plan), the four bases, PAVA with its weekly variant, overhead supply, the RS line, the regime state machine, the "what is missing" texts, the automatic lists, sizing and the squarified treemap. The tests in <span class="mono">site/tests/la-pina.test.mjs</span> run the Kotlin fixtures and expect the same verdicts. The random walks use a bit-for-bit port of java.util.Random, the generator the app's screenshot tool seeds.</p>
+        <p>Left out: gold, silver and bitcoin's adapted rules, the chart-pattern detector (flat bases from ranges and the B7 bearish-pattern block), the fundamentals layer, trading costs and the full backtest. Those are in the app, not here.</p>
+        <h3 class="lp-h3">Honest notes</h3>
+        <ul class="lp-notes">
+          <li>It is an education tool. It never places orders and connects to no broker; the user decides and carries the risk.</li>
+          <li>The app's backtest is conservative about what it can claim: until there is an out-of-sample test, every setup is labelled "Muestra insuficiente" against its index, with the SPIVA base rate next to it.</li>
+          <li>The method's defaults come from its written specification, and the code says so itself: they are settings, not facts.</li>
+          <li>Everything on this page is simulated. No real company, price or trade appears.</li>
+        </ul>
+        <div class="cta"><a class="btn" href="../../index.html#worlds">More projects</a><a class="back" href="../../index.html">← Home</a></div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="mono">Herramienta educativa. No es asesoramiento financiero. Simulated data only.</p>
+      <p class="mono">Charts: <a href="https://www.tradingview.com/" rel="noopener" target="_blank">TradingView</a> Lightweight Charts™ 5.0.9 (Apache 2.0), the same library the app uses.</p>
+      <p class="mono">Built with Claude Code, directed and reviewed by me.</p>
+    </footer>
+  </div>
+</main>
+
+<script src="vendor/lightweight-charts.standalone.production.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

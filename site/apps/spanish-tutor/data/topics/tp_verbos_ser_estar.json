@@ -1,0 +1,119 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "topic",
+  "id": "tp_verbos_ser_estar",
+  "version": "1.0.0",
+  "status": "published",
+  "packId": "temas_lengua",
+  "unitNumber": 4,
+  "orderInUnit": 10,
+  "kind": "grammar",
+  "title": { "es": "Ser o estar", "translations": { "fr": "Ser ou estar" } },
+  "tagline": { "es": "Ser: qué es · Estar: cómo y dónde", "translations": { "fr": "Ser : ce que c'est · Estar : comment et où" } },
+  "summary": { "es": "Todo sobre el duelo ser / estar: lugar, estado, eventos, participios y adjetivos con doble sentido.", "translations": { "fr": "Tout sur le duel ser / estar : lieu, état, événements, participes et adjectifs à double sens." } },
+  "emoji": "⚖️",
+  "cefr": "B2",
+  "difficulty": 3,
+  "estimatedMinutes": 50,
+  "keyIdeas": [
+    { "es": "Ser = qué es · Estar = cómo está y dónde.", "translations": { "fr": "Ser = ce que c'est · Estar = comment et où." } },
+    { "es": "Eventos y valoraciones: ser (La boda es en Sevilla).", "translations": { "fr": "Événements et jugements : ser (La boda es en Sevilla)." } },
+    { "es": "Listo, rico, aburrido…: ser y estar cambian el sentido.", "translations": { "fr": "Listo, rico, aburrido… : ser et estar changent le sens." } },
+    { "es": "Cuidado con el francés: Soy yo · Estoy de acuerdo · Estamos a 9.", "translations": { "fr": "Attention au français : Soy yo · Estoy de acuerdo · Estamos a 9." } }
+  ],
+  "sections": {
+    "listen": [ { "lesson": "l_verbos_ser_estar_dialogo_piso" } ],
+    "grammar": [ { "lesson": "g_verbos_ser_estar_contraste" } ],
+    "vocab": [ { "lesson": "v_verbos_ser_estar_adjetivos" } ],
+    "tests": {
+      "lessons": ["g_verbos_ser_estar_contraste", "v_verbos_ser_estar_adjetivos", "l_verbos_ser_estar_dialogo_piso"],
+      "final": {
+        "passingScore": 0.7,
+        "shuffleItems": false,
+        "shuffleOptions": true,
+        "showExplanationOn": "wrong_only",
+        "items": [
+          {
+            "id": "q01", "format": "multiple_choice", "difficulty": 3, "targets": ["r_eventos_valoraciones", "r_participio"],
+            "prompt": { "es": "Nuestro vuelo ___ a las siete, pero la puerta de embarque ___ cerrada.", "translations": { "fr": "Nuestro vuelo ___ a las siete, pero la puerta de embarque ___ cerrada." } },
+            "options": ["es / está", "está / es", "es / es", "está / está"], "correctIndex": [0],
+            "explanation": { "es": "Evento y hora: ser. Resultado (participio): estar.", "translations": { "fr": "Événement et heure : ser. Résultat (participe) : estar." } }
+          },
+          {
+            "id": "q02", "format": "fill_blank", "difficulty": 3, "targets": ["r_cambio_sentido"],
+            "prompt": { "es": "Completa con ser o estar.", "translations": { "fr": "Complète avec ser ou estar." } },
+            "text": "Tu hermano {{1}} muy atento, pero hoy {{2}} en las nubes.",
+            "answers": [["es"], ["está"]],
+            "explanation": { "es": "Ser atento = amable. Estar en las nubes = estar distraído.", "translations": { "fr": "Ser atento = prévenant. Estar en las nubes = être dans la lune." } }
+          },
+          {
+            "id": "q03", "format": "matching", "difficulty": 2, "targets": ["r_cest"],
+            "prompt": { "es": "Une cada expresión francesa con su equivalente español.", "translations": { "fr": "Relie chaque expression française à son équivalent espagnol." } },
+            "left": ["C'est moi", "Je suis d'accord", "On est le 9 octobre", "Il y a du bruit"],
+            "right": ["Estamos a 9 de octubre", "Hay ruido", "Soy yo", "Estoy de acuerdo"],
+            "pairs": [[0, 2], [1, 3], [2, 0], [3, 1]]
+          },
+          {
+            "id": "q04", "format": "error_correction", "difficulty": 3, "targets": ["r_eventos_valoraciones", "r_participio"],
+            "prompt": { "es": "Corrige los dos errores.", "translations": { "fr": "Corrige les deux erreurs." } },
+            "sentence": "La reunión está a las diez, pero la sala es cerrada.",
+            "errors": [ { "wrong": "está a las diez", "right": "es a las diez", "ruleId": "r_eventos_valoraciones" }, { "wrong": "es cerrada", "right": "está cerrada", "ruleId": "r_participio" } ]
+          },
+          {
+            "id": "q05", "format": "ordering", "difficulty": 2, "targets": ["r_cambio_sentido"],
+            "prompt": { "es": "Ordena la frase.", "translations": { "fr": "Remets la phrase dans l'ordre." } },
+            "segments": ["Mi tío", "no es rico,", "pero su paella", "está riquísima."]
+          },
+          {
+            "id": "q06", "format": "transform", "difficulty": 3, "targets": ["r_estar_donde_como"],
+            "prompt": { "es": "Reformula con «estar de + profesión».", "translations": { "fr": "Reformule avec « estar de + profession »." } },
+            "sourceSentence": "Lucía trabaja como camarera este verano.",
+            "instruction": { "es": "Empieza por «Lucía está de…».", "translations": { "fr": "Commence par « Lucía está de… »." } },
+            "acceptedAnswers": ["Lucía está de camarera este verano."],
+            "grading": "normalized"
+          },
+          {
+            "id": "q07", "format": "multiple_choice", "difficulty": 3, "targets": ["r_cambio_sentido"],
+            "prompt": { "es": "¿Cómo se dice «Mon grand-père est fier de moi»?", "translations": { "fr": "Comment dit-on « Mon grand-père est fier de moi » ?" } },
+            "options": ["Mi abuelo es orgulloso de mí.", "Mi abuelo está orgulloso de mí.", "Mi abuelo es muy orgulloso.", "Mi abuelo tiene orgullo de mí."], "correctIndex": [1],
+            "explanation": { "es": "Estar orgulloso de alguien = sentirse satisfecho. Ser orgulloso = creerse superior.", "translations": { "fr": "Estar orgulloso de alguien = être fier de quelqu'un. Ser orgulloso = être orgueilleux." } }
+          },
+          {
+            "id": "q08", "format": "free_response", "difficulty": 3, "targets": ["r_ser_que_es", "r_estar_donde_como"],
+            "prompt": { "es": "Describe a una persona de tu familia: cómo es, de dónde es y cómo está hoy.", "translations": { "fr": "Décris une personne de ta famille : comment elle est, d'où elle est et comment elle va aujourd'hui." } },
+            "minWords": 20,
+            "rubric": { "dimensions": [ { "name": "accuracy", "weight": 0.6 }, { "name": "range", "weight": 0.4 } ], "passingScore": 0.6 },
+            "modelAnswer": "Mi madre es muy alegre y es de Lyon, pero vive en Marsella. Hoy está un poco cansada porque está trabajando mucho, aunque siempre está de buen humor. Mi hermano, en cambio, es muy listo y es ingeniero.",
+            "requiredStructures": ["\\b(es|son)\\b", "\\b(est[aá]|est[aá]n)\\b"]
+          },
+          {
+            "id": "q09", "format": "fill_blank", "difficulty": 3, "targets": ["r_ser_que_es", "r_estar_donde_como"],
+            "prompt": { "es": "Completa con el verbo entre paréntesis (indefinido).", "translations": { "fr": "Complète avec le verbe entre parenthèses (indefinido)." } },
+            "text": "Anoche (nosotros) {{1:estar}} en una boda que {{2:ser}} en Granada.",
+            "answers": [["estuvimos"], ["fue"]]
+          },
+          {
+            "id": "q10", "format": "multiple_choice", "difficulty": 2, "targets": ["r_ser_que_es"],
+            "prompt": { "es": "¿Qué frase es correcta?", "translations": { "fr": "Quelle phrase est correcte ?" } },
+            "options": ["Soy de Lyon y estoy profesora.", "Soy de Lyon y soy profesora.", "Estoy de Lyon y soy profesora.", "Estoy de Lyon y estoy profesora."], "correctIndex": [1],
+            "explanation": { "es": "Origen y profesión: ser.", "translations": { "fr": "Origine et profession : ser." } }
+          }
+        ]
+      }
+    },
+    "speak": [ { "lesson": "s_verbos_ser_estar_clara_atocha" } ]
+  },
+  "tags": ["ser", "estar", "adjetivos", "participio"],
+  "tutorContext": {
+    "focusPoints": [
+      "Ser: qué es (identidad, origen, profesión, hora, eventos)",
+      "Estar: dónde y cómo está (lugar, estado, gerundio, resultado)",
+      "Adjetivos con doble sentido: listo, rico, aburrido, atento…",
+      "Trampas del francés: Soy yo · Estoy de acuerdo · Estamos a 9"
+    ],
+    "mustElicit": ["Es + adjetivo o profesión", "Está + estado o lugar", "La fiesta es en…"],
+    "extraInstructions": "Conversación libre: pídele que describa a un amigo y su casa, y que cuente cómo está hoy y dónde es su próxima fiesta. Corrige sobre todo ser y estar."
+  },
+  "createdAt": "2026-10-09",
+  "author": "Claude"
+}

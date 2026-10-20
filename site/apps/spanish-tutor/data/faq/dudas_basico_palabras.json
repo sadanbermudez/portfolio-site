@@ -1,0 +1,331 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_basico_palabras",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Palabras pequeñas", "translations": {"fr": "Les petits mots"}},
+  "emoji": "🔹",
+  "order": 13,
+  "entries": [
+    {
+      "id": "d_muy_mucho",
+      "question": {"es": "¿«Muy» o «mucho»? ¿Cómo digo «très» y «beaucoup»?", "translations": {"fr": "« Muy » ou « mucho » ? Comment dire « très » et « beaucoup » ?"}},
+      "aliases": ["muy o mucho", "très en espagnol", "beaucoup en espagnol", "muy bien o mucho bien", "mucho calor", "muchísimo", "beaucoup de gens en espagnol"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "📈",
+      "answer": {"es": "«Muy» va delante de un adjetivo o un adverbio: muy bonito, muy bien. «Mucho» va con un nombre (mucho calor, muchas flores) o detrás de un verbo (te quiero mucho). Es «très» frente a «beaucoup».", "translations": {"fr": "« Muy » se place devant un adjectif ou un adverbe : muy bonito (très joli), muy bien (très bien). « Mucho » va avec un nom (mucho calor, muchas flores) ou après un verbe (te quiero mucho). C'est « très » face à « beaucoup »."}},
+      "compare": [
+        {"title": {"es": "MUY (très)", "translations": {"fr": "MUY (très)"}}, "items": [
+          {"es": "+ adjetivo: Es muy simpática.", "translations": {"fr": "+ adjectif : Elle est très sympathique."}},
+          {"es": "+ adverbio: Vive muy cerca.", "translations": {"fr": "+ adverbe : Elle habite très près."}},
+          {"es": "Estar + muy: Estoy muy cansada.", "translations": {"fr": "Estar + muy : Je suis très fatiguée."}}
+        ]},
+        {"title": {"es": "MUCHO (beaucoup)", "translations": {"fr": "MUCHO (beaucoup)"}}, "items": [
+          {"es": "+ nombre: Hay mucha gente.", "translations": {"fr": "+ nom : Il y a beaucoup de monde."}},
+          {"es": "Verbo + mucho: Trabaja mucho.", "translations": {"fr": "Verbe + mucho : Il travaille beaucoup."}},
+          {"es": "Tener + mucho: Tengo mucho frío.", "translations": {"fr": "Tener + mucho : J'ai très froid."}},
+          {"es": "+ mejor, más: mucho mejor, mucho más.", "translations": {"fr": "+ mejor, más : beaucoup mieux, beaucoup plus."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Hace mucho calor y estoy muy cansada.", "translations": {"fr": "Il fait très chaud et je suis très fatiguée."}, "highlight": ["mucho calor", "muy cansada"], "note": "«Calor» es un nombre: por eso «mucho».", "noteTranslations": {"fr": "« Calor » est un nom : c'est pour ça qu'on dit « mucho »."}},
+        {"es": "Mis nietos comen mucho, pero comen muy bien.", "translations": {"fr": "Mes petits-enfants mangent beaucoup, mais ils mangent très bien."}, "highlight": ["comen mucho", "muy bien"]},
+        {"es": "Hoy me encuentro mucho mejor, gracias.", "translations": {"fr": "Aujourd'hui, je me sens beaucoup mieux, merci."}, "highlight": ["mucho mejor"]}
+      ],
+      "trick": {"es": "Delante de «mejor, peor, más, menos, mayor, menor», siempre «mucho»: mucho mejor, nunca «muy mejor».", "translations": {"fr": "Devant « mejor, peor, más, menos, mayor, menor », toujours « mucho » : mucho mejor, jamais « muy mejor »."}},
+      "frenchTrap": {"es": "«Beaucoup de gens» = mucha gente: sin «de», y «mucho» concuerda (mucha, muchos, muchas). Y «j'ai très faim» = tengo mucha hambre, porque «hambre» es un nombre.", "translations": {"fr": "« Beaucoup de gens » = mucha gente : sans « de », et « mucho » s'accorde (mucha, muchos, muchas). Et « j'ai très faim » = tengo mucha hambre, parce que « hambre » est un nom."}},
+      "seeAlso": ["d_bien_bueno", "d_el_agua", "tp_a2_muy_mucho"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «mucho» (muy y mucho)", "url": "https://www.rae.es/dpd/mucho"}],
+      "tags": ["muy", "mucho", "cantidad"]
+    },
+    {
+      "id": "d_bien_bueno",
+      "question": {"es": "¿«Bien» o «bueno»? ¿«Está bien» o «es bueno»?", "translations": {"fr": "« Bien » ou « bueno » ? « Está bien » ou « es bueno » ?"}},
+      "aliases": ["bien o bueno", "está bien o es bueno", "está bueno", "bon ou bien en espagnol", "c'est bon en espagnol", "c'est bien en espagnol", "mal o malo"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "👌",
+      "answer": {"es": "«Bueno» es un adjetivo y acompaña a un nombre: un buen libro, la comida es buena. «Bien» es un adverbio y acompaña a un verbo: cocinas muy bien, estoy bien. Igual con «malo» y «mal».", "translations": {"fr": "« Bueno » est un adjectif et accompagne un nom : un buen libro (un bon livre), la comida es buena (la nourriture est bonne). « Bien » est un adverbe et accompagne un verbe : cocinas muy bien (tu cuisines très bien), estoy bien (je vais bien). Pareil pour « malo » et « mal »."}},
+      "compare": [
+        {"title": {"es": "BUENO, MALO (+ nombre)", "translations": {"fr": "BUENO, MALO (+ nom)"}}, "items": [
+          {"es": "Un buen médico.", "translations": {"fr": "Un bon médecin."}},
+          {"es": "Es una persona muy buena.", "translations": {"fr": "C'est une très bonne personne."}},
+          {"es": "La paella está buena.", "translations": {"fr": "La paella est bonne."}},
+          {"es": "Hace buen tiempo.", "translations": {"fr": "Il fait beau."}}
+        ]},
+        {"title": {"es": "BIEN, MAL (+ verbo)", "translations": {"fr": "BIEN, MAL (+ verbe)"}}, "items": [
+          {"es": "Canta muy bien.", "translations": {"fr": "Elle chante très bien."}},
+          {"es": "—¿Qué tal? —Estoy bien.", "translations": {"fr": "— Comment ça va ? — Je vais bien."}},
+          {"es": "¡Está bien! (= de acuerdo)", "translations": {"fr": "D'accord ! (c'est bon)"}},
+          {"es": "Me siento mal.", "translations": {"fr": "Je me sens mal."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Este restaurante es muy bueno: aquí se come bien.", "translations": {"fr": "Ce restaurant est très bon : on y mange bien."}, "highlight": ["es muy bueno", "se come bien"]},
+        {"es": "—¿Quedamos a las seis? —Vale, está bien.", "translations": {"fr": "— On se retrouve à six heures ? — D'accord, ça marche."}, "highlight": ["está bien"]},
+        {"es": "¡Qué buena está esta tarta!", "translations": {"fr": "Qu'il est bon, ce gâteau !"}, "highlight": ["buena está"], "note": "Con comida, «estar bueno» = tener buen sabor.", "noteTranslations": {"fr": "Pour la nourriture, « estar bueno » = avoir bon goût."}}
+      ],
+      "trick": {"es": "Con un nombre → bueno, buena. Con un verbo → bien.", "translations": {"fr": "Avec un nom → bueno, buena. Avec un verbe → bien."}},
+      "frenchTrap": {"es": "«C'est bon» (= d'accord) y «c'est bien» se dicen «está bien» o «vale», no «es bueno». Y cuidado: de una persona, «está bueno» (coloquial) significa que es muy atractiva.", "translations": {"fr": "« C'est bon » (= d'accord) et « c'est bien » se disent « está bien » ou « vale », pas « es bueno ». Et attention : en parlant d'une personne, « está bueno » (familier) veut dire qu'elle est très séduisante."}},
+      "seeAlso": ["d_buen_bueno", "d_muy_mucho", "tp_a2_muy_mucho"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «bueno»", "url": "https://www.rae.es/dpd/bueno"}],
+      "tags": ["bien", "bueno", "adverbios"]
+    },
+    {
+      "id": "d_tambien_tampoco",
+      "question": {"es": "¿Cómo digo «moi aussi» y «moi non plus»?", "translations": {"fr": "Comment dire « moi aussi » et « moi non plus » ?"}},
+      "aliases": ["también o tampoco", "moi aussi en espagnol", "moi non plus en espagnol", "yo también", "a mí también", "a mí tampoco", "yo tampoco"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "🤝",
+      "answer": {"es": "Para estar de acuerdo con una frase positiva: también (yo también). Con una frase negativa: tampoco (yo tampoco). Con «gustar» y verbos parecidos: a mí también, a mí tampoco.", "translations": {"fr": "Pour être d'accord avec une phrase affirmative : también (yo también = moi aussi). Avec une phrase négative : tampoco (yo tampoco = moi non plus). Avec « gustar » et les verbes du même type : a mí también, a mí tampoco."}},
+      "points": [
+        {"es": "Vivo en Francia. → Yo también. / Yo no.", "translations": {"fr": "Vivo en Francia (j'habite en France). → Yo también (moi aussi). / Yo no (pas moi)."}},
+        {"es": "No hablo ruso. → Yo tampoco. / Yo sí.", "translations": {"fr": "No hablo ruso (je ne parle pas russe). → Yo tampoco (moi non plus). / Yo sí (moi, si)."}},
+        {"es": "Me gusta el mar. → A mí también. / A mí no.", "translations": {"fr": "Me gusta el mar (j'aime la mer). → A mí también (moi aussi). / A mí no (pas moi)."}},
+        {"es": "No me gustan las ostras. → A mí tampoco. / A mí sí.", "translations": {"fr": "No me gustan las ostras (je n'aime pas les huîtres). → A mí tampoco (moi non plus). / A mí sí (moi, si)."}},
+        {"es": "«Tampoco» delante del verbo, sin «no»: Tampoco quiero ir = No quiero ir tampoco.", "translations": {"fr": "« Tampoco » devant le verbe, sans « no » : Tampoco quiero ir = No quiero ir tampoco (je ne veux pas y aller non plus)."}}
+      ],
+      "examples": [
+        {"es": "—No me gusta madrugar. —A mí tampoco.", "translations": {"fr": "— Je n'aime pas me lever tôt. — Moi non plus."}, "highlight": ["A mí tampoco"]},
+        {"es": "—Estoy jubilada. —¡Yo también!", "translations": {"fr": "— Je suis à la retraite. — Moi aussi !"}, "highlight": ["Yo también"]},
+        {"es": "Mi marido tampoco habla inglés.", "translations": {"fr": "Mon mari ne parle pas anglais non plus."}, "highlight": ["tampoco habla"]}
+      ],
+      "trick": {"es": "Mira el verbo: si es «me gusta, me encanta, me duele…», responde con «a mí». Si no, con «yo».", "translations": {"fr": "Regarde le verbe : si c'est « me gusta, me encanta, me duele… », réponds avec « a mí ». Sinon, avec « yo »."}},
+      "frenchTrap": {"es": "No digas «yo también no» ni «tampoco no quiero»: «tampoco» ya es negativo. Y con «gustar», «moi aussi» es «a mí también», no «yo también».", "translations": {"fr": "Ne dis pas « yo también no » ni « tampoco no quiero » : « tampoco » est déjà négatif. Et avec « gustar », « moi aussi » = « a mí también », pas « yo también »."}},
+      "seeAlso": ["d_gustar", "tp_a1_gustar"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «tampoco»", "url": "https://www.rae.es/dpd/tampoco"}],
+      "tags": ["también", "tampoco", "acuerdo"]
+    },
+    {
+      "id": "d_a_personal",
+      "question": {"es": "¿Se dice «veo María» o «veo a María»?", "translations": {"fr": "Dit-on « veo María » ou « veo a María » ?"}},
+      "aliases": ["a personal", "veo a María", "a delante de persona", "busco a mi hijo", "a avant une personne en espagnol", "je vois Marie en espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "👤",
+      "answer": {"es": "Cuando el complemento directo es una persona concreta (o tu mascota), pon «a»: veo a María, quiero a mis nietos, busco a mi hijo. Con cosas, no: veo la tele, busco mis llaves.", "translations": {"fr": "Quand le complément d'objet direct est une personne précise (ou ton animal), mets « a » : veo a María (je vois María), quiero a mis nietos (j'aime mes petits-enfants), busco a mi hijo (je cherche mon fils). Avec des choses, non : veo la tele, busco mis llaves."}},
+      "compare": [
+        {"title": {"es": "CON «A» (personas)", "translations": {"fr": "AVEC « A » (personnes)"}}, "items": [
+          {"es": "Conozco a tu hermano.", "translations": {"fr": "Je connais ton frère."}},
+          {"es": "Llamo a mi madre.", "translations": {"fr": "J'appelle ma mère."}},
+          {"es": "Espero a Pablo.", "translations": {"fr": "J'attends Pablo."}},
+          {"es": "Quiero mucho a mi perro.", "translations": {"fr": "J'aime beaucoup mon chien."}}
+        ]},
+        {"title": {"es": "SIN «A» (cosas)", "translations": {"fr": "SANS « A » (choses)"}}, "items": [
+          {"es": "Conozco tu pueblo.", "translations": {"fr": "Je connais ton village."}},
+          {"es": "Llamo un taxi.", "translations": {"fr": "J'appelle un taxi."}},
+          {"es": "Espero el autobús.", "translations": {"fr": "J'attends le bus."}},
+          {"es": "Con tener, sin «a»: Tengo dos hijos.", "translations": {"fr": "Avec tener, pas de « a » : J'ai deux enfants."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Esta tarde voy a visitar a mi amiga Rosa.", "translations": {"fr": "Cet après-midi, je vais rendre visite à mon amie Rosa."}, "highlight": ["a mi amiga Rosa"]},
+        {"es": "¿Has visto a mis nietos? Están en el jardín.", "translations": {"fr": "Tu as vu mes petits-enfants ? Ils sont dans le jardin."}, "highlight": ["a mis nietos"]},
+        {"es": "Busco a la señora García. ¿Trabaja aquí?", "translations": {"fr": "Je cherche madame García. Elle travaille ici ?"}, "highlight": ["a la señora García"]}
+      ],
+      "trick": {"es": "Si la pregunta es «¿a quién?» → con «a». Si es «¿qué?» → sin «a».", "translations": {"fr": "Si la question est « ¿a quién? » (qui ?) → avec « a ». Si c'est « ¿qué? » (quoi ?) → sans « a »."}},
+      "frenchTrap": {"es": "En francés no hay nada: «je vois Marie». Por eso es fácil olvidar la «a»: veo a María, escucho a mi madre, ayudo a mis vecinos.", "translations": {"fr": "En français, il n'y a rien : « je vois Marie ». C'est pour ça qu'on oublie facilement le « a » : veo a María, escucho a mi madre, ayudo a mis vecinos."}},
+      "seeAlso": ["d_saber_conocer", "tp_a2_preposiciones", "tp_b1_pronombres"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «a» (complemento directo con a)", "url": "https://www.rae.es/dpd/a2"}],
+      "tags": ["a personal", "preposiciones", "complemento directo"]
+    },
+    {
+      "id": "d_ir_a_estar_en",
+      "question": {"es": "¿«Voy a Madrid» o «voy en Madrid»? ¿«A» o «en» con ciudades y países?", "translations": {"fr": "« Voy a Madrid » ou « voy en Madrid » ? « A » ou « en » avec les villes et les pays ?"}},
+      "aliases": ["a o en", "voy a Madrid", "estoy en Madrid", "aller à Paris en espagnol", "être à Paris en espagnol", "aller en France en espagnol", "llegar a o llegar en"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "🗺️",
+      "answer": {"es": "Movimiento hacia un lugar → «a»: voy a Madrid, voy a Francia. Estar o vivir en un lugar → «en»: estoy en Madrid, vivo en Francia. La regla es la misma para ciudades y países.", "translations": {"fr": "Mouvement vers un lieu → « a » : voy a Madrid (je vais à Madrid), voy a Francia (je vais en France). Être ou habiter dans un lieu → « en » : estoy en Madrid (je suis à Madrid), vivo en Francia (j'habite en France). La règle est la même pour les villes et les pays."}},
+      "compare": [
+        {"title": {"es": "A (ir, llegar, volver)", "translations": {"fr": "A (aller, arriver, rentrer)"}}, "items": [
+          {"es": "Voy a Sevilla.", "translations": {"fr": "Je vais à Séville."}},
+          {"es": "Viajamos a Italia.", "translations": {"fr": "Nous partons en Italie."}},
+          {"es": "Llego a casa a las ocho.", "translations": {"fr": "J'arrive à la maison à huit heures."}},
+          {"es": "Vuelvo a Francia en mayo.", "translations": {"fr": "Je rentre en France en mai."}}
+        ]},
+        {"title": {"es": "EN (estar, vivir, trabajar)", "translations": {"fr": "EN (être, habiter, travailler)"}}, "items": [
+          {"es": "Estoy en Sevilla.", "translations": {"fr": "Je suis à Séville."}},
+          {"es": "Vivimos en Italia.", "translations": {"fr": "Nous habitons en Italie."}},
+          {"es": "Estoy en casa.", "translations": {"fr": "Je suis à la maison."}},
+          {"es": "Trabajo en un hospital.", "translations": {"fr": "Je travaille dans un hôpital."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Este verano vamos a Portugal, pero mi hija ya está en Lisboa.", "translations": {"fr": "Cet été, nous allons au Portugal, mais ma fille est déjà à Lisbonne."}, "highlight": ["vamos a Portugal", "está en Lisboa"]},
+        {"es": "¿Vives en París o en las afueras?", "translations": {"fr": "Tu habites à Paris ou en banlieue ?"}, "highlight": ["Vives en París"]},
+        {"es": "Llegué a España en 1990.", "translations": {"fr": "Je suis arrivée en Espagne en 1990."}, "highlight": ["Llegué a España"], "note": "En francés «arriver en Espagne»; en español, «llegar a España».", "noteTranslations": {"fr": "En français « arriver en Espagne » ; en espagnol, « llegar a España »."}}
+      ],
+      "trick": {"es": "Con movimiento (ir, venir, llegar, viajar, volver) → a. Sin movimiento (estar, vivir, trabajar, quedarse) → en.", "translations": {"fr": "Avec mouvement (ir, venir, llegar, viajar, volver) → a. Sans mouvement (estar, vivir, trabajar, quedarse) → en."}},
+      "frenchTrap": {"es": "En francés «à» y «en» sirven para las dos cosas (aller à Paris, être à Paris; aller en France, être en France). En español decide el verbo: ir a, estar en. Y en transporte: en coche, en tren… pero a pie.", "translations": {"fr": "En français, « à » et « en » servent pour les deux (aller à Paris, être à Paris ; aller en France, être en France). En espagnol, c'est le verbe qui décide : ir a, estar en. Et pour les transports : en coche, en tren… mais a pie."}},
+      "seeAlso": ["d_ir_venir", "tp_a2_preposiciones", "tp_prep_por_para"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «ir» (destino con a)", "url": "https://www.rae.es/dpd/ir"}],
+      "tags": ["preposiciones", "a", "en", "lugares"]
+    },
+    {
+      "id": "d_cien_ciento",
+      "question": {"es": "¿«Cien» o «ciento»? ¿Cómo se dice 100, 101, 500?", "translations": {"fr": "« Cien » ou « ciento » ? Comment dit-on 100, 101, 500 ?"}},
+      "aliases": ["cien o ciento", "ciento uno", "cien euros", "cent en espagnol", "comment dire cent", "quinientos", "cien mil"],
+      "cefr": "A1",
+      "category": "vocabulary",
+      "emoji": "💯",
+      "answer": {"es": "«Cien» es el 100 solo, o delante de un nombre o de «mil»: cien euros, cien mil. «Ciento» se usa cuando sigue otro número: ciento uno, ciento veinte euros.", "translations": {"fr": "« Cien », c'est 100 tout seul, ou devant un nom ou « mil » : cien euros, cien mil. « Ciento » s'utilise quand un autre nombre suit : ciento uno (101), ciento veinte euros (120 euros)."}},
+      "points": [
+        {"es": "100 = cien · 101 = ciento uno · 150 = ciento cincuenta · 199 = ciento noventa y nueve.", "translations": {"fr": "100 = cien · 101 = ciento uno · 150 = ciento cincuenta · 199 = ciento noventa y nueve."}},
+        {"es": "Centenas: doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos.", "translations": {"fr": "Centaines : doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos."}},
+        {"es": "Ojo a tres: 500 = quinientos, 700 = setecientos, 900 = novecientos.", "translations": {"fr": "Attention à trois d'entre elles : 500 = quinientos, 700 = setecientos, 900 = novecientos."}},
+        {"es": "Las centenas concuerdan: doscientas personas, quinientas páginas.", "translations": {"fr": "Les centaines s'accordent : doscientas personas (deux cents personnes), quinientas páginas (cinq cents pages)."}},
+        {"es": "Porcentajes: el cien por cien (en España) o el ciento por ciento (en América).", "translations": {"fr": "Pourcentages : el cien por cien (en Espagne) ou el ciento por ciento (en Amérique latine)."}}
+      ],
+      "examples": [
+        {"es": "Estas gafas cuestan ciento veinte euros.", "translations": {"fr": "Ces lunettes coûtent cent vingt euros."}, "highlight": ["ciento veinte euros"]},
+        {"es": "En la boda había cien invitados.", "translations": {"fr": "Au mariage, il y avait cent invités."}, "highlight": ["cien invitados"]},
+        {"es": "El libro tiene quinientas páginas.", "translations": {"fr": "Le livre fait cinq cents pages."}, "highlight": ["quinientas páginas"]}
+      ],
+      "trick": {"es": "¿Después viene un nombre o «mil»? → cien. ¿Viene otro número (uno, veinte…)? → ciento.", "translations": {"fr": "Après, il y a un nom ou « mil » ? → cien. Un autre nombre suit (uno, veinte…) ? → ciento."}},
+      "frenchTrap": {"es": "Nunca «un cien»: «cent euros» = cien euros, y «mille» = mil, sin «un». Y las centenas cambian con el género: deux cents pages = doscientas páginas.", "translations": {"fr": "Jamais « un cien » : « cent euros » = cien euros, et « mille » = mil, sans « un ». Et les centaines changent avec le genre : deux cents pages = doscientas páginas."}},
+      "seeAlso": ["d_veintiun", "d_mas_de_mas_que", "tp_a1_numeros_hora"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «ciento» (cien)", "url": "https://www.rae.es/dpd/cien"}],
+      "tags": ["números", "cien", "ciento"]
+    },
+    {
+      "id": "d_veintiun",
+      "question": {"es": "¿«Veintiún», «veintiuno» o «veintiuna»?", "translations": {"fr": "« Veintiún », « veintiuno » ou « veintiuna » ?"}},
+      "aliases": ["veintiún o veintiuno", "veintiuna", "un o uno", "treinta y un", "vingt et un en espagnol", "21 en espagnol", "un ou uno en espagnol"],
+      "cefr": "A1",
+      "category": "vocabulary",
+      "emoji": "🔢",
+      "answer": {"es": "Funciona como «un, uno, una»: delante de un nombre masculino, «veintiún» (veintiún años); delante de un nombre femenino, «veintiuna» (veintiuna personas); solo, «veintiuno»: —¿Cuántos? —Veintiuno.", "translations": {"fr": "Ça marche comme « un, uno, una » : devant un nom masculin, « veintiún » (veintiún años = vingt et un ans) ; devant un nom féminin, « veintiuna » (veintiuna personas = vingt et une personnes) ; seul, « veintiuno » : — Combien ? — Vingt et un."}},
+      "points": [
+        {"es": "«Uno» funciona igual: un libro, una casa; —¿Cuántos? —Uno.", "translations": {"fr": "« Uno » fonctionne pareil : un libro, una casa ; — ¿Cuántos? — Uno (combien ? — un)."}},
+        {"es": "Lo mismo con 31, 41…: treinta y un años, cuarenta y una velas; —¿Cuántos? —Treinta y uno.", "translations": {"fr": "Pareil avec 31, 41… : treinta y un años (trente et un ans), cuarenta y una velas (quarante et une bougies) ; — ¿Cuántos? — Treinta y uno."}},
+        {"es": "«Veintiún» lleva tilde; «veintiuno» y «veintiuna», no. También llevan tilde veintidós, veintitrés y veintiséis.", "translations": {"fr": "« Veintiún » prend un accent écrit ; « veintiuno » et « veintiuna », non. Veintidós, veintitrés et veintiséis en prennent aussi un."}},
+        {"es": "Del 16 al 29 se escribe en una sola palabra: dieciséis, diecinueve, veinticinco.", "translations": {"fr": "De 16 à 29, on écrit en un seul mot : dieciséis, diecinueve, veinticinco."}}
+      ],
+      "examples": [
+        {"es": "Mi nieta cumple veintiún años en marzo.", "translations": {"fr": "Ma petite-fille aura vingt et un ans en mars."}, "highlight": ["veintiún años"]},
+        {"es": "En la excursión éramos veintiuna personas.", "translations": {"fr": "Pendant l'excursion, nous étions vingt et une personnes."}, "highlight": ["veintiuna personas"]},
+        {"es": "—¿En qué número vives? —En el veintiuno.", "translations": {"fr": "— Tu habites à quel numéro ? — Au vingt et un."}, "highlight": ["En el veintiuno"]}
+      ],
+      "trick": {"es": "Piensa en «un, una, uno»: el final de «veintiún, veintiuna, veintiuno» cambia igual.", "translations": {"fr": "Pense à « un, una, uno » : la fin de « veintiún, veintiuna, veintiuno » change de la même façon."}},
+      "frenchTrap": {"es": "No digas «veintiuno años»: delante del nombre se corta, veintiún años. Y de 21 a 29, sin «y»: vingt et un = veintiuno, en una sola palabra (pero treinta y uno).", "translations": {"fr": "Ne dis pas « veintiuno años » : devant le nom, il se raccourcit, veintiún años. Et de 21 à 29, pas de « et » : vingt et un = veintiuno, en un seul mot (mais treinta y uno)."}},
+      "seeAlso": ["d_cien_ciento", "d_buen_bueno", "d_edad", "tp_a1_numeros_hora"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «uno» (veintiún, veintiuna)", "url": "https://www.rae.es/dpd/uno"}],
+      "tags": ["números", "veintiuno", "apócope"]
+    },
+    {
+      "id": "d_hora",
+      "question": {"es": "¿Cómo se dice la hora en español?", "translations": {"fr": "Comment dit-on l'heure en espagnol ?"}},
+      "aliases": ["qué hora es", "decir la hora", "son las dos", "es la una", "quelle heure est-il en espagnol", "dire l'heure en espagnol", "y cuarto o menos cuarto"],
+      "cefr": "A1",
+      "category": "vocabulary",
+      "emoji": "🕐",
+      "answer": {"es": "Es la una; son las dos, son las tres… Luego añades los minutos con «y» o «menos»: son las cuatro y diez, son las cinco menos cuarto. Para una cita: a las ocho.", "translations": {"fr": "Es la una (il est une heure) ; son las dos, son las tres… (il est deux heures, trois heures…). Puis tu ajoutes les minutes avec « y » ou « menos » : son las cuatro y diez (quatre heures dix), son las cinco menos cuarto (cinq heures moins le quart). Pour un rendez-vous : a las ocho (à huit heures)."}},
+      "points": [
+        {"es": "y cuarto (:15) · y media (:30) · menos cuarto (:45) · en punto (:00).", "translations": {"fr": "y cuarto (et quart) · y media (et demie) · menos cuarto (moins le quart) · en punto (pile)."}},
+        {"es": "de la mañana, de la tarde (hasta que se pone el sol), de la noche: las diez de la noche.", "translations": {"fr": "de la mañana (du matin), de la tarde (de l'après-midi, jusqu'au coucher du soleil), de la noche (du soir) : las diez de la noche (dix heures du soir)."}},
+        {"es": "En horarios y billetes, 24 horas: el tren sale a las 18:30 (las dieciocho treinta).", "translations": {"fr": "Dans les horaires et sur les billets, sur 24 heures : el tren sale a las 18:30 (las dieciocho treinta)."}},
+        {"es": "Preguntar: ¿Qué hora es? ¿A qué hora abre?", "translations": {"fr": "Demander : ¿Qué hora es? (quelle heure est-il ?) ¿A qué hora abre? (ça ouvre à quelle heure ?)"}},
+        {"es": "12:00 = las doce del mediodía; 00:00 = las doce de la noche (la medianoche).", "translations": {"fr": "12 h = las doce del mediodía (midi) ; 0 h = las doce de la noche (minuit, la medianoche)."}}
+      ],
+      "examples": [
+        {"es": "—¿Qué hora es? —Son las seis y media.", "translations": {"fr": "— Quelle heure est-il ? — Il est six heures et demie."}, "highlight": ["Son las seis y media"]},
+        {"es": "La farmacia abre a las nueve y cierra a la una y media.", "translations": {"fr": "La pharmacie ouvre à neuf heures et ferme à une heure et demie."}, "highlight": ["a las nueve", "a la una y media"]},
+        {"es": "Quedamos el sábado a las ocho y cuarto.", "translations": {"fr": "On se retrouve samedi à huit heures et quart."}, "highlight": ["a las ocho y cuarto"]}
+      ],
+      "trick": {"es": "«La una» es singular porque es una sola hora; las demás, plural: es la una / son las dos.", "translations": {"fr": "« La una » est au singulier parce que c'est une seule heure ; les autres sont au pluriel : es la una / son las dos."}},
+      "frenchTrap": {"es": "«Il est deux heures» no es «es dos horas»: es «son las dos», con «las» y sin «horas». Y «à 8 h» = a las ocho.", "translations": {"fr": "« Il est deux heures » ne se dit pas « es dos horas » : c'est « son las dos », avec « las » et sans « horas ». Et « à 8 h » = a las ocho."}},
+      "seeAlso": ["d_fechas", "d_saludos", "tp_a1_numeros_hora"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «hora»", "url": "https://www.rae.es/dpd/hora"}],
+      "tags": ["hora", "números", "tiempo"]
+    },
+    {
+      "id": "d_fechas",
+      "question": {"es": "¿Cómo se escriben y se dicen las fechas?", "translations": {"fr": "Comment écrit-on et comment dit-on les dates ?"}},
+      "aliases": ["fechas en español", "qué día es hoy", "el 14 de julio", "a cuántos estamos", "écrire la date en espagnol", "dire la date en espagnol", "années en espagnol"],
+      "cefr": "A1",
+      "category": "vocabulary",
+      "emoji": "📅",
+      "answer": {"es": "Día, mes y año, unidos con «de»: el 14 de julio de 2026. Los meses y los días de la semana van en minúscula. El año se lee como un número: dos mil veintiséis.", "translations": {"fr": "Jour, mois et année, reliés par « de » : el 14 de julio de 2026. Les mois et les jours de la semaine s'écrivent en minuscule. L'année se lit comme un nombre : dos mil veintiséis (deux mille vingt-six)."}},
+      "points": [
+        {"es": "Un día concreto, con «el» y sin preposición: Llego el 3 de mayo.", "translations": {"fr": "Un jour précis, avec « el » et sans préposition : Llego el 3 de mayo (j'arrive le 3 mai)."}},
+        {"es": "Preguntar: ¿Qué día es hoy? ¿A cuántos estamos? → Estamos a 5 de marzo.", "translations": {"fr": "Demander : ¿Qué día es hoy? (on est quel jour ?) ¿A cuántos estamos? (on est le combien ?) → Estamos a 5 de marzo (nous sommes le 5 mars)."}},
+        {"es": "Años: 1998 = mil novecientos noventa y ocho; 2026 = dos mil veintiséis (sin punto).", "translations": {"fr": "Années : 1998 = mil novecientos noventa y ocho ; 2026 = dos mil veintiséis (sans point)."}},
+        {"es": "El primer día del mes: el uno de mayo (en América también «el primero de mayo»).", "translations": {"fr": "Le premier jour du mois : el uno de mayo (en Amérique latine, aussi « el primero de mayo »)."}},
+        {"es": "En cifras, día-mes-año: 14/7/2026 o 14-7-2026.", "translations": {"fr": "En chiffres, jour-mois-année : 14/7/2026 ou 14-7-2026."}}
+      ],
+      "examples": [
+        {"es": "Nací el 2 de febrero de 1966.", "translations": {"fr": "Je suis née le 2 février 1966."}, "highlight": ["el 2 de febrero de 1966"]},
+        {"es": "Estamos a 12 de octubre: hoy es fiesta en España.", "translations": {"fr": "Nous sommes le 12 octobre : aujourd'hui, c'est un jour férié en Espagne."}, "highlight": ["Estamos a 12 de octubre"]},
+        {"es": "El curso empieza el lunes 5 de octubre.", "translations": {"fr": "Le cours commence le lundi 5 octobre."}, "highlight": ["el lunes 5 de octubre"]}
+      ],
+      "trick": {"es": "Escribe como hablas: «el 14 de julio» = el catorce de julio. Con el año, dos «de»: el 14 de julio de 2026.", "translations": {"fr": "Écris comme tu parles : « el 14 de julio » = el catorce de julio. Avec l'année, deux « de » : el 14 de julio de 2026."}},
+      "frenchTrap": {"es": "En francés no hay «de»: le 14 juillet 2026. En español sí: el 14 de julio de 2026. Y «on est le 5 mars» = estamos a 5 de marzo.", "translations": {"fr": "En français, il n'y a pas de « de » : le 14 juillet 2026. En espagnol, si : el 14 de julio de 2026. Et « on est le 5 mars » = estamos a 5 de marzo."}},
+      "seeAlso": ["d_dias_el_lunes", "d_hora", "tp_a1_numeros_hora"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «fecha»", "url": "https://www.rae.es/dpd/fecha"}],
+      "tags": ["fechas", "meses", "años"]
+    },
+    {
+      "id": "d_mas_de_mas_que",
+      "question": {"es": "¿«Más de» o «más que»?", "translations": {"fr": "« Más de » ou « más que » ?"}},
+      "aliases": ["más de o más que", "más de diez", "menos de o menos que", "plus de en espagnol", "plus que en espagnol", "comparer en espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "📏",
+      "answer": {"es": "Con un número o una cantidad, «más de»: más de diez personas, más de la mitad. Para comparar, «más que»: mi hermano es más alto que yo. Igual con «menos de» y «menos que».", "translations": {"fr": "Avec un nombre ou une quantité, « más de » : más de diez personas (plus de dix personnes), más de la mitad (plus de la moitié). Pour comparer, « más que » : mi hermano es más alto que yo (mon frère est plus grand que moi). Pareil avec « menos de » et « menos que »."}},
+      "compare": [
+        {"title": {"es": "MÁS DE (+ cantidad)", "translations": {"fr": "MÁS DE (+ quantité)"}}, "items": [
+          {"es": "Más de cien euros.", "translations": {"fr": "Plus de cent euros."}},
+          {"es": "Menos de una hora.", "translations": {"fr": "Moins d'une heure."}},
+          {"es": "Más de la mitad.", "translations": {"fr": "Plus de la moitié."}}
+        ]},
+        {"title": {"es": "MÁS QUE (comparar)", "translations": {"fr": "MÁS QUE (comparer)"}}, "items": [
+          {"es": "Ana come más que yo.", "translations": {"fr": "Ana mange plus que moi."}},
+          {"es": "Es más caro que el otro.", "translations": {"fr": "Il est plus cher que l'autre."}},
+          {"es": "Me gusta más el té que el café.", "translations": {"fr": "J'aime mieux le thé que le café."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "En la fiesta había más de cincuenta personas.", "translations": {"fr": "À la fête, il y avait plus de cinquante personnes."}, "highlight": ["más de cincuenta"]},
+        {"es": "Mi nieto ya es más alto que yo.", "translations": {"fr": "Mon petit-fils est déjà plus grand que moi."}, "highlight": ["más alto que yo"]},
+        {"es": "No tengo más que diez euros.", "translations": {"fr": "Je n'ai que dix euros."}, "highlight": ["No tengo más que"], "note": "«No… más que» = solo (ne… que).", "noteTranslations": {"fr": "« No… más que » = seulement (ne… que)."}}
+      ],
+      "trick": {"es": "Un número detrás → de. Una persona o una cosa para comparar → que.", "translations": {"fr": "Un nombre après → de. Une personne ou une chose à comparer → que."}},
+      "frenchTrap": {"es": "Aquí el francés ayuda: «plus de» = más de, «plus que» = más que. La trampa está en la igualdad: «aussi grand que» = tan alto como, no «tan alto que».", "translations": {"fr": "Ici, le français t'aide : « plus de » = más de, « plus que » = más que. Le piège, c'est l'égalité : « aussi grand que » = tan alto como, pas « tan alto que »."}},
+      "seeAlso": ["d_muy_mucho", "d_cien_ciento", "tp_a2_comparar"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «más»", "url": "https://www.rae.es/dpd/m%C3%A1s"}],
+      "tags": ["comparar", "más", "cantidad"]
+    },
+    {
+      "id": "d_dias_el_lunes",
+      "question": {"es": "¿Se dice «el lunes», «en lunes» o «lunes»?", "translations": {"fr": "Dit-on « el lunes », « en lunes » ou « lunes » ?"}},
+      "aliases": ["el lunes o en lunes", "los lunes", "días de la semana", "lundi en espagnol", "le lundi en espagnol", "jours de la semaine en espagnol"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "🗓️",
+      "answer": {"es": "Con «el» y sin preposición: el lunes = lundi (ese lunes); los lunes = le lundi (todos los lunes). Nunca «en lunes». Y se escriben con minúscula.", "translations": {"fr": "Avec « el » et sans préposition : el lunes = lundi (ce lundi-là) ; los lunes = le lundi (tous les lundis). Jamais « en lunes ». Et ils s'écrivent en minuscule."}},
+      "points": [
+        {"es": "Un día concreto: El lunes voy al dentista.", "translations": {"fr": "Un jour précis : El lunes voy al dentista (lundi, je vais chez le dentiste)."}},
+        {"es": "Cada semana: Los lunes voy a la piscina.", "translations": {"fr": "Chaque semaine : Los lunes voy a la piscina (le lundi, je vais à la piscine)."}},
+        {"es": "Después de «ser», sin artículo: Hoy es lunes.", "translations": {"fr": "Après « ser », sans article : Hoy es lunes (aujourd'hui, on est lundi)."}},
+        {"es": "De lunes a viernes no cambian en plural (los lunes); sábado y domingo, sí (los sábados).", "translations": {"fr": "Du lundi au vendredi, pas de changement au pluriel (los lunes) ; samedi et dimanche, si (los sábados)."}},
+        {"es": "De lunes a viernes = du lundi au vendredi; el fin de semana = le week-end.", "translations": {"fr": "De lunes a viernes = du lundi au vendredi ; el fin de semana = le week-end."}}
+      ],
+      "examples": [
+        {"es": "El sábado comemos en casa de mi hija.", "translations": {"fr": "Samedi, nous déjeunons chez ma fille."}, "highlight": ["El sábado"]},
+        {"es": "Los jueves hay mercado en la plaza.", "translations": {"fr": "Le jeudi, il y a le marché sur la place."}, "highlight": ["Los jueves"]},
+        {"es": "La biblioteca abre de lunes a viernes.", "translations": {"fr": "La bibliothèque est ouverte du lundi au vendredi."}, "highlight": ["de lunes a viernes"]}
+      ],
+      "trick": {"es": "«Lundi» (sin artículo) = el lunes; «le lundi» (cada semana) = los lunes.", "translations": {"fr": "« Lundi » (sans article) = el lunes ; « le lundi » (chaque semaine) = los lunes."}},
+      "frenchTrap": {"es": "No digas «lunes voy al médico» ni «en lunes»: pon «el». Y «le lundi» (todas las semanas) va en plural: los lunes.", "translations": {"fr": "Ne dis pas « lunes voy al médico » ni « en lunes » : mets « el ». Et « le lundi » (toutes les semaines) se dit au pluriel : los lunes."}},
+      "seeAlso": ["d_fechas", "d_plural", "tp_a1_numeros_hora"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «días de la semana»", "url": "https://www.rae.es/dpd/lunes"}],
+      "tags": ["días", "semana", "artículo"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

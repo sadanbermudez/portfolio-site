@@ -1,0 +1,342 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_discurso",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Contar y conectar", "translations": {"fr": "Raconter et relier"}},
+  "emoji": "🔗",
+  "order": 24,
+  "entries": [
+    {
+      "id": "d_estilo_indirecto",
+      "question": {"es": "¿Cómo cuento lo que dijo alguien?", "translations": {"fr": "Comment rapporter ce que quelqu'un a dit ?"}},
+      "aliases": ["estilo indirecto", "discurso indirecto", "dijo que", "me dijo que", "discours indirect espagnol", "il a dit que espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🗨️",
+      "answer": {"es": "Con «dijo que…», el verbo da un paso atrás en el pasado: «Estoy cansada» → Dijo que estaba cansada. «Iré» → Dijo que iría. Si alguien lo acaba de decir: Dice que está cansada.", "translations": {"fr": "Avec « dijo que… », le verbe recule d'un pas dans le passé : « Estoy cansada » → Dijo que estaba cansada (elle a dit qu'elle était fatiguée). « Iré » → Dijo que iría. Si quelqu'un vient de le dire : Dice que está cansada."}},
+      "points": [
+        {"es": "Presente → imperfecto: «Tengo frío» → Dijo que tenía frío.", "translations": {"fr": "Présent → imparfait : « J'ai froid » → Elle a dit qu'elle avait froid."}},
+        {"es": "Indefinido o perfecto → pluscuamperfecto: «He comido» → Dijo que había comido.", "translations": {"fr": "Passé → plus-que-parfait : « J'ai mangé » → Il a dit qu'il avait mangé."}},
+        {"es": "Futuro → condicional: «Vendré» → Dijo que vendría.", "translations": {"fr": "Futur → conditionnel : « Je viendrai » → Il a dit qu'il viendrait."}},
+        {"es": "Preguntas: Me preguntó si quería café. Me preguntó dónde vivía.", "translations": {"fr": "Questions : Il m'a demandé si je voulais un café. Il m'a demandé où j'habitais."}},
+        {"es": "También cambian: aquí → allí, hoy → ese día, mañana → al día siguiente.", "translations": {"fr": "Changent aussi : ici → là-bas, aujourd'hui → ce jour-là, demain → le lendemain."}}
+      ],
+      "examples": [
+        {"es": "Mi hermana me dijo que vendría el domingo.", "translations": {"fr": "Ma sœur m'a dit qu'elle viendrait dimanche."}, "highlight": ["dijo que vendría"]},
+        {"es": "El médico me preguntó si dormía bien.", "translations": {"fr": "Le médecin m'a demandé si je dormais bien."}, "highlight": ["preguntó si dormía"]},
+        {"es": "Ana dice que la cena está lista.", "translations": {"fr": "Ana dit que le dîner est prêt."}, "highlight": ["dice que", "está lista"]}
+      ],
+      "trick": {"es": "¡Igual que en francés! «Il a dit qu'il viendrait» = Dijo que vendría. Aquí puedes fiarte de tu oído.", "translations": {"fr": "Comme en français ! « Il a dit qu'il viendrait » = Dijo que vendría. Ici, tu peux te fier à ton oreille."}},
+      "frenchTrap": {"es": "Para contar una pregunta, usa preguntar, no «demandar» (que significa sobre todo reclamar o denunciar ante un juez): Me preguntó la hora.", "translations": {"fr": "Pour rapporter une question, utilise « preguntar », et non « demandar » (qui veut surtout dire réclamer ou poursuivre en justice) : Me preguntó la hora (il m'a demandé l'heure)."}},
+      "seeAlso": ["tp_indirecto_basico", "d_dijo_que_viniera", "d_pedir_preguntar", "d_pluscuamperfecto"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: discurso indirecto", "url": "https://www.rae.es/gtg/discurso-indirecto"}
+      ],
+      "tags": ["estilo indirecto", "decir", "contar"]
+    },
+    {
+      "id": "d_dijo_que_viniera",
+      "question": {"es": "¿Dijo que venía o que viniera?", "translations": {"fr": "« Dijo que venía » ou « dijo que viniera » ?"}},
+      "aliases": ["me dijo que viniera", "dijo que + subjuntivo", "me pidió que", "decir de", "il m'a dit de venir espagnol", "dire de faire espagnol"],
+      "cefr": "B2",
+      "category": "grammar",
+      "emoji": "📣",
+      "answer": {"es": "Depende. Si informa, indicativo: Dijo que venía = «il a dit qu'il venait». Si es una orden o un ruego, subjuntivo: Me dijo que viniera = «il m'a dit de venir».", "translations": {"fr": "Ça dépend. Si on informe, indicatif : Dijo que venía = « il a dit qu'il venait ». Si c'est un ordre ou une demande, subjonctif : Me dijo que viniera = « il m'a dit de venir »."}},
+      "compare": [
+        {"title": {"es": "INFORMACIÓN → INDICATIVO", "translations": {"fr": "INFORMATION → INDICATIF"}}, "items": [
+          {"es": "Dijo que llegaba tarde.", "translations": {"fr": "Il a dit qu'il arrivait en retard."}},
+          {"es": "Me escribió que estaba en Roma.", "translations": {"fr": "Elle m'a écrit qu'elle était à Rome."}}
+        ]},
+        {"title": {"es": "ORDEN O RUEGO → SUBJUNTIVO", "translations": {"fr": "ORDRE OU DEMANDE → SUBJONCTIF"}}, "items": [
+          {"es": "Me dijo que llegara pronto.", "translations": {"fr": "Il m'a dit d'arriver tôt."}},
+          {"es": "Me escribió que la llamara.", "translations": {"fr": "Elle m'a écrit de l'appeler."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Mi madre siempre me decía que me abrigara.", "translations": {"fr": "Ma mère me disait toujours de bien me couvrir."}, "highlight": ["me decía que me abrigara"]},
+        {"es": "El guía nos pidió que no hiciéramos fotos.", "translations": {"fr": "Le guide nous a demandé de ne pas prendre de photos."}, "highlight": ["nos pidió que no hiciéramos"]},
+        {"es": "Dile que me llame.", "translations": {"fr": "Dis-lui de m'appeler."}, "highlight": ["Dile que me llame"], "note": "Verbo en presente o en imperativo → presente de subjuntivo.", "noteTranslations": {"fr": "Verbe au présent ou à l'impératif → subjonctif présent."}}
+      ],
+      "trick": {"es": "Si en francés dices «dire DE + infinitivo», en español es decir QUE + subjuntivo.", "translations": {"fr": "Si en français tu dis « dire DE + infinitif », en espagnol c'est decir QUE + subjonctif."}},
+      "frenchTrap": {"es": "«Il m'a dit de venir» no es «me dijo de venir» (muy coloquial): es Me dijo que viniera. Igual con «demander de»: Me pidió que…", "translations": {"fr": "« Il m'a dit de venir » ne se dit pas « me dijo de venir » (très familier) : on dit Me dijo que viniera. Pareil avec « demander de » : Me pidió que…"}},
+      "seeAlso": ["tp_indirecto_peticiones", "d_estilo_indirecto", "d_querer_que", "d_subjuntivo_imperfecto"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «decir» (§ 3, decir de + infinitivo)", "url": "https://www.rae.es/dpd/decir"},
+        {"label": "RAE · Glosario de términos gramaticales: correlación de tiempos", "url": "https://www.rae.es/gtg/correlaci%C3%B3n-de-tiempos"}
+      ],
+      "tags": ["estilo indirecto", "decir", "subjuntivo", "pedir"]
+    },
+    {
+      "id": "d_pluscuamperfecto",
+      "question": {"es": "¿Cuándo uso «había hecho»?", "translations": {"fr": "Quand utiliser « había hecho » ?"}},
+      "aliases": ["pluscuamperfecto", "había comido", "ya había", "había + participio", "plus-que-parfait espagnol", "j'avais fait espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "⏮️",
+      "answer": {"es": "Había + participio cuenta algo que pasó ANTES de otro momento del pasado, como el plus-que-parfait: Cuando llegué, el tren ya había salido.", "translations": {"fr": "Había + participe raconte quelque chose qui s'est passé AVANT un autre moment du passé, comme le plus-que-parfait : Cuando llegué, el tren ya había salido (quand je suis arrivée, le train était déjà parti)."}},
+      "points": [
+        {"es": "Forma: había, habías, había, habíamos, habíais, habían + participio.", "translations": {"fr": "Formation : había, habías, había, habíamos, habíais, habían + participe."}},
+        {"es": "Muy útil al contar historias y en el estilo indirecto: Dijo que había llamado.", "translations": {"fr": "Très utile pour raconter et au discours indirect : Il a dit qu'il avait appelé."}},
+        {"es": "El participio no cambia: Las cartas que había escrito.", "translations": {"fr": "Le participe ne change pas : Las cartas que había escrito (les lettres que j'avais écrites)."}},
+        {"es": "Palabras amigas: ya, todavía no, nunca: Nunca había visto el mar.", "translations": {"fr": "Mots amis : ya (déjà), todavía no (pas encore), nunca (jamais) : Je n'avais jamais vu la mer."}}
+      ],
+      "examples": [
+        {"es": "Cuando llegamos al cine, la película ya había empezado.", "translations": {"fr": "Quand nous sommes arrivés au cinéma, le film avait déjà commencé."}, "highlight": ["ya había empezado"]},
+        {"es": "Me contó que había vendido la casa.", "translations": {"fr": "Il m'a raconté qu'il avait vendu la maison."}, "highlight": ["había vendido"]},
+        {"es": "Antes de aquel viaje, nunca había salido de Francia.", "translations": {"fr": "Avant ce voyage, je n'étais jamais sortie de France."}, "highlight": ["nunca había salido"]}
+      ],
+      "trick": {"es": "Dibuja una línea del tiempo: «había hecho» está más a la izquierda, más lejos, que el otro pasado.", "translations": {"fr": "Dessine une ligne du temps : « había hecho » est plus à gauche, plus loin, que l'autre action passée."}},
+      "frenchTrap": {"es": "Siempre haber, sin concordancia: había salido, no «era salida». Y nada entre había y el participio: Nunca había visto, no «había nunca visto».", "translations": {"fr": "Toujours « haber », sans accord : había salido, jamais « era salida ». Et rien entre « había » et le participe : Nunca había visto (je n'avais jamais vu), et non « había nunca visto »."}},
+      "seeAlso": ["tp_pasado_pluscuamperfecto", "d_haber_auxiliar", "tp_b1_pasados_juntos"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: pretérito pluscuamperfecto de indicativo", "url": "https://www.rae.es/gtg/pret%C3%A9rito-pluscuamperfecto-de-indicativo"}
+      ],
+      "tags": ["pluscuamperfecto", "pasado", "haber"]
+    },
+    {
+      "id": "d_seguir_gerundio",
+      "question": {"es": "¿Sigo a trabajar o sigo trabajando?", "translations": {"fr": "« Sigo a trabajar » ou « sigo trabajando » ?"}},
+      "aliases": ["seguir + gerundio", "sigue lloviendo", "continuar haciendo", "seguir sin", "continuer à espagnol", "toujours en train de espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🔁",
+      "answer": {"es": "Sigo trabajando. Seguir y continuar van con gerundio (-ando, -iendo): Sigue lloviendo = «il continue à pleuvoir, il pleut toujours». Nunca «seguir a» + infinitivo.", "translations": {"fr": "Sigo trabajando. « Seguir » et « continuar » se construisent avec le gérondif (-ando, -iendo) : Sigue lloviendo = « il continue à pleuvoir, il pleut toujours ». Jamais « seguir a » + infinitif."}},
+      "points": [
+        {"es": "Seguir + gerundio = continuer à: Sigo viviendo en el mismo piso.", "translations": {"fr": "Seguir + gérondif = continuer à : J'habite toujours dans le même appartement."}},
+        {"es": "Seguir sin + infinitivo = toujours pas: Sigo sin entenderlo.", "translations": {"fr": "Seguir sin + infinitif = toujours pas : Je ne comprends toujours pas."}},
+        {"es": "Seguir + adjetivo = être toujours: ¿Sigues enfadada?", "translations": {"fr": "Seguir + adjectif = être toujours : Tu es toujours fâchée ?"}}
+      ],
+      "examples": [
+        {"es": "Mi padre tiene noventa años y sigue conduciendo.", "translations": {"fr": "Mon père a quatre-vingt-dix ans et il conduit encore."}, "highlight": ["sigue conduciendo"]},
+        {"es": "¿Sigues yendo a clases de pintura?", "translations": {"fr": "Tu vas toujours aux cours de peinture ?"}, "highlight": ["Sigues yendo"]},
+        {"es": "Sigo sin saber nada de mi paquete.", "translations": {"fr": "Je n'ai toujours aucune nouvelle de mon colis."}, "highlight": ["Sigo sin saber"]}
+      ],
+      "trick": {"es": "Si en francés dices «toujours» o «encore» para algo que continúa, piensa en seguir + -ando.", "translations": {"fr": "Si en français tu dis « toujours » ou « encore » pour quelque chose qui continue, pense à seguir + -ando."}},
+      "frenchTrap": {"es": "«Continuer à faire» lleva a decir «seguir a hacer» o «continuar a hacer». En español va el gerundio: sigo haciendo, continúo haciendo.", "translations": {"fr": "« Continuer à faire » pousse à dire « seguir a hacer » ou « continuar a hacer ». En espagnol, c'est le gérondif : sigo haciendo, continúo haciendo."}},
+      "seeAlso": ["tp_verbos_perifrasis", "d_llevar_tiempo", "d_volver_a", "tp_b1_estar_gerundio"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: perífrasis verbal", "url": "https://www.rae.es/gtg/per%C3%ADfrasis-verbal"}
+      ],
+      "tags": ["seguir", "gerundio", "perífrasis"]
+    },
+    {
+      "id": "d_llevar_tiempo",
+      "question": {"es": "¿Se puede decir «llevo dos años aquí»?", "translations": {"fr": "Peut-on dire « llevo dos años aquí » ?"}},
+      "aliases": ["llevar + tiempo", "llevo dos años", "cuánto tiempo llevas", "llevo una hora esperando", "ça fait deux ans que espagnol", "depuis combien de temps espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🎒",
+      "answer": {"es": "¡Sí! Llevar + tiempo dice cuánto dura algo hasta hoy: Llevo dos años aquí = «ça fait deux ans que je suis ici». Con una acción, añade el gerundio: Llevo una hora esperando.", "translations": {"fr": "Oui ! Llevar + durée dit depuis combien de temps quelque chose dure : Llevo dos años aquí = « ça fait deux ans que je suis ici ». Avec une action, ajoute le gérondif : Llevo una hora esperando (ça fait une heure que j'attends)."}},
+      "points": [
+        {"es": "Llevar + tiempo + gerundio: Llevamos un mes buscando piso.", "translations": {"fr": "Llevar + durée + gérondif : Ça fait un mois que nous cherchons un appartement."}},
+        {"es": "Llevar + tiempo + sin + infinitivo: Llevo dos días sin dormir bien.", "translations": {"fr": "Llevar + durée + sin + infinitif : Ça fait deux jours que je ne dors pas bien."}},
+        {"es": "Para preguntar: ¿Cuánto tiempo llevas en España?", "translations": {"fr": "Pour demander : Depuis combien de temps es-tu en Espagne ?"}},
+        {"es": "Lo mismo de tres formas: Llevo un año aquí = Estoy aquí desde hace un año = Hace un año que estoy aquí.", "translations": {"fr": "La même idée de trois façons : ça fait un an que je suis ici, je suis ici depuis un an."}}
+      ],
+      "examples": [
+        {"es": "Llevo cuarenta años casada con Paco.", "translations": {"fr": "Ça fait quarante ans que je suis mariée avec Paco."}, "highlight": ["Llevo cuarenta años"]},
+        {"es": "Llevamos media hora esperando el autobús.", "translations": {"fr": "Ça fait une demi-heure que nous attendons le bus."}, "highlight": ["Llevamos media hora esperando"]},
+        {"es": "Lleva una semana sin llamar.", "translations": {"fr": "Ça fait une semaine qu'il n'appelle pas."}, "highlight": ["Lleva una semana sin llamar"]}
+      ],
+      "trick": {"es": "Llevar = «porter»: llevas los años encima, como una mochila.", "translations": {"fr": "Llevar = « porter » : tu portes les années sur toi, comme un sac à dos."}},
+      "frenchTrap": {"es": "No digas «llevo dos horas que espero», calco de «ça fait deux heures que j'attends»: Llevo dos horas esperando.", "translations": {"fr": "Ne dis pas « llevo dos horas que espero », calque de « ça fait deux heures que j'attends » : Llevo dos horas esperando."}},
+      "seeAlso": ["d_desde_hace", "d_seguir_gerundio", "tp_verbos_perifrasis"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «llevar» (§ 3, llevar + tiempo)", "url": "https://www.rae.es/dpd/llevar"}
+      ],
+      "tags": ["llevar", "tiempo", "gerundio", "perífrasis"]
+    },
+    {
+      "id": "d_devenir",
+      "question": {"es": "¿Cómo se dice «devenir»?", "translations": {"fr": "Comment dit-on « devenir » ?"}},
+      "aliases": ["verbos de cambio", "ponerse", "volverse", "hacerse", "convertirse en", "quedarse", "devenir espagnol", "il est devenu espagnol"],
+      "cefr": "B2",
+      "category": "grammar",
+      "emoji": "🦋",
+      "answer": {"es": "Depende del cambio. Ponerse: cambio rápido (Se puso rojo). Volverse: cambio de carácter (Se volvió muy desconfiado). Hacerse: cambio buscado (Se hizo médico). Quedarse: resultado (Se quedó sordo).", "translations": {"fr": "Ça dépend du changement. Ponerse : changement rapide (Se puso rojo : il est devenu rouge). Volverse : changement de caractère (Se volvió muy desconfiado : il est devenu très méfiant). Hacerse : changement voulu (Se hizo médico : il est devenu médecin). Quedarse : résultat (Se quedó sordo : il est devenu sourd)."}},
+      "points": [
+        {"es": "Ponerse + adjetivo: emoción o estado pasajero: ponerse nerviosa, contenta, morena.", "translations": {"fr": "Ponerse + adjectif : émotion ou état passager : devenir nerveuse, contente, bronzée."}},
+        {"es": "Volverse + adjetivo: cambio profundo, a menudo a peor: volverse loco, desconfiado.", "translations": {"fr": "Volverse + adjectif : changement profond, souvent en pire : devenir fou, méfiant."}},
+        {"es": "Hacerse + nombre o adjetivo: cambio que uno busca: hacerse rico, hacerse vegetariana.", "translations": {"fr": "Hacerse + nom ou adjectif : changement qu'on recherche : devenir riche, devenir végétarienne."}},
+        {"es": "Quedarse + adjetivo o sin + nombre: resultado, a menudo una pérdida: quedarse viuda, quedarse sin trabajo.", "translations": {"fr": "Quedarse + adjectif ou sin + nom : résultat, souvent une perte : devenir veuve, se retrouver sans travail."}},
+        {"es": "Convertirse en + nombre: transformación total: El viejo mercado se convirtió en un museo.", "translations": {"fr": "Convertirse en + nom : transformation complète : Le vieux marché est devenu un musée."}}
+      ],
+      "examples": [
+        {"es": "Cuando la vio, se puso muy nervioso.", "translations": {"fr": "Quand il l'a vue, il est devenu très nerveux."}, "highlight": ["se puso muy nervioso"]},
+        {"es": "Con los años se ha vuelto más tranquila.", "translations": {"fr": "Avec les années, elle est devenue plus calme."}, "highlight": ["se ha vuelto"]},
+        {"es": "Mi nieto quiere hacerse médico.", "translations": {"fr": "Mon petit-fils veut devenir médecin."}, "highlight": ["hacerse médico"]},
+        {"es": "Al oír la noticia, se quedó sin palabras.", "translations": {"fr": "En entendant la nouvelle, il est resté sans voix."}, "highlight": ["se quedó sin palabras"]}
+      ],
+      "trick": {"es": "Ponerse = un rato. Volverse = para siempre (o casi). Hacerse = porque quieres. Quedarse = así acabó.", "translations": {"fr": "Ponerse = pour un moment. Volverse = pour toujours (ou presque). Hacerse = parce que tu le veux. Quedarse = c'est comme ça que ça a fini."}},
+      "frenchTrap": {"es": "«Devenir» existe en español, pero es muy culto: en la conversación se usan estos verbos. Y «devenir médecin» no es «ponerse médico», sino hacerse médico o llegar a ser médico.", "translations": {"fr": "« Devenir » existe en espagnol, mais il est très soutenu : dans la conversation, on utilise ces verbes. Et « devenir médecin » ne se dit pas « ponerse médico », mais hacerse médico ou llegar a ser médico."}},
+      "seeAlso": ["tp_verbos_cambio", "d_se_valores"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: verbo semicopulativo", "url": "https://www.rae.es/gtg/verbo-semicopulativo"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «devenir»", "url": "https://www.rae.es/dpd/devenir"}
+      ],
+      "tags": ["verbos de cambio", "ponerse", "volverse", "hacerse"]
+    },
+    {
+      "id": "d_pero_sino",
+      "question": {"es": "¿Pero o sino? ¿Cuál es la diferencia?", "translations": {"fr": "« Pero » ou « sino » ? Quelle est la différence ?"}},
+      "aliases": ["pero sino", "sino que", "no es… sino", "si no o sino", "mais espagnol", "non pas mais espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🔀",
+      "answer": {"es": "Pero añade algo: Es caro, pero bueno. Sino corrige algo negado, como «non pas…, mais…»: No es caro, sino barato. Delante de un verbo conjugado: sino que (No lo compró, sino que lo alquiló).", "translations": {"fr": "« Pero » ajoute quelque chose : Es caro, pero bueno (c'est cher, mais bon). « Sino » corrige ce qui est nié, comme « non pas…, mais… » : No es caro, sino barato. Devant un verbe conjugué : sino que (No lo compró, sino que lo alquiló : il ne l'a pas acheté, il l'a loué)."}},
+      "compare": [
+        {"title": {"es": "PERO: SE AÑADE", "translations": {"fr": "PERO : ON AJOUTE"}}, "items": [
+          {"es": "Es pequeño, pero bonito.", "translations": {"fr": "C'est petit, mais joli."}},
+          {"es": "No tengo hambre, pero comeré algo.", "translations": {"fr": "Je n'ai pas faim, mais je vais manger quelque chose."}}
+        ]},
+        {"title": {"es": "SINO: SE CORRIGE", "translations": {"fr": "SINO : ON CORRIGE"}}, "items": [
+          {"es": "No es azul, sino verde.", "translations": {"fr": "Ce n'est pas bleu, mais vert."}},
+          {"es": "No vive en Madrid, sino en Toledo.", "translations": {"fr": "Il ne vit pas à Madrid, mais à Tolède."}},
+          {"es": "No solo canta, sino que también baila.", "translations": {"fr": "Non seulement il chante, mais il danse aussi."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "No quiero café, sino un té.", "translations": {"fr": "Je ne veux pas de café, mais un thé."}, "highlight": ["sino un té"]},
+        {"es": "La película no es aburrida, sino un poco larga.", "translations": {"fr": "Le film n'est pas ennuyeux, il est plutôt un peu long."}, "highlight": ["sino un poco larga"]},
+        {"es": "No te llamé, pero te escribí.", "translations": {"fr": "Je ne t'ai pas appelée, mais je t'ai écrit."}, "highlight": ["pero te escribí"], "note": "Las dos cosas son verdad: no se corrige, se añade.", "noteTranslations": {"fr": "Les deux choses sont vraies : on ne corrige pas, on ajoute."}}
+      ],
+      "trick": {"es": "¿Puedes decir «en lugar de eso»? → sino. ¿Puedes decir «sin embargo»? → pero.", "translations": {"fr": "Tu peux dire « à la place » ? → sino. Tu peux dire « pourtant » ? → pero."}},
+      "frenchTrap": {"es": "En francés, «mais» sirve para todo. En español, después de un «no», si corriges, es sino: no «no es rojo, pero azul». Y sino (una palabra) no es si no (= «si… ne… pas»).", "translations": {"fr": "En français, « mais » sert à tout. En espagnol, après un « no », si tu corriges, c'est sino : pas « no es rojo, pero azul ». Et sino (un mot) n'est pas si no (= « si… ne… pas »)."}},
+      "seeAlso": ["tp_conect_contraste", "d_aunque", "d_sino_si_no", "tp_b1_conectores_basicos"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «sino»", "url": "https://www.rae.es/dpd/sino"},
+        {"label": "RAE · Glosario de términos gramaticales: conjunción adversativa", "url": "https://www.rae.es/gtg/conjunci%C3%B3n-adversativa"}
+      ],
+      "tags": ["pero", "sino", "conectores"]
+    },
+    {
+      "id": "d_causa_porque_como",
+      "question": {"es": "¿Porque o como? ¿Cómo explico una causa?", "translations": {"fr": "« Porque » ou « como » ? Comment exprimer une cause ?"}},
+      "aliases": ["como causal", "como al principio", "ya que", "puesto que", "parce que espagnol", "comme cause espagnol", "puisque espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🧩",
+      "answer": {"es": "Porque va después de lo que explicas: Me quedo en casa porque llueve. Como va al principio de la frase: Como llueve, me quedo en casa. Ya que y puesto que (= puisque) van en los dos sitios.", "translations": {"fr": "« Porque » se place après ce que tu expliques : Me quedo en casa porque llueve (je reste à la maison parce qu'il pleut). « Como » se place en début de phrase : Como llueve, me quedo en casa (comme il pleut, je reste à la maison). Ya que et puesto que (= puisque) vont aux deux places."}},
+      "points": [
+        {"es": "Porque, en medio: No salgo porque estoy cansada.", "translations": {"fr": "Porque, au milieu : Je ne sors pas parce que je suis fatiguée."}},
+        {"es": "Como, al principio: Como estoy cansada, no salgo.", "translations": {"fr": "Como, au début : Comme je suis fatiguée, je ne sors pas."}},
+        {"es": "Ya que / puesto que: una causa que ya conocemos: Ya que estás aquí, ayúdame.", "translations": {"fr": "Ya que / puesto que : une cause déjà connue : Puisque tu es là, aide-moi."}},
+        {"es": "Por qué, separado y con tilde, es para preguntar: ¿Por qué lloras?", "translations": {"fr": "Por qué, en deux mots et avec accent, sert à poser une question : Pourquoi tu pleures ?"}}
+      ],
+      "examples": [
+        {"es": "Como no tenía llaves, esperé en el bar.", "translations": {"fr": "Comme je n'avais pas les clés, j'ai attendu au café."}, "highlight": ["Como no tenía llaves"]},
+        {"es": "Esperé en el bar porque no tenía llaves.", "translations": {"fr": "J'ai attendu au café parce que je n'avais pas les clés."}, "highlight": ["porque no tenía llaves"]},
+        {"es": "Ya que vas al súper, compra pan, por favor.", "translations": {"fr": "Puisque tu vas au supermarché, achète du pain, s'il te plaît."}, "highlight": ["Ya que vas"]}
+      ],
+      "trick": {"es": "Como = la causa entra primero, igual que «comme» en francés. Porque = la causa llega después.", "translations": {"fr": "Como = la cause arrive en premier, comme « comme » en français. Porque = la cause arrive après."}},
+      "frenchTrap": {"es": "Como «comme», el como de causa solo va al principio: no «Me quedé en casa como llovía». Y «parce que» se escribe en una palabra: porque.", "translations": {"fr": "Comme « comme », le « como » de cause ne se met qu'au début : pas « Me quedé en casa como llovía ». Et « parce que » s'écrit en un seul mot : porque."}},
+      "seeAlso": ["tp_conect_causa", "d_porque_formas", "d_donc", "tp_b1_conectores_basicos"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «como» (§ 2.5, causal)", "url": "https://www.rae.es/dpd/como"},
+        {"label": "RAE · Glosario de términos gramaticales: oración causal", "url": "https://www.rae.es/gtg/oraci%C3%B3n-subordinada-adverbial-causal"}
+      ],
+      "tags": ["porque", "como", "causa", "conectores"]
+    },
+    {
+      "id": "d_donc",
+      "question": {"es": "¿Cómo se dice «donc»?", "translations": {"fr": "Comment dit-on « donc » ?"}},
+      "aliases": ["así que", "por eso", "por lo tanto", "entonces", "donc espagnol", "par conséquent espagnol", "alors espagnol"],
+      "cefr": "B1",
+      "category": "usage",
+      "emoji": "➡️",
+      "answer": {"es": "Depende. Para una consecuencia: así que (al hablar), por eso, por lo tanto (formal). Para seguir hablando: entonces (= alors). Y el «donc» que insiste («viens donc !») no se traduce: ¡Ven!", "translations": {"fr": "Ça dépend. Pour une conséquence : así que (à l'oral), por eso, por lo tanto (soutenu). Pour enchaîner : entonces (= alors). Et le « donc » d'insistance (« viens donc ! ») ne se traduit pas : ¡Ven!"}},
+      "points": [
+        {"es": "Así que: Llovía, así que nos quedamos en casa.", "translations": {"fr": "Así que : Il pleuvait, donc nous sommes restés à la maison."}},
+        {"es": "Por eso: Estoy jubilada; por eso tengo tiempo.", "translations": {"fr": "Por eso : Je suis à la retraite ; c'est pour ça que j'ai le temps."}},
+        {"es": "Por lo tanto, en textos formales: No hay quórum; por lo tanto, se aplaza la reunión.", "translations": {"fr": "Por lo tanto, dans les textes soutenus : Il n'y a pas de quorum ; par conséquent, la réunion est reportée."}},
+        {"es": "Entonces: ¿Entonces vienes o no?", "translations": {"fr": "Entonces : Alors, tu viens ou pas ?"}},
+        {"es": "Curiosidad: Descartes en español es «Pienso, luego existo»: luego = donc.", "translations": {"fr": "Curiosité : Descartes en espagnol, c'est « Pienso, luego existo » : luego = donc."}}
+      ],
+      "examples": [
+        {"es": "Hay huelga de trenes, así que iremos en coche.", "translations": {"fr": "Il y a une grève des trains, donc nous irons en voiture."}, "highlight": ["así que"]},
+        {"es": "Mi hijo vive en Bilbao; por eso voy tanto al norte.", "translations": {"fr": "Mon fils vit à Bilbao ; c'est pour ça que je vais si souvent dans le Nord."}, "highlight": ["por eso"]},
+        {"es": "Entonces, ¿quedamos el jueves?", "translations": {"fr": "Alors, on se voit jeudi ?"}, "highlight": ["Entonces"]}
+      ],
+      "trick": {"es": "Así que es la palabra más útil para «donc» en la conversación.", "translations": {"fr": "« Así que » est le mot le plus utile pour dire « donc » dans la conversation."}},
+      "frenchTrap": {"es": "El «donc» para retomar una conversación («Donc, je disais…») se dice pues o bueno: Pues, como te decía…", "translations": {"fr": "Le « donc » pour reprendre une conversation (« Donc, je disais… ») se dit pues ou bueno : Pues, como te decía…"}},
+      "seeAlso": ["d_du_coup", "d_causa_porque_como", "tp_conect_causa", "tp_conect_organizar"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: conjunción ilativa (así que, conque, luego)", "url": "https://www.rae.es/gtg/conjunci%C3%B3n-ilativa"}
+      ],
+      "tags": ["conectores", "consecuencia", "así que"]
+    },
+    {
+      "id": "d_imperativo_negativo",
+      "question": {"es": "¿No haz o no hagas?", "translations": {"fr": "« No haz » ou « no hagas » ?"}},
+      "aliases": ["imperativo negativo", "no hagas", "no digas", "no hables", "impératif négatif espagnol", "ne fais pas espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🚫",
+      "answer": {"es": "No hagas. El imperativo negativo usa el presente de subjuntivo: haz → no hagas, ven → no vengas, habla → no hables. Para usted: haga → no haga.", "translations": {"fr": "No hagas. L'impératif négatif utilise le subjonctif présent : haz → no hagas (ne fais pas), ven → no vengas (ne viens pas), habla → no hables (ne parle pas). Pour usted : haga → no haga."}},
+      "compare": [
+        {"title": {"es": "SÍ (tú)", "translations": {"fr": "OUI (tú)"}}, "items": [
+          {"es": "¡Habla!", "translations": {"fr": "Parle !"}},
+          {"es": "¡Come!", "translations": {"fr": "Mange !"}},
+          {"es": "¡Ven!", "translations": {"fr": "Viens !"}},
+          {"es": "¡Dilo!", "translations": {"fr": "Dis-le !"}}
+        ]},
+        {"title": {"es": "NO (tú)", "translations": {"fr": "NON (tú)"}}, "items": [
+          {"es": "¡No hables!", "translations": {"fr": "Ne parle pas !"}},
+          {"es": "¡No comas!", "translations": {"fr": "Ne mange pas !"}},
+          {"es": "¡No vengas!", "translations": {"fr": "Ne viens pas !"}},
+          {"es": "¡No lo digas!", "translations": {"fr": "Ne le dis pas !"}}
+        ]}
+      ],
+      "examples": [
+        {"es": "No te preocupes, todo va a salir bien.", "translations": {"fr": "Ne t'inquiète pas, tout va bien se passer."}, "highlight": ["No te preocupes"]},
+        {"es": "No toques el horno, que quema.", "translations": {"fr": "Ne touche pas au four, il est brûlant."}, "highlight": ["No toques"]},
+        {"es": "Por favor, no se levante, señora.", "translations": {"fr": "Je vous en prie, ne vous levez pas, madame."}, "highlight": ["no se levante"]}
+      ],
+      "trick": {"es": "En negativo, la vocal cambia: -ar → -es (no hables), -er / -ir → -as (no comas, no escribas).", "translations": {"fr": "Au négatif, la voyelle change : -ar → -es (no hables), -er / -ir → -as (no comas, no escribas)."}},
+      "frenchTrap": {"es": "En francés basta con añadir «ne… pas» (ne parle pas). En español cambia la forma del verbo: no «no habla», sino no hables.", "translations": {"fr": "En français, il suffit d'ajouter « ne… pas » (ne parle pas). En espagnol, la forme du verbe change : pas « no habla », mais no hables."}},
+      "seeAlso": ["tp_imperativo", "d_imperativo_pronombres", "d_subjuntivo_cuando"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: modo imperativo", "url": "https://www.rae.es/gtg/modo-imperativo"}
+      ],
+      "tags": ["imperativo", "negación", "subjuntivo"]
+    },
+    {
+      "id": "d_imperativo_pronombres",
+      "question": {"es": "¿Dámelo o me lo da? ¿Dónde van los pronombres con el imperativo?", "translations": {"fr": "« Dámelo » ou « me lo da » ? Où placer les pronoms avec l'impératif ?"}},
+      "aliases": ["dámelo", "dímelo", "imperativo con pronombres", "no me lo digas", "donne-le-moi espagnol", "impératif pronoms espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🤲",
+      "answer": {"es": "Dámelo es una orden (tú): los pronombres se pegan al final, en una sola palabra. Me lo da es un presente («il me le donne»). En negativo, los pronombres van delante: No me lo des.", "translations": {"fr": "Dámelo est un ordre (tú) : les pronoms se collent à la fin, en un seul mot. Me lo da est un présent (« il me le donne »). Au négatif, les pronoms se placent devant : No me lo des (ne me le donne pas)."}},
+      "compare": [
+        {"title": {"es": "SÍ: PEGADOS AL FINAL", "translations": {"fr": "OUI : COLLÉS À LA FIN"}}, "items": [
+          {"es": "Dímelo.", "translations": {"fr": "Dis-le-moi."}},
+          {"es": "Siéntese, por favor.", "translations": {"fr": "Asseyez-vous, je vous en prie."}},
+          {"es": "Cómpraselo.", "translations": {"fr": "Achète-le-lui."}}
+        ]},
+        {"title": {"es": "NO: DELANTE Y SEPARADOS", "translations": {"fr": "NON : DEVANT ET SÉPARÉS"}}, "items": [
+          {"es": "No me lo digas.", "translations": {"fr": "Ne me le dis pas."}},
+          {"es": "No se siente ahí.", "translations": {"fr": "Ne vous asseyez pas là."}},
+          {"es": "No se lo compres.", "translations": {"fr": "Ne le lui achète pas."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "¿Las fotos? Enséñamelas, por favor.", "translations": {"fr": "Les photos ? Montre-les-moi, s'il te plaît."}, "highlight": ["Enséñamelas"], "note": "enseña + me + las = enséñamelas, con tilde para no mover el acento.", "noteTranslations": {"fr": "enseña + me + las = enséñamelas, avec un accent écrit pour garder la même syllabe accentuée."}},
+        {"es": "No se lo cuentes a nadie.", "translations": {"fr": "Ne le raconte à personne."}, "highlight": ["No se lo cuentes"]},
+        {"es": "¿Me da un kilo de tomates, por favor?", "translations": {"fr": "Vous me donnez un kilo de tomates, s'il vous plaît ?"}, "highlight": ["Me da"], "note": "En las tiendas se pide así, con el presente: es muy amable.", "noteTranslations": {"fr": "Dans les magasins, on demande comme ça, au présent : c'est très poli."}}
+      ],
+      "trick": {"es": "Sí → detrás y pegados (dímelo). No → delante y sueltos (no me lo digas).", "translations": {"fr": "Oui → derrière et collés (dímelo). Non → devant et séparés (no me lo digas)."}},
+      "frenchTrap": {"es": "El orden cambia: «donne-le-moi» = dámelo (me primero, luego lo). Y todo junto, en una palabra: no «da lo me» ni «dalo me».", "translations": {"fr": "L'ordre change : « donne-le-moi » = dámelo (me d'abord, puis lo). Et tout attaché, en un seul mot : pas « da lo me » ni « dalo me »."}},
+      "seeAlso": ["tp_imperativo", "d_imperativo_negativo", "d_se_lo", "d_posicion_pronombres"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: modo imperativo", "url": "https://www.rae.es/gtg/modo-imperativo"},
+        {"label": "RAE · Diccionario panhispánico de dudas: pronombres personales átonos", "url": "https://www.rae.es/dpd/pronombres%20personales%20%C3%A1tonos"}
+      ],
+      "tags": ["imperativo", "pronombres", "tilde"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}
