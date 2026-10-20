@@ -59,7 +59,7 @@ The repo root also holds an earlier single-page version of the site (`index.html
 
 **Context.** The site is six pages of text, tables and interactive canvases, written by one person and served from a static host. Nothing on it needs a server, a login or a database.
 
-**Decision.** Plain HTML pages, two shared stylesheets (`site.css` for tokens, layout and components; `immersive.css` for the scrollytelling, chess and physics pages) and one script per feature. Each script is a function that runs once and exposes at most one global, apart from `bench.js`, which also exposes its data as `window.BENCH_RUN`: `window.createBench` (bench.js), `window.scrollyChapters` (scrolly.js), `window.ChessCore` (chess-core.js), `window.ChessViewer` (chess.js), `window.Chess3D` (chess3d.js). Dependencies are expressed by the order of the `<script>` tags: on `work/chess.html`, `chess-core.js` and `chess.js` load before `chess3d.js`, which needs both.
+**Decision.** Plain HTML pages, two shared stylesheets (`site.css` for tokens, layout and components; `immersive.css` for the scrollytelling, chess and physics pages) and one script per feature. Each script is a function that runs once and exposes at most one global, apart from `bench.js`, which also exposes its data as `window.BENCH_RUN`: `window.createBench` (bench.js), `window.scrollyChapters` (scrolly.js), `window.ChessCore` (chess-core.js), `window.ChessTeach` (chess-teach.js), `window.ChessViewer` (chess.js), `window.Chess3D` (chess3d.js). Dependencies are expressed by the order of the `<script>` tags: on `work/chess.html`, `chess-core.js` and `chess.js` load before `chess3d.js`, which needs both.
 
 **Why.** With no build toolchain, the file in git is the file the browser runs (the home page wrapper in decision 2 is the one exception). There is nothing to install and no dependency tree to keep updated, and a reviewer can read any script in one sitting; the largest one, `research.js`, is 24,093 bytes. Script order plus one global per file is the browser's oldest module system. It is enough here because the dependency graph is small and has no cycles.
 
@@ -203,6 +203,46 @@ The repo root also holds an earlier single-page version of the site (`index.html
 
 **Check it yourself.** On `work/chess.html`, go to the start, click the e2 pawn (dots on e3 and e4), play e4, and read the evaluation and best reply in the panel. Load a username in the "your games" panel and press "Quick-review all"; the summary line gives results, average centipawn loss and error counts.
 
+### 7c. An evaluation bar, and coach notes read from the engine line
+
+**Context.** The owner teaches chess and asked for two things a student understands at a glance: an evaluation bar beside the board, as on Lichess and Chess.com, and an explanation of each move in chess concepts ("this move was good because it escapes a pin") instead of a bare number. The page's premise is that nothing is invented, so every concept has to be found, not guessed.
+
+**Decision.** *Evaluation bar* (`drawBar()` in `chess.js`): a vertical bar left of the board whose fill is White's winning chances on Lichess's curve, `2/(1+exp(-0.00368208·cp))-1`, so large advantages compress toward the ends instead of filling the bar. White fills from White's side and the bar flips with the board. A number sits at the leading side's end (`1.2`, `15`, `M4` for mate). It reads the current game move during replay and review, and the explore engine's result during explore mode, keeping the last value dimmed while the engine thinks. Before any evaluation exists (the start position, or a move the browser engine has not reached yet) it shows a faded 50/50 with no number. The fill eases over 0.6 s, and not at all under reduced motion. It is 26 px wide, 20 px under 520 px.
+
+*Coach notes* (`site/chess-teach.js`, `window.ChessTeach.explain()`): for the move on screen, a verdict and one to three sentences, built from the position before the move, the engine's principal variation (PV) after it, and the engine's best move with its own PV. Legal moves come from chess.js, attack maps from `ChessCore`. Each idea is a pattern search, and the PV must play out a tactic before the note names it:
+
+| Motif | How it is found |
+| --- | --- |
+| Fork | The moved piece attacks two or more targets that are the king, worth more than it, or undefended; claimed only if the PV then captures one of them on the side's next two moves. |
+| Pin (absolute, relative) | A bishop, rook or queen ray meets an enemy piece and then the king, or a rook or queen worth more; new after the move. A pin opened by another piece is reported as "uncovers a pin". |
+| Skewer | The same ray with the king or the more valuable piece in front; claimed only when the PV takes the piece behind. |
+| Discovered attack or check | A friendly slider's ray to an enemy piece opens through the square just vacated; a check counts at once, an attack only if the PV takes the target. |
+| Removing the defender | A capture leaves another enemy piece attacked and undefended, and the PV then takes it. |
+| Pin escaped, pinned piece attacked | A pin on the mover's piece disappears (pinner taken, piece behind stepped away, line blocked); or the moved, cheaper piece attacks a pinned one. |
+| Material won or lost | Captures counted over the forcing stretch of the PV (captures, checks, replies to checks, one quiet move before a capture), plus a static exchange evaluation (SEE) to finish an exchange the PV stopped in the middle of. The opponent's capture just before the move is counted, so taking back is not "winning". |
+| Hanging piece, threat ignored | The engine's reply captures an undefended piece (the one just moved, or another); "ignores the threat" if that capture was already legal before the move (a null-move check). |
+| Mate | A forced mate from the engine score (allows, misses, starts, keeps), and "back-rank mate" when the line ends with a rook or queen mating a king on its first rank. |
+| Missed win | The best move's PV wins at least two pawns' worth more than the played move's. |
+| Quieter ideas | Trades (and trades while ahead), passed pawn created or pushed, castling, losing the right to castle, pawns in front of a castled king moved, minor piece developed, piece activity (squares reached, up by four or more). |
+
+The notes appear for the reviewed game, for games analysed in the browser, and for every move of an explore line. The squares and lines a note mentions are outlined in red on the 2D board, with the engine's reply as a red arrow. The long rule-facts list moved into a folded "Rule facts" section under the note.
+
+**Why.** A student learns from the reason, not the number, and a teacher needs the reason to be right. Pattern searches over the board and the engine's own line keep each sentence checkable: the note names the line, and the board shows the squares. Requiring the PV to cash a tactic in is what stops a geometric fork that does not work from being called a fork.
+
+**Honesty rules.** Each of these was added after reading every note the module wrote for the 73 moves of the reviewed game and finding a wrong sentence:
+
+- Material is counted over the forcing part of the PV only. Counted six plies deep, a PV capture came out as "wins the pawn on d4" for a move that had nothing to do with it.
+- A material win is credited to a move only if the side is already ahead by its next move, and only if the evaluation agrees: the side must stand at least (pawns won minus one) × 100 centipawns better.
+- A loss or a threat is blamed on the move only if the engine's preferred move would have avoided it. The pawn on h5 was en prise for several moves and Stockfish's choice left it too, so the note on 14. Qe2 says nothing about h5.
+- The end-of-line exchange is finished only when the PV stopped mid-capture, so a capture the engine did not play is never described as "in the engine's line".
+- No motif found: the note gives what the evaluation says, for example "Stockfish prefers Nb3, where White is slightly better (+1.2). The evaluation goes from +1.2 to +0.1: about 1 pawn lost."
+
+**Alternatives.** A language model writing the commentary, which is what the page argues against. Labelled positions from a tactics database, which explain puzzles but not a visitor's own game. A separate search per motif, which would need more engine time per move.
+
+**Trade-offs.** The notes explain only what the PV shows, and a PV is one line. A move that is bad for a positional reason (a weak square, a bad bishop, a plan) gets the evaluation sentence and the engine's preferred move, not a concept: on the reviewed game, 11 of the 25 graded moves get only that. The motifs are tactical and count material at 1, 3, 3, 5, 9; there is no notion of initiative, space or pawn structure beyond passed pawns. The browser PV is up to 8 plies from a 0.8 s search and the reviewed game's PVs are 6 plies from the server, so deeper tactics are out of reach. The first move of an explore line from the start position has no "before" evaluation, so it gets no verdict. Notes need chess.js, so the first one appears after its 107 KB load.
+
+**Check it yourself.** `node site/tests/chess-teach.test.mjs` runs 16 cases: a knight fork, an absolute and a relative pin, a skewer, a discovered check, a back-rank mate, a hanging piece, a threat ignored, an allowed fork, a missed win, the evaluation fallback, development and castling, a passed pawn and a removed defender, and the honesty cases (no fork without the capture, no material claim for a capture outside the line). On the page, step to 31. Bxd4: the note reads "Bxd4 allows Qa4, which uncovers a pin: the bishop on a8 pins the knight on e4 to the queen on g2", the board outlines a8, e4 and g2 and draws the a8 to g2 line, and the bar reads 0.6 at White's end.
+
 ### 8. Three kinds of numbers, each labelled for what it is
 
 **Context.** The site's claim is "I measure every change". A reader who catches one invented number will doubt every other one.
@@ -322,7 +362,8 @@ Even with those fixes, Qwen3 showed a wrong form as the correction in 6 of 20 tu
 - **Thin automated checks.** CI (`.github/workflows/site.yml`) runs the unit tests in `site/tests/` (chess rules, Jarvis server logic, the three app engines) and the build with its reference and CSP checks. The two model evaluations need a running site and Workers AI, so they run by hand. There is no browser test yet. Next: a smoke test that loads each page and fails on console errors. Deploys are manual.
 - **Numbers repeated across files** (decision 4).
 - **Lifetime fit reads high.** `fitTau()` in `research.js` takes the mean time after 6 µs, which is correct for a single exponential but here still includes the 2 µs triplet rise and the uniform dark counts. Re-running the same model in Python with 60,000 events gives about 3.8 µs for an input of 3.5 µs, and about 71 µs for 68 µs. The page now states the bias next to the readout. Next: fit the full rise-and-decay model, or start the window later and subtract the dark-count level.
-- **Fewer facts for imported games and explore lines.** Pins and mate in one are not computed in the browser (decision 7).
+- **Fewer facts for imported games and explore lines.** The rule-facts list does not compute pins or mate in one in the browser (decision 7); the coach notes do find pins and mates, from the board and the engine line (decision 7c).
+- **Coach notes are tactical.** Positional mistakes get the evaluation and the engine's move, not a concept: 11 of the 25 graded moves of the reviewed game (decision 7c).
 - **Explore mode needs a pointer.** No keyboard access to squares yet (decision 7b).
 - **Public Jarvis knows only page text.** Facts drawn by JavaScript are invisible to it; citations are sometimes omitted; a current employer is not on the site, so it says it does not know (decision 11).
 - **App demos are recreations.** They run the apps' ported logic on sample data, with one Spanish Tutor topic of 68; device features such as the camera, GPS and Health Connect are described, not shown (decision 12).
