@@ -190,3 +190,10 @@
 .hobby svg { width: 48px; height: 48px; }
 .hobby p { color: var(--muted); font-size: var(--step--1); line-height: 1.55; }
 .chess-story > p { max-width: var(--measure); }
+
+/* chess: drag and drop */
+.board .pc-w, .board .pc-b { cursor: grab; touch-action: none; }
+.board .sq.lifted .pc-w, .board .sq.lifted .pc-b { opacity: 0.25; }
+.drag-ghost { position: fixed; z-index: 50; pointer-events: none; display: grid; place-items: center; font-family: "Noto Sans Symbols 2", "Segoe UI Symbol", serif; line-height: 1; cursor: grabbing; transform: scale(1.12); filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.55)); }
+.drag-ghost.pc-w { color: #f7f4ec; text-shadow: 0 0 1px #000, 0 0 1px #000; }
+.drag-ghost.pc-b { color: #121418; text-shadow: 0 0 1px rgba(255, 255, 255, .35); }
