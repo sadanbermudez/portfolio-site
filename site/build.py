@@ -16,7 +16,8 @@ page = ("<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n
         + src[:head_end].replace('<meta name="claude:viewport-fit-sides" content="cover">\n', "")
         + "\n</head>\n<body>\n" + src[head_end:].lstrip() + "</body>\n</html>\n")
 (dist / "index.html").write_text(page, encoding="utf-8")
-shutil.copy2(here / "site.css", dist / "site.css")
+for name in ("site.css", "hero.js", "lab.js"):
+    shutil.copy2(here / name, dist / name)
 for f in (here / "work").glob("*.html"):
     shutil.copy2(f, dist / "work" / f.name)
 print("built", sorted(str(p.relative_to(dist)) for p in dist.rglob("*") if p.is_file()))
