@@ -52,7 +52,11 @@ window.ChessCore = (function () {
       var friends = att.filter(function (a) { return a.white === p.white && a.to[0] === f && a.to[1] === r; });
       var label = (p.white ? 'White ' : 'Black ') + NAME[p.type] + ' on ' + sq(f, r);
       if (!friends.length) hanging.push(label);
-      else if (Math.min.apply(null, enemy.map(function (a) { return VAL[a.type]; })) < VAL[p.type]) cheaper.push(label);
+      else {
+        // a king can never capture a defended piece, so only other attackers count here
+        var capturers = enemy.filter(function (a) { return a.type !== 'k'; }).map(function (a) { return VAL[a.type]; });
+        if (capturers.length && Math.min.apply(null, capturers) < VAL[p.type]) cheaper.push(label);
+      }
     }
     return { hanging_pieces: hanging, attacked_by_a_cheaper_piece: cheaper, pinned_pieces: [], mate_in_one_for_side_to_move: [], material_white_minus_black: material };
   }

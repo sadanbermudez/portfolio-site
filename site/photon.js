@@ -185,10 +185,12 @@
       pdtMode = +b.dataset.pdt;
       document.querySelectorAll('[data-pdt]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
       resetPdt();
+      if (reduce) { settlePdt(); drawPdt(); }                // no loop runs in reduced motion, so finish and draw now
     });
   });
+  function settlePdt() { for (var w = 0; w < 400 && running; w++) { stepPdt(); if (pdtStats().tumour >= 0.6) running = false; } }
   resetPdt();
-  if (reduce) { for (var w = 0; w < 400 && running; w++) { stepPdt(); if (pdtStats().tumour >= 0.6) running = false; } }
+  if (reduce) settlePdt();
 
   // ---------- loop ----------
   var visible = {};
