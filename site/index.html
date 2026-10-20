@@ -15,6 +15,7 @@
       <a href="work/chess.html">Chess</a>
       <a href="work/research.html">Research</a>
       <a href="#system">System</a>
+      <a href="#roles">Roles</a>
       <a href="#log">Log</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
@@ -305,6 +306,39 @@
       </div>
     </section>
 
+    <section class="block" id="roles">
+      <div class="side"><p class="label">The day job</p><p class="mono">AI engineering roles</p></div>
+      <div class="main wide">
+        <h2>What these roles do every day, and where I have done it</h2>
+        <p class="kicker">To show I can do the daily work, not just describe it, I ran one engagement end to end, from client brief to handover. The client is simulated; the code, evaluation and numbers are real.</p>
+        <a class="card flagship" href="https://github.com/sadanbermudez/labdesk-copilot">
+          <span class="label">Flagship · simulated engagement</span>
+          <h3>LabDesk: a support assistant that answers only from the docs</h3>
+          <p>A lab-automation team asked for PyVISA answers they could trust. Brief, testable requirements, BM25 retrieval with checked citations, a refusal rule, a read-only power-meter tool, FastAPI service with telemetry, a 41-question eval run on a local model, ADRs and a handover runbook.</p>
+          <div class="stats">
+            <div><span class="figure-num">31/33</span><span>answers correct</span></div>
+            <div><span class="figure-num">32/33</span><span>cite the right section</span></div>
+            <div><span class="figure-num">6/6</span><span>off-topic questions refused</span></div>
+            <div><span class="figure-num">5.6 s</span><span>p95 latency, local model</span></div>
+          </div>
+          <span class="go">Read the engagement on GitHub →</span>
+        </a>
+        <div class="table-scroll" role="region" aria-label="Roles and evidence" tabindex="0">
+          <table class="roles">
+            <thead><tr><th>Role</th><th>What they do daily</th><th>Where I have done it</th><th>Fit</th></tr></thead>
+            <tbody>
+              <tr><td><strong>AI engineer</strong></td><td>Build retrieval and agent systems, wire models to tools, write evals, ship them as services</td><td>LabDesk; the local Jarvis stack; <a href="https://github.com/sadanbermudez/photonics-lab-mcp">photonics-lab-mcp</a>; <a href="https://github.com/sadanbermudez/jarvis-chess">jarvis-chess</a></td><td><span class="tag kept">Shown</span></td></tr>
+              <tr><td><strong>Forward-deployed engineer</strong></td><td>Sit with a customer, turn a messy problem into requirements, deploy on their infrastructure, hand it over</td><td>LabDesk, brief to handover, on on-premises hardware; customer-facing technical work at Sensofar</td><td><span class="tag kept">Shown</span></td></tr>
+              <tr><td><strong>AI agent ops</strong></td><td>Monitor agents in production: traces, latency, cost, failures, incident runbooks</td><td>Tracing and latency dashboard for Jarvis; LabDesk telemetry, metrics endpoint and runbook</td><td><span class="tag kept">Shown</span></td></tr>
+              <tr><td><strong>AI requirements analyst</strong></td><td>Translate business needs into testable requirements and acceptance metrics</td><td>LabDesk requirements, each with a target and how it is verified</td><td><span class="tag kept">Partly shown</span></td></tr>
+              <tr><td><strong>Product engineer</strong></td><td>Own a feature end to end, including the interface people use</td><td>This site; the in-browser chess analysis board with Stockfish</td><td><span class="tag kept">Partly shown</span></td></tr>
+              <tr><td><strong>Experience design</strong></td><td>User research, interaction design, usability testing</td><td>No formal user research yet</td><td><span class="tag no">Gap</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
     <section class="block" id="log">
       <div class="side"><p class="label">Engineering log</p><p class="mono">October 2026</p></div>
       <div class="main wide">
@@ -313,6 +347,7 @@
           <table>
             <thead><tr><th>Date</th><th>Change</th><th>Measured result</th><th>Decision</th></tr></thead>
             <tbody>
+              <tr><td class="n">20 Oct</td><td>LabDesk docs assistant, 41-question eval on a local model</td><td>31/33 correct, 6/6 refusals, p95 5.6 s; 2 real failures left untuned</td><td><span class="tag kept">Shipped</span></td></tr>
               <tr><td class="n">20 Oct</td><td>Instrument-control MCP server, agent runs an experiment</td><td>Hidden answer found in both runs; closing physics wrong both times</td><td><span class="tag kept">Kept</span></td></tr>
               <tr><td class="n">20 Oct</td><td>Agent code tool moved into a Docker sandbox</td><td>Code task 7.9 s instead of blocked; host writes fail inside</td><td><span class="tag kept">Kept</span></td></tr>
               <tr><td class="n">20 Oct</td><td>Tracing, latency dashboard, evals in Inspect AI</td><td>13/13 tasks in 45 s; one trace per voice turn</td><td><span class="tag kept">Kept</span></td></tr>

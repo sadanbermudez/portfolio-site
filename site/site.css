@@ -190,3 +190,10 @@ figcaption { font-size: var(--step--1); color: var(--muted); }
 .copy { font-family: var(--font-data); font-size: var(--step--2); letter-spacing: 0.05em; padding: 8px 14px; border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; }
 .copy:hover { background: var(--ink); color: var(--bg); }
 footer { border-top: 1px solid var(--rule); padding-block: 28px 48px; display: grid; gap: 6px; }
+
+/* roles: flagship engagement card and evidence table */
+.flagship { border-color: #2f3a46; }
+.flagship .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px 20px; padding-block: 6px; }
+.flagship .stats div { display: grid; gap: 2px; }
+.flagship .stats span:last-child { color: var(--muted); font-size: var(--step--2); }
+table.roles td a { color: var(--ink); }
