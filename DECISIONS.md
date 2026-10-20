@@ -31,9 +31,9 @@ Two rules for reading it:
                                    (workers_dev: false, so no second hostname)
 
  Pages and the scripts each one loads  (every page: site.css, immersive.css, Google Fonts)
- index.html ................ three.js r128 (cdnjs), bench.js, hero.js, lab.js, inline script
- work/lab-agent.html ....... three.js r128, bench.js, lab.js, scrolly.js, inline script
- work/llama-cpp-stall.html . scrolly.js, engine.js
+ index.html ................ three.js r128 (cdnjs), bench.js, hero.js, home.js
+ work/lab-agent.html ....... three.js r128, bench.js, lab.js, scrolly.js, lab-page.js
+ work/llama-cpp-stall.html . scrolly.js, engine.js (time budget; also pauses the memory-path SVG)
  work/chess.html ........... data/chess-game.js, chess-core.js, chess.js, three.js r128,
                              chess3d.js, analyse.js, games.js, inline script
                                on "Analyse": Web Worker engine/stockfish-19-lite-single.js (+ .wasm),
@@ -65,7 +65,7 @@ The repo root also holds an earlier single-page version of the site (`index.html
 
 **Alternatives.** A component framework with a bundler, which would share the header and footer across pages and add type checks. A static site generator, which would template the six page headers instead of repeating them.
 
-**Trade-offs.** The header is written out by hand on every page. Globals could collide if the site grew, and a wrong script order fails at runtime, not at build time. Nothing is minified.
+**Trade-offs.** The header is written out by hand on every page. Since October 2026 it is the same block everywhere (the brand plus six links: Projects, Apps, Jarvis, Roles, About, Contact; paths differ by folder depth, and the current page's link carries `aria-current`), so a change to the navigation means editing every page's `<header>`. Globals could collide if the site grew, and a wrong script order fails at runtime, not at build time. Nothing is minified.
 
 **Check it yourself.** `grep -n "^window\.[A-Za-z0-9_]* = " site/*.js` lists every global the site defines. Open `site/work/chess.html` and read the script tags at the bottom in order.
 
@@ -209,7 +209,7 @@ The repo root also holds an earlier single-page version of the site (`index.html
 
 **Decision.** Every number on the site belongs to one of three kinds, and the page says which.
 
-- **Measured.** The engine case study: `engine.js` says in its header "Every bar is a measured value from 19 to 20 October 2026", and its `STEPS` array holds those values. The home page's memory-path animation moves its dots in 14 s (before) and 1 s (after), and 7,738 ms divided by 553 ms is 14.0, so the dots really do move at the measured ratio. 880 MB in 7.738 s is the 114 MB/s on the page. The lab-agent replay in `lab.js` and the bench's `BENCH_RUN` are the recorded tool calls and peak counts.
+- **Measured.** The engine case study: `engine.js` says in its header "Every bar is a measured value from 19 to 20 October 2026", and its `STEPS` array holds those values. The memory-path animation on the engine page (it moved there from the home page) moves its dots in 14 s (before) and 1 s (after), and 7,738 ms divided by 553 ms is 14.0, so the dots really do move at the measured ratio. 880 MB in 7.738 s is the 114 MB/s on the page. The lab-agent replay in `lab.js` and the bench's `BENCH_RUN` are the recorded tool calls and peak counts.
 - **Computed from formulas, in the browser.** `photon.js`, function `beam()`: Gaussian beam waist w₀ = λ/(π·NA) and Rayleigh range z_R = π·w₀²·n/λ with n = 1.33. The side view integrates intensity to the power n (1 or 2) along the line of sight, giving w^(1−2n)·exp(−2n·x²/w²) (header comment). The per-plane plot is flat for one photon and 1/(1 + z²/z_R²), which is proportional to 1/w², for two photons, so its full width at half maximum is 2·z_R. Penetration is exp(−n·z/δ) with δ from the sources cited on the page. In `research.js`, anti-resonance wavelengths are λ_m = 2t·√(n_glass² − n_core²)/m; filling the core with water scales them by 0.55, against 0.556 in the thesis. The fibre mode is J₀², from the Abramowitz and Stegun polynomial. The photon-counting Monte Carlo samples each arrival time as a 2 µs triplet delay plus the singlet-oxygen lifetime, with 3% dark counts and 3% detector efficiency.
 - **Illustrative, and labelled so.** The photodynamic therapy dose model ("illustrative model", "It shows the principle, not a dosimetry calculation", focus drawn at 0.12 mm for visibility). The powers-of-ten zoom ("illustration of photodynamic therapy in general; my thesis work was in solution, not in animals"). The fibre drawing ("schematic"; membrane thickness "a free parameter here"). The 3D bench ("The bench is a simulator"); its spectrometer trace is a drawn Gaussian with random noise on a fixed baseline, and only the peak heights are recorded values.
 
@@ -256,7 +256,7 @@ The same idea of only doing work that is visible runs through the loops:
 - **`research.js`** redraws the zoom only on scroll, adds 4,000 photon events at once and draws the fibre still.
 - **`chess3d.js`** skips the move glide and the camera sway.
 
-For small screens: breakpoints at 520, 640, 760, 900 and 980 px. Side gutters are `max(16px, env(safe-area-inset-left))`, with `viewport-fit=cover` for notched phones. Sticky stages use `svh` units, so the mobile address bar does not cause a jump. Tables sit in `.table-scroll` and diagrams in `.diagram`, both with `overflow-x: auto` and a minimum width, so they scroll inside their panel instead of widening the page. The spectrometer readout is hidden below 760 px. On narrow screens the engine page pins its time-budget panel above the steps (`order: -1`). The 3D canvases set `touch-action: pan-y`, so a vertical swipe scrolls the page while a horizontal drag turns the view.
+For small screens: breakpoints at 400, 520, 640, 700, 760, 900, 980 and 1000 px. Nothing that carries text sits on a canvas or animation on phones: up to 900 px the home hero's bench gets its own band above the copy (`hero.js` passes `narrowAt: 900` and `narrowFit` to `createBench`, which centres and zooms the scene for a short, wide canvas), and the lab-agent page's `.scrolly.split-stage` gives the 3D stage the top half of the screen with the chapter cards scrolling below it; its trigger band moves just below the stage (`scrollyChapters` takes an optional `rootMargin`). The same applies to the engine page's pinned time-budget panel. On phones (640 px and below) the header scrolls away instead of staying pinned, its links and the site's buttons are at least 40 by 40 px, and tables marked `.stack` turn into one card per row using each cell's `data-label`. Side gutters are `max(16px, env(safe-area-inset-left))`, with `viewport-fit=cover` for notched phones. Sticky stages use `svh` units, so the mobile address bar does not cause a jump. Tables sit in `.table-scroll` and diagrams in `.diagram`, both with `overflow-x: auto` and a minimum width, so they scroll inside their panel instead of widening the page. The spectrometer readout is hidden at 1000 px and below on the home page, where it would sit on the headline, and at 900 px and below on the lab-agent page. On narrow screens the engine page pins its time-budget panel above the steps (`order: -1`). The 3D canvases set `touch-action: pan-y`, so a vertical swipe scrolls the page while a horizontal drag turns the view.
 
 **Why.** Motion can cause discomfort for some readers, and the operating system setting is the signal they have already given. On phones, the one layout failure readers notice at once is sideways scrolling, so wide content is contained in its own scroll box.
 

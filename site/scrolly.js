@@ -1,6 +1,7 @@
 /* Scrollytelling helper: marks the chapter nearest the middle of the screen as "on" and calls
-   back when it changes. Without IntersectionObserver every chapter simply stays visible. */
-window.scrollyChapters = function (nodes, onEnter) {
+   back when it changes. Without IntersectionObserver every chapter simply stays visible.
+   opts.rootMargin moves the trigger band (default: the middle 10% of the screen). */
+window.scrollyChapters = function (nodes, onEnter, opts) {
   var list = Array.prototype.slice.call(nodes), current = null;
   if (!list.length) return;
   function activate(el) {
@@ -12,7 +13,7 @@ window.scrollyChapters = function (nodes, onEnter) {
   if (!('IntersectionObserver' in window)) { list.forEach(function (n) { n.classList.add('on'); }); return; }
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) { if (e.isIntersecting) activate(e.target); });
-  }, { rootMargin: '-45% 0px -45% 0px' });
+  }, { rootMargin: (opts && opts.rootMargin) || '-45% 0px -45% 0px' });
   list.forEach(function (n) { io.observe(n); });
   activate(list[0]);
 };

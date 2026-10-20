@@ -5,7 +5,9 @@
    setOrder(1) shows one-photon excitation of the same transition: 400 nm light, and the whole
    beam cone glows in the sample. setOrder(2), the default, is the 800 nm two-photon case, where
    excitation (proportional to intensity squared) is confined to the focus.
-   opts.hud = { canvas, power, peak } elements; opts.shift = push the scene right on wide screens;
+   opts.hud = { canvas, power, peak } elements; opts.shift = push the scene right on wide screens; opts.narrowAt = canvas width at or below which
+   the layout counts as narrow (default 760); opts.narrowLift = vertical offset when narrow (default -0.16);
+   opts.narrowFit = when narrow, zoom in so the bench fills a short, wide canvas;
    opts.orbit = allow dragging to look around.
    The power steps are the six settings the agent chose, with the peak counts it measured at each. */
 window.BENCH_RUN = [[10, 1940.9], [30, 2028.5], [50, 2343.7], [80, 3080.5], [120, 4578.1], [160, 6635.9]];
@@ -191,8 +193,10 @@ window.createBench = function (canvas, opts) {
     if (!w || !h) return;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
-    var sx = opts.shift && w > 760 ? -w * opts.shift : 0, sy = w > 760 ? h * (opts.lift || 0) : -h * 0.16;
+    var wide = w > (opts.narrowAt || 760);
+    var sx = opts.shift && wide ? -w * opts.shift : 0, sy = wide ? h * (opts.lift || 0) : h * (opts.narrowLift != null ? opts.narrowLift : -0.16);
     camera.setViewOffset(w, h, sx, sy, w, h);
+    camera.zoom = opts.narrowFit && !wide ? Math.max(1, Math.min(1.8, w / h / 1.4)) : 1;   // fill a short, wide band
     camera.updateProjectionMatrix();
   }
   window.addEventListener('resize', resize); resize();
