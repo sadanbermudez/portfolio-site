@@ -74,7 +74,7 @@
             <textarea id="pgn-input" rows="4" spellcheck="false" placeholder="https://lichess.org/dlymlJeF   or   1. e4 e5 2. Nf3 ..."></textarea>
             <div class="import-row">
               <label class="btn file-btn" for="pgn-file">Open a .pgn file</label><input id="pgn-file" type="file" accept=".pgn,text/plain" hidden>
-              <label for="import-speed" class="mono">depth</label>
+              <label for="import-speed" class="mono">time per move</label>
               <select id="import-speed"><option value="150">quick · 0.15 s/move</option><option value="400" selected>review · 0.4 s/move</option><option value="1000">deep · 1 s/move</option></select>
               <button class="btn primary" id="import-go" type="submit">Analyse</button>
             </div>
@@ -111,7 +111,7 @@
 <script src="../data/chess-game.js"></script>
 <script src="../chess-core.js"></script>
 <script src="../chess.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="../chess3d.js"></script>
 <script src="../analyse.js"></script>
 <script>
