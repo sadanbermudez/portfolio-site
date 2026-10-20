@@ -25,59 +25,102 @@
     <section class="article-head">
       <p class="label">Research · PhD, University of Edinburgh 2022 · Postdoc, IQS Barcelona 2022 to 2024</p>
       <h1>Singlet oxygen, from a mouse to a molecule</h1>
-      <p class="lede">Photodynamic therapy kills a tumour with light, a drug and the oxygen already in the tissue. I spent five years measuring the molecule that does the killing, and the hardest part was seeing it at all.</p>
-      <div class="readings">
-        <div><span class="label">sample in the fibre</span><span class="value result">≈ 30 nL</span></div>
-        <div><span class="label">photosensitiser concentration</span><span class="value">down to 10⁻⁸ M</span></div>
-        <div><span class="label">two-photon 1O2 in water</span><span class="value">first quantified</span></div>
-      </div>
+      <p class="lede">Photodynamic therapy treats tumours and infections with light, a drug and oxygen. I built a way to measure the molecule that does the damage.</p>
     </section>
+
+    <section class="brief" aria-label="The research in four steps">
+      <figure class="brief-card">
+        <svg class="brief-fig" viewBox="0 0 240 112" role="img" aria-label="Schematic: light switches on the drug, the drug turns oxygen into singlet oxygen, and singlet oxygen damages the cell">
+          <path d="M6 52 q5 -8 10 0 t10 0 t10 0 t10 0" fill="none" stroke="#ff4a3d" stroke-width="2.2"/>
+          <polygon points="83,52 76.5,63.3 63.5,63.3 57,52 63.5,40.7 76.5,40.7" fill="#ffae4a"/>
+          <text x="88" y="58" fill="#8a94a2" font-family="Martian Mono, monospace" font-size="16">+</text>
+          <circle cx="108" cy="52" r="6" fill="#c9d1db"/><circle cx="119" cy="52" r="6" fill="#c9d1db"/>
+          <line x1="131" y1="52" x2="144" y2="52" stroke="#8a94a2" stroke-width="1.5"/><polygon points="144,48 151,52 144,56" fill="#8a94a2"/>
+          <circle cx="167" cy="52" r="17" fill="#ff4a3d" opacity="0.22"/><circle cx="162" cy="52" r="6" fill="#ff6a5a"/><circle cx="173" cy="52" r="6" fill="#ff6a5a"/>
+          <circle cx="215" cy="52" r="19" fill="#3b2534" stroke="#c3cad4" stroke-width="1.5"/><polyline points="207,38 214,50 208,58 215,70" fill="none" stroke="#ff8a5c" stroke-width="2"/>
+          <g fill="#8a94a2" font-family="Martian Mono, monospace" font-size="10" text-anchor="middle"><text x="26" y="94">light</text><text x="70" y="94">drug</text><text x="113" y="94">O₂</text><text x="167" y="94">¹O₂</text><text x="215" y="94">cell</text></g>
+        </svg>
+        <figcaption><span class="label">Why it matters</span>Light switches the drug on only where it shines. The drug turns oxygen into singlet oxygen (¹O₂), which destroys the cell. How much it makes is the drug's strength.</figcaption>
+      </figure>
+      <figure class="brief-card">
+        <svg class="brief-fig" viewBox="0 0 240 112" role="img" aria-label="Schematic: a focused laser beam that acts only at its focus, and a question mark for how much singlet oxygen it makes">
+          <polygon points="32,2 68,2 50,52" fill="#ff4a3d" opacity="0.28"/><polygon points="50,52 68,110 32,110" fill="#ff4a3d" opacity="0.12"/>
+          <circle cx="50" cy="52" r="15" fill="#ffae4a" opacity="0.35"/><circle cx="50" cy="52" r="5" fill="#ffffff"/>
+          <g fill="#8a94a2" font-family="Martian Mono, monospace" font-size="10"><text x="76" y="48">acts only</text><text x="76" y="62">at the focus</text></g>
+          <text x="186" y="64" fill="#ffae4a" font-family="Martian Mono, monospace" font-size="44" text-anchor="middle">?</text>
+          <text x="186" y="94" fill="#8a94a2" font-family="Martian Mono, monospace" font-size="10" text-anchor="middle">how much ¹O₂?</text>
+        </svg>
+        <figcaption><span class="label">The goal</span>Two-photon light reaches deeper and acts only at its focus. Nobody had measured how much singlet oxygen drugs make with it in water, the conditions that matter for the clinic.</figcaption>
+      </figure>
+      <figure class="brief-card">
+        <svg class="brief-fig" viewBox="0 0 240 112" role="img" aria-label="Schematic: in a cuvette only one tiny focus glows; in a hollow fibre the whole length glows">
+          <rect x="12" y="6" width="40" height="40" fill="#16314a" stroke="#8a94a2" stroke-width="1.2"/>
+          <circle cx="32" cy="26" r="7" fill="#ffae4a" opacity="0.4"/><circle cx="32" cy="26" r="2.4" fill="#ffffff"/>
+          <g fill="#8a94a2" font-family="Martian Mono, monospace" font-size="10"><text x="64" y="23">cuvette: one tiny</text><text x="64" y="37">focus, lost in noise</text><text x="12" y="104">fibre: glows along all 15 cm</text></g>
+          <rect x="12" y="68" width="216" height="14" rx="7" fill="#16314a" stroke="#c9d1db" stroke-width="1.2"/>
+          <rect x="16" y="72" width="208" height="6" rx="3" fill="#ff4a3d" opacity="0.75"/>
+        </svg>
+        <figcaption><span class="label">What I did</span>One tiny focus gives too little signal. So I filled a hair-thin hollow glass fibre with the drug and sent the laser down it: the light works along its whole length.</figcaption>
+      </figure>
+      <figure class="brief-card">
+        <dl class="brief-stats">
+          <div><dt class="value result">first</dt><dd>two-photon ¹O₂ measured in water</dd></div>
+          <div><dt class="value">≈ 30 nL</dt><dd>of sample in the fibre</dd></div>
+          <div><dt class="value">10⁻⁸ M</dt><dd>lowest drug concentration</dd></div>
+        </dl>
+        <figcaption><span class="label">What came out</span>The first quantitative measurement of two-photon singlet oxygen in water, in any optical system, with a method that needs only drops of drug.</figcaption>
+      </figure>
+    </section>
+    <p class="mono brief-note">The three diagrams are schematics. Scroll on for the illustrated story, then the technical detail.</p>
   </div></div>
 
   <section class="scrolly zoomer" id="zoom" aria-label="Zooming from a mouse to molecules">
     <div class="stage">
-      <canvas id="zoom-canvas" class="zoom-canvas" aria-label="Animated illustration that zooms from a mouse to skin, tumour cells, one cell and molecules"></canvas>
-      <div class="order-switch" role="group" aria-label="Excitation">
-        <button type="button" data-mode="2" aria-pressed="true">Two-photon · 800 nm</button>
-        <button type="button" data-mode="1" aria-pressed="false">One-photon</button>
+      <div class="zoom-tools">
+        <div class="order-switch" role="group" aria-label="Excitation">
+          <button type="button" data-mode="2" aria-pressed="true">Two-photon · 800 nm</button>
+          <button type="button" data-mode="1" aria-pressed="false">One-photon</button>
+        </div>
+        <div class="scalebar"><span class="mono" id="zoom-scale">3 cm</span><span class="mono" id="zoom-label"></span></div>
       </div>
-      <div class="scalebar"><span class="mono" id="zoom-scale">3 cm</span><span class="mono" id="zoom-label"></span></div>
+      <canvas id="zoom-canvas" class="zoom-canvas" aria-label="Animated illustration that zooms from a mouse to skin, tumour cells, one cell and molecules"></canvas>
+      <div class="zoom-caption" aria-hidden="true"></div>
     </div>
     <div class="chapters gutter"><div class="page">
       <div class="chapter title-card on"><div class="card-x">
-        <p class="label">Scroll to zoom · illustration of photodynamic therapy in general</p>
+        <p class="label">Scroll to zoom</p>
         <h2>Powers of ten</h2>
-        <p>A photosensitiser is injected and collects in the tumour. Then light is aimed at it. Switch between one and two photons at every scale and watch where the action happens.</p>
+        <p>An illustration of photodynamic therapy in general; my thesis work was in solution, not in animals. Switch between one and two photons at each scale.</p>
       </div></div>
       <div class="chapter"><div class="card-x">
         <span class="chapter-num">3 CM · THE ANIMAL</span>
         <h2>Light from outside</h2>
-        <p>One-photon light lights the whole path through the skin. Two near-infrared photons only add up at the focus, which can sit inside the tumour. Near-infrared also travels further in tissue: 750 to 950 nm is the phototherapeutic window.</p>
+        <p>One photon acts along its whole path. Two near-infrared photons add up only at the focus, which can sit inside the tumour.</p>
       </div></div>
       <div class="chapter"><div class="card-x">
         <span class="chapter-num">3 MM · THE TISSUE</span>
         <h2>Skin, fat, muscle, tumour</h2>
-        <p>Blood and scattering eat short wavelengths near the surface. One-photon light excites photosensitiser everywhere it reaches, healthy tissue included; the two-photon focus excites it only where the beam is squeezed.</p>
+        <p>Blood and scattering stop short wavelengths near the surface. Near-infrared light, 750 to 950 nm (the phototherapeutic window), gets further.</p>
       </div></div>
       <div class="chapter"><div class="card-x">
         <span class="chapter-num">100 µm · THE CELLS</span>
         <h2>The drug waits in the tumour</h2>
-        <p>Photosensitisers accumulate more in tumour cells, over hours to days. They are inert in the dark, which is the whole point: the drug does nothing until light arrives.</p>
+        <p>The drug, a photosensitiser (amber dots), builds up in tumour cells over hours to days and does nothing in the dark.</p>
       </div></div>
       <div class="chapter"><div class="card-x">
         <span class="chapter-num">10 µm · ONE CELL</span>
         <h2>A one-micrometre reach</h2>
-        <p>Singlet oxygen lives about 3.5 µs in water, and in cells it acts within roughly 1 to 1.5 µm of where it is made. Wherever the photosensitiser sits, mitochondria or membranes, is what gets destroyed.</p>
+        <p>Singlet oxygen lives about 3.5 µs in water and acts within roughly 1 to 1.5 µm (dashed red), so it destroys whatever sits next to the drug.</p>
       </div></div>
       <div class="chapter"><div class="card-x">
         <span class="chapter-num">1 NM · THE MOLECULES</span>
         <h2>Absorb, cross, transfer</h2>
-        <p>The photosensitiser absorbs, crosses to its long-lived triplet state, and on collision hands its energy to ground-state oxygen, itself a triplet. Spin is conserved, so only the triplet can do it. The oxygen leaves as singlet oxygen and oxidises the first lipid or protein it meets.</p>
+        <p>The drug absorbs, flips to a long-lived triplet state and hands its energy to oxygen. Out comes singlet oxygen, which oxidises the nearest lipid.</p>
       </div></div>
       <div class="chapter"><div class="card-x">
         <span class="chapter-num">10 µm · THE OUTCOME</span>
         <h2>Damage where the light was</h2>
-        <p>With two-photon excitation only the focal cell is damaged; its neighbours never saw a high enough photon density. That precision, plus deeper reach, is why two-photon PDT matters, and why measuring a molecule's two-photon singlet-oxygen yield matters even more.</p>
+        <p>With two photons only the focal cell is hit. That precision is why each drug's two-photon singlet-oxygen yield is worth measuring.</p>
       </div></div>
     </div></div>
   </section>
@@ -87,20 +130,20 @@
       <div class="side"><p class="label">01 · Seeing it</p><p class="mono">1270 nm photon counting</p></div>
       <div class="main wide">
         <h2>Detecting a molecule that barely glows</h2>
-        <p class="kicker" style="max-width:64ch">Singlet oxygen gives one faint infrared glow at 1270 nm as it decays. In water only about one in a million molecules emits a photon, and infrared detectors catch about 3% of those. Below, single photons arrive at a photomultiplier and build the time-resolved signal.</p>
+        <p class="kicker narrow">Singlet oxygen gives off a faint infrared glow at 1270 nm. In water about one molecule in a million emits a photon, and infrared detectors catch about 3% of those.</p>
         <div class="order-switch static" role="group" aria-label="Solvent">
           <button type="button" data-solvent="H2O" aria-pressed="true">Water · τ ≈ 3.5 µs</button>
           <button type="button" data-solvent="D2O" aria-pressed="false">Heavy water · τ ≈ 68 µs</button>
         </div>
-        <div class="panel"><div class="panel-head"><span class="live">photons arriving at the NIR detector</span><span>time after the laser pulse</span></div><canvas id="det-canvas" class="det-canvas" aria-label="Histogram of photon arrival times rising then decaying"></canvas></div>
-        <div class="readings" style="background:none;border:0;gap:20px 32px">
-          <div style="background:none;padding:12px 0 0;border-top:1px solid var(--ink)"><span class="label">photons detected</span><span class="value result" id="det-detected">0</span></div>
-          <div style="background:none;padding:12px 0 0;border-top:1px solid var(--ink)"><span class="label">photons emitted (3% QE)</span><span class="value" id="det-emitted">0</span></div>
-          <div style="background:none;padding:12px 0 0;border-top:1px solid var(--ink)"><span class="label">singlet oxygen made</span><span class="value" id="det-made">0</span></div>
-          <div style="background:none;padding:12px 0 0;border-top:1px solid var(--ink)"><span class="label">fitted lifetime</span><span class="value result" id="det-tau">collecting…</span></div>
+        <figure class="panel"><div class="panel-head"><span class="live">photons arriving at the NIR detector</span><span>time after the laser pulse</span></div><canvas id="det-canvas" class="det-canvas" aria-label="Histogram of photon arrival times rising then decaying"></canvas>
+          <figcaption class="look">Look for a quick rise, then a slow fade. The fade is singlet oxygen's lifetime: heavy water stretches it about twenty times, which is why measuring in plain water, as cells need, is so hard.</figcaption></figure>
+        <div class="readings flat">
+          <div><span class="label">photons detected</span><span class="value result" id="det-detected">0</span></div>
+          <div><span class="label">photons emitted (3% QE)</span><span class="value" id="det-emitted">0</span></div>
+          <div><span class="label">singlet oxygen made</span><span class="value" id="det-made">0</span></div>
+          <div><span class="label">fitted lifetime</span><span class="value result" id="det-tau">collecting…</span></div>
         </div>
-        <p>The rise is the photosensitiser's triplet handing over its energy; the decay is singlet oxygen's own lifetime, set by the solvent. Heavy water lets it live about twenty times longer, which is why many experiments use it, and why measuring in plain water, as cells require, is so much harder. In my postdoc in Light4Lungs I detected singlet oxygen inside bacteria with high-sensitivity photon detection, photodiodes and photomultipliers.</p>
-        <p class="mono">Simulation: emission time = triplet lifetime (2 µs, estimated for air-saturated water) + singlet-oxygen lifetime (thesis values), with 3% dark counts; lifetime fitted by maximum likelihood on the tail. The fit reads slightly long (about 3.8 µs and 71 µs against the thesis values of 3.5 and 68 µs) because the tail still carries some of the triplet rise and the dark counts; a real analysis would fit rise, decay and background together.</p>
+        <p class="mono">Simulation: arrival time = triplet delay (2 µs, estimated for air-saturated water) + singlet-oxygen lifetime (thesis values), with 3% dark counts; lifetime fitted by maximum likelihood on the tail. It reads slightly long (about 3.8 and 71 µs against 3.5 and 68 µs) because the tail still holds some of the rise and the dark counts.</p>
       </div>
     </section>
 
@@ -108,21 +151,32 @@
       <div class="side"><p class="label">02 · The PhD</p><p class="mono">hollow-core photonic crystal fibre</p></div>
       <div class="main wide">
         <h2>A lab inside a fibre the width of a hair</h2>
-        <p class="kicker" style="max-width:64ch">Two-photon excitation only happens in a femtolitre focus, so in a cuvette the signal drowns in noise. My solution: fill the hollow core of a photonic crystal fibre with the photosensitiser solution, and guide the laser through it. The excitation is sustained along the whole fibre instead of one tiny spot.</p>
+        <p class="kicker narrow">An anti-resonant hollow-core fibre: a ring of seven thin glass capillaries around a hollow core. The core holds the sample and guides both lasers through it.</p>
         <div class="photon-pair">
-          <figure class="panel"><div class="panel-head"><span>fibre cross-section</span></div><canvas id="fibre-canvas" class="fibre-canvas" aria-label="Cross-section of a hollow-core fibre with seven capillaries and the guided mode glowing in the core"></canvas></figure>
+          <figure class="panel"><div class="panel-head"><span>fibre cross-section</span></div><canvas id="fibre-canvas" class="fibre-canvas" aria-label="Cross-section of a hollow-core fibre with seven capillaries and the guided mode glowing in the core"></canvas>
+            <figcaption class="look">Look for the light staying in the central hole, switching between the 470 nm probe and the 800 nm pump.</figcaption></figure>
           <figure class="panel"><div class="panel-head"><span>guidance windows</span></div><canvas id="ar-canvas" class="fibre-canvas" aria-label="Transmission against wavelength with resonance dips"></canvas>
-            <div class="slider-row" style="padding:10px 14px">
+            <div class="slider-row pad">
               <label for="ar-t" class="mono">membrane thickness</label>
               <input id="ar-t" type="range" min="0.2" max="1.0" step="0.01" value="0.30">
               <output id="ar-t-out" class="mono result" for="ar-t">300 nm</output>
               <span class="order-switch static" role="group" aria-label="Core filling"><button type="button" data-fill="water" aria-pressed="true">water</button><button type="button" data-fill="air" aria-pressed="false">air</button></span>
             </div>
+            <figcaption class="look">Each dip is a colour that leaks out. Drag the slider until both dashed lines sit in a clear window.</figcaption>
           </figure>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px 40px">
-          <p><strong>How it guides.</strong> The thin glass walls of the ring of capillaries act as Fabry-Perot resonators. Away from their resonances they reflect light back into the core; at a resonance, λ = 2t·√(n<sub>glass</sub>² − n<sub>core</sub>²)/m, light leaks out. Filling the core with water moves every resonance to about 0.55 times its wavelength in air, which is how the fibre can carry both a 470 nm probe and an 800 nm pump in water.</p>
-          <p><strong>Why it wins.</strong> In the thesis's comparison for a 20 µm core and 15 cm length, the light-matter interaction figure is 4.18 for a 1 cm cuvette, 16.4 for a glass capillary and 14,720 for a hollow-core fibre. The fibre held about 2.8 nL per cm, around 30 nL in all: six orders of magnitude less sample than a cuvette.</p>
+        <div class="two-col">
+          <p><strong>How it guides.</strong> The thin capillary walls act as Fabry-Perot resonators. Away from their resonances they reflect light back into the core; at a resonance, λ = 2t·√(n<sub>glass</sub>² − n<sub>core</sub>²)/m, light leaks out. Filling the core with water moves every resonance to about 0.55 times its wavelength in air, so the fibre carries both a 470 nm probe and an 800 nm pump in water.</p>
+          <figure class="bars">
+            <svg viewBox="0 0 360 132" role="img" aria-label="Bar chart on a log scale: light-matter interaction figure 4.18 for a 1 cm cuvette, 16.4 for a glass capillary and 14,720 for a hollow-core fibre">
+              <g stroke="#1d242d"><line x1="12" y1="8" x2="12" y2="112"/><line x1="76" y1="8" x2="76" y2="112"/><line x1="140" y1="8" x2="140" y2="112"/><line x1="204" y1="8" x2="204" y2="112"/><line x1="268" y1="8" x2="268" y2="112"/><line x1="332" y1="8" x2="332" y2="112"/></g>
+              <g font-family="Martian Mono, monospace" font-size="11" fill="#e8ecf1"><text x="12" y="18">1 cm cuvette</text><text x="12" y="52">glass capillary</text><text x="12" y="86">hollow-core fibre</text></g>
+              <rect x="12" y="23" width="39.7" height="11" fill="#8a94a2"/><rect x="12" y="57" width="77.8" height="11" fill="#8a94a2"/><rect x="12" y="91" width="266.7" height="11" fill="#ffae4a"/>
+              <g font-family="Martian Mono, monospace" font-size="11"><text x="58" y="33" fill="#8a94a2">4.18</text><text x="96" y="67" fill="#8a94a2">16.4</text><text x="285" y="101" fill="#ffae4a">14,720</text></g>
+              <g font-family="Martian Mono, monospace" font-size="10" fill="#8a94a2" text-anchor="middle"><text x="14" y="127">1</text><text x="76" y="127">10</text><text x="140" y="127">100</text><text x="204" y="127">1,000</text><text x="268" y="127">10⁴</text><text x="332" y="127">10⁵</text></g>
+            </svg>
+            <figcaption class="mono">Why it wins: the thesis's light-matter interaction figure for a 20 µm core, 15 cm long, on a log scale. The fibre held about 2.8 nL per cm, around 30 nL in all.</figcaption>
+          </figure>
         </div>
         <p class="mono">Fibre drawing is schematic; the mode is the J₀² profile of a hollow waveguide. Membrane thickness is a free parameter here, not my fibre's measured value.</p>
       </div>
@@ -132,9 +186,8 @@
       <div class="side"><p class="label">03 · The method</p><p class="mono">two-colour pump-probe</p></div>
       <div class="main prose">
         <h2>Counting singlet oxygen with a light switch</h2>
-        <p>Direct 1270 nm detection is too weak in water inside a fibre, so I used a chemical reporter, Singlet Oxygen Sensor Green. It is dark until singlet oxygen adds across its anthracene, then it fluoresces about ten times brighter. Two lasers share the core: an 800 nm femtosecond pump excites the photosensitiser by two photons for 60 s, a 470 nm probe reads the reporter for 5 s, twenty cycles or more.</p>
-        <p>The reporter's growth rate gives the singlet oxygen made. Plotted against laser power on log-log axes, its slope must be 2 to prove a two-photon process. In the final design every photosensitiser gave a slope between 1.85 and 2.09. Divided by concentration, the rate gives the figure of merit for two-photon therapy: cross-section times singlet-oxygen yield.</p>
-        <p>The same log-log test is what the AI agent on my lab-agent page worked out for itself, unprompted.</p>
+        <p>The 1270 nm glow is too weak in water inside a fibre, so I used a chemical reporter, Singlet Oxygen Sensor Green. It stays dark until singlet oxygen adds across its anthracene, then fluoresces about ten times brighter. Two lasers share the core: an 800 nm femtosecond pump excites the photosensitiser by two photons for 60 s, a 470 nm probe reads the reporter for 5 s, twenty cycles or more.</p>
+        <p>The reporter's growth rate gives the singlet oxygen made. Against laser power on log-log axes its slope must be 2 to prove two photons; in the final design every photosensitiser gave 1.85 to 2.09. Divided by concentration, the rate gives the figure of merit for two-photon therapy: cross-section times singlet-oxygen yield. The AI agent on my lab-agent page found the same log-log test on its own.</p>
       </div>
     </section>
 
@@ -159,7 +212,7 @@
         </div>
         <figure class="panel">
           <div class="panel-head"><span>singlet-oxygen yield in water: two-photon (this work) vs one-photon literature</span><span>reference: Rose Bengal 0.76</span></div>
-          <div class="plot" style="padding:12px 14px">
+          <div class="plot pad">
             <svg viewBox="0 0 640 300" role="img" aria-label="Dumbbell chart of singlet oxygen yields">
               <g font-family="Martian Mono, monospace" font-size="11" fill="#8a94a2">
                 <text x="150" y="290">0</text><text x="290" y="290">0.25</text><text x="430" y="290">0.5</text><text x="570" y="290">0.75</text>
@@ -175,7 +228,7 @@
               <g fill="#ffae4a"><circle cx="463" cy="40" r="6"/><circle cx="474" cy="74" r="6"/><circle cx="312" cy="108" r="6"/><circle cx="295" cy="142" r="6"/><circle cx="284" cy="176" r="6"/><circle cx="233" cy="210" r="6"/><circle cx="166" cy="244" r="6"/></g>
             </svg>
           </div>
-          <figcaption style="padding:0 14px 12px">Amber: two-photon yield measured in the fibre; grey: one-photon literature value. Most agree within error, which validates the method. *Ruthenium complexes designed for two-photon use (Gasser group): literature measured in PBS, not water. They had the highest cross-sections, about 330 to 360 GM.</figcaption>
+          <figcaption class="look">Amber: two-photon yield measured in the fibre; grey: one-photon literature. Look for pairs sitting close together: most agree within error, which validates the method. *Ruthenium complexes designed for two-photon use (Gasser group), literature in PBS, not water; the highest cross-sections, about 330 to 360 GM.</figcaption>
         </figure>
       </div>
     </section>
@@ -184,9 +237,8 @@
       <div class="side"><p class="label">05 · What was new</p></div>
       <div class="main prose">
         <ul>
-          <li>The first quantitative measurement of two-photon photosensitised singlet oxygen in aqueous solution, in any optical system.</li>
           <li>The first use of an anti-resonant hollow-core fibre in photochemistry, and of the SOSG reporter ratiometrically inside a hollow-core fibre.</li>
-          <li>Photosensitiser concentrations down to 10⁻⁸ M, two orders of magnitude below the previous fibre work, low enough to avoid aggregation: a copper phthalocyanine reported to make no singlet oxygen turned out to make plenty as a monomer.</li>
+          <li>Photosensitiser concentrations down to 10⁻⁸ M, two orders of magnitude below the previous fibre work and low enough to avoid aggregation: a copper phthalocyanine reported to make no singlet oxygen turned out to make plenty as a monomer.</li>
           <li>Two-photon cross-sections of clinical photosensitisers measured in water, many for the first time.</li>
         </ul>
       </div>
@@ -196,7 +248,7 @@
       <div class="side"><p class="label">06 · The postdoc</p><p class="mono">Light4Lungs · IQS Barcelona</p></div>
       <div class="main prose">
         <h2>Breathing in the light</h2>
-        <p>Light4Lungs, an EU Horizon 2020 FET Open project coordinated at IQS by Prof. Santi Nonell, whose singlet-oxygen probes I had used throughout my PhD, set out to treat drug-resistant lung infections with "a novel inhalable photodynamic therapy": persistent-luminescence particles delivered by aerosol, so the light source itself is breathed in. My work there was ultrasensitive photon detection, measuring singlet oxygen produced inside bacteria with photodiodes and photomultiplier tubes, and coordinating the optics, biochemistry and modelling teams.</p>
+        <p>Light4Lungs, an EU Horizon 2020 FET Open project coordinated at IQS by Prof. Santi Nonell, whose singlet-oxygen probes I used throughout my PhD, set out to treat drug-resistant lung infections with "a novel inhalable photodynamic therapy": light-emitting particles breathed in as an aerosol. I measured singlet oxygen made inside bacteria with ultrasensitive photon detection, photodiodes and photomultiplier tubes, and coordinated the optics, biochemistry and modelling teams.</p>
         <div class="cta"><a class="btn" href="two-photon.html">The two-photon physics, interactive →</a><a class="btn" href="lab-agent.html">An AI agent repeats my method →</a></div>
       </div>
     </section>
@@ -212,7 +264,7 @@
       </div>
     </section>
 
-    <footer><p class="mono">The zoom is an illustration of photodynamic therapy in general; my thesis work was in solution, not in animals. Simulations run in your browser. Built with Claude Code, directed and reviewed by me.</p></footer>
+    <footer><p class="mono">Simulations run in your browser. Built with Claude Code, directed and reviewed by me.</p></footer>
   </div></div>
 </main>
 <script src="../research.js"></script>
