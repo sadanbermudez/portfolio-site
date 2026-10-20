@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Honest chess commentary · Sergio Adan Bermudez</title>
+<meta name="description" content="An MCP server that lets an AI assistant review chess games without inventing tactics: Stockfish and the rules supply every fact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Noto+Sans+Symbols+2&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../immersive.css">
+</head>
+<body>
+<div class="top-wrap gutter">
+  <header class="top page">
+    <a class="brand" href="../index.html">Sergio Adan Bermudez</a>
+    <nav aria-label="Site"><a href="../index.html#worlds">Projects</a><a href="lab-agent.html">Lab agent</a><a href="llama-cpp-stall.html">Engine fix</a><a href="../index.html#contact">Contact</a></nav>
+  </header>
+</div>
+
+<main class="gutter">
+  <div class="page">
+    <section class="article-head">
+      <p class="label">jarvis-chess · MCP server · October 2026</p>
+      <h1>Chess commentary that cannot make things up</h1>
+      <p class="lede">I am a FIDE Master, and I notice when an "AI coach" invents a tactic. So Jarvis reviews my games through a server where Stockfish and the rules of chess supply every fact, and the language model only narrates them.</p>
+      <div class="readings">
+        <div><span class="label">Engine</span><span class="value">Stockfish 19</span></div>
+        <div><span class="label">39-ply blitz review</span><span class="value result">6.5 s</span></div>
+        <div><span class="label">Claim types checked</span><span class="value">8</span></div>
+      </div>
+    </section>
+
+    <section class="block" id="game">
+      <div class="side"><p class="label">A reviewed game</p><p class="mono" id="game-meta"></p></div>
+      <div class="main wide">
+        <div class="chess-wrap">
+          <div>
+            <div class="board-row">
+              <div class="evalbar" aria-hidden="true"><div class="black"></div></div>
+              <div class="board" id="board" role="img" aria-label="Chess board"></div>
+            </div>
+            <div class="chess-controls">
+              <button id="first" type="button" aria-label="Start">⏮</button>
+              <button id="prev" type="button" aria-label="Previous move">◀</button>
+              <button id="play" type="button">Play</button>
+              <button id="next" type="button" aria-label="Next move">▶</button>
+              <button id="last" type="button" aria-label="End">⏭</button>
+              <span class="pos" id="pos"></span>
+            </div>
+            <div class="legend-arrows"><span><i style="background:#ffae4a"></i>move played</span><span><i style="background:#7fb6ff"></i>engine's choice, shown on graded moves</span></div>
+          </div>
+          <div class="detail">
+            <div class="panel graph" id="graph"></div>
+            <div class="panel" style="padding:14px 16px"><div class="detail" id="detail"></div></div>
+            <p class="label">Key moments · click to jump</p>
+            <div class="moments" id="moments"></div>
+            <p class="label">Moves · graded by winning chances lost</p>
+            <div class="movelist" id="movelist"></div>
+          </div>
+        </div>
+        <p class="mono">Lichess blitz, 3+0. In a game this sharp both sides err; the review grades every move by the winning chances it gave away, using Lichess's method: on its −1 to 1 scale, a drop of 0.1 is an inaccuracy, 0.2 a mistake and 0.3 a blunder.</p>
+      </div>
+    </section>
+
+    <section class="block" id="how">
+      <div class="side"><p class="label">How it works</p><p class="mono">4 tools</p></div>
+      <div class="main prose">
+        <h2>The engine supplies the facts, the model narrates</h2>
+        <ul>
+          <li><strong>recent_games</strong> pulls my latest games from Lichess or Chess.com through their public APIs.</li>
+          <li><strong>review_game</strong> runs Stockfish over every move, grades mistakes, and attaches rule-computed facts to each key moment: hanging pieces, pins, checks, mate in one, material.</li>
+          <li><strong>analyse_position</strong> gives top engine lines for any position.</li>
+          <li><strong>check_claims</strong> verifies what a commentator says before it is said: "the knight on e5 is hanging", "Ra8 is mate", "White is better". Each claim comes back true, false, or uncheckable.</li>
+        </ul>
+        <p>So I can ask Jarvis, by voice, to go through my last game, and every concrete statement it makes traces back to the engine or the rules.</p>
+        <p><strong>Next: a faithfulness score.</strong> Have a local model comment on key moments freely, run every checkable claim through check_claims, and label the rest myself. The result is one number per model: the share of its chess statements that are true. Many projects pair an LLM with Stockfish; I have not found one that publishes that number.</p>
+        <p class="mono">Python · python-chess · Stockfish 19 · FastMCP · Lichess and Chess.com public APIs · pytest</p>
+        <div class="cta"><a class="btn" href="lab-agent.html">The same idea in a physics lab →</a><a class="back" href="../index.html#worlds">← All projects</a></div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="mono">Game from my Lichess account (dr_namer), reviewed on my laptop with Stockfish 19 at 0.4 s per move. Built with Claude Code, directed and reviewed by me.</p>
+    </footer>
+  </div>
+</main>
+<script src="../data/chess-game.js"></script>
+<script>
+document.getElementById('game-meta').textContent = (function (g) {
+  return g.white + ' (' + g.white_elo + ') vs ' + g.black + ' (' + g.black_elo + '), ' + g.result + ' · ' + g.opening;
+})(window.CHESS_GAME);
+</script>
+<script src="../chess.js"></script>
+</body>
+</html>

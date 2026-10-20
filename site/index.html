@@ -5,13 +5,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
 <link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="immersive.css">
 
 <div class="top-wrap gutter">
   <header class="top page">
     <a class="brand" href="#top">Sergio Adan Bermudez</a>
     <nav aria-label="Sections">
-      <a href="#lab">Lab agent</a>
-      <a href="#engine">Engine fix</a>
+      <a href="#worlds">Projects</a>
+      <a href="work/chess.html">Chess</a>
       <a href="#system">System</a>
       <a href="#log">Log</a>
       <a href="#about">About</a>
@@ -34,8 +35,8 @@
         <h1>I make AI systems fast on <em>real hardware</em>, and I measure every change.</h1>
         <p class="lede">Nine years of optical sensing taught me to distrust a number I have not measured. I now apply that to local language models, AI agents and the engines underneath them.</p>
         <div class="cta">
-          <a class="btn primary" href="#lab">Watch an agent run an experiment</a>
-          <a class="btn" href="work/llama-cpp-stall.html">Read the engine case study</a>
+          <a class="btn primary" href="work/lab-agent.html">Enter the lab</a>
+          <a class="btn" href="#worlds">All projects</a>
         </div>
         <p class="path-legend" aria-label="The bench in the background">
           <b>800 nm pulsed laser</b><span class="arrow">→</span><b>mirror</b><span class="arrow">→</span><b>objective</b><span class="arrow">→</span><b>sample</b><span class="arrow" style="color:var(--emit)">→</span><b>1270 nm emission</b><span class="arrow" style="color:var(--emit)">→</span><b>InGaAs spectrometer</b>
@@ -52,6 +53,67 @@
 
   <div class="gutter">
   <div class="page">
+
+    <section class="block" id="worlds">
+      <div class="side"><p class="label">Step inside</p><p class="mono">three projects</p></div>
+      <div class="main wide">
+        <h2>Each project, as an experience</h2>
+        <div class="portals">
+          <a class="portal" href="work/lab-agent.html">
+            <div class="art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice">
+                <rect width="320" height="180" fill="#0b0f14"/>
+                <g stroke="#1d242d"><line x1="0" y1="140" x2="320" y2="140"/></g>
+                <rect x="20" y="70" width="70" height="26" fill="#14181e" stroke="#2a3542"/>
+                <line x1="90" y1="83" x2="190" y2="83" stroke="#ff4a3d" stroke-width="2"><animate attributeName="opacity" values="1;.45;1" dur="1.2s" repeatCount="indefinite"/></line>
+                <circle cx="200" cy="83" r="9" fill="#ffae4a" opacity=".85"><animate attributeName="r" values="7;12;7" dur="2.6s" repeatCount="indefinite"/></circle>
+                <circle cx="200" cy="83" r="26" fill="#ffae4a" opacity=".12"><animate attributeName="opacity" values=".06;.22;.06" dur="2.6s" repeatCount="indefinite"/></circle>
+                <path d="M210,83 L290,83" stroke="#ffae4a" stroke-width="1" stroke-dasharray="3 5"><animate attributeName="stroke-dashoffset" values="16;0" dur=".8s" repeatCount="indefinite"/></path>
+                <rect x="286" y="68" width="30" height="30" fill="#14181e" stroke="#2a3542"/>
+              </svg>
+            </div>
+            <span class="label">Signature piece</span>
+            <h3>An AI agent runs a physics experiment</h3>
+            <p>Walk a 3D optics bench, replay the agent's 28 tool calls, and see the photophysics it got wrong.</p>
+            <span class="go">Enter the lab →</span>
+          </a>
+          <a class="portal" href="work/llama-cpp-stall.html">
+            <div class="art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice">
+                <rect width="320" height="180" fill="#0b0f14"/>
+                <rect x="24" y="52" width="272" height="20" fill="#0d1116" stroke="#1d242d"/>
+                <rect x="24" y="52" width="272" height="20" fill="#ff4a3d"><animate attributeName="width" values="0;272;272" keyTimes="0;.6;1" dur="4s" repeatCount="indefinite"/></rect>
+                <rect x="24" y="96" width="272" height="20" fill="#0d1116" stroke="#1d242d"/>
+                <rect x="24" y="96" width="19" height="20" fill="#ffae4a"><animate attributeName="width" values="0;19;19" keyTimes="0;.04;1" dur="4s" repeatCount="indefinite"/></rect>
+                <text x="24" y="44" fill="#8a94a2" font-family="Martian Mono, monospace" font-size="10">before · 7,738 ms</text>
+                <text x="24" y="136" fill="#8a94a2" font-family="Martian Mono, monospace" font-size="10">after · 553 ms</text>
+              </svg>
+            </div>
+            <span class="label">Case study · llama.cpp</span>
+            <h3>A 3-second pause, taken apart</h3>
+            <p>Eight measurements, one reverted change and one failed patch, down to a single line of C++.</p>
+            <span class="go">Watch the diagnosis →</span>
+          </a>
+          <a class="portal" href="work/chess.html">
+            <div class="art" aria-hidden="true">
+              <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice">
+                <rect width="320" height="180" fill="#0b0f14"/>
+                <g transform="translate(100,10)">
+                  <rect width="120" height="120" fill="#5f6b7c"/>
+                  <g fill="#b7bfcb"><rect width="30" height="30"/><rect x="60" width="30" height="30"/><rect x="30" y="30" width="30" height="30"/><rect x="90" y="30" width="30" height="30"/><rect y="60" width="30" height="30"/><rect x="60" y="60" width="30" height="30"/><rect x="30" y="90" width="30" height="30"/><rect x="90" y="90" width="30" height="30"/></g>
+                  <line x1="15" y1="105" x2="70" y2="50" stroke="#7fb6ff" stroke-width="5" stroke-linecap="round" opacity=".85"><animate attributeName="opacity" values="0;.85;.85;0" keyTimes="0;.2;.8;1" dur="3s" repeatCount="indefinite"/></line>
+                </g>
+                <text x="100" y="160" fill="#8a94a2" font-family="Martian Mono, monospace" font-size="10">35...Ba5? best 35...Bxc5+</text>
+              </svg>
+            </div>
+            <span class="label">jarvis-chess · new</span>
+            <h3>Chess commentary that cannot make things up</h3>
+            <p>Replay one of my games with Stockfish's verdicts and the facts it verified at each turning point.</p>
+            <span class="go">Open the board →</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <section class="block" id="lab">
       <div class="side"><p class="label">Signature piece</p><p class="mono">photonics-lab-mcp</p></div>
@@ -221,7 +283,8 @@
         <dl class="parts">
           <div><dt>Observability</dt><dd>Live latency dashboard and OpenTelemetry traces for every voice turn</dd></div>
           <div><dt>Evals</dt><dd>13 real tasks with deterministic scoring, used to pick settings from evidence</dd></div>
-          <div><dt>Think harder</dt><dd>A 284B model streamed from disk on demand, 0.6 tokens per second</dd></div>
+          <div><dt>Think harder</dt><dd>A 284B model streamed from disk on demand, about 0.5 tokens per second</dd></div>
+          <div><dt>Brain choice</dt><dd>Code with Claude Code, or for free with OpenCode on the local model or free cloud models</dd></div>
         </dl>
       </div>
     </section>
@@ -284,6 +347,7 @@
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="bench.js"></script>
 <script src="hero.js"></script>
 <script src="lab.js"></script>
 <script>

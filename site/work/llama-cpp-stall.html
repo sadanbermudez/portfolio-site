@@ -4,24 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>A 20x stall in llama.cpp · Sergio Adan Bermudez</title>
-<meta name="description" content="How I traced a per-reply stall in a local LLM stack to CPU reads of uncached GPU memory, fixed it with one condition, and verified identical output.">
+<meta name="description" content="Watch a 3-second stall in a local LLM stack get taken apart one measurement at a time, down to CPU reads of uncached GPU memory.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
 <link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../immersive.css">
 </head>
-<body class="gutter">
-<div class="page">
-  <header class="top">
+<body>
+<div class="top-wrap gutter">
+  <header class="top page">
     <a class="brand" href="../index.html">Sergio Adan Bermudez</a>
-    <nav aria-label="Site"><a href="../index.html#work">Work</a><a href="lab-agent.html">Lab agent</a><a href="../index.html#contact">Contact</a></nav>
+    <nav aria-label="Site"><a href="../index.html#worlds">Projects</a><a href="lab-agent.html">Lab agent</a><a href="chess.html">Chess</a><a href="../index.html#contact">Contact</a></nav>
   </header>
+</div>
 
-  <main>
+<main class="gutter">
+  <div class="page">
     <section class="article-head">
-      <p class="label">Case study · 19 to 20 October 2026</p>
-      <h1>A 20x stall in llama.cpp's Vulkan backend</h1>
-      <p class="lede">My voice assistant paused about 3 seconds before every answer. The model was fast; the delay was somewhere else. Eight measurements found it.</p>
+      <p class="label">Case study · llama.cpp · Vulkan · 19 to 20 October 2026</p>
+      <h1>A 3-second pause, taken apart</h1>
+      <p class="lede">My voice assistant paused about 3 seconds before every answer. The model was fast, so the time had to be going somewhere else. Scroll through the eight measurements that found it.</p>
       <div class="readings">
         <div><span class="label">Voice, first word</span><span class="value">3.0 s → <span class="result">0.7 s</span></span></div>
         <div><span class="label">One state snapshot</span><span class="value">0.61 s → <span class="result">0.03 s</span></span></div>
@@ -29,30 +32,26 @@
       </div>
     </section>
 
-    <section class="block">
-      <div class="side"><p class="label">Context</p></div>
-      <div class="main prose">
-        <p>The model, Qwen3.6-35B-A3B, is a hybrid: part of it keeps a running state instead of a normal attention cache. To resume a conversation after its text changes, the server saves snapshots of that state, 63 MB each, two per request. On this laptop the GPU is integrated, so GPU and CPU share the same memory.</p>
+    <section class="split" aria-label="The diagnosis, step by step">
+      <div class="stepper">
+        <div class="st on"><span class="chapter-num">01 · ENGINE AGAINST SERVER</span><h3>The model is not the problem</h3><p>llama-bench read 16 prompt tokens in 0.11 s. The server took 1.4 to 2.5 s for the same work. The model is a hybrid, Qwen3.6-35B-A3B: part of it keeps a running state instead of a normal attention cache.</p></div>
+        <div class="st"><span class="chapter-num">02 · SETTINGS</span><h3>Ruled out on a test server</h3><p>Batch size, context size and slot count, each changed on a separate server on a spare port so production stayed untouched. None moved the delay.</p></div>
+        <div class="st"><span class="chapter-num">03 · TIMESTAMPED LOGS</span><h3>Two snapshots, 0.6 s each</h3><p>To resume a conversation after its text changes, the server saves snapshots of the model's running state: 63 MB each, two per request. Those two saves were the whole delay.</p></div>
+        <div class="st"><span class="chapter-num">04 · A CHANGE I REVERTED</span><h3>Faster voice, broken agent</h3><p>With snapshots off, voice answered in 0.5 s. But the agent re-formats its previous reply slightly, and a hybrid model cannot step its state back without a snapshot, so it re-read its 13,700-token prompt every turn. My first tests used voice-style conversations only; the full test of every service caught it.</p></div>
+        <div class="st"><span class="chapter-num">05 · NEWER BUILD, FOUR SWITCHES</span><h3>No change</h3><p>A newer engine build and four Vulkan settings gave the same timings. The cost was in the code.</p></div>
+        <div class="st"><span class="chapter-num">06 · A PATCH THAT FAILED</span><h3>Skipping GPU waits saved nothing</h3><p>Each saved tensor goes through a synchronous GPU barrier and wait. Skipping the redundant ones took a snapshot from 0.65 s to 0.61 s. Discarded.</p></div>
+        <div class="st"><span class="chapter-num">07 · TIMERS ON THE READ PATH</span><h3>114 MB per second</h3><p>The waits took 14 ms in total. The CPU copy took 7,738 ms for 880 MB. On this integrated GPU the memory is visible to the CPU but not cached by it, so every read crawls.</p></div>
+        <div class="st"><span class="chapter-num">08 · ONE CONDITION</span><h3>Read directly only from cached memory</h3><p>Otherwise let the GPU copy into a cached staging buffer first, then read that.</p>
+<pre aria-label="The fix in ggml-vulkan-buffers.cpp"><span class="cmt">// ggml_vk_buffer_read_2d(): direct host read only when it is fast</span>
+if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible &amp;&amp;
+    src-&gt;device-&gt;uma <span class="add">&amp;&amp;
+    src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostCached</span>) {</pre></div>
       </div>
-    </section>
-
-    <section class="block">
-      <div class="side"><p class="label">Diagnosis</p><p class="mono">8 steps</p></div>
-      <div class="main prose">
-        <h2>One measurement at a time</h2>
-        <ol>
-          <li><strong>Raw engine against the server.</strong> llama-bench read 16 prompt tokens in 0.11 s; the server took 1.4 to 2.5 s for the same work. The GPU kernels were not the problem.</li>
-          <li><strong>Settings ruled out.</strong> Batch size, context size and slot count on a separate test server changed nothing.</li>
-          <li><strong>Timestamped logs.</strong> Two snapshot saves of about 0.6 s each made up the whole delay.</li>
-          <li><strong>Snapshots off.</strong> Voice became 15 times faster, but the agent slowed to 21 s per turn. Reverted (below).</li>
-          <li><strong>Newer build, four Vulkan switches.</strong> No change, so the cost was in the code, not the configuration.</li>
-          <li><strong>A patch that failed.</strong> Skipping redundant GPU waits took a snapshot from 0.65 s to 0.61 s. Discarded.</li>
-          <li><strong>Timers on the read path.</strong> The waits took 14 ms in total. The CPU copy took 7,738 ms for 880 MB, about 114 MB/s: the memory is visible to the CPU but not cached by it.</li>
-          <li><strong>A one-condition fix.</strong> Read directly only from CPU-cached memory; otherwise let the GPU copy into a cached staging buffer first.</li>
-        </ol>
-        <pre aria-label="The fix in ggml-vulkan-buffers.cpp"><span class="cmt">// ggml_vk_buffer_read_2d(): take the direct host read only when it is fast</span>
-if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible &amp;&amp; src-&gt;device-&gt;uma <span class="add">&amp;&amp;
-    src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostCached</span>) {</pre>
+      <div class="pin">
+        <div class="panel">
+          <div class="panel-head"><span class="live">time budget</span><span id="budget-title">step 1 of 8</span></div>
+          <div class="budget" id="budget" aria-live="polite"></div>
+        </div>
       </div>
     </section>
 
@@ -63,7 +62,7 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
         <ul>
           <li>The same scripted six-turn conversation at temperature 0 ran on the stock and fixed builds, in two modes: history resent verbatim, and history altered so the server must restore a snapshot.</li>
           <li>Replies were identical word for word in both modes; snapshot restores 4 of 4 in each build.</li>
-          <li>The exact deployment, one library swapped, was rehearsed on a copy of the engine folder before production, with a backup and a one-step undo.</li>
+          <li>The exact deployment, one library swapped, was rehearsed on a copy of the engine folder first, with a backup and a one-step undo.</li>
         </ul>
         <p><strong>Outcome.</strong> After deploying, I found that the Vulkan backend's maintainer had merged the same fix two weeks earlier (<a href="https://github.com/ggml-org/llama.cpp/pull/30049" rel="noopener" target="_blank">llama.cpp #30049</a>), prompted by a benchmark on the same GPU. My engine version predated it. This is an independent diagnosis, not an upstream contribution. I now check a file's recent history before patching it.</p>
       </div>
@@ -91,35 +90,21 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
     </section>
 
     <section class="block">
-      <div class="side"><p class="label">Reverted</p></div>
-      <div class="main prose">
-        <h2>The change that was faster and wrong</h2>
-        <p>Turning snapshots off made voice answer in 0.5 s. An end-to-end test showed the agent re-reading its whole 13,700-token prompt every turn, 21 to 23 s instead of 3.5 s, so I restored the default 23 minutes later.</p>
-        <p>The voice client resends its own replies word for word, so its cache always matched. The agent re-formats its previous reply slightly, and a hybrid model cannot step its state back without a snapshot, so it started over every time. My first tests used only voice-style conversations; the full test of every service caught it. The decision, its numbers and what would change my mind are logged, so the trade-off is never re-made by accident.</p>
-      </div>
-    </section>
-
-    <section class="block">
       <div class="side"><p class="label">Method</p></div>
       <div class="main prose">
         <h2>How it was built and tested</h2>
         <p>I designed and directed this work; the code, builds and measurements were carried out by Claude Code running as my agent, with every change to a running system approved by me first. I set the goals (faster voice and agent, no lost function, no cloud inference), chose the trade-offs, and decided what to deploy and when to revert.</p>
-        <ul>
-          <li>Measure before and after on the production setup, with the same scripted requests.</li>
-          <li>Test risky changes on a separate server first.</li>
-          <li>Check behaviour, not only speed: deterministic output compared word for word.</li>
-          <li>Keep a backup and a one-step undo for every deployed change.</li>
-          <li>Record every decision and number, including the reverted change and the discarded patch.</li>
-        </ul>
         <p class="mono">llama.cpp (C++, Vulkan) · Visual Studio 2022 Build Tools · Vulkan SDK · llama-bench · Python harnesses · Docker · WSL</p>
-        <a class="back" href="../index.html#work">← All work</a>
+        <div class="cta"><a class="btn" href="lab-agent.html">Next: an agent runs an experiment →</a><a class="back" href="../index.html#worlds">← All projects</a></div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <p class="mono">Measured on my own hardware, 19 to 20 October 2026.</p>
-  </footer>
-</div>
+    <footer>
+      <p class="mono">Measured on my own hardware, 19 to 20 October 2026.</p>
+    </footer>
+  </div>
+</main>
+<script src="../scrolly.js"></script>
+<script src="../engine.js"></script>
 </body>
 </html>
