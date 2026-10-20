@@ -1,4 +1,5 @@
-/* Engine case study: a time-budget panel that redraws at each diagnosis step. Every bar is a
+/* Engine case study: a time-budget panel that redraws at each diagnosis step, and a reduced-motion
+   pause for the memory-path diagram. Every bar is a
    measured value from 19 to 20 October 2026 (seconds unless noted). */
 (function () {
   var STEPS = [
@@ -64,5 +65,12 @@
     });
   }
   render(0);
-  window.scrollyChapters(document.querySelectorAll('.stepper .st'), function (el, i) { render(i); });
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('svg').forEach(function (v) { if (v.pauseAnimations) v.pauseAnimations(); });   /* the memory-path diagram */
+  }
+  // Up to 900px the panel pins above the steps, covering the top half of the screen, so the step
+  // being read is the one just below it.
+  var stacked = window.matchMedia && window.matchMedia('(max-width: 900px)').matches;
+  window.scrollyChapters(document.querySelectorAll('.stepper .st'), function (el, i) { render(i); },
+    stacked ? { rootMargin: '-54% 0px -42% 0px' } : null);
 })();

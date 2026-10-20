@@ -16,7 +16,7 @@
 <div class="top-wrap gutter">
   <header class="top page">
     <a class="brand" href="../index.html">Sergio Adan Bermudez</a>
-    <nav aria-label="Site"><a href="../index.html#worlds">Projects</a><a href="lab-agent.html">Lab agent</a><a href="chess.html">Chess</a><a href="../index.html#contact">Contact</a></nav>
+    <nav aria-label="Site"><a href="../index.html#worlds">Projects</a><a href="../index.html#apps">Apps</a><a href="../jarvis.html">Jarvis</a><a href="../index.html#roles">Roles</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></nav>
   </header>
 </div>
 
@@ -56,6 +56,57 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
       </div>
     </section>
 
+    <section class="block" id="fix">
+      <div class="side"><p class="label">The fix</p><p class="mono">at measured speed</p></div>
+      <div class="main wide">
+        <div class="panel diagram">
+          <div class="panel-head"><span>Reading 880 MB of model state on an integrated GPU</span><span>dots move at measured throughput (14 : 1) <span class="swipe">· swipe →</span></span></div>
+          <svg viewBox="0 0 760 300" role="img" aria-labelledby="mem-title">
+            <title id="mem-title">Before: the CPU reads GPU memory directly at 114 megabytes per second, 7,738 milliseconds. After: the GPU first copies into a cached staging buffer, 553 milliseconds.</title>
+            <defs>
+              <linearGradient id="gpuG" x1="0" x2="1"><stop offset="0" stop-color="#16202c"/><stop offset="1" stop-color="#10151b"/></linearGradient>
+            </defs>
+            <rect x="20" y="40" width="170" height="220" fill="url(#gpuG)" stroke="#2a3542"/>
+            <text x="36" y="68" fill="#7fb6ff" font-size="12">GPU memory</text>
+            <text x="36" y="88" fill="#8a94a2" font-size="10">shared with the CPU,</text>
+            <text x="36" y="102" fill="#8a94a2" font-size="10">not CPU-cached</text>
+            <g fill="#1f2b38"><rect x="36" y="130" width="138" height="14"/><rect x="36" y="150" width="110" height="14"/><rect x="36" y="170" width="126" height="14"/></g>
+            <text x="36" y="214" fill="#8a94a2" font-size="10">63 MB per snapshot</text>
+            <text x="36" y="230" fill="#8a94a2" font-size="10">2 per request</text>
+  
+            <rect x="570" y="40" width="170" height="220" fill="#10151b" stroke="#2a3542"/>
+            <text x="586" y="68" fill="#e8ecf1" font-size="12">CPU · host RAM</text>
+            <text x="586" y="88" fill="#8a94a2" font-size="10">llama.cpp server</text>
+            <text x="586" y="102" fill="#8a94a2" font-size="10">saves the snapshot</text>
+  
+            <text x="206" y="84" fill="#ff4a3d" font-size="11">BEFORE · CPU reads directly · 114 MB/s</text>
+            <line x1="190" y1="100" x2="570" y2="100" stroke="#3a1f1d" stroke-width="10"/>
+            <line x1="190" y1="100" x2="570" y2="100" stroke="#ff4a3d" stroke-width="1" stroke-dasharray="2 6" opacity=".6"/>
+            <g fill="#ff4a3d">
+              <circle r="4"><animateMotion path="M190,100 L570,100" dur="14s" repeatCount="indefinite" begin="0s"/></circle>
+              <circle r="4"><animateMotion path="M190,100 L570,100" dur="14s" repeatCount="indefinite" begin="-3.5s"/></circle>
+              <circle r="4"><animateMotion path="M190,100 L570,100" dur="14s" repeatCount="indefinite" begin="-7s"/></circle>
+              <circle r="4"><animateMotion path="M190,100 L570,100" dur="14s" repeatCount="indefinite" begin="-10.5s"/></circle>
+            </g>
+            <text x="556" y="124" fill="#ff4a3d" font-size="11" text-anchor="end">7,738 ms</text>
+  
+            <text x="206" y="168" fill="#ffae4a" font-size="11">AFTER · GPU copies to a cached buffer first</text>
+            <rect x="320" y="184" width="120" height="36" fill="#1d1710" stroke="#ffae4a" stroke-opacity=".6"/>
+            <text x="380" y="238" fill="#ffae4a" font-size="10" text-anchor="middle">cached staging buffer</text>
+            <path d="M190,202 L320,202 M440,202 L570,202" stroke="#3a2b14" stroke-width="10"/>
+            <g fill="#ffae4a">
+              <circle r="4"><animateMotion path="M190,202 L570,202" dur="1s" repeatCount="indefinite" begin="0s"/></circle>
+              <circle r="4"><animateMotion path="M190,202 L570,202" dur="1s" repeatCount="indefinite" begin="-0.25s"/></circle>
+              <circle r="4"><animateMotion path="M190,202 L570,202" dur="1s" repeatCount="indefinite" begin="-0.5s"/></circle>
+              <circle r="4"><animateMotion path="M190,202 L570,202" dur="1s" repeatCount="indefinite" begin="-0.75s"/></circle>
+            </g>
+            <text x="556" y="244" fill="#ffae4a" font-size="11" text-anchor="end">553 ms</text>
+            <text x="380" y="286" fill="#8a94a2" font-size="10" text-anchor="middle">one added condition: read directly only when the memory is CPU-cached</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
     <section class="block">
       <div class="side"><p class="label">Verification</p></div>
       <div class="main prose">
@@ -73,16 +124,16 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
       <div class="side"><p class="label">Results</p></div>
       <div class="main wide">
         <div class="table-scroll" role="region" aria-label="Measured results" tabindex="0">
-          <table>
+          <table class="stack cols">
             <thead><tr><th>Measured</th><th>Before</th><th>After</th><th>Main cause</th></tr></thead>
             <tbody>
-              <tr><td>Voice, time to first word</td><td class="n">≈ 3 s</td><td class="n result">≈ 0.7 s</td><td>Engine fix, voice-only sampling setting</td></tr>
-              <tr><td>Agent, each later turn</td><td class="n">3.5 s</td><td class="n result">1.1 to 1.4 s</td><td>Engine fix, smaller prompt</td></tr>
-              <tr><td>Agent, new conversation</td><td class="n">2.5 s</td><td class="n result">1.2 s</td><td>Engine fix</td></tr>
-              <tr><td>Agent, task with code tool</td><td class="n">43.5 s</td><td class="n result">23.0 s</td><td>Engine fix</td></tr>
-              <tr><td>Agent, task with web search</td><td class="n">11.7 s</td><td class="n result">7.1 s</td><td>Engine fix</td></tr>
-              <tr><td>One state snapshot</td><td class="n">0.61 s</td><td class="n result">0.03 s</td><td>Cached read path</td></tr>
-              <tr><td>Agent prompt per request</td><td class="n">13,718 tok</td><td class="n result">11,560 tok</td><td>Removed two unused tools</td></tr>
+              <tr><td>Voice, time to first word</td><td class="n" data-label="Before">≈ 3 s</td><td class="n result" data-label="After">≈ 0.7 s</td><td data-label="Main cause">Engine fix, voice-only sampling setting</td></tr>
+              <tr><td>Agent, each later turn</td><td class="n" data-label="Before">3.5 s</td><td class="n result" data-label="After">1.1 to 1.4 s</td><td data-label="Main cause">Engine fix, smaller prompt</td></tr>
+              <tr><td>Agent, new conversation</td><td class="n" data-label="Before">2.5 s</td><td class="n result" data-label="After">1.2 s</td><td data-label="Main cause">Engine fix</td></tr>
+              <tr><td>Agent, task with code tool</td><td class="n" data-label="Before">43.5 s</td><td class="n result" data-label="After">23.0 s</td><td data-label="Main cause">Engine fix</td></tr>
+              <tr><td>Agent, task with web search</td><td class="n" data-label="Before">11.7 s</td><td class="n result" data-label="After">7.1 s</td><td data-label="Main cause">Engine fix</td></tr>
+              <tr><td>One state snapshot</td><td class="n" data-label="Before">0.61 s</td><td class="n result" data-label="After">0.03 s</td><td data-label="Main cause">Cached read path</td></tr>
+              <tr><td>Agent prompt per request</td><td class="n" data-label="Before">13,718 tok</td><td class="n result" data-label="After">11,560 tok</td><td data-label="Main cause">Removed two unused tools</td></tr>
             </tbody>
           </table>
         </div>

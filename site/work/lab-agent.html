@@ -16,12 +16,12 @@
 <div class="top-wrap gutter">
   <header class="top page">
     <a class="brand" href="../index.html">Sergio Adan Bermudez</a>
-    <nav aria-label="Site"><a href="../index.html#worlds">Projects</a><a href="llama-cpp-stall.html">Engine fix</a><a href="chess.html">Chess</a><a href="../index.html#contact">Contact</a></nav>
+    <nav aria-label="Site"><a href="../index.html#worlds">Projects</a><a href="../index.html#apps">Apps</a><a href="../jarvis.html">Jarvis</a><a href="../index.html#roles">Roles</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a></nav>
   </header>
 </div>
 
 <main>
-  <section class="scrolly" aria-label="The bench, chapter by chapter">
+  <section class="scrolly split-stage" aria-label="The bench, chapter by chapter">
     <div class="stage">
       <canvas class="bench" aria-label="A 3D optics bench: laser, mirror, objective, sample and spectrometer. Drag to look around."></canvas>
       <div class="order-switch" role="group" aria-label="Excitation">
@@ -56,7 +56,7 @@
           <div class="card-x">
             <span class="chapter-num">02 · THE PUMP</span>
             <h2>800 nm, pulsed, focused</h2>
-            <p>Two-photon absorption needs two photons at once, so its rate grows with the square of the intensity. Short pulses and a tight focus make that likely only at the focal spot. The laser cannot emit until the agent arms it, and the server caps its power at 200 mW.</p>
+            <p>Short pulses and a tight focus pack enough photons into the focal spot for two to be absorbed at once. The laser cannot emit until the agent arms it, and the server caps its power at 200 mW.</p>
           </div>
         </div>
         <div class="chapter" data-shot="sample" data-laser="1" data-step="5">
@@ -92,7 +92,7 @@
           <div class="card-x">
             <span class="chapter-num">07 · THE AGENT AT THE CONTROLS</span>
             <h2>Six powers, chosen by the model</h2>
-            <p>The agent picked 10, 30, 50, 80, 120 and 160 mW, switching emission off between settings. The readout shows the peak counts it actually recorded at each power. Signal grows as P<sup>n</sup>; the slope of a log-log plot gives n.</p>
+            <p>The agent picked 10, 30, 50, 80, 120 and 160 mW, switching emission off between settings; the readout shows the peak counts it recorded. Signal grows as P<sup>n</sup>, so the slope of a log-log plot gives n.</p>
           </div>
         </div>
       </div>
@@ -150,11 +150,11 @@
           </div>
         </div>
         <div class="table-scroll" role="region" aria-label="Agent runs" tabindex="0">
-          <table>
+          <table class="stack cols">
             <thead><tr><th>Hidden truth</th><th>Agent's result</th><th>Powers</th><th>Tool calls</th><th>Time</th><th>Verdict</th></tr></thead>
             <tbody>
-              <tr><td>Two-photon</td><td class="n result">2.004 ± 0.03</td><td class="n">6, 10 to 160 mW</td><td class="n">28</td><td class="n">91 s</td><td><span class="tag kept">Correct</span></td></tr>
-              <tr><td>One-photon (control)</td><td class="n result">1.003 ± 0.002</td><td class="n">5, 20 to 160 mW</td><td class="n">32</td><td class="n">84 s</td><td><span class="tag kept">Correct</span></td></tr>
+              <tr><td data-label="Hidden truth">Two-photon</td><td class="n result" data-label="Agent's result">2.004 ± 0.03</td><td class="n" data-label="Powers">6, 10 to 160 mW</td><td class="n" data-label="Tool calls">28</td><td class="n" data-label="Time">91 s</td><td><span class="tag kept">Correct</span></td></tr>
+              <tr><td data-label="Hidden truth">One-photon (control)</td><td class="n result" data-label="Agent's result">1.003 ± 0.002</td><td class="n" data-label="Powers">5, 20 to 160 mW</td><td class="n" data-label="Tool calls">32</td><td class="n" data-label="Time">84 s</td><td><span class="tag kept">Correct</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -165,9 +165,9 @@
       <div class="side"><p class="label">What it got wrong</p><p class="mono">the photophysics</p></div>
       <div class="main wide">
         <h2>Right number, wrong story</h2>
-        <p class="kicker" style="max-width:62ch">The measurements and fits were sound. The closing explanations were not, in both runs. This is what actually happens, step by step.</p>
+        <p class="kicker" style="max-width:62ch">The measurements and fits were sound; the closing explanations, in both runs, were not. This is what actually happens.</p>
         <div class="panel diagram">
-          <div class="panel-head"><span>energy, to scale (eV)</span><span>one excitation cycle, 6 s loop</span></div>
+          <div class="panel-head"><span>energy, to scale (eV)</span><span>one excitation cycle, 6 s loop <span class="swipe">· swipe →</span></span></div>
           <svg viewBox="0 0 760 400" role="img" aria-labelledby="jab-title">
             <title id="jab-title">Energy diagram. The sensitiser absorbs two 800 nanometre photons of 1.55 electronvolts each to reach its excited singlet state at 3.1 electronvolts, crosses to its triplet state, and transfers energy to ground-state oxygen, which becomes singlet oxygen at 0.98 electronvolts and emits at 1270 nanometres.</title>
             <g font-family="Martian Mono, monospace" font-size="11">
@@ -204,7 +204,7 @@
           <p class="caption">Run 1, the agent: the 3.1 eV "is consistent with the energy gap to the singlet oxygen emission". The emission is 0.98 eV. Run 2, the agent: singlet oxygen is "excited via one-photon absorption from the triplet state". Oxygen absorbs nothing here: the sensitiser absorbs, and its triplet passes the energy over. The photon order describes the sensitiser's excitation.</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px 40px">
-          <p><strong>Why the control run matters.</strong> At 800 nm the textbook guess is "two-photon". With a one-photon sample under the same question the agent measured 1.003. Reciting the expected answer would have failed; it had to run a measurement good enough for the server's fit to reach the right verdict. The verdict wording comes from the fit tool, and the agent repeated it.</p>
+          <p><strong>Why the control run matters.</strong> At 800 nm the textbook guess is "two-photon", so a one-photon sample got the same question. Reciting the expected answer would have failed. The verdict wording comes from the fit tool, and the agent repeated it.</p>
           <p><strong>Why the design is this way.</strong> A reliable operator and a careless interpreter. So the server owns the safety limits and the statistics, and a person owns the interpretation.</p>
         </div>
       </div>
