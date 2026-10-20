@@ -1,0 +1,294 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_basico_nombres",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Nombres y artículos", "translations": {"fr": "Les noms et les articles"}},
+  "emoji": "🚻",
+  "order": 11,
+  "entries": [
+    {
+      "id": "d_genero_nombres",
+      "question": {"es": "¿Cómo sé si una palabra es masculina o femenina?", "translations": {"fr": "Comment savoir si un mot est masculin ou féminin ?"}},
+      "aliases": ["masculino o femenino", "género de las palabras", "el o la", "le ou la en espagnol", "genre des noms en espagnol", "el problema o la problema", "la leche o el leche"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "🚻",
+      "answer": {"es": "Mira el final: -o, casi siempre masculino (el libro); -a, casi siempre femenino (la casa). Las palabras en -ción, -dad, -tud y -umbre son femeninas. Hay excepciones: aprende cada palabra con su artículo.", "translations": {"fr": "Regarde la fin du mot : -o, presque toujours masculin (el libro) ; -a, presque toujours féminin (la casa). Les mots en -ción, -dad, -tud et -umbre sont féminins. Il y a des exceptions : apprends chaque mot avec son article."}},
+      "points": [
+        {"es": "Femeninos: la canción, la ciudad, la juventud, la costumbre.", "translations": {"fr": "Féminins : la canción (la chanson), la ciudad (la ville), la juventud (la jeunesse), la costumbre (la coutume)."}},
+        {"es": "Masculinos en -ma (de origen griego): el problema, el idioma, el tema, el sistema.", "translations": {"fr": "Masculins en -ma (d'origine grecque) : el problema, el idioma, el tema, el sistema."}},
+        {"es": "Excepciones famosas: el día, el mapa, el sofá; la mano, la foto, la moto, la radio.", "translations": {"fr": "Exceptions célèbres : el día, el mapa, el sofá ; la mano, la foto, la moto, la radio."}},
+        {"es": "Distintos del francés: el color, el dolor, el error, el equipo, el método; la leche, la sal, la sangre, la nariz, la miel.", "translations": {"fr": "Différents du français : el color, el dolor, el error, el equipo, el método ; la leche, la sal, la sangre, la nariz, la miel."}}
+      ],
+      "examples": [
+        {"es": "Me encanta el color de esta flor.", "translations": {"fr": "J'adore la couleur de cette fleur."}, "highlight": ["el color", "esta flor"]},
+        {"es": "¿Me pasas la sal? La leche está en la nevera.", "translations": {"fr": "Tu me passes le sel ? Le lait est dans le frigo."}, "highlight": ["la sal", "La leche"]},
+        {"es": "Tengo un problema con la moto.", "translations": {"fr": "J'ai un problème avec la moto."}, "highlight": ["un problema", "la moto"], "note": "Problema termina en -a, pero es masculino; moto termina en -o, pero es femenino.", "noteTranslations": {"fr": "« Problema » finit en -a mais est masculin ; « moto » finit en -o mais est féminin."}}
+      ],
+      "trick": {"es": "Las palabras en -or son masculinas: el color, el calor, el error, el dolor (¡pero la flor!). En francés son femeninas: la couleur, la chaleur…", "translations": {"fr": "Les mots en -or sont masculins : el color, el calor, el error, el dolor (mais la flor !). En français, ils sont féminins : la couleur, la chaleur…"}},
+      "frenchTrap": {"es": "No copies el género del francés: le lait → la leche, le sel → la sal, le sang → la sangre; la couleur → el color, l'équipe → el equipo.", "translations": {"fr": "Ne copie pas le genre du français : le lait → la leche, le sel → la sal, le sang → la sangre ; la couleur → el color, l'équipe → el equipo."}},
+      "seeAlso": ["d_el_agua", "d_plural", "tp_a1_genero_numero"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «género»", "url": "https://www.rae.es/dpd/g%C3%A9nero2"}],
+      "tags": ["género", "nombres", "artículos"]
+    },
+    {
+      "id": "d_el_agua",
+      "question": {"es": "¿Por qué se dice «el agua» si «agua» es femenino?", "translations": {"fr": "Pourquoi dit-on « el agua » si « agua » est féminin ?"}},
+      "aliases": ["el agua o la agua", "el agua fría", "el águila", "el aula", "pourquoi el agua", "el agua féminin", "esta agua o este agua"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "💧",
+      "answer": {"es": "Es por el sonido: delante de un nombre femenino que empieza por «a» tónica (a- o ha- acentuada), «la» se cambia por «el»: el agua, el hambre. Pero la palabra sigue siendo femenina: el agua fría.", "translations": {"fr": "C'est une question de son : devant un nom féminin qui commence par un « a » accentué (a- ou ha- tonique), « la » devient « el » : el agua, el hambre. Mais le mot reste féminin : el agua fría (l'eau froide)."}},
+      "points": [
+        {"es": "Igual: el aula, el águila, el hambre, el hacha, el alma, el arma.", "translations": {"fr": "Pareil : el aula (la salle de classe), el águila (l'aigle), el hambre (la faim), el hacha (la hache), el alma (l'âme), el arma (l'arme)."}},
+        {"es": "En plural vuelve «las»: las aguas, las aulas, las armas.", "translations": {"fr": "Au pluriel, « las » revient : las aguas, las aulas, las armas."}},
+        {"es": "El adjetivo sigue en femenino: el agua está fría, tengo mucha hambre.", "translations": {"fr": "L'adjectif reste au féminin : el agua está fría (l'eau est froide), tengo mucha hambre (j'ai très faim)."}},
+        {"es": "Con otras palabras delante, nada cambia: esta agua, mucha agua, la mejor agua (no «este agua»).", "translations": {"fr": "Avec d'autres mots devant, rien ne change : esta agua, mucha agua, la mejor agua (pas « este agua »)."}},
+        {"es": "Si la «a» no es tónica, todo es normal: la amiga, la abuela, la alegría.", "translations": {"fr": "Si le « a » n'est pas accentué, tout est normal : la amiga, la abuela, la alegría."}}
+      ],
+      "examples": [
+        {"es": "El agua del mar está fría hoy.", "translations": {"fr": "L'eau de la mer est froide aujourd'hui."}, "highlight": ["El agua", "fría"]},
+        {"es": "Tengo mucha hambre: ¿comemos ya?", "translations": {"fr": "J'ai très faim : on mange maintenant ?"}, "highlight": ["mucha hambre"]},
+        {"es": "Las aulas de esta escuela son muy luminosas.", "translations": {"fr": "Les salles de classe de cette école sont très lumineuses."}, "highlight": ["Las aulas"]}
+      ],
+      "trick": {"es": "«El» es solo un disfraz para el sonido: «agua» es femenina, como «l'eau».", "translations": {"fr": "« El » n'est qu'un déguisement pour le son : « agua » est féminin, comme « l'eau »."}},
+      "frenchTrap": {"es": "El francés hace algo parecido con «l'» (l'eau). Pero no digas «el agua frío» ni «mucho hambre»: el adjetivo es femenino.", "translations": {"fr": "Le français fait quelque chose de semblable avec « l' » (l'eau). Mais ne dis pas « el agua frío » ni « mucho hambre » : l'adjectif reste féminin."}},
+      "seeAlso": ["d_genero_nombres", "d_muy_mucho", "tp_a1_genero_numero"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «el» (el agua, el águila)", "url": "https://www.rae.es/dpd/el"}],
+      "tags": ["artículos", "el agua", "género"]
+    },
+    {
+      "id": "d_plural",
+      "question": {"es": "¿Cómo se hace el plural en español?", "translations": {"fr": "Comment forme-t-on le pluriel en espagnol ?"}},
+      "aliases": ["plural de las palabras", "plural con es", "plural de lápiz", "pluriel en espagnol", "comment faire le pluriel", "plural de canción"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "🌸",
+      "answer": {"es": "Vocal + s: casa → casas. Consonante + es: flor → flores, ciudad → ciudades. Y la «s» del plural se pronuncia siempre: las casas blancas.", "translations": {"fr": "Voyelle + s : casa → casas. Consonne + es : flor → flores, ciudad → ciudades. Et le « s » du pluriel se prononce toujours : las casas blancas."}},
+      "points": [
+        {"es": "-z → -ces: el lápiz → los lápices, la voz → las voces, la vez → las veces.", "translations": {"fr": "-z → -ces : el lápiz → los lápices, la voz → las voces, la vez → las veces."}},
+        {"es": "-ión pierde la tilde: la canción → las canciones, el avión → los aviones.", "translations": {"fr": "-ión perd son accent écrit : la canción → las canciones, el avión → los aviones."}},
+        {"es": "Si terminan en -s sin acento al final, no cambian: el lunes → los lunes, la crisis → las crisis; pero el autobús → los autobuses.", "translations": {"fr": "S'ils finissent par -s sans accent à la fin, ils ne changent pas : el lunes → los lunes, la crisis → las crisis ; mais el autobús → los autobuses."}},
+        {"es": "Masculino + femenino = masculino plural: mis padres (mi padre y mi madre), los abuelos.", "translations": {"fr": "Masculin + féminin = masculin pluriel : mis padres (mon père et ma mère), los abuelos (les grands-parents)."}},
+        {"es": "Todo concuerda: las casas blancas, unos amigos simpáticos.", "translations": {"fr": "Tout s'accorde : las casas blancas (les maisons blanches), unos amigos simpáticos (des amis sympathiques)."}}
+      ],
+      "examples": [
+        {"es": "Compré dos lápices y unos cuadernos para mis nietos.", "translations": {"fr": "J'ai acheté deux crayons et des cahiers pour mes petits-enfants."}, "highlight": ["dos lápices", "unos cuadernos", "mis nietos"]},
+        {"es": "Me encantan las canciones de los años sesenta.", "translations": {"fr": "J'adore les chansons des années soixante."}, "highlight": ["las canciones", "los años sesenta"]},
+        {"es": "Los lunes y los martes voy a clase de yoga.", "translations": {"fr": "Le lundi et le mardi, je vais au cours de yoga."}, "highlight": ["Los lunes", "los martes"]}
+      ],
+      "trick": {"es": "La «s» del plural se oye siempre: en «las flores blancas» hay tres «s» y suenan todas.", "translations": {"fr": "Le « s » du pluriel s'entend toujours : dans « las flores blancas », il y a trois « s » et on les prononce toutes."}},
+      "frenchTrap": {"es": "En francés el plural casi no se oye (la fleur / les fleurs). En español, si no pronuncias la «s», el plural desaparece: la flor / las flores.", "translations": {"fr": "En français, le pluriel s'entend à peine (la fleur / les fleurs). En espagnol, si tu ne prononces pas le « s », le pluriel disparaît : la flor / las flores."}},
+      "seeAlso": ["d_genero_nombres", "d_dias_el_lunes", "tp_a1_genero_numero"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «plural»", "url": "https://www.rae.es/dpd/plural"}],
+      "tags": ["plural", "nombres", "concordancia"]
+    },
+    {
+      "id": "d_articulo_profesion",
+      "question": {"es": "¿Se dice «soy profesora» o «soy una profesora»?", "translations": {"fr": "Dit-on « soy profesora » ou « soy una profesora » ?"}},
+      "aliases": ["soy profesora o soy una profesora", "artículo con profesiones", "es médico o es un médico", "je suis professeur en espagnol", "c'est un médecin en espagnol", "article avec les métiers"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "💼",
+      "answer": {"es": "Sin artículo: soy profesora, es médico, somos franceses. Se pone «un, una» solo si añades un adjetivo o más información: es una profesora excelente.", "translations": {"fr": "Sans article : soy profesora (je suis professeure), es médico (il est médecin), somos franceses (nous sommes français). On met « un, una » seulement si tu ajoutes un adjectif ou une précision : es una profesora excelente (c'est une excellente professeure)."}},
+      "points": [
+        {"es": "Profesión o nacionalidad, sin artículo: Mi hijo es abogado. Soy francesa.", "translations": {"fr": "Profession ou nationalité, sans article : Mi hijo es abogado (mon fils est avocat). Soy francesa (je suis française)."}},
+        {"es": "Con adjetivo, con artículo: Es un abogado muy bueno.", "translations": {"fr": "Avec un adjectif, avec article : Es un abogado muy bueno (c'est un très bon avocat)."}},
+        {"es": "Jubilada: «soy jubilada» y «estoy jubilada» son correctos.", "translations": {"fr": "Retraitée : « soy jubilada » et « estoy jubilada » sont corrects tous les deux."}},
+        {"es": "Femeninos normales: profesora, médica, abogada, ingeniera, jueza.", "translations": {"fr": "Féminins courants : profesora, médica (médecin), abogada (avocate), ingeniera (ingénieure), jueza (juge)."}}
+      ],
+      "examples": [
+        {"es": "Soy profesora de música, pero ahora estoy jubilada.", "translations": {"fr": "Je suis professeure de musique, mais maintenant je suis à la retraite."}, "highlight": ["Soy profesora", "estoy jubilada"]},
+        {"es": "—¿A qué se dedica tu hijo? —Es enfermero.", "translations": {"fr": "— Que fait ton fils dans la vie ? — Il est infirmier."}, "highlight": ["Es enfermero"]},
+        {"es": "Mi abuela era una cocinera fantástica.", "translations": {"fr": "Ma grand-mère était une cuisinière fantastique."}, "highlight": ["era una cocinera fantástica"]}
+      ],
+      "trick": {"es": "Profesión sola → sin artículo. Profesión + adjetivo → con «un, una».", "translations": {"fr": "Métier seul → sans article. Métier + adjectif → avec « un, una »."}},
+      "frenchTrap": {"es": "«C'est un médecin» se dice «Es médico», sin «un». No traduzcas «c'est un, c'est une» palabra por palabra.", "translations": {"fr": "« C'est un médecin » se dit « Es médico », sans « un ». Ne traduis pas « c'est un, c'est une » mot à mot."}},
+      "seeAlso": ["d_ser_estar", "d_presentarse", "tp_a1_presentarse"],
+      "sources": [
+        {"label": "Instituto Cervantes · Plan curricular, inventario de gramática A1 (el artículo)"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «género» (femenino de las profesiones)", "url": "https://www.rae.es/dpd/g%C3%A9nero2"}
+      ],
+      "tags": ["artículo", "profesiones", "ser"]
+    },
+    {
+      "id": "d_posesivos",
+      "question": {"es": "¿Cuándo digo «mi» y cuándo «mío»?", "translations": {"fr": "Quand dire « mi » et quand dire « mío » ?"}},
+      "aliases": ["mi o mío", "tu o tuyo", "posesivos", "un amigo mío", "es mío", "possessifs en espagnol", "c'est à moi en espagnol", "un de mes amis en espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🔑",
+      "answer": {"es": "«Mi, tu, su» van delante del nombre: mi casa, tus gafas. «Mío, tuyo, suyo» van detrás del nombre o solos: un amigo mío, esta llave es mía, ¿es tuyo?", "translations": {"fr": "« Mi, tu, su » se placent devant le nom : mi casa (ma maison), tus gafas (tes lunettes). « Mío, tuyo, suyo » se placent après le nom ou seuls : un amigo mío (un de mes amis), esta llave es mía (cette clé est à moi), ¿es tuyo? (c'est à toi ?)."}},
+      "compare": [
+        {"title": {"es": "DELANTE: mi, tu, su", "translations": {"fr": "DEVANT : mon, ton, son"}}, "items": [
+          {"es": "mi, mis: mi coche, mis nietos", "translations": {"fr": "mi, mis : ma voiture, mes petits-enfants"}},
+          {"es": "tu, tus: tu casa, tus llaves", "translations": {"fr": "tu, tus : ta maison, tes clés"}},
+          {"es": "su, sus: su perro, sus hijos", "translations": {"fr": "su, sus : son chien, ses enfants (ou leur, votre…)"}},
+          {"es": "nuestro, nuestra: nuestra calle", "translations": {"fr": "nuestro, nuestra : notre rue"}}
+        ]},
+        {"title": {"es": "DETRÁS O SOLO: mío, tuyo, suyo", "translations": {"fr": "APRÈS OU SEUL : à moi, à toi…"}}, "items": [
+          {"es": "mío, mía: un amigo mío", "translations": {"fr": "mío, mía : un de mes amis"}},
+          {"es": "tuyo, tuya: ¿Es tuya esta bolsa?", "translations": {"fr": "tuyo, tuya : Ce sac est à toi ?"}},
+          {"es": "suyo, suya: Es suyo.", "translations": {"fr": "suyo, suya : C'est à lui, à elle ou à vous."}},
+          {"es": "el mío, la mía: Tu coche es rojo; el mío, azul.", "translations": {"fr": "el mío, la mía : Ta voiture est rouge ; la mienne, bleue."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "—¿Es tuyo este paraguas? —Sí, es mío, gracias.", "translations": {"fr": "— C'est à toi, ce parapluie ? — Oui, il est à moi, merci."}, "highlight": ["Es tuyo", "es mío"]},
+        {"es": "Mañana viene una amiga mía de Lyon.", "translations": {"fr": "Demain, une de mes amies vient de Lyon."}, "highlight": ["una amiga mía"]},
+        {"es": "Mis nietos y sus amigos juegan en el jardín.", "translations": {"fr": "Mes petits-enfants et leurs amis jouent dans le jardin."}, "highlight": ["Mis nietos", "sus amigos"], "note": "Aquí «sus» = leurs: «su» sirve para él, ella, ellos y usted.", "noteTranslations": {"fr": "Ici « sus » = leurs : « su » sert pour il, elle, ils et vous (usted)."}}
+      ],
+      "trick": {"es": "Cortos delante (mi casa); largos detrás o solos (la casa es mía).", "translations": {"fr": "Courts devant (mi casa) ; longs après ou seuls (la casa es mía)."}},
+      "frenchTrap": {"es": "«C'est à moi» no es «es a mí»: di «es mío» o «es mía». Y los posesivos «mi, tu» no llevan tilde (mí y tú con tilde son pronombres).", "translations": {"fr": "« C'est à moi » ne se dit pas « es a mí » : dis « es mío » ou « es mía ». Et les possessifs « mi, tu » n'ont pas d'accent écrit (mí et tú avec accent sont des pronoms)."}},
+      "seeAlso": ["d_demostrativos", "tp_a1_genero_numero", "tp_b1_pronombres"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de gramática A1–A2 (posesivos)"}],
+      "tags": ["posesivos", "mi", "mío"]
+    },
+    {
+      "id": "d_demostrativos",
+      "question": {"es": "¿Cuándo uso «este», «ese» y «aquel»?", "translations": {"fr": "Quand utiliser « este », « ese » et « aquel » ?"}},
+      "aliases": ["este ese aquel", "esto eso aquello", "demostrativos", "este o ese", "ce cette en espagnol", "ceci cela en espagnol"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "👉",
+      "answer": {"es": "Depende de la distancia. Este = cerca de mí (aquí). Ese = cerca de ti o un poco lejos (ahí). Aquel = lejos de los dos (allí). En la conversación, «este» y «ese» son los más usados.", "translations": {"fr": "Ça dépend de la distance. Este = près de moi (ici). Ese = près de toi ou un peu loin (là). Aquel = loin de nous deux (là-bas). Dans la conversation, « este » et « ese » sont les plus courants."}},
+      "points": [
+        {"es": "Este, esta, estos, estas → aquí: esta silla, estos zapatos.", "translations": {"fr": "Este, esta, estos, estas → ici : esta silla (cette chaise-ci), estos zapatos (ces chaussures-ci)."}},
+        {"es": "Ese, esa, esos, esas → ahí: ¿Me das esa revista?", "translations": {"fr": "Ese, esa, esos, esas → là : ¿Me das esa revista? (tu me donnes ce magazine-là ?)"}},
+        {"es": "Aquel, aquella, aquellos, aquellas → allí: aquella montaña.", "translations": {"fr": "Aquel, aquella, aquellos, aquellas → là-bas : aquella montaña (cette montagne, là-bas)."}},
+        {"es": "Esto, eso, aquello no cambian y señalan una cosa sin nombrarla: ¿Qué es esto?", "translations": {"fr": "Esto, eso, aquello ne changent pas et désignent une chose sans la nommer : ¿Qué es esto? (qu'est-ce que c'est ?)"}},
+        {"es": "También en el tiempo: este año (ahora), aquel verano (hace mucho).", "translations": {"fr": "Aussi dans le temps : este año (cette année), aquel verano (cet été-là, il y a longtemps)."}}
+      ],
+      "examples": [
+        {"es": "Este pastel está buenísimo. ¿Quieres probar ese de chocolate?", "translations": {"fr": "Ce gâteau est délicieux. Tu veux goûter celui au chocolat ?"}, "highlight": ["Este pastel", "ese de chocolate"]},
+        {"es": "¿Ves aquella casa blanca? Allí nací yo.", "translations": {"fr": "Tu vois cette maison blanche, là-bas ? C'est là que je suis née."}, "highlight": ["aquella casa blanca"]},
+        {"es": "¿Qué es esto? ¿Un regalo para mí?", "translations": {"fr": "Qu'est-ce que c'est ? Un cadeau pour moi ?"}, "highlight": ["esto"]}
+      ],
+      "trick": {"es": "Este va con yo, ese va con tú, aquel va con él (lejos de los dos).", "translations": {"fr": "Este va avec moi, ese avec toi, aquel avec lui (loin de nous deux)."}},
+      "frenchTrap": {"es": "En francés dices «ce, cette» y añades «-ci» o «-là». En español la distancia está en la palabra: esta silla (cette chaise-ci), esa silla (cette chaise-là).", "translations": {"fr": "En français, tu dis « ce, cette » et tu ajoutes « -ci » ou « -là ». En espagnol, la distance est dans le mot : esta silla (cette chaise-ci), esa silla (cette chaise-là)."}},
+      "seeAlso": ["d_posesivos", "d_lo_que_basico", "tp_a1_genero_numero"],
+      "sources": [
+        {"label": "Instituto Cervantes · Plan curricular, inventario de gramática A1–A2 (demostrativos)"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «este»", "url": "https://www.rae.es/dpd/este"}
+      ],
+      "tags": ["demostrativos", "este", "ese", "aquel"]
+    },
+    {
+      "id": "d_buen_bueno",
+      "question": {"es": "¿«Buen» o «bueno»? ¿«Gran» o «grande»? ¿«Primer» o «primero»?", "translations": {"fr": "« Buen » ou « bueno » ? « Gran » ou « grande » ? « Primer » ou « primero » ?"}},
+      "aliases": ["buen o bueno", "gran o grande", "primer o primero", "mal o malo", "tercer o tercero", "un buen día", "quand dire buen", "algún o alguno"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "👍",
+      "answer": {"es": "Delante de un nombre masculino singular, algunas palabras pierden la «-o»: un buen día, un mal momento, el primer piso, el tercer día. «Grande» se corta en «gran» delante de cualquier nombre singular: un gran amigo, una gran idea.", "translations": {"fr": "Devant un nom masculin singulier, certains mots perdent le « -o » : un buen día (une bonne journée), un mal momento (un mauvais moment), el primer piso (le premier étage), el tercer día (le troisième jour). « Grande » devient « gran » devant tout nom singulier : un gran amigo (un grand ami), una gran idea (une grande idée)."}},
+      "points": [
+        {"es": "bueno → buen, malo → mal, primero → primer, tercero → tercer, alguno → algún, ninguno → ningún, uno → un.", "translations": {"fr": "bueno → buen, malo → mal, primero → primer, tercero → tercer, alguno → algún, ninguno → ningún, uno → un."}},
+        {"es": "Solo delante del nombre. Detrás o solo, forma completa: un día bueno, es el primero.", "translations": {"fr": "Seulement devant le nom. Après le nom ou seul, forme complète : un día bueno (une bonne journée), es el primero (c'est le premier)."}},
+        {"es": "En femenino y en plural, nunca se cortan: una buena idea, los primeros días.", "translations": {"fr": "Au féminin et au pluriel, jamais de forme courte : una buena idea, los primeros días."}},
+        {"es": "Gran (delante) = importante; grande (detrás) = de tamaño grande: un gran hombre / un hombre grande.", "translations": {"fr": "Gran (devant) = important ; grande (après) = de grande taille : un gran hombre (un grand homme) / un hombre grande (un homme grand)."}}
+      ],
+      "examples": [
+        {"es": "¡Buen viaje y buena suerte!", "translations": {"fr": "Bon voyage et bonne chance !"}, "highlight": ["Buen viaje", "buena suerte"]},
+        {"es": "Vivimos en el primer piso, en la primera puerta.", "translations": {"fr": "Nous habitons au premier étage, première porte."}, "highlight": ["el primer piso", "la primera puerta"]},
+        {"es": "Sevilla es una gran ciudad.", "translations": {"fr": "Séville est une grande ville."}, "highlight": ["una gran ciudad"]}
+      ],
+      "trick": {"es": "Masculino + singular + delante del nombre = forma corta. Si falta una de las tres cosas, forma completa.", "translations": {"fr": "Masculin + singulier + devant le nom = forme courte. S'il manque une des trois conditions, forme complète."}},
+      "frenchTrap": {"es": "En francés «bon» y «premier» no se acortan, así que es fácil decir «un bueno día» o «el primero día». Lo correcto: un buen día, el primer día.", "translations": {"fr": "En français, « bon » et « premier » ne raccourcissent pas, donc on dit facilement « un bueno día » ou « el primero día ». La bonne forme : un buen día, el primer día."}},
+      "seeAlso": ["d_bien_bueno", "d_veintiun", "tp_a2_muy_mucho"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «bueno»", "url": "https://www.rae.es/dpd/bueno"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «grande»", "url": "https://www.rae.es/dpd/grande"}
+      ],
+      "tags": ["buen", "gran", "primer", "apócope"]
+    },
+    {
+      "id": "d_otro",
+      "question": {"es": "¿Se dice «un otro café» o «otro café»?", "translations": {"fr": "Dit-on « un otro café » ou « otro café » ?"}},
+      "aliases": ["un otro", "otro o un otro", "otra vez", "un autre en espagnol", "comment dire un autre", "encore un café en espagnol"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "➕",
+      "answer": {"es": "Sin «un»: otro café, otra vez, otros días. «Otro» ya lleva dentro la idea de «un autre». «Un otro» es siempre incorrecto.", "translations": {"fr": "Sans « un » : otro café (un autre café), otra vez (encore une fois), otros días (d'autres jours). « Otro » contient déjà l'idée de « un autre ». « Un otro » est toujours incorrect."}},
+      "points": [
+        {"es": "Un autre, une autre = otro, otra: ¿Quieres otra galleta?", "translations": {"fr": "Un autre, une autre = otro, otra : ¿Quieres otra galleta? (tu veux un autre biscuit ?)"}},
+        {"es": "D'autres = otros, otras: Tengo otros planes.", "translations": {"fr": "D'autres = otros, otras : Tengo otros planes (j'ai d'autres projets)."}},
+        {"es": "Encore une fois = otra vez: ¡Otra vez llueve!", "translations": {"fr": "Encore une fois = otra vez : ¡Otra vez llueve! (il pleut encore !)"}},
+        {"es": "Con números, «otro» va delante: otros dos cafés.", "translations": {"fr": "Avec un nombre, « otro » se place devant : otros dos cafés (deux autres cafés)."}},
+        {"es": "Con «el»: el otro día = l'autre jour.", "translations": {"fr": "Avec « el » : el otro día = l'autre jour."}}
+      ],
+      "examples": [
+        {"es": "Perdone, ¿me pone otro café, por favor?", "translations": {"fr": "Excusez-moi, je pourrais avoir un autre café, s'il vous plaît ?"}, "highlight": ["otro café"]},
+        {"es": "Esta talla me queda pequeña. ¿Tiene otra?", "translations": {"fr": "Cette taille est trop petite pour moi. Vous en avez une autre ?"}, "highlight": ["Tiene otra"]},
+        {"es": "Mañana vienen otros dos amigos.", "translations": {"fr": "Demain, deux autres amis vont venir."}, "highlight": ["otros dos amigos"]}
+      ],
+      "trick": {"es": "«Otro» lleva el «un» dentro: otro = un autre.", "translations": {"fr": "« Otro » a le « un » à l'intérieur : otro = un autre."}},
+      "frenchTrap": {"es": "Por el francés «un autre», muchos dicen «un otro»: es incorrecto. Y «deux autres» se dice «otros dos», con «otros» delante.", "translations": {"fr": "À cause du français « un autre », beaucoup disent « un otro » : c'est incorrect. Et « deux autres » se dit « otros dos », avec « otros » devant."}},
+      "seeAlso": ["d_pedir_bar", "d_buen_bueno", "d_volver_a"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «otro»", "url": "https://www.rae.es/dpd/otro"}],
+      "tags": ["otro", "determinantes", "un autre"]
+    },
+    {
+      "id": "d_lo_que_basico",
+      "question": {"es": "¿Qué significa «lo que» y cómo se usa?", "translations": {"fr": "Que veut dire « lo que » et comment l'utiliser ?"}},
+      "aliases": ["lo que", "ce que en espagnol", "ce qui en espagnol", "todo lo que", "no sé lo que", "comment dire ce que"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "💡",
+      "answer": {"es": "«Lo que» es «ce que» o «ce qui»: la cosa que… Lo que quiero es descansar. No entiendo lo que dices. Todo lo que necesitas está aquí.", "translations": {"fr": "« Lo que », c'est « ce que » ou « ce qui » : la chose que… Lo que quiero es descansar (ce que je veux, c'est me reposer). No entiendo lo que dices (je ne comprends pas ce que tu dis). Todo lo que necesitas está aquí (tout ce dont tu as besoin est ici)."}},
+      "points": [
+        {"es": "Ce que, ce qui = lo que: Lo que me gusta es el mar.", "translations": {"fr": "Ce que, ce qui = lo que : Lo que me gusta es el mar (ce qui me plaît, c'est la mer)."}},
+        {"es": "Tout ce que = todo lo que: Gracias por todo lo que haces.", "translations": {"fr": "Tout ce que = todo lo que : Gracias por todo lo que haces (merci pour tout ce que tu fais)."}},
+        {"es": "En preguntas indirectas valen las dos formas: No sé qué quiere = No sé lo que quiere.", "translations": {"fr": "Dans les questions indirectes, les deux formes marchent : No sé qué quiere = No sé lo que quiere (je ne sais pas ce qu'il veut)."}},
+        {"es": "«Lo que» habla de una idea; para una cosa concreta, «el que, la que»: Esta es la que compré.", "translations": {"fr": "« Lo que » parle d'une idée ; pour une chose précise, « el que, la que » : Esta es la que compré (c'est celle que j'ai achetée)."}}
+      ],
+      "examples": [
+        {"es": "Lo que más me gusta de España es la gente.", "translations": {"fr": "Ce que j'aime le plus en Espagne, ce sont les gens."}, "highlight": ["Lo que más me gusta"]},
+        {"es": "Perdone, no entiendo lo que dice.", "translations": {"fr": "Excusez-moi, je ne comprends pas ce que vous dites."}, "highlight": ["lo que dice"]},
+        {"es": "Cuéntame todo lo que hiciste en Sevilla.", "translations": {"fr": "Raconte-moi tout ce que tu as fait à Séville."}, "highlight": ["todo lo que hiciste"]}
+      ],
+      "trick": {"es": "Si en francés dices «ce que» o «ce qui», en español di «lo que».", "translations": {"fr": "Si en français tu dis « ce que » ou « ce qui », en espagnol dis « lo que »."}},
+      "frenchTrap": {"es": "No traduzcas «ce que» por «eso que» ni por «que» solo: «Je sais ce que tu penses» = Sé lo que piensas. Y «ce qui» también es «lo que»: lo que pasa es que…", "translations": {"fr": "Ne traduis pas « ce que » par « eso que » ni par « que » tout seul : « Je sais ce que tu penses » = Sé lo que piensas. Et « ce qui » se dit aussi « lo que » : lo que pasa es que… (ce qui se passe, c'est que…)."}},
+      "seeAlso": ["d_demostrativos", "d_que_cual", "tp_lo_neutro", "tp_pron_relativos"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de gramática A2–B1 (relativos)"}],
+      "tags": ["lo que", "relativos", "ce que"]
+    },
+    {
+      "id": "d_que_cual",
+      "question": {"es": "¿Cuándo pregunto con «qué» y cuándo con «cuál»?", "translations": {"fr": "Quand poser la question avec « qué » et quand avec « cuál » ?"}},
+      "aliases": ["qué o cuál", "cuál es tu nombre", "qué es o cuál es", "quel en espagnol", "quel ou quelle en espagnol", "cuál o cuáles"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "🔍",
+      "answer": {"es": "Con un nombre detrás, «qué»: ¿qué libro?, ¿qué hora es? Delante de «es, son», para pedir un dato o elegir, «cuál»: ¿cuál es tu número?, ¿cuál prefieres? «¿Qué es…?» pide una definición.", "translations": {"fr": "Avec un nom après, « qué » : ¿qué libro? (quel livre ?), ¿qué hora es? (quelle heure est-il ?). Devant « es, son », pour demander une information ou choisir, « cuál » : ¿cuál es tu número? (quel est ton numéro ?), ¿cuál prefieres? (lequel tu préfères ?). « ¿Qué es…? » demande une définition."}},
+      "compare": [
+        {"title": {"es": "QUÉ", "translations": {"fr": "QUÉ"}}, "items": [
+          {"es": "+ nombre: ¿Qué vino quieres?", "translations": {"fr": "+ nom : Quel vin tu veux ?"}},
+          {"es": "Definición: ¿Qué es un churro?", "translations": {"fr": "Définition : C'est quoi, un churro ?"}},
+          {"es": "En general: ¿Qué quieres?", "translations": {"fr": "En général : Qu'est-ce que tu veux ?"}}
+        ]},
+        {"title": {"es": "CUÁL / CUÁLES", "translations": {"fr": "CUÁL / CUÁLES"}}, "items": [
+          {"es": "+ es, son: ¿Cuál es tu dirección?", "translations": {"fr": "+ es, son : Quelle est ton adresse ?"}},
+          {"es": "Elegir: ¿Cuál quieres, el rojo o el azul?", "translations": {"fr": "Choisir : Lequel tu veux, le rouge ou le bleu ?"}},
+          {"es": "Plural: ¿Cuáles son tus flores favoritas?", "translations": {"fr": "Pluriel : Quelles sont tes fleurs préférées ?"}}
+        ]}
+      ],
+      "examples": [
+        {"es": "¿Cuál es tu número de teléfono?", "translations": {"fr": "Quel est ton numéro de téléphone ?"}, "highlight": ["Cuál es"], "note": "No se dice «¿Qué es tu número?».", "noteTranslations": {"fr": "On ne dit pas « ¿Qué es tu número? »."}},
+        {"es": "¿Qué película vemos esta noche?", "translations": {"fr": "Quel film on regarde ce soir ?"}, "highlight": ["Qué película"], "note": "En América también se oye «¿Cuál película?».", "noteTranslations": {"fr": "En Amérique latine, on entend aussi « ¿Cuál película? »."}},
+        {"es": "Tengo dos vestidos. ¿Cuál me pongo?", "translations": {"fr": "J'ai deux robes. Laquelle je mets ?"}, "highlight": ["Cuál me pongo"]}
+      ],
+      "trick": {"es": "«Quel est…» → ¿Cuál es…? «Quel + nom» → ¿Qué + nombre?", "translations": {"fr": "« Quel est… » → ¿Cuál es…? « Quel + nom » → ¿Qué + nombre?"}},
+      "frenchTrap": {"es": "«Quel est ton nom» no es «¿Qué es tu nombre?», sino «¿Cuál es tu nombre?» (o mejor: ¿Cómo te llamas?). Y en las preguntas, «qué» y «cuál» llevan tilde.", "translations": {"fr": "« Quel est ton nom ? » ne se dit pas « ¿Qué es tu nombre? », mais « ¿Cuál es tu nombre? » (ou mieux : ¿Cómo te llamas?). Et dans les questions, « qué » et « cuál » prennent un accent."}},
+      "seeAlso": ["d_lo_que_basico", "d_presentarse"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «cuál»", "url": "https://www.rae.es/dpd/cu%C3%A1l"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «qué»", "url": "https://www.rae.es/dpd/qu%C3%A9"}
+      ],
+      "tags": ["interrogativos", "qué", "cuál"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

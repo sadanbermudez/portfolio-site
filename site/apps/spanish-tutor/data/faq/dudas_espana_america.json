@@ -1,0 +1,329 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_espana_america",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "España y América", "translations": {"fr": "Espagne et Amérique latine"}},
+  "emoji": "🌎",
+  "order": 43,
+  "entries": [
+    {
+      "id": "d_vosotros_ustedes",
+      "question": {"es": "¿Vosotros o ustedes?", "translations": {"fr": "« Vosotros » ou « ustedes » ?"}},
+      "aliases": ["vosotros", "ustedes", "vosotros o ustedes", "queréis o quieren", "vous en espagnol", "vous pluriel en espagnol", "comment dire vous"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "👪",
+      "answer": {"es": "En España: vosotros para varios amigos o familiares (¿Venís?) y ustedes para varias personas en situación formal (¿Vienen ustedes?). En América, ustedes para todo.", "translations": {"fr": "En Espagne : « vosotros » pour plusieurs amis ou proches (« ¿Venís? ») et « ustedes » pour plusieurs personnes qu'on vouvoie (« ¿Vienen ustedes? »). En Amérique, « ustedes » pour tout."}},
+      "compare": [
+        {"title": {"es": "ESPAÑA", "translations": {"fr": "ESPAGNE"}}, "items": [
+          {"es": "Amigas: ¿Queréis un café, chicas?", "translations": {"fr": "Amies : Vous voulez un café, les filles ?"}},
+          {"es": "Formal: ¿Ustedes quieren un café?", "translations": {"fr": "Formel : Vous voulez un café ? (vouvoiement)"}},
+          {"es": "Verbo con vosotros: tenéis, sois, vais.", "translations": {"fr": "Verbe avec « vosotros » : tenéis, sois, vais."}}
+        ]},
+        {"title": {"es": "AMÉRICA", "translations": {"fr": "AMÉRIQUE LATINE"}}, "items": [
+          {"es": "Amigas: ¿Quieren un café, chicas?", "translations": {"fr": "Amies : Vous voulez un café, les filles ?"}},
+          {"es": "Formal: ¿Ustedes quieren un café?", "translations": {"fr": "Formel : Vous voulez un café ?"}},
+          {"es": "Verbo con ustedes: tienen, son, van.", "translations": {"fr": "Verbe avec « ustedes » : tienen, son, van."}}
+        ]}
+      ],
+      "points": [
+        {"es": "En Canarias y en el oeste de Andalucía también se usa ustedes entre amigos, como en América.", "translations": {"fr": "Aux Canaries et dans l'ouest de l'Andalousie, on emploie aussi « ustedes » entre amis, comme en Amérique."}}
+      ],
+      "examples": [
+        {"es": "Chicas, ¿venís a cenar el sábado?", "translations": {"fr": "Les filles, vous venez dîner samedi ?"}, "highlight": ["venís"], "variety": "es-ES"},
+        {"es": "Chicas, ¿vienen a cenar el sábado?", "translations": {"fr": "Les filles, vous venez dîner samedi ?"}, "highlight": ["vienen"], "variety": "es-MX"},
+        {"es": "Buenas tardes, señores. ¿Ustedes tienen reserva?", "translations": {"fr": "Bonsoir, messieurs-dames. Vous avez une réservation ?"}, "highlight": ["Ustedes tienen"]}
+      ],
+      "trick": {"es": "En España, vosotros = «vous» entre amigos 👫; ustedes = «vous» de respeto 🎩. En América, ustedes vale para los dos.", "translations": {"fr": "En Espagne, « vosotros » = vous entre amis 👫 ; « ustedes » = vous de politesse 🎩. En Amérique, « ustedes » sert aux deux."}},
+      "frenchTrap": {"es": "Ojo: ustedes va con el verbo en 3.ª persona del plural, como ellos: ustedes vienen, ustedes tienen.", "translations": {"fr": "Attention : « ustedes » se conjugue à la 3e personne du pluriel, comme « ellos » : ustedes vienen, ustedes tienen."}},
+      "seeAlso": ["tp_matices_registro", "d_tu_usted", "d_vos"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: vosotros", "url": "https://www.rae.es/dpd/vosotros"}],
+      "tags": ["españa", "américa", "pronombres", "registro"]
+    },
+    {
+      "id": "d_vos",
+      "question": {"es": "¿Qué es el «vos»?", "translations": {"fr": "C'est quoi, le « vos » ?"}},
+      "aliases": ["vos", "voseo", "vos sos", "vos tenés", "vos en espagnol", "c'est quoi le vos", "tutoiement argentin"],
+      "cefr": "B1",
+      "category": "usage",
+      "emoji": "🇦🇷",
+      "answer": {"es": "Vos es «tú» (el tuteo) en Argentina, Uruguay, Paraguay, gran parte de Centroamérica y zonas de otros países. El verbo cambia y lleva el acento al final: vos tenés, vos podés, vos sos.", "translations": {"fr": "« Vos », c'est « tú » (le tutoiement) en Argentine, en Uruguay, au Paraguay, dans une grande partie de l'Amérique centrale et dans certaines régions d'autres pays. Le verbe change et l'accent tombe à la fin : vos tenés, vos podés, vos sos."}},
+      "compare": [
+        {"title": {"es": "TÚ", "translations": {"fr": "TÚ"}}, "items": [
+          {"es": "Presente: tú tienes, tú puedes.", "translations": {"fr": "Présent : tu as, tu peux."}},
+          {"es": "Ser: tú eres.", "translations": {"fr": "Être : tu es."}},
+          {"es": "Imperativo: ven, siéntate.", "translations": {"fr": "Impératif : viens, assieds-toi."}}
+        ]},
+        {"title": {"es": "VOS", "translations": {"fr": "VOS"}}, "items": [
+          {"es": "Presente: vos tenés, vos podés.", "translations": {"fr": "Présent : tu as, tu peux."}},
+          {"es": "Ser: vos sos.", "translations": {"fr": "Être : tu es."}},
+          {"es": "Imperativo: vení, sentate.", "translations": {"fr": "Impératif : viens, assieds-toi."}}
+        ]}
+      ],
+      "points": [
+        {"es": "Con vos se usan te y tu: Vos te llamás Ana. ¿Es tu casa?", "translations": {"fr": "Avec « vos », on garde « te » et « tu » : Tu t'appelles Ana. C'est ta maison ?"}},
+        {"es": "En Argentina y Uruguay es la forma normal, también en la televisión y en los libros.", "translations": {"fr": "En Argentine et en Uruguay, c'est la forme normale, aussi à la télévision et dans les livres."}}
+      ],
+      "examples": [
+        {"es": "¿Vos sos francesa? ¡Qué lindo!", "translations": {"fr": "Tu es française ? Comme c'est chouette !"}, "highlight": ["Vos sos"], "variety": "es-AR"},
+        {"es": "Vení, sentate acá y tomá un mate.", "translations": {"fr": "Viens, assieds-toi ici et prends un maté."}, "highlight": ["Vení", "sentate", "tomá"], "variety": "es-AR"},
+        {"es": "Perdón, ¿tenés hora?", "translations": {"fr": "Pardon, tu as l'heure ?"}, "highlight": ["tenés"], "variety": "es-AR"}
+      ],
+      "trick": {"es": "Vos = tú con el acento al final: tenés, podés, sabés, vení. 🇦🇷", "translations": {"fr": "« Vos » = « tú » avec l'accent à la fin : tenés, podés, sabés, vení. 🇦🇷"}},
+      "frenchTrap": {"es": "¡Vos no es «vous»! Es tú, para amigos y familia. Para «vous» en plural, en Argentina se dice ustedes.", "translations": {"fr": "« Vos » n'est pas « vous » ! C'est « tú », pour les amis et la famille. Pour « vous » au pluriel, en Argentine, on dit « ustedes »."}},
+      "seeAlso": ["tp_matices_registro", "d_vosotros_ustedes", "tp_com_natural"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: voseo", "url": "https://www.rae.es/dpd/voseo"}],
+      "tags": ["américa", "argentina", "voseo", "pronombres"]
+    },
+    {
+      "id": "d_ordenador_computadora",
+      "question": {"es": "¿Ordenador o computadora?", "translations": {"fr": "« Ordenador » ou « computadora » ?"}},
+      "aliases": ["ordenador", "computadora", "computador", "portátil", "ordinateur en espagnol", "ordinateur portable en espagnol", "comment dire ordinateur"],
+      "cefr": "A2",
+      "category": "vocabulary",
+      "emoji": "💻",
+      "answer": {"es": "Las dos son correctas: ordenador en España (¡parecido a «ordinateur»!) y computadora en América (en algunos países, computador). Y el portátil = «l'ordinateur portable».", "translations": {"fr": "Les deux sont correctes : « ordenador » en Espagne (proche d'« ordinateur » !) et « computadora » en Amérique (dans certains pays, « computador »). Et « el portátil » = l'ordinateur portable."}},
+      "compare": [
+        {"title": {"es": "ESPAÑA", "translations": {"fr": "ESPAGNE"}}, "items": [
+          {"es": "El ordenador, el portátil.", "translations": {"fr": "L'ordinateur, le portable."}},
+          {"es": "El ratón 🐭.", "translations": {"fr": "La souris 🐭."}}
+        ]},
+        {"title": {"es": "AMÉRICA", "translations": {"fr": "AMÉRIQUE LATINE"}}, "items": [
+          {"es": "La computadora, la laptop.", "translations": {"fr": "L'ordinateur, le portable."}},
+          {"es": "El mouse.", "translations": {"fr": "La souris."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Mi nieto me ha configurado el ordenador nuevo.", "translations": {"fr": "Mon petit-fils m'a configuré mon nouvel ordinateur."}, "highlight": ["el ordenador"], "variety": "es-ES"},
+        {"es": "Se me descompuso la computadora: ¿me prestas la tuya?", "translations": {"fr": "Mon ordinateur est tombé en panne : tu me prêtes le tien ?"}, "highlight": ["la computadora"], "variety": "es-MX"},
+        {"es": "El ratón no funciona: ¿tienes pilas?", "translations": {"fr": "La souris ne marche pas : tu as des piles ?"}, "highlight": ["El ratón"], "variety": "es-ES"}
+      ],
+      "trick": {"es": "Ordenador se parece a «ordinateur»: ¡fácil para una francesa! 💻", "translations": {"fr": "« Ordenador » ressemble à « ordinateur » : facile pour une Française ! 💻"}},
+      "frenchTrap": {"es": "En España, un portátil es un ordenador, no un teléfono: «mon portable» (el teléfono) se dice el móvil.", "translations": {"fr": "En Espagne, « un portátil » est un ordinateur, pas un téléphone : « mon portable » (le téléphone) se dit « el móvil »."}},
+      "seeAlso": ["d_movil_celular", "d_coche_carro", "d_zumo_jugo"],
+      "sources": [
+        {"label": "RAE · Diccionario de la lengua española: ordenador (Esp.)", "url": "https://dle.rae.es/ordenador"},
+        {"label": "RAE · Diccionario de la lengua española: computadora", "url": "https://dle.rae.es/computadora"}
+      ],
+      "tags": ["españa", "américa", "tecnología"]
+    },
+    {
+      "id": "d_coche_carro",
+      "question": {"es": "¿Coche, carro o auto?", "translations": {"fr": "« Coche », « carro » ou « auto » ?"}},
+      "aliases": ["coche", "carro", "auto", "conducir o manejar", "voiture en espagnol", "comment dire voiture", "garer la voiture en espagnol"],
+      "cefr": "A2",
+      "category": "vocabulary",
+      "emoji": "🚗",
+      "answer": {"es": "Las tres significan «voiture»: coche en España, carro en muchos países de América (México, Colombia, Venezuela…) y auto en otros (Argentina, Chile, Uruguay…). ¡Y las tres son masculinas!", "translations": {"fr": "Les trois veulent dire voiture : « coche » en Espagne, « carro » dans beaucoup de pays d'Amérique (Mexique, Colombie, Venezuela…) et « auto » dans d'autres (Argentine, Chili, Uruguay…). Et les trois sont masculins !"}},
+      "compare": [
+        {"title": {"es": "ESPAÑA", "translations": {"fr": "ESPAGNE"}}, "items": [
+          {"es": "El coche.", "translations": {"fr": "La voiture."}},
+          {"es": "Conducir: Conduzco despacio.", "translations": {"fr": "Conduire : Je conduis lentement."}},
+          {"es": "Aparcar: No encuentro sitio para aparcar.", "translations": {"fr": "Se garer : Je ne trouve pas de place pour me garer."}}
+        ]},
+        {"title": {"es": "AMÉRICA", "translations": {"fr": "AMÉRIQUE LATINE"}}, "items": [
+          {"es": "El carro, el auto.", "translations": {"fr": "La voiture."}},
+          {"es": "Manejar: Manejo despacio.", "translations": {"fr": "Conduire : Je conduis lentement."}},
+          {"es": "Estacionar: No encuentro dónde estacionar.", "translations": {"fr": "Se garer : Je ne trouve pas où me garer."}}
+        ]}
+      ],
+      "points": [
+        {"es": "En España, un carro es el carro de la compra o un carro tirado por caballos.", "translations": {"fr": "En Espagne, « un carro », c'est un chariot de courses ou une charrette tirée par des chevaux."}}
+      ],
+      "examples": [
+        {"es": "Vamos en coche hasta Toledo: es más cómodo.", "translations": {"fr": "On va en voiture jusqu'à Tolède : c'est plus pratique."}, "highlight": ["en coche"], "variety": "es-ES"},
+        {"es": "¿Dónde estacionaste el carro?", "translations": {"fr": "Où est-ce que tu as garé la voiture ?"}, "highlight": ["el carro"], "variety": "es-MX"},
+        {"es": "Dejé el auto en el garaje de mi hermano.", "translations": {"fr": "J'ai laissé la voiture dans le garage de mon frère."}, "highlight": ["el auto"], "variety": "es-AR"}
+      ],
+      "trick": {"es": "España → coche 🚗. México y el Caribe → carro. Argentina y Chile → auto. Si dudas, auto se entiende en todas partes.", "translations": {"fr": "Espagne → « coche » 🚗. Mexique et Caraïbes → « carro ». Argentine et Chili → « auto ». En cas de doute, « auto » se comprend partout."}},
+      "frenchTrap": {"es": "La «voiture» es femenina, pero el coche, el carro y el auto son masculinos: el coche rojo, el auto nuevo.", "translations": {"fr": "« La voiture » est féminin, mais « el coche », « el carro » et « el auto » sont masculins : el coche rojo, el auto nuevo."}},
+      "seeAlso": ["d_genero_nombres", "d_ordenador_computadora", "d_coger"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: carro (Am.)", "url": "https://dle.rae.es/carro"}],
+      "tags": ["españa", "américa", "transporte"]
+    },
+    {
+      "id": "d_movil_celular",
+      "question": {"es": "¿Móvil o celular?", "translations": {"fr": "« Móvil » ou « celular » ?"}},
+      "aliases": ["móvil", "celular", "celu", "teléfono fijo", "portable en espagnol", "téléphone portable en espagnol", "comment dire portable"],
+      "cefr": "A1",
+      "category": "vocabulary",
+      "emoji": "📱",
+      "answer": {"es": "Móvil en España y celular en América (en Argentina, también el celu). Los dos son «le portable». Y el teléfono de casa es el fijo.", "translations": {"fr": "« Móvil » en Espagne et « celular » en Amérique (en Argentine, aussi « el celu »). Les deux, c'est le portable. Et le téléphone de la maison, c'est « el fijo »."}},
+      "compare": [
+        {"title": {"es": "ESPAÑA", "translations": {"fr": "ESPAGNE"}}, "items": [
+          {"es": "Te llamo al móvil.", "translations": {"fr": "Je t'appelle sur ton portable."}},
+          {"es": "¿Me das tu número de móvil?", "translations": {"fr": "Tu me donnes ton numéro de portable ?"}}
+        ]},
+        {"title": {"es": "AMÉRICA", "translations": {"fr": "AMÉRIQUE LATINE"}}, "items": [
+          {"es": "Te llamo al celular.", "translations": {"fr": "Je t'appelle sur ton portable."}},
+          {"es": "¿Me das tu número de celular?", "translations": {"fr": "Tu me donnes ton numéro de portable ?"}}
+        ]}
+      ],
+      "points": [
+        {"es": "Un mensaje: un SMS o un WhatsApp. En España también se oye un wasap.", "translations": {"fr": "Un message : un SMS ou un WhatsApp. En Espagne, on entend aussi « un wasap »."}},
+        {"es": "Cargar el móvil; el cargador.", "translations": {"fr": "« Cargar el móvil » = charger son portable ; « el cargador » = le chargeur."}}
+      ],
+      "examples": [
+        {"es": "Perdona, se me ha quedado el móvil sin batería.", "translations": {"fr": "Désolée, mon portable n'a plus de batterie."}, "highlight": ["el móvil"], "variety": "es-ES"},
+        {"es": "Mándame un mensaje al celular cuando llegues.", "translations": {"fr": "Envoie-moi un message sur mon portable quand tu arrives."}, "highlight": ["al celular"], "variety": "es-MX"}
+      ],
+      "trick": {"es": "España → móvil 📱 (se mueve contigo). América → celular.", "translations": {"fr": "Espagne → « móvil » 📱 (il bouge avec toi). Amérique → « celular »."}},
+      "frenchTrap": {"es": "«Mon portable» no es «mi portátil»: en España el portátil es el ordenador. Di: mi móvil.", "translations": {"fr": "« Mon portable », ce n'est pas « mi portátil » : en Espagne, « el portátil » est l'ordinateur. Dis : « mi móvil »."}},
+      "seeAlso": ["d_ordenador_computadora", "d_telefono"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: celular (U. m. en Am.)", "url": "https://dle.rae.es/celular"}],
+      "tags": ["españa", "américa", "tecnología"]
+    },
+    {
+      "id": "d_zumo_jugo",
+      "question": {"es": "¿Zumo o jugo?", "translations": {"fr": "« Zumo » ou « jugo » ?"}},
+      "aliases": ["zumo", "jugo", "patata o papa", "melocotón o durazno", "jus en espagnol", "jus d'orange en espagnol", "comment dire jus"],
+      "cefr": "A2",
+      "category": "vocabulary",
+      "emoji": "🍊",
+      "answer": {"es": "Zumo de naranja en España, jugo de naranja en América. En España, jugo se usa más para la carne o en sacarle jugo a algo (aprovecharlo al máximo).", "translations": {"fr": "« Zumo de naranja » en Espagne, « jugo de naranja » en Amérique. En Espagne, « jugo » s'emploie plutôt pour la viande (le jus) ou dans « sacarle jugo a algo » (en profiter au maximum)."}},
+      "compare": [
+        {"title": {"es": "ESPAÑA", "translations": {"fr": "ESPAGNE"}}, "items": [
+          {"es": "Zumo de naranja.", "translations": {"fr": "Jus d'orange."}},
+          {"es": "Patata.", "translations": {"fr": "Pomme de terre."}},
+          {"es": "Melocotón.", "translations": {"fr": "Pêche."}},
+          {"es": "Fresa.", "translations": {"fr": "Fraise."}}
+        ]},
+        {"title": {"es": "AMÉRICA", "translations": {"fr": "AMÉRIQUE LATINE"}}, "items": [
+          {"es": "Jugo de naranja.", "translations": {"fr": "Jus d'orange."}},
+          {"es": "Papa.", "translations": {"fr": "Pomme de terre."}},
+          {"es": "Durazno.", "translations": {"fr": "Pêche."}},
+          {"es": "Fresa o frutilla (Argentina, Chile, Uruguay…).", "translations": {"fr": "Fraise (« frutilla » en Argentine, au Chili, en Uruguay…)."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Un zumo de naranja natural y una tostada, por favor.", "translations": {"fr": "Un jus d'orange pressé et une tartine grillée, s'il vous plaît."}, "highlight": ["Un zumo de naranja"], "variety": "es-ES"},
+        {"es": "En Colombia probé un jugo de lulo buenísimo.", "translations": {"fr": "En Colombie, j'ai goûté un jus de lulo délicieux."}, "highlight": ["un jugo de lulo"], "variety": "es-CO"},
+        {"es": "Hay que sacarle jugo a las vacaciones.", "translations": {"fr": "Il faut profiter au maximum des vacances."}, "highlight": ["sacarle jugo"]}
+      ],
+      "trick": {"es": "España exprime zumos 🍊; América bebe jugos. ¡Y en Canarias se comen papas, como en América!", "translations": {"fr": "L'Espagne presse des « zumos » 🍊 ; l'Amérique boit des « jugos ». Et aux Canaries, on mange des « papas », comme en Amérique !"}},
+      "frenchTrap": {"es": "Por el francés «jus» te saldrá jugo; en un bar de España, pide un zumo. Y ojo: la papa es la patata, ¡pero el Papa es el de Roma! 😄", "translations": {"fr": "À cause du français « jus », tu diras « jugo » ; dans un bar en Espagne, demande « un zumo ». Et attention : « la papa », c'est la pomme de terre, mais « el Papa », c'est celui de Rome ! 😄"}},
+      "seeAlso": ["d_ordenador_computadora", "tp_comida_espanola", "d_genero_nombres"],
+      "sources": [
+        {"label": "RAE · Diccionario de la lengua española: zumo", "url": "https://dle.rae.es/zumo"},
+        {"label": "RAE · Diccionario de la lengua española: jugo", "url": "https://dle.rae.es/jugo"}
+      ],
+      "tags": ["españa", "américa", "comida"]
+    },
+    {
+      "id": "d_ahorita",
+      "question": {"es": "¿Qué significa «ahorita»?", "translations": {"fr": "Que veut dire « ahorita » ?"}},
+      "aliases": ["ahorita", "ahorita voy", "ahora mismo", "ahorita en espagnol", "que veut dire ahorita", "tout de suite en espagnol", "ahora te llamo"],
+      "cefr": "B1",
+      "category": "usage",
+      "emoji": "⏰",
+      "answer": {"es": "Es el diminutivo de ahora, muy usado en México, Centroamérica, el Caribe y otros países. Puede ser «tout de suite»… o «dans un moment, plus tard». ¡El contexto y el tono lo dicen!", "translations": {"fr": "C'est le diminutif de « ahora », très employé au Mexique, en Amérique centrale, dans les Caraïbes et dans d'autres pays. Ça peut vouloir dire tout de suite… ou dans un moment, plus tard. C'est le contexte et le ton qui le disent !"}},
+      "points": [
+        {"es": "Dentro de un rato: —¿Me ayudas? —Ahorita voy.", "translations": {"fr": "Dans un moment : — Tu m'aides ? — J'arrive (dans un moment)."}},
+        {"es": "En Venezuela, Ecuador o Bolivia, ahorita también puede ser «en este momento».", "translations": {"fr": "Au Venezuela, en Équateur ou en Bolivie, « ahorita » peut aussi vouloir dire « en ce moment même »."}},
+        {"es": "En algunos países del Caribe y en Colombia, a veces significa «hace un rato».", "translations": {"fr": "Dans certains pays des Caraïbes et en Colombie, ça veut parfois dire « il y a un moment »."}},
+        {"es": "Para estar segura: ahora mismo = «tout de suite» en todas partes.", "translations": {"fr": "Pour être sûre : « ahora mismo » = tout de suite, partout."}}
+      ],
+      "examples": [
+        {"es": "—¿Ya está la comida? —Ahorita la sirvo.", "translations": {"fr": "— Le repas est prêt ? — Je le sers dans un instant."}, "highlight": ["Ahorita"], "variety": "es-MX"},
+        {"es": "Espérame, ahorita vengo.", "translations": {"fr": "Attends-moi, je reviens dans un moment."}, "highlight": ["ahorita vengo"], "variety": "es-MX"},
+        {"es": "Necesito el informe ahora mismo, por favor.", "translations": {"fr": "J'ai besoin du rapport tout de suite, s'il vous plaît."}, "highlight": ["ahora mismo"]}
+      ],
+      "trick": {"es": "¿Es urgente? Di ahora mismo. Ahorita puede tardar un poquito… 😉", "translations": {"fr": "C'est urgent ? Dis « ahora mismo ». « Ahorita » peut prendre un peu de temps… 😉"}},
+      "frenchTrap": {"es": "En francés «maintenant» es ya. En español, incluso en España, ahora puede ser «dans un instant»: Ahora te llamo = «je te rappelle tout de suite».", "translations": {"fr": "En français, « maintenant », c'est tout de suite. En espagnol, même en Espagne, « ahora » peut vouloir dire dans un instant : « Ahora te llamo » = je te rappelle tout de suite."}},
+      "seeAlso": ["tp_matices_diminutivos", "d_vale", "tp_com_natural"],
+      "sources": [{"label": "ASALE · Diccionario de americanismos: ahorita", "url": "https://www.asale.org/damer/ahorita"}],
+      "tags": ["américa", "méxico", "tiempo", "diminutivos"]
+    },
+    {
+      "id": "d_vale",
+      "question": {"es": "¿Qué significa «vale»?", "translations": {"fr": "Que veut dire « vale » ?"}},
+      "aliases": ["vale", "vale la pena", "cuánto vale", "de acuerdo", "d'accord en espagnol", "ok en espagnol", "que veut dire vale"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "👍",
+      "answer": {"es": "En España, ¡vale! = «d'accord, OK»: —¿Quedamos a las seis? —¡Vale! Se usa muchísimo. En América se dice más bien de acuerdo, está bien o, según el país, dale u órale.", "translations": {"fr": "En Espagne, « ¡vale! » = d'accord, OK : — On se retrouve à six heures ? — D'accord ! On l'emploie énormément. En Amérique, on dit plutôt « de acuerdo », « está bien » ou, selon le pays, « dale » ou « órale »."}},
+      "points": [
+        {"es": "¿Vale? al final de la frase = «d'accord ?»: Te llamo mañana, ¿vale?", "translations": {"fr": "« ¿Vale? » en fin de phrase = d'accord ? : Je t'appelle demain, d'accord ?"}},
+        {"es": "También es el verbo valer: ¿Cuánto vale? = ¿Cuánto cuesta?", "translations": {"fr": "C'est aussi le verbe « valer » : « ¿Cuánto vale? » = Combien ça coûte ?"}},
+        {"es": "Vale la pena = «ça vaut la peine, ça vaut le coup».", "translations": {"fr": "« Vale la pena » = ça vaut la peine, ça vaut le coup."}},
+        {"es": "Un vale es un bono: un vale de descuento.", "translations": {"fr": "« Un vale », c'est un bon : « un vale de descuento » (un bon de réduction)."}}
+      ],
+      "examples": [
+        {"es": "—¿Te paso a buscar a las ocho? —¡Vale!", "translations": {"fr": "— Je passe te chercher à huit heures ? — D'accord !"}, "highlight": ["¡Vale!"], "variety": "es-ES"},
+        {"es": "¿Cuánto vale este melón?", "translations": {"fr": "Combien coûte ce melon ?"}, "highlight": ["Cuánto vale"]},
+        {"es": "Granada vale la pena: ¡no te pierdas la Alhambra!", "translations": {"fr": "Grenade vaut le détour : ne rate pas l'Alhambra !"}, "highlight": ["vale la pena"]}
+      ],
+      "trick": {"es": "Tres usos para recordar: ¡Vale! · Vale la pena · ¿Cuánto vale? 👍", "translations": {"fr": "Trois usages à retenir : « ¡Vale! » (OK) · « Vale la pena » (ça vaut le coup) · « ¿Cuánto vale? » (combien ça coûte ?) 👍"}},
+      "frenchTrap": {"es": "«Ça vaut le coup» no es «vale el golpe»: es vale la pena. Y en América, ¡vale! se entiende, pero suena muy español.", "translations": {"fr": "« Ça vaut le coup », ce n'est pas « vale el golpe » : c'est « vale la pena ». Et en Amérique, « ¡vale! » se comprend, mais ça sonne très espagnol."}},
+      "seeAlso": ["d_ca_va", "tp_com_natural", "d_guay_chevere"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: vale (en «valer»)", "url": "https://dle.rae.es/valer"}],
+      "tags": ["españa", "américa", "expresiones"]
+    },
+    {
+      "id": "d_guay_chevere",
+      "question": {"es": "¿Cómo se dice «génial» o «super»?", "translations": {"fr": "Comment dit-on « génial » ou « super » ?"}},
+      "aliases": ["génial en espagnol", "super en espagnol", "trop bien en espagnol", "genial", "guay", "chévere", "qué padre"],
+      "cefr": "A2",
+      "category": "usage",
+      "emoji": "🤩",
+      "answer": {"es": "¡Genial! y ¡Estupendo! funcionan en todas partes. Además, cada país tiene su palabra: ¡Qué guay! (España), ¡Qué chévere! (Venezuela, Colombia, el Caribe, Perú…), ¡Qué padre! (México).", "translations": {"fr": "« ¡Genial! » et « ¡Estupendo! » marchent partout. En plus, chaque pays a son mot : « ¡Qué guay! » (Espagne), « ¡Qué chévere! » (Venezuela, Colombie, Caraïbes, Pérou…), « ¡Qué padre! » (Mexique)."}},
+      "points": [
+        {"es": "Guay es coloquial: entre amigos o en familia, no en una carta formal.", "translations": {"fr": "« Guay » est familier : entre amis ou en famille, pas dans une lettre formelle."}},
+        {"es": "¡Qué bien! también sirve siempre: —He aprobado. —¡Qué bien!", "translations": {"fr": "« ¡Qué bien! » marche toujours aussi : — J'ai réussi. — Super !"}},
+        {"es": "Para algo increíble, en España: ¡Qué pasada! (coloquial).", "translations": {"fr": "Pour quelque chose d'incroyable, en Espagne : « ¡Qué pasada! » (familier)."}}
+      ],
+      "examples": [
+        {"es": "¡Qué guay! ¡Nos vamos de viaje a Asturias!", "translations": {"fr": "Trop bien ! On part en voyage dans les Asturies !"}, "highlight": ["Qué guay"], "variety": "es-ES"},
+        {"es": "La fiesta estuvo chévere: bailamos toda la noche.", "translations": {"fr": "La fête était géniale : on a dansé toute la nuit."}, "highlight": ["chévere"], "variety": "es-CO"},
+        {"es": "¡Qué padre está tu casa nueva!", "translations": {"fr": "Elle est trop belle, ta nouvelle maison !"}, "highlight": ["Qué padre"], "variety": "es-MX"}
+      ],
+      "trick": {"es": "¿No sabes en qué país estás? Di ¡Genial! o ¡Qué bien!: funcionan en todo el mundo hispano. 🌎", "translations": {"fr": "Tu ne sais pas dans quel pays tu es ? Dis « ¡Genial! » ou « ¡Qué bien! » : ça marche dans tout le monde hispanique. 🌎"}},
+      "frenchTrap": {"es": "«C'est très bien !» no es «¡Es muy bien!»: con bien, siempre estar: ¡Está muy bien! Y para algo que pruebas: ¡Está genial!", "translations": {"fr": "« C'est très bien ! », ce n'est pas « ¡Es muy bien! » : avec « bien », toujours « estar » : « ¡Está muy bien! ». Et pour quelque chose que tu goûtes ou essaies : « ¡Está genial! »."}},
+      "seeAlso": ["d_bien_bueno", "tp_com_natural", "d_vale"],
+      "sources": [
+        {"label": "RAE · Diccionario de la lengua española: guay (coloq. Esp.)", "url": "https://dle.rae.es/guay"},
+        {"label": "RAE · Diccionario de la lengua española: chévere", "url": "https://dle.rae.es/ch%C3%A9vere"}
+      ],
+      "tags": ["españa", "américa", "expresiones", "coloquial"]
+    },
+    {
+      "id": "d_perfecto_america",
+      "question": {"es": "¿Por qué en América dicen «hoy comí» y no «hoy he comido»?", "translations": {"fr": "Pourquoi en Amérique dit-on « hoy comí » et pas « hoy he comido » ?"}},
+      "aliases": ["hoy comí", "he comido o comí", "perfecto en América", "ya comiste", "passé composé espagnol d'Amérique", "pourquoi comí et pas he comido"],
+      "cefr": "B1",
+      "category": "usage",
+      "emoji": "🗺️",
+      "answer": {"es": "Porque en casi toda América (y en zonas de España como Canarias o Galicia) se usa el indefinido también para hoy: Hoy comí paella. En el resto de España: Hoy he comido paella. ¡Las dos son correctas!", "translations": {"fr": "Parce que dans presque toute l'Amérique (et dans des régions d'Espagne comme les Canaries ou la Galice), on emploie l'« indefinido » aussi pour aujourd'hui : « Hoy comí paella ». Dans le reste de l'Espagne : « Hoy he comido paella ». Les deux sont correctes !"}},
+      "compare": [
+        {"title": {"es": "ESPAÑA (centro)", "translations": {"fr": "ESPAGNE (centre)"}}, "items": [
+          {"es": "Hoy: Esta mañana he ido al mercado.", "translations": {"fr": "Aujourd'hui : Ce matin, je suis allée au marché."}},
+          {"es": "Ayer: Ayer fui al mercado.", "translations": {"fr": "Hier : Hier, je suis allée au marché."}},
+          {"es": "Pregunta: ¿Ya has comido?", "translations": {"fr": "Question : Tu as déjà mangé ?"}}
+        ]},
+        {"title": {"es": "AMÉRICA", "translations": {"fr": "AMÉRIQUE LATINE"}}, "items": [
+          {"es": "Hoy: Esta mañana fui al mercado.", "translations": {"fr": "Aujourd'hui : Ce matin, je suis allée au marché."}},
+          {"es": "Ayer: Ayer fui al mercado.", "translations": {"fr": "Hier : Hier, je suis allée au marché."}},
+          {"es": "Pregunta: ¿Ya comiste?", "translations": {"fr": "Question : Tu as déjà mangé ?"}}
+        ]}
+      ],
+      "points": [
+        {"es": "En América, el perfecto se usa para lo que dura hasta hoy o se repite: Siempre he vivido aquí.", "translations": {"fr": "En Amérique, le « perfecto » s'emploie pour ce qui dure jusqu'à aujourd'hui ou se répète : J'ai toujours vécu ici."}},
+        {"es": "Para tu español: elige un sistema y sé coherente. Los dos son correctos.", "translations": {"fr": "Pour ton espagnol : choisis un système et sois cohérente. Les deux sont corrects."}}
+      ],
+      "examples": [
+        {"es": "Hoy he comido con mis nietos en un restaurante del puerto.", "translations": {"fr": "Aujourd'hui, j'ai déjeuné avec mes petits-enfants dans un restaurant du port."}, "highlight": ["he comido"], "variety": "es-ES"},
+        {"es": "Hoy comí con mis nietos en un restaurante del puerto.", "translations": {"fr": "Aujourd'hui, j'ai déjeuné avec mes petits-enfants dans un restaurant du port."}, "highlight": ["comí"], "variety": "es-MX"},
+        {"es": "¿Ya terminaste la tarea?", "translations": {"fr": "Tu as déjà fini tes devoirs ?"}, "highlight": ["terminaste"], "variety": "es-MX"}
+      ],
+      "trick": {"es": "En España, mira el reloj ⏰: ¿hoy? → he comido; ¿ayer? → comí. En América, comí casi siempre.", "translations": {"fr": "En Espagne, regarde la montre ⏰ : aujourd'hui ? → « he comido » ; hier ? → « comí ». En Amérique, presque toujours « comí »."}},
+      "frenchTrap": {"es": "El passé composé se parece al perfecto (j'ai mangé = he comido), pero no siempre se traduce así: para ayer, también en España, se dice comí.", "translations": {"fr": "Le passé composé ressemble au « perfecto » (j'ai mangé = « he comido »), mais il ne se traduit pas toujours ainsi : pour hier, en Espagne aussi, on dit « comí »."}},
+      "seeAlso": ["d_perfecto_indefinido", "tp_a2_perfecto", "tp_pasado_perf_indef"],
+      "sources": [{"label": "RAE y ASALE · Nueva gramática de la lengua española: pretérito perfecto compuesto y variación geográfica"}],
+      "tags": ["españa", "américa", "pasado", "verbos"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

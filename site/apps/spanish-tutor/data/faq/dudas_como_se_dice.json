@@ -1,0 +1,340 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_como_se_dice",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "¿Cómo se dice…?", "translations": {"fr": "Comment dit-on… ?"}},
+  "emoji": "💬",
+  "order": 42,
+  "entries": [
+    {
+      "id": "d_du_coup",
+      "question": {"es": "¿Cómo se dice «du coup»?", "translations": {"fr": "Comment dit-on « du coup » ?"}},
+      "aliases": ["du coup", "du coup en espagnol", "comment dire du coup", "así que", "entonces", "por eso", "de golpe"],
+      "cefr": "B1",
+      "category": "usage",
+      "emoji": "➡️",
+      "answer": {"es": "Depende. Para una consecuencia: así que, entonces o por eso (Llovía, así que nos quedamos). Al empezar a hablar, como muletilla: pues o entonces.", "translations": {"fr": "Ça dépend. Pour une conséquence : « así que », « entonces » ou « por eso » (Il pleuvait, du coup on est restés). En début de phrase, comme tic de langage : « pues » ou « entonces »."}},
+      "points": [
+        {"es": "Así que une dos ideas: Estaba cansada, así que me acosté pronto.", "translations": {"fr": "« Así que » relie deux idées : J'étais fatiguée, du coup je me suis couchée tôt."}},
+        {"es": "Por eso, cuando la causa ya está dicha: Perdí el tren y por eso llegué tarde.", "translations": {"fr": "« Por eso », quand la cause vient d'être dite : J'ai raté le train, c'est pour ça que je suis arrivée en retard."}},
+        {"es": "Pues o entonces, al principio: —Ya no hay entradas. —Pues vamos mañana.", "translations": {"fr": "« Pues » ou « entonces », en début de phrase : — Il n'y a plus de places. — Du coup, on y va demain."}}
+      ],
+      "examples": [
+        {"es": "No había pan, así que compré unas magdalenas.", "translations": {"fr": "Il n'y avait plus de pain, du coup j'ai acheté des madeleines."}, "highlight": ["así que"]},
+        {"es": "Entonces, ¿quedamos a las ocho en la plaza?", "translations": {"fr": "Du coup, on se retrouve à huit heures sur la place ?"}, "highlight": ["Entonces"]},
+        {"es": "Mi hija vive en Valencia; por eso voy tanto allí.", "translations": {"fr": "Ma fille vit à Valence ; du coup, j'y vais souvent."}, "highlight": ["por eso"]}
+      ],
+      "trick": {"es": "«Du coup» en medio de la frase → así que. Al principio → pues o entonces.", "translations": {"fr": "« Du coup » au milieu de la phrase → « así que ». En début de phrase → « pues » ou « entonces »."}},
+      "frenchTrap": {"es": "No traduzcas palabra por palabra: de golpe significa «tout d'un coup, soudain», no «du coup».", "translations": {"fr": "Ne traduis pas mot à mot : « de golpe » veut dire tout d'un coup, soudain, pas « du coup »."}},
+      "seeAlso": ["d_donc", "tp_b1_conectores_basicos", "tp_conect_causa"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: de golpe (en «golpe»)", "url": "https://dle.rae.es/golpe"}],
+      "tags": ["conectores", "consecuencia", "francés"]
+    },
+    {
+      "id": "d_en_fait",
+      "question": {"es": "¿Cómo se dice «en fait»?", "translations": {"fr": "Comment dit-on « en fait » ?"}},
+      "aliases": ["en fait", "en fait en espagnol", "comment dire en fait", "en réalité en espagnol", "en realidad", "de hecho", "la verdad es que"],
+      "cefr": "B1",
+      "category": "usage",
+      "emoji": "💡",
+      "answer": {"es": "Para corregir o aclarar, di en realidad o la verdad es que: En realidad, no es italiano. De hecho existe, pero sirve sobre todo para reforzar lo que acabas de decir («effectivement, d'ailleurs»).", "translations": {"fr": "Pour corriger ou préciser, dis « en realidad » ou « la verdad es que » : En fait, il n'est pas italien. « De hecho » existe, mais il sert surtout à renforcer ce que tu viens de dire (effectivement, d'ailleurs)."}},
+      "compare": [
+        {"title": {"es": "EN REALIDAD (corrige)", "translations": {"fr": "EN REALIDAD (corrige)"}}, "items": [
+          {"es": "Corregir: Parece fácil, pero en realidad es difícil.", "translations": {"fr": "Corriger : Ça a l'air facile, mais en fait c'est difficile."}},
+          {"es": "Confesar: La verdad es que no me apetece salir.", "translations": {"fr": "Avouer : En fait, je n'ai pas envie de sortir."}}
+        ]},
+        {"title": {"es": "DE HECHO (refuerza)", "translations": {"fr": "DE HECHO (renforce)"}}, "items": [
+          {"es": "Confirmar: Le encanta España; de hecho, vive en Málaga.", "translations": {"fr": "Confirmer : Elle adore l'Espagne ; d'ailleurs, elle vit à Malaga."}},
+          {"es": "Dar una prueba: Cocina muy bien; de hecho, tiene un restaurante.", "translations": {"fr": "Donner une preuve : Elle cuisine très bien ; d'ailleurs, elle a un restaurant."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Creía que era argentino, pero en realidad es uruguayo.", "translations": {"fr": "Je croyais qu'il était argentin, mais en fait il est uruguayen."}, "highlight": ["en realidad"]},
+        {"es": "—¿Vienes al cine? —La verdad es que estoy muy cansada.", "translations": {"fr": "— Tu viens au cinéma ? — En fait, je suis très fatiguée."}, "highlight": ["La verdad es que"]},
+        {"es": "Habla muy bien español; de hecho, es profesora.", "translations": {"fr": "Elle parle très bien espagnol ; d'ailleurs, elle est professeure."}, "highlight": ["de hecho"]}
+      ],
+      "trick": {"es": "¿Cambias la idea? → en realidad. ¿La confirmas? → de hecho.", "translations": {"fr": "Tu corriges l'idée ? → « en realidad ». Tu la confirmes ? → « de hecho »."}},
+      "frenchTrap": {"es": "En francés se dice «en fait» en cada frase. En español, no repitas de hecho todo el rato: muchas veces basta con pues o bueno.", "translations": {"fr": "En français, on dit « en fait » à chaque phrase. En espagnol, ne répète pas « de hecho » sans arrêt : souvent, « pues » ou « bueno » suffit."}},
+      "seeAlso": ["d_au_fait", "tp_conect_organizar", "tp_com_natural"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: de hecho (en «hecho»)", "url": "https://dle.rae.es/hecho"}],
+      "tags": ["conectores", "conversación", "francés"]
+    },
+    {
+      "id": "d_quand_meme",
+      "question": {"es": "¿Cómo se dice «quand même»?", "translations": {"fr": "Comment dit-on « quand même » ?"}},
+      "aliases": ["quand même", "quand même en espagnol", "comment dire quand même", "malgré tout en espagnol", "de todas formas", "aun así", "por lo menos"],
+      "cefr": "B1",
+      "category": "usage",
+      "emoji": "💪",
+      "answer": {"es": "Para «malgré tout»: de todas formas, de todos modos o aun así (Llovía, pero salimos de todas formas). Para un reproche («tu pourrais quand même…»): por lo menos o al menos.", "translations": {"fr": "Pour « malgré tout » : « de todas formas », « de todos modos » ou « aun así » (Il pleuvait, mais on est sortis quand même). Pour un reproche (« tu pourrais quand même… ») : « por lo menos » ou « al menos »."}},
+      "points": [
+        {"es": "Al final de la frase: No tenía hambre, pero comí de todas formas.", "translations": {"fr": "En fin de phrase : Je n'avais pas faim, mais j'ai mangé quand même."}},
+        {"es": "Al principio: Es caro. Aun así, lo voy a comprar.", "translations": {"fr": "En début de phrase : C'est cher. Je vais quand même l'acheter."}},
+        {"es": "Reproche: ¡Por lo menos podrías llamar!", "translations": {"fr": "Reproche : Tu pourrais quand même appeler !"}},
+        {"es": "Sorpresa: ¡Hay que ver lo caro que está todo!", "translations": {"fr": "Étonnement : C'est quand même fou, ce que tout est cher !"}}
+      ],
+      "examples": [
+        {"es": "Hacía frío, pero fuimos a la playa de todas formas.", "translations": {"fr": "Il faisait froid, mais on est allés à la plage quand même."}, "highlight": ["de todas formas"]},
+        {"es": "Sé que es difícil; aun así, quiero intentarlo.", "translations": {"fr": "Je sais que c'est difficile ; je veux quand même essayer."}, "highlight": ["aun así"]},
+        {"es": "¡Por lo menos podrías dar las gracias!", "translations": {"fr": "Tu pourrais quand même dire merci !"}, "highlight": ["Por lo menos"]}
+      ],
+      "trick": {"es": "«Malgré tout» → de todas formas. Un reproche → por lo menos.", "translations": {"fr": "« Malgré tout » → « de todas formas ». Un reproche → « por lo menos »."}},
+      "frenchTrap": {"es": "No traduzcas palabra por palabra: «cuando mismo» o «cuando incluso» no funcionan. Piensa en la idea: ¿«malgré tout» o un reproche?", "translations": {"fr": "Ne traduis pas mot à mot : « cuando mismo » ou « cuando incluso » ne marchent pas. Pense à l'idée : « malgré tout » ou un reproche ?"}},
+      "seeAlso": ["d_aunque", "d_aun_aun", "tp_conect_contraste"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular: marcadores del discurso (B1–B2)"}],
+      "tags": ["conectores", "contraste", "francés"]
+    },
+    {
+      "id": "d_deja",
+      "question": {"es": "¿Cómo se dice «déjà»?", "translations": {"fr": "Comment dit-on « déjà » ?"}},
+      "aliases": ["déjà", "déjà en espagnol", "ne plus en espagnol", "pas encore en espagnol", "ya", "ya no", "todavía no"],
+      "cefr": "A2",
+      "category": "usage",
+      "emoji": "✅",
+      "answer": {"es": "Ya: Ya he comido. Pero ya es una palabra mágica: ya no = «ne… plus», todavía no = «pas encore» y ¡ya voy! = «j'arrive !».", "translations": {"fr": "« Ya » : « Ya he comido » (j'ai déjà mangé). Mais « ya » est un mot magique : « ya no » = ne… plus, « todavía no » = pas encore et « ¡ya voy! » = j'arrive !"}},
+      "points": [
+        {"es": "Ya: ¿Ya has terminado?", "translations": {"fr": "« Ya » = déjà : Tu as déjà fini ?"}},
+        {"es": "Ya no: Ya no fumo.", "translations": {"fr": "« Ya no » = ne… plus : Je ne fume plus."}},
+        {"es": "Todavía no o aún no: Todavía no he comido.", "translations": {"fr": "« Todavía no » ou « aún no » = pas encore : Je n'ai pas encore mangé."}},
+        {"es": "¡Ya está! ¡Ya voy! Ya, ya…", "translations": {"fr": "« ¡Ya está! » = ça y est. « ¡Ya voy! » = j'arrive. « Ya, ya… » = oui, oui, je sais…"}}
+      ],
+      "examples": [
+        {"es": "¿Ya has visto la exposición del museo?", "translations": {"fr": "Tu as déjà vu l'exposition du musée ?"}, "highlight": ["Ya has visto"]},
+        {"es": "Ya no vivo en París: ahora vivo en Alicante.", "translations": {"fr": "Je n'habite plus à Paris : maintenant, j'habite à Alicante."}, "highlight": ["Ya no vivo"]},
+        {"es": "—¿Has llamado a tu hermana? —Todavía no.", "translations": {"fr": "— Tu as appelé ta sœur ? — Pas encore."}, "highlight": ["Todavía no"]},
+        {"es": "¡Ya voy, ya voy! Estoy bajando.", "translations": {"fr": "J'arrive, j'arrive ! Je descends."}, "highlight": ["Ya voy"]}
+      ],
+      "trick": {"es": "Ya = «déjà». Ya no = «ne… plus». Todavía no = «pas encore». ¡Tres en uno!", "translations": {"fr": "« Ya » = déjà. « Ya no » = ne… plus. « Todavía no » = pas encore. Trois en un !"}},
+      "frenchTrap": {"es": "En francés, «déjà» va en medio: «j'ai déjà mangé». En español, nunca entre he y el participio: Ya he comido o He comido ya (no «he ya comido»).", "translations": {"fr": "En français, « déjà » se place au milieu : j'ai déjà mangé. En espagnol, jamais entre « he » et le participe : « Ya he comido » ou « He comido ya » (pas « he ya comido »)."}},
+      "seeAlso": ["d_perfecto_indefinido", "tp_a2_perfecto", "tp_com_natural"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: ya", "url": "https://dle.rae.es/ya"}],
+      "tags": ["adverbios", "ya", "francés"]
+    },
+    {
+      "id": "d_bon_appetit",
+      "question": {"es": "¿Cómo se dice «bon appétit»?", "translations": {"fr": "Comment dit-on « bon appétit » ?"}},
+      "aliases": ["bon appétit", "bon appétit en espagnol", "comment dire bon appétit", "que aproveche", "buen provecho", "buen apetito"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "🍽️",
+      "answer": {"es": "¡Que aproveche! (muy común en España) o ¡Buen provecho! (muy usado en América y también en España). Se dice a quien empieza a comer o está comiendo.", "translations": {"fr": "« ¡Que aproveche! » (très courant en Espagne) ou « ¡Buen provecho! » (très employé en Amérique, et aussi en Espagne). On le dit à quelqu'un qui commence à manger ou qui est en train de manger."}},
+      "points": [
+        {"es": "Se oye también al pasar junto a gente que come, por ejemplo en el trabajo.", "translations": {"fr": "On l'entend aussi en passant à côté de gens qui mangent, par exemple au travail."}},
+        {"es": "La respuesta: ¡Gracias! o, si tú también comes, ¡Gracias, igualmente!", "translations": {"fr": "La réponse : « ¡Gracias! » ou, si tu manges aussi, « ¡Gracias, igualmente! » (Merci, vous aussi !)."}},
+        {"es": "Buen apetito se entiende, pero se oye mucho menos.", "translations": {"fr": "« Buen apetito » se comprend, mais on l'entend beaucoup moins."}}
+      ],
+      "examples": [
+        {"es": "—¡Que aproveche! —¡Gracias, igualmente!", "translations": {"fr": "— Bon appétit ! — Merci, à vous aussi !"}, "highlight": ["¡Que aproveche!", "igualmente"]},
+        {"es": "El camarero deja los platos en la mesa: «¡Que aproveche!».", "translations": {"fr": "Le serveur pose les assiettes sur la table : « Bon appétit ! »."}, "highlight": ["¡Que aproveche!"]},
+        {"es": "En casa de mis amigos mexicanos todos dicen: «¡Buen provecho!».", "translations": {"fr": "Chez mes amis mexicains, tout le monde dit : « Bon appétit ! »."}, "highlight": ["¡Buen provecho!"], "variety": "es-MX"}
+      ],
+      "trick": {"es": "Antes de comer: ¡Que aproveche! Al brindar: ¡Salud! 🥂", "translations": {"fr": "Avant de manger : « ¡Que aproveche! ». Pour trinquer : « ¡Salud! » (Santé !) 🥂"}},
+      "frenchTrap": {"es": "«Profiter» no es «profitar»: se dice aprovechar (Aprovecha el buen tiempo). Por eso ¡Que aproveche! = «que ça te profite».", "translations": {"fr": "« Profiter », ce n'est pas « profitar » : on dit « aprovechar » (Profite du beau temps). D'où « ¡Que aproveche! » = que ça te profite."}},
+      "seeAlso": ["d_que_aproveche", "tp_comida_espanola", "d_pedir_bar"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: buen provecho (en «provecho»)", "url": "https://dle.rae.es/provecho"}],
+      "tags": ["comida", "cortesía", "francés"]
+    },
+    {
+      "id": "d_ca_va",
+      "question": {"es": "¿Cómo se dice «ça va»?", "translations": {"fr": "Comment dit-on « ça va » ?"}},
+      "aliases": ["ça va", "ça va en espagnol", "comment dire ça va", "ça me va", "qué tal", "cómo estás", "todo bien"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "👋",
+      "answer": {"es": "Para saludar: ¿Qué tal? o ¿Cómo estás? (con usted: ¿Cómo está?). Respuesta: Bien, ¿y tú? Pero «ça va» tiene más usos: vale, no pasa nada, me viene bien…", "translations": {"fr": "Pour saluer : « ¿Qué tal? » ou « ¿Cómo estás? » (en vouvoyant : « ¿Cómo está? »). Réponse : « Bien, ¿y tú? ». Mais « ça va » a d'autres usages : « vale », « no pasa nada », « me viene bien »…"}},
+      "points": [
+        {"es": "Saludo: ¡Hola! ¿Qué tal? —Muy bien, ¿y tú?", "translations": {"fr": "Salut : Bonjour ! Ça va ? — Très bien, et toi ?"}},
+        {"es": "Acuerdo: —¿A las seis? —Vale. / De acuerdo.", "translations": {"fr": "Accord : — À six heures ? — Ça va. / D'accord."}},
+        {"es": "Tranquilizar: —¡Perdón! —No pasa nada.", "translations": {"fr": "Rassurer : — Pardon ! — Ça va, ce n'est rien."}},
+        {"es": "Para «ça me va»: me viene bien (una hora, un plan) o me queda bien (la ropa).", "translations": {"fr": "Pour « ça me va » : « me viene bien » (une heure, un projet) ou « me queda bien » (un vêtement)."}},
+        {"es": "Para «ça va aller»: Todo va a salir bien.", "translations": {"fr": "Pour « ça va aller » : « Todo va a salir bien »."}}
+      ],
+      "examples": [
+        {"es": "¡Hola, Pilar! ¿Qué tal el fin de semana?", "translations": {"fr": "Bonjour, Pilar ! Ça s'est bien passé, ton week-end ?"}, "highlight": ["¿Qué tal"]},
+        {"es": "—¿Te viene bien el jueves? —Sí, perfecto.", "translations": {"fr": "— Jeudi, ça te va ? — Oui, parfait."}, "highlight": ["Te viene bien"]},
+        {"es": "Este vestido te queda muy bien.", "translations": {"fr": "Cette robe te va très bien."}, "highlight": ["te queda muy bien"]}
+      ],
+      "trick": {"es": "¿Saludo? → ¿Qué tal? ¿Acuerdo? → Vale. ¿Ropa? → Te queda bien.", "translations": {"fr": "Pour saluer → « ¿Qué tal? ». Pour dire oui → « Vale ». Pour un vêtement → « Te queda bien »."}},
+      "frenchTrap": {"es": "En francés, «ça va» sirve para todo. En español, cada situación tiene su frase: no digas solo «¿Va?»; di ¿Qué tal? o ¿Cómo va?", "translations": {"fr": "En français, « ça va » sert à tout. En espagnol, chaque situation a sa formule : ne dis pas juste « ¿Va? » ; dis « ¿Qué tal? » ou « ¿Cómo va? »."}},
+      "seeAlso": ["d_saludos", "d_vale", "tp_a1_presentarse"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, funciones: saludar y responder a un saludo (A1)"}],
+      "tags": ["saludos", "conversación", "francés"]
+    },
+    {
+      "id": "d_bisous",
+      "question": {"es": "¿Cómo termino un mensaje con «bisous»?", "translations": {"fr": "Comment finir un message par « bisous » ?"}},
+      "aliases": ["bisous", "bisous en espagnol", "gros bisous", "comment finir un message en espagnol", "un beso", "besos", "un abrazo"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "😘",
+      "answer": {"es": "Besos o Un beso (entre amigas, Besitos). Más neutro: Un abrazo. Para un correo formal: Un saludo o Un cordial saludo.", "translations": {"fr": "« Besos » ou « Un beso » (entre amies, « Besitos »). Plus neutre : « Un abrazo ». Pour un e-mail formel : « Un saludo » ou « Un cordial saludo »."}},
+      "points": [
+        {"es": "Para «gros bisous»: Un beso muy fuerte o Muchos besos.", "translations": {"fr": "Pour « gros bisous » : « Un beso muy fuerte » ou « Muchos besos »."}},
+        {"es": "Para «embrasse X de ma part»: Dale un beso a X de mi parte.", "translations": {"fr": "Pour « embrasse X de ma part » : « Dale un beso a X de mi parte »."}},
+        {"es": "Un abrazo sirve para todos: amigos, familia, compañeros.", "translations": {"fr": "« Un abrazo » convient à tout le monde : amis, famille, collègues."}}
+      ],
+      "examples": [
+        {"es": "¡Feliz cumpleaños, cariño! Un beso muy fuerte.", "translations": {"fr": "Joyeux anniversaire, ma chérie ! Gros bisous."}, "highlight": ["Un beso muy fuerte"]},
+        {"es": "Nos vemos el domingo. ¡Besos a todos!", "translations": {"fr": "On se voit dimanche. Bisous à tous !"}, "highlight": ["Besos a todos"]},
+        {"es": "Dale un beso a tu madre de mi parte.", "translations": {"fr": "Embrasse ta mère de ma part."}, "highlight": ["Dale un beso"]}
+      ],
+      "trick": {"es": "Amigas → besos 😘. Todo el mundo → un abrazo 🤗. Trabajo → un saludo 🤝.", "translations": {"fr": "Amies → « besos » 😘. Tout le monde → « un abrazo » 🤗. Travail → « un saludo » 🤝."}},
+      "frenchTrap": {"es": "«Embrasser» no es abrazar (= «serrer dans ses bras»): es besar o dar un beso. Y «je t'embrasse», al final de una carta, = Un abrazo o Un beso.", "translations": {"fr": "« Embrasser », ce n'est pas « abrazar » (= serrer dans ses bras) : c'est « besar » ou « dar un beso ». Et « je t'embrasse », à la fin d'une lettre, = « Un abrazo » ou « Un beso »."}},
+      "seeAlso": ["d_dos_besos", "d_carta_formal", "d_despedirse"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: abrazar", "url": "https://dle.rae.es/abrazar"}],
+      "tags": ["mensajes", "despedidas", "francés"]
+    },
+    {
+      "id": "d_tant_pis",
+      "question": {"es": "¿Cómo se dice «tant pis»?", "translations": {"fr": "Comment dit-on « tant pis » ?"}},
+      "aliases": ["tant pis", "tant pis en espagnol", "tant mieux", "tant pis pour toi", "qué le vamos a hacer", "da igual", "peor para ti"],
+      "cefr": "B1",
+      "category": "usage",
+      "emoji": "🤷",
+      "answer": {"es": "¡Qué le vamos a hacer!, ¡Qué pena! o Da igual, según el tono. «Tant pis pour toi» = ¡Peor para ti! Y «tant mieux» = ¡Mejor! o ¡Mejor así!", "translations": {"fr": "« ¡Qué le vamos a hacer! », « ¡Qué pena! » ou « Da igual », selon le ton. « Tant pis pour toi » = « ¡Peor para ti! ». Et « tant mieux » = « ¡Mejor! » ou « ¡Mejor así! »."}},
+      "points": [
+        {"es": "Resignación: ¡Qué le vamos a hacer! (con un suspiro).", "translations": {"fr": "Résignation : « ¡Qué le vamos a hacer! » (avec un soupir)."}},
+        {"es": "Sin importancia: Da igual, no pasa nada.", "translations": {"fr": "Sans importance : « Da igual, no pasa nada » (tant pis, ce n'est pas grave)."}},
+        {"es": "Pena: ¡Qué pena! ¡Qué lástima!", "translations": {"fr": "Regret : « ¡Qué pena! », « ¡Qué lástima! » (Dommage !)."}},
+        {"es": "Tanto peor y tanto mejor existen, pero en la conversación se oyen menos.", "translations": {"fr": "« Tanto peor » et « tanto mejor » existent, mais on les entend moins à l'oral."}}
+      ],
+      "examples": [
+        {"es": "—Ya no quedan entradas. —¡Qué le vamos a hacer! Iremos otro día.", "translations": {"fr": "— Il n'y a plus de places. — Tant pis ! On ira un autre jour."}, "highlight": ["¡Qué le vamos a hacer!"]},
+        {"es": "Si no quieres probar la paella, ¡peor para ti!", "translations": {"fr": "Si tu ne veux pas goûter la paella, tant pis pour toi !"}, "highlight": ["peor para ti"]},
+        {"es": "—Mañana no llueve. —¡Mejor! Así vamos a la playa.", "translations": {"fr": "— Il ne pleuvra pas demain. — Tant mieux ! Comme ça, on va à la plage."}, "highlight": ["¡Mejor!"]}
+      ],
+      "trick": {"es": "«Tant pis» = ¡Qué le vamos a hacer! 🤷 «Tant mieux» = ¡Mejor! 😊", "translations": {"fr": "Tant pis = « ¡Qué le vamos a hacer! » 🤷 Tant mieux = « ¡Mejor! » 😊"}},
+      "frenchTrap": {"es": "No digas «¡Tanto pis!»: no existe. Y ojo al tono: Da igual puede sonar frío si alguien está triste; mejor ¡Qué pena!", "translations": {"fr": "Ne dis pas « ¡Tanto pis! » : ça n'existe pas. Et attention au ton : « Da igual » peut sembler froid si quelqu'un est triste ; mieux vaut « ¡Qué pena! »."}},
+      "seeAlso": ["tp_com_natural", "d_ca_depend"],
+      "tags": ["expresiones", "conversación", "francés"]
+    },
+    {
+      "id": "d_au_fait",
+      "question": {"es": "¿Cómo se dice «au fait» para cambiar de tema?", "translations": {"fr": "Comment dit-on « au fait » pour changer de sujet ?"}},
+      "aliases": ["au fait", "au fait en espagnol", "comment dire au fait", "por cierto", "a propósito", "ir al grano", "estar al tanto"],
+      "cefr": "B1",
+      "category": "usage",
+      "emoji": "☝️",
+      "answer": {"es": "Por cierto: Por cierto, ¿has visto a Luisa? Sirve para añadir algo que te acabas de acordar. Más formal: a propósito.", "translations": {"fr": "« Por cierto » : Au fait, tu as vu Luisa ? Ça sert à ajouter quelque chose qui te revient à l'esprit. Plus soutenu : « a propósito »."}},
+      "points": [
+        {"es": "«Au fait, …» al principio de la frase: Por cierto, … (con coma).", "translations": {"fr": "« Au fait, … » en début de phrase : « Por cierto, … » (avec une virgule)."}},
+        {"es": "Para «aller droit au fait»: ir al grano. ¡Vamos al grano!", "translations": {"fr": "Pour « aller droit au fait » : « ir al grano ». Venons-en au fait !"}},
+        {"es": "Para «être au fait de…»: estar al tanto de algo o al corriente de algo.", "translations": {"fr": "Pour « être au fait de… » : « estar al tanto de algo » ou « al corriente de algo »."}}
+      ],
+      "examples": [
+        {"es": "Me encanta tu bolso. Por cierto, ¿dónde lo compraste?", "translations": {"fr": "J'adore ton sac. Au fait, où est-ce que tu l'as acheté ?"}, "highlight": ["Por cierto"]},
+        {"es": "Por cierto, mañana no hay clase: es festivo.", "translations": {"fr": "Au fait, demain il n'y a pas cours : c'est férié."}, "highlight": ["Por cierto"]},
+        {"es": "Bueno, vamos al grano: ¿cuánto cuesta?", "translations": {"fr": "Bon, venons-en au fait : combien ça coûte ?"}, "highlight": ["vamos al grano"]}
+      ],
+      "trick": {"es": "Por cierto = una idea que llega de repente 💡.", "translations": {"fr": "« Por cierto » = une idée qui arrive tout à coup 💡."}},
+      "frenchTrap": {"es": "No digas «al hecho»: no se usa así. Y de hecho es otra cosa: «effectivement, d'ailleurs».", "translations": {"fr": "Ne dis pas « al hecho » : ça ne se dit pas ainsi. Et « de hecho », c'est autre chose : effectivement, d'ailleurs."}},
+      "seeAlso": ["d_en_fait", "tp_conect_organizar"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: por cierto (en «cierto»)", "url": "https://dle.rae.es/cierto"}],
+      "tags": ["conectores", "conversación", "francés"]
+    },
+    {
+      "id": "d_ca_depend",
+      "question": {"es": "¿Cómo se dice «ça dépend»?", "translations": {"fr": "Comment dit-on « ça dépend » ?"}},
+      "aliases": ["ça dépend", "ça dépend en espagnol", "c'est toi qui vois", "depende", "depende de", "depende de si", "tú verás"],
+      "cefr": "A2",
+      "category": "usage",
+      "emoji": "🤔",
+      "answer": {"es": "¡Depende! Solo, es perfecto. Para decir de qué: depende de… (Depende del tiempo) o depende de si… (Depende de si llueve).", "translations": {"fr": "« ¡Depende! » Tout seul, c'est parfait. Pour dire de quoi : « depende de… » (Ça dépend du temps) ou « depende de si… » (Ça dépend s'il pleut)."}},
+      "points": [
+        {"es": "Siempre con de: depender de algo o de alguien. Depende de ti.", "translations": {"fr": "Toujours avec « de » : « depender de algo / de alguien ». Ça dépend de toi."}},
+        {"es": "Para «c'est toi qui vois»: Tú verás o Como quieras.", "translations": {"fr": "Pour « c'est toi qui vois » : « Tú verás » ou « Como quieras »."}},
+        {"es": "Para «ça dépend des jours»: Depende del día.", "translations": {"fr": "Pour « ça dépend des jours » : « Depende del día »."}}
+      ],
+      "examples": [
+        {"es": "—¿Vienes a la playa? —Depende del tiempo.", "translations": {"fr": "— Tu viens à la plage ? — Ça dépend du temps."}, "highlight": ["Depende del tiempo"]},
+        {"es": "—¿Cuánto tardas en llegar? —Depende: si hay tráfico, una hora.", "translations": {"fr": "— Tu mets combien de temps pour venir ? — Ça dépend : s'il y a des bouchons, une heure."}, "highlight": ["Depende"]},
+        {"es": "—¿Salimos esta tarde? —Depende de si llueve.", "translations": {"fr": "— On sort cet après-midi ? — Ça dépend s'il pleut."}, "highlight": ["Depende de si llueve"]},
+        {"es": "—¿Pido pescado o carne? —Tú verás.", "translations": {"fr": "— Je prends du poisson ou de la viande ? — C'est toi qui vois."}, "highlight": ["Tú verás"]}
+      ],
+      "trick": {"es": "Depende solo = respuesta perfecta. Depende + algo = depende de.", "translations": {"fr": "« Depende » tout seul = réponse parfaite. Suivi d'un complément = « depende de »."}},
+      "frenchTrap": {"es": "«Ça dépend s'il pleut»: la norma pide de: Depende de si llueve. Y nunca «depende en», un error que viene del inglés.", "translations": {"fr": "« Ça dépend s'il pleut » : la norme demande « de » : « Depende de si llueve ». Et jamais « depende en », une erreur qui vient de l'anglais."}},
+      "seeAlso": ["d_depender_de", "tp_a2_preposiciones"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: depender", "url": "https://www.rae.es/dpd/depender"}],
+      "tags": ["expresiones", "preposiciones", "francés"]
+    },
+    {
+      "id": "d_on",
+      "question": {"es": "¿Cómo se dice «on»?", "translations": {"fr": "Comment dit-on « on » ?"}},
+      "aliases": ["on", "on en espagnol", "comment dire on", "on dit que", "se dice", "nosotros", "uno"],
+      "cefr": "B1",
+      "category": "usage",
+      "emoji": "👥",
+      "answer": {"es": "No hay una sola palabra. On = nosotros (¿Vamos?). On = la gente → se (Aquí se come bien). On = alguien que no conoces → ellos (Me han robado el móvil).", "translations": {"fr": "Il n'y a pas un seul mot. « On » = nous → « nosotros » (On y va ?). « On » = les gens → « se » (Ici, on mange bien). « On » = quelqu'un d'inconnu → « ellos » (On m'a volé mon portable)."}},
+      "points": [
+        {"es": "On = nosotros, en la conversación: ¿Vamos al cine? Comemos a las dos.", "translations": {"fr": "« On » = nous, à l'oral : On va au cinéma ? On mange à deux heures."}},
+        {"es": "On = la gente en general: En España se cena tarde. ¿Cómo se dice…?", "translations": {"fr": "« On » = les gens en général : En Espagne, on dîne tard. Comment dit-on… ?"}},
+        {"es": "On = alguien desconocido: verbo en plural. Llaman a la puerta. Me han dicho que…", "translations": {"fr": "« On » = quelqu'un d'inconnu : verbe au pluriel. On frappe à la porte. On m'a dit que…"}},
+        {"es": "Uno o una, para hablar de ti en general: Uno nunca sabe.", "translations": {"fr": "« Uno » ou « una », pour parler de soi en général : On ne sait jamais."}}
+      ],
+      "examples": [
+        {"es": "¿Vamos a tomar algo después del mercado?", "translations": {"fr": "On va boire un verre après le marché ?"}, "highlight": ["Vamos"]},
+        {"es": "En España se cena más tarde que en Francia.", "translations": {"fr": "En Espagne, on dîne plus tard qu'en France."}, "highlight": ["se cena"]},
+        {"es": "Llaman a la puerta: ¿esperas a alguien?", "translations": {"fr": "On frappe à la porte : tu attends quelqu'un ?"}, "highlight": ["Llaman"]},
+        {"es": "Me han robado la cartera en el metro.", "translations": {"fr": "On m'a volé mon portefeuille dans le métro."}, "highlight": ["Me han robado"]}
+      ],
+      "trick": {"es": "Pregúntate: ¿on = nosotros, la gente o alguien? → nosotros, se o ellos.", "translations": {"fr": "Demande-toi : « on » = nous, les gens ou quelqu'un ? → « nosotros », « se » ou « ellos »."}},
+      "frenchTrap": {"es": "No traduzcas siempre on por la gente o uno: suena raro. «On y va ?» es ¿Vamos?, no «¿La gente va?».", "translations": {"fr": "Ne traduis pas toujours « on » par « la gente » ou « uno » : ça sonne bizarre. « On y va ? », c'est « ¿Vamos? », pas « ¿La gente va? »."}},
+      "seeAlso": ["d_se_impersonal", "tp_pasivas_ser_se", "d_pronombre_sujeto"],
+      "sources": [{"label": "RAE y ASALE · Nueva gramática de la lengua española: oraciones impersonales"}],
+      "tags": ["pronombres", "impersonal", "francés"]
+    },
+    {
+      "id": "d_ne_que",
+      "question": {"es": "¿Cómo se dice «ne… que» (seulement)?", "translations": {"fr": "Comment dit-on « ne… que » (seulement) ?"}},
+      "aliases": ["ne que", "ne que en espagnol", "seulement en espagnol", "je n'ai que", "solo", "solamente", "no más que"],
+      "cefr": "A2",
+      "category": "usage",
+      "emoji": "1️⃣",
+      "answer": {"es": "Lo más fácil: solo (o solamente) delante del verbo: Solo tengo diez euros. También: no… más que: No tengo más que diez euros.", "translations": {"fr": "Le plus simple : « solo » (ou « solamente ») devant le verbe : Je n'ai que dix euros. Autre solution : « no… más que » : « No tengo más que diez euros »."}},
+      "points": [
+        {"es": "Solo se escribe sin tilde (norma de la RAE).", "translations": {"fr": "« Solo » s'écrit sans accent écrit (norme de la RAE)."}},
+        {"es": "Para «il ne fait que pleuvoir»: No para de llover.", "translations": {"fr": "Pour « il ne fait que pleuvoir » : « No para de llover »."}},
+        {"es": "Con un número de veces: Solo la he visto una vez.", "translations": {"fr": "Avec un nombre de fois : Je ne l'ai vue qu'une fois."}}
+      ],
+      "examples": [
+        {"es": "Solo bebo agua, gracias.", "translations": {"fr": "Je ne bois que de l'eau, merci."}, "highlight": ["Solo bebo"]},
+        {"es": "No tengo más que diez euros: ¿pagas tú el taxi?", "translations": {"fr": "Je n'ai que dix euros : tu paies le taxi ?"}, "highlight": ["No tengo más que"]},
+        {"es": "Este verano no ha parado de llover.", "translations": {"fr": "Cet été, il n'a fait que pleuvoir."}, "highlight": ["no ha parado de llover"]}
+      ],
+      "trick": {"es": "«Ne… que» = solo. ¡Una palabra en lugar de dos!", "translations": {"fr": "« Ne… que » = « solo ». Un mot au lieu de deux !"}},
+      "frenchTrap": {"es": "No digas «no tengo que diez euros»: tener que significa «devoir» (Tengo que pagar = «je dois payer»). Di: Solo tengo diez euros.", "translations": {"fr": "Ne dis pas « no tengo que diez euros » : « tener que » veut dire devoir (« Tengo que pagar » = je dois payer). Dis : « Solo tengo diez euros »."}},
+      "seeAlso": ["d_solo_tilde", "d_tener_que_hay_que", "d_mas_de_mas_que"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: solo", "url": "https://www.rae.es/dpd/solo"}],
+      "tags": ["adverbios", "solo", "francés"]
+    },
+    {
+      "id": "d_chez",
+      "question": {"es": "¿Cómo se dice «chez» (chez moi, chez le médecin)?", "translations": {"fr": "Comment dit-on « chez » (chez moi, chez le médecin) ?"}},
+      "aliases": ["chez", "chez moi en espagnol", "chez le médecin en espagnol", "comment dire chez", "en casa", "a casa", "en casa de"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "🏠",
+      "answer": {"es": "No hay una sola palabra: chez moi = en casa (Estoy en casa); chez Marie = en casa de María; chez le médecin = al médico; chez le coiffeur = a la peluquería.", "translations": {"fr": "Il n'y a pas de mot unique : chez moi = « en casa » (Je suis chez moi) ; chez Marie = « en casa de María » ; chez le médecin = « al médico » ; chez le coiffeur = « a la peluquería »."}},
+      "points": [
+        {"es": "Tu casa: en casa o a casa, sin artículo y casi siempre sin mi: Me voy a casa.", "translations": {"fr": "Ta maison : « en casa » ou « a casa », sans article et presque toujours sans « mi » : Je rentre chez moi."}},
+        {"es": "La casa de otra persona: en casa de mis padres, a casa de Luis.", "translations": {"fr": "La maison de quelqu'un d'autre : « en casa de mis padres » (chez mes parents), « a casa de Luis » (chez Luis)."}},
+        {"es": "Profesionales: se dice el lugar o la persona. Voy a la peluquería. Voy al médico.", "translations": {"fr": "Professionnels : on dit le lieu ou la personne. Je vais chez le coiffeur. Je vais chez le médecin."}},
+        {"es": "Para «chez les Français» (en general): entre los franceses o en Francia.", "translations": {"fr": "Pour « chez les Français » (en général) : « entre los franceses » ou « en Francia »."}}
+      ],
+      "examples": [
+        {"es": "Esta noche cenamos en casa: ¿te vienes?", "translations": {"fr": "Ce soir, on dîne à la maison : tu viens ?"}, "highlight": ["en casa"]},
+        {"es": "El domingo comemos en casa de mi hermana.", "translations": {"fr": "Dimanche, on déjeune chez ma sœur."}, "highlight": ["en casa de mi hermana"]},
+        {"es": "Mañana voy al médico a las cinco.", "translations": {"fr": "Demain, je vais chez le médecin à cinq heures."}, "highlight": ["voy al médico"]}
+      ],
+      "trick": {"es": "Estar → en casa. Ir → a casa. ¡Como estar en e ir a!", "translations": {"fr": "Être → « en casa ». Aller → « a casa ». Comme « estar en » et « ir a » !"}},
+      "frenchTrap": {"es": "No digas «estoy a casa» (je suis à la maison): con estar es en: Estoy en casa. Y para ir: Voy a casa.", "translations": {"fr": "Ne dis pas « estoy a casa » (je suis à la maison) : avec « estar », c'est « en » : « Estoy en casa ». Et pour y aller : « Voy a casa »."}},
+      "seeAlso": ["d_ir_a_estar_en", "tp_a2_preposiciones"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de gramática A1–A2: preposiciones"}],
+      "tags": ["preposiciones", "casa", "francés"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

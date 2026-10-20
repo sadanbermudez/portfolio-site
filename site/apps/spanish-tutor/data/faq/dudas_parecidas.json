@@ -1,0 +1,372 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_parecidas",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Palabras que suenan igual", "translations": {"fr": "Les mots qui se prononcent pareil"}},
+  "emoji": "🎭",
+  "order": 31,
+  "entries": [
+    {
+      "id": "d_porque_formas",
+      "question": {"es": "¿Porque, por qué, porqué o por que?", "translations": {"fr": "« Porque », « por qué », « porqué » ou « por que » ?"}},
+      "aliases": ["porque o por qué", "por qué separado", "el porqué", "porque junto o separado", "pourquoi en espagnol", "parce que en espagnol", "porque accent"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "🤔",
+      "answer": {"es": "Por qué (separado, con tilde) pregunta: ¿Por qué lloras? Porque (junto, sin tilde) responde: Porque estoy feliz. El porqué (junto, con tilde) es un nombre: «la razón». Por que (separado, sin tilde) es raro.", "translations": {"fr": "« Por qué » (deux mots, avec accent) pose la question : ¿Por qué lloras? « Porque » (un mot, sans accent) répond : Porque estoy feliz. « El porqué » (un mot, avec accent) est un nom : « la raison ». « Por que » (deux mots, sans accent) est rare."}},
+      "points": [
+        {"es": "¿Por qué…? = pourquoi. También en preguntas indirectas: No sé por qué no viene.", "translations": {"fr": "¿Por qué…? = pourquoi. Aussi dans les questions indirectes : No sé por qué no viene (je ne sais pas pourquoi il ne vient pas)."}},
+        {"es": "Porque = parce que: No salgo porque llueve.", "translations": {"fr": "Porque = parce que : No salgo porque llueve (je ne sors pas parce qu'il pleut)."}},
+        {"es": "El porqué = la razón, el motivo. Lleva artículo y tiene plural (los porqués): No entiendo el porqué de su enfado.", "translations": {"fr": "El porqué = la raison, le motif. Il prend un article et a un pluriel (los porqués) : No entiendo el porqué de su enfado (je ne comprends pas la raison de sa colère)."}},
+        {"es": "Por que = por + que, cuando puedes decir «por la que»: la razón por que lo hice. Es poco frecuente.", "translations": {"fr": "Por que = por + que, quand on peut dire « por la que » : la razón por que lo hice (la raison pour laquelle je l'ai fait). C'est rare."}}
+      ],
+      "examples": [
+        {"es": "—¿Por qué no vienes al cine? —Porque estoy cansada.", "translations": {"fr": "— Pourquoi tu ne viens pas au cinéma ? — Parce que je suis fatiguée."}, "highlight": ["Por qué", "Porque"]},
+        {"es": "No sé por qué mi nieto no contesta.", "translations": {"fr": "Je ne sais pas pourquoi mon petit-fils ne répond pas."}, "highlight": ["por qué"]},
+        {"es": "Nadie me explicó el porqué de la subida del precio.", "translations": {"fr": "Personne ne m'a expliqué la raison de la hausse du prix."}, "highlight": ["el porqué"]}
+      ],
+      "trick": {"es": "Pregunta → dos palabras con tilde (por qué). Respuesta → una palabra sin tilde (porque). Con «el» delante → porqué.", "translations": {"fr": "Question → deux mots avec accent (por qué). Réponse → un mot sans accent (porque). Avec « el » devant → porqué."}},
+      "frenchTrap": {"es": "¡Al revés que en francés! «Pourquoi» es una palabra y en español son dos: por qué. «Parce que» son dos y en español es una: porque.", "translations": {"fr": "C'est l'inverse du français ! « Pourquoi » est un seul mot, en espagnol il y en a deux : por qué. « Parce que » en fait deux, en espagnol un seul : porque."}},
+      "seeAlso": ["d_que_tilde", "d_causa_porque_como", "tp_conect_causa"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «porque»", "url": "https://www.rae.es/dpd/porque"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «porqué»", "url": "https://www.rae.es/dpd/porqu%C3%A9"}
+      ],
+      "tags": ["porque", "porqué", "causa", "preguntas"]
+    },
+    {
+      "id": "d_haber_a_ver",
+      "question": {"es": "¿Haber o a ver?", "translations": {"fr": "« Haber » ou « a ver » ?"}},
+      "aliases": ["a ver o haber", "a ver si", "vamos a ver", "haber si nos vemos", "voyons en espagnol", "a ver ou haber orthographe"],
+      "cefr": "B1",
+      "category": "spelling",
+      "emoji": "👀",
+      "answer": {"es": "Suenan igual, pero «a ver» viene de «ver» (mirar, comprobar): A ver, ¿qué pasa? «Haber» es el verbo de «he, has, hay»: Tiene que haber un error.", "translations": {"fr": "Ils se prononcent pareil, mais « a ver » vient de « ver » (voir, vérifier) : A ver, ¿qué pasa? (voyons, qu'est-ce qui se passe ?). « Haber » est le verbe de « he, has, hay » (avoir, il y a) : Tiene que haber un error (il doit y avoir une erreur)."}},
+      "compare": [
+        {"title": {"es": "A VER (= veamos)", "translations": {"fr": "A VER (= voyons)"}}, "items": [
+          {"es": "Curiosidad: A ver qué dice el médico.", "translations": {"fr": "Curiosité : Voyons ce que dit le médecin."}},
+          {"es": "Deseo: ¡A ver si nos vemos pronto!", "translations": {"fr": "Souhait : J'espère qu'on se verra bientôt !"}},
+          {"es": "Pedir algo: ¿A ver? Déjame mirar.", "translations": {"fr": "Demander : Fais voir ? Laisse-moi regarder."}},
+          {"es": "Llamar la atención: A ver, niños, silencio.", "translations": {"fr": "Attirer l'attention : Bon, les enfants, silence."}}
+        ]},
+        {"title": {"es": "HABER (verbo)", "translations": {"fr": "HABER (verbe)"}}, "items": [
+          {"es": "Existir: Va a haber tormenta.", "translations": {"fr": "Exister : Il va y avoir de l'orage."}},
+          {"es": "Auxiliar: Debe de haber salido.", "translations": {"fr": "Auxiliaire : Il a dû sortir."}},
+          {"es": "Obligación: Tiene que haber pan.", "translations": {"fr": "Obligation : Il doit y avoir du pain."}},
+          {"es": "Reproche: ¡Haberlo dicho antes!", "translations": {"fr": "Reproche : Il fallait le dire avant !"}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Vamos a ver la exposición de Sorolla.", "translations": {"fr": "Nous allons voir l'exposition de Sorolla."}, "highlight": ["a ver"]},
+        {"es": "A ver si mañana hace sol.", "translations": {"fr": "Espérons qu'il fera beau demain."}, "highlight": ["A ver si"]},
+        {"es": "Puede haber retrasos por la nieve.", "translations": {"fr": "Il peut y avoir des retards à cause de la neige."}, "highlight": ["haber"]}
+      ],
+      "trick": {"es": "Si puedes cambiarlo por «veamos», es «a ver». Si es un verbo como «tener» o «existir», es «haber».", "translations": {"fr": "Si tu peux le remplacer par « veamos » (voyons), c'est « a ver ». Si c'est un verbe comme « avoir » ou « exister », c'est « haber »."}},
+      "frenchTrap": {"es": "Aquí la pronunciación no ayuda: la h no suena y b = v. Piensa en francés: «voyons» = a ver; «avoir, il y a» = haber.", "translations": {"fr": "Ici, la prononciation n'aide pas : le h est muet et b = v. Pense en français : « voyons » = a ver ; « avoir, il y a » = haber."}},
+      "seeAlso": ["d_haber_auxiliar", "d_pronunciar_h", "d_pronunciar_b_v"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «haber» (no confundir con «a ver»)", "url": "https://www.rae.es/dpd/haber"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «ver» («a ver»)", "url": "https://www.rae.es/dpd/ver"}
+      ],
+      "tags": ["haber", "ver", "homófonos"]
+    },
+    {
+      "id": "d_hay_ahi_ay",
+      "question": {"es": "¿Hay, ahí o ay?", "translations": {"fr": "« Hay », « ahí » ou « ay » ?"}},
+      "aliases": ["ahí hay ay", "hay o ahí", "ahí o ay", "ay con h", "il y a en espagnol", "là ou il y a espagnol"],
+      "cefr": "A1",
+      "category": "spelling",
+      "emoji": "📍",
+      "answer": {"es": "Hay = il y a (verbo haber): Hay pan. Ahí = là, en ese lugar (con tilde y dos sílabas: a-í): Está ahí. ¡Ay! = aïe (dolor o sorpresa).", "translations": {"fr": "Hay = il y a (verbe haber) : Hay pan. Ahí = là, à cet endroit (avec accent et deux syllabes : a-í) : Está ahí. ¡Ay! = aïe (douleur ou surprise)."}},
+      "points": [
+        {"es": "Hay (una sílaba, como «ai»): algo existe. Hay una farmacia cerca.", "translations": {"fr": "Hay (une syllabe, comme « aï ») : quelque chose existe. Hay una farmacia cerca (il y a une pharmacie près d'ici)."}},
+        {"es": "Ahí (dos sílabas, fuerza en la í): un lugar. Deja las bolsas ahí.", "translations": {"fr": "Ahí (deux syllabes, force sur le í) : un lieu. Deja las bolsas ahí (pose les sacs là)."}},
+        {"es": "¡Ay! (una sílaba, como hay): dolor, pena o sorpresa. ¡Ay, qué daño!", "translations": {"fr": "¡Ay! (une syllabe, comme hay) : douleur, peine ou surprise. ¡Ay, qué daño! (aïe, ça fait mal !)"}}
+      ],
+      "examples": [
+        {"es": "Ahí hay un hombre que grita: ¡ay!", "translations": {"fr": "Là, il y a un homme qui crie : aïe !"}, "highlight": ["Ahí", "hay", "¡ay!"]},
+        {"es": "¿Hay mesa libre ahí, en la terraza?", "translations": {"fr": "Il y a une table libre là, en terrasse ?"}, "highlight": ["Hay", "ahí"]},
+        {"es": "¡Ay, me he dejado las gafas ahí!", "translations": {"fr": "Oh là là, j'ai oublié mes lunettes là-bas !"}, "highlight": ["Ay", "ahí"]}
+      ],
+      "trick": {"es": "La frase de los niños españoles: «Ahí hay un hombre que dice ¡ay!».", "translations": {"fr": "La phrase des écoliers espagnols : « Ahí hay un hombre que dice ¡ay! » (là, il y a un homme qui dit aïe !)."}},
+      "frenchTrap": {"es": "«Il y a» (algo existe) es «hay», nunca «ahí». Pero «il y a deux ans» no es «hay»: es «hace dos años».", "translations": {"fr": "« Il y a » (quelque chose existe) se dit « hay », jamais « ahí ». Mais « il y a deux ans » ne se dit pas avec « hay » : c'est « hace dos años »."}},
+      "seeAlso": ["d_hay_esta", "d_haya_halla", "d_hace_desde"],
+      "sources": [
+        {"label": "RAE · Diccionario de la lengua española: «ahí»", "url": "https://dle.rae.es/ah%C3%AD"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «haber» (hay)", "url": "https://www.rae.es/dpd/haber"}
+      ],
+      "tags": ["hay", "ahí", "ay", "homófonos"]
+    },
+    {
+      "id": "d_sino_si_no",
+      "question": {"es": "¿Sino o si no?", "translations": {"fr": "« Sino » ou « si no » ?"}},
+      "aliases": ["sino junto o separado", "si no separado", "no es sino", "sinon en espagnol", "mais plutôt en espagnol", "sino ou si no"],
+      "cefr": "B1",
+      "category": "spelling",
+      "emoji": "🔀",
+      "answer": {"es": "Sino (junto) corrige algo negado: No es rojo, sino azul. Si no (separado) es «si» + «no», una condición: Si no vienes, te llamo.", "translations": {"fr": "« Sino » (un mot) corrige quelque chose de nié : No es rojo, sino azul (ce n'est pas rouge, mais bleu). « Si no » (deux mots), c'est « si » + « no », une condition : Si no vienes, te llamo (si tu ne viens pas, je t'appelle)."}},
+      "compare": [
+        {"title": {"es": "SINO = no esto, sino aquello", "translations": {"fr": "SINO = pas ceci, mais cela"}}, "items": [
+          {"es": "Corrección: No quiero té, sino café.", "translations": {"fr": "Correction : Je ne veux pas de thé, mais du café."}},
+          {"es": "Con verbo: No llamó, sino que vino.", "translations": {"fr": "Avec un verbe : Elle n'a pas appelé, elle est venue."}},
+          {"es": "No solo… sino también: No solo habla inglés, sino también alemán.", "translations": {"fr": "Non seulement… mais aussi : Elle parle non seulement anglais, mais aussi allemand."}}
+        ]},
+        {"title": {"es": "SI NO = si… no", "translations": {"fr": "SI NO = si… ne… pas"}}, "items": [
+          {"es": "Condición: Si no llueve, salimos.", "translations": {"fr": "Condition : S'il ne pleut pas, on sort."}},
+          {"es": "De lo contrario: Date prisa; si no, perdemos el tren.", "translations": {"fr": "Sinon : Dépêche-toi, sinon on rate le train."}},
+          {"es": "Pregunta: ¿Y si no contesta?", "translations": {"fr": "Question : Et s'il ne répond pas ?"}}
+        ]}
+      ],
+      "examples": [
+        {"es": "No vamos a Madrid, sino a Toledo.", "translations": {"fr": "Nous n'allons pas à Madrid, mais à Tolède."}, "highlight": ["sino"]},
+        {"es": "Si no encuentras las llaves, llámame.", "translations": {"fr": "Si tu ne trouves pas les clés, appelle-moi."}, "highlight": ["Si no"]},
+        {"es": "Abrígate; si no, te vas a resfriar.", "translations": {"fr": "Couvre-toi, sinon tu vas t'enrhumer."}, "highlight": ["si no"], "note": "Si no = de lo contrario (el «sinon» francés).", "noteTranslations": {"fr": "Si no = sinon (en deux mots en espagnol)."}}
+      ],
+      "trick": {"es": "¿Hay una condición («si…»)? → si no, separado. ¿Corriges algo negado («no esto, sino aquello»)? → sino, junto.", "translations": {"fr": "Il y a une condition (« si… ») ? → si no, en deux mots. Tu corriges quelque chose de nié (« pas ceci, mais cela ») ? → sino, en un mot."}},
+      "frenchTrap": {"es": "¡Cuidado! El «sinon» francés (= de lo contrario) se escribe separado en español: si no. Y el «sino» español es el «mais» de «non pas…, mais…».", "translations": {"fr": "Attention ! Le « sinon » français (= autrement) s'écrit en deux mots en espagnol : si no. Et le « sino » espagnol, c'est le « mais » de « non pas…, mais… »."}},
+      "seeAlso": ["d_pero_sino", "tp_conect_contraste"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «sino»", "url": "https://www.rae.es/dpd/sino"}],
+      "tags": ["sino", "condición", "conectores"]
+    },
+    {
+      "id": "d_conque",
+      "question": {"es": "¿Conque, con que o con qué?", "translations": {"fr": "« Conque », « con que » ou « con qué » ?"}},
+      "aliases": ["conque junto", "con que separado", "con qué tilde", "conque significado", "donc en espagnol conque", "avec quoi en espagnol"],
+      "cefr": "B2",
+      "category": "spelling",
+      "emoji": "🐚",
+      "answer": {"es": "Conque (junto) significa «así que»: Llueve, conque coge el paraguas. Con qué (con tilde) pregunta: ¿Con qué pagas? Con que (separado) es «con» + «que»: Basta con que me llames.", "translations": {"fr": "« Conque » (un mot) veut dire « así que » (donc) : Llueve, conque coge el paraguas. « Con qué » (avec accent) pose une question : ¿Con qué pagas? (avec quoi tu paies ?). « Con que » (deux mots), c'est « con » + « que » : Basta con que me llames (il suffit que tu m'appelles)."}},
+      "points": [
+        {"es": "Conque = así que, de modo que. Va detrás de una coma: Ya es tarde, conque me voy.", "translations": {"fr": "Conque = así que, donc. Il vient après une virgule : Ya es tarde, conque me voy (il est tard, donc je m'en vais)."}},
+        {"es": "Con qué = pregunta, también indirecta: No sé con qué limpiar esto.", "translations": {"fr": "Con qué = question, même indirecte : No sé con qué limpiar esto (je ne sais pas avec quoi nettoyer ça)."}},
+        {"es": "Con que = «con el que / con la que» (el cuchillo con que corto el pan) o verbo con «con» + que (Me conformo con que venga).", "translations": {"fr": "Con que = « con el que / con la que », avec lequel (el cuchillo con que corto el pan) ou verbe construit avec « con » + que (Me conformo con que venga : je me contente qu'il vienne)."}}
+      ],
+      "examples": [
+        {"es": "Mañana madrugas, conque no te acuestes tarde.", "translations": {"fr": "Demain tu te lèves tôt, alors ne te couche pas tard."}, "highlight": ["conque"]},
+        {"es": "¿Con qué se hace este gazpacho?", "translations": {"fr": "Avec quoi on fait ce gaspacho ?"}, "highlight": ["Con qué"]},
+        {"es": "Me basta con que me mandes un mensaje.", "translations": {"fr": "Il me suffit que tu m'envoies un message."}, "highlight": ["con que"]},
+        {"es": "¡Conque eras tú el del regalo!", "translations": {"fr": "Alors comme ça, c'est toi qui as fait le cadeau !"}, "highlight": ["Conque"], "note": "Al principio de la frase, «conque» expresa sorpresa.", "noteTranslations": {"fr": "En début de phrase, « conque » exprime la surprise (« alors comme ça… »)."}}
+      ],
+      "trick": {"es": "Si puedes decir «así que», es «conque», junto. Si preguntas, «con qué», con tilde.", "translations": {"fr": "Si tu peux dire « así que » (donc), c'est « conque », en un mot. Si tu poses une question, « con qué », avec accent."}},
+      "frenchTrap": {"es": "Falso parecido: «conque» no tiene nada que ver con la «conque» francesa (la concha). Y para «donc», lo más corriente es «así que».", "translations": {"fr": "Faux air de famille : « conque » n'a rien à voir avec la « conque » française (le coquillage). Et pour « donc », le plus courant est « así que »."}},
+      "seeAlso": ["d_donc", "d_que_tilde"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «conque»", "url": "https://www.rae.es/dpd/conque"}],
+      "tags": ["conque", "consecuencia", "conectores"]
+    },
+    {
+      "id": "d_aparte",
+      "question": {"es": "¿Aparte o a parte?", "translations": {"fr": "« Aparte » ou « a parte » ?"}},
+      "aliases": ["aparte junto o separado", "aparte de eso", "a parte separado", "à part en espagnol", "à part ça en espagnol"],
+      "cefr": "B1",
+      "category": "spelling",
+      "emoji": "✂️",
+      "answer": {"es": "Casi siempre junto: aparte. Significa «por separado», «además» o «excepto»: Ponlo aparte. Aparte de eso, todo bien. Separado solo si es «a» + «parte» (un trozo): Asistí a parte de la clase.", "translations": {"fr": "Presque toujours en un mot : aparte. Ça veut dire « séparément », « en plus » ou « sauf » : Ponlo aparte (mets-le de côté). Aparte de eso, todo bien (à part ça, tout va bien). En deux mots seulement si c'est « a » + « parte » (un morceau) : Asistí a parte de la clase (j'ai assisté à une partie du cours)."}},
+      "points": [
+        {"es": "Aparte = separado, a un lado: Pago el café aparte.", "translations": {"fr": "Aparte = séparément, de côté : Pago el café aparte (je paie le café à part)."}},
+        {"es": "Aparte de = además de, o excepto: Aparte de mi hija, no vino nadie.", "translations": {"fr": "Aparte de = en plus de, ou à part : Aparte de mi hija, no vino nadie (à part ma fille, personne n'est venu)."}},
+        {"es": "Un caso aparte = diferente, especial: Mi abuela es un caso aparte.", "translations": {"fr": "Un caso aparte = un cas à part : Mi abuela es un caso aparte (ma grand-mère est un cas à part)."}}
+      ],
+      "examples": [
+        {"es": "¿Me pone la salsa aparte, por favor?", "translations": {"fr": "Vous pouvez me mettre la sauce à part, s'il vous plaît ?"}, "highlight": ["aparte"]},
+        {"es": "Aparte de caro, el hotel era ruidoso.", "translations": {"fr": "En plus d'être cher, l'hôtel était bruyant."}, "highlight": ["Aparte de"]},
+        {"es": "Bromas aparte, el viaje fue precioso.", "translations": {"fr": "Blague à part, le voyage était magnifique."}, "highlight": ["aparte"]}
+      ],
+      "trick": {"es": "En español «aparte» va de un solo bloque. Si dudas, júntalo.", "translations": {"fr": "En espagnol, « aparte » s'écrit d'un seul bloc. En cas de doute, colle-le."}},
+      "frenchTrap": {"es": "«À part» son dos palabras en francés, pero en español es una: aparte. «À part ça» = aparte de eso.", "translations": {"fr": "« À part » fait deux mots en français, mais un seul en espagnol : aparte. « À part ça » = aparte de eso."}},
+      "seeAlso": ["d_demas", "d_tambien_tan_bien"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «aparte»", "url": "https://www.rae.es/dpd/aparte"}],
+      "tags": ["aparte", "junto", "separado"]
+    },
+    {
+      "id": "d_demas",
+      "question": {"es": "¿Demás o de más?", "translations": {"fr": "« Demás » ou « de más » ?"}},
+      "aliases": ["los demás", "de más separado", "lo demás", "y demás", "les autres en espagnol", "en trop en espagnol"],
+      "cefr": "B1",
+      "category": "spelling",
+      "emoji": "➕",
+      "answer": {"es": "Demás (junto) = los otros, el resto: los demás, lo demás. De más (separado) = de sobra, en exceso: Me has dado un euro de más.", "translations": {"fr": "« Demás » (un mot) = les autres, le reste : los demás (les autres), lo demás (le reste). « De más » (deux mots) = en trop : Me has dado un euro de más (tu m'as donné un euro en trop)."}},
+      "compare": [
+        {"title": {"es": "DEMÁS = el resto", "translations": {"fr": "DEMÁS = le reste, les autres"}}, "items": [
+          {"es": "Personas: Los demás ya han llegado.", "translations": {"fr": "Personnes : Les autres sont déjà arrivés."}},
+          {"es": "Cosas: Lo demás no importa.", "translations": {"fr": "Choses : Le reste n'a pas d'importance."}},
+          {"es": "Lista: Pan, leche y demás.", "translations": {"fr": "Liste : Du pain, du lait, et cetera."}}
+        ]},
+        {"title": {"es": "DE MÁS = de sobra", "translations": {"fr": "DE MÁS = en trop"}}, "items": [
+          {"es": "Cantidad: Hay una silla de más.", "translations": {"fr": "Quantité : Il y a une chaise en trop."}},
+          {"es": "Dinero: Pagaste diez euros de más.", "translations": {"fr": "Argent : Tu as payé dix euros de trop."}},
+          {"es": "Expresión: No está de más preguntar.", "translations": {"fr": "Expression : Ça ne coûte rien de demander."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Tú quédate aquí; los demás, al coche.", "translations": {"fr": "Toi, reste ici ; les autres, dans la voiture."}, "highlight": ["los demás"]},
+        {"es": "Creo que he comido de más.", "translations": {"fr": "Je crois que j'ai trop mangé."}, "highlight": ["de más"]},
+        {"es": "Lo demás te lo cuento mañana.", "translations": {"fr": "Le reste, je te le raconte demain."}, "highlight": ["Lo demás"]}
+      ],
+      "trick": {"es": "¿Puedes decir «de menos» en su lugar (un euro de menos)? Entonces es «de más», separado.", "translations": {"fr": "Tu peux dire « de menos » à la place (un euro en moins) ? Alors c'est « de más », en deux mots."}},
+      "frenchTrap": {"es": "«Les autres» se dice «los demás», junto y con tilde. «De trop» se dice «de más», separado: Estoy de más.", "translations": {"fr": "« Les autres » se dit « los demás », en un mot avec accent. « De trop » se dit « de más », en deux mots : Estoy de más (je suis de trop)."}},
+      "seeAlso": ["d_aparte", "d_otro"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «demás»", "url": "https://www.rae.es/dpd/dem%C3%A1s"}],
+      "tags": ["demás", "sobrar", "junto", "separado"]
+    },
+    {
+      "id": "d_tambien_tan_bien",
+      "question": {"es": "¿También o tan bien?", "translations": {"fr": "« También » ou « tan bien » ?"}},
+      "aliases": ["tan bien separado", "también junto", "tan bien como", "aussi bien que en espagnol", "aussi en espagnol"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "🎤",
+      "answer": {"es": "También (junto) = aussi, además: Yo también voy. Tan bien (separado) = si bien: Cantas tan bien que me emocionas. Y para comparar: tan bien como.", "translations": {"fr": "« También » (un mot) = aussi, en plus : Yo también voy (moi aussi, j'y vais). « Tan bien » (deux mots) = si bien : Cantas tan bien que me emocionas (tu chantes si bien que tu m'émeus). Et pour comparer : tan bien como (aussi bien que)."}},
+      "compare": [
+        {"title": {"es": "TAMBIÉN = además", "translations": {"fr": "TAMBIÉN = aussi, en plus"}}, "items": [
+          {"es": "Añadir: Quiero agua y también pan.", "translations": {"fr": "Ajouter : Je veux de l'eau et aussi du pain."}},
+          {"es": "Igual que otro: A mí también me gusta.", "translations": {"fr": "Comme quelqu'un d'autre : Moi aussi, j'aime ça."}}
+        ]},
+        {"title": {"es": "TAN BIEN = muy bien", "translations": {"fr": "TAN BIEN = si bien"}}, "items": [
+          {"es": "Intensidad: ¡Lo has hecho tan bien!", "translations": {"fr": "Intensité : Tu l'as si bien fait !"}},
+          {"es": "Comparación: Cocina tan bien como su madre.", "translations": {"fr": "Comparaison : Il cuisine aussi bien que sa mère."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Mi nieta baila también, como su madre.", "translations": {"fr": "Ma petite-fille danse aussi, comme sa mère."}, "highlight": ["también"]},
+        {"es": "Mi nieta baila tan bien como su madre.", "translations": {"fr": "Ma petite-fille danse aussi bien que sa mère."}, "highlight": ["tan bien como"]},
+        {"es": "Hoy me encuentro tan bien que voy a pasear.", "translations": {"fr": "Aujourd'hui, je me sens si bien que je vais me promener."}, "highlight": ["tan bien que"]}
+      ],
+      "trick": {"es": "Si puedes cambiarlo por «además» o «igualmente» → también. Si puedes decir «muy bien» → tan bien.", "translations": {"fr": "Si tu peux le remplacer par « además » (en plus) ou « igualmente » (également) → también. Si tu peux dire « muy bien » (très bien) → tan bien."}},
+      "frenchTrap": {"es": "«Aussi» tiene dos caras: «moi aussi» = yo también, pero «aussi bien que» = tan bien como (nunca «también como»).", "translations": {"fr": "« Aussi » a deux visages : « moi aussi » = yo también, mais « aussi bien que » = tan bien como (jamais « también como »)."}},
+      "seeAlso": ["d_tambien_tampoco", "tp_a2_comparar"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «también»", "url": "https://www.rae.es/dpd/tambi%C3%A9n"}],
+      "tags": ["también", "comparación", "homófonos"]
+    },
+    {
+      "id": "d_haya_halla",
+      "question": {"es": "¿Haya, halla o allá?", "translations": {"fr": "« Haya », « halla » ou « allá » ?"}},
+      "aliases": ["halla o haya", "haya de haber", "halla de hallar", "allá o haya", "aya", "qu'il y ait en espagnol", "se trouve en espagnol halla"],
+      "cefr": "B1",
+      "category": "spelling",
+      "emoji": "🔎",
+      "answer": {"es": "Haya es el verbo haber (subjuntivo): Espero que haya pan. Halla es el verbo hallar (= encontrar): El hotel se halla en el centro. Allá es un lugar lejano: Vamos allá. Suenan igual porque ll = y.", "translations": {"fr": "« Haya » est le verbe haber au subjonctif : Espero que haya pan (j'espère qu'il y a du pain). « Halla » est le verbe hallar (= trouver) : El hotel se halla en el centro (l'hôtel se trouve dans le centre). « Allá » est un lieu lointain : Vamos allá (allons-y). Ils sonnent pareil car ll = y."}},
+      "points": [
+        {"es": "Haya, de haber: Ojalá haya sitio. Cuando hayas terminado, llámame.", "translations": {"fr": "Haya, de haber : Ojalá haya sitio (pourvu qu'il y ait de la place). Cuando hayas terminado, llámame (quand tu auras fini, appelle-moi)."}},
+        {"es": "Halla, de hallar (encontrar): Siempre halla una solución.", "translations": {"fr": "Halla, de hallar (trouver) : Siempre halla una solución (il trouve toujours une solution)."}},
+        {"es": "Allá: lugar lejano o dirección. Allá arriba. Más allá.", "translations": {"fr": "Allá : lieu lointain ou direction. Allá arriba (là-haut). Más allá (au-delà)."}},
+        {"es": "El haya es además un árbol. Y «aya» (niñera de antes) casi no se usa.", "translations": {"fr": "El haya est aussi un arbre (le hêtre). Et « aya » (gouvernante d'autrefois) ne s'emploie presque plus."}}
+      ],
+      "examples": [
+        {"es": "No creo que haya mucha gente en la playa.", "translations": {"fr": "Je ne pense pas qu'il y ait beaucoup de monde à la plage."}, "highlight": ["haya"]},
+        {"es": "La farmacia se halla junto a la iglesia.", "translations": {"fr": "La pharmacie se trouve à côté de l'église."}, "highlight": ["se halla"]},
+        {"es": "Mis hijos viven allá, en Canadá.", "translations": {"fr": "Mes enfants vivent là-bas, au Canada."}, "highlight": ["allá"]}
+      ],
+      "trick": {"es": "¿Cabe «encuentra»? → halla. ¿Viene de «hay» o de «he»? → haya. ¿Es un lugar? → allá.", "translations": {"fr": "Tu peux mettre « encuentra » (trouve) ? → halla. Ça vient de « hay » ou de « he » ? → haya. C'est un lieu ? → allá."}},
+      "frenchTrap": {"es": "«Qu'il y ait» = que haya (con h y con y). «Se trouver» = hallarse o encontrarse: El museo se halla aquí.", "translations": {"fr": "« Qu'il y ait » = que haya (avec h et avec y). « Se trouver » = hallarse ou encontrarse : El museo se halla aquí (le musée se trouve ici)."}},
+      "seeAlso": ["d_pronunciar_ll_y", "d_haiga", "d_hay_ahi_ay"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «haber» (haya)", "url": "https://www.rae.es/dpd/haber"},
+        {"label": "RAE · Diccionario de la lengua española: «hallar»", "url": "https://dle.rae.es/hallar"}
+      ],
+      "tags": ["haya", "halla", "allá", "yeísmo"]
+    },
+    {
+      "id": "d_echo_hecho",
+      "question": {"es": "¿Echo o hecho?", "translations": {"fr": "« Echo » ou « hecho » ?"}},
+      "aliases": ["hecho con h", "echar de menos", "te echo de menos", "de hecho", "tu me manques en espagnol", "fait en espagnol hecho"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "💌",
+      "answer": {"es": "Hecho, con h, viene de hacer: He hecho la cena. Es un hecho. De hecho… Echo, sin h, viene de echar (tirar, poner): Echo sal a la sopa. Te echo de menos.", "translations": {"fr": "« Hecho », avec h, vient de hacer (faire) : He hecho la cena (j'ai fait le dîner). Es un hecho (c'est un fait). De hecho… (en fait…). « Echo », sans h, vient de echar (jeter, mettre) : Echo sal a la sopa (je mets du sel dans la soupe). Te echo de menos (tu me manques)."}},
+      "compare": [
+        {"title": {"es": "HECHO (hacer)", "translations": {"fr": "HECHO (hacer, faire)"}}, "items": [
+          {"es": "Participio: ¿Has hecho la compra?", "translations": {"fr": "Participe : Tu as fait les courses ?"}},
+          {"es": "Nombre: Es un hecho real.", "translations": {"fr": "Nom : C'est un fait réel."}},
+          {"es": "Expresión: De hecho, ya lo sabía.", "translations": {"fr": "Expression : En fait, je le savais déjà."}},
+          {"es": "Adjetivo: La carne, muy hecha.", "translations": {"fr": "Adjectif : La viande, bien cuite."}}
+        ]},
+        {"title": {"es": "ECHO (echar)", "translations": {"fr": "ECHO (echar, jeter, mettre)"}}, "items": [
+          {"es": "Poner: Echo azúcar al café.", "translations": {"fr": "Mettre : Je mets du sucre dans le café."}},
+          {"es": "Tirar: Echo la carta al buzón.", "translations": {"fr": "Jeter : Je mets la lettre à la boîte."}},
+          {"es": "Extrañar: Te echo de menos.", "translations": {"fr": "Manquer : Tu me manques."}},
+          {"es": "Ayudar: Te echo una mano.", "translations": {"fr": "Aider : Je te donne un coup de main."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Te echo mucho de menos, cariño.", "translations": {"fr": "Tu me manques beaucoup, mon chéri."}, "highlight": ["echo"]},
+        {"es": "Ya he hecho las maletas.", "translations": {"fr": "J'ai déjà fait les valises."}, "highlight": ["hecho"]},
+        {"es": "De hecho, prefiero quedarme en casa.", "translations": {"fr": "En fait, je préfère rester à la maison."}, "highlight": ["De hecho"]}
+      ],
+      "trick": {"es": "Hacer tiene h → hecho tiene h. Echar no tiene h → echo tampoco.", "translations": {"fr": "Hacer a un h → hecho aussi. Echar n'a pas de h → echo non plus."}},
+      "frenchTrap": {"es": "«Tu me manques» se dice al revés, con «yo» de sujeto: te echo de menos (España) o te extraño (América). Y sin h: «echo».", "translations": {"fr": "« Tu me manques » se dit à l'envers, avec « je » comme sujet : te echo de menos (Espagne) ou te extraño (Amérique). Et sans h : « echo »."}},
+      "seeAlso": ["d_participios_irregulares", "d_pronunciar_h"],
+      "sources": [
+        {"label": "RAE · Diccionario de la lengua española: «echar» (echar de menos)", "url": "https://dle.rae.es/echar"},
+        {"label": "RAE · Diccionario de la lengua española: «hecho»", "url": "https://dle.rae.es/hecho"}
+      ],
+      "tags": ["hecho", "echar", "hacer", "homófonos"]
+    },
+    {
+      "id": "d_vaya_valla",
+      "question": {"es": "¿Vaya, valla o baya?", "translations": {"fr": "« Vaya », « valla » ou « baya » ?"}},
+      "aliases": ["vaya o valla", "valla publicitaria", "vaya con v", "baya fruta", "que te vaya bien", "ça alors en espagnol", "clôture en espagnol"],
+      "cefr": "B1",
+      "category": "spelling",
+      "emoji": "🚧",
+      "answer": {"es": "Vaya viene de ir (¡Que te vaya bien!) y también expresa sorpresa (¡Vaya!). Valla es una cerca o un cartel grande (valla publicitaria). Baya es un fruto pequeño. Suenan igual: b = v y ll = y.", "translations": {"fr": "« Vaya » vient de ir (aller) : ¡Que te vaya bien! (bonne continuation !), et exprime aussi la surprise (¡Vaya! = ça alors !). « Valla » est une clôture ou un grand panneau (valla publicitaria). « Baya » est une baie (petit fruit). Ils sonnent pareil : b = v et ll = y."}},
+      "points": [
+        {"es": "Vaya (de ir): Espero que todo vaya bien. ¡Vaya, qué sorpresa!", "translations": {"fr": "Vaya (de ir) : Espero que todo vaya bien (j'espère que tout ira bien). ¡Vaya, qué sorpresa! (ça alors, quelle surprise !)"}},
+        {"es": "Valla: cerca o barrera; en atletismo, obstáculo; en la calle, cartel de anuncios.", "translations": {"fr": "Valla : clôture ou barrière ; en athlétisme, haie ; dans la rue, panneau publicitaire."}},
+        {"es": "Baya: fruto como el arándano o la grosella.", "translations": {"fr": "Baya : baie, comme la myrtille ou la groseille."}}
+      ],
+      "examples": [
+        {"es": "¡Que te vaya muy bien en el viaje!", "translations": {"fr": "Fais un très bon voyage !"}, "highlight": ["vaya"]},
+        {"es": "El perro saltó la valla del jardín.", "translations": {"fr": "Le chien a sauté par-dessus la clôture du jardin."}, "highlight": ["valla"]},
+        {"es": "¡Vaya! Se me ha olvidado el paraguas.", "translations": {"fr": "Zut ! J'ai oublié mon parapluie."}, "highlight": ["Vaya"]},
+        {"es": "Las bayas de este arbusto no se comen.", "translations": {"fr": "Les baies de cet arbuste ne se mangent pas."}, "highlight": ["bayas"]}
+      ],
+      "trick": {"es": "Vaya, con la v de «voy»: es el verbo ir. Valla, con la ll de «muralla»: una barrera.", "translations": {"fr": "Vaya, avec le v de « voy » (je vais) : c'est le verbe ir. Valla, avec le ll de « muralla » (muraille) : une barrière."}},
+      "frenchTrap": {"es": "La «baie» que se come es una baya, pero la «baie» del mar es una bahía. Y «¡Vaya!» es como «ça alors !» o «zut !».", "translations": {"fr": "La « baie » qui se mange est une « baya », mais la baie de la mer est une « bahía ». Et « ¡Vaya! », c'est comme « ça alors ! » ou « zut ! »."}},
+      "seeAlso": ["d_pronunciar_ll_y", "d_pronunciar_b_v"],
+      "sources": [
+        {"label": "RAE · Diccionario de la lengua española: «valla»", "url": "https://dle.rae.es/valla"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «yeísmo»", "url": "https://www.rae.es/dpd/ye%C3%ADsmo"}
+      ],
+      "tags": ["vaya", "valla", "baya", "homófonos"]
+    },
+    {
+      "id": "d_vez_ves",
+      "question": {"es": "¿Vez o ves?", "translations": {"fr": "« Vez » ou « ves » ?"}},
+      "aliases": ["vez con z", "ves con s", "tal vez", "a veces", "fois en espagnol", "tu vois en espagnol"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "🔁",
+      "answer": {"es": "Vez, con z, es «una ocasión»: una vez, otra vez, a veces, tal vez. Ves, con s, es el verbo ver: ¿Ves el mar? En casi toda España suenan distinto (la z como «th»); en América, igual.", "translations": {"fr": "« Vez », avec z, c'est « une fois » : una vez, otra vez (encore une fois), a veces (parfois), tal vez (peut-être). « Ves », avec s, c'est le verbe ver (voir) : ¿Ves el mar? (tu vois la mer ?). Dans presque toute l'Espagne, ils sonnent différemment (le z comme le « th » anglais) ; en Amérique, pareil."}},
+      "compare": [
+        {"title": {"es": "VEZ = ocasión", "translations": {"fr": "VEZ = fois"}}, "items": [
+          {"es": "Una vez: Fui una vez a Cuba.", "translations": {"fr": "Une fois : Je suis allée une fois à Cuba."}},
+          {"es": "Otra vez: ¿Otra vez llueve?", "translations": {"fr": "Encore une fois : Il pleut encore ?"}},
+          {"es": "A veces: A veces cocino yo.", "translations": {"fr": "Parfois : Parfois, c'est moi qui cuisine."}},
+          {"es": "Tal vez: Tal vez vengan.", "translations": {"fr": "Peut-être : Ils viendront peut-être."}}
+        ]},
+        {"title": {"es": "VES = verbo ver", "translations": {"fr": "VES = tu vois"}}, "items": [
+          {"es": "Ver: ¿Ves a tu nieto a menudo?", "translations": {"fr": "Voir : Tu vois souvent ton petit-fils ?"}},
+          {"es": "Comprobar: ¿Ves? Ya funciona.", "translations": {"fr": "Constater : Tu vois ? Ça marche maintenant."}},
+          {"es": "Mirar: Desde aquí no ves nada.", "translations": {"fr": "Regarder : D'ici, tu ne vois rien."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "¿Ves? Te lo dije: otra vez tarde.", "translations": {"fr": "Tu vois ? Je te l'avais dit : encore en retard."}, "highlight": ["Ves", "vez"]},
+        {"es": "A veces veo a mis amigas en el parque.", "translations": {"fr": "Parfois, je vois mes amies au parc."}, "highlight": ["A veces"]},
+        {"es": "Tal vez vaya a Lisboa en primavera.", "translations": {"fr": "J'irai peut-être à Lisbonne au printemps."}, "highlight": ["Tal vez"]}
+      ],
+      "trick": {"es": "Plural de vez: veces (z → c). Si delante hay «una», «otra», «a» o «tal», es vez.", "translations": {"fr": "Pluriel de vez : veces (z → c). S'il y a « una », « otra », « a » ou « tal » devant, c'est vez."}},
+      "frenchTrap": {"es": "«Une fois» = una vez, «parfois» = a veces, «à la fois» = a la vez, «peut-être» = tal vez. Y «tu vois» = ves, con s.", "translations": {"fr": "« Une fois » = una vez, « parfois » = a veces, « à la fois » = a la vez, « peut-être » = tal vez. Et « tu vois » = ves, avec s."}},
+      "seeAlso": ["d_pronunciar_c_z", "d_volver_a"],
+      "sources": [
+        {"label": "RAE · Diccionario de la lengua española: «vez»", "url": "https://dle.rae.es/vez"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «seseo»", "url": "https://www.rae.es/dpd/seseo"}
+      ],
+      "tags": ["vez", "ves", "seseo", "homófonos"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

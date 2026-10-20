@@ -1,0 +1,319 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_pronombres",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Pronombres", "translations": {"fr": "Les pronoms"}},
+  "emoji": "🎁",
+  "order": 22,
+  "entries": [
+    {
+      "id": "d_lo_le",
+      "question": {"es": "¿Lo o le? ¿Cuál uso?", "translations": {"fr": "« Lo » ou « le » ? Lequel utiliser ?"}},
+      "aliases": ["le o lo", "lo la los las", "le les", "complemento directo e indirecto", "pronom COD COI espagnol", "lui leur espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🎁",
+      "answer": {"es": "Lo, la, los, las = la cosa o la persona que recibe la acción directamente («le, la, les» en francés). Le, les = la persona a quien das, dices o envías algo («lui, leur»).", "translations": {"fr": "Lo, la, los, las = la chose ou la personne qui reçoit directement l'action (« le, la, les » en français). Le, les = la personne à qui tu donnes, dis ou envoies quelque chose (« lui, leur »)."}},
+      "compare": [
+        {"title": {"es": "LO, LA, LOS, LAS (= le, la, les)", "translations": {"fr": "LO, LA, LOS, LAS (= le, la, les)"}}, "items": [
+          {"es": "El libro: lo leo.", "translations": {"fr": "Le livre : je le lis."}},
+          {"es": "La carta: la escribo.", "translations": {"fr": "La lettre : je l'écris."}},
+          {"es": "A Pedro: lo veo mañana.", "translations": {"fr": "Pedro : je le vois demain."}}
+        ]},
+        {"title": {"es": "LE, LES (= lui, leur)", "translations": {"fr": "LE, LES (= lui, leur)"}}, "items": [
+          {"es": "A Ana: le escribo una carta.", "translations": {"fr": "Ana : je lui écris une lettre."}},
+          {"es": "A mis hijos: les doy dinero.", "translations": {"fr": "Mes enfants : je leur donne de l'argent."}},
+          {"es": "A Pedro: le digo la verdad.", "translations": {"fr": "Pedro : je lui dis la vérité."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "¿Las llaves? Las tengo yo.", "translations": {"fr": "Les clés ? C'est moi qui les ai."}, "highlight": ["Las tengo"]},
+        {"es": "A mi madre le encantan las flores, así que le compro un ramo.", "translations": {"fr": "Ma mère adore les fleurs, alors je lui achète un bouquet."}, "highlight": ["le encantan", "le compro"]},
+        {"es": "—¿Has visto a Carmen? —Sí, la vi ayer.", "translations": {"fr": "— Tu as vu Carmen ? — Oui, je l'ai vue hier."}, "highlight": ["la vi"]}
+      ],
+      "trick": {"es": "Si en francés dices «lui» o «leur», en español es le o les. Si dices «le, la, les», es lo, la, los, las.", "translations": {"fr": "Si en français tu dis « lui » ou « leur », en espagnol c'est le ou les. Si tu dis « le, la, les », c'est lo, la, los, las."}},
+      "frenchTrap": {"es": "¡Ojo! El «le» español no es el «le» francés: «je le vois» = lo veo. Le en español = «lui»: le doy = je lui donne.", "translations": {"fr": "Attention ! Le « le » espagnol n'est pas le « le » français : « je le vois » = lo veo. « Le » en espagnol = « lui » : le doy = je lui donne."}},
+      "seeAlso": ["tp_pron_objeto", "d_leismo", "d_se_lo", "tp_b1_pronombres"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: pronombres personales átonos", "url": "https://www.rae.es/dpd/pronombres%20personales%20%C3%A1tonos"}
+      ],
+      "tags": ["pronombres", "lo", "le", "complementos"]
+    },
+    {
+      "id": "d_se_lo",
+      "question": {"es": "¿Por qué se dice «se lo» y no «le lo»?", "translations": {"fr": "Pourquoi dit-on « se lo » et pas « le lo » ?"}},
+      "aliases": ["se lo doy", "le lo", "se la", "dos pronombres juntos", "je le lui donne espagnol", "le lui espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🔄",
+      "answer": {"es": "Le y les no pueden ir delante de lo, la, los, las: se cambian por se. Le doy el libro → Se lo doy. Este «se» no es reflexivo: solo sustituye a le o les.", "translations": {"fr": "« Le » et « les » ne peuvent pas se placer devant lo, la, los, las : ils deviennent « se ». Le doy el libro → Se lo doy (je le lui donne). Ce « se » n'est pas réfléchi : il remplace seulement « le » ou « les »."}},
+      "points": [
+        {"es": "Orden: primero la persona, después la cosa: me lo, te la, nos los, se las.", "translations": {"fr": "Ordre : d'abord la personne, puis la chose : me lo, te la, nos los, se las."}},
+        {"es": "Se vale para él, ella, usted, ellos, ellas y ustedes. Si no está claro, añade a él, a ella…: Se lo di a ella.", "translations": {"fr": "« Se » vaut pour lui, elle, vous (usted), eux, elles et vous (ustedes). Si ce n'est pas clair, ajoute a él, a ella… : Se lo di a ella."}},
+        {"es": "Igual con el imperativo y el infinitivo: Dáselo. Voy a dárselo.", "translations": {"fr": "Pareil avec l'impératif et l'infinitif : Dáselo (donne-le-lui). Voy a dárselo (je vais le lui donner)."}}
+      ],
+      "examples": [
+        {"es": "—¿Le has dado el regalo a tu nieta? —Sí, se lo di ayer.", "translations": {"fr": "— Tu as donné le cadeau à ta petite-fille ? — Oui, je le lui ai donné hier."}, "highlight": ["se lo di"]},
+        {"es": "Las fotos se las mando a mis hermanos por WhatsApp.", "translations": {"fr": "Les photos, je les envoie à mes frères et sœurs par WhatsApp."}, "highlight": ["se las mando"]},
+        {"es": "¿La receta? Te la escribo ahora mismo.", "translations": {"fr": "La recette ? Je te l'écris tout de suite."}, "highlight": ["Te la escribo"]}
+      ],
+      "trick": {"es": "Dos pronombres que empiezan por «l» no van juntos: le + lo = se lo.", "translations": {"fr": "Deux pronoms qui commencent par « l » ne vont pas ensemble : le + lo = se lo."}},
+      "frenchTrap": {"es": "En francés va primero la cosa: «je le lui donne». En español, primero la persona: se lo doy. No digas «lo le doy».", "translations": {"fr": "En français, la chose vient d'abord : « je le lui donne ». En espagnol, la personne d'abord : se lo doy. Ne dis pas « lo le doy »."}},
+      "seeAlso": ["tp_pron_objeto", "d_lo_le", "d_posicion_pronombres", "d_imperativo_pronombres"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «se» (se lo)", "url": "https://www.rae.es/dpd/se"},
+        {"label": "RAE · Diccionario panhispánico de dudas: pronombres personales átonos", "url": "https://www.rae.es/dpd/pronombres%20personales%20%C3%A1tonos"}
+      ],
+      "tags": ["se lo", "pronombres", "orden"]
+    },
+    {
+      "id": "d_posicion_pronombres",
+      "question": {"es": "¿Lo quiero hacer o quiero hacerlo?", "translations": {"fr": "« Lo quiero hacer » ou « quiero hacerlo » ?"}},
+      "aliases": ["quiero hacerlo", "lo voy a hacer", "voy a lo hacer", "posición del pronombre", "place du pronom espagnol", "pronom avant ou après le verbe"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "📌",
+      "answer": {"es": "Las dos son correctas. Con infinitivo o gerundio, el pronombre va delante del verbo conjugado o pegado al final: Lo quiero hacer = Quiero hacerlo. Pero nunca en los dos sitios.", "translations": {"fr": "Les deux sont correctes. Avec un infinitif ou un gérondif, le pronom se place devant le verbe conjugué ou se colle à la fin : Lo quiero hacer = Quiero hacerlo (je veux le faire). Mais jamais aux deux endroits."}},
+      "compare": [
+        {"title": {"es": "DELANTE DEL VERBO", "translations": {"fr": "DEVANT LE VERBE"}}, "items": [
+          {"es": "Verbo conjugado: Lo hago.", "translations": {"fr": "Verbe conjugué : Je le fais."}},
+          {"es": "Perífrasis: Lo voy a comprar.", "translations": {"fr": "Périphrase : Je vais l'acheter."}},
+          {"es": "Gerundio: Te lo estoy diciendo.", "translations": {"fr": "Gérondif : Je suis en train de te le dire."}},
+          {"es": "Orden negativa: No lo toques.", "translations": {"fr": "Ordre négatif : Ne le touche pas."}}
+        ]},
+        {"title": {"es": "PEGADO AL FINAL", "translations": {"fr": "COLLÉ À LA FIN"}}, "items": [
+          {"es": "Infinitivo: Voy a comprarlo.", "translations": {"fr": "Infinitif : Je vais l'acheter."}},
+          {"es": "Gerundio: Estoy diciéndotelo.", "translations": {"fr": "Gérondif : Je suis en train de te le dire."}},
+          {"es": "Orden afirmativa: Hazlo ya.", "translations": {"fr": "Ordre affirmatif : Fais-le tout de suite."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "¿Las fotos? Te las voy a enseñar ahora.", "translations": {"fr": "Les photos ? Je vais te les montrer maintenant."}, "highlight": ["Te las voy a enseñar"]},
+        {"es": "Estoy preparándote un café.", "translations": {"fr": "Je suis en train de te préparer un café."}, "highlight": ["preparándote"], "note": "Al pegar el pronombre, a veces hace falta tilde: preparando → preparándote.", "noteTranslations": {"fr": "Quand on colle le pronom, il faut parfois un accent écrit : preparando → preparándote."}},
+        {"es": "Hay que decírselo hoy.", "translations": {"fr": "Il faut le lui dire aujourd'hui."}, "highlight": ["decírselo"], "note": "Con «hay que», solo detrás: no «se lo hay que decir».", "noteTranslations": {"fr": "Avec « hay que », seulement après : pas « se lo hay que decir »."}}
+      ],
+      "trick": {"es": "Elige un sitio: delante (lo quiero hacer) o detrás (quiero hacerlo). Nunca dos veces.", "translations": {"fr": "Choisis une place : devant (lo quiero hacer) ou derrière (quiero hacerlo). Jamais deux fois."}},
+      "frenchTrap": {"es": "No digas «voy a lo hacer», como «je vais le faire»: el pronombre se pega al infinitivo (voy a hacerlo) o va delante de todo (lo voy a hacer).", "translations": {"fr": "Ne dis pas « voy a lo hacer », comme « je vais le faire » : le pronom se colle à l'infinitif (voy a hacerlo) ou se place devant le tout (lo voy a hacer)."}},
+      "seeAlso": ["tp_pron_objeto", "d_se_lo", "d_imperativo_pronombres", "tp_b1_pronombres"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: pronombres personales átonos (posición)", "url": "https://www.rae.es/dpd/pronombres%20personales%20%C3%A1tonos"}
+      ],
+      "tags": ["pronombres", "posición", "infinitivo", "gerundio"]
+    },
+    {
+      "id": "d_leismo",
+      "question": {"es": "¿Le vi o lo vi?", "translations": {"fr": "« Le vi » ou « lo vi » ?"}},
+      "aliases": ["leísmo", "le vi a Juan", "le conozco", "qué es el leísmo", "le ou lo espagnol", "c'est quoi le leísmo"],
+      "cefr": "B2",
+      "category": "grammar",
+      "emoji": "👀",
+      "answer": {"es": "Lo vi es la forma general y siempre correcta. En gran parte de España también se dice le vi para un hombre (A Juan le vi ayer), y la RAE lo acepta. Pero no se usa le para una mujer ni para una cosa.", "translations": {"fr": "« Lo vi » est la forme générale, toujours correcte. Dans une grande partie de l'Espagne, on dit aussi « le vi » pour un homme (A Juan le vi ayer), et la RAE l'accepte. Mais on n'emploie pas « le » pour une femme ni pour une chose."}},
+      "compare": [
+        {"title": {"es": "✓ CORRECTO", "translations": {"fr": "✓ CORRECT"}}, "items": [
+          {"es": "Hombre: A Juan lo vi ayer.", "translations": {"fr": "Homme : Juan, je l'ai vu hier."}},
+          {"es": "Hombre (España): A Juan le vi ayer.", "translations": {"fr": "Homme (Espagne) : Juan, je l'ai vu hier."}},
+          {"es": "Mujer: A María la vi ayer.", "translations": {"fr": "Femme : María, je l'ai vue hier."}},
+          {"es": "Cosa: El coche lo vi ayer.", "translations": {"fr": "Chose : La voiture, je l'ai vue hier."}}
+        ]},
+        {"title": {"es": "✗ EVITA", "translations": {"fr": "✗ À ÉVITER"}}, "items": [
+          {"es": "Mujer: A María le vi ayer. → la vi", "translations": {"fr": "Femme : A María le vi ayer. → la vi"}},
+          {"es": "Cosa: El coche le vi ayer. → lo vi", "translations": {"fr": "Chose : El coche le vi ayer. → lo vi"}},
+          {"es": "Laísmo: La dije que sí. → le dije", "translations": {"fr": "Laísmo : La dije que sí. → le dije"}}
+        ]}
+      ],
+      "examples": [
+        {"es": "¿Tu hermano? No lo veo desde Navidad.", "translations": {"fr": "Ton frère ? Je ne l'ai pas vu depuis Noël."}, "highlight": ["No lo veo"]},
+        {"es": "A tu marido le conocí en Madrid, ¿verdad?", "translations": {"fr": "Ton mari, je l'ai connu à Madrid, n'est-ce pas ?"}, "highlight": ["le conocí"], "note": "Leísmo aceptado: un hombre, en España.", "noteTranslations": {"fr": "Leísmo accepté : un homme, en Espagne."}},
+        {"es": "¿A tu hermana? La llamo esta noche.", "translations": {"fr": "Ta sœur ? Je l'appelle ce soir."}, "highlight": ["La llamo"]}
+      ],
+      "trick": {"es": "Si dudas, usa lo para él y la para ella: así nunca te equivocas.", "translations": {"fr": "Dans le doute, utilise « lo » pour lui et « la » pour elle : comme ça, tu ne te trompes jamais."}},
+      "frenchTrap": {"es": "«Je le vois» suena a «le veo», y es tentador. Pero el le español es «lui»: para una mujer, nunca «le veo», sino la veo.", "translations": {"fr": "« Je le vois » ressemble à « le veo », et c'est tentant. Mais le « le » espagnol veut dire « lui » : pour une femme, jamais « le veo », mais la veo."}},
+      "seeAlso": ["d_lo_le", "tp_pron_objeto", "d_laismo"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «leísmo»", "url": "https://www.rae.es/dpd/le%C3%ADsmo"},
+        {"label": "RAE · Glosario de términos gramaticales: leísmo", "url": "https://www.rae.es/gtg/le%C3%ADsmo"}
+      ],
+      "tags": ["leísmo", "le", "lo", "norma"]
+    },
+    {
+      "id": "d_se_valores",
+      "question": {"es": "¿Qué significa «se» y por qué está en todas partes?", "translations": {"fr": "Que veut dire « se » et pourquoi on le voit partout ?"}},
+      "aliases": ["usos de se", "valores de se", "se reflexivo", "se me cayó", "le se espagnol", "pronom se espagnol"],
+      "cefr": "B2",
+      "category": "grammar",
+      "emoji": "🧭",
+      "answer": {"es": "«Se» tiene varios usos. Los más útiles: reflexivo (se lava), recíproco (se quieren), se lo (= le lo), impersonal o pasivo (aquí se come bien, se venden pisos) y «sin querer» (se me cayó).", "translations": {"fr": "« Se » a plusieurs emplois. Les plus utiles : réfléchi (se lava : il se lave), réciproque (se quieren : ils s'aiment), se lo (= le lo), impersonnel ou passif (aquí se come bien : on mange bien ici) et « sans le faire exprès » (se me cayó : ça m'a échappé)."}},
+      "points": [
+        {"es": "Reflexivo: Se ducha por la mañana. Recíproco: Se escriben cada semana.", "translations": {"fr": "Réfléchi : Elle se douche le matin. Réciproque : Ils s'écrivent chaque semaine."}},
+        {"es": "Se = le o les delante de lo, la: Se lo di.", "translations": {"fr": "Se = le ou les devant lo, la : Se lo di (je le lui ai donné)."}},
+        {"es": "Impersonal y pasivo («on»): Se habla español. Se alquilan pisos.", "translations": {"fr": "Impersonnel et passif (« on ») : On parle espagnol. Appartements à louer."}},
+        {"es": "Accidente, sin querer: Se me rompió el vaso.", "translations": {"fr": "Accident, sans le vouloir : J'ai cassé le verre (sans faire exprès)."}},
+        {"es": "Cambio de sentido: ir → irse, dormir → dormirse, quedar → quedarse.", "translations": {"fr": "Changement de sens : ir → irse (s'en aller), dormir → dormirse (s'endormir), quedar → quedarse (rester)."}}
+      ],
+      "examples": [
+        {"es": "Mis padres se conocieron en un baile.", "translations": {"fr": "Mes parents se sont rencontrés à un bal."}, "highlight": ["se conocieron"]},
+        {"es": "En este pueblo se vive muy tranquilo.", "translations": {"fr": "Dans ce village, on vit très tranquillement."}, "highlight": ["se vive"]},
+        {"es": "¡Uy! Se me han olvidado las gafas.", "translations": {"fr": "Oh ! J'ai oublié mes lunettes."}, "highlight": ["Se me han olvidado"]}
+      ],
+      "trick": {"es": "Pregúntate: ¿sobre sí mismo? ¿Entre dos? ¿Nadie en concreto? ¿Fue sin querer? Cada respuesta es un «se» distinto.", "translations": {"fr": "Demande-toi : sur soi-même ? Entre deux personnes ? Personne en particulier ? Sans le vouloir ? Chaque réponse correspond à un « se » différent."}},
+      "frenchTrap": {"es": "Algunos verbos son pronominales en francés y no en español (se promener = pasear), y al revés (rester = quedarse).", "translations": {"fr": "Certains verbes sont pronominaux en français et pas en espagnol (se promener = pasear), et inversement (rester = quedarse)."}},
+      "seeAlso": ["tp_se_valores", "d_se_lo", "d_se_impersonal", "d_me_comi"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «se»", "url": "https://www.rae.es/dpd/se"}
+      ],
+      "tags": ["se", "pronombres", "reflexivo"]
+    },
+    {
+      "id": "d_se_impersonal",
+      "question": {"es": "¿Se vende o se venden?", "translations": {"fr": "« Se vende » ou « se venden » ?"}},
+      "aliases": ["se venden pisos", "se busca", "se alquila", "pasiva refleja", "on vend espagnol", "se impersonnel espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🏷️",
+      "answer": {"es": "Con una cosa en plural, el verbo va en plural: Se venden pisos. Con una cosa en singular, en singular: Se vende piso. Sin cosa, o con «a» + persona, siempre singular: Se busca a la dueña del perro.", "translations": {"fr": "Avec une chose au pluriel, le verbe se met au pluriel : Se venden pisos (appartements à vendre). Avec une chose au singulier, au singulier : Se vende piso. Sans chose, ou avec « a » + personne, toujours au singulier : Se busca a la dueña del perro (on recherche la propriétaire du chien)."}},
+      "compare": [
+        {"title": {"es": "COSAS: EL VERBO CONCUERDA", "translations": {"fr": "CHOSES : LE VERBE S'ACCORDE"}}, "items": [
+          {"es": "Se vende coche.", "translations": {"fr": "Voiture à vendre."}},
+          {"es": "Se venden coches.", "translations": {"fr": "Voitures à vendre."}},
+          {"es": "Se alquilan habitaciones.", "translations": {"fr": "Chambres à louer."}}
+        ]},
+        {"title": {"es": "SIEMPRE SINGULAR", "translations": {"fr": "TOUJOURS AU SINGULIER"}}, "items": [
+          {"es": "Se vive bien aquí.", "translations": {"fr": "On vit bien ici."}},
+          {"es": "Se come muy bien en Asturias.", "translations": {"fr": "On mange très bien dans les Asturies."}},
+          {"es": "Se busca a la dueña del perro.", "translations": {"fr": "On recherche la propriétaire du chien."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "En verano se alquilan muchos apartamentos en la costa.", "translations": {"fr": "En été, on loue beaucoup d'appartements sur la côte."}, "highlight": ["se alquilan"]},
+        {"es": "¿Cómo se dice «parapluie» en español?", "translations": {"fr": "Comment dit-on « parapluie » en espagnol ?"}, "highlight": ["se dice"]},
+        {"es": "Se necesitan voluntarios para la fiesta del barrio.", "translations": {"fr": "On cherche des bénévoles pour la fête du quartier."}, "highlight": ["Se necesitan"]}
+      ],
+      "trick": {"es": "Mira lo que viene detrás: ¿cosas en plural? → verbo en plural. ¿Nada, o «a» + persona? → singular.", "translations": {"fr": "Regarde ce qui suit : des choses au pluriel ? → verbe au pluriel. Rien, ou « a » + personne ? → singulier."}},
+      "frenchTrap": {"es": "El «on» francés no tiene una sola traducción: se habla, la gente dice, dicen que, uno nunca sabe… Y «on» = «nous» (on y va) es vamos.", "translations": {"fr": "Le « on » français n'a pas une seule traduction : se habla, la gente dice, dicen que, uno nunca sabe… Et « on » = « nous » (on y va) se dit vamos."}},
+      "seeAlso": ["tp_pasivas_ser_se", "d_se_valores", "d_on"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: pasiva refleja", "url": "https://www.rae.es/gtg/pasiva-refleja"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «se» (impersonal y pasiva refleja)", "url": "https://www.rae.es/dpd/se"}
+      ],
+      "tags": ["se", "impersonal", "pasiva refleja", "concordancia"]
+    },
+    {
+      "id": "d_me_comi",
+      "question": {"es": "¿Comí o me comí?", "translations": {"fr": "« Comí » ou « me comí » ?"}},
+      "aliases": ["me comí", "me bebí", "se lo comió todo", "comerse", "manger tout espagnol", "pourquoi me comí"],
+      "cefr": "B2",
+      "category": "grammar",
+      "emoji": "🍰",
+      "answer": {"es": "Las dos son correctas. Me comí añade la idea de «todo, entero, con ganas»: Me comí la tarta (entera). Comí dice solo la acción: Comí tarta. Con «me», el objeto tiene que ser concreto.", "translations": {"fr": "Les deux sont correctes. « Me comí » ajoute l'idée de « tout, en entier, avec plaisir » : Me comí la tarta (j'ai mangé tout le gâteau). « Comí » dit seulement l'action : Comí tarta (j'ai mangé du gâteau). Avec « me », l'objet doit être précis."}},
+      "compare": [
+        {"title": {"es": "SIN «SE»: LA ACCIÓN", "translations": {"fr": "SANS « SE » : L'ACTION"}}, "items": [
+          {"es": "Comí pescado.", "translations": {"fr": "J'ai mangé du poisson."}},
+          {"es": "Bebo agua.", "translations": {"fr": "Je bois de l'eau."}},
+          {"es": "Leí un rato.", "translations": {"fr": "J'ai lu un moment."}}
+        ]},
+        {"title": {"es": "CON «SE»: TODO, ENTERO", "translations": {"fr": "AVEC « SE » : TOUT, EN ENTIER"}}, "items": [
+          {"es": "Me comí todo el pescado.", "translations": {"fr": "J'ai mangé tout le poisson."}},
+          {"es": "Me bebí dos vasos de agua.", "translations": {"fr": "J'ai bu deux verres d'eau."}},
+          {"es": "Me leí la novela en dos días.", "translations": {"fr": "J'ai lu le roman en deux jours."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Los niños se comieron todas las galletas.", "translations": {"fr": "Les enfants ont mangé tous les biscuits."}, "highlight": ["se comieron"]},
+        {"es": "Me tomé un café rapidísimo antes del tren.", "translations": {"fr": "J'ai avalé un café en vitesse avant le train."}, "highlight": ["Me tomé"]},
+        {"es": "Mi nieta se sabe todas las canciones de memoria.", "translations": {"fr": "Ma petite-fille connaît toutes les chansons par cœur."}, "highlight": ["se sabe"]}
+      ],
+      "trick": {"es": "Con me, te, se… piensa en «tout»: Me lo comí todo.", "translations": {"fr": "Avec me, te, se… pense à « tout » : Me lo comí todo (j'ai tout mangé)."}},
+      "frenchTrap": {"es": "En francés familiar existe algo parecido («je me suis mangé une pizza»); en español es normal y muy frecuente. Pero sin objeto concreto, no: «me comí pescado» suena mal.", "translations": {"fr": "En français familier, il existe quelque chose de proche (« je me suis mangé une pizza ») ; en espagnol, c'est normal et très fréquent. Mais pas sans objet précis : « me comí pescado » sonne mal."}},
+      "seeAlso": ["tp_se_valores", "d_se_valores"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: dativo (dativo aspectual)", "url": "https://www.rae.es/gtg/dativo"}
+      ],
+      "tags": ["se", "comerse", "pronombres"]
+    },
+    {
+      "id": "d_lo_neutro",
+      "question": {"es": "¿Qué significa «lo» en «lo bueno» o «lo que»?", "translations": {"fr": "Que veut dire « lo » dans « lo bueno » ou « lo que » ?"}},
+      "aliases": ["lo bueno", "lo que", "lo mejor", "lo de", "ce qui ce que espagnol", "le bon côté espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "✨",
+      "answer": {"es": "Lo, sin nombre detrás, convierte un adjetivo en una idea: lo bueno = «ce qui est bien, le bon côté». Y lo que = «ce que / ce qui»: Lo que quiero es descansar.", "translations": {"fr": "« Lo », sans nom derrière, transforme un adjectif en idée : lo bueno = « ce qui est bien, le bon côté ». Et lo que = « ce que / ce qui » : Lo que quiero es descansar (ce que je veux, c'est me reposer)."}},
+      "points": [
+        {"es": "Lo + adjetivo: lo bueno, lo malo, lo importante, lo mejor.", "translations": {"fr": "Lo + adjectif : le bon côté, le mauvais côté, l'important, le mieux."}},
+        {"es": "Lo que = ce que / ce qui: No entiendo lo que dices.", "translations": {"fr": "Lo que = ce que / ce qui : Je ne comprends pas ce que tu dis."}},
+        {"es": "Lo de + algo conocido: lo de ayer, lo de tu coche (= «l'histoire de…»).", "translations": {"fr": "Lo de + quelque chose de connu : lo de ayer, lo de tu coche (= « l'histoire d'hier, de ta voiture »)."}},
+        {"es": "Lo + adjetivo + que = «à quel point»: ¡No sabes lo cansada que estoy!", "translations": {"fr": "Lo + adjectif + que = « à quel point » : Tu ne sais pas à quel point je suis fatiguée !"}}
+      ],
+      "examples": [
+        {"es": "Lo mejor del viaje fue la comida.", "translations": {"fr": "Le meilleur du voyage, c'était la nourriture."}, "highlight": ["Lo mejor"]},
+        {"es": "Haz lo que quieras.", "translations": {"fr": "Fais ce que tu veux."}, "highlight": ["lo que quieras"]},
+        {"es": "¿Te has enterado de lo de Pepa?", "translations": {"fr": "Tu es au courant de l'histoire de Pepa ?"}, "highlight": ["lo de Pepa"]}
+      ],
+      "trick": {"es": "Lo nunca va delante de un nombre: lo bueno, lo que…, pero el coche.", "translations": {"fr": "« Lo » ne se met jamais devant un nom : lo bueno, lo que…, mais el coche."}},
+      "frenchTrap": {"es": "«Ce que» no es «que» solo: «c'est ce que je veux» = es lo que quiero (no «es que quiero»).", "translations": {"fr": "« Ce que » ne se traduit pas par « que » tout seul : « c'est ce que je veux » = es lo que quiero (et non « es que quiero »)."}},
+      "seeAlso": ["tp_lo_neutro", "d_lo_que_basico", "d_relativos"],
+      "sources": [
+        {"label": "RAE · Glosario de términos gramaticales: artículo neutro", "url": "https://www.rae.es/gtg/art%C3%ADculo-neutro"}
+      ],
+      "tags": ["lo", "neutro", "lo que"]
+    },
+    {
+      "id": "d_relativos",
+      "question": {"es": "¿Que, quien o el cual?", "translations": {"fr": "« Que », « quien » ou « el cual » ?"}},
+      "aliases": ["pronombres relativos", "que o quien", "el que la que", "en el que", "qui que dont espagnol", "pronoms relatifs espagnol", "lequel espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🔗",
+      "answer": {"es": "Que sirve para casi todo, personas y cosas («qui» y «que»): La mujer que vive arriba. Quien es solo para personas, después de una preposición o entre comas. El cual es más formal.", "translations": {"fr": "« Que » sert presque pour tout, personnes et choses (« qui » et « que ») : La mujer que vive arriba (la femme qui habite au-dessus). « Quien », seulement pour des personnes, après une préposition ou entre virgules. « El cual » est plus soutenu."}},
+      "points": [
+        {"es": "Que = qui / que: El tren que sale a las diez. El libro que leo.", "translations": {"fr": "Que = qui / que : Le train qui part à dix heures. Le livre que je lis."}},
+        {"es": "Preposición + el que / la que / quien: La amiga con la que viajo = con quien viajo.", "translations": {"fr": "Préposition + el que / la que / quien : L'amie avec qui je voyage."}},
+        {"es": "Donde = où (lugar): El pueblo donde nací. Para el tiempo: el día en que…", "translations": {"fr": "Donde = où (lieu) : Le village où je suis née. Pour le temps : el día en que… (le jour où…)."}},
+        {"es": "Lo que = ce que. Lo cual retoma toda la frase: Llegó tarde, lo cual me molestó.", "translations": {"fr": "Lo que = ce que. Lo cual reprend toute la phrase : Il est arrivé en retard, ce qui m'a agacée."}}
+      ],
+      "examples": [
+        {"es": "El señor que vende el pan es muy simpático.", "translations": {"fr": "Le monsieur qui vend le pain est très sympathique."}, "highlight": ["que vende"]},
+        {"es": "Es la vecina con quien hablo cada mañana.", "translations": {"fr": "C'est la voisine avec qui je parle chaque matin."}, "highlight": ["con quien hablo"]},
+        {"es": "Esta es la casa en la que vivía de pequeña.", "translations": {"fr": "Voici la maison où j'habitais quand j'étais petite."}, "highlight": ["en la que vivía"]}
+      ],
+      "trick": {"es": "Ante la duda, que. Si hay preposición delante: el que, la que (o quien, para personas).", "translations": {"fr": "Dans le doute, « que ». S'il y a une préposition devant : el que, la que (ou quien, pour les personnes)."}},
+      "frenchTrap": {"es": "No digas «el hombre quien vive arriba»: sin coma ni preposición, se dice que. Y «le jour où» es el día en que, mejor que «el día donde».", "translations": {"fr": "Ne dis pas « el hombre quien vive arriba » : sans virgule ni préposition, on dit « que ». Et « le jour où » se dit el día en que, plutôt que « el día donde »."}},
+      "seeAlso": ["tp_pron_relativos", "d_cuyo", "d_lo_neutro"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «quien»", "url": "https://www.rae.es/dpd/quien"},
+        {"label": "RAE · Glosario de términos gramaticales: pronombre relativo", "url": "https://www.rae.es/gtg/pronombre-relativo"}
+      ],
+      "tags": ["relativos", "que", "quien", "el cual"]
+    },
+    {
+      "id": "d_cuyo",
+      "question": {"es": "¿Cómo se usa «cuyo»?", "translations": {"fr": "Comment utiliser « cuyo » ?"}},
+      "aliases": ["cuyo cuya", "cuyos cuyas", "que su", "cuyo el", "dont espagnol", "dont le espagnol"],
+      "cefr": "B2",
+      "category": "grammar",
+      "emoji": "🗝️",
+      "answer": {"es": "Cuyo = «dont le, dont la»: dice de quién es algo. Concuerda con lo que se posee, no con el dueño, y nunca lleva artículo detrás: una amiga cuyo hijo vive en Lyon.", "translations": {"fr": "Cuyo = « dont le, dont la » : il indique à qui appartient quelque chose. Il s'accorde avec la chose possédée, pas avec le possesseur, et n'est jamais suivi d'un article : una amiga cuyo hijo vive en Lyon (une amie dont le fils vit à Lyon)."}},
+      "points": [
+        {"es": "Cuyo + masculino: el escritor cuyo libro leí.", "translations": {"fr": "Cuyo + masculin : l'écrivain dont j'ai lu le livre."}},
+        {"es": "Cuya + femenino: la casa cuya puerta es azul.", "translations": {"fr": "Cuya + féminin : la maison dont la porte est bleue."}},
+        {"es": "Cuyos / cuyas + plural: el vecino cuyas hijas cantan en el coro.", "translations": {"fr": "Cuyos / cuyas + pluriel : le voisin dont les filles chantent dans la chorale."}},
+        {"es": "Al hablar se usa poco; se prefiere: una amiga que tiene un hijo en Lyon.", "translations": {"fr": "À l'oral, on l'utilise peu ; on préfère : una amiga que tiene un hijo en Lyon (une amie qui a un fils à Lyon)."}}
+      ],
+      "examples": [
+        {"es": "Es un pueblo cuyas fiestas son famosas en toda España.", "translations": {"fr": "C'est un village dont les fêtes sont célèbres dans toute l'Espagne."}, "highlight": ["cuyas fiestas"]},
+        {"es": "Visitamos a una pintora cuyo taller está junto al mar.", "translations": {"fr": "Nous avons rendu visite à une peintre dont l'atelier est au bord de la mer."}, "highlight": ["cuyo taller"]}
+      ],
+      "trick": {"es": "Mira la palabra que va detrás: cuyo copia su género y su número (cuya casa, cuyos hijos).", "translations": {"fr": "Regarde le mot qui suit : cuyo copie son genre et son nombre (cuya casa, cuyos hijos)."}},
+      "frenchTrap": {"es": "«Dont» no siempre es cuyo: «le livre dont je parle» = el libro del que hablo. Y nunca «cuyo el»: no «cuyo el padre», sino cuyo padre.", "translations": {"fr": "« Dont » ne se traduit pas toujours par cuyo : « le livre dont je parle » = el libro del que hablo. Et jamais « cuyo el » : pas « cuyo el padre », mais cuyo padre."}},
+      "seeAlso": ["tp_pron_relativos", "d_relativos"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «cuyo»", "url": "https://www.rae.es/dpd/cuyo"}
+      ],
+      "tags": ["cuyo", "relativos", "posesión"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

@@ -13,8 +13,9 @@ here = Path(__file__).parent
 dist = here / "dist"
 shutil.rmtree(dist, ignore_errors=True)
 (dist / "work").mkdir(parents=True)
-for folder in ("data", "engine", "vendor"):             # game data, self-hosted Stockfish WASM and chess.js, with licences
-    shutil.copytree(here / folder, dist / folder)
+for folder in ("data", "engine", "vendor", "apps"):     # game data, Stockfish and chess.js, app demos, with licences
+    if (here / folder).is_dir():
+        shutil.copytree(here / folder, dist / folder)
 
 src = (here / "index.html").read_text(encoding="utf-8")
 last_link = '<link rel="stylesheet" href="immersive.css">'      # the head ends after the last stylesheet

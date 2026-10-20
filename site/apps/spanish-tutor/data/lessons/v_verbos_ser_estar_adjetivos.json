@@ -1,0 +1,290 @@
+{
+  "$schema": "../../schema/curriculum.schema.json",
+  "type": "vocabulary",
+  "id": "v_verbos_ser_estar_adjetivos",
+  "version": "1.0.0",
+  "status": "published",
+  "title": { "es": "Adjetivos con doble vida", "translations": { "fr": "Adjectifs à double vie" } },
+  "summary": { "es": "Doce adjetivos que cambian de sentido con ser y estar, más cuatro expresiones con estar y ser.", "translations": { "fr": "Douze adjectifs qui changent de sens avec ser et estar, plus quatre expressions avec estar et ser." } },
+  "emoji": "🔤",
+  "keyIdeas": [
+    { "es": "Aprende cada adjetivo con sus dos verbos.", "translations": { "fr": "Apprends chaque adjectif avec ses deux verbes." } },
+    { "es": "Ser = cualidad · Estar = estado o momento.", "translations": { "fr": "Ser = qualité · Estar = état ou moment." } }
+  ],
+  "cefr": "B2",
+  "difficulty": 3,
+  "packId": "temas_lengua",
+  "unitNumber": 4,
+  "orderInUnit": 20,
+  "tags": ["ser", "estar", "adjetivos", "vocabulario"],
+  "estimatedMinutes": 12,
+  "domain": "adjetivos que cambian de sentido con ser y estar",
+  "focus": "collocations",
+  "defaultRegister": "neutral",
+  "defaultVariety": "pan",
+  "entries": [
+    {
+      "id": "e_listo", "term": "listo", "kind": "word", "partOfSpeech": "adjective",
+      "translations": { "fr": "malin (ser) ; prêt (estar)" },
+      "definitionEs": "Ser listo: tener la mente rápida. Estar listo: estar preparado.",
+      "frequency": 5,
+      "contextSentences": [
+        { "es": "Mi sobrina es muy lista: aprendió a leer a los cuatro años.", "translations": { "fr": "Ma nièce est très futée : elle a appris à lire à quatre ans." }, "highlight": ["es muy lista"] },
+        { "es": "¿Estás lista? El taxi ya está abajo.", "translations": { "fr": "Tu es prête ? Le taxi est déjà en bas." }, "highlight": ["Estás lista"] }
+      ],
+      "synonyms": ["espabilado", "inteligente"],
+      "antonyms": ["tonto"],
+      "usageNotes": { "es": "Dicho con ironía, «¡Estás listo!» significa «¡Lo tienes difícil!».", "translations": { "fr": "Dit avec ironie, « ¡Estás listo! » signifie « Tu es mal parti ! »." } },
+      "falseFriend": { "l1Term": "liste", "note": "« liste » se dit lista ; listo = malin ou prêt." },
+      "grammarLink": "g_verbos_ser_estar_contraste"
+    },
+    {
+      "id": "e_aburrido", "term": "aburrido", "kind": "word", "partOfSpeech": "adjective",
+      "translations": { "fr": "ennuyeux (ser) ; qui s'ennuie (estar)" },
+      "definitionEs": "Ser aburrido: no divertir. Estar aburrido: sentir aburrimiento.",
+      "frequency": 5,
+      "contextSentences": [
+        { "es": "La película es muy aburrida; me dormí en el cine.", "translations": { "fr": "Le film est très ennuyeux ; je me suis endormi au cinéma." }, "highlight": ["es muy aburrida"] },
+        { "es": "Estoy aburrida: no hay nada en la tele.", "translations": { "fr": "Je m'ennuie : il n'y a rien à la télé." }, "highlight": ["Estoy aburrida"] }
+      ],
+      "synonyms": ["pesado", "soso"],
+      "usageNotes": { "es": "Estar aburrido de algo = estar harto de algo.", "translations": { "fr": "Estar aburrido de algo = en avoir assez de quelque chose." } },
+      "grammarLink": "g_verbos_ser_estar_contraste"
+    },
+    {
+      "id": "e_abierto", "term": "abierto", "kind": "word", "partOfSpeech": "adjective",
+      "translations": { "fr": "ouvert, sociable (ser) ; ouvert (estar)" },
+      "definitionEs": "Ser abierto: aceptar ideas nuevas y hablar fácilmente con la gente. Estar abierto: no estar cerrado.",
+      "frequency": 4,
+      "contextSentences": [
+        { "es": "Mi abuela es muy abierta: habla con todo el mundo.", "translations": { "fr": "Ma grand-mère est très ouverte : elle parle avec tout le monde." }, "highlight": ["es muy abierta"] },
+        { "es": "El banco está abierto hasta las dos.", "translations": { "fr": "La banque est ouverte jusqu'à deux heures." }, "highlight": ["está abierto"] }
+      ],
+      "antonyms": ["cerrado"],
+      "grammarLink": "g_verbos_ser_estar_contraste"
+    },
+    {
+      "id": "e_bueno", "term": "bueno", "kind": "word", "partOfSpeech": "adjective",
+      "translations": { "fr": "bon, gentil (ser) ; délicieux, guéri (estar)" },
+      "definitionEs": "Ser bueno: tener buena calidad o buen carácter. Estar bueno: tener buen sabor o buena salud.",
+      "frequency": 5,
+      "contextSentences": [
+        { "es": "Mi vecino es muy bueno: siempre ayuda a todos.", "translations": { "fr": "Mon voisin est très gentil : il aide toujours tout le monde." }, "highlight": ["es muy bueno"] },
+        { "es": "Esta sopa está buenísima.", "translations": { "fr": "Cette soupe est délicieuse." }, "highlight": ["está buenísima"] }
+      ],
+      "antonyms": ["malo"],
+      "usageNotes": { "es": "Con personas, «estar bueno/a» es coloquial y significa «ser atractivo/a».", "translations": { "fr": "Avec une personne, « estar bueno/a » est familier : « être canon »." } },
+      "grammarLink": "g_verbos_ser_estar_contraste"
+    },
+    {
+      "id": "e_malo", "term": "malo", "kind": "word", "partOfSpeech": "adjective",
+      "translations": { "fr": "méchant, mauvais (ser) ; malade, avarié (estar)" },
+      "definitionEs": "Ser malo: tener mala calidad o mal carácter. Estar malo: estar enfermo o en mal estado.",
+      "frequency": 5,
+      "contextSentences": [
+        { "es": "Esa chica no es mala, solo es tímida.", "translations": { "fr": "Cette fille n'est pas méchante, elle est juste timide." }, "highlight": ["no es mala"] },
+        { "es": "Mi hijo está malo: tiene fiebre desde ayer.", "translations": { "fr": "Mon fils est malade : il a de la fièvre depuis hier." }, "highlight": ["está malo"] }
+      ],
+      "synonyms": ["enfermo"],
+      "antonyms": ["bueno"],
+      "grammarLink": "g_verbos_ser_estar_contraste"
+    },
+    {
+      "id": "e_rico", "term": "rico", "kind": "word", "partOfSpeech": "adjective",
+      "translations": { "fr": "riche (ser) ; délicieux (estar)" },
+      "definitionEs": "Ser rico: tener mucho dinero. Estar rico: tener un sabor muy bueno.",
+      "frequency": 5,
+      "contextSentences": [
+        { "es": "Su familia es rica desde hace tres generaciones.", "translations": { "fr": "Sa famille est riche depuis trois générations." }, "highlight": ["es rica"] },
+        { "es": "¡Qué rico está este chocolate con churros!", "translations": { "fr": "Qu'est-ce qu'il est bon, ce chocolat avec des churros !" }, "highlight": ["rico está"] }
+      ],
+      "synonyms": ["sabroso", "delicioso"],
+      "usageNotes": { "es": "Cuidado: hablando de un plato, «¿Es rico?» significa «¿Tiene dinero?».", "translations": { "fr": "Attention : à propos d'un plat, « ¿Es rico? » veut dire « Est-il riche ? »." } },
+      "falseFriend": { "l1Term": "riche", "note": "« riche » = rico seulement avec ser ; avec estar, rico = délicieux." },
+      "grammarLink": "g_verbos_ser_estar_contraste"
+    },
+    {
+      "id": "e_verde", "term": "verde", "kind": "word", "partOfSpeech": "adjective",
+      "translations": { "fr": "vert (ser) ; pas mûr, novice (estar)" },
+      "definitionEs": "Ser verde: tener color verde. Estar verde: no estar maduro o no estar preparado todavía.",
+      "frequency": 4,
+      "contextSentences": [
+        { "es": "Esa camiseta es verde y combina con tus ojos.", "translations": { "fr": "Ce t-shirt est vert et va bien avec tes yeux." }, "highlight": ["es verde"] },
+        { "es": "Los plátanos todavía están verdes.", "translations": { "fr": "Les bananes ne sont pas encore mûres." }, "highlight": ["están verdes"] }
+      ],
+      "antonyms": ["maduro"],
+      "usageNotes": { "es": "Estar verde en algo = saber poco: Estoy verde en informática.", "translations": { "fr": "Estar verde en algo = ne pas s'y connaître : Estoy verde en informática." } },
+      "grammarLink": "g_verbos_ser_estar_contraste"
+    },
+    {
+      "id": "e_seguro", "term": "seguro", "kind": "word", "partOfSpeech": "adjective",
+      "translations": { "fr": "sûr, sans danger (ser) ; certain (estar)" },
+      "definitionEs": "Ser seguro: no tener peligro. Estar seguro: no tener dudas.",
+      "frequency": 5,
+      "contextSentences": [
+        { "es": "Este barrio es muy seguro, incluso de noche.", "translations": { "fr": "Ce quartier est très sûr, même la nuit." }, "highlight": ["es muy seguro"] },
+        { "es": "¿Estás seguro de que cierran a las nueve?", "translations": { "fr": "Tu es sûr qu'ils ferment à neuf heures ?" }, "highlight": ["Estás seguro"] }
+      ],
+      "synonyms": ["fiable", "convencido"],
+      "antonyms": ["peligroso", "inseguro"],
+      "grammarLink": "g_verbos_ser_estar_contraste"
+    },
+    {
+      "id": "e_orgulloso", "term": "orgulloso", "kind": "word", "partOfSpeech": "adjective",
+      "translations": { "fr": "orgueilleux (ser) ; fier (estar)" },
+      "definitionEs": "Ser orgulloso: creerse superior o no aceptar ayuda. Estar orgulloso: sentir satisfacción por alguien o por algo.",
+      "frequency": 4,
+      "contextSentences": [
+        { "es": "Es tan orgulloso que nunca pide perdón.", "translations": { "fr": "Il est si orgueilleux qu'il ne demande jamais pardon." }, "highlight": ["Es tan orgulloso"] },
+        { "es": "Estoy muy orgullosa de mi hija: ha aprobado la oposición.", "translations": { "fr": "Je suis très fière de ma fille : elle a réussi le concours." }, "highlight": ["Estoy muy orgullosa"] }
+      ],
+      "usageNotes": { "es": "En francés, «fier» sirve para los dos sentidos; en español, el verbo decide.", "translations": { "fr": "En français, « fier » couvre les deux sens ; en espagnol, c'est le verbe qui décide." } },
+      "grammarLink": "g_verbos_ser_estar_contraste"
+    },
+    {
+      "id": "e_atento", "term": "atento", "kind": "word", "partOfSpeech": "adjective",
+      "translations": { "fr": "prévenant (ser) ; attentif (estar)" },
+      "definitionEs": "Ser atento: ser amable y cuidadoso con los demás. Estar atento: prestar atención.",
+      "frequency": 4,
+      "contextSentences": [
+        { "es": "El camarero es muy atento: nos trajo agua sin pedirla.", "translations": { "fr": "Le serveur est très attentionné : il nous a apporté de l'eau sans qu'on la demande." }, "highlight": ["es muy atento"] },
+        { "es": "Estad atentos: el tren sale en cinco minutos.", "translations": { "fr": "Restez attentifs : le train part dans cinq minutes." }, "highlight": ["Estad atentos"] }
+      ],
+      "synonyms": ["amable", "cortés"],
+      "usageNotes": { "es": "Ser atento = amable; estar atento = prestar atención.", "translations": { "fr": "Ser atento = prévenant ; estar atento = attentif. « Attentif » ne couvre que estar atento." } },
+      "falseFriend": { "l1Term": "attentif", "note": "« attentif » = estar atento ; ser atento = prévenant, aimable." },
+      "grammarLink": "g_verbos_ser_estar_contraste"
+    },
+    {
+      "id": "e_cansado", "term": "cansado", "kind": "word", "partOfSpeech": "adjective",
+      "translations": { "fr": "fatigant (ser) ; fatigué (estar)" },
+      "definitionEs": "Ser cansado: producir cansancio. Estar cansado: sentir cansancio.",
+      "frequency": 5,
+      "contextSentences": [
+        { "es": "Subir cinco pisos sin ascensor es cansado.", "translations": { "fr": "Monter cinq étages sans ascenseur, c'est fatigant." }, "highlight": ["es cansado"] },
+        { "es": "Estoy cansadísimo: llevo toda la semana trabajando.", "translations": { "fr": "Je suis crevé : je travaille depuis le début de la semaine." }, "highlight": ["Estoy cansadísimo"] }
+      ],
+      "synonyms": ["agotado", "fatigado"],
+      "usageNotes": { "es": "Una persona pesada es «cansina» o un «cansino» (coloquial).", "translations": { "fr": "Une personne pénible est « cansina » ou un « cansino » (familier)." } },
+      "grammarLink": "g_verbos_ser_estar_contraste"
+    },
+    {
+      "id": "e_vivo", "term": "vivo", "kind": "word", "partOfSpeech": "adjective",
+      "translations": { "fr": "vif, futé (ser) ; vivant (estar)" },
+      "definitionEs": "Ser vivo: ser rápido de mente. Estar vivo: no estar muerto.",
+      "frequency": 4,
+      "contextSentences": [
+        { "es": "Mi sobrino es muy vivo: siempre encuentra una solución.", "translations": { "fr": "Mon neveu est très vif : il trouve toujours une solution." }, "highlight": ["es muy vivo"] },
+        { "es": "Mi abuelo todavía está vivo y tiene noventa años.", "translations": { "fr": "Mon grand-père est encore vivant et il a quatre-vingt-dix ans." }, "highlight": ["está vivo"] }
+      ],
+      "synonyms": ["espabilado", "despierto"],
+      "antonyms": ["muerto"],
+      "grammarLink": "g_verbos_ser_estar_contraste"
+    },
+    {
+      "id": "e_estar_de_acuerdo", "term": "estar de acuerdo", "kind": "collocation", "partOfSpeech": "expression",
+      "translations": { "fr": "être d'accord" },
+      "definitionEs": "Pensar lo mismo que otra persona.",
+      "frequency": 5,
+      "contextSentences": [
+        { "es": "—Creo que es mejor esperar. —Estoy de acuerdo.", "translations": { "fr": "— Je crois qu'il vaut mieux attendre. — Je suis d'accord." }, "highlight": ["Estoy de acuerdo"] }
+      ],
+      "synonyms": ["coincidir", "pensar lo mismo"],
+      "antonyms": ["no estar de acuerdo"],
+      "collocations": ["estar de acuerdo con", "ponerse de acuerdo", "de acuerdo"],
+      "usageNotes": { "es": "Nunca «ser de acuerdo»: en español se dice estar de acuerdo.", "translations": { "fr": "Jamais « ser de acuerdo » : « être d'accord » se dit estar de acuerdo." } },
+      "grammarLink": "g_verbos_ser_estar_contraste"
+    },
+    {
+      "id": "e_estar_hecho_polvo", "term": "estar hecho polvo", "kind": "idiom", "partOfSpeech": "expression",
+      "translations": { "fr": "être crevé ; être lessivé" },
+      "literalTranslations": { "fr": "être réduit en poussière" },
+      "definitionEs": "Estar muy cansado o muy triste.",
+      "register": "colloquial", "frequency": 4,
+      "contextSentences": [
+        { "es": "Después del maratón estoy hecho polvo.", "translations": { "fr": "Après le marathon, je suis crevé." }, "highlight": ["estoy hecho polvo"] }
+      ],
+      "synonyms": ["estar agotado", "estar reventado"],
+      "usageNotes": { "es": "También sirve para la tristeza: Está hecha polvo desde la ruptura.", "translations": { "fr": "Cela s'emploie aussi pour la tristesse : Está hecha polvo desde la ruptura." } }
+    },
+    {
+      "id": "e_estar_en_las_nubes", "term": "estar en las nubes", "kind": "idiom", "partOfSpeech": "expression",
+      "translations": { "fr": "être dans la lune" },
+      "literalTranslations": { "fr": "être dans les nuages" },
+      "definitionEs": "Estar distraído y no prestar atención.",
+      "register": "colloquial", "frequency": 4,
+      "contextSentences": [
+        { "es": "Perdona, estaba en las nubes: ¿qué has dicho?", "translations": { "fr": "Pardon, j'étais dans la lune : qu'as-tu dit ?" }, "highlight": ["estaba en las nubes"] }
+      ],
+      "synonyms": ["estar distraído", "estar en Babia"],
+      "antonyms": ["estar atento"]
+    },
+    {
+      "id": "e_ser_un_cielo", "term": "ser un cielo", "kind": "idiom", "partOfSpeech": "expression",
+      "translations": { "fr": "être un amour ; être un ange" },
+      "literalTranslations": { "fr": "être un ciel" },
+      "definitionEs": "Ser una persona muy buena y encantadora.",
+      "register": "colloquial", "frequency": 3,
+      "contextSentences": [
+        { "es": "Nuestra vecina es un cielo: nos riega las plantas cuando viajamos.", "translations": { "fr": "Notre voisine est un amour : elle arrose nos plantes quand nous voyageons." }, "highlight": ["es un cielo"] }
+      ],
+      "synonyms": ["ser un sol", "ser un ángel", "ser un encanto"]
+    }
+  ],
+  "srsDefaults": { "algorithm": "fsrs", "newCardsPerDay": 6, "cardTypes": ["es_to_l1", "l1_to_es", "cloze"], "desiredRetention": 0.9 },
+  "quiz": {
+    "passingScore": 0.7,
+    "shuffleItems": true,
+    "shuffleOptions": true,
+    "items": [
+      {
+        "id": "q01", "format": "matching", "difficulty": 2, "targets": ["e_abierto", "e_atento"],
+        "prompt": { "es": "Une cada expresión con su traducción.", "translations": { "fr": "Relie chaque expression à sa traduction." } },
+        "left": ["ser abierto", "estar abierto", "ser atento", "estar atento"],
+        "right": ["prévenant", "ouvert (un magasin)", "attentif", "ouvert d'esprit"],
+        "pairs": [[0, 3], [1, 1], [2, 0], [3, 2]]
+      },
+      {
+        "id": "q02", "format": "multiple_choice", "difficulty": 2, "targets": ["e_malo"],
+        "prompt": { "es": "¿Qué significa «Mi hijo está malo»?", "translations": { "fr": "Que signifie « Mi hijo está malo » ?" } },
+        "options": ["Mon fils est malade.", "Mon fils est méchant.", "Mon fils est mauvais élève.", "Mon fils est en retard."], "correctIndex": [0],
+        "explanation": { "es": "Estar malo = estar enfermo. Ser malo = tener mal carácter.", "translations": { "fr": "Estar malo = être malade. Ser malo = être méchant." } }
+      },
+      {
+        "id": "q03", "format": "fill_blank", "difficulty": 2, "targets": ["e_verde"],
+        "prompt": { "es": "Completa con ser o estar.", "translations": { "fr": "Complète avec ser ou estar." } },
+        "text": "Esta pera todavía {{1}} verde: espera dos días.",
+        "answers": [["está"]],
+        "explanation": { "es": "Fruta sin madurar: estar verde.", "translations": { "fr": "Fruit pas mûr : estar verde." } }
+      },
+      {
+        "id": "q04", "format": "fill_blank", "difficulty": 3, "targets": ["e_listo", "e_atento"],
+        "prompt": { "es": "Completa con ser o estar.", "translations": { "fr": "Complète avec ser ou estar." } },
+        "text": "Cuidado con Pedro: {{1}} muy listo y siempre {{2}} atento a todo.",
+        "answers": [["es"], ["está"]]
+      },
+      {
+        "id": "q05", "format": "multiple_choice", "difficulty": 2, "targets": ["e_estar_de_acuerdo"],
+        "prompt": { "es": "¿Cómo se dice «Je suis d'accord»?", "translations": { "fr": "Comment dit-on « Je suis d'accord » ?" } },
+        "options": ["Soy de acuerdo.", "Estoy de acuerdo.", "Estoy acuerdo.", "Tengo acuerdo."], "correctIndex": [1],
+        "explanation": { "es": "La expresión fija es estar de acuerdo.", "translations": { "fr": "L'expression figée est estar de acuerdo." } }
+      },
+      {
+        "id": "q06", "format": "transform", "difficulty": 3, "targets": ["e_estar_hecho_polvo"],
+        "prompt": { "es": "Dilo de forma coloquial con «hecho polvo».", "translations": { "fr": "Dis-le de façon familière avec « hecho polvo »." } },
+        "sourceSentence": "Estoy agotado después del partido.",
+        "instruction": { "es": "Cambia «agotado» por la expresión.", "translations": { "fr": "Remplace « agotado » par l'expression." } },
+        "acceptedAnswers": ["Estoy hecho polvo después del partido.", "Estoy hecha polvo después del partido."],
+        "grading": "normalized"
+      },
+      {
+        "id": "q07", "format": "multiple_choice", "difficulty": 3, "targets": ["e_atento"],
+        "prompt": { "es": "¿Qué quiere decir «Es muy atenta»?", "translations": { "fr": "Que veut dire « Es muy atenta » ?" } },
+        "options": ["Es amable y cuidadosa con los demás.", "Presta atención en este momento.", "Está enferma.", "Tiene mucho dinero."], "correctIndex": [0],
+        "explanation": { "es": "Ser atenta = amable. Estar atenta = prestar atención.", "translations": { "fr": "Ser atenta = prévenante. Estar atenta = attentive." } }
+      }
+    ]
+  },
+  "createdAt": "2026-10-09",
+  "author": "Claude"
+}

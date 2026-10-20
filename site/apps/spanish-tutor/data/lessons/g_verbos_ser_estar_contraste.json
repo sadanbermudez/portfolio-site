@@ -1,0 +1,285 @@
+{
+  "$schema": "../../schema/curriculum.schema.json",
+  "type": "grammar",
+  "id": "g_verbos_ser_estar_contraste",
+  "version": "1.0.0",
+  "status": "published",
+  "title": { "es": "Ser o estar: el gran duelo", "translations": { "fr": "Ser ou estar : le grand duel" } },
+  "summary": { "es": "Ser dice qué es; estar dice cómo y dónde está. Con trucos, trampas del francés y adjetivos con doble sentido.", "translations": { "fr": "Ser dit ce qu'on est ; estar dit comment et où on est. Avec des astuces, les pièges du français et des adjectifs à double sens." } },
+  "emoji": "⚖️",
+  "keyIdeas": [
+    { "es": "Ser = qué es · Estar = cómo está y dónde.", "translations": { "fr": "Ser = ce que c'est · Estar = comment et où." } },
+    { "es": "Eventos y valoraciones: ser (La boda es en Sevilla · Es importante).", "translations": { "fr": "Événements et jugements : ser (La boda es en Sevilla · Es importante)." } },
+    { "es": "Listo, rico, aburrido…: el verbo cambia el sentido.", "translations": { "fr": "Listo, rico, aburrido… : le verbe change le sens." } }
+  ],
+  "cefr": "B2",
+  "difficulty": 3,
+  "packId": "temas_lengua",
+  "unitNumber": 4,
+  "orderInUnit": 10,
+  "tags": ["ser", "estar", "adjetivos", "participio", "contraste"],
+  "estimatedMinutes": 18,
+  "topic": "Contraste ser / estar",
+  "category": "lexicogrammar",
+  "canDo": [
+    "Describir personas, lugares y estados con ser y estar sin dudar.",
+    "Distinguir el sentido de adjetivos como listo, rico o aburrido según el verbo.",
+    "Decir dónde es un evento y dónde está un objeto o un edificio."
+  ],
+  "rules": [
+    {
+      "id": "r_ser_que_es",
+      "title": { "es": "SER: qué es", "translations": { "fr": "SER : ce qu'on est" } },
+      "statement": {
+        "es": "Ser expresa identidad, origen, profesión, material, posesión y hora: lo que alguien o algo es por naturaleza.",
+        "translations": { "fr": "Ser exprime l'identité, l'origine, la profession, la matière, la possession et l'heure : ce que quelqu'un ou quelque chose est par nature." }
+      },
+      "formula": "SER + nombre · de + origen / material / posesión · la hora",
+      "explanation": {
+        "es": "Truco: ser responde a «¿qué es?», «¿de dónde es?» y «¿de quién es?». La profesión va sin artículo: Es médico; con adjetivo, sí: Es un buen médico.",
+        "translations": { "fr": "Astuce : ser répond à « qu'est-ce que c'est ? », « d'où est-il ? » et « à qui est-ce ? ». La profession se passe d'article : Es médico ; avec un adjectif, il revient : Es un buen médico." }
+      },
+      "examples": [
+        { "es": "Mi vecina es veterinaria y es de Pamplona.", "translations": { "fr": "Ma voisine est vétérinaire et elle est de Pampelune." }, "highlight": ["es veterinaria", "es de Pamplona"] },
+        { "es": "Este jersey es de lana, pero no es mío: es de Inés.", "translations": { "fr": "Ce pull est en laine, mais il n'est pas à moi : il est à Inès." }, "highlight": ["es de lana", "es de Inés"] },
+        { "es": "¿Qué hora es? Son las diez y cuarto.", "translations": { "fr": "Quelle heure est-il ? Il est dix heures et quart." }, "highlight": ["Son las diez y cuarto"] }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "r_estar_donde_como",
+      "title": { "es": "ESTAR: dónde y cómo está", "translations": { "fr": "ESTAR : où et comment on est" } },
+      "statement": {
+        "es": "Estar expresa ubicación, estado temporal, resultado y acción en curso (estar + gerundio).",
+        "translations": { "fr": "Estar exprime la situation, l'état temporaire, le résultat et l'action en cours (estar + gérondif)." }
+      },
+      "formula": "ESTAR + en / cerca de… · adjetivo de estado · gerundio",
+      "explanation": {
+        "es": "Truco: estar responde a «¿dónde está?» y «¿cómo está?». Para un trabajo temporal se dice estar de + profesión.",
+        "translations": { "fr": "Astuce : estar répond à « où est-ce ? » et « comment va-t-il ? ». Pour un emploi temporaire, on dit estar de + profession." }
+      },
+      "examples": [
+        { "es": "El museo está al lado de la estación.", "translations": { "fr": "Le musée est à côté de la gare." }, "highlight": ["está al lado de"] },
+        { "es": "Hoy estoy agotada: he dormido solo cuatro horas.", "translations": { "fr": "Aujourd'hui, je suis épuisée : j'ai dormi seulement quatre heures." }, "highlight": ["estoy agotada"] },
+        { "es": "Estamos esperando el autobús desde hace media hora.", "translations": { "fr": "Nous attendons le bus depuis une demi-heure." }, "highlight": ["Estamos esperando"] },
+        { "es": "Mi hermana está de camarera este verano.", "translations": { "fr": "Ma sœur travaille comme serveuse cet été." }, "highlight": ["está de camarera"], "note": "Es un trabajo temporal; su profesión es otra.", "noteTranslations": { "fr": "C'est un emploi temporaire ; sa vraie profession est autre." } }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "r_eventos_valoraciones",
+      "title": { "es": "Eventos y valoraciones: ser", "translations": { "fr": "Événements et jugements : ser" } },
+      "statement": {
+        "es": "Con eventos (boda, concierto, reunión) el lugar y la hora van con ser. Las valoraciones también: es importante, es normal.",
+        "translations": { "fr": "Pour les événements (mariage, concert, réunion), le lieu et l'heure se disent avec ser. Les jugements aussi : es importante, es normal." }
+      },
+      "formula": "EVENTO + ES + en / a las… · ES + adjetivo + infinitivo / que",
+      "explanation": {
+        "es": "El evento «sucede» (ser); el edificio «se encuentra» (estar): El concierto es en el estadio, que está junto al río.",
+        "translations": { "fr": "L'événement « a lieu » (ser) ; le bâtiment « se trouve » quelque part (estar) : El concierto es en el estadio, que está junto al río." }
+      },
+      "examples": [
+        { "es": "La boda es en Sevilla, pero el hotel está en Dos Hermanas.", "translations": { "fr": "Le mariage a lieu à Séville, mais l'hôtel se trouve à Dos Hermanas." }, "highlight": ["es en Sevilla", "está en Dos Hermanas"] },
+        { "es": "¿Dónde es la fiesta? —En casa de Lola; está en pleno centro.", "translations": { "fr": "C'est où, la fête ? — Chez Lola ; c'est en plein centre." }, "highlight": ["Dónde es la fiesta", "está en pleno centro"] },
+        { "es": "Es importante dormir bien antes de un examen.", "translations": { "fr": "Il est important de bien dormir avant un examen." }, "highlight": ["Es importante dormir"] }
+      ],
+      "contrastWith": [
+        {
+          "construction": "ESTAR + lugar (objetos y edificios)",
+          "difference": {
+            "es": "Los objetos y los lugares «se encuentran» en un sitio: estar.",
+            "translations": { "fr": "Les objets et les lieux « se trouvent » quelque part : estar." }
+          },
+          "example": { "es": "La farmacia está enfrente del banco.", "translations": { "fr": "La pharmacie est en face de la banque." }, "highlight": ["está enfrente"] }
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "r_cambio_sentido",
+      "title": { "es": "Adjetivos con doble sentido", "translations": { "fr": "Adjectifs à double sens" } },
+      "statement": {
+        "es": "Algunos adjetivos cambian de significado: con ser describen una cualidad; con estar, un estado o una impresión del momento.",
+        "translations": { "fr": "Certains adjectifs changent de sens : avec ser, ils décrivent une qualité ; avec estar, un état ou une impression du moment." }
+      },
+      "formula": "SER listo (inteligente) ≠ ESTAR listo (preparado) · SER rico (con dinero) ≠ ESTAR rico (sabroso)",
+      "explanation": {
+        "es": "Hay una docena: listo, rico, aburrido, abierto, bueno, malo, verde, seguro, orgulloso, atento, cansado, vivo. Todos están en la lección de Vocabulario.",
+        "translations": { "fr": "Il y en a une douzaine : listo, rico, aburrido, abierto, bueno, malo, verde, seguro, orgulloso, atento, cansado, vivo. Tous sont dans la leçon de Vocabulaire." }
+      },
+      "examples": [
+        { "es": "Lucas es muy listo, pero todavía no está listo para salir.", "translations": { "fr": "Lucas est très malin, mais il n'est pas encore prêt à sortir." }, "highlight": ["es muy listo", "no está listo"] },
+        { "es": "Mi tío no es rico, pero la tortilla de mi tía está riquísima.", "translations": { "fr": "Mon oncle n'est pas riche, mais l'omelette de ma tante est délicieuse." }, "highlight": ["no es rico", "está riquísima"] },
+        { "es": "Es un barrio seguro, pero no estoy seguro de la dirección.", "translations": { "fr": "C'est un quartier sûr, mais je ne suis pas sûr de l'adresse." }, "highlight": ["Es un barrio seguro", "no estoy seguro"] }
+      ],
+      "exceptions": [
+        {
+          "es": "Con «bueno» y «malo», estar habla de sabor o de salud: La sopa está buena; el niño está malo (enfermo).",
+          "translations": { "fr": "Avec « bueno » et « malo », estar parle du goût ou de la santé : La sopa está buena ; el niño está malo (malade)." }
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "r_participio",
+      "title": { "es": "Participio: resultado o acción", "translations": { "fr": "Participe : résultat ou action" } },
+      "statement": {
+        "es": "Estar + participio = resultado (La ventana está rota). Ser + participio = pasiva de acción (La ventana fue rota por un balón).",
+        "translations": { "fr": "Estar + participe = résultat (La ventana está rota). Ser + participe = passif d'action (La ventana fue rota por un balón)." }
+      },
+      "formula": "ESTAR + participio (resultado) · SER + participio + por… (acción)",
+      "explanation": {
+        "es": "El participio concuerda con el sujeto: cerrado, cerrada. La pasiva con ser es sobre todo escrita; hablando se dice «Rompieron la ventana» o «Se rompió la ventana».",
+        "translations": { "fr": "Le participe s'accorde avec le sujet : cerrado, cerrada. Le passif avec ser est surtout écrit ; à l'oral on dit « Rompieron la ventana » ou « Se rompió la ventana »." }
+      },
+      "examples": [
+        { "es": "La tienda está cerrada: abren a las cinco.", "translations": { "fr": "Le magasin est fermé : ils ouvrent à cinq heures." }, "highlight": ["está cerrada"] },
+        { "es": "Esta iglesia fue construida en el siglo XIII y ahora está cerrada por obras.", "translations": { "fr": "Cette église a été construite au XIIIe siècle et elle est fermée pour travaux en ce moment." }, "highlight": ["fue construida", "está cerrada"], "note": "Primero la acción (ser), después el resultado (estar).", "noteTranslations": { "fr": "D'abord l'action (ser), ensuite le résultat (estar)." } }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "r_cest",
+      "title": { "es": "Ojo con «c'est» y «être»", "translations": { "fr": "Attention à « c'est » et à « être »" } },
+      "statement": {
+        "es": "En francés, «c'est» y «être» sirven para todo. En español, a veces la solución es otro verbo: hay, hacer, tener.",
+        "translations": { "fr": "En français, « c'est » et « être » servent à tout. En espagnol, la solution est parfois un autre verbe : hay, hacer, tener." }
+      },
+      "formula": "c'est moi → SOY yo · il y a → HAY · il fait froid → HACE frío · j'ai froid → TENGO frío · on est le 9 → ESTAMOS A 9",
+      "explanation": {
+        "es": "Después de ser, el verbo concuerda con el pronombre: Soy yo, Eres tú, Son ellos. Y «je suis d'accord» se dice estoy de acuerdo.",
+        "translations": { "fr": "Après ser, le verbe s'accorde avec le pronom : Soy yo, Eres tú, Son ellos. Et « je suis d'accord » se dit estoy de acuerdo." }
+      },
+      "examples": [
+        { "es": "—¿Quién es? —Soy yo, Marta.", "translations": { "fr": "— Qui est-ce ? — C'est moi, Marta." }, "highlight": ["Soy yo"] },
+        { "es": "Estamos a 9 de octubre. Hoy es viernes.", "translations": { "fr": "On est le 9 octobre. Aujourd'hui, c'est vendredi." }, "highlight": ["Estamos a 9 de octubre", "Hoy es viernes"] },
+        { "es": "Hoy hace frío y tengo frío; además, no hay calefacción.", "translations": { "fr": "Aujourd'hui il fait froid et j'ai froid ; en plus, il n'y a pas de chauffage." }, "highlight": ["hace frío", "tengo frío", "no hay"] }
+      ],
+      "difficulty": 2
+    }
+  ],
+  "conjugationTables": [
+    { "verb": "ser", "tense": "presente de indicativo", "irregular": true, "forms": { "yo": "soy", "tu": "eres", "el": "es", "nosotros": "somos", "vosotros": "sois", "ellos": "son" }, "note": "Totalmente irregular: no hay raíz común." },
+    { "verb": "estar", "tense": "presente de indicativo", "irregular": true, "forms": { "yo": "estoy", "tu": "estás", "el": "está", "nosotros": "estamos", "vosotros": "estáis", "ellos": "están" }, "note": "Cuatro formas llevan tilde: estás, está, estáis, están." },
+    { "verb": "ser", "tense": "indefinido", "irregular": true, "forms": { "yo": "fui", "tu": "fuiste", "el": "fue", "nosotros": "fuimos", "vosotros": "fuisteis", "ellos": "fueron" }, "note": "Idéntico al indefinido de ir: Fui a Sevilla (ir) · Fui el primero (ser)." },
+    { "verb": "estar", "tense": "indefinido", "irregular": true, "stem": "estuv-", "forms": { "yo": "estuve", "tu": "estuviste", "el": "estuvo", "nosotros": "estuvimos", "vosotros": "estuvisteis", "ellos": "estuvieron" }, "note": "Raíz irregular estuv-; terminaciones sin tilde." }
+  ],
+  "commonErrors": [
+    { "wrong": "Estoy médico en un hospital de Lyon.", "right": "Soy médico en un hospital de Lyon.", "why": { "es": "La profesión es identidad: se usa ser.", "translations": { "fr": "La profession est une identité : on emploie ser." } }, "l1Interference": true, "ruleId": "r_ser_que_es" },
+    { "wrong": "Hoy soy muy cansado.", "right": "Hoy estoy muy cansado.", "why": { "es": "Un estado del momento pide estar. «Soy cansado» significa «je suis fatigant».", "translations": { "fr": "Un état du moment demande estar. « Soy cansado » signifie « je suis fatigant »." } }, "l1Interference": true, "ruleId": "r_estar_donde_como" },
+    { "wrong": "La boda está en Sevilla.", "right": "La boda es en Sevilla.", "why": { "es": "Un evento no «está» en un sitio: sucede. Se usa ser.", "translations": { "fr": "Un événement n'« est » pas quelque part : il a lieu. On emploie ser." } }, "l1Interference": true, "ruleId": "r_eventos_valoraciones" },
+    { "wrong": "Es yo, Marta.", "right": "Soy yo, Marta.", "why": { "es": "Tras ser, el verbo concuerda con el pronombre: soy yo.", "translations": { "fr": "Après ser, le verbe s'accorde avec le pronom : soy yo (pas de « c'est » mot à mot)." } }, "l1Interference": true, "ruleId": "r_cest" },
+    { "wrong": "Somos el 9 de octubre.", "right": "Estamos a 9 de octubre.", "why": { "es": "Para la fecha: estamos a… o hoy es…", "translations": { "fr": "Pour la date : estamos a… ou hoy es… (jamais « somos el »)." } }, "l1Interference": true, "ruleId": "r_cest" },
+    { "wrong": "La ventana es rota.", "right": "La ventana está rota.", "why": { "es": "Resultado = estar + participio.", "translations": { "fr": "Résultat = estar + participe." } }, "l1Interference": true, "ruleId": "r_participio" }
+  ],
+  "practiceSentences": [
+    { "es": "Mi hermana es veterinaria, pero este verano está de camarera en Ibiza.", "translations": { "fr": "Ma sœur est vétérinaire, mais cet été elle travaille comme serveuse à Ibiza." }, "highlight": ["es veterinaria", "está de camarera"] },
+    { "es": "¿Dónde es la boda? —En Córdoba; el salón está a diez minutos del centro.", "translations": { "fr": "Où a lieu le mariage ? — À Cordoue ; la salle est à dix minutes du centre." }, "highlight": ["Dónde es la boda", "está a diez minutos"] },
+    { "es": "Estamos esperando a Nuria: siempre es puntual, pero hoy está tardando.", "translations": { "fr": "Nous attendons Nuria : elle est toujours ponctuelle, mais aujourd'hui elle tarde." }, "highlight": ["Estamos esperando", "es puntual", "está tardando"] },
+    { "es": "Mi abuelo es muy orgulloso, pero hoy está orgulloso de su nieta.", "translations": { "fr": "Mon grand-père est très orgueilleux, mais aujourd'hui il est fier de sa petite-fille." }, "highlight": ["es muy orgulloso", "está orgulloso"] },
+    { "es": "La sopa está fría, el pan está duro y el camarero es un encanto.", "translations": { "fr": "La soupe est froide, le pain est dur et le serveur est un amour." }, "highlight": ["está fría", "está duro", "es un encanto"] }
+  ],
+  "quiz": {
+    "passingScore": 0.7,
+    "shuffleItems": true,
+    "shuffleOptions": true,
+    "showExplanationOn": "wrong_only",
+    "items": [
+      {
+        "id": "q01", "format": "multiple_choice", "difficulty": 2, "targets": ["r_ser_que_es"],
+        "prompt": { "es": "Mi prima ___ ingeniera y ___ de Lyon.", "translations": { "fr": "Mi prima ___ ingeniera y ___ de Lyon." } },
+        "options": ["es / es", "está / es", "es / está", "está / está"], "correctIndex": [0],
+        "explanation": { "es": "Profesión y origen: siempre ser.", "translations": { "fr": "Profession et origine : toujours ser." } }
+      },
+      {
+        "id": "q02", "format": "multiple_choice", "difficulty": 3, "targets": ["r_eventos_valoraciones"],
+        "prompt": { "es": "La reunión ___ en la sala B, que ___ en la segunda planta.", "translations": { "fr": "La reunión ___ en la sala B, que ___ en la segunda planta." } },
+        "options": ["es / está", "está / es", "es / es", "está / está"], "correctIndex": [0],
+        "explanation": { "es": "El evento es (sucede); la sala está (se encuentra).", "translations": { "fr": "L'événement es (a lieu) ; la salle está (se trouve)." } }
+      },
+      {
+        "id": "q03", "format": "multiple_choice", "difficulty": 2, "targets": ["r_cambio_sentido"],
+        "prompt": { "es": "¿Qué significa «Mi tío es rico»?", "translations": { "fr": "Que signifie « Mi tío es rico » ?" } },
+        "options": ["Mon oncle est riche.", "Mon oncle est délicieux.", "Mon oncle est gentil.", "Mon oncle est en bonne santé."], "correctIndex": [0],
+        "explanation": { "es": "Con ser, rico = tiene mucho dinero. Con estar, rico = sabroso.", "translations": { "fr": "Avec ser, rico = qui a beaucoup d'argent. Avec estar, rico = savoureux." } }
+      },
+      {
+        "id": "q04", "format": "fill_blank", "difficulty": 2, "targets": ["r_ser_que_es", "r_estar_donde_como"],
+        "prompt": { "es": "Completa con ser o estar.", "translations": { "fr": "Complète avec ser ou estar." } },
+        "text": "Mis padres {{1}} de Valencia, pero ahora {{2}} viviendo en Málaga.",
+        "answers": [["son"], ["están"]],
+        "explanation": { "es": "Origen: son. Gerundio: están viviendo.", "translations": { "fr": "Origine : son. Gérondif : están viviendo." } }
+      },
+      {
+        "id": "q05", "format": "fill_blank", "difficulty": 3, "targets": ["r_ser_que_es", "r_estar_donde_como"],
+        "prompt": { "es": "Completa con el verbo entre paréntesis (indefinido).", "translations": { "fr": "Complète avec le verbe entre parenthèses (indefinido)." } },
+        "text": "Ayer (yo) {{1:estar}} en el museo y {{2:ser}} el primero en entrar.",
+        "answers": [["estuve"], ["fui"]]
+      },
+      {
+        "id": "q06", "format": "transform", "difficulty": 3, "targets": ["r_participio"],
+        "prompt": { "es": "Pasa la frase a la voz pasiva con ser.", "translations": { "fr": "Mets la phrase au passif avec ser." } },
+        "sourceSentence": "Un balón rompió la ventana.",
+        "instruction": { "es": "Empieza por «La ventana».", "translations": { "fr": "Commence par « La ventana »." } },
+        "acceptedAnswers": ["La ventana fue rota por un balón."],
+        "grading": "normalized"
+      },
+      {
+        "id": "q07", "format": "error_correction", "difficulty": 3, "targets": ["r_ser_que_es", "r_estar_donde_como"],
+        "prompt": { "es": "Corrige los dos errores.", "translations": { "fr": "Corrige les deux erreurs." } },
+        "sentence": "Mi hermano está ingeniero y hoy es trabajando en casa.",
+        "errors": [ { "wrong": "está ingeniero", "right": "es ingeniero", "ruleId": "r_ser_que_es" }, { "wrong": "es trabajando", "right": "está trabajando", "ruleId": "r_estar_donde_como" } ]
+      },
+      {
+        "id": "q08", "format": "matching", "difficulty": 2, "targets": ["r_cambio_sentido"],
+        "prompt": { "es": "Une cada frase con su traducción.", "translations": { "fr": "Relie chaque phrase à sa traduction." } },
+        "left": ["Es listo", "Está listo", "Es rico", "Está rico"],
+        "right": ["Il est riche", "Il est malin", "Il est prêt", "C'est délicieux"],
+        "pairs": [[0, 1], [1, 2], [2, 0], [3, 3]]
+      },
+      {
+        "id": "q09", "format": "ordering", "difficulty": 2, "targets": ["r_eventos_valoraciones"],
+        "prompt": { "es": "Ordena la frase.", "translations": { "fr": "Remets la phrase dans l'ordre." } },
+        "segments": ["La boda", "es en Sevilla,", "pero el hotel", "está en Dos Hermanas."]
+      },
+      {
+        "id": "q10", "format": "multiple_choice", "difficulty": 3, "targets": ["r_participio"],
+        "prompt": { "es": "¿Qué frase describe un resultado, no una acción?", "translations": { "fr": "Quelle phrase décrit un résultat, et non une action ?" } },
+        "options": ["La puerta fue abierta por el portero.", "La puerta está abierta.", "El portero abre la puerta.", "La puerta se abrió de golpe."], "correctIndex": [1],
+        "explanation": { "es": "Estar + participio = resultado.", "translations": { "fr": "Estar + participe = résultat." } }
+      },
+      {
+        "id": "q11", "format": "multiple_choice", "difficulty": 2, "targets": ["r_cest"],
+        "prompt": { "es": "¿Qué frase es correcta para decir la fecha?", "translations": { "fr": "Quelle phrase est correcte pour dire la date ?" } },
+        "options": ["Somos el 9 de octubre.", "Estamos a 9 de octubre.", "Es a 9 de octubre.", "Estamos el 9 de octubre."], "correctIndex": [1],
+        "explanation": { "es": "Estamos a… (o Hoy es…). Nunca «somos el».", "translations": { "fr": "Estamos a… (ou Hoy es…). Jamais « somos el »." } }
+      },
+      {
+        "id": "q12", "format": "free_response", "difficulty": 3, "targets": ["r_ser_que_es", "r_estar_donde_como"],
+        "prompt": { "es": "Presenta a un amigo: di de dónde es, a qué se dedica y cómo está hoy.", "translations": { "fr": "Présente un ami : dis d'où il est, ce qu'il fait dans la vie et comment il va aujourd'hui." } },
+        "minWords": 15,
+        "rubric": { "dimensions": [ { "name": "accuracy", "weight": 0.6 }, { "name": "range", "weight": 0.4 } ], "passingScore": 0.6 },
+        "modelAnswer": "Mi amigo Tomás es francés, de Burdeos, y es ingeniero. Hoy está contento porque está de vacaciones y estamos paseando por Sevilla.",
+        "requiredStructures": ["\\b(es|son|soy)\\b", "\\b(est[aá]|estoy|est[aá]n)\\b"]
+      }
+    ]
+  },
+  "tutorContext": {
+    "focusPoints": [
+      "Ser = qué es (identidad, origen, profesión, material, hora)",
+      "Estar = dónde y cómo está (lugar, estado, gerundio, resultado)",
+      "Eventos con ser: La boda es en Sevilla",
+      "Adjetivos con doble sentido: listo, rico, aburrido, seguro…",
+      "Fecha: Estamos a… / Hoy es…"
+    ],
+    "mustElicit": ["Es + profesión u origen", "Está + estado o lugar", "La fiesta es en…"],
+    "avoid": ["No traducir al francés salvo que ella lo pida."],
+    "sampleCorrections": [
+      { "learner": "Estoy médico.", "corrected": "Soy médico.", "why": "profesión = ser" },
+      { "learner": "La fiesta está en mi casa.", "corrected": "La fiesta es en mi casa.", "why": "evento = ser" },
+      { "learner": "Soy cansado.", "corrected": "Estoy cansado.", "why": "estado = estar" }
+    ]
+  },
+  "createdAt": "2026-10-09",
+  "author": "Claude"
+}

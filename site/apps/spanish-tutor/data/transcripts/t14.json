@@ -1,0 +1,119 @@
+{
+ "type": "transcript",
+ "version": "1.0.0",
+ "assetId": "narr",
+ "trackNumber": 14,
+ "source": "tts",
+ "engine": "Piper VITS (es_ES-sharvard-medium/F + es_ES-davefx-medium) via sherpa-onnx 1.12.30; Opus 32 kb/s",
+ "reviewed": true,
+ "segments": [
+  {
+   "startMs": 210,
+   "endMs": 5966,
+   "speaker": "Lucía",
+   "text": "¡Andrés! Ya estoy en el piso nuevo: es pequeño, pero está en pleno centro y es muy luminoso.",
+   "translations": {
+    "fr": "Andrés ! Ça y est, je suis dans le nouvel appartement : il est petit, mais en plein centre et très lumineux."
+   }
+  },
+  {
+   "startMs": 6576,
+   "endMs": 9291,
+   "speaker": "Andrés",
+   "text": "¡Qué bien! ¿Y cómo es tu compañero de piso?",
+   "translations": {
+    "fr": "Super ! Et il est comment, ton colocataire ?"
+   }
+  },
+  {
+   "startMs": 9901,
+   "endMs": 17376,
+   "speaker": "Lucía",
+   "text": "Se llama Marcos, es de Cádiz y es cocinero. Es simpatiquísimo, pero esta noche está aburrido porque se ha caído internet.",
+   "translations": {
+    "fr": "Il s'appelle Marcos, il est de Cadix et il est cuisinier. Il est hyper sympa, mais ce soir il s'ennuie parce qu'Internet est en panne."
+   }
+  },
+  {
+   "startMs": 17986,
+   "endMs": 20524,
+   "speaker": "Andrés",
+   "text": "¿Es aburrido? Vaya, qué mala suerte.",
+   "translations": {
+    "fr": "Il est ennuyeux ? Zut, pas de chance."
+   }
+  },
+  {
+   "startMs": 21134,
+   "endMs": 24893,
+   "speaker": "Lucía",
+   "text": "¡No, no! Es divertidísimo, solo está aburrido esta noche.",
+   "translations": {
+    "fr": "Mais non ! Il est hilarant, il s'ennuie seulement ce soir."
+   }
+  },
+  {
+   "startMs": 25503,
+   "endMs": 28816,
+   "speaker": "Andrés",
+   "text": "Ah, vale. Y si es rico, igual me invita a cenar, ¿no?",
+   "translations": {
+    "fr": "Ah, d'accord. Et s'il est riche, il m'invitera peut-être à dîner, non ?"
+   }
+  },
+  {
+   "startMs": 29426,
+   "endMs": 35647,
+   "speaker": "Lucía",
+   "text": "No es rico, es cocinero. Pero lo que cocina está riquísimo, y ahora mismo está haciendo una tortilla.",
+   "translations": {
+    "fr": "Il n'est pas riche, il est cuisinier. Mais ce qu'il cuisine est délicieux, et là, il est en train de faire une omelette."
+   }
+  },
+  {
+   "startMs": 36257,
+   "endMs": 39560,
+   "speaker": "Andrés",
+   "text": "¡Entonces voy para allá! ¿La tortilla ya está lista?",
+   "translations": {
+    "fr": "Alors j'arrive ! L'omelette est déjà prête ?"
+   }
+  },
+  {
+   "startMs": 40171,
+   "endMs": 46147,
+   "speaker": "Lucía",
+   "text": "Todavía no está lista. Marcos es muy listo, pero la tortilla necesita cinco minutos más.",
+   "translations": {
+    "fr": "Elle n'est pas encore prête. Marcos est très malin, mais l'omelette a besoin de cinq minutes de plus."
+   }
+  },
+  {
+   "startMs": 46757,
+   "endMs": 50049,
+   "speaker": "Andrés",
+   "text": "Perfecto, tardo veinte minutos. ¿Cuál es la dirección exacta?",
+   "translations": {
+    "fr": "Parfait, j'en ai pour vingt minutes. C'est quoi, l'adresse exacte ?"
+   }
+  },
+  {
+   "startMs": 50659,
+   "endMs": 56299,
+   "speaker": "Lucía",
+   "text": "Calle del Pez, número doce. El portal es verde y está justo al lado de la farmacia.",
+   "translations": {
+    "fr": "Calle del Pez, numéro douze. L'entrée de l'immeuble est verte et se trouve juste à côté de la pharmacie."
+   }
+  },
+  {
+   "startMs": 56909,
+   "endMs": 59582,
+   "speaker": "Andrés",
+   "text": "Genial. ¡Guárdame un trozo de tortilla!",
+   "translations": {
+    "fr": "Génial. Garde-moi une part d'omelette !"
+   }
+  }
+ ]
+}

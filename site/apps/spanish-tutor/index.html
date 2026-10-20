@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spanish Tutor · Sergio Adan Bermudez</title>
+<meta name="description" content="An offline Android app that takes an adult learner from Spanish B2 to C1, in Spanish with French alongside, with a language model running on the phone. Try a working recreation with real lessons from the app.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../../site.css">
+<link rel="stylesheet" href="../../immersive.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="top-wrap gutter">
+  <header class="top page">
+    <a class="brand" href="../../index.html">Sergio Adan Bermudez</a>
+    <nav aria-label="Site"><a href="../../index.html#apps">Apps</a><a href="../../index.html#worlds">Projects</a><a href="../../work/chess.html">Chess</a><a href="../../jarvis.html">Jarvis</a><a href="../../about.html">About</a><a href="../../index.html#contact">Contact</a></nav>
+  </header>
+</div>
+
+<main>
+  <div class="gutter"><div class="page">
+    <section class="article-head st-hero">
+      <p class="label">Android app · Kotlin · version 4.2</p>
+      <h1>Spanish Tutor</h1>
+      <p class="lede">An offline Android app that takes an adult learner from Spanish B2 to C1. Every screen is in Spanish with French alongside, and a language model on the phone corrects what she writes. Built for one real learner, and shaped by her feedback.</p>
+      <ul class="st-chips" aria-label="Technology and scope">
+        <li>Kotlin</li><li>Jetpack Compose</li><li>llama.cpp on-device</li><li>Qwen3.5 2B</li><li>BM25 search</li><li>280 lessons</li><li>9 exercise types</li>
+      </ul>
+      <div class="readings">
+        <div><span class="label">status</span><span class="value">v4.2</span><span class="note">Android, shaped by two rounds of the learner's feedback</span></div>
+        <div><span class="label">curriculum</span><span class="value">68 topics</span><span class="note">280 lessons as validated JSON</span></div>
+        <div><span class="label">questions answered</span><span class="value">223</span><span class="note">searchable in Spanish or French</span></div>
+        <div><span class="label">network needed</span><span class="value">none</span><span class="note">model, audio and search on the phone</span></div>
+      </div>
+      <p class="st-demo-label">Web demo: a recreation of the Android app with real lessons from it. The real app runs offline on Android.</p>
+    </section>
+
+    <section class="st-demo" aria-label="Interactive demo">
+      <div class="st-stage">
+        <div class="st-controls" id="st-controls" role="group" aria-label="Demo display">
+          <span class="mono">Text size</span>
+          <button type="button" data-scale="1" aria-pressed="true">Normal</button><button type="button" data-scale="1.15" aria-pressed="false">Large</button><button type="button" data-scale="1.3" aria-pressed="false">X-large</button>
+          <button type="button" data-dark aria-pressed="false">🌙 Dark</button>
+        </div>
+        <div class="phone" id="st-phone">
+          <div class="phone-screen">
+            <div id="st-app" class="st-root" role="application" aria-label="Spanish Tutor app, recreated: Spanish and French interface">
+              <p class="st-loading">Loading the lessons…</p>
+            </div>
+          </div>
+        </div>
+        <p class="st-honest">Here the tutor runs on Gemma 4 26B on Cloudflare's free tier; in the app it runs Qwen3.5 2B on the phone, offline.</p>
+      </div>
+
+      <aside class="st-tour" id="st-tour" aria-labelledby="tour-title">
+        <div class="st-tour-head">
+          <p class="label" id="tour-title">Guided tour</p>
+          <span class="mono" data-tour-count>7 steps</span>
+        </div>
+        <p class="st-tour-intro">The app on the left is live: tap anything. Or let each step take it to the right screen.</p>
+        <ol class="st-steps">
+          <li data-step="topic">
+            <h3>A topic and its five sections</h3>
+            <p>Every topic hub has the same five colour-coded sections: listen, grammar, vocabulary, tests and talking with the AI. This is the app's real «Ser o estar» topic.</p>
+            <button type="button" class="btn" data-run>Show me</button>
+          </li>
+          <li data-step="listen">
+            <h3>Listening with a synced transcript</h3>
+            <p>A two-voice dialogue narrated with Piper voices. The line being spoken lights up; tap a time to jump there, and 🇫🇷 shows the French. On the phone the text stays hidden until the first full listen.</p>
+            <button type="button" class="btn" data-run>Show me</button>
+          </li>
+          <li data-step="grammar">
+            <h3>Grammar, one rule per card</h3>
+            <p>Six rules as swipeable cards, each with a formula, highlighted examples and a memory trick. Words with a dotted underline open their French; in the app every word does.</p>
+            <button type="button" class="btn" data-run>Show me</button>
+          </li>
+          <li data-step="exam">
+            <h3>The topic exam</h3>
+            <p>Ten questions in seven formats: multiple choice, gaps, matching, error correction, ordering, rewriting and a free answer. Grading runs in your browser with the app's own rules. Score 80 % or more for stars and confetti.</p>
+            <button type="button" class="btn" data-run>Show me</button>
+          </li>
+          <li data-step="search">
+            <h3>Search in French or Spanish</h3>
+            <p>The search box types «différence entre ser et estar». The ported search ranks 223 answers on every keystroke, then opens the answer card: SER and ESTAR side by side, then «Cuidado, francófonos», the trap for French speakers.</p>
+            <button type="button" class="btn" data-run>Show me</button>
+          </li>
+          <li data-step="tutor">
+            <h3>Role-play with the tutor</h3>
+            <p>Diego is waiting at Atocha station and has never met Clara. The goal chips light up as you type, matched by the app's own patterns. Press Enviar: the reply starts with a «Corrección» line that becomes the ✏️ box.</p>
+            <button type="button" class="btn" data-run>Show me</button>
+          </li>
+          <li data-step="progress">
+            <h3>Progress, text size and dark mode</h3>
+            <p>XP, a streak and the points to review, kept in this browser only. Ajustes sets the text size, the theme and when French appears.</p>
+            <button type="button" class="btn" data-run>Show me</button>
+          </li>
+        </ol>
+        <div class="st-tour-nav">
+          <button type="button" class="btn" data-tour-prev>← Previous</button>
+          <button type="button" class="btn primary" data-tour-next>Next step →</button>
+        </div>
+        <p class="sr-only" aria-live="polite" data-tour-live></p>
+      </aside>
+    </section>
+
+    <section class="block" id="built">
+      <div class="side"><p class="label">How it's built</p></div>
+      <div class="main wide">
+        <h2>A small model, kept on a short leash</h2>
+        <p class="kicker">The tutor has to run on a phone, offline, so most of the app's intelligence lives in plain code around a 2B model: a curriculum it can trust, a search that needs no model, and a reply format simple enough for the model to keep.</p>
+        <dl class="parts">
+          <div><dt>Compose and MVVM</dt><dd>One ViewModel per screen exposes its state as a flow; screens are plain composables. Navigation, Media3 for audio and kotlinx.serialization for the curriculum.</dd></div>
+          <div><dt>llama.cpp through JNI</dt><dd>A small C++ session layer runs a GGUF model on the phone. Qwen3.5 2B in Q4_0 (1.2 GB) is the recommended one; llama.cpp is vendored, so the build downloads nothing.</dd></div>
+          <div><dt>Prompt cached between turns</dt><dd>The hidden prompt depends only on the active lesson and earlier messages are sent back unchanged, so the engine reuses its cache and only reads the new message. Per-turn hints travel as a hidden note on the learner's message.</dd></div>
+          <div><dt>A format a 2B model can keep</dt><dd>Line one is «Corrección: … (reason)» or ✔, then at most four sentences. A line prefix survives streaming far better than JSON, and the correction box appears as soon as the first line arrives.</dd></div>
+          <div><dt>Curriculum as checked JSON</dt><dd>68 topics and 280 lessons in JSON, validated against a JSON Schema by a Python script that also checks cross-references, audio ranges and highlights. A second script checks the Kotlin models read every field.</dd></div>
+          <div><dt>Search without a model</dt><dd>BM25 per field with accent folding, a light stemmer, prefix and typo matching, and a French to Spanish expansion table. 80 JVM unit tests, 25 for search; on the real content all 223 questions rank their own answer first and all 1,467 aliases reach the top three.</dd></div>
+          <div><dt>Goals checked by rules</dt><dd>Role-play goals are regular expressions run before the model, so the ✓ chips are instant and reproducible, and the missing ones become a hint for the tutor.</dd></div>
+          <div><dt>Narration</dt><dd>Listening dialogues were synthesised offline with Piper voices through sherpa-onnx, then aligned sentence by sentence for the synced transcript.</dd></div>
+        </dl>
+        <p>The web version is plain JavaScript modules with no framework. Search, grading, the goal matcher and the reply parser are ported from the Kotlin and tested in Node against the app's own test cases; the search port gives the same 223 of 223 and 1,467 of 1,467 on the real answers. The live tutor builds the same hidden prompt on the site's Cloudflare Worker, with one change: the lesson's sample corrections are labelled as other learners' errors, because a model on test copied them onto correct sentences. Gemma 4 was chosen over Qwen3 30B by a 20-turn test (site/tests/tutor-eval.mjs): Gemma gave the right verdict and correction every time, and Qwen showed a wrong form, such as «Está morena», as the correction in 6 of 20.</p>
+      </div>
+    </section>
+
+    <section class="block" id="notes">
+      <div class="side"><p class="label">Honest notes</p></div>
+      <div class="main prose">
+        <ul>
+          <li>One topic of 68 is here, with its four lessons, its exam and all 223 answers of the question bank. The home tiles for the other packs are left out.</li>
+          <li>The tutor here is a much larger model on a server, so it keeps the correction format more reliably than the 2B model on the phone, and it needs a connection. It can still miss an error: it corrects at most two per turn, as the app asks. It shares a small free daily allowance, so it may run out.</li>
+          <li>In the app every word opens an offline Spanish to French dictionary; here only the words of the vocabulary lesson do.</li>
+          <li>On the phone, 🔊 uses Android's speech engine and there is a full spoken mode with the tutor. Here 🔊 and 🎤 use your browser's own speech features, and only where it has them.</li>
+          <li>The app also plays the course CDs and shows pages of the books the learner owns. They belong to their publisher and are not part of this demo.</li>
+          <li>Not recreated: the dictionary tab, medals, looping a transcript line on long press, and the voice conversation mode.</li>
+          <li>Progress here is stored in this browser only.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block" id="credits">
+      <div class="side"><p class="label">Credits</p></div>
+      <div class="main prose">
+        <p>Lesson content was written for the app with Claude; every file used here is marked with that author. The dialogue voices are machine-generated Piper voices: es_ES-sharvard-medium, trained on the Sharvard Corpus (Aubanel, García Lecumberri &amp; Cooke 2014), licensed <a href="https://creativecommons.org/licenses/by/3.0/" rel="noopener" target="_blank">CC BY 3.0</a>, and es_ES-davefx-medium, CC0. The typeface is Atkinson Hyperlegible by the Braille Institute, under the SIL Open Font License.</p>
+        <div class="cta"><a class="btn primary" href="../../index.html#contact">Get in touch</a><a class="back" href="../../index.html">← Home</a></div>
+      </div>
+    </section>
+
+    <footer><p class="mono">The demo runs in your browser apart from the tutor's replies. Built with Claude Code, directed and reviewed by me.</p></footer>
+  </div></div>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_dele",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Exámenes DELE", "translations": {"fr": "Examens DELE"}},
+  "emoji": "🎓",
+  "order": 45,
+  "entries": [
+    {
+      "id": "d_dele_que_es",
+      "question": {"es": "¿Qué es el DELE y para qué sirve?", "translations": {"fr": "Qu'est-ce que le DELE et à quoi sert-il ?"}},
+      "aliases": ["dele", "qué es el dele", "diploma de español", "examen dele", "diplôme d'espagnol", "c'est quoi le dele", "certificat officiel d'espagnol"],
+      "cefr": "A2",
+      "category": "exam",
+      "emoji": "🎓",
+      "answer": {"es": "Sirve para demostrar tu nivel de español con un título oficial que no caduca nunca y tiene reconocimiento internacional. Lo da el Instituto Cervantes en nombre del Ministerio de Educación de España, con un examen por nivel, de A1 a C2.", "translations": {"fr": "Il sert à prouver ton niveau d'espagnol avec un diplôme officiel, reconnu dans le monde entier, qui n'expire jamais. L'Instituto Cervantes le délivre au nom du ministère espagnol de l'Éducation, avec un examen par niveau, de A1 à C2."}},
+      "points": [
+        {"es": "Seis exámenes para adultos: A1, A2, B1, B2, C1 y C2. Eliges el que quieres: no hace falta haber aprobado antes un nivel inferior.", "translations": {"fr": "Six examens pour adultes : A1, A2, B1, B2, C1 et C2. Tu choisis celui que tu veux : pas besoin d'avoir réussi un niveau inférieur avant."}},
+        {"es": "Puede presentarse cualquier persona, de cualquier nacionalidad, sin haber hecho ningún curso antes.", "translations": {"fr": "Tout le monde peut le passer, quelle que soit sa nationalité, sans avoir suivi de cours avant."}},
+        {"es": "Se hace en papel, en un centro de examen y en fechas fijas, llamadas convocatorias.", "translations": {"fr": "Il se passe sur papier, dans un centre d'examen et à des dates fixes, appelées « convocatorias » (sessions)."}},
+        {"es": "La calificación final es APTO o NO APTO: o demuestras el nivel, o todavía no.", "translations": {"fr": "Le résultat final est APTO ou NO APTO (admis ou non admis) : soit tu prouves le niveau, soit pas encore."}},
+        {"es": "Para la nacionalidad española piden, salvo excepciones, el DELE A2 o superior y la prueba CCSE (Constitución y sociedad españolas).", "translations": {"fr": "Pour la nationalité espagnole, on demande, sauf exceptions, le DELE A2 ou plus et l'examen CCSE (Constitution et société espagnoles)."}}
+      ],
+      "examples": [
+        {"es": "Este año me presento al DELE B1.", "translations": {"fr": "Cette année, je passe le DELE B1."}, "highlight": ["me presento al DELE B1"]},
+        {"es": "¡He aprobado el DELE A2! Ya tengo mi diploma.", "translations": {"fr": "J'ai réussi le DELE A2 ! Ça y est, j'ai mon diplôme."}, "highlight": ["He aprobado"]},
+        {"es": "El diploma DELE no caduca: vale para toda la vida.", "translations": {"fr": "Le diplôme DELE n'expire pas : il est valable à vie."}, "highlight": ["no caduca", "para toda la vida"]}
+      ],
+      "trick": {"es": "DELE: un diploma, un nivel, para toda la vida. 🎓", "translations": {"fr": "DELE : un diplôme, un niveau, pour la vie. 🎓"}},
+      "frenchTrap": {"es": "«Passer un examen» no se dice pasar un examen: se dice presentarse a un examen o hacer un examen. «Réussir» es aprobar, y «échouer», suspender o reprobar.", "translations": {"fr": "« Passer un examen » ne se dit pas « pasar un examen » : on dit « presentarse a un examen » ou « hacer un examen ». « Réussir », c'est « aprobar », et « échouer », « suspender » ou « reprobar »."}},
+      "seeAlso": ["d_dele_niveles", "d_dele_inscripcion", "d_siele", "tp_dele_a2_comprension"],
+      "sources": [
+        {"label": "Instituto Cervantes · ¿Qué es el DELE?", "url": "https://examenes.cervantes.es/es/dele/que-es"},
+        {"label": "Instituto Cervantes · DELE: preguntas frecuentes", "url": "https://examenes.cervantes.es/es/dele/preguntas-frecuentes"}
+      ],
+      "tags": ["dele", "diploma", "examen", "instituto cervantes", "nacionalidad"]
+    },
+    {
+      "id": "d_dele_niveles",
+      "question": {"es": "¿Qué nivel del DELE elijo?", "translations": {"fr": "Quel niveau du DELE choisir ?"}},
+      "aliases": ["nivel dele", "a2 o b1", "b1 o b2", "qué nivel elegir", "quel niveau du dele", "quel niveau choisir", "cecrl dele"],
+      "cefr": "A2",
+      "category": "exam",
+      "emoji": "🎯",
+      "answer": {"es": "Elige el nivel que aprobarías incluso en un mal día: el resultado es solo APTO o NO APTO, y si no apruebas, repites todo. Antes de inscribirte, haz en casa un modelo de examen oficial con reloj.", "translations": {"fr": "Choisis le niveau que tu réussirais même un mauvais jour : le résultat est seulement APTO ou NO APTO, et si tu échoues, tu repasses tout. Avant de t'inscrire, fais chez toi un examen modèle officiel, chronomètre en main."}},
+      "points": [
+        {"es": "A2: entiendes y usas frases muy frecuentes del día a día y te comunicas en situaciones sencillas y conocidas.", "translations": {"fr": "A2 : tu comprends et utilises des phrases très courantes du quotidien et tu communiques dans des situations simples et connues."}},
+        {"es": "B1: entiendes lo principal de textos claros sobre temas conocidos, te desenvuelves en casi todas las situaciones y das tu opinión con sencillez.", "translations": {"fr": "B1 : tu comprends l'essentiel de textes clairs sur des sujets connus, tu te débrouilles dans presque toutes les situations et tu donnes ton avis simplement."}},
+        {"es": "B2: entiendes las ideas principales de textos complejos, hablas con nativos con fluidez y naturalidad y escribes textos claros y detallados.", "translations": {"fr": "B2 : tu comprends les idées principales de textes complexes, tu parles avec des natifs avec aisance et naturel et tu écris des textes clairs et détaillés."}},
+        {"es": "No tienes que pasar por los niveles anteriores: puedes presentarte directamente al B1 o al B2.", "translations": {"fr": "Tu n'as pas à passer par les niveaux précédents : tu peux te présenter directement au B1 ou au B2."}},
+        {"es": "¿Dudas entre dos niveles? Haz el modelo de examen de los dos y compara.", "translations": {"fr": "Tu hésites entre deux niveaux ? Fais l'examen modèle des deux et compare."}}
+      ],
+      "examples": [
+        {"es": "Dudo entre el A2 y el B1.", "translations": {"fr": "J'hésite entre l'A2 et le B1."}, "highlight": ["Dudo entre"]},
+        {"es": "Antes de inscribirme, voy a hacer un modelo de examen en casa.", "translations": {"fr": "Avant de m'inscrire, je vais faire un examen modèle à la maison."}, "highlight": ["modelo de examen"]},
+        {"es": "Con el B1 me siento cómoda: lo aprobaría hasta en un mal día.", "translations": {"fr": "Avec le B1, je me sens à l'aise : je le réussirais même un mauvais jour."}, "highlight": ["me siento cómoda", "hasta en un mal día"]}
+      ],
+      "trick": {"es": "A2: me las arreglo. B1: me desenvuelvo casi en todo. B2: converso con soltura.", "translations": {"fr": "A2 : je me débrouille. B1 : je m'en sors presque partout. B2 : je converse avec aisance."}},
+      "frenchTrap": {"es": "El CECRL francés es en español el MCER (Marco común europeo de referencia). Los niveles se leen con las letras españolas: a dos, be uno, be dos.", "translations": {"fr": "Le CECRL français s'appelle en espagnol MCER (« Marco común europeo de referencia »). Les niveaux se lisent avec les lettres espagnoles : « a dos », « be uno », « be dos »."}},
+      "seeAlso": ["d_dele_que_es", "d_dele_a2", "d_dele_b1", "d_dele_preparar"],
+      "sources": [
+        {"label": "Instituto Cervantes · DELE B1: qué acredita (ver también A2 y B2)", "url": "https://examenes.cervantes.es/es/dele/examenes/b1"},
+        {"label": "Instituto Cervantes · ¿Qué es el DELE? (sin nivel previo obligatorio)", "url": "https://examenes.cervantes.es/es/dele/que-es"}
+      ],
+      "tags": ["dele", "niveles", "mcer", "a2", "b1", "b2"]
+    },
+    {
+      "id": "d_dele_a2",
+      "question": {"es": "¿Cómo es el DELE A2?", "translations": {"fr": "Comment se passe le DELE A2 ?"}},
+      "aliases": ["dele a2", "examen a2", "pruebas del dele a2", "duración dele a2", "épreuves du dele a2", "durée du dele a2"],
+      "cefr": "A2",
+      "category": "exam",
+      "emoji": "📝",
+      "answer": {"es": "Cuatro pruebas de 25 puntos: lectura (60 min), audición (40 min), escritura (45 min) y oral (12 min, con 12 min antes para preparar). La oral puede ser otro día, justo antes o después.", "translations": {"fr": "Quatre épreuves de 25 points : compréhension écrite (60 min), compréhension orale (40 min), expression écrite (45 min) et oral (12 min, avec 12 min de préparation avant). L'oral peut avoir lieu un autre jour, juste avant ou après."}},
+      "points": [
+        {"es": "Lectura: 4 tareas y 25 preguntas. Audición: 4 tareas y 25 preguntas; cada audio se oye dos veces.", "translations": {"fr": "Compréhension écrite : 4 tâches et 25 questions. Compréhension orale : 4 tâches et 25 questions ; chaque audio passe deux fois."}},
+        {"es": "Escritura: respondes a un mensaje (correo, nota, postal…) con 60–70 palabras y escribes un texto breve de 70–80 palabras, eligiendo entre dos opciones.", "translations": {"fr": "Expression écrite : tu réponds à un message (e-mail, mot, carte postale…) en 60–70 mots et tu écris un court texte de 70–80 mots, au choix entre deux sujets."}},
+        {"es": "Oral: presentas un tema (eliges entre dos) 2–3 min, describes una foto 2–3 min y haces un diálogo simulado sobre esa foto 3–4 min.", "translations": {"fr": "Oral : tu présentes un sujet (au choix entre deux) 2–3 min, tu décris une photo 2–3 min et tu fais un dialogue simulé autour de cette photo 3–4 min."}},
+        {"es": "En los 12 minutos de preparación puedes tomar notas y consultarlas durante la prueba.", "translations": {"fr": "Pendant les 12 minutes de préparation, tu peux prendre des notes et les consulter pendant l'épreuve."}},
+        {"es": "Una respuesta equivocada no resta puntos: no dejes ninguna pregunta en blanco.", "translations": {"fr": "Une mauvaise réponse ne fait pas perdre de points : ne laisse aucune question sans réponse."}}
+      ],
+      "examples": [
+        {"es": "Lea el texto y marque la opción correcta.", "translations": {"fr": "Lisez le texte et cochez la bonne réponse."}, "highlight": ["Lea", "marque"], "note": "Así son las instrucciones del examen: con usted.", "noteTranslations": {"fr": "Les consignes de l'examen sont comme ça : au vouvoiement (« usted »)."}},
+        {"es": "Escriba un correo a un amigo para invitarlo a su cumpleaños.", "translations": {"fr": "Écrivez un e-mail à un ami pour l'inviter à votre anniversaire."}, "highlight": ["Escriba"]},
+        {"es": "En la foto hay dos personas en una tienda; creo que están comprando ropa.", "translations": {"fr": "Sur la photo, il y a deux personnes dans un magasin ; je crois qu'elles achètent des vêtements."}, "highlight": ["En la foto hay", "creo que"]}
+      ],
+      "trick": {"es": "A2 = 4 × 25 puntos y 12 + 12 minutos de oral.", "translations": {"fr": "A2 = 4 × 25 points et 12 + 12 minutes d'oral."}},
+      "frenchTrap": {"es": "En las instrucciones, Lea no es una amiga llamada Léa: es «lisez», el imperativo de usted de leer. Igual: Escriba = «écrivez», Marque = «cochez», Conteste = «répondez».", "translations": {"fr": "Dans les consignes, « Lea » n'est pas une amie qui s'appelle Léa : c'est « lisez », l'impératif de « usted » du verbe « leer ». De même : « Escriba » = écrivez, « Marque » = cochez, « Conteste » = répondez."}},
+      "seeAlso": ["tp_dele_a2_comprension", "tp_dele_a2_expresion", "d_dele_aprobar", "d_dele_oral"],
+      "sources": [
+        {"label": "Instituto Cervantes · DELE A2: estructura del examen", "url": "https://examenes.cervantes.es/es/dele/examenes/a2"},
+        {"label": "Instituto Cervantes · Guía del examen DELE A2 (PDF)", "url": "https://examenes.cervantes.es/sites/default/files/DELE_A2_v2020_Gu%C3%ADa_de_examen_0.pdf"}
+      ],
+      "tags": ["dele", "a2", "pruebas", "duración"]
+    },
+    {
+      "id": "d_dele_b1",
+      "question": {"es": "¿Cómo es el DELE B1?", "translations": {"fr": "Comment se passe le DELE B1 ?"}},
+      "aliases": ["dele b1", "examen b1", "pruebas del dele b1", "duración dele b1", "épreuves du dele b1", "durée du dele b1"],
+      "cefr": "B1",
+      "category": "exam",
+      "emoji": "📚",
+      "answer": {"es": "Cuatro pruebas de 25 puntos: lectura (70 min), audición (40 min), escritura (60 min) y oral (15 min, con 15 min antes para preparar). Como en el A2, la oral puede ser otro día, justo antes o después.", "translations": {"fr": "Quatre épreuves de 25 points : compréhension écrite (70 min), compréhension orale (40 min), expression écrite (60 min) et oral (15 min, avec 15 min de préparation avant). Comme pour l'A2, l'oral peut avoir lieu un autre jour, juste avant ou après."}},
+      "points": [
+        {"es": "Lectura: 5 tareas y 30 preguntas. Audición: 5 tareas y 30 preguntas; cada audio se oye dos veces.", "translations": {"fr": "Compréhension écrite : 5 tâches et 30 questions. Compréhension orale : 5 tâches et 30 questions ; chaque audio passe deux fois."}},
+        {"es": "Escritura: una carta o mensaje (correo, foro, blog) de 100–120 palabras y un texto de 130–150 palabras, eligiendo entre dos opciones.", "translations": {"fr": "Expression écrite : une lettre ou un message (e-mail, forum, blog) de 100–120 mots et un texte de 130–150 mots, au choix entre deux sujets."}},
+        {"es": "Oral: una presentación de 2–3 min (eliges entre dos temas) y una conversación sobre ese tema de 3–4 min.", "translations": {"fr": "Oral : une présentation de 2–3 min (au choix entre deux sujets) et une conversation sur ce sujet de 3–4 min."}},
+        {"es": "Después, describes una foto (eliges entre dos) y hablas de ella 2–3 min, y haces un diálogo simulado a partir de esa foto, 2–3 min.", "translations": {"fr": "Ensuite, tu décris une photo (au choix entre deux) et tu en parles 2–3 min, puis tu fais un dialogue simulé à partir de cette photo, 2–3 min."}},
+        {"es": "Solo preparas las tareas 1 y 2, y puedes consultar tus notas. Las respuestas equivocadas no restan puntos.", "translations": {"fr": "Tu prépares seulement les tâches 1 et 2, et tu peux consulter tes notes. Les mauvaises réponses ne font pas perdre de points."}}
+      ],
+      "examples": [
+        {"es": "En mi opinión, es mejor vivir en un pueblo que en una gran ciudad.", "translations": {"fr": "À mon avis, il vaut mieux vivre dans un village que dans une grande ville."}, "highlight": ["En mi opinión"]},
+        {"es": "Estoy de acuerdo con usted, pero el tren es más caro.", "translations": {"fr": "Je suis d'accord avec vous, mais le train est plus cher."}, "highlight": ["Estoy de acuerdo"]},
+        {"es": "Le escribo para contarle mi experiencia en su hotel.", "translations": {"fr": "Je vous écris pour vous raconter mon expérience dans votre hôtel."}, "highlight": ["Le escribo para"]}
+      ],
+      "trick": {"es": "La oral del A2 es 12 + 12; la del B1, 15 + 15. ¡Tres minutos más para lucirte! ✨", "translations": {"fr": "L'oral de l'A2, c'est 12 + 12 ; celui du B1, 15 + 15. Trois minutes de plus pour briller ! ✨"}},
+      "frenchTrap": {"es": "«Je suis d'accord» es estoy de acuerdo, nunca «soy de acuerdo». Y «à mon avis» es en mi opinión o para mí, no «a mi aviso» (un aviso es una advertencia).", "translations": {"fr": "« Je suis d'accord » se dit « estoy de acuerdo », jamais « soy de acuerdo ». Et « à mon avis » se dit « en mi opinión » ou « para mí », pas « a mi aviso » (« aviso » = avertissement)."}},
+      "seeAlso": ["tp_dele_b1_comprension", "tp_dele_b1_expresion", "d_dele_aprobar", "d_dele_escrito"],
+      "sources": [
+        {"label": "Instituto Cervantes · DELE B1: estructura del examen", "url": "https://examenes.cervantes.es/es/dele/examenes/b1"},
+        {"label": "Instituto Cervantes · Guía del examen DELE B1 (PDF)", "url": "https://examenes.cervantes.es/sites/default/files/guia_examen_dele_b1.pdf"}
+      ],
+      "tags": ["dele", "b1", "pruebas", "duración"]
+    },
+    {
+      "id": "d_dele_inscripcion",
+      "question": {"es": "¿Dónde y cuándo me inscribo en el DELE?", "translations": {"fr": "Où et quand m'inscrire au DELE ?"}},
+      "aliases": ["inscripción dele", "fechas dele", "precio dele", "centro de examen dele", "inscription dele", "dates du dele", "prix du dele", "dele en france"],
+      "cefr": "A2",
+      "category": "exam",
+      "emoji": "🗓️",
+      "answer": {"es": "Fuera de España, en un centro de examen (hay más de mil, en más de cien países, también en Francia); en España, por internet. Fechas y precios cambian: consúltalos cada año en examenes.cervantes.es o en tu centro.", "translations": {"fr": "Hors d'Espagne, dans un centre d'examen (il y en a plus de mille, dans plus de cent pays, en France aussi) ; en Espagne, sur internet. Dates et prix changent : vérifie-les chaque année sur examenes.cervantes.es ou auprès de ton centre."}},
+      "points": [
+        {"es": "Para inscribirte necesitas tu pasaporte o documento de identidad con foto y pagar los derechos de inscripción.", "translations": {"fr": "Pour t'inscrire, il te faut ton passeport ou ta pièce d'identité avec photo, et payer les droits d'inscription."}},
+        {"es": "Hay varias convocatorias al año, pero no todos los niveles están en todas, ni todos los centros participan en todas.", "translations": {"fr": "Il y a plusieurs sessions par an, mais tous les niveaux ne sont pas proposés à chaque session, et tous les centres n'y participent pas."}},
+        {"es": "Cada convocatoria tiene su fecha de cierre de inscripción, más de un mes antes del examen: no lo dejes para última hora.", "translations": {"fr": "Chaque session a sa date limite d'inscription, plus d'un mois avant l'examen : ne t'y prends pas à la dernière minute."}},
+        {"es": "El precio depende del nivel y del país: pregúntalo en tu centro o mira la lista oficial.", "translations": {"fr": "Le prix dépend du niveau et du pays : demande-le à ton centre ou regarde la liste officielle."}},
+        {"es": "Guarda el resguardo de inscripción: es tu prueba. El día del examen lleva el resguardo, tu documento original y la convocatoria del centro.", "translations": {"fr": "Garde le récépissé d'inscription : c'est ta preuve. Le jour de l'examen, apporte le récépissé, ta pièce d'identité originale et la convocation du centre."}}
+      ],
+      "examples": [
+        {"es": "Buenos días, quería inscribirme en el DELE B1.", "translations": {"fr": "Bonjour, je voudrais m'inscrire au DELE B1."}, "highlight": ["quería inscribirme"], "note": "Quería: el imperfecto de cortesía, más suave que quiero.", "noteTranslations": {"fr": "« Quería » : l'imparfait de politesse, plus doux que « quiero » (comme « je voudrais »)."}},
+        {"es": "¿Hasta cuándo es el plazo de inscripción?", "translations": {"fr": "Jusqu'à quand peut-on s'inscrire ?"}, "highlight": ["plazo de inscripción"]},
+        {"es": "¿Qué documentos tengo que traer el día del examen?", "translations": {"fr": "Quels documents dois-je apporter le jour de l'examen ?"}, "highlight": ["traer"]}
+      ],
+      "trick": {"es": "El día del examen, tres papeles: resguardo, documento de identidad original y convocatoria. 📄📄📄", "translations": {"fr": "Le jour de l'examen, trois papiers : récépissé, pièce d'identité originale et convocation. 📄📄📄"}},
+      "frenchTrap": {"es": "La «session de mai» es la convocatoria de mayo, no la sesión de mayo. Y el aviso del centro con el día, la hora y el lugar también se llama convocatoria.", "translations": {"fr": "La « session de mai », c'est « la convocatoria de mayo », pas « la sesión de mayo ». Et l'avis du centre avec le jour, l'heure et le lieu s'appelle aussi « convocatoria » (la convocation)."}},
+      "seeAlso": ["d_dele_que_es", "d_dele_aprobar", "d_siele", "d_llevar_traer"],
+      "sources": [
+        {"label": "Instituto Cervantes · DELE: cómo inscribirse", "url": "https://examenes.cervantes.es/es/dele/inscribirse"},
+        {"label": "Instituto Cervantes · DELE: fechas de examen y plazos de inscripción", "url": "https://examenes.cervantes.es/es/dele/cuando"},
+        {"label": "Instituto Cervantes · DELE: dónde examinarse (buscador de centros)", "url": "https://examenes.cervantes.es/es/dele/donde"}
+      ],
+      "tags": ["dele", "inscripción", "fechas", "precio", "centros"]
+    },
+    {
+      "id": "d_dele_aprobar",
+      "question": {"es": "¿Cómo se aprueba el DELE? ¿Qué nota necesito?", "translations": {"fr": "Comment réussir le DELE ? Quelle note faut-il ?"}},
+      "aliases": ["aprobar el dele", "nota dele", "puntos para aprobar", "apto no apto", "réussir le dele", "note pour réussir le dele", "suspender el dele"],
+      "cefr": "A2",
+      "category": "exam",
+      "emoji": "✅",
+      "answer": {"es": "En el A2 y el B1, las cuatro pruebas suman 100 puntos en dos grupos: lectura + escritura, y audición + oral. Necesitas al menos 30 de 50 en cada grupo; si no, es NO APTO y repites todo el examen.", "translations": {"fr": "Pour l'A2 et le B1, les quatre épreuves font 100 points, en deux groupes : compréhension écrite + expression écrite, et compréhension orale + oral. Il faut au moins 30 sur 50 dans chaque groupe ; sinon, c'est NO APTO et tu repasses tout l'examen."}},
+      "points": [
+        {"es": "Un grupo fuerte no salva al otro: 45 en lectura + escritura y 28 en audición + oral = NO APTO.", "translations": {"fr": "Un bon groupe ne rattrape pas l'autre : 45 en compréhension écrite + expression écrite et 28 en compréhension orale + oral = NO APTO."}},
+        {"es": "Hay que hacer las cuatro pruebas, y las respuestas equivocadas no restan puntos: contesta siempre algo.", "translations": {"fr": "Il faut passer les quatre épreuves, et les mauvaises réponses ne font pas perdre de points : réponds toujours quelque chose."}},
+        {"es": "Si sale NO APTO, te inscribes otra vez y repites las cuatro pruebas, aunque hayas aprobado alguna.", "translations": {"fr": "Si tu as NO APTO, tu te réinscris et tu repasses les quatre épreuves, même si tu en as réussi une."}},
+        {"es": "Te avisan de los resultados por correo electrónico en unos dos meses (tres en algunas convocatorias). Puedes pedir una sola revisión, de pago, en el plazo de un mes.", "translations": {"fr": "On te prévient des résultats par e-mail en deux mois environ (trois pour certaines sessions). Tu peux demander une seule révision, payante, dans un délai d'un mois."}},
+        {"es": "Recibes un certificado electrónico con tus notas y, si eres APTO, el diploma en formato digital por correo electrónico.", "translations": {"fr": "Tu reçois un certificat électronique avec tes notes et, si tu es APTO, le diplôme au format numérique par e-mail."}}
+      ],
+      "examples": [
+        {"es": "¡He aprobado! Saqué 34 en un grupo y 38 en el otro.", "translations": {"fr": "J'ai réussi ! J'ai eu 34 dans un groupe et 38 dans l'autre."}, "highlight": ["He aprobado", "Saqué"], "note": "Sacar una nota: obtenerla.", "noteTranslations": {"fr": "« Sacar una nota » = avoir, obtenir une note."}},
+        {"es": "Me faltaron dos puntos en la parte oral, así que tengo que repetirlo todo.", "translations": {"fr": "Il m'a manqué deux points à l'oral, du coup je dois tout repasser."}, "highlight": ["Me faltaron", "repetirlo todo"]},
+        {"es": "No pasa nada: me vuelvo a presentar en la próxima convocatoria.", "translations": {"fr": "Ce n'est pas grave : je me représente à la prochaine session."}, "highlight": ["me vuelvo a presentar"]}
+      ],
+      "trick": {"es": "Regla del 30 + 30: treinta puntos en cada grupo y el diploma es tuyo. 💪", "translations": {"fr": "Règle du 30 + 30 : trente points dans chaque groupe et le diplôme est à toi. 💪"}},
+      "frenchTrap": {"es": "Con exámenes, suspender no es «suspendre»: significa échouer. «J'ai réussi» = he aprobado; «j'ai raté» = he suspendido.", "translations": {"fr": "Pour un examen, « suspender » ne veut pas dire « suspendre » : ça veut dire échouer. « J'ai réussi » = « he aprobado » ; « j'ai raté » = « he suspendido »."}},
+      "seeAlso": ["d_dele_a2", "d_dele_b1", "d_dele_preparar", "d_exito"],
+      "sources": [
+        {"label": "Instituto Cervantes · DELE: cómo es el examen y cómo se califica", "url": "https://examenes.cervantes.es/es/dele/como"},
+        {"label": "Instituto Cervantes · DELE: calificaciones y revisión", "url": "https://examenes.cervantes.es/es/dele/calificaciones"}
+      ],
+      "tags": ["dele", "aprobar", "apto", "puntos", "resultados"]
+    },
+    {
+      "id": "d_siele",
+      "question": {"es": "¿DELE o SIELE? ¿Cuál es la diferencia?", "translations": {"fr": "DELE ou SIELE ? Quelle est la différence ?"}},
+      "aliases": ["siele", "diferencia dele siele", "examen siele", "siele o dele", "différence dele siele", "c'est quoi le siele", "certificat siele"],
+      "cefr": "A2",
+      "category": "exam",
+      "emoji": "⚖️",
+      "answer": {"es": "El DELE es un diploma de un nivel concreto, en papel y en fechas fijas, que no caduca. El SIELE se hace por ordenador, el día que eliges con cita; da una puntuación sobre 1000 (de A1 a C1) y vale cinco años.", "translations": {"fr": "Le DELE est un diplôme d'un niveau précis, sur papier et à dates fixes, qui n'expire pas. Le SIELE se passe sur ordinateur, le jour que tu choisis sur rendez-vous ; il donne un score sur 1000 (de A1 à C1) et vaut cinq ans."}},
+      "compare": [
+        {"title": {"es": "DELE", "translations": {"fr": "DELE"}}, "items": [
+          {"es": "Formato: en papel, en un centro, en fechas fijas.", "translations": {"fr": "Format : sur papier, dans un centre, à dates fixes."}},
+          {"es": "Resultado: APTO o NO APTO en el nivel elegido.", "translations": {"fr": "Résultat : APTO ou NO APTO au niveau choisi."}},
+          {"es": "Niveles: un examen por nivel, de A1 a C2.", "translations": {"fr": "Niveaux : un examen par niveau, de A1 à C2."}},
+          {"es": "Resultados: en unos dos o tres meses.", "translations": {"fr": "Résultats : en deux ou trois mois environ."}},
+          {"es": "Validez: indefinida, para toda la vida.", "translations": {"fr": "Validité : illimitée, pour toute la vie."}}
+        ]},
+        {"title": {"es": "SIELE", "translations": {"fr": "SIELE"}}, "items": [
+          {"es": "Formato: por ordenador, con cita en un centro SIELE.", "translations": {"fr": "Format : sur ordinateur, sur rendez-vous dans un centre SIELE."}},
+          {"es": "Resultado: puntos por destreza (sobre 250) y un total sobre 1000.", "translations": {"fr": "Résultat : des points par compétence (sur 250) et un total sur 1000."}},
+          {"es": "Niveles: un solo examen con tareas de A1 a C1.", "translations": {"fr": "Niveaux : un seul examen avec des tâches de A1 à C1."}},
+          {"es": "Resultados: en tres semanas como máximo.", "translations": {"fr": "Résultats : en trois semaines maximum."}},
+          {"es": "Validez: cinco años.", "translations": {"fr": "Validité : cinq ans."}}
+        ]}
+      ],
+      "points": [
+        {"es": "El SIELE lo promueven el Instituto Cervantes, la UNAM (México), la Universidad de Salamanca y la Universidad de Buenos Aires.", "translations": {"fr": "Le SIELE est porté par l'Instituto Cervantes, l'UNAM (Mexique), l'université de Salamanque et l'université de Buenos Aires."}},
+        {"es": "Cada prueba del SIELE mezcla al menos tres variedades del español: oirás y leerás español de varios países.", "translations": {"fr": "Chaque épreuve du SIELE mélange au moins trois variétés d'espagnol : tu entendras et liras l'espagnol de plusieurs pays."}},
+        {"es": "Para la nacionalidad española, lo que se pide es el DELE (A2 o superior), junto con la prueba CCSE.", "translations": {"fr": "Pour la nationalité espagnole, ce qui est demandé, c'est le DELE (A2 ou plus), avec l'examen CCSE."}},
+        {"es": "¿Cuál elijo? El DELE, si quieres un diploma para siempre; el SIELE, si lo necesitas pronto o para un trámite con plazo.", "translations": {"fr": "Lequel choisir ? Le DELE si tu veux un diplôme pour toujours ; le SIELE si tu en as besoin vite ou pour une démarche avec un délai."}}
+      ],
+      "examples": [
+        {"es": "Necesito el certificado pronto, así que me presento al SIELE.", "translations": {"fr": "J'ai besoin du certificat rapidement, du coup je passe le SIELE."}, "highlight": ["me presento al SIELE"]},
+        {"es": "Prefiero el DELE porque el diploma no caduca.", "translations": {"fr": "Je préfère le DELE parce que le diplôme n'expire pas."}, "highlight": ["no caduca"]},
+        {"es": "Mi certificado SIELE caduca dentro de cinco años.", "translations": {"fr": "Mon certificat SIELE expire dans cinq ans."}, "highlight": ["caduca dentro de cinco años"]}
+      ],
+      "trick": {"es": "DELE = diploma para siempre. SIELE = foto de tu nivel, válida cinco años. 📸", "translations": {"fr": "DELE = diplôme pour toujours. SIELE = photo de ton niveau, valable cinq ans. 📸"}},
+      "frenchTrap": {"es": "Para un documento, «expirer» se dice caducar: Mi pasaporte caduca en mayo. Expirar es sobre todo morir (o, para un plazo, terminar). ¡Tu diploma no se muere! 😄", "translations": {"fr": "Pour un document, « expirer » se dit « caducar » : « Mi pasaporte caduca en mayo ». « Expirar », c'est surtout mourir (ou, pour un délai, se terminer). Ton diplôme ne meurt pas ! 😄"}},
+      "seeAlso": ["d_dele_que_es", "d_dele_inscripcion", "d_vos", "d_vosotros_ustedes"],
+      "sources": [
+        {"label": "Instituto Cervantes · DELE: preguntas frecuentes (comparación DELE y SIELE)", "url": "https://examenes.cervantes.es/es/dele/preguntas-frecuentes"},
+        {"label": "Instituto Cervantes · ¿Qué es el SIELE?", "url": "https://examenes.cervantes.es/es/siele/que-es"}
+      ],
+      "tags": ["siele", "dele", "certificado", "diferencias"]
+    },
+    {
+      "id": "d_dele_preparar",
+      "question": {"es": "¿Cómo me preparo para el DELE?", "translations": {"fr": "Comment me préparer au DELE ?"}},
+      "aliases": ["preparar el dele", "modelos de examen dele", "consejos dele", "cómo estudiar para el dele", "préparer le dele", "conseils pour le dele", "réviser le dele"],
+      "cefr": "A2",
+      "category": "exam",
+      "emoji": "🧭",
+      "answer": {"es": "Empieza con un modelo de examen oficial (en examenes.cervantes.es, con audios y soluciones): hazlo entero y con reloj para ver qué prueba te cuesta más. Luego entrena esa prueba tarea por tarea y haz otro examen completo antes del día.", "translations": {"fr": "Commence par un examen modèle officiel (sur examenes.cervantes.es, avec audios et corrigés) : fais-le en entier et chronométré pour voir quelle épreuve te coûte le plus. Ensuite, entraîne-toi sur cette épreuve tâche par tâche et refais un examen complet avant le jour J."}},
+      "points": [
+        {"es": "Lee la guía del examen de tu nivel: explica cada tarea y cómo se califica, con muestras.", "translations": {"fr": "Lis le guide de l'examen de ton niveau : il explique chaque tâche et la notation, avec des exemples."}},
+        {"es": "Escritura: escribe de verdad, a mano, y cuenta las palabras hasta que la extensión te salga sola.", "translations": {"fr": "Expression écrite : écris pour de vrai, à la main, et compte les mots jusqu'à ce que la bonne longueur vienne toute seule."}},
+        {"es": "Oral: practica en voz alta con reloj (2–3 minutos por tarea) y grábate con el móvil.", "translations": {"fr": "Oral : entraîne-toi à voix haute, chronomètre en main (2–3 minutes par tâche), et enregistre-toi avec ton portable."}},
+        {"es": "Audición: escucha español de varios países (radio, pódcast, series). En el examen, cada audio se oye dos veces.", "translations": {"fr": "Compréhension orale : écoute l'espagnol de plusieurs pays (radio, podcasts, séries). À l'examen, chaque audio passe deux fois."}},
+        {"es": "En la web del Instituto Cervantes hay también cursos de preparación en línea para A2, B1 y B2.", "translations": {"fr": "Sur le site de l'Instituto Cervantes, il y a aussi des cours de préparation en ligne pour l'A2, le B1 et le B2."}}
+      ],
+      "examples": [
+        {"es": "Esta semana repaso la prueba de audición.", "translations": {"fr": "Cette semaine, je révise l'épreuve de compréhension orale."}, "highlight": ["repaso"]},
+        {"es": "Hoy hago un examen completo, con reloj, como el día de verdad.", "translations": {"fr": "Aujourd'hui, je fais un examen complet, chronométré, comme le jour J."}, "highlight": ["con reloj"]},
+        {"es": "Me grabo hablando dos minutos sobre mi barrio.", "translations": {"fr": "Je m'enregistre en train de parler deux minutes de mon quartier."}, "highlight": ["Me grabo hablando"]}
+      ],
+      "trick": {"es": "Modelo → diagnóstico → tarea por tarea → examen completo. 🧭", "translations": {"fr": "Modèle → diagnostic → tâche par tâche → examen blanc. 🧭"}},
+      "frenchTrap": {"es": "«Réviser» (para un examen) se dice repasar: Repaso el vocabulario. Revisar es comprobar o corregir algo: revisar un texto, revisar el coche.", "translations": {"fr": "« Réviser » (pour un examen) se dit « repasar » : « Repaso el vocabulario ». « Revisar », c'est vérifier ou corriger quelque chose : « revisar un texto », « revisar el coche »."}},
+      "seeAlso": ["d_dele_niveles", "d_dele_oral", "d_dele_escrito", "tp_dele_a2_comprension", "tp_dele_b1_comprension"],
+      "sources": [
+        {"label": "Instituto Cervantes · Preparar el DELE: modelos de examen y guías", "url": "https://examenes.cervantes.es/es/dele/preparar-prueba"},
+        {"label": "Instituto Cervantes · DELE: cursos de preparación", "url": "https://examenes.cervantes.es/es/dele/cursos-y-recursos/cursos"}
+      ],
+      "tags": ["dele", "preparación", "modelos de examen", "consejos"]
+    },
+    {
+      "id": "d_dele_oral",
+      "question": {"es": "¿Cómo es la prueba oral del DELE?", "translations": {"fr": "Comment se passe l'oral du DELE ?"}},
+      "aliases": ["oral dele", "prueba oral dele", "examen oral", "examinadores dele", "oral du dele", "épreuve orale dele", "conseils oral dele"],
+      "cefr": "B1",
+      "category": "exam",
+      "emoji": "🗣️",
+      "answer": {"es": "Es cara a cara con dos examinadores: uno habla contigo y el otro solo te califica, sin intervenir. Antes tienes un rato para preparar (12 min en el A2, 15 en el B1) y puedes consultar tus notas mientras hablas.", "translations": {"fr": "C'est en face à face avec deux examinateurs : l'un parle avec toi, l'autre te note seulement, sans intervenir. Avant, tu as un moment pour préparer (12 min pour l'A2, 15 pour le B1) et tu peux consulter tes notes pendant que tu parles."}},
+      "points": [
+        {"es": "A2 (12 min): presentas un tema (eliges entre dos), describes una foto y haces un diálogo simulado a partir de esa foto.", "translations": {"fr": "A2 (12 min) : tu présentes un sujet (au choix entre deux), tu décris une photo et tu fais un dialogue simulé à partir de cette photo."}},
+        {"es": "B1 (15 min): presentación (eliges entre dos temas), conversación sobre ese tema, una foto (eliges entre dos) y un diálogo simulado. Solo preparas las dos primeras.", "translations": {"fr": "B1 (15 min) : présentation (au choix entre deux sujets), conversation sur ce sujet, une photo (au choix entre deux) et un dialogue simulé. Tu ne prépares que les deux premières."}},
+        {"es": "Puede ser el mismo día que las pruebas escritas o un día justo antes o después: tu centro te lo dirá.", "translations": {"fr": "Il peut avoir lieu le même jour que les épreuves écrites ou un jour juste avant ou après : ton centre te le dira."}},
+        {"es": "En el B1 se valoran la coherencia, la fluidez, la corrección y el alcance (la variedad de palabras y estructuras).", "translations": {"fr": "Au B1, on évalue la cohérence, la fluidité, la correction et l'étendue (la variété du vocabulaire et des structures)."}},
+        {"es": "Si ves una grabadora, tranquila: la prueba puede grabarse en audio, solo para controles de calidad.", "translations": {"fr": "Si tu vois un enregistreur, pas d'inquiétude : l'épreuve peut être enregistrée, uniquement pour des contrôles de qualité."}}
+      ],
+      "examples": [
+        {"es": "Perdone, ¿puede repetir la pregunta, por favor?", "translations": {"fr": "Pardon, pouvez-vous répéter la question, s'il vous plaît ?"}, "highlight": ["¿puede repetir la pregunta"]},
+        {"es": "En la foto veo a una familia en un parque; parece que están de vacaciones.", "translations": {"fr": "Sur la photo, je vois une famille dans un parc ; on dirait qu'ils sont en vacances."}, "highlight": ["En la foto veo", "parece que"]},
+        {"es": "Pues… a ver… yo creo que depende del día.", "translations": {"fr": "Eh bien… voyons… je crois que ça dépend du jour."}, "highlight": ["Pues", "a ver"]}
+      ],
+      "trick": {"es": "Dos examinadores, pero solo hablas con uno: mira a esa persona y olvídate de la otra. 😉", "translations": {"fr": "Deux examinateurs, mais tu ne parles qu'avec l'un d'eux : regarde cette personne et oublie l'autre. 😉"}},
+      "frenchTrap": {"es": "Tu «euh…» francés te delata: ese sonido no existe en español. Para ganar tiempo di pues…, a ver…, bueno… o un simple eh…", "translations": {"fr": "Ton « euh… » français te trahit : ce son n'existe pas en espagnol. Pour gagner du temps, dis « pues… », « a ver… », « bueno… » ou un simple « eh… »."}},
+      "seeAlso": ["tp_dele_a2_expresion", "tp_dele_b1_expresion", "d_dele_a2", "d_dele_b1", "tp_com_natural"],
+      "sources": [
+        {"label": "Instituto Cervantes · Guía del examen DELE B1 (PDF)", "url": "https://examenes.cervantes.es/sites/default/files/guia_examen_dele_b1.pdf"},
+        {"label": "Instituto Cervantes · Guía del examen DELE A2 (PDF)", "url": "https://examenes.cervantes.es/sites/default/files/DELE_A2_v2020_Gu%C3%ADa_de_examen_0.pdf"},
+        {"label": "Instituto Cervantes · DELE: cómo es el examen (grabación de la prueba oral)", "url": "https://examenes.cervantes.es/es/dele/como"}
+      ],
+      "tags": ["dele", "oral", "examinadores", "foto", "presentación"]
+    },
+    {
+      "id": "d_dele_escrito",
+      "question": {"es": "¿Cómo escribo bien en el examen?", "translations": {"fr": "Comment bien écrire à l'examen ?"}},
+      "aliases": ["escritura dele", "expresión escrita dele", "cuántas palabras dele", "correo dele", "expression écrite dele", "combien de mots dele", "rédaction dele"],
+      "cefr": "B1",
+      "category": "exam",
+      "emoji": "✍️",
+      "answer": {"es": "Haz exactamente lo que pide la tarea, punto por punto; respeta el número de palabras y el registro (tú o usted), y ordena el texto: saludo, párrafos con conectores sencillos y despedida. Guarda cinco minutos para releer.", "translations": {"fr": "Fais exactement ce que demande la consigne, point par point ; respecte le nombre de mots et le registre (« tú » ou « usted »), et organise ton texte : formule d'appel, paragraphes avec des connecteurs simples et formule finale. Garde cinq minutes pour te relire."}},
+      "points": [
+        {"es": "Extensión: A2, 60–70 y 70–80 palabras; B1, 100–120 y 130–150. Ni mucho más ni mucho menos.", "translations": {"fr": "Longueur : A2, 60–70 et 70–80 mots ; B1, 100–120 et 130–150. Ni beaucoup plus, ni beaucoup moins."}},
+        {"es": "En el B1 se valoran la adecuación al tipo de texto, la coherencia, la corrección y el alcance (vocabulario y estructuras variados).", "translations": {"fr": "Au B1, on évalue l'adéquation au type de texte, la cohérence, la correction et l'étendue (vocabulaire et structures variés)."}},
+        {"es": "Antes de escribir, subraya cada cosa que pide la tarea; al terminar, comprueba que no falta ninguna.", "translations": {"fr": "Avant d'écrire, souligne chaque chose que demande la consigne ; à la fin, vérifie qu'il n'en manque aucune."}},
+        {"es": "Conectores que siempre funcionan: además, por eso, sin embargo, en cambio, por último.", "translations": {"fr": "Des connecteurs qui marchent toujours : « además » (en plus), « por eso » (c'est pourquoi), « sin embargo » (cependant), « en cambio » (en revanche), « por último » (enfin)."}},
+        {"es": "Al releer, busca tus errores de siempre: tildes, ser o estar, y el género (la leche, el problema).", "translations": {"fr": "En te relisant, cherche tes erreurs habituelles : accents, « ser » ou « estar », et le genre (« la leche », « el problema »)."}}
+      ],
+      "examples": [
+        {"es": "Querida Ana: ¡Qué alegría recibir tu correo!", "translations": {"fr": "Chère Ana, Quelle joie de recevoir ton e-mail !"}, "highlight": ["Querida Ana:"]},
+        {"es": "Además, el hotel estaba cerca de la playa; sin embargo, la habitación era pequeña.", "translations": {"fr": "En plus, l'hôtel était près de la plage ; cependant, la chambre était petite."}, "highlight": ["Además", "sin embargo"]},
+        {"es": "Espero que estés bien y que nos veamos pronto.", "translations": {"fr": "J'espère que tu vas bien et qu'on se verra bientôt."}, "highlight": ["Espero que estés", "nos veamos"]},
+        {"es": "Estimado señor: Le escribo para reclamar por un pedido que no he recibido.", "translations": {"fr": "Monsieur, Je vous écris pour faire une réclamation au sujet d'une commande que je n'ai pas reçue."}, "highlight": ["Estimado señor:", "Le escribo para"]}
+      ],
+      "trick": {"es": "Antes de entregar, tres preguntas: ¿están todos los puntos? ¿cuántas palabras? ¿tú o usted? ✅", "translations": {"fr": "Avant de rendre ta copie, trois questions : tous les points y sont ? combien de mots ? « tú » ou « usted » ? ✅"}},
+      "frenchTrap": {"es": "Calcos típicos: par contre → en cambio; du coup → así que; en fait → en realidad. Y «j'espère que tu vas bien» lleva subjuntivo: Espero que estés bien, no «espero que estás».", "translations": {"fr": "Calques typiques : par contre → « en cambio » ; du coup → « así que » ; en fait → « en realidad ». Et « j'espère que tu vas bien » demande le subjonctif : « Espero que estés bien », pas « espero que estás »."}},
+      "seeAlso": ["d_carta_formal", "d_esperar_que", "tp_dele_a2_expresion", "tp_dele_b1_expresion", "d_du_coup"],
+      "sources": [
+        {"label": "Instituto Cervantes · Guía del examen DELE B1 (PDF)", "url": "https://examenes.cervantes.es/sites/default/files/guia_examen_dele_b1.pdf"},
+        {"label": "Instituto Cervantes · Guía del examen DELE A2 (PDF)", "url": "https://examenes.cervantes.es/sites/default/files/DELE_A2_v2020_Gu%C3%ADa_de_examen_0.pdf"}
+      ],
+      "tags": ["dele", "escritura", "palabras", "conectores", "correo"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

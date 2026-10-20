@@ -1,0 +1,270 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_signos",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Signos y mayúsculas", "translations": {"fr": "Ponctuation et majuscules"}},
+  "emoji": "❗",
+  "order": 32,
+  "entries": [
+    {
+      "id": "d_signos_apertura",
+      "question": {"es": "¿Por qué se escriben ¿ y ¡ al principio?", "translations": {"fr": "Pourquoi écrit-on ¿ et ¡ au début ?"}},
+      "aliases": ["signo de interrogación al revés", "interrogación de apertura", "signos de exclamación", "dónde se pone el ¿", "point d'interrogation à l'envers", "pourquoi ¿ en espagnol", "ponctuation espagnole"],
+      "cefr": "A1",
+      "category": "spelling",
+      "emoji": "❗",
+      "answer": {"es": "Porque en español la pregunta y la exclamación se marcan al principio y al final: ¿Vienes? ¡Qué alegría! Así sabes desde el principio cómo leer la frase. Son obligatorios: no los quites.", "translations": {"fr": "Parce qu'en espagnol, la question et l'exclamation se marquent au début et à la fin : ¿Vienes? ¡Qué alegría! Ainsi, tu sais dès le début comment lire la phrase. Ils sont obligatoires : ne les supprime pas."}},
+      "points": [
+        {"es": "El signo de apertura va donde empieza la pregunta, no siempre al principio: Si llueve, ¿qué hacemos?", "translations": {"fr": "Le signe d'ouverture se place là où commence la question, pas toujours au début : Si llueve, ¿qué hacemos? (s'il pleut, qu'est-ce qu'on fait ?)"}},
+        {"es": "Con un nombre delante, igual: Juan, ¿vienes? La pregunta sigue entonces en minúscula.", "translations": {"fr": "Avec un prénom devant, pareil : Juan, ¿vienes? (Juan, tu viens ?). La question continue alors en minuscule."}},
+        {"es": "Después de ? o ! no se pone punto: ¿Comemos juntas? Te espero.", "translations": {"fr": "Après ? ou ! on ne met pas de point : ¿Comemos juntas? Te espero (on déjeune ensemble ? je t'attends)."}},
+        {"es": "Pregunta y sorpresa a la vez: ¿¡Qué dices!?", "translations": {"fr": "Question et surprise en même temps : ¿¡Qué dices!? (qu'est-ce que tu dis ?!)"}}
+      ],
+      "examples": [
+        {"es": "¿A qué hora sale el tren para Sevilla?", "translations": {"fr": "À quelle heure part le train pour Séville ?"}, "highlight": ["¿", "?"]},
+        {"es": "¡Feliz cumpleaños, abuela!", "translations": {"fr": "Joyeux anniversaire, mamie !"}, "highlight": ["¡", "!"]},
+        {"es": "Oye, ¿has visto mis gafas?", "translations": {"fr": "Dis donc, tu as vu mes lunettes ?"}, "highlight": ["¿has visto mis gafas?"]}
+      ],
+      "trick": {"es": "Piensa en un bocadillo: la pregunta va entre dos panes, ¿ y ?", "translations": {"fr": "Pense à un sandwich : la question est entre deux tranches de pain, ¿ et ?"}},
+      "frenchTrap": {"es": "En francés se deja un espacio antes de ? ! : ;. En español, no: ¿Vienes? ¡Hola! Y no olvides el signo de apertura, aunque escribas en el móvil.", "translations": {"fr": "En français, on met un espace avant ? ! : ;. En espagnol, non : ¿Vienes? ¡Hola! Et n'oublie pas le signe d'ouverture, même sur ton portable."}},
+      "seeAlso": ["d_coma_vocativo", "d_puntos_suspensivos"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: signos de interrogación y exclamación", "url": "https://www.rae.es/dpd/interrogaci%C3%B3n"}],
+      "tags": ["interrogación", "exclamación", "puntuación"]
+    },
+    {
+      "id": "d_mayusculas_dias",
+      "question": {"es": "¿Lunes y enero van con mayúscula?", "translations": {"fr": "Faut-il une majuscule à « lunes » et « enero » ?"}},
+      "aliases": ["días de la semana mayúscula", "meses con mayúscula", "enero o Enero", "lunes con mayúscula", "majuscule aux jours en espagnol", "mois en majuscule espagnol"],
+      "cefr": "A1",
+      "category": "spelling",
+      "emoji": "📅",
+      "answer": {"es": "No: los días, los meses y las estaciones se escriben con minúscula: lunes, enero, primavera. Solo llevan mayúscula al empezar una frase o dentro de un nombre propio: Viernes Santo.", "translations": {"fr": "Non : les jours, les mois et les saisons s'écrivent en minuscule : lunes, enero, primavera. Ils ne prennent une majuscule qu'en début de phrase ou dans un nom propre : Viernes Santo (Vendredi saint)."}},
+      "points": [
+        {"es": "En las fechas, también minúscula: Madrid, 14 de julio de 2026.", "translations": {"fr": "Dans les dates aussi, minuscule : Madrid, 14 de julio de 2026."}},
+        {"es": "Fiestas y nombres propios, con mayúscula: Semana Santa, Feria de Abril, Primavera de Praga.", "translations": {"fr": "Fêtes et noms propres, avec majuscule : Semana Santa (Semaine sainte), Feria de Abril (Feria d'avril), Primavera de Praga (Printemps de Prague)."}}
+      ],
+      "examples": [
+        {"es": "El lunes 3 de marzo empiezo el curso.", "translations": {"fr": "Lundi 3 mars, je commence le cours."}, "highlight": ["lunes", "marzo"]},
+        {"es": "En primavera vamos a la Feria de Abril.", "translations": {"fr": "Au printemps, nous allons à la Feria d'avril."}, "highlight": ["primavera", "Feria de Abril"]},
+        {"es": "Domingo, día de descanso.", "translations": {"fr": "Dimanche, jour de repos."}, "highlight": ["Domingo"], "note": "Mayúscula solo porque empieza la frase.", "noteTranslations": {"fr": "Majuscule seulement parce que la phrase commence."}}
+      ],
+      "trick": {"es": "Escríbelos como en francés: lunes = lundi, enero = janvier, siempre en minúscula.", "translations": {"fr": "Écris-les comme en français : lunes = lundi, enero = janvier, toujours en minuscule."}},
+      "frenchTrap": {"es": "¡Buena noticia! Es igual que en francés (lundi, janvier). El error viene del inglés (Monday, January): no lo copies.", "translations": {"fr": "Bonne nouvelle ! C'est comme en français (lundi, janvier). L'erreur vient de l'anglais (Monday, January) : ne le copie pas."}},
+      "seeAlso": ["d_fechas", "d_dias_el_lunes", "d_mayusculas_gentilicios"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «mayúsculas»", "url": "https://www.rae.es/dpd/may%C3%BAsculas"}],
+      "tags": ["mayúsculas", "días", "meses", "fechas"]
+    },
+    {
+      "id": "d_mayusculas_gentilicios",
+      "question": {"es": "¿Las nacionalidades y los idiomas van con mayúscula?", "translations": {"fr": "Les nationalités et les langues prennent-elles une majuscule ?"}},
+      "aliases": ["francés con mayúscula", "los franceses mayúscula", "idiomas con mayúscula", "gentilicios mayúscula", "Français majuscule espagnol", "majuscule aux nationalités", "langues en minuscule espagnol"],
+      "cefr": "A1",
+      "category": "spelling",
+      "emoji": "🌐",
+      "answer": {"es": "No. Las nacionalidades y los idiomas van siempre con minúscula, también cuando son nombres: los franceses, una española, Hablo francés. Solo el país lleva mayúscula: Francia.", "translations": {"fr": "Non. Les nationalités et les langues s'écrivent toujours en minuscule, même quand ce sont des noms : los franceses (les Français), una española (une Espagnole), Hablo francés (je parle français). Seul le pays prend une majuscule : Francia."}},
+      "compare": [
+        {"title": {"es": "MINÚSCULA", "translations": {"fr": "MINUSCULE"}}, "items": [
+          {"es": "Personas: los franceses, una mexicana.", "translations": {"fr": "Personnes : les Français, une Mexicaine."}},
+          {"es": "Adjetivo: el queso francés.", "translations": {"fr": "Adjectif : le fromage français."}},
+          {"es": "Idioma: Estudio español.", "translations": {"fr": "Langue : J'étudie l'espagnol."}},
+          {"es": "De una ciudad: los parisinos, los sevillanos.", "translations": {"fr": "D'une ville : les Parisiens, les Sévillans."}}
+        ]},
+        {"title": {"es": "MAYÚSCULA", "translations": {"fr": "MAJUSCULE"}}, "items": [
+          {"es": "País: Francia, Argentina.", "translations": {"fr": "Pays : la France, l'Argentine."}},
+          {"es": "Ciudad: París, Sevilla.", "translations": {"fr": "Ville : Paris, Séville."}},
+          {"es": "Región: Andalucía, Bretaña.", "translations": {"fr": "Région : l'Andalousie, la Bretagne."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Los franceses y los españoles cenan a horas muy distintas.", "translations": {"fr": "Les Français et les Espagnols dînent à des heures très différentes."}, "highlight": ["franceses", "españoles"]},
+        {"es": "Mi vecina es argentina y habla un poco de francés.", "translations": {"fr": "Ma voisine est argentine et parle un peu français."}, "highlight": ["argentina", "francés"]},
+        {"es": "Vivo en Francia, pero mi marido es de Bilbao.", "translations": {"fr": "J'habite en France, mais mon mari est de Bilbao."}, "highlight": ["Francia", "Bilbao"]}
+      ],
+      "trick": {"es": "Mayúscula solo para el lugar del mapa (Francia, Madrid). Para la gente y la lengua, minúscula.", "translations": {"fr": "Majuscule seulement pour le lieu sur la carte (Francia, Madrid). Pour les gens et la langue, minuscule."}},
+      "frenchTrap": {"es": "En francés se escribe «les Français» con mayúscula. En español, no: los franceses, los españoles, los italianos.", "translations": {"fr": "En français, on écrit « les Français » avec une majuscule. En espagnol, non : los franceses, los españoles, los italianos."}},
+      "seeAlso": ["d_mayusculas_dias", "d_usted_mayuscula"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «mayúsculas»", "url": "https://www.rae.es/dpd/may%C3%BAsculas"}],
+      "tags": ["mayúsculas", "nacionalidades", "idiomas"]
+    },
+    {
+      "id": "d_usted_mayuscula",
+      "question": {"es": "¿Usted se escribe con mayúscula?", "translations": {"fr": "« Usted » s'écrit-il avec une majuscule ?"}},
+      "aliases": ["usted mayúscula", "Ud. o ud.", "abreviatura de usted", "ustedes mayúscula", "vous de politesse majuscule", "abréviation de usted"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "🎩",
+      "answer": {"es": "No: escrito entero va con minúscula (usted, ustedes), aunque sea muy formal. Solo la abreviatura lleva mayúscula: Ud., Uds.", "translations": {"fr": "Non : écrit en entier, il prend une minuscule (usted, ustedes), même quand c'est très formel. Seule l'abréviation prend une majuscule : Ud., Uds."}},
+      "points": [
+        {"es": "Abreviaturas: Ud. (la más usada) o Vd.; en plural, Uds.", "translations": {"fr": "Abréviations : Ud. (la plus courante) ou Vd. ; au pluriel, Uds."}},
+        {"es": "En un mensaje o una carta, mejor escribirlo entero: ¿Cómo está usted?", "translations": {"fr": "Dans un message ou une lettre, mieux vaut l'écrire en entier : ¿Cómo está usted? (comment allez-vous ?)"}},
+        {"es": "Con usted, el verbo va en tercera persona: usted es, usted tiene (no «usted eres»).", "translations": {"fr": "Avec usted, le verbe est à la 3e personne : usted es, usted tiene (pas « usted eres »)."}}
+      ],
+      "examples": [
+        {"es": "Muchas gracias por todo; usted ha sido muy amable.", "translations": {"fr": "Merci beaucoup pour tout ; vous avez été très aimable."}, "highlight": ["usted ha sido"]},
+        {"es": "¿Puede usted firmar aquí, por favor?", "translations": {"fr": "Pouvez-vous signer ici, s'il vous plaît ?"}, "highlight": ["usted"]},
+        {"es": "Ustedes pueden pasar ya.", "translations": {"fr": "Vous pouvez entrer maintenant."}, "highlight": ["Ustedes"], "note": "Mayúscula solo porque empieza la frase.", "noteTranslations": {"fr": "Majuscule seulement parce que la phrase commence."}}
+      ],
+      "trick": {"es": "Usted es una palabra normal: minúscula. La abreviatura Ud. es como Sr. o Dr.: mayúscula.", "translations": {"fr": "Usted est un mot normal : minuscule. L'abréviation Ud. est comme Sr. ou Dr. : majuscule."}},
+      "frenchTrap": {"es": "En algunas cartas francesas se ve «Vous» con mayúscula. En español no se hace: usted, con minúscula. Y ojo: «vous» puede ser usted, ustedes o vosotros.", "translations": {"fr": "Dans certaines lettres françaises, on voit « Vous » avec une majuscule. En espagnol, ça ne se fait pas : usted, en minuscule. Et attention : « vous » peut être usted, ustedes ou vosotros."}},
+      "seeAlso": ["d_tu_usted", "d_abreviaturas", "tp_matices_registro"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «usted»", "url": "https://www.rae.es/dpd/usted"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «mayúsculas»", "url": "https://www.rae.es/dpd/may%C3%BAsculas"}
+      ],
+      "tags": ["usted", "mayúsculas", "abreviaturas", "cortesía"]
+    },
+    {
+      "id": "d_comillas",
+      "question": {"es": "¿Qué comillas uso: «», “” o ‘’?", "translations": {"fr": "Quels guillemets utiliser : « », “ ” ou ‘ ’ ?"}},
+      "aliases": ["comillas españolas", "comillas angulares", "comillas latinas", "comillas inglesas", "guillemets en espagnol", "quels guillemets en espagnol"],
+      "cefr": "B1",
+      "category": "spelling",
+      "emoji": "💬",
+      "answer": {"es": "Las tres son correctas. La RAE recomienda empezar por las angulares «…»; dentro de ellas, las inglesas “…”; y dentro de estas, las simples ‘…’.", "translations": {"fr": "Les trois sont correctes. La RAE recommande de commencer par les guillemets « … » ; à l'intérieur, les guillemets anglais “…” ; et encore à l'intérieur, les simples ‘…’."}},
+      "points": [
+        {"es": "El punto va siempre detrás de las comillas de cierre: Me dijo «ya voy».", "translations": {"fr": "Le point se met toujours après les guillemets fermants : Me dijo «ya voy». (il m'a dit « j'arrive »)"}},
+        {"es": "Sirven para citar palabras de otra persona, para palabras raras o irónicas y para títulos de artículos o canciones.", "translations": {"fr": "Ils servent à citer les paroles de quelqu'un, à signaler un mot étrange ou ironique, et pour les titres d'articles ou de chansons."}}
+      ],
+      "examples": [
+        {"es": "La vecina me dijo: «Mañana no hay agua».", "translations": {"fr": "La voisine m'a dit : « Demain, il n'y a pas d'eau. »"}, "highlight": ["«Mañana no hay agua»"]},
+        {"es": "Mi nieto dice que la película es «superguay».", "translations": {"fr": "Mon petit-fils dit que le film est « super cool »."}, "highlight": ["«superguay»"]},
+        {"es": "Me escribió: «Tu abuela siempre decía “más vale tarde que nunca”».", "translations": {"fr": "Il m'a écrit : « Ta grand-mère disait toujours “mieux vaut tard que jamais” »."}, "highlight": ["“más vale tarde que nunca”"]}
+      ],
+      "trick": {"es": "Como las muñecas rusas: primero «», dentro “”, y más dentro ‘’.", "translations": {"fr": "Comme des poupées russes : d'abord « », dedans “ ”, et encore dedans ‘ ’."}},
+      "frenchTrap": {"es": "Las «» son las mismas que en francés, pero sin espacios dentro: «Hola», no « Hola ». Y el punto, siempre fuera.", "translations": {"fr": "Les guillemets « » sont les mêmes qu'en français, mais sans espaces à l'intérieur : «Hola», pas « Hola ». Et le point, toujours après."}},
+      "seeAlso": ["d_signos_apertura", "d_estilo_indirecto"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «comillas»", "url": "https://www.rae.es/dpd/comillas"}],
+      "tags": ["comillas", "puntuación", "citas"]
+    },
+    {
+      "id": "d_coma_vocativo",
+      "question": {"es": "¿«Hola María» o «Hola, María»?", "translations": {"fr": "« Hola María » ou « Hola, María » ?"}},
+      "aliases": ["coma después de hola", "hola coma nombre", "coma del vocativo", "querida maría dos puntos", "virgule après bonjour espagnol", "début de lettre en espagnol"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "👋",
+      "answer": {"es": "Hola, María, con coma: el nombre de la persona a quien hablas va siempre entre comas. María, ven. Gracias, Juan. ¿Vienes, mamá?", "translations": {"fr": "Hola, María, avec une virgule : le nom de la personne à qui tu parles se met toujours entre virgules. María, ven (María, viens). Gracias, Juan. ¿Vienes, mamá? (tu viens, maman ?)"}},
+      "points": [
+        {"es": "Si el nombre va en medio, dos comas: Mira, Carmen, qué bonito.", "translations": {"fr": "Si le nom est au milieu, deux virgules : Mira, Carmen, qué bonito (regarde, Carmen, comme c'est joli)."}},
+        {"es": "Sin coma cambia el sentido: «Come, Juan» (hablas a Juan) / «Come Juan» (Juan come).", "translations": {"fr": "Sans virgule, le sens change : « Come, Juan » (tu parles à Juan : mange, Juan) / « Come Juan » (Juan mange)."}},
+        {"es": "En cartas y correos, tras el saludo van dos puntos, no coma: Querida María: …", "translations": {"fr": "Dans les lettres et les courriels, après la formule d'appel, on met deux-points, pas une virgule : Querida María: …"}}
+      ],
+      "examples": [
+        {"es": "Buenos días, señora Pérez.", "translations": {"fr": "Bonjour, madame Pérez."}, "highlight": [", señora Pérez"]},
+        {"es": "Abuela, ¿me cuentas un cuento?", "translations": {"fr": "Mamie, tu me racontes une histoire ?"}, "highlight": ["Abuela,"]},
+        {"es": "Querida Lucía: Te escribo desde Lyon…", "translations": {"fr": "Chère Lucía, je t'écris de Lyon…"}, "highlight": ["Querida Lucía:"], "note": "Saludo de carta: dos puntos.", "noteTranslations": {"fr": "Formule d'appel d'une lettre : deux-points."}}
+      ],
+      "trick": {"es": "Si hablas a alguien, su nombre va «abrazado» por comas.", "translations": {"fr": "Quand tu parles à quelqu'un, son nom est « entouré » de virgules."}},
+      "frenchTrap": {"es": "En francés la carta empieza con coma («Chère Marie,»). En español van dos puntos: «Querida María:». Y en WhatsApp, no olvides la coma: «Hola, Ana».", "translations": {"fr": "En français, la lettre commence par une virgule (« Chère Marie, »). En espagnol, on met deux-points : « Querida María: ». Et sur WhatsApp, n'oublie pas la virgule : « Hola, Ana »."}},
+      "seeAlso": ["d_carta_formal", "d_signos_apertura"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «coma» (vocativos)", "url": "https://www.rae.es/dpd/coma"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «dos puntos» (saludo de cartas)", "url": "https://www.rae.es/dpd/dos%20puntos"}
+      ],
+      "tags": ["coma", "vocativo", "saludos", "cartas"]
+    },
+    {
+      "id": "d_numeros_escritura",
+      "question": {"es": "¿2026 o 2.026? ¿10 000 o 10.000?", "translations": {"fr": "« 2026 » ou « 2.026 » ? « 10 000 » ou « 10.000 » ?"}},
+      "aliases": ["escribir números", "punto de miles", "separador de miles", "años sin punto", "coma decimal", "écrire les nombres en espagnol", "séparateur de milliers espagnol"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "🔢",
+      "answer": {"es": "Los años nunca llevan punto ni espacio: 2026. En los números grandes, la RAE pide un espacio cada tres cifras, sin punto: 10 000; 1 500 000. Con cuatro cifras, el espacio es opcional: 1500 o 1 500.", "translations": {"fr": "Les années ne prennent jamais de point ni d'espace : 2026. Dans les grands nombres, la RAE demande un espace tous les trois chiffres, sans point : 10 000 ; 1 500 000. Avec quatre chiffres, l'espace est facultatif : 1500 ou 1 500."}},
+      "points": [
+        {"es": "Nunca punto ni coma entre los miles: 25 000 €, no 25.000 €. Aunque en tiendas y periódicos aún lo verás.", "translations": {"fr": "Jamais de point ni de virgule entre les milliers : 25 000 €, pas 25.000 €. Même si tu le verras encore dans les magasins et les journaux."}},
+        {"es": "Páginas, códigos postales y números de calle, tampoco: página 1024, 28013 Madrid.", "translations": {"fr": "Pages, codes postaux et numéros de rue non plus : página 1024, 28013 Madrid."}},
+        {"es": "Decimales: coma (España) o punto (México y otros países). Las dos son válidas: 3,5 o 3.5.", "translations": {"fr": "Décimales : virgule (Espagne) ou point (Mexique et d'autres pays). Les deux sont valables : 3,5 ou 3.5."}},
+        {"es": "En un texto, del cero al veintinueve es mejor escribir con letras: Tengo tres nietos.", "translations": {"fr": "Dans un texte, de zéro à vingt-neuf, mieux vaut écrire en lettres : Tengo tres nietos (j'ai trois petits-enfants)."}}
+      ],
+      "examples": [
+        {"es": "Me casé en 1990 y mi hija nació en 1992.", "translations": {"fr": "Je me suis mariée en 1990 et ma fille est née en 1992."}, "highlight": ["1990", "1992"]},
+        {"es": "El piso cuesta 250 000 euros.", "translations": {"fr": "L'appartement coûte 250 000 euros."}, "highlight": ["250 000"]},
+        {"es": "La receta lleva 1,5 kilos de harina.", "translations": {"fr": "La recette demande 1,5 kilo de farine."}, "highlight": ["1,5"]}
+      ],
+      "trick": {"es": "Año = cuatro cifras pegadas (2026). Cantidad grande = grupos de tres con espacio (10 000).", "translations": {"fr": "Année = quatre chiffres collés (2026). Grande quantité = groupes de trois avec un espace (10 000)."}},
+      "frenchTrap": {"es": "¡Como en francés! Espacio para los miles (10 000) y coma para los decimales (2,5). Lo que debes evitar es el punto de miles que verás en España: 10.000.", "translations": {"fr": "Comme en français ! Un espace pour les milliers (10 000) et une virgule pour les décimales (2,5). Ce qu'il faut éviter, c'est le point des milliers que tu verras en Espagne : 10.000."}},
+      "seeAlso": ["d_cien_ciento", "d_veintiun", "tp_a1_numeros_hora"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «números»", "url": "https://www.rae.es/dpd/n%C3%BAmeros"}],
+      "tags": ["números", "cifras", "años", "decimales"]
+    },
+    {
+      "id": "d_abreviaturas",
+      "question": {"es": "¿Cómo se abrevian señor, señora y doctor?", "translations": {"fr": "Comment abréger « señor », « señora » et « doctor » ?"}},
+      "aliases": ["Sr. Sra. Dr.", "abreviaturas", "abreviatura de señora", "Dña. o D.ª", "abréviation de madame en espagnol", "abréviation monsieur espagnol", "M. Mme en espagnol"],
+      "cefr": "A2",
+      "category": "spelling",
+      "emoji": "✉️",
+      "answer": {"es": "Sr. (señor), Sra. (señora), Srta. (señorita), D. (don), D.ª o Dña. (doña), Dr. y Dra. (doctor, doctora). Siempre con mayúscula y con punto final.", "translations": {"fr": "Sr. (señor, monsieur), Sra. (señora, madame), Srta. (señorita, mademoiselle), D. (don), D.ª ou Dña. (doña), Dr. et Dra. (doctor, doctora). Toujours avec une majuscule et un point final."}},
+      "points": [
+        {"es": "Van delante del nombre o del apellido: Sr. García, Sra. López, D. Antonio, D.ª Carmen.", "translations": {"fr": "Ils se placent devant le prénom ou le nom : Sr. García, Sra. López, D. Antonio (don + prénom), D.ª Carmen (doña + prénom)."}},
+        {"es": "Plural: Sres. (señores), Sras. (señoras), Uds. (ustedes).", "translations": {"fr": "Pluriel : Sres. (señores, messieurs), Sras. (señoras, mesdames), Uds. (ustedes, vous)."}},
+        {"es": "Escrita entera, la palabra va en minúscula: el señor García, la doctora Ruiz.", "translations": {"fr": "Écrit en entier, le mot prend une minuscule : el señor García, la doctora Ruiz."}},
+        {"es": "Otras útiles: etc. (etcétera), pág. (página), c/ (calle), n.º (número), EE. UU. (Estados Unidos).", "translations": {"fr": "Autres utiles : etc. (etcétera), pág. (página, page), c/ (calle, rue), n.º (número, numéro), EE. UU. (Estados Unidos, États-Unis)."}}
+      ],
+      "examples": [
+        {"es": "Sr. D. Luis Martín, c/ Mayor, 5, Madrid.", "translations": {"fr": "M. Luis Martín, 5 rue Mayor, Madrid."}, "highlight": ["Sr. D.", "c/"]},
+        {"es": "Tiene cita con la Dra. Sánchez a las diez.", "translations": {"fr": "Vous avez rendez-vous avec la docteure Sánchez à dix heures."}, "highlight": ["Dra."]},
+        {"es": "La Sra. Gómez vive en el n.º 12.", "translations": {"fr": "Mme Gómez habite au numéro 12."}, "highlight": ["Sra.", "n.º"]}
+      ],
+      "trick": {"es": "Abreviatura = mayúscula + punto (Sr., Sra., Dr.). Palabra entera = minúscula (señor, señora, doctor).", "translations": {"fr": "Abréviation = majuscule + point (Sr., Sra., Dr.). Mot entier = minuscule (señor, señora, doctor)."}},
+      "frenchTrap": {"es": "En francés se escribe «Mme» o «Dr» sin punto. En español, el punto es obligatorio: Sra., Dr. Y «M.» no existe: es Sr.", "translations": {"fr": "En français, on écrit « Mme » ou « Dr » sans point. En espagnol, le point est obligatoire : Sra., Dr. Et « M. » n'existe pas : c'est Sr."}},
+      "seeAlso": ["d_usted_mayuscula", "d_carta_formal"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «abreviatura»", "url": "https://www.rae.es/dpd/abreviatura"}],
+      "tags": ["abreviaturas", "tratamientos", "cartas"]
+    },
+    {
+      "id": "d_hora_escritura",
+      "question": {"es": "¿Cómo se escribe la hora: 10:30, 10.30 o 10 h 30?", "translations": {"fr": "Comment écrire l'heure : 10:30, 10.30 ou 10 h 30 ?"}},
+      "aliases": ["escribir la hora", "hora con dos puntos", "a. m. y p. m.", "hora en números", "écrire l'heure en espagnol", "10h30 en espagnol"],
+      "cefr": "A1",
+      "category": "spelling",
+      "emoji": "🕥",
+      "answer": {"es": "Con dos puntos (10:30) o con punto (10.30), nunca con coma. Lo más claro es el sistema de 24 horas: 18:45. Si usas 12 horas, añade a. m. o p. m. (con espacios y puntos): 6:45 p. m.", "translations": {"fr": "Avec deux-points (10:30) ou avec un point (10.30), jamais avec une virgule. Le plus clair, c'est le système de 24 heures : 18:45. Si tu utilises 12 heures, ajoute a. m. ou p. m. (avec espaces et points) : 6:45 p. m."}},
+      "points": [
+        {"es": "El símbolo h es opcional y va sin punto: a las 17:30 h. Pero nunca junto con a. m. o p. m.", "translations": {"fr": "Le symbole h est facultatif et s'écrit sans point : a las 17:30 h. Mais jamais avec a. m. ou p. m."}},
+        {"es": "En un texto normal, mejor con letras: Quedamos a las seis y media de la tarde.", "translations": {"fr": "Dans un texte courant, mieux vaut l'écrire en lettres : Quedamos a las seis y media de la tarde (on se retrouve à six heures et demie)."}},
+        {"es": "No mezcles letras y cifras: «las diez de la noche» o «las 22:00», mejor que «las 10 de la noche».", "translations": {"fr": "Ne mélange pas lettres et chiffres : « las diez de la noche » ou « las 22:00 », plutôt que « las 10 de la noche »."}}
+      ],
+      "examples": [
+        {"es": "El tren sale a las 14:35 del andén 3.", "translations": {"fr": "Le train part à 14 h 35 du quai 3."}, "highlight": ["14:35"]},
+        {"es": "Horario: de 9:30 a 14:00 y de 17:00 a 20:00.", "translations": {"fr": "Horaires : de 9 h 30 à 14 h et de 17 h à 20 h."}, "highlight": ["9:30", "14:00"]},
+        {"es": "Te llamo a las ocho y cuarto.", "translations": {"fr": "Je t'appelle à huit heures et quart."}, "highlight": ["a las ocho y cuarto"]}
+      ],
+      "trick": {"es": "Hora en cifras = como en un reloj digital: 10:30.", "translations": {"fr": "L'heure en chiffres = comme sur une montre numérique : 10:30."}},
+      "frenchTrap": {"es": "El «10 h 30» francés no se usa en español: escribe 10:30 o 10.30. Y se dice «las diez y media» (en las estaciones, «las diez treinta»).", "translations": {"fr": "Le « 10 h 30 » français ne s'utilise pas en espagnol : écris 10:30 ou 10.30. Et on dit « las diez y media » (dans les gares, « las diez treinta »)."}},
+      "seeAlso": ["d_hora", "tp_a1_numeros_hora"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «hora»", "url": "https://www.rae.es/dpd/hora"}],
+      "tags": ["hora", "números", "horarios"]
+    },
+    {
+      "id": "d_puntos_suspensivos",
+      "question": {"es": "¿Cómo se usan los puntos suspensivos?", "translations": {"fr": "Comment utiliser les points de suspension ?"}},
+      "aliases": ["tres puntos", "puntos suspensivos", "etc. y puntos suspensivos", "cuántos puntos suspensivos", "points de suspension espagnol", "trois petits points en espagnol"],
+      "cefr": "B1",
+      "category": "spelling",
+      "emoji": "💭",
+      "answer": {"es": "Son siempre tres puntos, ni dos ni cuatro (…). Van pegados a la palabra anterior y con espacio después. Si cierran la frase, no se añade otro punto.", "translations": {"fr": "Ce sont toujours trois points, ni deux ni quatre (…). Ils sont collés au mot précédent, avec un espace après. S'ils terminent la phrase, on n'ajoute pas d'autre point."}},
+      "points": [
+        {"es": "Sirven para dejar algo en el aire, para la duda o la sorpresa: Pues… no sé.", "translations": {"fr": "Ils servent à laisser quelque chose en suspens, pour le doute ou la surprise : Pues… no sé (eh bien… je ne sais pas)."}},
+        {"es": "No los juntes con «etc.»: o «pan, leche, etc.», o «pan, leche…».", "translations": {"fr": "Ne les mets pas avec « etc. » : soit « pan, leche, etc. », soit « pan, leche… »."}},
+        {"es": "Con pregunta: ¿Y si mañana…? (pregunta sin terminar) o ¿Vienes?… (pregunta completa).", "translations": {"fr": "Avec une question : ¿Y si mañana…? (question inachevée) ou ¿Vienes?… (question complète)."}},
+        {"es": "Para cortar una cita se ponen entre paréntesis o corchetes: (…) o […].", "translations": {"fr": "Pour couper une citation, on les met entre parenthèses ou entre crochets : (…) ou […]."}}
+      ],
+      "examples": [
+        {"es": "Quería decirte que… bueno, mejor mañana.", "translations": {"fr": "Je voulais te dire que… bon, plutôt demain."}, "highlight": ["que…"]},
+        {"es": "Compré fruta: naranjas, manzanas, peras…", "translations": {"fr": "J'ai acheté des fruits : oranges, pommes, poires…"}, "highlight": ["peras…"]},
+        {"es": "Y entonces se abrió la puerta y…", "translations": {"fr": "Et alors, la porte s'est ouverte et…"}, "highlight": ["y…"]}
+      ],
+      "trick": {"es": "Tres y solo tres. Ni punto extra ni «etc.» al lado.", "translations": {"fr": "Trois, et seulement trois. Pas de point en plus ni de « etc. » à côté."}},
+      "frenchTrap": {"es": "Casi igual que en francés. La diferencia: en español no hay espacio antes de ? o !, tampoco con los puntos: ¿Y ahora…?", "translations": {"fr": "Presque comme en français. La différence : en espagnol, pas d'espace avant ? ou !, même avec les points : ¿Y ahora…?"}},
+      "seeAlso": ["d_signos_apertura", "d_comillas"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «puntos suspensivos»", "url": "https://www.rae.es/dpd/puntos%20suspensivos"}],
+      "tags": ["puntuación", "puntos", "etcétera"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

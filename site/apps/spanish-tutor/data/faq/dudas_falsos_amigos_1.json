@@ -1,0 +1,349 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_falsos_amigos_1",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Falsos amigos (1)", "translations": {"fr": "Faux amis (1)"}},
+  "emoji": "🪤",
+  "order": 40,
+  "entries": [
+    {
+      "id": "d_constipado",
+      "question": {"es": "¿«Constipado» significa «constipé»?", "translations": {"fr": "« Constipado » veut-il dire « constipé » ?"}},
+      "aliases": ["constipado", "estar constipado", "constipé en espagnol", "enrhumé en espagnol", "comment dire constipé", "estreñido", "resfriado"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "🤧",
+      "answer": {"es": "No. Estar constipado es tener un resfriado: nariz tapada, estornudos… Lo que en francés es «constipé» se dice estreñido.", "translations": {"fr": "Non. « Estar constipado », c'est être enrhumé : nez bouché, éternuements… Ce qu'on appelle « constipé » en français se dit « estreñido »."}},
+      "compare": [
+        {"title": {"es": "CONSTIPADO 🤧", "translations": {"fr": "CONSTIPADO = enrhumé 🤧"}}, "items": [
+          {"es": "La nariz: Estoy constipada, no paro de estornudar.", "translations": {"fr": "Le nez : Je suis enrhumée, je n'arrête pas d'éternuer."}},
+          {"es": "Sinónimos: resfriado, catarro.", "translations": {"fr": "Synonymes : « resfriado », « catarro » (un rhume)."}}
+        ]},
+        {"title": {"es": "ESTREÑIDO", "translations": {"fr": "ESTREÑIDO = constipé"}}, "items": [
+          {"es": "La tripa: Desde el viaje estoy un poco estreñida.", "translations": {"fr": "Le ventre : Depuis le voyage, je suis un peu constipée."}},
+          {"es": "Remedio: fruta, agua y paseos.", "translations": {"fr": "Remède : des fruits, de l'eau et de la marche."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Me he constipado en el avión: el aire acondicionado estaba altísimo.", "translations": {"fr": "J'ai attrapé un rhume dans l'avion : la clim était à fond."}, "highlight": ["Me he constipado"]},
+        {"es": "En la farmacia: «Estoy constipada, ¿qué me recomienda?»", "translations": {"fr": "À la pharmacie : « Je suis enrhumée, qu'est-ce que vous me conseillez ? »"}, "highlight": ["Estoy constipada"]},
+        {"es": "Si estás estreñida, come ciruelas pasas y bebe mucha agua.", "translations": {"fr": "Si tu es constipée, mange des pruneaux et bois beaucoup d'eau."}, "highlight": ["estreñida"]}
+      ],
+      "trick": {"es": "Constipado → nariz 🤧. Estreñido → tripa. ¡En la farmacia, no te equivoques!", "translations": {"fr": "Constipado → le nez 🤧. Estreñido → le ventre. À la pharmacie, ne te trompe pas !"}},
+      "frenchTrap": {"es": "Si dices en la farmacia «estoy constipada» pensando en la tripa, te darán pañuelos y jarabe… ¡no ciruelas!", "translations": {"fr": "Si tu dis « estoy constipada » à la pharmacie en pensant à ton ventre, on te donnera des mouchoirs et du sirop… pas des pruneaux !"}},
+      "seeAlso": ["tp_b1_salud_cuerpo", "tp_b1_falsos_amigos", "d_embarazada"],
+      "sources": [
+        {"label": "RAE · Diccionario de la lengua española: constipado", "url": "https://dle.rae.es/constipado"},
+        {"label": "RAE · Diccionario de la lengua española: estreñido", "url": "https://dle.rae.es/estre%C3%B1ido"}
+      ],
+      "tags": ["falsos amigos", "salud", "constipado"]
+    },
+    {
+      "id": "d_embarazada",
+      "question": {"es": "¿«Embarazada» significa «embarrassée»?", "translations": {"fr": "« Embarazada » veut-il dire « embarrassée » ?"}},
+      "aliases": ["embarazada", "estar embarazada", "embarrassée en espagnol", "enceinte en espagnol", "comment dire je suis gênée", "me da vergüenza", "qué vergüenza"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "🤰",
+      "answer": {"es": "No: embarazada significa «enceinte». Para «je suis gênée» o «embarrassée» se dice me da vergüenza, qué apuro o estoy avergonzada.", "translations": {"fr": "Non : « embarazada » veut dire enceinte. Pour « je suis gênée » ou « embarrassée », on dit « me da vergüenza », « qué apuro » ou « estoy avergonzada »."}},
+      "points": [
+        {"es": "El embarazo: los nueve meses antes de nacer un bebé.", "translations": {"fr": "« El embarazo » : la grossesse, les neuf mois avant la naissance d'un bébé."}},
+        {"es": "Una situación embarazosa es una situación incómoda: ¡ahí sí hay vergüenza!", "translations": {"fr": "« Una situación embarazosa », c'est une situation gênante : là, oui, il y a de la gêne !"}},
+        {"es": "En el diccionario, embarazado también puede significar «cohibido», pero casi nadie lo usa así: todos pensarán en un bebé.", "translations": {"fr": "Dans le dictionnaire, « embarazado » peut aussi vouloir dire « gêné », mais presque personne ne l'emploie ainsi : tout le monde pensera à un bébé."}}
+      ],
+      "examples": [
+        {"es": "Mi nuera está embarazada: ¡voy a ser abuela otra vez!", "translations": {"fr": "Ma belle-fille est enceinte : je vais de nouveau être grand-mère !"}, "highlight": ["está embarazada"]},
+        {"es": "Me he equivocado de nombre… ¡Qué vergüenza!", "translations": {"fr": "Je me suis trompée de prénom… Quelle honte !"}, "highlight": ["¡Qué vergüenza!"]},
+        {"es": "Me da un poco de apuro pedirle dinero a mi hermano.", "translations": {"fr": "Ça me gêne un peu de demander de l'argent à mon frère."}, "highlight": ["Me da un poco de apuro"]}
+      ],
+      "trick": {"es": "Embarazada → bebé 👶. Vergüenza → mejillas rojas 😳.", "translations": {"fr": "Embarazada → bébé 👶. Vergüenza → joues rouges 😳."}},
+      "frenchTrap": {"es": "El clásico: una francesa derrama el vino y dice «¡Estoy muy embarazada!». Toda la mesa la felicita… Di mejor: ¡Qué vergüenza!", "translations": {"fr": "Le grand classique : une Française renverse son vin et dit « ¡Estoy muy embarazada! ». Toute la tablée la félicite… Dis plutôt : « ¡Qué vergüenza! »"}},
+      "seeAlso": ["tp_b1_falsos_amigos", "d_constipado", "tp_b1_salud_cuerpo"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: embarazado", "url": "https://dle.rae.es/embarazado"}],
+      "tags": ["falsos amigos", "embarazada", "vergüenza"]
+    },
+    {
+      "id": "d_exquisito",
+      "question": {"es": "¿«Exquisito» es un falso amigo de «exquis»?", "translations": {"fr": "« Exquisito » est-il un faux ami de « exquis » ?"}},
+      "aliases": ["exquisito", "exquis en espagnol", "délicieux en espagnol", "comment dire c'est délicieux", "qué rico", "está riquísimo", "rico o delicioso"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "😋",
+      "answer": {"es": "¡No! Es un amigo de verdad: exquisito = «exquis», de muy buena calidad o muy rico. La trampa está en su vecino: rico, con la comida, significa «délicieux», no «riche».", "translations": {"fr": "Non ! C'est un vrai ami : « exquisito » = exquis, d'excellente qualité ou délicieux. Le piège, c'est son voisin : « rico », pour un plat, veut dire délicieux, pas riche."}},
+      "points": [
+        {"es": "Con la comida, se oye mucho más rico que exquisito: ¡Qué rico! ¡Está riquísimo!", "translations": {"fr": "Pour un plat, on entend bien plus « rico » que « exquisito » : ¡Qué rico! ¡Está riquísimo! (Que c'est bon !)"}},
+        {"es": "Con personas, exquisito es muy educado y refinado: Tiene un trato exquisito.", "translations": {"fr": "Pour une personne, « exquisito » veut dire très bien élevé, raffiné : Il est d'une courtoisie exquise."}},
+        {"es": "Una persona rica tiene dinero. Una tortilla rica está deliciosa.", "translations": {"fr": "Une personne « rica » a de l'argent. Une tortilla « rica » est délicieuse."}}
+      ],
+      "examples": [
+        {"es": "La paella de tu madre estaba exquisita.", "translations": {"fr": "La paella de ta mère était exquise."}, "highlight": ["estaba exquisita"]},
+        {"es": "¡Mmm, qué rico está este gazpacho!", "translations": {"fr": "Mmm, qu'il est bon, ce gazpacho !"}, "highlight": ["qué rico está"]},
+        {"es": "Mi vecino es rico, pero sus croquetas no están ricas.", "translations": {"fr": "Mon voisin est riche, mais ses croquettes ne sont pas bonnes."}, "highlight": ["es rico", "no están ricas"]}
+      ],
+      "trick": {"es": "Rico con personas = 💰. Rico con comida = 😋. Exquisito = exquis, ¡sin trampa!", "translations": {"fr": "« Rico » pour une personne = 💰. « Rico » pour un plat = 😋. « Exquisito » = exquis, sans piège !"}},
+      "frenchTrap": {"es": "Cuando una española dice «¡Qué rico!» mirando tu plato, no habla de dinero: ¡le encanta tu comida!", "translations": {"fr": "Quand une Espagnole dit « ¡Qué rico! » en regardant ton assiette, elle ne parle pas d'argent : elle adore ta cuisine !"}},
+      "seeAlso": ["tp_comida_espanola", "tp_b1_falsos_amigos", "d_ser_estar"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: exquisito", "url": "https://dle.rae.es/exquisito"}],
+      "tags": ["falsos amigos", "comida", "rico"]
+    },
+    {
+      "id": "d_salir",
+      "question": {"es": "¿«Salir» en español es «salir» en francés?", "translations": {"fr": "« Salir » en espagnol, c'est « salir » en français ?"}},
+      "aliases": ["salir", "salir significado", "salir en espagnol", "sortir en espagnol", "comment dire salir en espagnol", "ensuciar", "manchar"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "🚪",
+      "answer": {"es": "No. Salir significa «sortir»: Salgo de casa a las nueve. El «salir» francés (poner sucio) se dice ensuciar o manchar.", "translations": {"fr": "Non. « Salir » veut dire sortir : Je sors de chez moi à neuf heures. Le « salir » français (rendre sale) se dit « ensuciar » ou « manchar »."}},
+      "compare": [
+        {"title": {"es": "SALIR", "translations": {"fr": "SALIR = sortir"}}, "items": [
+          {"es": "Irse de un lugar: Salgo del trabajo a las seis.", "translations": {"fr": "Quitter un lieu : Je sors du travail à six heures."}},
+          {"es": "Divertirse fuera: ¿Salimos a cenar?", "translations": {"fr": "Sortir s'amuser : On sort dîner ?"}},
+          {"es": "En pareja: Salen juntos desde mayo.", "translations": {"fr": "En couple : Ils sortent ensemble depuis mai."}}
+        ]},
+        {"title": {"es": "ENSUCIAR / MANCHAR", "translations": {"fr": "ENSUCIAR / MANCHAR = salir, tacher"}}, "items": [
+          {"es": "Poner sucio: No ensucies el suelo.", "translations": {"fr": "Rendre sale : Ne salis pas le sol."}},
+          {"es": "Una mancha: Me he manchado la blusa de tomate.", "translations": {"fr": "Une tache : J'ai taché mon chemisier avec de la tomate."}},
+          {"es": "Sucio = sale; limpio = propre.", "translations": {"fr": "« Sucio » = sale ; « limpio » = propre."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Los domingos salimos a pasear por el puerto.", "translations": {"fr": "Le dimanche, nous sortons nous promener sur le port."}, "highlight": ["salimos"]},
+        {"es": "¡Cuidado, que el niño va a manchar el sofá de chocolate!", "translations": {"fr": "Attention, le petit va tacher le canapé avec son chocolat !"}, "highlight": ["manchar"]},
+        {"es": "En el metro, busca el cartel SALIDA.", "translations": {"fr": "Dans le métro, cherche le panneau SALIDA (sortie)."}, "highlight": ["SALIDA"]}
+      ],
+      "trick": {"es": "Salir → la salida (la «sortie»), como en los carteles del metro.", "translations": {"fr": "Salir → « la salida » (la sortie), comme sur les panneaux du métro."}},
+      "frenchTrap": {"es": "«Le chien a sali le tapis» no es «el perro ha salido la alfombra»: es El perro ha ensuciado la alfombra.", "translations": {"fr": "« Le chien a sali le tapis », ce n'est pas « el perro ha salido la alfombra » : c'est « El perro ha ensuciado la alfombra »."}},
+      "seeAlso": ["tp_b1_falsos_amigos", "d_quitar", "tp_a1_presente_irregular"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: ensuciar", "url": "https://dle.rae.es/ensuciar"}],
+      "tags": ["falsos amigos", "salir", "ensuciar"]
+    },
+    {
+      "id": "d_quitar",
+      "question": {"es": "¿«Quitar» significa «quitter»?", "translations": {"fr": "« Quitar » veut-il dire « quitter » ?"}},
+      "aliases": ["quitar", "quitarse", "quitter en espagnol", "comment dire quitter", "enlever en espagnol", "dejar a alguien", "no cuelgue"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "🧥",
+      "answer": {"es": "No: quitar es «enlever, retirer». «Quitter» se dice dejar (a una persona, un trabajo) o irse de, salir de (un lugar).", "translations": {"fr": "Non : « quitar », c'est enlever, retirer. « Quitter » se dit « dejar » (une personne, un travail) ou « irse de », « salir de » (un lieu)."}},
+      "compare": [
+        {"title": {"es": "QUITAR", "translations": {"fr": "QUITAR = enlever"}}, "items": [
+          {"es": "Ropa: Quítate el abrigo.", "translations": {"fr": "Vêtements : Enlève ton manteau."}},
+          {"es": "Mesa: ¿Quién quita la mesa?", "translations": {"fr": "Table : Qui débarrasse la table ?"}},
+          {"es": "Robo: Me han quitado la cartera.", "translations": {"fr": "Vol : On m'a pris mon portefeuille."}}
+        ]},
+        {"title": {"es": "DEJAR / IRSE", "translations": {"fr": "DEJAR / IRSE = quitter"}}, "items": [
+          {"es": "Persona: Dejó a su marido.", "translations": {"fr": "Une personne : Elle a quitté son mari."}},
+          {"es": "Trabajo: He dejado el trabajo.", "translations": {"fr": "Un travail : J'ai quitté mon travail."}},
+          {"es": "Lugar: Nos fuimos de París en 1990.", "translations": {"fr": "Un lieu : Nous avons quitté Paris en 1990."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Quítate los zapatos, que el suelo está recién fregado.", "translations": {"fr": "Enlève tes chaussures, le sol vient d'être lavé."}, "highlight": ["Quítate los zapatos"]},
+        {"es": "Después de cuarenta años, dejó Lyon y se fue a vivir a Málaga.", "translations": {"fr": "Après quarante ans, elle a quitté Lyon pour aller vivre à Malaga."}, "highlight": ["dejó Lyon", "se fue a vivir"]},
+        {"es": "Al teléfono: «Un momento, no cuelgue, por favor».", "translations": {"fr": "Au téléphone : « Un instant, ne quittez pas, s'il vous plaît »."}, "highlight": ["no cuelgue"]}
+      ],
+      "trick": {"es": "Quitar es lo contrario de poner: poner la mesa / quitar la mesa; ponerse el abrigo / quitarse el abrigo.", "translations": {"fr": "« Quitar » est le contraire de « poner » : mettre la table / débarrasser la table ; mettre son manteau / l'enlever."}},
+      "frenchTrap": {"es": "«Je te quitte» no es «te quito» (= te quito algo): es Te dejo. Y «Ne quittez pas» al teléfono = No cuelgue.", "translations": {"fr": "« Je te quitte », ce n'est pas « te quito » (= je t'enlève quelque chose) : c'est « Te dejo ». Et « Ne quittez pas » au téléphone = « No cuelgue »."}},
+      "seeAlso": ["tp_b1_falsos_amigos", "d_salir", "d_telefono"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: quitar", "url": "https://dle.rae.es/quitar"}],
+      "tags": ["falsos amigos", "quitar", "dejar"]
+    },
+    {
+      "id": "d_largo",
+      "question": {"es": "¿«Largo» significa «large»?", "translations": {"fr": "« Largo » veut-il dire « large » ?"}},
+      "aliases": ["largo", "ancho", "largo o ancho", "large en espagnol", "long en espagnol", "comment dire large", "a la larga"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "📏",
+      "answer": {"es": "No: largo significa «long». «Large» se dice ancho: una calle ancha, una falda larga.", "translations": {"fr": "Non : « largo » veut dire long. « Large » se dit « ancho » : une rue large, une jupe longue."}},
+      "compare": [
+        {"title": {"es": "LARGO", "translations": {"fr": "LARGO = long"}}, "items": [
+          {"es": "Tiempo: una película larga, de tres horas.", "translations": {"fr": "Durée : un long film de trois heures."}},
+          {"es": "Tamaño: pelo largo, falda larga.", "translations": {"fr": "Taille : cheveux longs, jupe longue."}},
+          {"es": "Recorrido: a lo largo de la playa.", "translations": {"fr": "Parcours : le long de la plage."}}
+        ]},
+        {"title": {"es": "ANCHO", "translations": {"fr": "ANCHO = large"}}, "items": [
+          {"es": "Calles: una avenida muy ancha.", "translations": {"fr": "Rues : une avenue très large."}},
+          {"es": "Ropa: Este pantalón me queda ancho.", "translations": {"fr": "Vêtements : Ce pantalon est trop large pour moi."}},
+          {"es": "Medidas: el ancho y el largo de la mesa.", "translations": {"fr": "Mesures : la largeur et la longueur de la table."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "¡Qué viaje tan largo! Doce horas de tren.", "translations": {"fr": "Quel long voyage ! Douze heures de train."}, "highlight": ["tan largo"]},
+        {"es": "La cama es muy ancha: cabemos los dos y el perro.", "translations": {"fr": "Le lit est très large : on y tient à deux, plus le chien."}, "highlight": ["muy ancha"]},
+        {"es": "A la larga, caminar cada día es la mejor medicina.", "translations": {"fr": "À la longue, marcher tous les jours est le meilleur des remèdes."}, "highlight": ["A la larga"]}
+      ],
+      "trick": {"es": "Largo = long: los dos empiezan por L. Y ¡Largo de aquí! significa «Dehors !».", "translations": {"fr": "« Largo » = long : les deux commencent par L. Et « ¡Largo de aquí! » veut dire « Dehors ! »."}},
+      "frenchTrap": {"es": "«Un large sourire» no es «una sonrisa larga»: es una gran sonrisa o una sonrisa de oreja a oreja.", "translations": {"fr": "« Un large sourire », ce n'est pas « una sonrisa larga » : c'est « una gran sonrisa » ou « una sonrisa de oreja a oreja »."}},
+      "seeAlso": ["tp_b1_falsos_amigos", "d_ropa"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: largo", "url": "https://dle.rae.es/largo"}],
+      "tags": ["falsos amigos", "largo", "ancho"]
+    },
+    {
+      "id": "d_suceso",
+      "question": {"es": "¿«Suceso» significa «succès»?", "translations": {"fr": "« Suceso » veut-il dire « succès » ?"}},
+      "aliases": ["suceso", "sucesos", "suceder", "página de sucesos", "faits divers en espagnol", "comment dire fait divers", "suceso o éxito"],
+      "cefr": "B1",
+      "category": "false_friends",
+      "emoji": "🚨",
+      "answer": {"es": "No: un suceso es un acontecimiento, y sobre todo un «fait divers» (un robo, un accidente). «Succès» se dice éxito.", "translations": {"fr": "Non : « un suceso », c'est un événement, et surtout un fait divers (un vol, un accident). « Succès » se dit « éxito »."}},
+      "points": [
+        {"es": "En el periódico, la sección de Sucesos cuenta robos, incendios y accidentes.", "translations": {"fr": "Dans le journal, la rubrique « Sucesos », ce sont les faits divers : vols, incendies, accidents."}},
+        {"es": "Viene de suceder (pasar, ocurrir): ¿Qué ha sucedido? = ¿Qué ha pasado?", "translations": {"fr": "Il vient de « suceder » (se passer, arriver) : ¿Qué ha sucedido? = Que s'est-il passé ?"}},
+        {"es": "Para un buen resultado se dice éxito: La obra fue un éxito.", "translations": {"fr": "Pour un bon résultat, on dit « éxito » : La pièce a été un succès."}}
+      ],
+      "examples": [
+        {"es": "El suceso ocurrió anoche en una joyería del centro.", "translations": {"fr": "Les faits se sont produits hier soir dans une bijouterie du centre-ville."}, "highlight": ["El suceso"]},
+        {"es": "Mi padre siempre lee primero la página de sucesos.", "translations": {"fr": "Mon père lit toujours d'abord la page des faits divers."}, "highlight": ["la página de sucesos"]},
+        {"es": "La fiesta de Lucía fue un éxito: bailamos hasta las tres.", "translations": {"fr": "La fête de Lucía a été un succès : on a dansé jusqu'à trois heures."}, "highlight": ["fue un éxito"]}
+      ],
+      "trick": {"es": "Suceso viene de suceder (= pasar). Si algo «sucede» en la calle, es un suceso.", "translations": {"fr": "« Suceso » vient de « suceder » (= se passer). Si quelque chose « se passe » dans la rue, c'est un « suceso »."}},
+      "frenchTrap": {"es": "Si dices que tu concierto fue «un gran suceso», parece que llegó la policía. Di: ¡Fue un gran éxito!", "translations": {"fr": "Si tu dis que ton concert a été « un gran suceso », on croirait que la police est arrivée. Dis : « ¡Fue un gran éxito! »"}},
+      "seeAlso": ["d_exito", "tp_b1_falsos_amigos"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: suceso", "url": "https://dle.rae.es/suceso"}],
+      "tags": ["falsos amigos", "suceso", "noticias"]
+    },
+    {
+      "id": "d_exito",
+      "question": {"es": "¿«Éxito» significa «sortie», como «exit»?", "translations": {"fr": "« Éxito » veut-il dire « sortie », comme « exit » ?"}},
+      "aliases": ["éxito", "tener éxito", "succès en espagnol", "exit en espagnol", "sortie en espagnol", "comment dire réussir", "salida"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "🏆",
+      "answer": {"es": "No: éxito significa «succès, réussite». La puerta para salir (la «sortie», «exit») se llama salida.", "translations": {"fr": "Non : « éxito » veut dire succès, réussite. La porte pour sortir (la sortie, « exit ») s'appelle « salida »."}},
+      "compare": [
+        {"title": {"es": "ÉXITO", "translations": {"fr": "ÉXITO = succès"}}, "items": [
+          {"es": "Tener éxito: La novela tiene mucho éxito.", "translations": {"fr": "Avoir du succès : Le roman a beaucoup de succès."}},
+          {"es": "Un éxito: La cena fue un éxito.", "translations": {"fr": "Une réussite : Le dîner a été une réussite."}},
+          {"es": "Un deseo: ¡Mucho éxito en tu nuevo trabajo!", "translations": {"fr": "Un souhait : Plein succès dans ton nouveau travail !"}}
+        ]},
+        {"title": {"es": "SALIDA", "translations": {"fr": "SALIDA = sortie"}}, "items": [
+          {"es": "Cartel: SALIDA DE EMERGENCIA.", "translations": {"fr": "Panneau : SORTIE DE SECOURS."}},
+          {"es": "Lugar: Te espero en la salida del cine.", "translations": {"fr": "Lieu : Je t'attends à la sortie du cinéma."}},
+          {"es": "Viaje: La salida del tren es a las ocho.", "translations": {"fr": "Voyage : Le départ du train est à huit heures."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "La obra de teatro fue un éxito total.", "translations": {"fr": "La pièce de théâtre a été un vrai succès."}, "highlight": ["un éxito total"]},
+        {"es": "Perdone, ¿dónde está la salida?", "translations": {"fr": "Excusez-moi, où est la sortie ?"}, "highlight": ["la salida"]},
+        {"es": "Aprobé el examen a la primera.", "translations": {"fr": "J'ai réussi l'examen du premier coup."}, "highlight": ["Aprobé el examen"]}
+      ],
+      "trick": {"es": "En el cine, la puerta dice SALIDA; el cartel de la película, ¡ÉXITO!", "translations": {"fr": "Au cinéma, la porte dit SALIDA (sortie) ; l'affiche du film, ¡ÉXITO! (succès)."}},
+      "frenchTrap": {"es": "«Réussir un examen» no es «tener éxito en un examen»: se dice aprobar un examen. Y «réussir à faire» es conseguir hacer.", "translations": {"fr": "« Réussir un examen », ce n'est pas « tener éxito en un examen » : on dit « aprobar un examen ». Et « réussir à faire », c'est « conseguir hacer »."}},
+      "seeAlso": ["d_suceso", "d_dele_aprobar", "tp_b1_falsos_amigos"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: éxito", "url": "https://dle.rae.es/%C3%A9xito"}],
+      "tags": ["falsos amigos", "éxito", "salida"]
+    },
+    {
+      "id": "d_ropa",
+      "question": {"es": "¿«Ropa» significa «robe»?", "translations": {"fr": "« Ropa » veut-il dire « robe » ?"}},
+      "aliases": ["ropa", "vestido", "robe en espagnol", "vêtements en espagnol", "comment dire robe", "ropa interior", "bata"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "👗",
+      "answer": {"es": "No: la ropa son «les vêtements», todo lo que hay en tu armario. Una «robe» es un vestido.", "translations": {"fr": "Non : « la ropa », ce sont les vêtements, tout ce qu'il y a dans ton armoire. Une robe, c'est « un vestido »."}},
+      "points": [
+        {"es": "Ropa va en singular: Tengo mucha ropa. Mi ropa está sucia.", "translations": {"fr": "« Ropa » s'emploie au singulier : J'ai beaucoup de vêtements. Mes vêtements sont sales."}},
+        {"es": "Lavar, tender y planchar la ropa: las tareas de la colada.", "translations": {"fr": "Laver, étendre et repasser le linge : les tâches de la lessive."}},
+        {"es": "Ropa interior: la que va debajo. Ropa de cama: sábanas y fundas.", "translations": {"fr": "« Ropa interior » : les sous-vêtements. « Ropa de cama » : le linge de lit (draps et housses)."}},
+        {"es": "Una bata es una «robe de chambre». Una toga, la «robe» de un juez.", "translations": {"fr": "« Una bata », c'est une robe de chambre. « Una toga », la robe d'un juge."}}
+      ],
+      "examples": [
+        {"es": "Me he comprado un vestido rojo para la boda de mi sobrina.", "translations": {"fr": "Je me suis acheté une robe rouge pour le mariage de ma nièce."}, "highlight": ["un vestido rojo"]},
+        {"es": "Pon la ropa sucia en la lavadora, por favor.", "translations": {"fr": "Mets le linge sale dans la machine à laver, s'il te plaît."}, "highlight": ["la ropa sucia"]},
+        {"es": "Para el Camino, lleva poca ropa y buenos zapatos.", "translations": {"fr": "Pour le Chemin, emporte peu de vêtements et de bonnes chaussures."}, "highlight": ["poca ropa"]}
+      ],
+      "trick": {"es": "Ropa = todo el armario 🧺. Vestido = solo la «robe» 👗.", "translations": {"fr": "« Ropa » = toute l'armoire 🧺. « Vestido » = seulement la robe 👗."}},
+      "frenchTrap": {"es": "Si en una tienda pides «una ropa para la boda», no te entenderán. Di: Busco un vestido para la boda.", "translations": {"fr": "Si tu demandes « una ropa para la boda » dans une boutique, on ne te comprendra pas. Dis : « Busco un vestido para la boda »."}},
+      "seeAlso": ["tp_b1_falsos_amigos", "d_largo"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: ropa", "url": "https://dle.rae.es/ropa"}],
+      "tags": ["falsos amigos", "ropa", "vestido"]
+    },
+    {
+      "id": "d_carta",
+      "question": {"es": "¿«Carta» significa «carte»?", "translations": {"fr": "« Carta » veut-il dire « carte » ?"}},
+      "aliases": ["carta", "tarjeta", "carte en espagnol", "carte bancaire en espagnol", "lettre en espagnol", "carta o tarjeta", "la carta del restaurante"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "✉️",
+      "answer": {"es": "A veces. Carta es una «lettre», la carta del restaurante y una carta de la baraja. Pero para pagar usas una tarjeta, y para viajar, un mapa.", "translations": {"fr": "Parfois. « Carta », c'est une lettre, la carte du restaurant et une carte à jouer. Mais pour payer, on utilise « una tarjeta », et pour voyager, « un mapa »."}},
+      "compare": [
+        {"title": {"es": "CARTA", "translations": {"fr": "CARTA"}}, "items": [
+          {"es": "Correo: Te escribo una carta.", "translations": {"fr": "Courrier : Je t'écris une lettre."}},
+          {"es": "Restaurante: ¿Nos trae la carta?", "translations": {"fr": "Restaurant : Vous nous apportez la carte ?"}},
+          {"es": "Juego: Jugamos a las cartas.", "translations": {"fr": "Jeu : On joue aux cartes."}}
+        ]},
+        {"title": {"es": "TARJETA / MAPA", "translations": {"fr": "TARJETA / MAPA"}}, "items": [
+          {"es": "Pagar: ¿Puedo pagar con tarjeta?", "translations": {"fr": "Payer : Je peux payer par carte ?"}},
+          {"es": "Felicitar: una tarjeta de cumpleaños, una postal.", "translations": {"fr": "Souhaiter : une carte d'anniversaire, une carte postale."}},
+          {"es": "Viajar: un mapa de Andalucía.", "translations": {"fr": "Voyager : une carte de l'Andalousie."}},
+          {"es": "Identidad: el DNI (en España).", "translations": {"fr": "Identité : la carte d'identité (« el DNI » en Espagne)."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Mi nieta me ha escrito una carta preciosa desde Canadá.", "translations": {"fr": "Ma petite-fille m'a écrit une très jolie lettre du Canada."}, "highlight": ["una carta"]},
+        {"es": "Perdone, ¿nos trae la carta, por favor?", "translations": {"fr": "Excusez-moi, vous pouvez nous apporter la carte, s'il vous plaît ?"}, "highlight": ["la carta"]},
+        {"es": "¿Se puede pagar con tarjeta?", "translations": {"fr": "On peut payer par carte ?"}, "highlight": ["con tarjeta"]}
+      ],
+      "trick": {"es": "Carta = papel que se lee (una carta, la carta del restaurante). Tarjeta = plástico o cartón pequeño.", "translations": {"fr": "« Carta » = un papier qu'on lit (une lettre, la carte du restaurant). « Tarjeta » = un petit plastique ou un petit carton."}},
+      "frenchTrap": {"es": "La «carte bancaire», la «carte postale» y la «carte d'identité» no son cartas: tarjeta, postal y DNI (o carné de identidad).", "translations": {"fr": "La carte bancaire, la carte postale et la carte d'identité ne sont pas des « cartas » : « tarjeta », « postal » et « DNI » (ou « carné de identidad »)."}},
+      "seeAlso": ["d_pedir_cuenta", "tp_comida_espanola", "tp_b1_falsos_amigos"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: carta", "url": "https://dle.rae.es/carta"}],
+      "tags": ["falsos amigos", "carta", "tarjeta"]
+    },
+    {
+      "id": "d_rato",
+      "question": {"es": "¿Qué es «un rato»? ¿Tiene algo que ver con «rater»?", "translations": {"fr": "C'est quoi, « un rato » ? Ça a un rapport avec « rater » ?"}},
+      "aliases": ["rato", "un ratito", "pasar un buen rato", "rater en espagnol", "un moment en espagnol", "j'ai raté le train", "perder el tren"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "⏳",
+      "answer": {"es": "Un rato es «un moment»: Espera un rato. No tiene nada que ver con «rat» (rata) ni con «rater»: j'ai raté le train = he perdido el tren.", "translations": {"fr": "« Un rato », c'est un moment : Attends un moment. Rien à voir avec « rat » (« rata ») ni avec « rater » : j'ai raté le train = « he perdido el tren »."}},
+      "points": [
+        {"es": "Un ratito: un momento muy corto. ¡Vuelvo en un ratito!", "translations": {"fr": "« Un ratito » : un tout petit moment. Je reviens dans un petit moment !"}},
+        {"es": "Pasar un buen rato = divertirse. Pasar un mal rato = sufrir un momento difícil.", "translations": {"fr": "« Pasar un buen rato » = passer un bon moment. « Pasar un mal rato » = passer un mauvais quart d'heure."}},
+        {"es": "A ratos = a veces: a ratos llueve, a ratos sale el sol.", "translations": {"fr": "« A ratos » = par moments : par moments il pleut, par moments le soleil sort."}},
+        {"es": "Para «rater»: perder (el tren), fallar (un tiro), salir mal (un pastel).", "translations": {"fr": "Pour « rater » : « perder » (le train), « fallar » (un tir), « salir mal » (un gâteau)."}}
+      ],
+      "examples": [
+        {"es": "¿Nos sentamos un rato en la terraza?", "translations": {"fr": "On s'assoit un moment en terrasse ?"}, "highlight": ["un rato"]},
+        {"es": "Con mis amigas siempre pasamos un buen rato.", "translations": {"fr": "Avec mes amies, on passe toujours un bon moment."}, "highlight": ["pasamos un buen rato"]},
+        {"es": "Llegué tarde y perdí el autobús.", "translations": {"fr": "Je suis arrivée en retard et j'ai raté le bus."}, "highlight": ["perdí el autobús"]},
+        {"es": "El bizcocho me ha salido mal: ¡está duro como una piedra!", "translations": {"fr": "J'ai raté mon gâteau : il est dur comme de la pierre !"}, "highlight": ["me ha salido mal"]}
+      ],
+      "trick": {"es": "Rato = tiempo ⏳. Rata = animal 🐀. Ratón = el del ordenador 🖱️ (y el animalito 🐭).", "translations": {"fr": "« Rato » = du temps ⏳. « Rata » = un rat 🐀. « Ratón » = la souris de l'ordinateur 🖱️ (et la petite bête 🐭)."}},
+      "frenchTrap": {"es": "«J'ai raté le train» no es «he ratado el tren»: «ratar» no existe en español. Di: He perdido el tren.", "translations": {"fr": "« J'ai raté le train », ce n'est pas « he ratado el tren » : « ratar » n'existe pas en espagnol. Dis : « He perdido el tren »."}},
+      "seeAlso": ["tp_b1_falsos_amigos", "d_exito"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: rato", "url": "https://dle.rae.es/rato"}],
+      "tags": ["falsos amigos", "rato", "tiempo"]
+    },
+    {
+      "id": "d_firma",
+      "question": {"es": "¿«Firma» significa «firme», una empresa?", "translations": {"fr": "« Firma » veut-il dire « firme », une entreprise ?"}},
+      "aliases": ["firma", "firmar", "firme aquí", "signature en espagnol", "signer en espagnol", "firme en espagnol", "entreprise en espagnol"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "✍️",
+      "answer": {"es": "Casi siempre, firma es «signature»: Su firma aquí, por favor. Para «une firme», di empresa (firma existe, pero suena a mundo de negocios o de moda).", "translations": {"fr": "Presque toujours, « firma » veut dire signature : Votre signature ici, s'il vous plaît. Pour « une firme », dis « empresa » (« firma » existe, mais ça sonne affaires ou mode)."}},
+      "points": [
+        {"es": "Firmar = «signer»: Firme aquí, por favor (con usted).", "translations": {"fr": "« Firmar » = signer : Signez ici, s'il vous plaît (en vouvoyant)."}},
+        {"es": "Una empresa = «une entreprise, une société»: Trabaja en una empresa de seguros.", "translations": {"fr": "« Una empresa » = une entreprise, une société : Il travaille dans une compagnie d'assurances."}},
+        {"es": "El adjetivo firme sí es «ferme»: una decisión firme.", "translations": {"fr": "L'adjectif « firme », lui, veut bien dire ferme : une décision ferme."}}
+      ],
+      "examples": [
+        {"es": "Firme aquí y aquí, por favor.", "translations": {"fr": "Signez ici et ici, s'il vous plaît."}, "highlight": ["Firme aquí"]},
+        {"es": "Falta tu firma en el contrato.", "translations": {"fr": "Il manque ta signature sur le contrat."}, "highlight": ["tu firma"]},
+        {"es": "Mi hijo trabaja en una empresa de informática.", "translations": {"fr": "Mon fils travaille dans une entreprise d'informatique."}, "highlight": ["una empresa"]}
+      ],
+      "trick": {"es": "En el banco, «Firme aquí» no es un consejo para estar firme: ¡es «Signez ici»!", "translations": {"fr": "À la banque, « Firme aquí » n'est pas un conseil pour rester ferme : c'est « Signez ici » !"}},
+      "frenchTrap": {"es": "Para «une firme», la palabra normal es empresa. Si dices «trabajo en una firma», suena a despacho de abogados o a marca de lujo.", "translations": {"fr": "Pour « une firme », le mot courant est « empresa ». Si tu dis « trabajo en una firma », ça fait cabinet d'avocats ou marque de luxe."}},
+      "seeAlso": ["tp_b1_falsos_amigos", "d_carta_formal"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: firma", "url": "https://dle.rae.es/firma"}],
+      "tags": ["falsos amigos", "firma", "empresa"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

@@ -1,0 +1,393 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_basico_verbos",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Verbos básicos", "translations": {"fr": "Les verbes de base"}},
+  "emoji": "🧩",
+  "order": 10,
+  "entries": [
+    {
+      "id": "d_ser_estar",
+      "question": {"es": "¿Cuál es la diferencia entre ser y estar?", "translations": {"fr": "Quelle est la différence entre « ser » et « estar » ?"}},
+      "aliases": ["ser o estar", "diferencia entre ser y estar", "soy o estoy", "cuándo se usa estar", "différence entre ser et estar", "être en espagnol", "quand utiliser ser ou estar"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "⚖️",
+      "answer": {"es": "Ser dice qué es algo o alguien: identidad, origen, profesión, carácter. Estar dice dónde está o cómo está ahora.", "translations": {"fr": "« Ser » dit ce qu'est une chose ou une personne : identité, origine, profession, caractère. « Estar » dit où elle est ou comment elle va maintenant."}},
+      "compare": [
+        {"title": {"es": "SER", "translations": {"fr": "SER"}}, "items": [
+          {"es": "Identidad: Soy Claire.", "translations": {"fr": "Identité : Je suis Claire."}},
+          {"es": "Origen: Es de Lyon.", "translations": {"fr": "Origine : Elle est de Lyon."}},
+          {"es": "Profesión: Es profesora.", "translations": {"fr": "Profession : Elle est professeure."}},
+          {"es": "Carácter: Es muy simpática.", "translations": {"fr": "Caractère : Elle est très sympathique."}}
+        ]},
+        {"title": {"es": "ESTAR", "translations": {"fr": "ESTAR"}}, "items": [
+          {"es": "Lugar: Está en Madrid.", "translations": {"fr": "Lieu : Elle est à Madrid."}},
+          {"es": "Estado: Estoy cansada.", "translations": {"fr": "État : Je suis fatiguée."}},
+          {"es": "Resultado: La tienda está cerrada.", "translations": {"fr": "Résultat : Le magasin est fermé."}},
+          {"es": "Ahora mismo: Estamos comiendo.", "translations": {"fr": "En ce moment : Nous sommes en train de manger."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Mi hermana es médica y ahora está en el hospital.", "translations": {"fr": "Ma sœur est médecin et en ce moment elle est à l'hôpital."}, "highlight": ["es médica", "está en el hospital"]},
+        {"es": "Juan es muy alegre, pero hoy está triste.", "translations": {"fr": "Juan est très gai, mais aujourd'hui il est triste."}, "highlight": ["es muy alegre", "está triste"]},
+        {"es": "La boda es en Sevilla.", "translations": {"fr": "Le mariage a lieu à Séville."}, "highlight": ["es en Sevilla"], "note": "Un evento «es» en un lugar.", "noteTranslations": {"fr": "Un événement « es » dans un lieu (= a lieu)."}}
+      ],
+      "trick": {"es": "Pregúntate: ¿qué es? → ser. ¿Dónde está? ¿Cómo está? → estar.", "translations": {"fr": "Demande-toi : qu'est-ce que c'est ? → ser. Où est-ce ? Comment ça va ? → estar."}},
+      "frenchTrap": {"es": "En francés todo es «être». No digas «Estoy profesora» ni «Soy cansada»: se dice Soy profesora y Estoy cansada.", "translations": {"fr": "En français, tout se dit avec « être ». Ne dis pas « Estoy profesora » ni « Soy cansada » : on dit Soy profesora et Estoy cansada."}},
+      "seeAlso": ["tp_verbos_ser_estar"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de gramática A1–A2"}],
+      "tags": ["ser", "estar", "verbos"]
+    },
+    {
+      "id": "d_hay_esta",
+      "question": {"es": "¿Cuándo se dice «hay» y cuándo «está» o «están»?", "translations": {"fr": "Quand dit-on « hay » et quand dit-on « está » ou « están » ?"}},
+      "aliases": ["hay o está", "hay o están", "diferencia entre hay y estar", "dónde hay o dónde está", "il y a en espagnol", "comment dire il y a", "différence entre hay et está"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "📍",
+      "answer": {"es": "«Hay» presenta algo nuevo y dice que existe: hay un banco, hay pan. «Está» o «están» dicen dónde se encuentra algo conocido: el banco está en la plaza.", "translations": {"fr": "« Hay » présente quelque chose de nouveau et dit que ça existe : il y a une banque, il y a du pain. « Está » ou « están » disent où se trouve une chose connue : la banque est sur la place."}},
+      "compare": [
+        {"title": {"es": "HAY (= il y a)", "translations": {"fr": "HAY (= il y a)"}}, "items": [
+          {"es": "Con un, una: Hay una farmacia aquí cerca.", "translations": {"fr": "Avec un, una : Il y a une pharmacie près d'ici."}},
+          {"es": "Con números: Hay tres hoteles en el pueblo.", "translations": {"fr": "Avec des nombres : Il y a trois hôtels au village."}},
+          {"es": "Sin artículo: ¿Hay pan? Hay mucha gente.", "translations": {"fr": "Sans article : Il y a du pain ? Il y a beaucoup de monde."}}
+        ]},
+        {"title": {"es": "ESTÁ / ESTÁN", "translations": {"fr": "ESTÁ / ESTÁN (= est, sont)"}}, "items": [
+          {"es": "Con el, la: El banco está en la plaza.", "translations": {"fr": "Avec el, la : La banque est sur la place."}},
+          {"es": "Con mi, tu, su: Mis gafas están en la mesa.", "translations": {"fr": "Avec mi, tu, su : Mes lunettes sont sur la table."}},
+          {"es": "Con nombres propios: Toledo está cerca de Madrid.", "translations": {"fr": "Avec des noms propres : Tolède est près de Madrid."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "—¿Hay una farmacia por aquí? —Sí, está al final de la calle.", "translations": {"fr": "— Il y a une pharmacie par ici ? — Oui, elle est au bout de la rue."}, "highlight": ["Hay una farmacia", "está al final de la calle"], "note": "Primero «hay» (algo nuevo); después «está» (ya sabemos cuál).", "noteTranslations": {"fr": "D'abord « hay » (quelque chose de nouveau) ; ensuite « está » (on sait déjà laquelle)."}},
+        {"es": "En mi pueblo hay dos panaderías, pero la mejor está en la plaza.", "translations": {"fr": "Dans mon village, il y a deux boulangeries, mais la meilleure est sur la place."}, "highlight": ["hay dos panaderías", "está en la plaza"], "note": "«Hay» no cambia nunca: hay un banco, hay dos bancos.", "noteTranslations": {"fr": "« Hay » ne change jamais : hay un banco, hay dos bancos."}},
+        {"es": "—¿Dónde están mis llaves? —Están en tu bolso.", "translations": {"fr": "— Où sont mes clés ? — Elles sont dans ton sac."}, "highlight": ["Dónde están mis llaves", "Están en tu bolso"]}
+      ],
+      "trick": {"es": "Mira lo que va delante del nombre. ¿El, la, mi, tu…? → está. ¿Un, una, un número o nada? → hay.", "translations": {"fr": "Regarde ce qu'il y a devant le nom. El, la, mi, tu… ? → está. Un, una, un nombre ou rien ? → hay."}},
+      "frenchTrap": {"es": "No digas «¿Dónde hay el banco?»: se dice «¿Dónde está el banco?». Y «il y a deux ans» no lleva «hay»: es «hace dos años».", "translations": {"fr": "Ne dis pas « ¿Dónde hay el banco? » : on dit « ¿Dónde está el banco? ». Et « il y a deux ans » ne se dit pas avec « hay » : c'est « hace dos años »."}},
+      "seeAlso": ["d_ser_estar", "d_hace_desde", "tp_a1_ser_estar_hay"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «haber» (hay)", "url": "https://www.rae.es/dpd/haber"}],
+      "tags": ["hay", "estar", "lugar"]
+    },
+    {
+      "id": "d_tener_haber",
+      "question": {"es": "¿Cómo se dice «j'ai»: «tengo» o «he»?", "translations": {"fr": "Comment dit-on « j'ai » : « tengo » ou « he » ?"}},
+      "aliases": ["tener o haber", "tengo o he", "j'ai en espagnol", "avoir en espagnol", "différence entre tener et haber", "he hambre"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "🎒",
+      "answer": {"es": "«Tener» es poseer o sentir: tengo dos hijos, tengo hambre. «Haber» solo sirve para formar los tiempos compuestos: he comido, has visto. Nunca digas «he un coche».", "translations": {"fr": "« Tener », c'est posséder ou ressentir : j'ai deux enfants, j'ai faim. « Haber » sert seulement à former les temps composés : j'ai mangé, tu as vu. Ne dis jamais « he un coche »."}},
+      "compare": [
+        {"title": {"es": "TENER", "translations": {"fr": "TENER (= posséder, ressentir)"}}, "items": [
+          {"es": "Cosas: Tengo un coche rojo.", "translations": {"fr": "Objets : J'ai une voiture rouge."}},
+          {"es": "Familia: Tengo tres nietos.", "translations": {"fr": "Famille : J'ai trois petits-enfants."}},
+          {"es": "Edad: Tengo 60 años.", "translations": {"fr": "Âge : J'ai 60 ans."}},
+          {"es": "Sensaciones: Tengo frío y sed.", "translations": {"fr": "Sensations : J'ai froid et soif."}},
+          {"es": "Obligación: Tengo que salir.", "translations": {"fr": "Obligation : Je dois sortir."}}
+        ]},
+        {"title": {"es": "HABER", "translations": {"fr": "HABER (+ participe)"}}, "items": [
+          {"es": "He + participio: He comido.", "translations": {"fr": "He + participe : J'ai mangé."}},
+          {"es": "Experiencia: ¿Has probado el gazpacho?", "translations": {"fr": "Expérience : Tu as déjà goûté le gaspacho ?"}},
+          {"es": "Existencia: Hay un problema.", "translations": {"fr": "Existence : Il y a un problème."}},
+          {"es": "Obligación general: Hay que esperar.", "translations": {"fr": "Obligation générale : Il faut attendre."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Tengo dos hermanas y las he visto esta mañana.", "translations": {"fr": "J'ai deux sœurs et je les ai vues ce matin."}, "highlight": ["Tengo dos hermanas", "he visto"], "note": "«Visto» no cambia: las he visto.", "noteTranslations": {"fr": "« Visto » ne s'accorde pas : las he visto (je les ai vues)."}},
+        {"es": "¿Tienes tiempo? He hecho café.", "translations": {"fr": "Tu as le temps ? J'ai fait du café."}, "highlight": ["Tienes tiempo", "He hecho"]},
+        {"es": "Tengo frío: he olvidado el abrigo en casa.", "translations": {"fr": "J'ai froid : j'ai oublié mon manteau à la maison."}, "highlight": ["Tengo frío", "he olvidado"]}
+      ],
+      "trick": {"es": "¿Después viene un participio (-ado, -ido, hecho, visto…)? → haber. ¿Viene una cosa, una persona o una sensación? → tener.", "translations": {"fr": "Un participe suit (-ado, -ido, hecho, visto…) ? → haber. Une chose, une personne ou une sensation ? → tener."}},
+      "frenchTrap": {"es": "En francés «avoir» hace las dos cosas; en español, no. «J'ai faim» = tengo hambre (no «he hambre») y «j'ai mangé» = he comido (no «tengo comido»).", "translations": {"fr": "En français, « avoir » fait les deux ; en espagnol, non. « J'ai faim » = tengo hambre (pas « he hambre ») et « j'ai mangé » = he comido (pas « tengo comido »)."}},
+      "seeAlso": ["d_haber_auxiliar", "d_tener_que_hay_que", "d_edad", "tp_a2_perfecto"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «haber»", "url": "https://www.rae.es/dpd/haber"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «tener»", "url": "https://www.rae.es/dpd/tener"}
+      ],
+      "tags": ["tener", "haber", "avoir"]
+    },
+    {
+      "id": "d_gustar",
+      "question": {"es": "¿Cómo funciona «gustar»? ¿Por qué se dice «me gusta»?", "translations": {"fr": "Comment fonctionne « gustar » ? Pourquoi dit-on « me gusta » ?"}},
+      "aliases": ["me gusta o me gustan", "cómo se usa gustar", "yo gusto", "j'aime en espagnol", "comment dire j'aime", "verbe gustar", "a mí me gusta"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "❤️",
+      "answer": {"es": "Con «gustar», lo que gusta es el sujeto, y la persona va delante con me, te, le…: me gusta el café, me gustan los gatos. El verbo concuerda con la cosa, no con la persona.", "translations": {"fr": "Avec « gustar », ce qui plaît est le sujet, et la personne se place devant avec me, te, le… : me gusta el café, me gustan los gatos. Le verbe s'accorde avec la chose, pas avec la personne."}},
+      "points": [
+        {"es": "Gusta + una cosa o un verbo (me gusta bailar); gustan + varias cosas (me gustan las flores).", "translations": {"fr": "Gusta + une chose ou un verbe (me gusta bailar = j'aime danser) ; gustan + plusieurs choses (me gustan las flores = j'aime les fleurs)."}},
+        {"es": "Para insistir o aclarar: a mí me gusta, a ti te gusta, a mi marido le gusta.", "translations": {"fr": "Pour insister ou préciser : a mí me gusta, a ti te gusta, a mi marido le gusta (mon mari, ça lui plaît)."}},
+        {"es": "Igual funcionan encantar, interesar, doler y apetecer: me duelen los pies.", "translations": {"fr": "Encantar, interesar, doler et apetecer fonctionnent pareil : me duelen los pies (j'ai mal aux pieds)."}},
+        {"es": "Para responder: a mí también, a mí tampoco, a mí sí, a mí no.", "translations": {"fr": "Pour répondre : a mí también (moi aussi), a mí tampoco (moi non plus), a mí sí (moi, si), a mí no (pas moi)."}}
+      ],
+      "examples": [
+        {"es": "Me gusta el pescado, pero no me gustan las sardinas.", "translations": {"fr": "J'aime le poisson, mais je n'aime pas les sardines."}, "highlight": ["Me gusta", "me gustan"]},
+        {"es": "A mi nieto le encanta bailar.", "translations": {"fr": "Mon petit-fils adore danser."}, "highlight": ["A mi nieto le encanta"]},
+        {"es": "—Me gustan las películas francesas. —¡A mí también!", "translations": {"fr": "— J'aime les films français. — Moi aussi !"}, "highlight": ["Me gustan", "A mí también"]}
+      ],
+      "trick": {"es": "Piensa en «plaire»: «le café me plaît» = me gusta el café; «les chats me plaisent» = me gustan los gatos.", "translations": {"fr": "Pense à « plaire » : « le café me plaît » = me gusta el café ; « les chats me plaisent » = me gustan los gatos."}},
+      "frenchTrap": {"es": "No digas «yo gusto el café» (calco de «j'aime»). Y para personas, «aimer» es «querer»: te quiero.", "translations": {"fr": "Ne dis pas « yo gusto el café » (calque de « j'aime »). Et pour les personnes, « aimer » se dit « querer » : te quiero (je t'aime)."}},
+      "seeAlso": ["d_tambien_tampoco", "tp_a1_gustar", "tp_subj_presente_emociones"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «gustar»", "url": "https://www.rae.es/dpd/gustar"}],
+      "tags": ["gustar", "encantar", "gustos"]
+    },
+    {
+      "id": "d_pronombre_sujeto",
+      "question": {"es": "¿Hay que decir siempre «yo», «tú», «él» delante del verbo?", "translations": {"fr": "Faut-il toujours dire « yo », « tú », « él » devant le verbe ?"}},
+      "aliases": ["yo hablo o hablo", "pronombres sujeto", "hay que decir yo", "pronoms sujets en espagnol", "faut-il dire yo", "je parle en espagnol"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "🙋",
+      "answer": {"es": "No. La terminación del verbo ya dice quién es: hablo = yo, hablas = tú. Usa «yo», «tú», «él»… solo para insistir, contrastar o evitar una confusión.", "translations": {"fr": "Non. La terminaison du verbe dit déjà qui c'est : hablo = je, hablas = tu. Utilise « yo », « tú », « él »… seulement pour insister, opposer deux personnes ou éviter une confusion."}},
+      "points": [
+        {"es": "Normal, sin pronombre: Vivo en Lyon y tengo dos hijos.", "translations": {"fr": "Normal, sans pronom : Vivo en Lyon y tengo dos hijos (j'habite à Lyon et j'ai deux enfants)."}},
+        {"es": "Contraste: Yo soy de Lyon y él es de Bilbao.", "translations": {"fr": "Opposition : Yo soy de Lyon y él es de Bilbao (moi, je suis de Lyon, et lui, de Bilbao)."}},
+        {"es": "Para aclarar: «estaba» puede ser yo, él, ella o usted; el pronombre ayuda.", "translations": {"fr": "Pour préciser : « estaba » peut être je, il, elle ou vous (usted) ; le pronom aide."}},
+        {"es": "«Usted» se dice más a menudo, por cortesía: ¿Usted es la señora Martin?", "translations": {"fr": "« Usted » s'emploie plus souvent, par politesse : ¿Usted es la señora Martin? (C'est vous, madame Martin ?)"}}
+      ],
+      "examples": [
+        {"es": "Me llamo Claire y vivo en Lyon.", "translations": {"fr": "Je m'appelle Claire et j'habite à Lyon."}, "highlight": ["Me llamo", "vivo"]},
+        {"es": "Yo prefiero el té, pero ella toma café.", "translations": {"fr": "Moi, je préfère le thé, mais elle, elle prend du café."}, "highlight": ["Yo prefiero", "ella toma"]},
+        {"es": "Llueve y hace frío: es un día para quedarse en casa.", "translations": {"fr": "Il pleut et il fait froid : c'est un jour à rester à la maison."}, "highlight": ["Llueve", "hace frío", "es un día"], "note": "El «il» francés no se traduce.", "noteTranslations": {"fr": "Le « il » français ne se traduit pas."}}
+      ],
+      "trick": {"es": "Sin pronombre = frase normal. Con pronombre = «moi, je…», «lui, il…».", "translations": {"fr": "Sans pronom = phrase normale. Avec pronom = « moi, je… », « lui, il… »."}},
+      "frenchTrap": {"es": "En francés el pronombre es obligatorio. En español, «yo» en cada frase suena insistente. Y el «il» de «il pleut» o «il est tard» no existe: llueve, es tarde.", "translations": {"fr": "En français, le pronom est obligatoire. En espagnol, mettre « yo » à chaque phrase paraît insistant. Et le « il » de « il pleut » ou « il est tard » n'existe pas : llueve, es tarde."}},
+      "seeAlso": ["d_tu_usted", "tp_a1_presente_regular"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de gramática A1 (pronombres personales sujeto)"}],
+      "tags": ["pronombres", "sujeto", "yo"]
+    },
+    {
+      "id": "d_presente_irregular",
+      "question": {"es": "¿Por qué se dice «quiero» y no «quero»?", "translations": {"fr": "Pourquoi dit-on « quiero » et pas « quero » ?"}},
+      "aliases": ["quiero o quero", "puedo o podo", "verbos irregulares en presente", "e ie o ue", "verbes irréguliers espagnol", "présent irrégulier espagnol", "verbos de bota"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "🥾",
+      "answer": {"es": "Muchos verbos cambian la vocal de la raíz cuando lleva el acento: e → ie (quiero), o → ue (puedo), e → i (pido). Con nosotros y vosotros no cambia: queremos, podemos, pedimos.", "translations": {"fr": "Beaucoup de verbes changent la voyelle du radical quand elle porte l'accent : e → ie (quiero), o → ue (puedo), e → i (pido). Avec nosotros et vosotros, elle ne change pas : queremos, podemos, pedimos."}},
+      "points": [
+        {"es": "e → ie: querer (quiero), pensar (pienso), empezar (empiezo), preferir (prefiero), cerrar (cierro).", "translations": {"fr": "e → ie : querer (quiero), pensar (pienso), empezar (empiezo), preferir (prefiero), cerrar (cierro)."}},
+        {"es": "o → ue: poder (puedo), dormir (duermo), volver (vuelvo), contar (cuento). Y jugar: juego.", "translations": {"fr": "o → ue : poder (puedo), dormir (duermo), volver (vuelvo), contar (cuento). Et jugar : juego."}},
+        {"es": "e → i: pedir (pido), servir (sirvo), repetir (repito).", "translations": {"fr": "e → i : pedir (pido), servir (sirvo), repetir (repito)."}},
+        {"es": "Solo «yo» es irregular: hago, pongo, salgo, traigo, conozco, sé, doy, veo.", "translations": {"fr": "Seul « yo » est irrégulier : hago, pongo, salgo, traigo, conozco, sé, doy, veo."}},
+        {"es": "Tener, venir y decir hacen las dos cosas: tengo / tienes, vengo / vienes, digo / dices.", "translations": {"fr": "Tener, venir et decir font les deux : tengo / tienes, vengo / vienes, digo / dices."}}
+      ],
+      "examples": [
+        {"es": "—¿Puedes venir el sábado? —No puedo, pero podemos vernos el domingo.", "translations": {"fr": "— Tu peux venir samedi ? — Je ne peux pas, mais on peut se voir dimanche."}, "highlight": ["Puedes", "No puedo", "podemos"]},
+        {"es": "Los domingos duermo hasta las nueve.", "translations": {"fr": "Le dimanche, je dors jusqu'à neuf heures."}, "highlight": ["duermo"]},
+        {"es": "En el restaurante siempre pido pescado.", "translations": {"fr": "Au restaurant, je commande toujours du poisson."}, "highlight": ["pido"]}
+      ],
+      "trick": {"es": "Dibuja una bota 🥾: yo, tú, él y ellos cambian (dentro); nosotros y vosotros, no (fuera).", "translations": {"fr": "Dessine une botte 🥾 : yo, tú, él et ellos changent (dedans) ; nosotros et vosotros, non (dehors)."}},
+      "frenchTrap": {"es": "Buena noticia: el francés hace lo mismo (je veux / nous voulons, je peux / nous pouvons). La trampa es olvidar el cambio: se dice juego, pienso, duermo, no «jugo», «penso», «dormo».", "translations": {"fr": "Bonne nouvelle : le français fait pareil (je veux / nous voulons, je peux / nous pouvons). Le piège, c'est d'oublier le changement : on dit juego, pienso, duermo, et non « jugo », « penso », « dormo »."}},
+      "seeAlso": ["d_saber_conocer", "tp_a1_presente_irregular", "tp_a1_presente_regular"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de gramática A1 (presente de indicativo irregular)"}],
+      "tags": ["presente", "irregulares", "verbos"]
+    },
+    {
+      "id": "d_estar_gerundio",
+      "question": {"es": "¿Digo «como» o «estoy comiendo»?", "translations": {"fr": "Je dis « como » ou « estoy comiendo » ?"}},
+      "aliases": ["como o estoy comiendo", "estar más gerundio", "presente o gerundio", "être en train de en espagnol", "comment dire je suis en train de", "qué estás haciendo"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🏃",
+      "answer": {"es": "«Estoy comiendo» = ahora mismo, la acción está en curso. «Como» = un hábito o algo general: como a las dos. Para lo que pasa en este momento, el español prefiere estar + gerundio.", "translations": {"fr": "« Estoy comiendo » = en ce moment même, l'action est en cours. « Como » = une habitude ou une vérité générale : je mange à deux heures. Pour ce qui se passe maintenant, l'espagnol préfère estar + gérondif."}},
+      "compare": [
+        {"title": {"es": "COMO (presente)", "translations": {"fr": "COMO (présent)"}}, "items": [
+          {"es": "Hábito: Como a las dos.", "translations": {"fr": "Habitude : Je mange à deux heures."}},
+          {"es": "Frecuencia: Nunca como carne.", "translations": {"fr": "Fréquence : Je ne mange jamais de viande."}},
+          {"es": "Verdad general: Los gatos duermen mucho.", "translations": {"fr": "Vérité générale : Les chats dorment beaucoup."}},
+          {"es": "Plan cercano: Mañana como con Ana.", "translations": {"fr": "Projet proche : Demain, je déjeune avec Ana."}}
+        ]},
+        {"title": {"es": "ESTOY COMIENDO (ahora)", "translations": {"fr": "ESTOY COMIENDO (maintenant)"}}, "items": [
+          {"es": "Ahora mismo: Estoy comiendo, te llamo luego.", "translations": {"fr": "En ce moment : Je suis en train de manger, je te rappelle."}},
+          {"es": "Estos días: Estoy leyendo una novela.", "translations": {"fr": "Ces jours-ci : Je lis un roman."}},
+          {"es": "Pregunta: ¿Qué estás haciendo?", "translations": {"fr": "Question : Qu'est-ce que tu fais ?"}}
+        ]}
+      ],
+      "examples": [
+        {"es": "—¿Qué haces? —Estoy viendo la tele.", "translations": {"fr": "— Tu fais quoi ? — Je regarde la télé."}, "highlight": ["Estoy viendo"]},
+        {"es": "No puedo hablar ahora, estoy conduciendo.", "translations": {"fr": "Je ne peux pas parler maintenant, je conduis."}, "highlight": ["estoy conduciendo"]},
+        {"es": "Mi nieta está aprendiendo francés este año.", "translations": {"fr": "Ma petite-fille apprend le français cette année."}, "highlight": ["está aprendiendo"]}
+      ],
+      "trick": {"es": "Gerundio fácil: -ar → -ando (hablando); -er, -ir → -iendo (comiendo, viviendo). Tras vocal, -yendo: leyendo, oyendo.", "translations": {"fr": "Gérondif facile : -ar → -ando (hablando) ; -er, -ir → -iendo (comiendo, viviendo). Après une voyelle, -yendo : leyendo, oyendo."}},
+      "frenchTrap": {"es": "En francés casi siempre dices «je mange» y pocas veces «je suis en train de». En español, para lo que pasa ahora, «estoy + gerundio» es lo más natural: ¿Qué haces? —Estoy cocinando.", "translations": {"fr": "En français, tu dis presque toujours « je mange » et rarement « je suis en train de ». En espagnol, pour ce qui se passe maintenant, « estoy + gérondif » est le plus naturel : ¿Qué haces? — Estoy cocinando."}},
+      "seeAlso": ["tp_b1_estar_gerundio", "tp_a1_presente_regular", "tp_verbos_perifrasis"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «estar» (estar + gerundio)", "url": "https://www.rae.es/dpd/estar"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «gerundio»", "url": "https://www.rae.es/dpd/gerundio"}
+      ],
+      "tags": ["gerundio", "estar", "presente"]
+    },
+    {
+      "id": "d_tener_que_hay_que",
+      "question": {"es": "¿«Tengo que» o «hay que»? ¿Cómo digo «il faut»?", "translations": {"fr": "« Tengo que » ou « hay que » ? Comment dire « il faut » ?"}},
+      "aliases": ["tener que o hay que", "cómo se dice il faut", "il faut en espagnol", "je dois en espagnol", "tengo que o debo", "hay que más infinitivo"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "📋",
+      "answer": {"es": "«Tener que + infinitivo» es la obligación de una persona: tengo que llamar a mi hija. «Hay que + infinitivo» es general, para todo el mundo, como «il faut»: hay que reservar mesa.", "translations": {"fr": "« Tener que + infinitif », c'est l'obligation d'une personne : je dois appeler ma fille. « Hay que + infinitif » est général, pour tout le monde, comme « il faut » : il faut réserver une table."}},
+      "compare": [
+        {"title": {"es": "TENER QUE", "translations": {"fr": "TENER QUE (je dois, tu dois…)"}}, "items": [
+          {"es": "Yo: Tengo que ir al médico.", "translations": {"fr": "Moi : Je dois aller chez le médecin."}},
+          {"es": "Tú: Tienes que ver la Alhambra.", "translations": {"fr": "Toi : Tu dois voir l'Alhambra."}},
+          {"es": "Pasado: Tuvimos que esperar una hora.", "translations": {"fr": "Passé : Nous avons dû attendre une heure."}}
+        ]},
+        {"title": {"es": "HAY QUE", "translations": {"fr": "HAY QUE (il faut)"}}, "items": [
+          {"es": "Regla: Hay que pagar en la caja.", "translations": {"fr": "Règle : Il faut payer à la caisse."}},
+          {"es": "Consejo: Hay que beber mucha agua.", "translations": {"fr": "Conseil : Il faut boire beaucoup d'eau."}},
+          {"es": "Pasado: Había que madrugar.", "translations": {"fr": "Passé : Il fallait se lever tôt."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Para entrar en el museo hay que hacer cola, así que tenemos que llegar pronto.", "translations": {"fr": "Pour entrer au musée, il faut faire la queue, donc nous devons arriver tôt."}, "highlight": ["hay que hacer cola", "tenemos que llegar"]},
+        {"es": "Mañana tengo que madrugar.", "translations": {"fr": "Demain, je dois me lever tôt."}, "highlight": ["tengo que madrugar"]},
+        {"es": "No hay que preocuparse: todo va bien.", "translations": {"fr": "Il ne faut pas s'inquiéter : tout va bien."}, "highlight": ["No hay que preocuparse"]}
+      ],
+      "trick": {"es": "¿Hay una persona concreta? → tener que (cambia: tengo, tienes…). ¿Es para todos? → hay que (no cambia nunca).", "translations": {"fr": "Il y a une personne précise ? → tener que (il change : tengo, tienes…). C'est pour tout le monde ? → hay que (il ne change jamais)."}},
+      "frenchTrap": {"es": "«Je dois» se dice casi siempre «tengo que» («debo» suena más serio). «Il faut que tu viennes» = tienes que venir, no «hay que vienes». ¡Y no olvides el «que»!", "translations": {"fr": "« Je dois » se dit presque toujours « tengo que » (« debo » sonne plus sérieux). « Il faut que tu viennes » = tienes que venir, pas « hay que vienes ». Et n'oublie pas le « que » !"}},
+      "seeAlso": ["d_tener_haber", "d_hay_esta", "tp_verbos_perifrasis"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «tener» (tener que)", "url": "https://www.rae.es/dpd/tener"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «haber» (hay que)", "url": "https://www.rae.es/dpd/haber"}
+      ],
+      "tags": ["obligación", "tener que", "hay que"]
+    },
+    {
+      "id": "d_saber_conocer",
+      "question": {"es": "¿Cuál es la diferencia entre «saber» y «conocer»?", "translations": {"fr": "Quelle est la différence entre « saber » et « conocer » ?"}},
+      "aliases": ["saber o conocer", "sé o conozco", "savoir ou connaître en espagnol", "connaître en espagnol", "savoir en espagnol", "sabes nadar"],
+      "cefr": "A1",
+      "category": "grammar",
+      "emoji": "🧠",
+      "answer": {"es": "Como en francés: «saber» = savoir (un dato, saber hacer algo); «conocer» = connaître (personas, lugares, cosas que has probado). Sé nadar. Conozco Sevilla.", "translations": {"fr": "Comme en français : « saber » = savoir (une information, savoir faire quelque chose) ; « conocer » = connaître (des personnes, des lieux, des choses déjà essayées). Sé nadar (je sais nager). Conozco Sevilla (je connais Séville)."}},
+      "compare": [
+        {"title": {"es": "SABER", "translations": {"fr": "SABER (savoir)"}}, "items": [
+          {"es": "Un dato: Sé dónde vive.", "translations": {"fr": "Une information : Je sais où il habite."}},
+          {"es": "Saber hacer: ¿Sabes nadar?", "translations": {"fr": "Savoir-faire : Tu sais nager ?"}},
+          {"es": "Una noticia: ¿Sabes que Ana se casa?", "translations": {"fr": "Une nouvelle : Tu sais qu'Ana se marie ?"}}
+        ]},
+        {"title": {"es": "CONOCER", "translations": {"fr": "CONOCER (connaître)"}}, "items": [
+          {"es": "Personas: Conozco a tu hermano.", "translations": {"fr": "Personnes : Je connais ton frère."}},
+          {"es": "Lugares: ¿Conoces Granada?", "translations": {"fr": "Lieux : Tu connais Grenade ?"}},
+          {"es": "Primera vez: Nos conocimos en 1990.", "translations": {"fr": "Première rencontre : Nous nous sommes rencontrés en 1990."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "No conozco a tu vecina, pero sé que es muy simpática.", "translations": {"fr": "Je ne connais pas ta voisine, mais je sais qu'elle est très sympathique."}, "highlight": ["No conozco a tu vecina", "sé que es"]},
+        {"es": "¿Sabes hacer paella? Conozco un truco muy bueno.", "translations": {"fr": "Tu sais faire la paella ? Je connais une très bonne astuce."}, "highlight": ["Sabes hacer", "Conozco un truco"]},
+        {"es": "Mi marido y yo nos conocimos en un baile.", "translations": {"fr": "Mon mari et moi, nous nous sommes rencontrés à un bal."}, "highlight": ["nos conocimos"], "note": "«Conocer» en pasado = ver a alguien por primera vez.", "noteTranslations": {"fr": "« Conocer » au passé = faire la connaissance de quelqu'un."}}
+      ],
+      "trick": {"es": "Si en francés dices «savoir» → saber; si dices «connaître» → conocer. ¡Funciona casi siempre!", "translations": {"fr": "Si en français tu dis « savoir » → saber ; si tu dis « connaître » → conocer. Ça marche presque toujours !"}},
+      "frenchTrap": {"es": "La trampa no es el sentido, es la forma: «je sais» = sé (con tilde), «je connais» = conozco. Y delante de una persona, «a»: conozco a Pedro.", "translations": {"fr": "Le piège, ce n'est pas le sens, c'est la forme : « je sais » = sé (avec accent), « je connais » = conozco. Et devant une personne, « a » : conozco a Pedro."}},
+      "seeAlso": ["d_a_personal", "d_presente_irregular", "tp_a1_presente_irregular"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular, inventario de gramática A1–A2"}],
+      "tags": ["saber", "conocer", "verbos"]
+    },
+    {
+      "id": "d_pedir_preguntar",
+      "question": {"es": "¿«Pedir» o «preguntar»? ¿Cómo se dice «demander»?", "translations": {"fr": "« Pedir » ou « preguntar » ? Comment dit-on « demander » ?"}},
+      "aliases": ["pedir o preguntar", "demander en espagnol", "comment dire demander", "poser une question en espagnol", "pedir un favor", "preguntar por alguien"],
+      "cefr": "A1",
+      "category": "vocabulary",
+      "emoji": "❓",
+      "answer": {"es": "«Demander» tiene dos traducciones. Pides algo que quieres recibir: pedir un café, pedir ayuda. Preguntas para saber algo: preguntar la hora, preguntar dónde está el baño.", "translations": {"fr": "« Demander » a deux traductions. Pedir, pour quelque chose qu'on veut recevoir : pedir un café, pedir ayuda (demander de l'aide). Preguntar, pour savoir quelque chose : preguntar la hora (demander l'heure), preguntar dónde está el baño (demander où sont les toilettes)."}},
+      "compare": [
+        {"title": {"es": "PEDIR (quiero algo)", "translations": {"fr": "PEDIR (je veux quelque chose)"}}, "items": [
+          {"es": "En el bar: Pido un café con leche.", "translations": {"fr": "Au bar : Je prends un café au lait."}},
+          {"es": "Un favor: ¿Te puedo pedir un favor?", "translations": {"fr": "Un service : Je peux te demander un service ?"}},
+          {"es": "La cuenta: Vamos a pedir la cuenta.", "translations": {"fr": "L'addition : On va demander l'addition."}}
+        ]},
+        {"title": {"es": "PREGUNTAR (quiero saber)", "translations": {"fr": "PREGUNTAR (je veux savoir)"}}, "items": [
+          {"es": "Información: Pregunto a qué hora abren.", "translations": {"fr": "Information : Je demande à quelle heure ils ouvrent."}},
+          {"es": "Una pregunta: ¿Te puedo preguntar una cosa?", "translations": {"fr": "Une question : Je peux te poser une question ?"}},
+          {"es": "Por alguien: Tu madre pregunta por ti.", "translations": {"fr": "Prendre des nouvelles : Ta mère demande de tes nouvelles."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "En el bar pedí un té y pregunté dónde estaba el baño.", "translations": {"fr": "Au bar, j'ai commandé un thé et j'ai demandé où étaient les toilettes."}, "highlight": ["pedí un té", "pregunté dónde estaba"]},
+        {"es": "Voy a preguntar a qué hora sale el tren.", "translations": {"fr": "Je vais demander à quelle heure part le train."}, "highlight": ["preguntar a qué hora"]},
+        {"es": "Mi vecina me pidió ayuda con el ordenador.", "translations": {"fr": "Ma voisine m'a demandé de l'aide avec l'ordinateur."}, "highlight": ["me pidió ayuda"]}
+      ],
+      "trick": {"es": "¿Quieres recibir algo? → pedir. ¿Quieres una respuesta? → preguntar.", "translations": {"fr": "Tu veux recevoir quelque chose ? → pedir. Tu veux une réponse ? → preguntar."}},
+      "frenchTrap": {"es": "No digas «preguntar un café» ni «pedir una pregunta». Y «poser une question» = hacer una pregunta.", "translations": {"fr": "Ne dis pas « preguntar un café » ni « pedir una pregunta ». Et « poser une question » = hacer una pregunta."}},
+      "seeAlso": ["d_pedir_bar", "d_presente_irregular", "tp_a1_presente_irregular"],
+      "sources": [
+        {"label": "RAE · Diccionario de la lengua española: «pedir»", "url": "https://dle.rae.es/pedir"},
+        {"label": "RAE · Diccionario de la lengua española: «preguntar»", "url": "https://dle.rae.es/preguntar"}
+      ],
+      "tags": ["pedir", "preguntar", "demander"]
+    },
+    {
+      "id": "d_llevar_traer",
+      "question": {"es": "¿Cuándo uso «llevar» y cuándo «traer»?", "translations": {"fr": "Quand utiliser « llevar » et quand utiliser « traer » ?"}},
+      "aliases": ["llevar o traer", "diferencia entre llevar y traer", "apporter en espagnol", "emporter ou apporter en espagnol", "emmener ou amener en espagnol", "para llevar"],
+      "cefr": "A2",
+      "category": "vocabulary",
+      "emoji": "🧺",
+      "answer": {"es": "Depende de dónde estás tú. «Traer» = hacia aquí, al lugar donde está quien habla (apporter, amener). «Llevar» = hacia allí, a otro lugar (emporter, emmener).", "translations": {"fr": "Ça dépend d'où tu es. « Traer » = vers ici, là où se trouve celui qui parle (apporter, amener). « Llevar » = vers là-bas, vers un autre endroit (emporter, emmener)."}},
+      "compare": [
+        {"title": {"es": "TRAER (→ aquí)", "translations": {"fr": "TRAER (→ ici)"}}, "items": [
+          {"es": "¿Me traes un vaso de agua?", "translations": {"fr": "Tu m'apportes un verre d'eau ?"}},
+          {"es": "Al camarero: ¿Nos trae la cuenta?", "translations": {"fr": "Au serveur : Vous nous apportez l'addition ?"}},
+          {"es": "Te he traído un regalo.", "translations": {"fr": "Je t'ai apporté un cadeau."}}
+        ]},
+        {"title": {"es": "LLEVAR (→ allí)", "translations": {"fr": "LLEVAR (→ là-bas)"}}, "items": [
+          {"es": "Llevo a los niños al colegio.", "translations": {"fr": "J'emmène les enfants à l'école."}},
+          {"es": "¿Es para llevar? Sí, para llevar.", "translations": {"fr": "C'est à emporter ? Oui, à emporter."}},
+          {"es": "Esta noche llevo vino a la cena.", "translations": {"fr": "Ce soir, j'apporte du vin au dîner."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Hoy llevo a mi nieta al parque y luego la traigo a casa.", "translations": {"fr": "Aujourd'hui, j'emmène ma petite-fille au parc et ensuite je la ramène à la maison."}, "highlight": ["llevo a mi nieta al parque", "la traigo a casa"]},
+        {"es": "Perdone, ¿nos trae un poco más de pan?", "translations": {"fr": "Excusez-moi, vous pouvez nous apporter encore un peu de pain ?"}, "highlight": ["nos trae"]},
+        {"es": "Voy a casa de Lucía y llevo el postre.", "translations": {"fr": "Je vais chez Lucía et j'apporte le dessert."}, "highlight": ["llevo el postre"], "note": "En francés «j'apporte», pero vas a otro sitio: llevar.", "noteTranslations": {"fr": "En français « j'apporte », mais tu vas ailleurs : donc llevar."}}
+      ],
+      "trick": {"es": "Traer = hacia mí. Llevar = lejos de mí. Pregúntate: ¿la cosa viene aquí o va allí?", "translations": {"fr": "Traer = vers moi. Llevar = loin de moi. Demande-toi : la chose vient ici ou va là-bas ?"}},
+      "frenchTrap": {"es": "El francés dice «apporter» aunque vayas a otro sitio. En español, si la cosa va allí, es «llevar»: llevo vino a la fiesta. Y «llevar» también es «porter»: lleva gafas.", "translations": {"fr": "Le français dit « apporter » même quand tu vas ailleurs. En espagnol, si la chose va là-bas, c'est « llevar » : llevo vino a la fiesta. Et « llevar » veut aussi dire « porter » : lleva gafas (elle porte des lunettes)."}},
+      "seeAlso": ["d_ir_venir", "d_pedir_bar"],
+      "sources": [
+        {"label": "RAE · Diccionario de la lengua española: «traer»", "url": "https://dle.rae.es/traer"},
+        {"label": "RAE · Diccionario de la lengua española: «llevar»", "url": "https://dle.rae.es/llevar"}
+      ],
+      "tags": ["llevar", "traer", "movimiento"]
+    },
+    {
+      "id": "d_ir_venir",
+      "question": {"es": "¿«Ir» o «venir»? ¿Por qué se dice «¡ya voy!»?", "translations": {"fr": "« Ir » ou « venir » ? Pourquoi dit-on « ¡ya voy! » ?"}},
+      "aliases": ["ir o venir", "voy o vengo", "j'arrive en espagnol", "je viens chez toi en espagnol", "aller ou venir en espagnol", "ya voy"],
+      "cefr": "A2",
+      "category": "vocabulary",
+      "emoji": "🚶",
+      "answer": {"es": "«Venir» es moverse hacia donde está quien habla: ven aquí. «Ir» es moverse hacia otro sitio, también hacia la persona con quien hablas. Por eso, cuando te llaman, respondes: ¡Ya voy!", "translations": {"fr": "« Venir », c'est se déplacer vers celui qui parle : ven aquí (viens ici). « Ir », c'est aller ailleurs, même vers la personne à qui tu parles. C'est pour ça que, quand on t'appelle, tu réponds : ¡Ya voy! (J'arrive !)"}},
+      "compare": [
+        {"title": {"es": "VENIR (→ aquí)", "translations": {"fr": "VENIR (→ ici, où je suis)"}}, "items": [
+          {"es": "¿Vienes a mi casa el sábado?", "translations": {"fr": "Tu viens chez moi samedi ?"}},
+          {"es": "Ven aquí, por favor.", "translations": {"fr": "Viens ici, s'il te plaît."}},
+          {"es": "Mi hija viene a verme en agosto.", "translations": {"fr": "Ma fille vient me voir en août."}}
+        ]},
+        {"title": {"es": "IR (→ allí, también hacia ti)", "translations": {"fr": "IR (→ là-bas, y compris vers toi)"}}, "items": [
+          {"es": "Voy a tu casa el sábado.", "translations": {"fr": "Je viens chez toi samedi."}},
+          {"es": "—¡Mamá! —¡Ya voy!", "translations": {"fr": "— Maman ! — J'arrive !"}},
+          {"es": "¿Vas a la fiesta de Ana?", "translations": {"fr": "Tu vas à la fête d'Ana ?"}}
+        ]}
+      ],
+      "examples": [
+        {"es": "—¿Puedes venir a mi casa? —Sí, voy ahora mismo.", "translations": {"fr": "— Tu peux venir chez moi ? — Oui, j'arrive tout de suite."}, "highlight": ["venir a mi casa", "voy ahora mismo"]},
+        {"es": "Si vienes a Madrid en mayo, te enseño la ciudad.", "translations": {"fr": "Si tu viens à Madrid en mai, je te fais visiter la ville."}, "highlight": ["Si vienes a Madrid"], "note": "Quien habla vive en Madrid.", "noteTranslations": {"fr": "La personne qui parle habite à Madrid."}},
+        {"es": "Mañana voy a tu casa a las diez.", "translations": {"fr": "Demain, je viens chez toi à dix heures."}, "highlight": ["voy a tu casa"]}
+      ],
+      "trick": {"es": "Venir = hacia mí. Ir = desde mí hacia otro sitio, también hacia ti.", "translations": {"fr": "Venir = vers moi. Ir = de moi vers ailleurs, y compris vers toi."}},
+      "frenchTrap": {"es": "En francés dices «je viens chez toi» y «j'arrive». En español es «ir»: voy a tu casa, ¡ya voy!", "translations": {"fr": "En français, tu dis « je viens chez toi » et « j'arrive ». En espagnol, c'est « ir » : voy a tu casa, ¡ya voy!"}},
+      "seeAlso": ["d_llevar_traer", "d_ir_a_estar_en", "tp_a1_presente_irregular"],
+      "sources": [
+        {"label": "RAE · Diccionario de la lengua española: «venir»", "url": "https://dle.rae.es/venir"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «ir»", "url": "https://www.rae.es/dpd/ir"}
+      ],
+      "tags": ["ir", "venir", "movimiento"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

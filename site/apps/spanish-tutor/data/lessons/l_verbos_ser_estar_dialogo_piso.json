@@ -1,0 +1,97 @@
+{
+  "$schema": "../../schema/curriculum.schema.json",
+  "type": "listening",
+  "id": "l_verbos_ser_estar_dialogo_piso",
+  "version": "1.0.0",
+  "status": "published",
+  "title": { "es": "Diálogo: el piso nuevo de Lucía", "translations": { "fr": "Dialogue : le nouvel appartement de Lucía" } },
+  "summary": { "es": "Lucía llama a un amigo para describirle su piso y a su compañero… y hay un malentendido con «aburrido» y «rico».", "translations": { "fr": "Lucía appelle un ami pour lui décrire son appartement et son colocataire… et il y a un quiproquo avec « aburrido » et « rico »." } },
+  "emoji": "🎧",
+  "keyIdeas": [
+    { "es": "Escucha cuándo Lucía usa ser y cuándo usa estar.", "translations": { "fr": "Écoute quand Lucía emploie ser et quand elle emploie estar." } }
+  ],
+  "cefr": "B2",
+  "difficulty": 2,
+  "packId": "temas_lengua",
+  "unitNumber": 4,
+  "orderInUnit": 5,
+  "tags": ["ser", "estar", "diálogo", "descripción"],
+  "estimatedMinutes": 6,
+  "audio": { "assetId": "narr", "trackNumber": 14 },
+  "transcriptFile": "assets/transcripts/narr/t14.json",
+  "genre": "conversation",
+  "speakers": 2,
+  "variety": "es-ES",
+  "transcript": [
+    { "speaker": "Lucía", "text": "¡Andrés! Ya estoy en el piso nuevo: es pequeño, pero está en pleno centro y es muy luminoso.", "translations": { "fr": "Andrés ! Ça y est, je suis dans le nouvel appartement : il est petit, mais en plein centre et très lumineux." } },
+    { "speaker": "Andrés", "text": "¡Qué bien! ¿Y cómo es tu compañero de piso?", "translations": { "fr": "Super ! Et il est comment, ton colocataire ?" } },
+    { "speaker": "Lucía", "text": "Se llama Marcos, es de Cádiz y es cocinero. Es simpatiquísimo, pero esta noche está aburrido porque se ha caído internet.", "translations": { "fr": "Il s'appelle Marcos, il est de Cadix et il est cuisinier. Il est hyper sympa, mais ce soir il s'ennuie parce qu'Internet est en panne." } },
+    { "speaker": "Andrés", "text": "¿Es aburrido? Vaya, qué mala suerte.", "translations": { "fr": "Il est ennuyeux ? Zut, pas de chance." } },
+    { "speaker": "Lucía", "text": "¡No, no! Es divertidísimo, solo está aburrido esta noche.", "translations": { "fr": "Mais non ! Il est hilarant, il s'ennuie seulement ce soir." } },
+    { "speaker": "Andrés", "text": "Ah, vale. Y si es rico, igual me invita a cenar, ¿no?", "translations": { "fr": "Ah, d'accord. Et s'il est riche, il m'invitera peut-être à dîner, non ?" } },
+    { "speaker": "Lucía", "text": "No es rico, es cocinero. Pero lo que cocina está riquísimo, y ahora mismo está haciendo una tortilla.", "translations": { "fr": "Il n'est pas riche, il est cuisinier. Mais ce qu'il cuisine est délicieux, et là, il est en train de faire une omelette." } },
+    { "speaker": "Andrés", "text": "¡Entonces voy para allá! ¿La tortilla ya está lista?", "translations": { "fr": "Alors j'arrive ! L'omelette est déjà prête ?" } },
+    { "speaker": "Lucía", "text": "Todavía no está lista. Marcos es muy listo, pero la tortilla necesita cinco minutos más.", "translations": { "fr": "Elle n'est pas encore prête. Marcos est très malin, mais l'omelette a besoin de cinq minutes de plus." } },
+    { "speaker": "Andrés", "text": "Perfecto, tardo veinte minutos. ¿Cuál es la dirección exacta?", "translations": { "fr": "Parfait, j'en ai pour vingt minutes. C'est quoi, l'adresse exacte ?" } },
+    { "speaker": "Lucía", "text": "Calle del Pez, número doce. El portal es verde y está justo al lado de la farmacia.", "translations": { "fr": "Calle del Pez, numéro douze. L'entrée de l'immeuble est verte et se trouve juste à côté de la pharmacie." } },
+    { "speaker": "Andrés", "text": "Genial. ¡Guárdame un trozo de tortilla!", "translations": { "fr": "Génial. Garde-moi une part d'omelette !" } }
+  ],
+  "preListening": [
+    { "es": "¿Qué se puede decir de un piso nuevo? Piensa en tres adjetivos.", "translations": { "fr": "Que peut-on dire d'un nouvel appartement ? Pense à trois adjectifs." } },
+    { "es": "Atención: hay un malentendido con «aburrido» y otro con «rico». ¿Los detectas?", "translations": { "fr": "Attention : il y a un quiproquo avec « aburrido » et un autre avec « rico ». Tu les repères ?" } }
+  ],
+  "comprehension": {
+    "passingScore": 0.6,
+    "shuffleItems": false,
+    "shuffleOptions": true,
+    "items": [
+      {
+        "id": "q01", "format": "multiple_choice", "difficulty": 1,
+        "prompt": { "es": "¿Cómo es el piso nuevo de Lucía?", "translations": { "fr": "Comment est le nouvel appartement de Lucía ?" } },
+        "options": ["Pequeño y luminoso, en el centro", "Enorme y muy tranquilo", "Barato, pero lejos del centro", "Viejo y oscuro"], "correctIndex": [0]
+      },
+      {
+        "id": "q02", "format": "multiple_choice", "difficulty": 1,
+        "prompt": { "es": "¿Por qué está aburrido Marcos esta noche?", "translations": { "fr": "Pourquoi Marcos s'ennuie-t-il ce soir ?" } },
+        "options": ["No funciona internet", "No tiene trabajo", "No sabe cocinar", "Está solo en casa"], "correctIndex": [0]
+      },
+      {
+        "id": "q03", "format": "multiple_choice", "difficulty": 2,
+        "prompt": { "es": "Marcos es una persona aburrida.", "translations": { "fr": "Marcos est quelqu'un d'ennuyeux." } },
+        "options": ["Verdadero", "Falso"], "correctIndex": [1],
+        "explanation": { "es": "Es divertidísimo; solo está aburrido esta noche.", "translations": { "fr": "Il est hilarant ; il s'ennuie seulement ce soir." } }
+      },
+      {
+        "id": "q04", "format": "fill_blank", "difficulty": 2,
+        "prompt": { "es": "Completa con ser o estar.", "translations": { "fr": "Complète avec ser ou estar." } },
+        "text": "Marcos no {{1}} rico, {{2}} cocinero, pero lo que cocina {{3}} riquísimo.",
+        "answers": [["es"], ["es"], ["está"]]
+      },
+      {
+        "id": "q05", "format": "matching", "difficulty": 2,
+        "prompt": { "es": "Une cada cosa con su descripción.", "translations": { "fr": "Relie chaque chose à sa description." } },
+        "left": ["el piso", "Marcos", "la tortilla", "el portal"],
+        "right": ["pequeño y luminoso", "cocinero de Cádiz", "verde, junto a la farmacia", "necesita cinco minutos más"],
+        "pairs": [[0, 0], [1, 1], [2, 3], [3, 2]]
+      },
+      {
+        "id": "q06", "format": "multiple_choice", "difficulty": 1,
+        "prompt": { "es": "¿Qué va a hacer Andrés al final?", "translations": { "fr": "Que va faire Andrés à la fin ?" } },
+        "options": ["Ir al piso de Lucía", "Llamar a Marcos", "Cocinar una tortilla", "Quedarse en casa"], "correctIndex": [0],
+        "explanation": { "es": "Dice «voy para allá» y pide la dirección.", "translations": { "fr": "Il dit « voy para allá » et demande l'adresse." } }
+      }
+    ]
+  },
+  "languageFocus": [
+    { "es": "Es de Cádiz y es cocinero.", "translations": { "fr": "Il est de Cadix et il est cuisinier." }, "highlight": ["Es de Cádiz", "es cocinero"] },
+    { "es": "Es divertidísimo, solo está aburrido esta noche.", "translations": { "fr": "Il est hilarant, il s'ennuie seulement ce soir." }, "highlight": ["Es divertidísimo", "está aburrido"] },
+    { "es": "No es rico, pero lo que cocina está riquísimo.", "translations": { "fr": "Il n'est pas riche, mais ce qu'il cuisine est délicieux." }, "highlight": ["No es rico", "está riquísimo"] }
+  ],
+  "discussion": [
+    { "es": "¿Cómo es tu casa o tu barrio? ¿Y cómo estás hoy?", "translations": { "fr": "Comment est ta maison ou ton quartier ? Et comment vas-tu aujourd'hui ?" } },
+    { "es": "¿Has vivido en un piso compartido? Cuéntalo.", "translations": { "fr": "As-tu déjà vécu en colocation ? Raconte." } }
+  ],
+  "playbackDefaults": { "speed": 1.0, "showTranscriptAfterPlays": 1 },
+  "createdAt": "2026-10-09",
+  "author": "Claude"
+}

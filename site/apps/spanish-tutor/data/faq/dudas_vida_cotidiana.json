@@ -1,0 +1,239 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_vida_cotidiana",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Costumbres y cortesía", "translations": {"fr": "Coutumes et politesse"}},
+  "emoji": "☕",
+  "order": 44,
+  "entries": [
+    {
+      "id": "d_horarios_espana",
+      "question": {"es": "¿A qué hora se come en España?", "translations": {"fr": "À quelle heure mange-t-on en Espagne ?"}},
+      "aliases": ["horarios en España", "a qué hora se cena", "hora de comer", "merienda", "heure du déjeuner en Espagne", "heure du dîner en Espagne", "horaires des repas en Espagne"],
+      "cefr": "A1",
+      "category": "culture",
+      "emoji": "🕑",
+      "answer": {"es": "Más tarde que en Francia. Los restaurantes suelen servir la comida de 13:00 a 16:00 y la cena de 20:00 a 22:30 (en verano y en las grandes ciudades, a veces hasta más tarde).", "translations": {"fr": "Plus tard qu'en France. Les restaurants servent en général le déjeuner de 13 h à 16 h et le dîner de 20 h à 22 h 30 (en été et dans les grandes villes, parfois encore plus tard)."}},
+      "points": [
+        {"es": "La comida del mediodía (también llamada almuerzo) suele ser la principal del día.", "translations": {"fr": "Le repas de midi (aussi appelé « almuerzo ») est souvent le principal de la journée."}},
+        {"es": "Entre las 12:00 y las 14:00 es típico ir de cañas o de tapas con amigos.", "translations": {"fr": "Entre midi et 14 h, il est courant d'aller boire une bière ou prendre des tapas entre amis."}},
+        {"es": "La merienda, hacia las 17:00 o las 18:00, es como el «goûter» francés… ¡y no solo para niños!", "translations": {"fr": "« La merienda », vers 17 h ou 18 h, c'est comme le goûter français… et pas seulement pour les enfants !"}},
+        {"es": "Muchas tiendas abren de 10:00 a 21:00 sin cerrar; otras cierran a mediodía, sobre todo en verano.", "translations": {"fr": "Beaucoup de magasins sont ouverts de 10 h à 21 h sans interruption ; d'autres ferment à midi, surtout en été."}}
+      ],
+      "examples": [
+        {"es": "¿Quedamos para comer a las dos y media?", "translations": {"fr": "On se retrouve pour déjeuner à deux heures et demie ?"}, "highlight": ["para comer a las dos y media"]},
+        {"es": "Hemos reservado mesa para cenar a las nueve y media.", "translations": {"fr": "Nous avons réservé une table pour dîner à neuf heures et demie."}, "highlight": ["cenar a las nueve y media"]},
+        {"es": "Los niños meriendan un bocadillo al salir del colegio.", "translations": {"fr": "À la sortie de l'école, les enfants prennent un sandwich pour le goûter."}, "highlight": ["meriendan"]}
+      ],
+      "trick": {"es": "Suma una o dos horas a tu reloj francés: comida hacia las 14:00, cena hacia las 21:00. ⏰", "translations": {"fr": "Ajoute une ou deux heures à ton horloge française : déjeuner vers 14 h, dîner vers 21 h. ⏰"}},
+      "frenchTrap": {"es": "«Le déjeuner» no es el desayuno (= «le petit-déjeuner»): es la comida o el almuerzo. Y «le dîner» es la cena.", "translations": {"fr": "« Le déjeuner », ce n'est pas « el desayuno » (= le petit-déjeuner) : c'est « la comida » ou « el almuerzo ». Et « le dîner », c'est « la cena »."}},
+      "seeAlso": ["tp_comida_espanola", "d_hora", "d_que_aproveche"],
+      "sources": [{"label": "Turespaña (spain.info) · Horarios y días festivos en España", "url": "https://www.spain.info/es/consejos-viaje/horarios-dias-festivos-espana/"}],
+      "tags": ["costumbres", "comida", "horarios"]
+    },
+    {
+      "id": "d_dos_besos",
+      "question": {"es": "¿Cuántos besos se dan en España?", "translations": {"fr": "Combien de bises fait-on en Espagne ?"}},
+      "aliases": ["dos besos", "dar dos besos", "dar la mano", "faire la bise en espagnol", "combien de bises en Espagne", "la bise en Espagne", "saludar con besos"],
+      "cefr": "A1",
+      "category": "culture",
+      "emoji": "💋",
+      "answer": {"es": "Normalmente dos, uno en cada mejilla (más bien se juntan las mejillas). Es lo habitual entre mujeres y entre hombre y mujer: en familia, con amigos y al presentarse en un ambiente informal.", "translations": {"fr": "En général deux, une sur chaque joue (en fait, on rapproche les joues). C'est l'habitude entre femmes et entre homme et femme : en famille, entre amis et quand on se présente dans un cadre détendu."}},
+      "points": [
+        {"es": "Entre hombres, lo habitual es darse la mano; en familia o entre amigos íntimos, a veces un abrazo.", "translations": {"fr": "Entre hommes, on se serre plutôt la main ; en famille ou entre amis proches, parfois une accolade."}},
+        {"es": "En el trabajo o en una situación formal, se da la mano.", "translations": {"fr": "Au travail ou dans une situation formelle, on se serre la main."}},
+        {"es": "En muchos países de América se da un solo beso.", "translations": {"fr": "Dans beaucoup de pays d'Amérique latine, on fait une seule bise."}},
+        {"es": "Si dudas, espera un segundo: la otra persona te dará la mano o se acercará para los besos.", "translations": {"fr": "Si tu hésites, attends une seconde : l'autre personne te tendra la main ou s'approchera pour la bise."}}
+      ],
+      "examples": [
+        {"es": "Cuando me presentaron a su familia, todos me dieron dos besos.", "translations": {"fr": "Quand on m'a présentée à sa famille, tout le monde m'a fait la bise."}, "highlight": ["me dieron dos besos"]},
+        {"es": "En la reunión, el director me dio la mano.", "translations": {"fr": "À la réunion, le directeur m'a serré la main."}, "highlight": ["me dio la mano"]},
+        {"es": "¡Dame un abrazo, que hace mucho que no te veo!", "translations": {"fr": "Viens que je te serre dans mes bras, ça fait longtemps que je ne t'ai pas vue !"}, "highlight": ["Dame un abrazo"]}
+      ],
+      "trick": {"es": "España = dos besos 😘😘. Muchos países de América = uno 😘. Trabajo = la mano 🤝.", "translations": {"fr": "Espagne = deux bises 😘😘. Beaucoup de pays d'Amérique latine = une 😘. Travail = la main 🤝."}},
+      "frenchTrap": {"es": "«Faire la bise» se dice dar dos besos. Buena noticia: en España casi siempre son dos; no cambia de una región a otra como en Francia.", "translations": {"fr": "« Faire la bise » se dit « dar dos besos ». Bonne nouvelle : en Espagne, c'est presque toujours deux ; ça ne change pas d'une région à l'autre comme en France."}},
+      "seeAlso": ["d_bisous", "d_presentarse", "tp_a1_presentarse"],
+      "sources": [{"label": "Instituto Cervantes · Plan curricular: saberes y comportamientos socioculturales"}],
+      "tags": ["costumbres", "saludos", "besos"]
+    },
+    {
+      "id": "d_propina",
+      "question": {"es": "¿Hay que dejar propina en España?", "translations": {"fr": "Faut-il laisser un pourboire en Espagne ?"}},
+      "aliases": ["propina", "dejar propina", "cuánto dejo de propina", "servicio incluido", "pourboire en espagnol", "pourboire en Espagne", "faut-il laisser un pourboire"],
+      "cefr": "A2",
+      "category": "culture",
+      "emoji": "💶",
+      "answer": {"es": "No es obligatoria: la propina es un detalle cuando estás contenta con el servicio. En un bar se suelen dejar unas monedas o redondear; en un restaurante, algo más si te han atendido bien.", "translations": {"fr": "Ce n'est pas obligatoire : le pourboire est un petit geste quand tu es contente du service. Dans un bar, on laisse souvent quelques pièces ou on arrondit ; au restaurant, un peu plus si on t'a bien servie."}},
+      "points": [
+        {"es": "Puedes dejarla en el platito de la cuenta o decir: Quédese con el cambio.", "translations": {"fr": "Tu peux la laisser dans la petite soucoupe de l'addition ou dire : « Quédese con el cambio » (Gardez la monnaie)."}},
+        {"es": "No dejarla no es de mala educación, pero el gesto siempre se agradece.", "translations": {"fr": "Ne pas en laisser n'est pas impoli, mais le geste fait toujours plaisir."}},
+        {"es": "En América cambia mucho según el país: mira si la cuenta ya incluye «servicio».", "translations": {"fr": "En Amérique latine, ça change beaucoup d'un pays à l'autre : regarde si l'addition comprend déjà le « servicio »."}}
+      ],
+      "examples": [
+        {"es": "La cena estaba buenísima: vamos a dejar una buena propina.", "translations": {"fr": "Le dîner était délicieux : on va laisser un bon pourboire."}, "highlight": ["dejar una buena propina"]},
+        {"es": "—Son once con cincuenta. —Tome doce y quédese con el cambio.", "translations": {"fr": "— Ça fait onze cinquante. — Tenez, douze, et gardez la monnaie."}, "highlight": ["quédese con el cambio"]},
+        {"es": "Perdone, ¿está incluido el servicio?", "translations": {"fr": "Excusez-moi, le service est compris ?"}, "highlight": ["está incluido el servicio"]}
+      ],
+      "trick": {"es": "La propina es un «gracias» en monedas 💶. ¿Contenta? → propina. ¿No tanto? → no pasa nada.", "translations": {"fr": "Le pourboire, c'est un « merci » en pièces 💶. Contente ? → pourboire. Pas tant que ça ? → ce n'est pas grave."}},
+      "frenchTrap": {"es": "«Pourboire» no se traduce palabra por palabra («para beber»): es la propina. Y «l'addition» es la cuenta.", "translations": {"fr": "« Pourboire » ne se traduit pas mot à mot (« para beber ») : c'est « la propina ». Et « l'addition », c'est « la cuenta »."}},
+      "seeAlso": ["d_pedir_cuenta", "tp_comida_espanola", "d_pedir_bar"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: propina", "url": "https://dle.rae.es/propina"}],
+      "tags": ["costumbres", "restaurante", "propina"]
+    },
+    {
+      "id": "d_tutear",
+      "question": {"es": "¿Cuándo tuteo a alguien?", "translations": {"fr": "Quand est-ce que je tutoie quelqu'un ?"}},
+      "aliases": ["tutear", "nos tuteamos", "tratar de usted", "tutoyer en espagnol", "quand tutoyer en Espagne", "on se tutoie", "tutoiement en Espagne"],
+      "cefr": "A2",
+      "category": "culture",
+      "emoji": "🤝",
+      "answer": {"es": "En España se tutea mucho: a la familia, a los amigos, a los compañeros, a los jóvenes y, a menudo, a gente de tu edad que acabas de conocer. Usted, para personas mayores, situaciones formales o si te hablan de usted.", "translations": {"fr": "En Espagne, on tutoie beaucoup : la famille, les amis, les collègues, les jeunes et souvent des gens de ton âge que tu viens de rencontrer. « Usted » pour les personnes âgées, les situations formelles ou si on te vouvoie."}},
+      "points": [
+        {"es": "Si dudas, empieza con usted: la otra persona te dirá «¡Tutéame, por favor!».", "translations": {"fr": "Si tu hésites, commence par « usted » : l'autre personne te dira « ¡Tutéame, por favor! » (Tutoie-moi, s'il te plaît !)."}},
+        {"es": "Para proponerlo: ¿Nos tuteamos? o Puedes tutearme.", "translations": {"fr": "Pour le proposer : « ¿Nos tuteamos? » (On se tutoie ?) ou « Puedes tutearme » (Tu peux me tutoyer)."}},
+        {"es": "En muchos países de América se usa usted más que en España, a veces incluso en familia.", "translations": {"fr": "Dans beaucoup de pays d'Amérique latine, on emploie « usted » plus qu'en Espagne, parfois même en famille."}},
+        {"es": "Con usted, el verbo va en 3.ª persona: ¿Usted quiere un café?", "translations": {"fr": "Avec « usted », le verbe est à la 3e personne : Vous voulez un café ?"}}
+      ],
+      "examples": [
+        {"es": "Somos vecinas desde hace un año: ¿nos tuteamos?", "translations": {"fr": "On est voisines depuis un an : on se tutoie ?"}, "highlight": ["nos tuteamos"]},
+        {"es": "Perdone, señora, ¿sabe usted dónde está la farmacia?", "translations": {"fr": "Excusez-moi, madame, vous savez où est la pharmacie ?"}, "highlight": ["sabe usted"]},
+        {"es": "Por favor, trátame de tú, que me haces sentir mayor.", "translations": {"fr": "S'il te plaît, tutoie-moi, tu me donnes l'impression d'être vieille."}, "highlight": ["trátame de tú"]}
+      ],
+      "trick": {"es": "¿Te hablan de tú? → tú. ¿Te hablan de usted? → usted. ¡Imita a la otra persona! 🔁", "translations": {"fr": "On te tutoie ? → « tú ». On te vouvoie ? → « usted ». Imite l'autre personne ! 🔁"}},
+      "frenchTrap": {"es": "En Francia el «vous» dura más tiempo. En España, si sigues con usted durante meses con una vecina, puede sonar distante.", "translations": {"fr": "En France, le vouvoiement dure plus longtemps. En Espagne, si tu continues à vouvoyer une voisine pendant des mois, ça peut paraître distant."}},
+      "seeAlso": ["d_tu_usted", "tp_matices_registro", "tp_a1_presentarse"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: tutear", "url": "https://dle.rae.es/tutear"}],
+      "tags": ["costumbres", "cortesía", "tú", "usted"]
+    },
+    {
+      "id": "d_pedir_cuenta",
+      "question": {"es": "¿Cómo pido la cuenta?", "translations": {"fr": "Comment demander l'addition ?"}},
+      "aliases": ["la cuenta", "pedir la cuenta", "la cuenta por favor", "cuánto es", "l'addition en espagnol", "comment demander l'addition", "payer en espagnol"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "🧾",
+      "answer": {"es": "¿Nos trae la cuenta, por favor? o, más corto, ¡La cuenta, por favor! En un bar también se dice: ¿Qué le debo? o ¿Cuánto es?", "translations": {"fr": "« ¿Nos trae la cuenta, por favor? » (Vous nous apportez l'addition, s'il vous plaît ?) ou, plus court, « ¡La cuenta, por favor! ». Dans un bar, on dit aussi : « ¿Qué le debo? » ou « ¿Cuánto es? » (Je vous dois combien ?)."}},
+      "points": [
+        {"es": "Con tarjeta: ¿Se puede pagar con tarjeta?", "translations": {"fr": "Par carte : « ¿Se puede pagar con tarjeta? » (On peut payer par carte ?)"}},
+        {"es": "Para invitar: Hoy invito yo.", "translations": {"fr": "Pour inviter : « Hoy invito yo » (Aujourd'hui, c'est moi qui invite)."}},
+        {"es": "Para compartir: pagar a medias (la mitad cada uno) o pagar por separado (cada uno lo suyo).", "translations": {"fr": "Pour partager : « pagar a medias » (moitié-moitié) ou « pagar por separado » (chacun sa part)."}}
+      ],
+      "examples": [
+        {"es": "Perdone, ¿nos trae la cuenta, por favor?", "translations": {"fr": "Excusez-moi, vous nous apportez l'addition, s'il vous plaît ?"}, "highlight": ["nos trae la cuenta"]},
+        {"es": "¿Qué le debo por los dos cafés?", "translations": {"fr": "Je vous dois combien pour les deux cafés ?"}, "highlight": ["Qué le debo"]},
+        {"es": "—¿Pagamos a medias? —No, no, hoy invito yo.", "translations": {"fr": "— On partage ? — Non, non, aujourd'hui c'est moi qui invite."}, "highlight": ["a medias", "invito yo"]}
+      ],
+      "trick": {"es": "Haz el gesto de escribir en el aire ✍️: los camareros suelen entenderlo enseguida.", "translations": {"fr": "Fais le geste d'écrire en l'air ✍️ : en général, les serveurs comprennent tout de suite."}},
+      "frenchTrap": {"es": "«L'addition» no es «la adición» (= una suma de matemáticas): es la cuenta. Y «la note» del hotel también es la cuenta o la factura.", "translations": {"fr": "« L'addition », ce n'est pas « la adición » (= une addition en maths) : c'est « la cuenta ». Et « la note » de l'hôtel, c'est aussi « la cuenta » ou « la factura »."}},
+      "seeAlso": ["d_propina", "d_pedir_bar", "tp_comida_espanola"],
+      "tags": ["restaurante", "cortesía", "cuenta"]
+    },
+    {
+      "id": "d_que_aproveche",
+      "question": {"es": "¿Qué contesto si me dicen «¡Que aproveche!»?", "translations": {"fr": "Que répondre quand on me dit « ¡Que aproveche! » ?"}},
+      "aliases": ["que aproveche", "igualmente", "que te mejores", "que descanses", "répondre à bon appétit en espagnol", "souhaits en espagnol", "que dire quand on mange"],
+      "cefr": "A2",
+      "category": "usage",
+      "emoji": "🍴",
+      "answer": {"es": "¡Gracias! Y si la otra persona también va a comer: ¡Gracias, igualmente! Es una fórmula de cortesía: se dice al empezar a comer o al pasar junto a alguien que come.", "translations": {"fr": "« ¡Gracias! ». Et si l'autre personne va manger aussi : « ¡Gracias, igualmente! » (Merci, vous aussi !). C'est une formule de politesse : on la dit au début du repas ou en passant à côté de quelqu'un qui mange."}},
+      "points": [
+        {"es": "Que aproveche es que + subjuntivo, como muchos deseos: ¡Que descanses! ¡Que te mejores!", "translations": {"fr": "« Que aproveche », c'est « que » + subjonctif, comme beaucoup de souhaits : « ¡Que descanses! » (Repose-toi bien !), « ¡Que te mejores! » (Bon rétablissement !)."}},
+        {"es": "Igualmente sirve para devolver muchos deseos: —¡Buen fin de semana! —¡Igualmente!", "translations": {"fr": "« Igualmente » sert à retourner beaucoup de souhaits : — Bon week-end ! — Toi aussi !"}},
+        {"es": "Más deseos útiles: ¡Que lo pases bien! ¡Que tengas buen viaje! ¡Que te vaya bien!", "translations": {"fr": "D'autres souhaits utiles : Amuse-toi bien ! Bon voyage ! Bonne continuation !"}}
+      ],
+      "examples": [
+        {"es": "—¡Que aproveche, chicas! —¡Gracias! ¿Te sientas con nosotras?", "translations": {"fr": "— Bon appétit, les filles ! — Merci ! Tu t'assois avec nous ?"}, "highlight": ["Que aproveche"]},
+        {"es": "Siento que estés enferma. ¡Que te mejores!", "translations": {"fr": "Je suis désolée que tu sois malade. Bon rétablissement !"}, "highlight": ["¡Que te mejores!"]},
+        {"es": "—¡Feliz Navidad! —¡Igualmente!", "translations": {"fr": "— Joyeux Noël ! — À vous aussi !"}, "highlight": ["¡Igualmente!"]}
+      ],
+      "trick": {"es": "Un deseo en español = que + subjuntivo: ¡Que aproveche! ¡Que descanses! ¡Que te mejores! 🍀", "translations": {"fr": "Un souhait en espagnol = « que » + subjonctif : « ¡Que aproveche! », « ¡Que descanses! », « ¡Que te mejores! » 🍀"}},
+      "frenchTrap": {"es": "«Merci, vous aussi !» se dice ¡Gracias, igualmente!: es más natural que «usted también». Y «profite bien !» = ¡Que lo disfrutes!", "translations": {"fr": "« Merci, vous aussi ! » se dit « ¡Gracias, igualmente! » : c'est plus naturel que « usted también ». Et « profite bien ! » = « ¡Que lo disfrutes! »."}},
+      "seeAlso": ["d_bon_appetit", "d_ojala", "tp_subj_presente_emociones"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: igualmente", "url": "https://dle.rae.es/igualmente"}],
+      "tags": ["cortesía", "comida", "deseos"]
+    },
+    {
+      "id": "d_cumpleanos",
+      "question": {"es": "¿Cómo felicito a alguien por su cumpleaños?", "translations": {"fr": "Comment souhaiter un bon anniversaire ?"}},
+      "aliases": ["feliz cumpleaños", "felicidades", "cumplir años", "joyeux anniversaire en espagnol", "bon anniversaire en espagnol", "comment souhaiter un anniversaire", "enhorabuena"],
+      "cefr": "A1",
+      "category": "culture",
+      "emoji": "🎂",
+      "answer": {"es": "¡Feliz cumpleaños! o ¡Felicidades! (en España también ¡Muchas felicidades!). Un deseo típico: ¡Que cumplas muchos más! Y para tu edad: Mañana cumplo 61 años.", "translations": {"fr": "« ¡Feliz cumpleaños! » ou « ¡Felicidades! » (en Espagne aussi « ¡Muchas felicidades! »). Un souhait typique : « ¡Que cumplas muchos más! » (Encore plein d'autres !). Et pour ton âge : « Mañana cumplo 61 años » (J'aurai 61 ans demain)."}},
+      "points": [
+        {"es": "Cumplir años: ¿Cuántos años cumples? —Cumplo sesenta y uno.", "translations": {"fr": "« Cumplir años » : Tu fêtes tes combien ? — J'ai soixante et un ans aujourd'hui."}},
+        {"es": "¡Felicidades! sirve para todo: cumpleaños, santo, boda, un bebé…", "translations": {"fr": "« ¡Felicidades! » sert pour tout : anniversaire, fête, mariage, naissance…"}},
+        {"es": "Para un éxito (un examen, un trabajo nuevo), en España se dice ¡Enhorabuena!", "translations": {"fr": "Pour une réussite (un examen, un nouveau travail), en Espagne on dit « ¡Enhorabuena! » (Félicitations !)."}},
+        {"es": "La canción: Cumpleaños feliz en España; en México, Las mañanitas.", "translations": {"fr": "La chanson : « Cumpleaños feliz » en Espagne ; au Mexique, « Las mañanitas »."}},
+        {"es": "En España, a los niños se les tira suavemente de las orejas: ¡un tirón por año!", "translations": {"fr": "En Espagne, on tire gentiment les oreilles des enfants : une fois par année !"}}
+      ],
+      "examples": [
+        {"es": "¡Feliz cumpleaños, abuela! ¡Que cumplas muchos más!", "translations": {"fr": "Joyeux anniversaire, mamie ! Encore plein d'autres comme ça !"}, "highlight": ["Feliz cumpleaños", "Que cumplas muchos más"]},
+        {"es": "Mañana cumplo sesenta y un años: ¡lo celebramos en el campo!", "translations": {"fr": "Demain, j'ai soixante et un ans : on fête ça à la campagne !"}, "highlight": ["cumplo sesenta y un años"]},
+        {"es": "¡Enhorabuena por el nuevo trabajo!", "translations": {"fr": "Félicitations pour ton nouveau travail !"}, "highlight": ["Enhorabuena"]}
+      ],
+      "trick": {"es": "Cumpleaños = cumplir + años: el día en que «cumples» un año más. 🎂", "translations": {"fr": "« Cumpleaños » = « cumplir » + « años » : le jour où tu « accomplis » une année de plus. 🎂"}},
+      "frenchTrap": {"es": "El «anniversaire» de una persona es su cumpleaños. Aniversario es para un acontecimiento: el aniversario de boda.", "translations": {"fr": "L'anniversaire d'une personne, c'est « su cumpleaños ». « Aniversario », c'est pour un événement : « el aniversario de boda » (l'anniversaire de mariage)."}},
+      "seeAlso": ["d_edad", "d_regalar", "d_que_aproveche"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: aniversario", "url": "https://dle.rae.es/aniversario"}],
+      "tags": ["costumbres", "cumpleaños", "felicitar"]
+    },
+    {
+      "id": "d_carta_formal",
+      "question": {"es": "¿Cómo empiezo y termino un correo formal?", "translations": {"fr": "Comment commencer et finir un e-mail formel ?"}},
+      "aliases": ["correo formal", "carta formal", "estimado señor", "un cordial saludo", "email formel en espagnol", "madame monsieur en espagnol", "comment finir une lettre en espagnol"],
+      "cefr": "A2",
+      "category": "usage",
+      "emoji": "📧",
+      "answer": {"es": "Empieza con Estimado señor: o Estimada señora: (o Estimada Sra. López:), con dos puntos. Termina con Un cordial saludo o Atentamente, y tu nombre.", "translations": {"fr": "Commence par « Estimado señor: » ou « Estimada señora: » (ou « Estimada Sra. López: »), avec deux-points. Termine par « Un cordial saludo » ou « Atentamente », puis ton nom."}},
+      "points": [
+        {"es": "Para empezar: Le escribo para… / Me pongo en contacto con usted para…", "translations": {"fr": "Pour commencer : « Le escribo para… » (Je vous écris pour…) / « Me pongo en contacto con usted para… »."}},
+        {"es": "Para pedir: Le agradecería que me enviara… / ¿Podría indicarme…?", "translations": {"fr": "Pour demander : « Le agradecería que me enviara… » (Je vous serais reconnaissante de m'envoyer…) / « ¿Podría indicarme…? »."}},
+        {"es": "Antes de despedirte: Quedo a la espera de su respuesta.", "translations": {"fr": "Avant de prendre congé : « Quedo a la espera de su respuesta » (Dans l'attente de votre réponse)."}},
+        {"es": "A una empresa, sin nombre: Estimados señores:", "translations": {"fr": "À une entreprise, sans nom : « Estimados señores: » (Madame, Monsieur,)."}},
+        {"es": "Con amigos: Querida Ana: … Un beso / Un abrazo.", "translations": {"fr": "Entre amis : « Querida Ana: » … « Un beso » / « Un abrazo »."}}
+      ],
+      "examples": [
+        {"es": "Estimada señora López: Le escribo para pedir información sobre el curso de español.", "translations": {"fr": "Madame, Je vous écris pour demander des renseignements sur le cours d'espagnol."}, "highlight": ["Estimada señora López:", "Le escribo para"]},
+        {"es": "Quedo a la espera de su respuesta. Un cordial saludo, Claire Martin", "translations": {"fr": "Dans l'attente de votre réponse, je vous prie d'agréer mes salutations distinguées. Claire Martin"}, "highlight": ["Quedo a la espera de su respuesta", "Un cordial saludo"]}
+      ],
+      "trick": {"es": "Formal: Estimado/a…: → Un cordial saludo. Amigos: Querido/a…: → Un abrazo. ✉️", "translations": {"fr": "Formel : « Estimado/a…: » → « Un cordial saludo ». Amis : « Querido/a…: » → « Un abrazo ». ✉️"}},
+      "frenchTrap": {"es": "Tras el saludo, en español van dos puntos, no coma: Estimada señora: (en francés, «Madame,»). Y «Je vous prie d'agréer…» no se traduce: basta con Atentamente.", "translations": {"fr": "Après la formule d'appel, l'espagnol met deux-points, pas de virgule : « Estimada señora: » (en français, « Madame, »). Et « Je vous prie d'agréer… » ne se traduit pas : « Atentamente » suffit."}},
+      "seeAlso": ["tp_matices_registro", "d_dele_escrito", "tp_dele_b1_expresion"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: dos puntos (saludo de las cartas)", "url": "https://www.rae.es/dpd/dos%20puntos"}],
+      "tags": ["cartas", "correo", "registro", "formal"]
+    },
+    {
+      "id": "d_telefono",
+      "question": {"es": "¿Cómo contesto al teléfono: «¿Diga?», «¿Dígame?», «¿Bueno?»?", "translations": {"fr": "Comment répondre au téléphone : « ¿Diga? », « ¿Dígame? », « ¿Bueno? » ?"}},
+      "aliases": ["diga", "dígame", "aló", "bueno al teléfono", "de parte de quién", "allô en espagnol", "répondre au téléphone en espagnol", "c'est de la part de qui"],
+      "cefr": "A1",
+      "category": "usage",
+      "emoji": "☎️",
+      "answer": {"es": "En España: ¿Diga?, ¿Dígame? o ¿Sí? En México: ¿Bueno? En muchos países de América: ¿Aló? Para presentarte: Hola, soy Claire.", "translations": {"fr": "En Espagne : « ¿Diga? », « ¿Dígame? » ou « ¿Sí? ». Au Mexique : « ¿Bueno? ». Dans beaucoup de pays d'Amérique latine : « ¿Aló? ». Pour te présenter : « Hola, soy Claire »."}},
+      "points": [
+        {"es": "¿De parte de quién? = «C'est de la part de qui ?».", "translations": {"fr": "« ¿De parte de quién? » = C'est de la part de qui ?"}},
+        {"es": "Ahora se pone = «je vous la / le passe». Un momento, no cuelgue.", "translations": {"fr": "« Ahora se pone » = je vous la / le passe. « Un momento, no cuelgue » = un instant, ne quittez pas."}},
+        {"es": "Se ha equivocado de número = «vous vous êtes trompé de numéro».", "translations": {"fr": "« Se ha equivocado de número » = vous vous êtes trompé de numéro."}},
+        {"es": "¿Puede repetir más despacio, por favor? ¡Al teléfono es normal pedirlo!", "translations": {"fr": "« ¿Puede repetir más despacio, por favor? » (Vous pouvez répéter plus lentement ?) Au téléphone, c'est normal de le demander !"}}
+      ],
+      "examples": [
+        {"es": "—¿Diga? —Hola, soy Claire. ¿Está Pilar?", "translations": {"fr": "— Allô ? — Bonjour, c'est Claire. Pilar est là ?"}, "highlight": ["¿Diga?", "soy Claire"], "variety": "es-ES"},
+        {"es": "—¿De parte de quién? —De Claire, su vecina.", "translations": {"fr": "— C'est de la part de qui ? — De Claire, sa voisine."}, "highlight": ["De parte de quién"]},
+        {"es": "—¿Bueno? —¡Hola, tía! Soy yo, Daniela.", "translations": {"fr": "— Allô ? — Coucou, tata ! C'est moi, Daniela."}, "highlight": ["¿Bueno?"], "variety": "es-MX"}
+      ],
+      "trick": {"es": "España → ¿Diga? 🇪🇸. México → ¿Bueno? 🇲🇽. Muchos países de América → ¿Aló? 📞", "translations": {"fr": "Espagne → « ¿Diga? » 🇪🇸. Mexique → « ¿Bueno? » 🇲🇽. Beaucoup de pays d'Amérique latine → « ¿Aló? » 📞"}},
+      "frenchTrap": {"es": "«Allô, c'est Claire» no es «es Claire»: en español te presentas con ser en primera persona: Soy Claire.", "translations": {"fr": "« Allô, c'est Claire », ce n'est pas « es Claire » : en espagnol, on se présente avec « ser » à la première personne : « Soy Claire »."}},
+      "seeAlso": ["d_quitar", "d_presentarse", "d_movil_celular"],
+      "sources": [
+        {"label": "RAE · Diccionario de la lengua española: diga, dígame (en «decir»)", "url": "https://dle.rae.es/decir"},
+        {"label": "RAE · Diccionario de la lengua española: aló (Am.)", "url": "https://dle.rae.es/al%C3%B3"}
+      ],
+      "tags": ["teléfono", "cortesía", "españa", "américa"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

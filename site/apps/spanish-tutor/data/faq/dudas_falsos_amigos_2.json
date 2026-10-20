@@ -1,0 +1,363 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_falsos_amigos_2",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Falsos amigos (2)", "translations": {"fr": "Faux amis (2)"}},
+  "emoji": "🪤",
+  "order": 41,
+  "entries": [
+    {
+      "id": "d_subir",
+      "question": {"es": "¿«Subir» en español es «subir» en francés?", "translations": {"fr": "« Subir » en espagnol, c'est « subir » en français ?"}},
+      "aliases": ["subir", "subir significado", "subir en espagnol", "monter en espagnol", "comment dire subir", "sufrir", "subir fotos"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "⬆️",
+      "answer": {"es": "No: subir significa «monter»: subir la escalera, subir al autobús, subir los precios. El «subir» francés (soportar algo malo) se dice sufrir o padecer.", "translations": {"fr": "Non : « subir » veut dire monter : monter l'escalier, monter dans le bus, augmenter les prix. Le « subir » français (endurer quelque chose de pénible) se dit « sufrir » ou « padecer »."}},
+      "compare": [
+        {"title": {"es": "SUBIR", "translations": {"fr": "SUBIR = monter"}}, "items": [
+          {"es": "Ir arriba: Subo al tercer piso en ascensor.", "translations": {"fr": "Aller en haut : Je monte au troisième étage en ascenseur."}},
+          {"es": "Vehículos: ¡Sube al taxi, rápido!", "translations": {"fr": "Véhicules : Monte dans le taxi, vite !"}},
+          {"es": "Precios: Ha subido la luz.", "translations": {"fr": "Prix : L'électricité a augmenté."}},
+          {"es": "Internet: subir fotos a la red.", "translations": {"fr": "Internet : mettre des photos en ligne."}}
+        ]},
+        {"title": {"es": "SUFRIR / PADECER", "translations": {"fr": "SUFRIR / PADECER = subir"}}, "items": [
+          {"es": "Daños: La casa sufrió daños por la tormenta.", "translations": {"fr": "Dégâts : La maison a subi des dégâts à cause de la tempête."}},
+          {"es": "Operación: La operaron de la rodilla.", "translations": {"fr": "Opération : Elle a subi une opération du genou."}},
+          {"es": "Enfermedad: Padece del corazón.", "translations": {"fr": "Maladie : Il souffre du cœur."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Han vuelto a subir el precio del aceite de oliva.", "translations": {"fr": "Ils ont encore augmenté le prix de l'huile d'olive."}, "highlight": ["subir el precio"]},
+        {"es": "Mi nieto ha subido las fotos de la boda a internet.", "translations": {"fr": "Mon petit-fils a mis les photos du mariage en ligne."}, "highlight": ["ha subido las fotos"]},
+        {"es": "Muchos pueblos sufrieron inundaciones el año pasado.", "translations": {"fr": "Beaucoup de villages ont subi des inondations l'année dernière."}, "highlight": ["sufrieron inundaciones"]}
+      ],
+      "trick": {"es": "Subir ⬆️, bajar ⬇️. Y en internet, bajar una aplicación = «télécharger».", "translations": {"fr": "« Subir » ⬆️, « bajar » ⬇️. Et sur internet, « bajar una aplicación » = télécharger une application."}},
+      "frenchTrap": {"es": "«Subir une opération» no es «subir una operación» (¡parece que la llevas al piso de arriba! 😄): di operarse o me operaron.", "translations": {"fr": "« Subir une opération », ce n'est pas « subir una operación » (on dirait que tu la montes à l'étage ! 😄) : dis « operarse » ou « me operaron »."}},
+      "seeAlso": ["tp_b1_falsos_amigos", "tp_b1_salud_cuerpo"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: subir", "url": "https://dle.rae.es/subir"}],
+      "tags": ["falsos amigos", "subir", "sufrir"]
+    },
+    {
+      "id": "d_contestar",
+      "question": {"es": "¿«Contestar» significa «contester»?", "translations": {"fr": "« Contestar » veut-il dire « contester » ?"}},
+      "aliases": ["contestar", "contestador", "responder", "contester en espagnol", "répondre en espagnol", "comment dire contester", "recurrir una multa"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "📞",
+      "answer": {"es": "En la vida diaria, contestar es «répondre»: contestar al teléfono, contestar un mensaje. Para «contester» (une décision, une amende) se dice protestar, discutir o recurrir.", "translations": {"fr": "Dans la vie de tous les jours, « contestar », c'est répondre : répondre au téléphone, répondre à un message. Pour contester (une décision, une amende), on dit « protestar », « discutir » ou « recurrir »."}},
+      "points": [
+        {"es": "El contestador automático = «le répondeur». ¡Así no se olvida!", "translations": {"fr": "« El contestador automático » = le répondeur. Comme ça, on ne l'oublie pas !"}},
+        {"es": "Recurrir una multa: pedir oficialmente que la anulen.", "translations": {"fr": "« Recurrir una multa » : contester une amende (demander officiellement son annulation)."}},
+        {"es": "Contestar mal: responder de mala manera. ¡No le contestes así a tu madre!", "translations": {"fr": "« Contestar mal » : répondre de travers, avec insolence. Ne réponds pas comme ça à ta mère !"}},
+        {"es": "El sentido de protesta existe (una juventud contestataria), pero es mucho menos frecuente.", "translations": {"fr": "Le sens de protestation existe (« una juventud contestataria », une jeunesse contestataire), mais il est bien moins fréquent."}}
+      ],
+      "examples": [
+        {"es": "Te he llamado tres veces. ¿Por qué no contestas?", "translations": {"fr": "Je t'ai appelée trois fois. Pourquoi tu ne réponds pas ?"}, "highlight": ["no contestas"]},
+        {"es": "Contéstame al mensaje cuando puedas.", "translations": {"fr": "Réponds à mon message quand tu pourras."}, "highlight": ["Contéstame"]},
+        {"es": "No estoy de acuerdo con la multa: voy a recurrirla.", "translations": {"fr": "Je ne suis pas d'accord avec l'amende : je vais la contester."}, "highlight": ["voy a recurrirla"]}
+      ],
+      "trick": {"es": "Contestador = «répondeur» → contestar = «répondre». ☎️", "translations": {"fr": "« Contestador » = répondeur → « contestar » = répondre. ☎️"}},
+      "frenchTrap": {"es": "«Je conteste !» no es «¡Contesto!» (= ¡respondo!). Di: ¡No estoy de acuerdo! o ¡Protesto!", "translations": {"fr": "« Je conteste ! », ce n'est pas « ¡Contesto! » (= je réponds !). Dis : « ¡No estoy de acuerdo! » ou « ¡Protesto! »."}},
+      "seeAlso": ["d_telefono", "tp_b1_falsos_amigos", "tp_com_opinar"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: contestar", "url": "https://dle.rae.es/contestar"}],
+      "tags": ["falsos amigos", "contestar", "responder"]
+    },
+    {
+      "id": "d_presumir",
+      "question": {"es": "¿«Presumir» significa «présumer»?", "translations": {"fr": "« Presumir » veut-il dire « présumer » ?"}},
+      "aliases": ["presumir", "presumida", "presumir de", "présumer en espagnol", "se vanter en espagnol", "coquette en espagnol", "presunto"],
+      "cefr": "B1",
+      "category": "false_friends",
+      "emoji": "🦚",
+      "answer": {"es": "Casi nunca. En la vida diaria, presumir es «se vanter, frimer» (presumir de algo) o cuidar mucho tu aspecto: es muy presumida = «elle est très coquette». Para «présumer», di suponer.", "translations": {"fr": "Rarement. Dans la vie de tous les jours, « presumir », c'est se vanter, frimer (« presumir de algo ») ou soigner beaucoup son apparence : « es muy presumida » = elle est très coquette. Pour « présumer », dis « suponer »."}},
+      "points": [
+        {"es": "Presumir de algo: enseñarlo con mucho orgullo. Presume de su coche nuevo.", "translations": {"fr": "« Presumir de algo » : le montrer avec beaucoup de fierté. Il frime avec sa nouvelle voiture."}},
+        {"es": "Ser presumido o presumida: cuidar mucho la ropa, el pelo, el maquillaje.", "translations": {"fr": "« Ser presumido / presumida » : faire très attention à ses vêtements, sa coiffure, son maquillage."}},
+        {"es": "En las noticias, presunto = «présumé»: el presunto ladrón.", "translations": {"fr": "Dans les infos, « presunto » = présumé : « el presunto ladrón », le voleur présumé."}},
+        {"es": "Presumir también puede significar «suponer», pero suena formal o jurídico.", "translations": {"fr": "« Presumir » peut aussi vouloir dire supposer, mais ça sonne soutenu ou juridique."}}
+      ],
+      "examples": [
+        {"es": "Mi vecina presume de nietos todo el día.", "translations": {"fr": "Ma voisine passe sa journée à se vanter de ses petits-enfants."}, "highlight": ["presume de nietos"]},
+        {"es": "Es muy presumida: nunca sale sin pintarse los labios.", "translations": {"fr": "Elle est très coquette : elle ne sort jamais sans mettre de rouge à lèvres."}, "highlight": ["muy presumida"]},
+        {"es": "Supongo que llegarán tarde, como siempre.", "translations": {"fr": "Je présume qu'ils arriveront en retard, comme d'habitude."}, "highlight": ["Supongo"]}
+      ],
+      "trick": {"es": "Presumir = decir «¡mira, mira lo que tengo!», como un pavo real 🦚.", "translations": {"fr": "« Presumir » = dire « regarde, regarde ce que j'ai ! », comme un paon 🦚."}},
+      "frenchTrap": {"es": "«Je présume que…» se dice Supongo que… o Me imagino que… «Presumo que» suena muy formal, de abogado.", "translations": {"fr": "« Je présume que… » se dit « Supongo que… » ou « Me imagino que… ». « Presumo que » sonne très formel, digne d'un avocat."}},
+      "seeAlso": ["tp_b1_falsos_amigos", "tp_com_natural"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: presumir", "url": "https://dle.rae.es/presumir"}],
+      "tags": ["falsos amigos", "presumir", "carácter"]
+    },
+    {
+      "id": "d_discutir",
+      "question": {"es": "¿«Discutir» significa «discuter»?", "translations": {"fr": "« Discutir » veut-il dire « discuter » ?"}},
+      "aliases": ["discutir", "discusión", "charlar", "discuter en espagnol", "se disputer en espagnol", "bavarder en espagnol", "comment dire discuter"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "🗣️",
+      "answer": {"es": "No exactamente. Discutir es sobre todo «se disputer» o «débattre». Para «discuter» tranquilamente con amigos, di charlar, hablar o conversar.", "translations": {"fr": "Pas exactement. « Discutir », c'est surtout se disputer ou débattre. Pour « discuter » tranquillement avec des amis, dis « charlar », « hablar » ou « conversar »."}},
+      "compare": [
+        {"title": {"es": "DISCUTIR", "translations": {"fr": "DISCUTIR = se disputer, débattre"}}, "items": [
+          {"es": "Pelea: Mis vecinos discuten cada noche.", "translations": {"fr": "Dispute : Mes voisins se disputent tous les soirs."}},
+          {"es": "Debate: Hay que discutir el presupuesto.", "translations": {"fr": "Débat : Il faut débattre du budget."}},
+          {"es": "Una discusión: una pelea o un debate.", "translations": {"fr": "« Una discusión » : une dispute ou un débat."}}
+        ]},
+        {"title": {"es": "CHARLAR / HABLAR", "translations": {"fr": "CHARLAR / HABLAR = discuter, bavarder"}}, "items": [
+          {"es": "Charla tranquila: Estuvimos charlando dos horas.", "translations": {"fr": "Bavardage tranquille : On a discuté pendant deux heures."}},
+          {"es": "Un tema: Hablamos de la familia.", "translations": {"fr": "Un sujet : On a discuté de la famille."}},
+          {"es": "Una charla: una conversación o una pequeña conferencia.", "translations": {"fr": "« Una charla » : une conversation ou une petite conférence."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Ayer discutí con mi hermano por la herencia.", "translations": {"fr": "Hier, je me suis disputée avec mon frère à cause de l'héritage."}, "highlight": ["discutí con mi hermano"]},
+        {"es": "Nos quedamos charlando en la terraza hasta las doce.", "translations": {"fr": "On est restées à discuter en terrasse jusqu'à minuit."}, "highlight": ["charlando"]},
+        {"es": "¿Tomamos un café y hablamos del viaje?", "translations": {"fr": "On prend un café et on discute du voyage ?"}, "highlight": ["hablamos del viaje"]}
+      ],
+      "trick": {"es": "Discutir = voces altas 😠. Charlar = un café tranquilo ☕.", "translations": {"fr": "« Discutir » = des voix qui montent 😠. « Charlar » = un café tranquille ☕."}},
+      "frenchTrap": {"es": "Si cuentas «he discutido con mi vecina», en España entenderán que os habéis peleado. Di: He estado charlando con mi vecina.", "translations": {"fr": "Si tu racontes « he discutido con mi vecina », en Espagne on comprendra que vous vous êtes disputées. Dis : « He estado charlando con mi vecina »."}},
+      "seeAlso": ["tp_b1_falsos_amigos", "tp_com_opinar"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: discutir", "url": "https://dle.rae.es/discutir"}],
+      "tags": ["falsos amigos", "discutir", "charlar"]
+    },
+    {
+      "id": "d_regalar",
+      "question": {"es": "¿«Regalar» significa «régaler»?", "translations": {"fr": "« Regalar » veut-il dire « régaler » ?"}},
+      "aliases": ["regalar", "regalo", "invito yo", "régaler en espagnol", "je me suis régalée", "c'est moi qui régale", "offrir un cadeau en espagnol"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "🎁",
+      "answer": {"es": "Regalar es «offrir» un regalo: Le regalé un libro. «Se régaler» (comer muy bien) se dice disfrutar o ponerse las botas, y «c'est moi qui régale» es invito yo.", "translations": {"fr": "« Regalar », c'est offrir un cadeau : Je lui ai offert un livre. « Se régaler » (très bien manger) se dit « disfrutar » ou « ponerse las botas », et « c'est moi qui régale », c'est « invito yo »."}},
+      "points": [
+        {"es": "Regalar algo a alguien: ¿Qué le regalamos a la abuela?", "translations": {"fr": "Offrir quelque chose à quelqu'un : Qu'est-ce qu'on offre à mamie ?"}},
+        {"es": "Hoy invito yo = hoy pago yo. Y la respuesta: ¡Gracias, la próxima vez invito yo!", "translations": {"fr": "« Hoy invito yo » = aujourd'hui, c'est moi qui paie. Et la réponse : Merci, la prochaine fois, c'est moi qui invite !"}},
+        {"es": "Ponerse las botas: comer muchísimo y con mucho placer.", "translations": {"fr": "« Ponerse las botas » : manger énormément et avec grand plaisir, se régaler."}}
+      ],
+      "examples": [
+        {"es": "Para mi cumpleaños, mis hijos me regalaron un viaje a Sevilla.", "translations": {"fr": "Pour mon anniversaire, mes enfants m'ont offert un voyage à Séville."}, "highlight": ["me regalaron un viaje"]},
+        {"es": "¡Qué bien hemos comido! Nos hemos puesto las botas.", "translations": {"fr": "Qu'est-ce qu'on a bien mangé ! On s'est régalés."}, "highlight": ["Nos hemos puesto las botas"]},
+        {"es": "Guarda la cartera, que hoy invito yo.", "translations": {"fr": "Range ton portefeuille : aujourd'hui, c'est moi qui régale."}, "highlight": ["invito yo"]}
+      ],
+      "trick": {"es": "Regalar → un regalo con lazo 🎁. Si la comida está riquísima, piensa en las botas 👢: ponerse las botas.", "translations": {"fr": "« Regalar » → un cadeau avec un nœud 🎁. Si le repas est délicieux, pense aux bottes 👢 : « ponerse las botas »."}},
+      "frenchTrap": {"es": "«Je me suis régalée» no es «me he regalado» (= me he hecho un regalo a mí misma). Di: ¡Qué rico estaba todo!", "translations": {"fr": "« Je me suis régalée », ce n'est pas « me he regalado » (= je me suis fait un cadeau). Dis : « ¡Qué rico estaba todo! »"}},
+      "seeAlso": ["tp_b1_falsos_amigos", "d_cumpleanos", "tp_comida_espanola"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: regalar", "url": "https://dle.rae.es/regalar"}],
+      "tags": ["falsos amigos", "regalar", "comida"]
+    },
+    {
+      "id": "d_pretender",
+      "question": {"es": "¿«Pretender» significa «prétendre»?", "translations": {"fr": "« Pretender » veut-il dire « prétendre » ?"}},
+      "aliases": ["pretender", "qué pretendes", "asegurar que", "prétendre en espagnol", "comment dire prétendre", "avoir l'intention de en espagnol", "afirmar"],
+      "cefr": "B1",
+      "category": "false_friends",
+      "emoji": "🎯",
+      "answer": {"es": "No: pretender es «avoir l'intention de, chercher à»: ¿Qué pretendes? = «Où veux-tu en venir ?». Para «prétendre» (afirmar algo dudoso) se dice asegurar, afirmar o decir que.", "translations": {"fr": "Non : « pretender », c'est avoir l'intention de, chercher à : « ¿Qué pretendes? » = Où veux-tu en venir ? Pour « prétendre » (affirmer quelque chose de douteux), on dit « asegurar », « afirmar » ou « decir que »."}},
+      "compare": [
+        {"title": {"es": "PRETENDER", "translations": {"fr": "PRETENDER = viser, compter faire"}}, "items": [
+          {"es": "Objetivo: Pretendo terminar el libro este verano.", "translations": {"fr": "Objectif : Je compte finir le livre cet été."}},
+          {"es": "Intención: ¿Qué pretendes con esa pregunta?", "translations": {"fr": "Intention : Où veux-tu en venir avec cette question ?"}},
+          {"es": "Amor: un pretendiente.", "translations": {"fr": "Amour : « un pretendiente », un prétendant."}}
+        ]},
+        {"title": {"es": "ASEGURAR / DECIR QUE", "translations": {"fr": "ASEGURAR / DECIR QUE = prétendre"}}, "items": [
+          {"es": "Asegura que no estaba en casa.", "translations": {"fr": "Il prétend qu'il n'était pas chez lui."}},
+          {"es": "Dice que tiene treinta años… ¡y tiene cuarenta!", "translations": {"fr": "Elle prétend avoir trente ans… et elle en a quarante !"}},
+          {"es": "Según él, la culpa es del perro.", "translations": {"fr": "À l'en croire, c'est la faute du chien."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "No pretendo molestar, solo quiero ayudar.", "translations": {"fr": "Je ne cherche pas à déranger, je veux juste aider."}, "highlight": ["No pretendo molestar"]},
+        {"es": "Mi nieto asegura que ha hecho los deberes.", "translations": {"fr": "Mon petit-fils prétend qu'il a fait ses devoirs."}, "highlight": ["asegura que"]},
+        {"es": "¿Y qué pretendes, que lo haga yo todo?", "translations": {"fr": "Et qu'est-ce que tu veux, que je fasse tout moi-même ?"}, "highlight": ["qué pretendes"]}
+      ],
+      "trick": {"es": "Pretender = tener un objetivo 🎯, como un pretendiente que quiere casarse.", "translations": {"fr": "« Pretender » = avoir un objectif 🎯, comme un prétendant qui veut se marier."}},
+      "frenchTrap": {"es": "«Il prétend qu'il est malade» no es «pretende que está enfermo»: di Dice que está enfermo o Asegura que está enfermo.", "translations": {"fr": "« Il prétend qu'il est malade », ce n'est pas « pretende que está enfermo » : dis « Dice que está enfermo » ou « Asegura que está enfermo »."}},
+      "seeAlso": ["tp_b1_falsos_amigos", "tp_indirecto_basico"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: pretender", "url": "https://dle.rae.es/pretender"}],
+      "tags": ["falsos amigos", "pretender", "intención"]
+    },
+    {
+      "id": "d_entender_oir",
+      "question": {"es": "¿«Entender» significa «entendre»?", "translations": {"fr": "« Entender » veut-il dire « entendre » ?"}},
+      "aliases": ["entender", "oír", "oír o entender", "entendre en espagnol", "comment dire j'entends", "s'entendre bien avec", "llevarse bien"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "👂",
+      "answer": {"es": "No: entender es «comprendre». «Entendre» (con los oídos) se dice oír: No te oigo bien. Y «écouter» es escuchar.", "translations": {"fr": "Non : « entender », c'est comprendre. « Entendre » (avec les oreilles) se dit « oír » : Je ne t'entends pas bien. Et « écouter », c'est « escuchar »."}},
+      "compare": [
+        {"title": {"es": "OÍR / ESCUCHAR", "translations": {"fr": "OÍR = entendre · ESCUCHAR = écouter"}}, "items": [
+          {"es": "Oír: ¿Me oyes? Hay mucho ruido.", "translations": {"fr": "Entendre : Tu m'entends ? Il y a beaucoup de bruit."}},
+          {"es": "Escuchar: Escucho la radio por la mañana.", "translations": {"fr": "Écouter : J'écoute la radio le matin."}},
+          {"es": "He oído que…", "translations": {"fr": "J'ai entendu dire que…"}}
+        ]},
+        {"title": {"es": "ENTENDER", "translations": {"fr": "ENTENDER = comprendre"}}, "items": [
+          {"es": "Comprender: No entiendo esta palabra.", "translations": {"fr": "Comprendre : Je ne comprends pas ce mot."}},
+          {"es": "Saber mucho: Mi marido entiende de vinos.", "translations": {"fr": "S'y connaître : Mon mari s'y connaît en vins."}},
+          {"es": "¿Me entiendes?", "translations": {"fr": "Tu me comprends ?"}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Perdone, se oye muy mal: ¿puede hablar más alto?", "translations": {"fr": "Excusez-moi, on entend très mal : vous pouvez parler plus fort ?"}, "highlight": ["se oye muy mal"]},
+        {"es": "He oído que Marta se ha jubilado.", "translations": {"fr": "J'ai entendu dire que Marta avait pris sa retraite."}, "highlight": ["He oído que"]},
+        {"es": "Me llevo muy bien con mi nuera.", "translations": {"fr": "Je m'entends très bien avec ma belle-fille."}, "highlight": ["Me llevo muy bien"]}
+      ],
+      "trick": {"es": "Oír → orejas 👂. Entender → cabeza 🧠. ¡Se puede oír sin entender!", "translations": {"fr": "« Oír » → les oreilles 👂. « Entender » → la tête 🧠. On peut entendre sans comprendre !"}},
+      "frenchTrap": {"es": "«Je m'entends bien avec elle» se dice sobre todo Me llevo bien con ella. Y «je n'entends rien» = no oigo nada.", "translations": {"fr": "« Je m'entends bien avec elle » se dit surtout « Me llevo bien con ella ». Et « je n'entends rien » = « no oigo nada »."}},
+      "seeAlso": ["tp_b1_falsos_amigos", "d_atender_esperar", "d_sentir_oler"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: entender", "url": "https://dle.rae.es/entender"}],
+      "tags": ["falsos amigos", "oír", "entender"]
+    },
+    {
+      "id": "d_atender_esperar",
+      "question": {"es": "¿«Atender» significa «attendre»?", "translations": {"fr": "« Atender » veut-il dire « attendre » ?"}},
+      "aliases": ["atender", "esperar", "atender o esperar", "sala de espera", "attendre en espagnol", "je t'attends en espagnol", "comment dire attendre"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "🛎️",
+      "answer": {"es": "No: atender es «s'occuper de, servir» (a un cliente, a un paciente). «Attendre» se dice esperar: Te espero en la parada.", "translations": {"fr": "Non : « atender », c'est s'occuper de, servir (un client, un patient). « Attendre » se dit « esperar » : Je t'attends à l'arrêt."}},
+      "compare": [
+        {"title": {"es": "ATENDER", "translations": {"fr": "ATENDER = s'occuper de"}}, "items": [
+          {"es": "Tienda: ¿Ya la atienden?", "translations": {"fr": "Magasin : On s'occupe de vous ?"}},
+          {"es": "Médico: El doctor la atiende a las diez.", "translations": {"fr": "Médecin : Le docteur vous reçoit à dix heures."}},
+          {"es": "Atención: Atiende, que esto es importante.", "translations": {"fr": "Attention : Écoute bien, c'est important."}}
+        ]},
+        {"title": {"es": "ESPERAR", "translations": {"fr": "ESPERAR = attendre, espérer"}}, "items": [
+          {"es": "A alguien: Te espero en la parada.", "translations": {"fr": "Quelqu'un : Je t'attends à l'arrêt."}},
+          {"es": "Un lugar: la sala de espera.", "translations": {"fr": "Un lieu : la salle d'attente."}},
+          {"es": "Un deseo: Espero que vengas.", "translations": {"fr": "Un souhait : J'espère que tu viendras."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Perdone, ¿me puede atender? Tengo un poco de prisa.", "translations": {"fr": "Excusez-moi, vous pouvez vous occuper de moi ? Je suis un peu pressée."}, "highlight": ["me puede atender"]},
+        {"es": "Espérame en la puerta, que ahora bajo.", "translations": {"fr": "Attends-moi devant la porte, je descends tout de suite."}, "highlight": ["Espérame"]},
+        {"es": "Llevo media hora esperando el autobús.", "translations": {"fr": "Ça fait une demi-heure que j'attends le bus."}, "highlight": ["esperando el autobús"]}
+      ],
+      "trick": {"es": "Atender viene de atención 👀; esperar, de la sala de espera 🪑.", "translations": {"fr": "« Atender » vient de « atención » (l'attention) 👀 ; « esperar », de « la sala de espera » (la salle d'attente) 🪑."}},
+      "frenchTrap": {"es": "«Attendez-moi !» no es «¡Atiéndame!» (= ocúpese de mí): es ¡Espéreme! El diccionario da atender como «esperar», pero hoy casi nadie lo usa así.", "translations": {"fr": "« Attendez-moi ! », ce n'est pas « ¡Atiéndame! » (= occupez-vous de moi) : c'est « ¡Espéreme! ». Le dictionnaire donne bien « atender » au sens d'attendre, mais presque plus personne ne l'emploie ainsi."}},
+      "seeAlso": ["tp_b1_falsos_amigos", "d_esperar_que", "d_entender_oir"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: atender", "url": "https://dle.rae.es/atender"}],
+      "tags": ["falsos amigos", "atender", "esperar"]
+    },
+    {
+      "id": "d_coger",
+      "question": {"es": "¿Puedo decir «coger» en todos los países?", "translations": {"fr": "Est-ce que je peux dire « coger » dans tous les pays ?"}},
+      "aliases": ["coger", "coger el autobús", "tomar o coger", "agarrar", "coger en Amérique", "prendre en espagnol", "comment dire prendre le bus"],
+      "cefr": "A2",
+      "category": "usage",
+      "emoji": "🚌",
+      "answer": {"es": "En España, coger = «prendre»: coger el autobús, coger el teléfono. En gran parte de América (México, Argentina, Venezuela…) es una palabra vulgar, sexual: allí di tomar o agarrar.", "translations": {"fr": "En Espagne, « coger » = prendre : prendre le bus, décrocher le téléphone. Dans une grande partie de l'Amérique (Mexique, Argentine, Venezuela…), c'est un mot vulgaire, sexuel : là-bas, dis « tomar » ou « agarrar »."}},
+      "compare": [
+        {"title": {"es": "EN ESPAÑA", "translations": {"fr": "EN ESPAGNE"}}, "items": [
+          {"es": "Transporte: Cojo el metro cada día.", "translations": {"fr": "Transports : Je prends le métro tous les jours."}},
+          {"es": "Teléfono: ¿Puedes coger el teléfono?", "translations": {"fr": "Téléphone : Tu peux décrocher ?"}},
+          {"es": "Salud: He cogido frío.", "translations": {"fr": "Santé : J'ai pris froid."}}
+        ]},
+        {"title": {"es": "EN TODAS PARTES", "translations": {"fr": "PARTOUT"}}, "items": [
+          {"es": "Transporte: Tomo el metro cada día.", "translations": {"fr": "Transports : Je prends le métro tous les jours."}},
+          {"es": "Teléfono: ¿Puedes contestar el teléfono?", "translations": {"fr": "Téléphone : Tu peux répondre au téléphone ?"}},
+          {"es": "Con la mano: Agarra la bolsa, por favor.", "translations": {"fr": "Avec la main : Attrape le sac, s'il te plaît."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Para ir al aeropuerto, cojo un taxi.", "translations": {"fr": "Pour aller à l'aéroport, je prends un taxi."}, "highlight": ["cojo un taxi"], "variety": "es-ES", "note": "Cojo, con j: coger → yo cojo.", "noteTranslations": {"fr": "« Cojo » avec un j : coger → yo cojo."}},
+        {"es": "En Ciudad de México tomamos el metro hasta el centro.", "translations": {"fr": "À Mexico, nous prenons le métro jusqu'au centre."}, "highlight": ["tomamos el metro"], "variety": "es-MX"},
+        {"es": "Tomar un café, tomar el sol, tomar el tren: tomar sirve en todas partes.", "translations": {"fr": "Prendre un café, prendre le soleil, prendre le train : « tomar » marche partout."}, "highlight": ["Tomar un café", "tomar el sol", "tomar el tren"]}
+      ],
+      "trick": {"es": "¿Dudas? Usa tomar: funciona en todos los países. 🚌☕", "translations": {"fr": "Un doute ? Utilise « tomar » : ça marche dans tous les pays. 🚌☕"}},
+      "frenchTrap": {"es": "En francés, «prendre» vale para todo. En español, para comer y beber se dice tomar: ¿Tomamos un café?", "translations": {"fr": "En français, « prendre » sert à tout. En espagnol, pour manger et boire, on dit « tomar » : On prend un café ?"}},
+      "seeAlso": ["d_vosotros_ustedes", "d_coche_carro", "tp_b1_falsos_amigos"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: coger (marcas regionales)", "url": "https://dle.rae.es/coger"}],
+      "tags": ["españa", "américa", "coger", "tomar"]
+    },
+    {
+      "id": "d_vaso_copa_taza",
+      "question": {"es": "¿Vaso, copa o taza?", "translations": {"fr": "« Vaso », « copa » ou « taza » ?"}},
+      "aliases": ["vaso", "copa", "taza", "jarrón", "un verre en espagnol", "tasse en espagnol", "vase en espagnol", "boire un verre en espagnol"],
+      "cefr": "A2",
+      "category": "vocabulary",
+      "emoji": "🍷",
+      "answer": {"es": "Vaso: sin pie, para agua o zumo. Copa: con pie, para vino o cava, y también «un trago» de alcohol. Taza: con asa, para café o té. ¿Y un «vase» francés? Es un jarrón o un florero.", "translations": {"fr": "« Vaso » : sans pied, pour l'eau ou le jus. « Copa » : à pied, pour le vin ou le cava, et aussi « un verre » d'alcool. « Taza » : avec une anse, pour le café ou le thé. Et un vase ? C'est « un jarrón » ou « un florero »."}},
+      "points": [
+        {"es": "Un vaso de agua, un vaso de leche: el vaso de todos los días.", "translations": {"fr": "« Un vaso de agua », « un vaso de leche » : le verre de tous les jours."}},
+        {"es": "Tomar una copa = beber algo con alcohol, con amigos: ¿Tomamos una copa?", "translations": {"fr": "« Tomar una copa » = boire un verre (d'alcool) entre amis : On va boire un verre ?"}},
+        {"es": "La Copa del Mundo, la Copa del Rey: los trofeos también son copas. 🏆", "translations": {"fr": "La Coupe du monde, la Coupe du Roi : les trophées aussi sont des « copas ». 🏆"}},
+        {"es": "Una taza de café; un tazón: un bol grande para el desayuno.", "translations": {"fr": "« Una taza de café » ; « un tazón » : un grand bol pour le petit-déjeuner."}}
+      ],
+      "examples": [
+        {"es": "¿Me pone un vaso de agua del grifo, por favor?", "translations": {"fr": "Vous pouvez me servir un verre d'eau du robinet, s'il vous plaît ?"}, "highlight": ["un vaso de agua"]},
+        {"es": "Brindamos con una copa de cava por los novios.", "translations": {"fr": "Nous avons trinqué aux mariés avec une coupe de cava."}, "highlight": ["una copa de cava"]},
+        {"es": "Por la tarde me tomo una taza de té con galletas.", "translations": {"fr": "L'après-midi, je prends une tasse de thé avec des biscuits."}, "highlight": ["una taza de té"]},
+        {"es": "He puesto las rosas en un jarrón azul.", "translations": {"fr": "J'ai mis les roses dans un vase bleu."}, "highlight": ["un jarrón"]}
+      ],
+      "trick": {"es": "La copa tiene pie, como la Copa del Mundo 🏆. El vaso, no 🥛. La taza tiene asa ☕.", "translations": {"fr": "La « copa » a un pied, comme la Coupe du monde 🏆. Le « vaso », non 🥛. La « taza » a une anse ☕."}},
+      "frenchTrap": {"es": "Un «vase» no es un vaso: si pides «un vaso para las flores», te darán un vaso de beber. Y «boire un verre» = tomar algo o tomar una copa.", "translations": {"fr": "Un vase, ce n'est pas « un vaso » : si tu demandes « un vaso para las flores », on te donnera un verre à boire. Et « boire un verre » = « tomar algo » ou « tomar una copa »."}},
+      "seeAlso": ["tp_comida_espanola", "d_pedir_bar", "tp_b1_falsos_amigos"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: copa", "url": "https://dle.rae.es/copa"}],
+      "tags": ["vocabulario", "vaso", "copa", "taza"]
+    },
+    {
+      "id": "d_crear_creer",
+      "question": {"es": "¿«Creer» es «créer»?", "translations": {"fr": "« Creer », c'est « créer » ?"}},
+      "aliases": ["creer", "crear", "creer o crear", "creo que", "créer en espagnol", "croire en espagnol", "comment dire je crois"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "💭",
+      "answer": {"es": "No: creer es «croire» (Creo que sí). «Créer» se dice crear (crear una empresa). ¡Ojo!: creo vale para los dos: yo creo = «je crois» y también «je crée».", "translations": {"fr": "Non : « creer », c'est croire (« Creo que sí »). « Créer » se dit « crear » (« crear una empresa »). Attention : « creo » sert aux deux : « yo creo » = je crois, et aussi je crée."}},
+      "compare": [
+        {"title": {"es": "CREER", "translations": {"fr": "CREER = croire"}}, "items": [
+          {"es": "Opinión: Creo que va a llover.", "translations": {"fr": "Opinion : Je crois qu'il va pleuvoir."}},
+          {"es": "Pasado: Creí que era domingo.", "translations": {"fr": "Passé : J'ai cru que c'était dimanche."}},
+          {"es": "Creer en: Creo en la suerte.", "translations": {"fr": "Croire à : Je crois à la chance."}}
+        ]},
+        {"title": {"es": "CREAR", "translations": {"fr": "CREAR = créer"}}, "items": [
+          {"es": "Inventar: Mi nieta ha creado una web.", "translations": {"fr": "Inventer : Ma petite-fille a créé un site web."}},
+          {"es": "Pasado: Creé mi empresa en 1995.", "translations": {"fr": "Passé : J'ai créé mon entreprise en 1995."}},
+          {"es": "Familia: una creación, un creador.", "translations": {"fr": "Famille de mots : une création, un créateur."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "—¿Va a venir Ana? —Creo que sí.", "translations": {"fr": "— Ana va venir ? — Je crois que oui."}, "highlight": ["Creo que sí"]},
+        {"es": "No me lo creo: ¡me ha tocado la lotería!", "translations": {"fr": "Je n'y crois pas : j'ai gagné à la loterie !"}, "highlight": ["No me lo creo"]},
+        {"es": "Picasso creó el Guernica en 1937.", "translations": {"fr": "Picasso a créé Guernica en 1937."}, "highlight": ["creó"]}
+      ],
+      "trick": {"es": "Crear lleva la a de arte 🎨; creer lleva la e de fe 🙏.", "translations": {"fr": "« Crear » a le « a » de « arte » (l'art) 🎨 ; « creer » a le « e » de « fe » (la foi) 🙏."}},
+      "frenchTrap": {"es": "Al leer, «creer» parece «créer», pero es «croire». En pasado se ve la diferencia: creí (j'ai cru), creé (j'ai créé).", "translations": {"fr": "À la lecture, « creer » ressemble à « créer », mais c'est « croire ». Au passé, on voit la différence : « creí » (j'ai cru), « creé » (j'ai créé)."}},
+      "seeAlso": ["d_creo_no_creo", "tp_b1_falsos_amigos", "tp_com_opinar"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: creer", "url": "https://dle.rae.es/creer"}],
+      "tags": ["falsos amigos", "creer", "crear"]
+    },
+    {
+      "id": "d_sentir_oler",
+      "question": {"es": "¿Se dice «sentir» para los olores?", "translations": {"fr": "Est-ce qu'on dit « sentir » pour les odeurs ?"}},
+      "aliases": ["oler", "huele bien", "huele a", "lo siento", "sentir en espagnol", "ça sent bon en espagnol", "comment dire ça sent"],
+      "cefr": "A2",
+      "category": "false_friends",
+      "emoji": "👃",
+      "answer": {"es": "Para los olores se dice oler: ¡Qué bien huele! Huele a café. Sentir es «ressentir» (frío, dolor, emociones), y Lo siento = «je suis désolée».", "translations": {"fr": "Pour les odeurs, on dit « oler » : Ça sent drôlement bon ! Ça sent le café. « Sentir », c'est ressentir (le froid, la douleur, des émotions), et « Lo siento » = je suis désolée."}},
+      "compare": [
+        {"title": {"es": "OLER", "translations": {"fr": "OLER = sentir (une odeur)"}}, "items": [
+          {"es": "Bien o mal: Esta casa huele muy bien.", "translations": {"fr": "Bon ou mauvais : Cette maison sent très bon."}},
+          {"es": "Oler a algo: Huele a pan recién hecho.", "translations": {"fr": "Sentir quelque chose : Ça sent le pain tout chaud."}},
+          {"es": "Con la nariz: Huele esta rosa.", "translations": {"fr": "Avec le nez : Sens cette rose."}}
+        ]},
+        {"title": {"es": "SENTIR", "translations": {"fr": "SENTIR = ressentir"}}, "items": [
+          {"es": "Cuerpo: Siento un dolor aquí.", "translations": {"fr": "Le corps : J'ai une douleur ici."}},
+          {"es": "Emociones: Me siento feliz.", "translations": {"fr": "Émotions : Je me sens heureuse."}},
+          {"es": "Disculpas: Lo siento mucho.", "translations": {"fr": "Excuses : Je suis vraiment désolée."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "¡Mmm, qué bien huele! ¿Qué estás cocinando?", "translations": {"fr": "Mmm, ça sent drôlement bon ! Qu'est-ce que tu cuisines ?"}, "highlight": ["qué bien huele"]},
+        {"es": "Aquí huele a gas: abre la ventana.", "translations": {"fr": "Ça sent le gaz ici : ouvre la fenêtre."}, "highlight": ["huele a gas"]},
+        {"es": "Siento mucho lo de tu madre.", "translations": {"fr": "Je suis vraiment désolée pour ta mère."}, "highlight": ["Siento mucho"]}
+      ],
+      "trick": {"es": "Oler → nariz 👃. Sentir → corazón ❤️ y piel. Y oler es irregular: huelo, hueles, huele (¡con h!).", "translations": {"fr": "« Oler » → le nez 👃. « Sentir » → le cœur ❤️ et la peau. Et « oler » est irrégulier : huelo, hueles, huele (avec un h !)."}},
+      "frenchTrap": {"es": "«Ça sent bon» no es «siente bien»: es Huele bien. Y «tu sens bon» (tu perfume) = ¡Qué bien hueles!", "translations": {"fr": "« Ça sent bon », ce n'est pas « siente bien » : c'est « Huele bien ». Et « tu sens bon » (ton parfum) = « ¡Qué bien hueles! »"}},
+      "seeAlso": ["tp_b1_falsos_amigos", "d_perdon_lo_siento", "d_entender_oir"],
+      "sources": [{"label": "RAE · Diccionario de la lengua española: oler", "url": "https://dle.rae.es/oler"}],
+      "tags": ["falsos amigos", "oler", "sentir"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

@@ -1,0 +1,328 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_norma",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Lo correcto según la RAE", "translations": {"fr": "Ce qui est correct selon la RAE"}},
+  "emoji": "📚",
+  "order": 33,
+  "entries": [
+    {
+      "id": "d_dequeismo",
+      "question": {"es": "¿Pienso que o pienso de que?", "translations": {"fr": "« Pienso que » ou « pienso de que » ?"}},
+      "aliases": ["dequeísmo", "de que o que", "creo de que", "opino de que", "pienso de que está bien", "je pense que en espagnol", "de que incorrect espagnol"],
+      "cefr": "B2",
+      "category": "grammar",
+      "emoji": "🚫",
+      "answer": {"es": "Pienso que, sin «de». Poner «de» donde no hace falta se llama dequeísmo y es incorrecto: Creo que llueve (no «creo de que»), Me dijo que vendría, Es posible que nieve.", "translations": {"fr": "« Pienso que », sans « de ». Mettre un « de » inutile s'appelle « dequeísmo », et c'est incorrect : Creo que llueve (pas « creo de que »), Me dijo que vendría (il m'a dit qu'il viendrait), Es posible que nieve (il est possible qu'il neige)."}},
+      "points": [
+        {"es": "Prueba de la pregunta: ¿Qué piensas? (sin «de») → Pienso que… ¿De qué te acuerdas? (con «de») → Me acuerdo de que…", "translations": {"fr": "Le test de la question : ¿Qué piensas? (sans « de ») → Pienso que… ¿De qué te acuerdas? (avec « de ») → Me acuerdo de que…"}},
+        {"es": "Prueba de «eso»: Pienso eso → Pienso que. Me alegro de eso → Me alegro de que.", "translations": {"fr": "Le test de « eso » (ça) : Pienso eso → Pienso que. Me alegro de eso → Me alegro de que."}},
+        {"es": "Ojo con los parecidos: me alegra que (sin «de») y me alegro de que (con «de»). Las dos están bien.", "translations": {"fr": "Attention aux sosies : me alegra que (sans « de ») et me alegro de que (avec « de »). Les deux sont correctes."}},
+        {"es": "Nunca llevan «de» delante de «que»: pensar, creer, opinar, decir, parecer, temer.", "translations": {"fr": "Ne prennent jamais « de » devant « que » : pensar, creer, opinar, decir, parecer, temer."}}
+      ],
+      "examples": [
+        {"es": "Creo que mañana hará buen tiempo.", "translations": {"fr": "Je crois qu'il fera beau demain."}, "highlight": ["Creo que"]},
+        {"es": "Mi hija opina que el piso es caro.", "translations": {"fr": "Ma fille trouve que l'appartement est cher."}, "highlight": ["opina que"]},
+        {"es": "Me alegro de que hayas venido.", "translations": {"fr": "Je suis contente que tu sois venu."}, "highlight": ["Me alegro de que"], "note": "Aquí sí: alegrarse de algo.", "noteTranslations": {"fr": "Ici, oui : alegrarse de algo (se réjouir de quelque chose)."}}
+      ],
+      "trick": {"es": "Haz la pregunta: si la pregunta lleva «de» (¿De qué…?), la frase también. Si no (¿Qué…?), tampoco.", "translations": {"fr": "Pose la question : si la question a un « de » (¿De qué…?), la phrase aussi. Sinon (¿Qué…?), non plus."}},
+      "frenchTrap": {"es": "Buena noticia: el francés no pone «de» delante de «que» («je pense que»), así que este error es raro para ti. Tu riesgo es el contrario: el queísmo.", "translations": {"fr": "Bonne nouvelle : le français ne met pas « de » devant « que » (« je pense que »), donc cette faute est rare pour toi. Ton risque, c'est l'inverse : le « queísmo »."}},
+      "seeAlso": ["d_queismo", "tp_com_opinar"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «dequeísmo»", "url": "https://www.rae.es/dpd/deque%C3%ADsmo"}],
+      "tags": ["dequeísmo", "que", "preposiciones"]
+    },
+    {
+      "id": "d_queismo",
+      "question": {"es": "¿Me acuerdo que o me acuerdo de que?", "translations": {"fr": "« Me acuerdo que » ou « me acuerdo de que » ?"}},
+      "aliases": ["queísmo", "acordarse de que", "darse cuenta de que", "estar seguro de que", "je me souviens que en espagnol", "je suis sûre que en espagnol"],
+      "cefr": "B2",
+      "category": "grammar",
+      "emoji": "🧩",
+      "answer": {"es": "Me acuerdo de que, con «de». Si el verbo o la expresión llevan «de» (acordarse de algo), lo conservan delante de «que». Quitarlo se llama queísmo y conviene evitarlo.", "translations": {"fr": "« Me acuerdo de que », avec « de ». Si le verbe ou l'expression se construit avec « de » (acordarse de algo, se souvenir de quelque chose), on le garde devant « que ». L'enlever s'appelle « queísmo », et il vaut mieux l'éviter."}},
+      "points": [
+        {"es": "Con «de» delante de «que»: acordarse de que, darse cuenta de que, estar seguro de que, alegrarse de que, tener ganas de que.", "translations": {"fr": "Avec « de » devant « que » : acordarse de que (se souvenir que), darse cuenta de que (se rendre compte que), estar seguro de que (être sûr que), alegrarse de que (se réjouir que), tener ganas de que (avoir hâte que)."}},
+        {"es": "Expresiones: a pesar de que, en caso de que, no cabe duda de que.", "translations": {"fr": "Expressions : a pesar de que (bien que), en caso de que (au cas où), no cabe duda de que (il ne fait pas de doute que)."}},
+        {"es": "Con otras preposiciones, igual: insistir en que, confiar en que, convencer de que.", "translations": {"fr": "Avec d'autres prépositions, pareil : insistir en que (insister pour que), confiar en que (espérer que), convencer de que (convaincre que)."}}
+      ],
+      "examples": [
+        {"es": "No me acordé de que era tu cumpleaños.", "translations": {"fr": "Je ne me suis pas souvenue que c'était ton anniversaire."}, "highlight": ["me acordé de que"]},
+        {"es": "Me di cuenta de que había perdido el móvil.", "translations": {"fr": "Je me suis rendu compte que j'avais perdu mon portable."}, "highlight": ["Me di cuenta de que"]},
+        {"es": "Estoy segura de que te va a gustar.", "translations": {"fr": "Je suis sûre que ça va te plaire."}, "highlight": ["segura de que"]}
+      ],
+      "trick": {"es": "Pregunta: ¿De qué te acuerdas? Si la pregunta lleva «de», la respuesta también: Me acuerdo de que…", "translations": {"fr": "Demande-toi : ¿De qué te acuerdas? Si la question a un « de », la réponse aussi : Me acuerdo de que…"}},
+      "frenchTrap": {"es": "El francés dice «je me souviens que», «je suis sûre que», «je me rends compte que», sin «de». En español, el «de» se queda: me acuerdo de que, estoy segura de que.", "translations": {"fr": "Le français dit « je me souviens que », « je suis sûre que », « je me rends compte que », sans « de ». En espagnol, le « de » reste : me acuerdo de que, estoy segura de que."}},
+      "seeAlso": ["d_dequeismo", "d_pensar_en"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «queísmo»", "url": "https://www.rae.es/dpd/que%C3%ADsmo"}],
+      "tags": ["queísmo", "que", "preposiciones"]
+    },
+    {
+      "id": "d_laismo",
+      "question": {"es": "¿La dije o le dije?", "translations": {"fr": "« La dije » ou « le dije » ?"}},
+      "aliases": ["laísmo", "la dije que", "le dije a ella", "la di un beso", "je lui ai dit en espagnol", "le ou la pronom espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🗣️",
+      "answer": {"es": "Le dije. Para «a ella» como destinatario («lui» en francés) se usa le: Le dije la verdad. Le di un beso. Usar «la» ahí se llama laísmo: se oye en el centro de España, pero no es correcto.", "translations": {"fr": "« Le dije ». Pour « à elle » comme destinataire (« lui » en français), on utilise « le » : Le dije la verdad (je lui ai dit la vérité). Le di un beso (je lui ai fait une bise). Utiliser « la » ici s'appelle « laísmo » : on l'entend dans le centre de l'Espagne, mais ce n'est pas correct."}},
+      "compare": [
+        {"title": {"es": "LA = la (objeto directo)", "translations": {"fr": "LA = la (COD)"}}, "items": [
+          {"es": "Ver: A María la vi ayer.", "translations": {"fr": "Voir : María, je l'ai vue hier."}},
+          {"es": "Llamar: La llamo esta noche.", "translations": {"fr": "Appeler : Je l'appelle ce soir."}},
+          {"es": "Esperar: La espero en la puerta.", "translations": {"fr": "Attendre : Je l'attends à la porte."}}
+        ]},
+        {"title": {"es": "LE = lui (objeto indirecto)", "translations": {"fr": "LE = lui (COI)"}}, "items": [
+          {"es": "Decir: Le dije que sí.", "translations": {"fr": "Dire : Je lui ai dit oui."}},
+          {"es": "Dar: Le di las llaves.", "translations": {"fr": "Donner : Je lui ai donné les clés."}},
+          {"es": "Preguntar: Le pregunté la hora.", "translations": {"fr": "Demander : Je lui ai demandé l'heure."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "A mi madre le regalé unas flores.", "translations": {"fr": "J'ai offert des fleurs à ma mère."}, "highlight": ["le regalé"]},
+        {"es": "A mi madre la llevé al médico.", "translations": {"fr": "J'ai emmené ma mère chez le médecin."}, "highlight": ["la llevé"]},
+        {"es": "¿Le has dicho a tu hija que venimos?", "translations": {"fr": "Tu as dit à ta fille que nous venons ?"}, "highlight": ["Le has dicho"]}
+      ],
+      "trick": {"es": "Si en francés dices «lui», en español es «le» (también para una mujer). Si dices «la», es «la».", "translations": {"fr": "Si en français tu dis « lui », en espagnol c'est « le » (même pour une femme). Si tu dis « la », c'est « la »."}},
+      "frenchTrap": {"es": "Buena noticia: el francés te ayuda («je lui ai dit» = le dije). La trampa es oír «la dije» en Madrid y copiarlo: no lo hagas.", "translations": {"fr": "Bonne nouvelle : le français t'aide (« je lui ai dit » = le dije). Le piège, c'est d'entendre « la dije » à Madrid et de l'imiter : ne le fais pas."}},
+      "seeAlso": ["d_lo_le", "d_leismo", "tp_pron_objeto"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «laísmo»", "url": "https://www.rae.es/dpd/la%C3%ADsmo"}],
+      "tags": ["laísmo", "pronombres", "le", "la"]
+    },
+    {
+      "id": "d_haiga",
+      "question": {"es": "¿Haya o haiga?", "translations": {"fr": "« Haya » ou « haiga » ?"}},
+      "aliases": ["haiga", "haiga o haya", "haigan", "subjuntivo de haber", "subjonctif de haber", "qu'il y ait espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "❌",
+      "answer": {"es": "Haya, siempre. «Haiga» es una forma popular que se oye en algunas zonas, pero es incorrecta. El subjuntivo de haber es: haya, hayas, haya, hayamos, hayáis, hayan.", "translations": {"fr": "« Haya », toujours. « Haiga » est une forme populaire qu'on entend dans certaines régions, mais elle est incorrecte. Le subjonctif de haber est : haya, hayas, haya, hayamos, hayáis, hayan."}},
+      "points": [
+        {"es": "Para «il y ait»: Espero que haya sitio. Ojalá no haya cola.", "translations": {"fr": "Pour « il y ait » : Espero que haya sitio (j'espère qu'il y a de la place). Ojalá no haya cola (pourvu qu'il n'y ait pas de queue)."}},
+        {"es": "Para el pasado del subjuntivo: Cuando hayas terminado, avísame.", "translations": {"fr": "Pour le passé du subjonctif : Cuando hayas terminado, avísame (quand tu auras fini, préviens-moi)."}},
+        {"es": "«Hay» en presente → «haya» en subjuntivo: Hay pan → Espero que haya pan.", "translations": {"fr": "« Hay » au présent → « haya » au subjonctif : Hay pan → Espero que haya pan."}}
+      ],
+      "examples": [
+        {"es": "No creo que haya mucho tráfico a esta hora.", "translations": {"fr": "Je ne pense pas qu'il y ait beaucoup de circulation à cette heure-ci."}, "highlight": ["haya"]},
+        {"es": "Espero que lo hayáis pasado bien.", "translations": {"fr": "J'espère que vous vous êtes bien amusés."}, "highlight": ["hayáis"]},
+        {"es": "Cuando hayan llegado todos, empezamos.", "translations": {"fr": "Quand tout le monde sera arrivé, on commence."}, "highlight": ["hayan llegado"]}
+      ],
+      "trick": {"es": "Haya rima con «playa», no con «amiga».", "translations": {"fr": "Haya rime avec « playa » (plage), pas avec « amiga »."}},
+      "frenchTrap": {"es": "«J'espère qu'il y a» lleva indicativo en francés, pero subjuntivo en español: Espero que haya (no «espero que hay»).", "translations": {"fr": "« J'espère qu'il y a » est à l'indicatif en français, mais au subjonctif en espagnol : Espero que haya (pas « espero que hay »)."}},
+      "seeAlso": ["d_esperar_que", "tp_b1_subjuntivo_intro", "d_haya_halla"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «haber» (haya, no haiga)", "url": "https://www.rae.es/dpd/haber"}],
+      "tags": ["haber", "subjuntivo", "haya"]
+    },
+    {
+      "id": "d_hubieron",
+      "question": {"es": "¿Hubo fiestas o hubieron fiestas?", "translations": {"fr": "« Hubo fiestas » ou « hubieron fiestas » ?"}},
+      "aliases": ["hubieron", "habían muchas personas", "haber impersonal plural", "habrán problemas", "il y avait beaucoup de gens en espagnol", "il y a eu des fêtes en espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "🎉",
+      "answer": {"es": "Hubo fiestas. Cuando «haber» significa «existir» (il y a), va siempre en singular, aunque lo que sigue sea plural: había muchas personas, habrá cambios, va a haber problemas.", "translations": {"fr": "« Hubo fiestas ». Quand « haber » veut dire « exister » (il y a), il reste toujours au singulier, même si ce qui suit est au pluriel : había muchas personas (il y avait beaucoup de gens), habrá cambios (il y aura des changements), va a haber problemas (il va y avoir des problèmes)."}},
+      "compare": [
+        {"title": {"es": "HABER = il y a → singular", "translations": {"fr": "HABER = il y a → singulier"}}, "items": [
+          {"es": "Presente: Hay dos camas.", "translations": {"fr": "Présent : Il y a deux lits."}},
+          {"es": "Pasado: Hubo muchas quejas.", "translations": {"fr": "Passé : Il y a eu beaucoup de plaintes."}},
+          {"es": "Imperfecto: Había veinte personas.", "translations": {"fr": "Imparfait : Il y avait vingt personnes."}},
+          {"es": "Futuro: Habrá fuegos artificiales.", "translations": {"fr": "Futur : Il y aura un feu d'artifice."}}
+        ]},
+        {"title": {"es": "HABER + participio → concuerda", "translations": {"fr": "HABER + participe → s'accorde"}}, "items": [
+          {"es": "Auxiliar: Habían llegado todos.", "translations": {"fr": "Auxiliaire : Ils étaient tous arrivés."}},
+          {"es": "Auxiliar: Han cerrado las tiendas.", "translations": {"fr": "Auxiliaire : Les magasins ont fermé."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "En la boda hubo más de cien invitados.", "translations": {"fr": "Au mariage, il y a eu plus de cent invités."}, "highlight": ["hubo"]},
+        {"es": "Antes había muchas tiendas en esta calle.", "translations": {"fr": "Avant, il y avait beaucoup de magasins dans cette rue."}, "highlight": ["había"]},
+        {"es": "Mañana puede haber tormentas.", "translations": {"fr": "Demain, il peut y avoir des orages."}, "highlight": ["puede haber"]}
+      ],
+      "trick": {"es": "Si en francés dices «il y a / il y avait / il y aura», en español: hay, había, habrá… en singular.", "translations": {"fr": "Si en français tu dis « il y a / il y avait / il y aura », en espagnol : hay, había, habrá… au singulier."}},
+      "frenchTrap": {"es": "Buena noticia: «il y avait des gens» tampoco cambia en francés. Pero oirás «habían muchos» en América y en partes de España; en un registro cuidado, singular.", "translations": {"fr": "Bonne nouvelle : « il y avait des gens » ne change pas non plus en français. Mais tu entendras « habían muchos » en Amérique et dans certaines régions d'Espagne ; dans un registre soigné, singulier."}},
+      "seeAlso": ["d_hay_esta", "d_tener_haber"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «haber» (uso impersonal)", "url": "https://www.rae.es/dpd/haber"}],
+      "tags": ["haber", "impersonal", "concordancia"]
+    },
+    {
+      "id": "d_detras_mio",
+      "question": {"es": "¿Detrás mío o detrás de mí?", "translations": {"fr": "« Detrás mío » ou « detrás de mí » ?"}},
+      "aliases": ["detrás mío", "delante mío", "cerca mío", "encima mío", "derrière moi en espagnol", "devant moi en espagnol"],
+      "cefr": "B1",
+      "category": "usage",
+      "emoji": "🚶",
+      "answer": {"es": "Detrás de mí. Con detrás, delante, cerca, encima, debajo o enfrente, lo recomendado es «de» + mí, ti, él…: delante de ti, cerca de nosotros. «Detrás mío» es coloquial y se desaconseja en un registro cuidado.", "translations": {"fr": "« Detrás de mí ». Avec detrás (derrière), delante (devant), cerca (près), encima (sur), debajo (sous) ou enfrente (en face), on recommande « de » + mí, ti, él… : delante de ti, cerca de nosotros. « Detrás mío » est familier et déconseillé dans un registre soigné."}},
+      "points": [
+        {"es": "En Argentina y Uruguay, «detrás mío» es normal incluso entre personas cultas.", "translations": {"fr": "En Argentine et en Uruguay, « detrás mío » est normal, même chez les gens cultivés."}},
+        {"es": "Con un nombre sí puedes usar el posesivo: a mi lado, al lado mío.", "translations": {"fr": "Avec un nom, tu peux utiliser le possessif : a mi lado, al lado mío (à côté de moi)."}}
+      ],
+      "examples": [
+        {"es": "Siéntate delante de mí, que te veo mejor.", "translations": {"fr": "Assieds-toi devant moi, je te vois mieux."}, "highlight": ["delante de mí"]},
+        {"es": "La farmacia está muy cerca de nosotros.", "translations": {"fr": "La pharmacie est tout près de chez nous."}, "highlight": ["cerca de nosotros"]},
+        {"es": "Mi nieta se sentó a mi lado.", "translations": {"fr": "Ma petite-fille s'est assise à côté de moi."}, "highlight": ["a mi lado"]}
+      ],
+      "trick": {"es": "Pon siempre «de»: detrás de mí, como en «près de moi».", "translations": {"fr": "Mets toujours « de » : detrás de mí, comme dans « près de moi »."}},
+      "frenchTrap": {"es": "El francés dice «derrière moi», «devant moi», sin «de». En español hace falta: detrás de mí, delante de ti (no «detrás mí»).", "translations": {"fr": "Le français dit « derrière moi », « devant moi », sans « de ». En espagnol, il le faut : detrás de mí, delante de ti (pas « detrás mí »)."}},
+      "seeAlso": ["d_posesivos", "tp_a2_preposiciones"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «detrás»", "url": "https://www.rae.es/dpd/detr%C3%A1s"}],
+      "tags": ["detrás", "posesivos", "adverbios"]
+    },
+    {
+      "id": "d_mas_mayor",
+      "question": {"es": "¿Se puede decir «más mayor»?", "translations": {"fr": "Peut-on dire « más mayor » ?"}},
+      "aliases": ["más mayor", "mayor que", "muy mayor", "hermano mayor", "plus âgé en espagnol", "plus vieux que moi espagnol"],
+      "cefr": "B1",
+      "category": "usage",
+      "emoji": "👵",
+      "answer": {"es": "Para comparar, no: «mayor» ya es comparativo: Mi hermano es mayor que yo (no «más mayor que yo»). Pero si «mayor» significa «de edad», sí vale: Mi abuela ya es muy mayor.", "translations": {"fr": "Pour comparer, non : « mayor » est déjà un comparatif : Mi hermano es mayor que yo (mon frère est plus âgé que moi), pas « más mayor que yo ». Mais si « mayor » veut dire « âgé », c'est correct : Mi abuela ya es muy mayor (ma grand-mère est déjà très âgée)."}},
+      "points": [
+        {"es": "Mayor = con más edad (comparativo): Soy mayor que mi marido.", "translations": {"fr": "Mayor = plus âgé (comparatif) : Soy mayor que mi marido (je suis plus âgée que mon mari)."}},
+        {"es": "Mayor = de edad avanzada, la forma amable de decir «viejo»: las personas mayores.", "translations": {"fr": "Mayor = âgé, la façon polie de dire « vieux » : las personas mayores (les personnes âgées)."}},
+        {"es": "A un niño: «Cuando seas mayor» (adulto) o «Cuando seas más mayor» (con más edad que ahora). Las dos valen.", "translations": {"fr": "À un enfant : « Cuando seas mayor » (quand tu seras grand) ou « Cuando seas más mayor » (quand tu seras plus grand qu'aujourd'hui). Les deux sont correctes."}}
+      ],
+      "examples": [
+        {"es": "Mi hermana es dos años mayor que yo.", "translations": {"fr": "Ma sœur a deux ans de plus que moi."}, "highlight": ["mayor que"]},
+        {"es": "En el autobús, deja el asiento a las personas mayores.", "translations": {"fr": "Dans le bus, laisse ta place aux personnes âgées."}, "highlight": ["personas mayores"]},
+        {"es": "Mi padre ya es muy mayor y vive conmigo.", "translations": {"fr": "Mon père est déjà très âgé et vit avec moi."}, "highlight": ["muy mayor"]}
+      ],
+      "trick": {"es": "Con «que» detrás, nada de «más»: mayor que, menor que, mejor que, peor que.", "translations": {"fr": "Avec « que » derrière, pas de « más » : mayor que, menor que, mejor que, peor que."}},
+      "frenchTrap": {"es": "En francés «mon grand frère» habla de edad. En español es «mi hermano mayor»: «mi hermano grande» hace pensar en el tamaño.", "translations": {"fr": "En français, « mon grand frère » parle de l'âge. En espagnol, c'est « mi hermano mayor » : « mi hermano grande » fait penser à la taille."}},
+      "seeAlso": ["d_mas_de_mas_que", "tp_a2_comparar"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «mayor»", "url": "https://www.rae.es/dpd/mayor"}],
+      "tags": ["mayor", "comparativos", "edad"]
+    },
+    {
+      "id": "d_el_azucar",
+      "question": {"es": "¿El azúcar o la azúcar?", "translations": {"fr": "« El azúcar » ou « la azúcar » ?"}},
+      "aliases": ["la azúcar", "azúcar masculino o femenino", "azúcar moreno o morena", "género de azúcar", "le sucre en espagnol genre", "sucre masculin ou féminin espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🍬",
+      "answer": {"es": "Las dos formas son correctas: «azúcar» puede ser masculino o femenino. Lo más frecuente es el azúcar. Con adjetivo vale todo: el azúcar moreno, la azúcar morena e incluso el azúcar morena.", "translations": {"fr": "Les deux formes sont correctes : « azúcar » peut être masculin ou féminin. Le plus fréquent est « el azúcar ». Avec un adjectif, tout est permis : el azúcar moreno, la azúcar morena et même el azúcar morena (le sucre roux)."}},
+      "points": [
+        {"es": "En plural, casi siempre masculino: los azúcares.", "translations": {"fr": "Au pluriel, presque toujours masculin : los azúcares."}},
+        {"es": "No es como «el agua»: agua es femenina (el agua fría), y azúcar tiene la fuerza en «zú», no en la «a».", "translations": {"fr": "Ce n'est pas comme « el agua » : agua est féminin (el agua fría), et azúcar a sa force sur « zú », pas sur le « a »."}}
+      ],
+      "examples": [
+        {"es": "¿Me pasas el azúcar, por favor?", "translations": {"fr": "Tu me passes le sucre, s'il te plaît ?"}, "highlight": ["el azúcar"]},
+        {"es": "Para el bizcocho uso azúcar moreno.", "translations": {"fr": "Pour le gâteau, j'utilise du sucre roux."}, "highlight": ["azúcar moreno"]},
+        {"es": "Mi abuela decía «la azúcar» y no estaba mal.", "translations": {"fr": "Ma grand-mère disait « la azúcar » et ce n'était pas faux."}, "highlight": ["la azúcar"]}
+      ],
+      "trick": {"es": "Si dudas, di «el azúcar»: es lo más corriente en todas partes.", "translations": {"fr": "En cas de doute, dis « el azúcar » : c'est le plus courant partout."}},
+      "frenchTrap": {"es": "Como «le sucre» es masculino, te saldrá «el azúcar»: perfecto. Ojo con otros nombres que cambian de género: la leche (le lait), la sal (le sel), el coche (la voiture).", "translations": {"fr": "Comme « le sucre » est masculin, tu diras naturellement « el azúcar » : parfait. Attention aux autres noms qui changent de genre : la leche (le lait), la sal (le sel), el coche (la voiture)."}},
+      "seeAlso": ["d_el_agua", "d_genero_nombres", "d_la_calor"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «azúcar»", "url": "https://www.rae.es/dpd/az%C3%BAcar"}],
+      "tags": ["azúcar", "género", "artículos"]
+    },
+    {
+      "id": "d_la_calor",
+      "question": {"es": "¿El calor o la calor?", "translations": {"fr": "« El calor » ou « la calor » ?"}},
+      "aliases": ["la calor", "calor masculino o femenino", "género de calor", "la chaleur en espagnol", "chaleur masculin espagnol"],
+      "cefr": "A2",
+      "category": "grammar",
+      "emoji": "🌡️",
+      "answer": {"es": "El calor: en la lengua general culta es masculino. «La calor» sigue viva en el sur de España, en zonas de América y donde influye el catalán, incluso entre gente culta, pero lo más seguro es el masculino: el calor, mucho calor.", "translations": {"fr": "« El calor » : dans la langue générale soignée, il est masculin. « La calor » reste vivant dans le sud de l'Espagne, dans certaines régions d'Amérique et là où le catalan a de l'influence, même chez des gens cultivés, mais le plus sûr est le masculin : el calor, mucho calor (beaucoup de chaleur)."}},
+      "points": [
+        {"es": "Lo mismo con otros nombres en -or: el color, el dolor, el olor, el valor, el sabor.", "translations": {"fr": "Pareil pour d'autres noms en -or : el color (la couleur), el dolor (la douleur), el olor (l'odeur), el valor (la valeur), el sabor (la saveur)."}},
+        {"es": "Excepciones femeninas: la flor, la labor.", "translations": {"fr": "Exceptions féminines : la flor (la fleur), la labor (le travail, la tâche)."}}
+      ],
+      "examples": [
+        {"es": "Hoy hace mucho calor en Sevilla.", "translations": {"fr": "Aujourd'hui, il fait très chaud à Séville."}, "highlight": ["mucho calor"]},
+        {"es": "Me encanta el color de tu vestido.", "translations": {"fr": "J'adore la couleur de ta robe."}, "highlight": ["el color"]},
+        {"es": "Tengo un dolor fuerte en la espalda.", "translations": {"fr": "J'ai une forte douleur dans le dos."}, "highlight": ["un dolor fuerte"]}
+      ],
+      "trick": {"es": "Palabra en -or = masculina: el calor, el color, el dolor. Las flores son la excepción: la flor.", "translations": {"fr": "Mot en -or = masculin : el calor, el color, el dolor. Les fleurs sont l'exception : la flor."}},
+      "frenchTrap": {"es": "¡Gran trampa! En francés son femeninas (la chaleur, la couleur, la douleur, l'odeur). En español, masculinas: el calor, el color, el dolor, el olor.", "translations": {"fr": "Grand piège ! En français, ils sont féminins (la chaleur, la couleur, la douleur, l'odeur). En espagnol, masculins : el calor, el color, el dolor, el olor."}},
+      "seeAlso": ["d_genero_nombres", "d_el_azucar", "tp_a1_genero_numero"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «calor»", "url": "https://www.rae.es/dpd/calor"}],
+      "tags": ["calor", "género", "sustantivos"]
+    },
+    {
+      "id": "d_infinitivo_imperativo",
+      "question": {"es": "¿Callaros o callaos? ¿Venir o venid?", "translations": {"fr": "« Callaros » ou « callaos » ? « Venir » ou « venid » ?"}},
+      "aliases": ["callaros o callaos", "sentaros o sentaos", "iros o idos", "imperativo de vosotros", "infinitivo por imperativo", "impératif vosotros", "taisez-vous en espagnol"],
+      "cefr": "B1",
+      "category": "grammar",
+      "emoji": "📢",
+      "answer": {"es": "Para dar una orden a «vosotros», usa el imperativo: Venid, Sentaos, Callaos (callad + os, sin la d). El infinitivo («¡Callaros!», «¡Venir aquí!») es muy coloquial y no se considera correcto en un registro cuidado.", "translations": {"fr": "Pour donner un ordre à « vosotros » (vous, entre amis), utilise l'impératif : Venid, Sentaos, Callaos (callad + os, sans le d). L'infinitif (« ¡Callaros! », « ¡Venir aquí! ») est très familier et n'est pas considéré comme correct dans un registre soigné."}},
+      "points": [
+        {"es": "Cómo se forma: infinitivo sin -r + d: hablar → hablad, comer → comed, venir → venid.", "translations": {"fr": "Formation : infinitif sans -r + d : hablar → hablad, comer → comed, venir → venid."}},
+        {"es": "Con «os», la d desaparece: sentad + os = sentaos; lavad + os = lavaos.", "translations": {"fr": "Avec « os », le d disparaît : sentad + os = sentaos ; lavad + os = lavaos."}},
+        {"es": "Excepción: irse → idos, y hoy también se acepta iros.", "translations": {"fr": "Exception : irse → idos, et aujourd'hui « iros » est aussi accepté."}},
+        {"es": "Sí están bien «¡A callar!» y «¡A dormir!» (coloquiales) y los carteles: No fumar.", "translations": {"fr": "Sont corrects « ¡A callar! » et « ¡A dormir! » (familiers) et les panneaux : No fumar (défense de fumer)."}}
+      ],
+      "examples": [
+        {"es": "Niños, lavaos las manos antes de comer.", "translations": {"fr": "Les enfants, lavez-vous les mains avant de manger."}, "highlight": ["lavaos"]},
+        {"es": "Pasad, pasad, estáis en vuestra casa.", "translations": {"fr": "Entrez, entrez, vous êtes chez vous."}, "highlight": ["Pasad"]},
+        {"es": "¡A dormir, que mañana hay cole!", "translations": {"fr": "Au lit, demain il y a école !"}, "highlight": ["A dormir"]}
+      ],
+      "trick": {"es": "Vosotros manda con -d: venid, comed. Si añades «os», la -d se va: sentaos.", "translations": {"fr": "Vosotros donne des ordres avec -d : venid, comed. Si tu ajoutes « os », le -d s'en va : sentaos."}},
+      "frenchTrap": {"es": "El francés usa «vous» para todo; en España, a un grupo de amigos se le habla de vosotros (Sentaos) y, con respeto, de ustedes (Siéntense).", "translations": {"fr": "Le français utilise « vous » pour tout ; en Espagne, à un groupe d'amis on dit vosotros (Sentaos) et, avec respect, ustedes (Siéntense)."}},
+      "seeAlso": ["d_imperativo_negativo", "d_imperativo_pronombres", "tp_imperativo"],
+      "sources": [
+        {"label": "RAE · Español al día: infinitivo por imperativo", "url": "https://www.rae.es/consultas/infinitivo-por-imperativo"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «ir» (idos, iros)", "url": "https://www.rae.es/dpd/ir"}
+      ],
+      "tags": ["imperativo", "vosotros", "infinitivo"]
+    },
+    {
+      "id": "d_a_por",
+      "question": {"es": "¿Voy a por pan o voy por pan?", "translations": {"fr": "« Voy a por pan » ou « voy por pan » ?"}},
+      "aliases": ["a por", "ir a por", "voy a por ti", "ir por algo", "aller chercher en espagnol", "je vais chercher du pain en espagnol"],
+      "cefr": "B1",
+      "category": "usage",
+      "emoji": "🥖",
+      "answer": {"es": "Las dos son correctas en España: Voy a por pan / Voy por pan (= voy a buscar pan). La RAE acepta «a por». En América solo se usa «por»: Voy por pan.", "translations": {"fr": "Les deux sont correctes en Espagne : Voy a por pan / Voy por pan (= je vais chercher du pain). La RAE accepte « a por ». En Amérique, on dit seulement « por » : Voy por pan."}},
+      "points": [
+        {"es": "Ventaja de «a por»: es más claro. «Voy a por mi madre» = voy a buscarla; «Voy por mi madre» también puede ser «en su lugar».", "translations": {"fr": "L'avantage de « a por » : c'est plus clair. « Voy a por mi madre » = je vais la chercher ; « Voy por mi madre » peut aussi vouloir dire « à sa place »."}},
+        {"es": "Muy usado con ir, venir, salir, bajar o subir: Bajo a por el periódico.", "translations": {"fr": "Très courant avec ir, venir, salir, bajar ou subir : Bajo a por el periódico (je descends chercher le journal)."}},
+        {"es": "Con latinoamericanos, mejor «ir por» o «ir a buscar».", "translations": {"fr": "Avec des Latino-Américains, mieux vaut « ir por » ou « ir a buscar »."}}
+      ],
+      "examples": [
+        {"es": "Espera, que voy a por el paraguas.", "translations": {"fr": "Attends, je vais chercher le parapluie."}, "highlight": ["voy a por"], "variety": "es-ES"},
+        {"es": "Mañana voy por pan temprano.", "translations": {"fr": "Demain, je vais chercher du pain de bonne heure."}, "highlight": ["voy por"]},
+        {"es": "¡Vamos a por todas!", "translations": {"fr": "On va tout donner !"}, "highlight": ["a por todas"], "note": "Expresión: dar el máximo.", "noteTranslations": {"fr": "Expression : donner le maximum."}, "variety": "es-ES"}
+      ],
+      "trick": {"es": "Ir a por algo = ir a buscarlo. Si te lías, di «ir a buscar»: vale en todas partes.", "translations": {"fr": "Ir a por algo = aller le chercher. Si tu t'embrouilles, dis « ir a buscar » : ça marche partout."}},
+      "frenchTrap": {"es": "«Aller chercher du pain»: en español, sin «de» ni artículo: Voy a por pan / Voy a buscar pan.", "translations": {"fr": "« Aller chercher du pain » : en espagnol, ni « de » ni article : Voy a por pan / Voy a buscar pan."}},
+      "seeAlso": ["d_por_para", "tp_a2_preposiciones"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «a» (a por)", "url": "https://www.rae.es/dpd/a"}],
+      "tags": ["preposiciones", "ir", "españa"]
+    },
+    {
+      "id": "d_profesiones_femenino",
+      "question": {"es": "¿La jueza? ¿La médica? ¿Cómo se dicen las profesiones en femenino?", "translations": {"fr": "« La jueza » ? « La médica » ? Comment dire les métiers au féminin ?"}},
+      "aliases": ["la médico o la médica", "la juez o la jueza", "la presidenta", "femenino de profesiones", "la abogada", "métiers au féminin espagnol", "femme médecin en espagnol"],
+      "cefr": "A2",
+      "category": "usage",
+      "emoji": "👩‍⚕️",
+      "answer": {"es": "Casi siempre hay femenino: la médica, la abogada, la jueza (o la juez), la presidenta, la ingeniera. Las palabras en -ista o -ante cambian solo el artículo: la taxista, la cantante.", "translations": {"fr": "Il existe presque toujours un féminin : la médica (la médecin), la abogada (l'avocate), la jueza (ou la juez, la juge), la presidenta (la présidente), la ingeniera (l'ingénieure). Les mots en -ista ou -ante changent seulement d'article : la taxista, la cantante (la chanteuse)."}},
+      "compare": [
+        {"title": {"es": "CAMBIA LA PALABRA", "translations": {"fr": "LE MOT CHANGE"}}, "items": [
+          {"es": "-o → -a: la médica, la abogada.", "translations": {"fr": "-o → -a : la médecin, l'avocate."}},
+          {"es": "-or → -ora: la profesora, la doctora.", "translations": {"fr": "-or → -ora : la professeure, la docteure."}},
+          {"es": "Otros: la jueza, la presidenta, la jefa.", "translations": {"fr": "Autres : la juge, la présidente, la cheffe."}}
+        ]},
+        {"title": {"es": "CAMBIA SOLO EL ARTÍCULO", "translations": {"fr": "SEUL L'ARTICLE CHANGE"}}, "items": [
+          {"es": "-ista: la dentista, la periodista.", "translations": {"fr": "-ista : la dentiste, la journaliste."}},
+          {"es": "-ante / -ente: la cantante, la estudiante.", "translations": {"fr": "-ante / -ente : la chanteuse, l'étudiante."}},
+          {"es": "Otros: la piloto, la testigo, la fiscal.", "translations": {"fr": "Autres : la pilote, le témoin, la procureure."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Mi hija es médica en un hospital de Lyon.", "translations": {"fr": "Ma fille est médecin dans un hôpital de Lyon."}, "highlight": ["médica"]},
+        {"es": "La jueza escuchó a los dos testigos.", "translations": {"fr": "La juge a écouté les deux témoins."}, "highlight": ["La jueza"]},
+        {"es": "Mi nieta quiere ser piloto, como su tía.", "translations": {"fr": "Ma petite-fille veut être pilote, comme sa tante."}, "highlight": ["piloto"]}
+      ],
+      "trick": {"es": "Prueba primero el femenino normal (-a, -ora). Si la palabra acaba en -ista o -ante, cambia solo el artículo.", "translations": {"fr": "Essaie d'abord le féminin normal (-a, -ora). Si le mot finit en -ista ou -ante, change seulement l'article."}},
+      "frenchTrap": {"es": "En francés se dice «elle est médecin». En español no digas «la médico»: la RAE pide «la médica». Y sin artículo: Es médica.", "translations": {"fr": "En français, on dit « elle est médecin ». En espagnol, ne dis pas « la médico » : la RAE demande « la médica ». Et sans article : Es médica (elle est médecin)."}},
+      "seeAlso": ["d_articulo_profesion", "d_genero_nombres"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «género» (profesiones y cargos)", "url": "https://www.rae.es/dpd/g%C3%A9nero"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «médico»", "url": "https://www.rae.es/dpd/m%C3%A9dico"}
+      ],
+      "tags": ["profesiones", "femenino", "género"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

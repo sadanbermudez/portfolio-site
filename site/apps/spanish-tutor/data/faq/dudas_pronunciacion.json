@@ -1,0 +1,289 @@
+{
+  "$schema": "../schema/curriculum.schema.json",
+  "type": "faq",
+  "id": "dudas_pronunciacion",
+  "version": "1.0.0",
+  "status": "published",
+  "title": {"es": "Pronunciación", "translations": {"fr": "Prononciation"}},
+  "emoji": "🗣️",
+  "order": 34,
+  "entries": [
+    {
+      "id": "d_pronunciar_j",
+      "question": {"es": "¿Cómo se pronuncia la jota?", "translations": {"fr": "Comment se prononce la « jota » (le j) ?"}},
+      "aliases": ["pronunciar la j", "sonido de la j", "jota española", "j como en jamón", "prononcer le j espagnol", "le son jota", "comment dire jamón"],
+      "cefr": "A1",
+      "category": "pronunciation",
+      "emoji": "💨",
+      "answer": {"es": "La j es un sonido fuerte que sale del fondo de la garganta, con mucho aire: jamón, ajo, Juan. Es como una «r» francesa muy marcada, pero sin voz, solo con aire. La g delante de e, i suena igual: gente, girasol.", "translations": {"fr": "Le j est un son fort qui vient du fond de la gorge, avec beaucoup d'air : jamón, ajo, Juan. C'est comme un « r » français très appuyé, mais sans voix, seulement avec du souffle. Le g devant e, i sonne pareil : gente, girasol."}},
+      "points": [
+        {"es": "Se parece a la «ch» alemana de «Bach». Si sabes algo de alemán, ¡ya lo tienes!", "translations": {"fr": "Ça ressemble au « ch » allemand de « Bach ». Si tu connais un peu l'allemand, tu l'as déjà !"}},
+        {"es": "En el sur de España, en Canarias y en gran parte de América es más suave, casi una h aspirada como en el inglés «hello».", "translations": {"fr": "Dans le sud de l'Espagne, aux Canaries et dans une grande partie de l'Amérique, il est plus doux, presque un h aspiré comme dans l'anglais « hello »."}},
+        {"es": "La x de algunos nombres antiguos también suena como jota: México, Oaxaca, Texas.", "translations": {"fr": "Le x de quelques noms anciens se prononce aussi comme la jota : México, Oaxaca, Texas."}}
+      ],
+      "examples": [
+        {"es": "Juan come jamón con ajo.", "translations": {"fr": "Juan mange du jambon avec de l'ail."}, "highlight": ["Juan", "jamón", "ajo"]},
+        {"es": "La gente joven viaja mucho.", "translations": {"fr": "Les jeunes voyagent beaucoup."}, "highlight": ["gente", "joven", "viaja"]},
+        {"es": "Mi hijo trabaja en Jerez.", "translations": {"fr": "Mon fils travaille à Jerez."}, "highlight": ["hijo", "trabaja", "Jerez"]}
+      ],
+      "trick": {"es": "La risa española se escribe «¡ja, ja, ja!»: ríete con aire, desde la garganta, y ya estás diciendo la jota.", "translations": {"fr": "Le rire espagnol s'écrit « ¡ja, ja, ja! » : ris avec du souffle, depuis la gorge, et tu dis déjà la jota."}},
+      "frenchTrap": {"es": "No la pronuncies como la j francesa de «jour»: Juan no es «Jouan», es «Juan» con aire fuerte. Lo mismo con gente: no suena como «gens».", "translations": {"fr": "Ne la prononce pas comme le j français de « jour » : Juan n'est pas « Jouan », c'est « Juan » avec un souffle fort. Pareil pour gente : ça ne sonne pas comme « gens »."}},
+      "seeAlso": ["d_pronunciar_g", "d_pronunciar_x", "tp_a1_pronunciacion"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «j»", "url": "https://www.rae.es/dpd/j"}],
+      "tags": ["jota", "pronunciación", "consonantes"]
+    },
+    {
+      "id": "d_pronunciar_ll_y",
+      "question": {"es": "¿La ll y la y suenan igual?", "translations": {"fr": "Le « ll » et le « y » se prononcent-ils pareil ?"}},
+      "aliases": ["ll y y", "pronunciar la ll", "yeísmo", "cómo se dice paella", "prononcer ll espagnol", "paella prononciation", "ll comme y"],
+      "cefr": "A1",
+      "category": "pronunciation",
+      "emoji": "🥘",
+      "answer": {"es": "Sí, para casi todos los hispanohablantes: «pollo» y «poyo» suenan igual. Es un sonido como la «y» francesa de «yeux», pero un poco más fuerte. Se llama yeísmo y la RAE lo acepta.", "translations": {"fr": "Oui, pour presque tous les hispanophones : « pollo » (poulet) et « poyo » (banc de pierre) se prononcent pareil. C'est un son comme le « y » français de « yeux », mais un peu plus appuyé. Ça s'appelle le « yeísmo », et la RAE l'accepte."}},
+      "points": [
+        {"es": "Nunca suena como la l: calle se dice «caye», no «cale»; paella, «paeya»; Sevilla, «Seviya».", "translations": {"fr": "Il ne sonne jamais comme un l : calle se dit « caye », pas « cale » ; paella, « paéya » ; Sevilla, « Séviya »."}},
+        {"es": "En Argentina y Uruguay suena como la «j» francesa de «jour» o la «ch» de «chat»: yo, calle, playa.", "translations": {"fr": "En Argentine et en Uruguay, il sonne comme le « j » français de « jour » ou le « ch » de « chat » : yo, calle, playa."}},
+        {"es": "En algunas zonas aún se distinguen (la ll suena como «lli» en «million»), pero no hace falta imitarlo.", "translations": {"fr": "Dans quelques régions, on les distingue encore (le ll sonne comme « lli » dans « million »), mais inutile de l'imiter."}}
+      ],
+      "examples": [
+        {"es": "Me llamo Yolanda y vivo en la calle Mayor.", "translations": {"fr": "Je m'appelle Yolanda et j'habite rue Mayor."}, "highlight": ["llamo", "Yolanda", "calle"]},
+        {"es": "¿Pedimos una paella para dos?", "translations": {"fr": "On commande une paella pour deux ?"}, "highlight": ["paella"]},
+        {"es": "Ayer fuimos a la playa de Sitges.", "translations": {"fr": "Hier, nous sommes allés à la plage de Sitges."}, "highlight": ["Ayer", "playa"]}
+      ],
+      "trick": {"es": "Lee la ll como si fuera una y: pollo = «poyo», llave = «yave».", "translations": {"fr": "Lis le ll comme un y : pollo = « poyo », llave = « yave »."}},
+      "frenchTrap": {"es": "En francés «ll» suena «l» (ville) o «y» (fille). En español nunca «l»: tortilla es «tortiya» y Mallorca, «Mayorca».", "translations": {"fr": "En français, « ll » se prononce « l » (ville) ou « y » (fille). En espagnol, jamais « l » : tortilla se dit « tortiya » et Mallorca, « Mayorca »."}},
+      "seeAlso": ["d_vaya_valla", "d_haya_halla", "tp_a1_pronunciacion"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «yeísmo»", "url": "https://www.rae.es/dpd/ye%C3%ADsmo"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «y»", "url": "https://www.rae.es/dpd/y"}
+      ],
+      "tags": ["ll", "y", "yeísmo", "pronunciación"]
+    },
+    {
+      "id": "d_pronunciar_c_z",
+      "question": {"es": "¿Por qué en América no dicen la z como en España?", "translations": {"fr": "Pourquoi en Amérique ne prononce-t-on pas le z comme en Espagne ?"}},
+      "aliases": ["seseo", "pronunciar la z", "zeta como th", "c y z", "ceceo", "prononcer le z espagnol", "zapato prononciation"],
+      "cefr": "A1",
+      "category": "pronunciation",
+      "emoji": "🌎",
+      "answer": {"es": "En casi toda España, la z (y la c delante de e, i) suena como la «th» inglesa de «think»: zapato, cine, gracias. En América, Canarias y parte de Andalucía suena «s»: es el seseo, y es tan correcto como lo otro.", "translations": {"fr": "Dans presque toute l'Espagne, le z (et le c devant e, i) se prononce comme le « th » anglais de « think » : zapato, cine, gracias. En Amérique, aux Canaries et dans une partie de l'Andalousie, il se prononce « s » : c'est le « seseo », et c'est tout aussi correct."}},
+      "compare": [
+        {"title": {"es": "CASI TODA ESPAÑA", "translations": {"fr": "PRESQUE TOUTE L'ESPAGNE"}}, "items": [
+          {"es": "ce, ci: cine, cielo → lengua entre los dientes.", "translations": {"fr": "ce, ci : cine, cielo → langue entre les dents."}},
+          {"es": "za, zo, zu: zapato, zumo → igual.", "translations": {"fr": "za, zo, zu : zapato, zumo → pareil."}},
+          {"es": "s: casa, sol → una s normal.", "translations": {"fr": "s : casa, sol → un s normal."}},
+          {"es": "Resultado: casa y caza suenan distinto.", "translations": {"fr": "Résultat : casa (maison) et caza (chasse) sonnent différemment."}}
+        ]},
+        {"title": {"es": "AMÉRICA, CANARIAS, PARTE DE ANDALUCÍA", "translations": {"fr": "AMÉRIQUE, CANARIES, UNE PARTIE DE L'ANDALOUSIE"}}, "items": [
+          {"es": "ce, ci: cine, cielo → con s.", "translations": {"fr": "ce, ci : cine, cielo → avec s."}},
+          {"es": "za, zo, zu: zapato, zumo → con s.", "translations": {"fr": "za, zo, zu : zapato, zumo → avec s."}},
+          {"es": "s: casa, sol → s.", "translations": {"fr": "s : casa, sol → s."}},
+          {"es": "Resultado: casa y caza suenan igual.", "translations": {"fr": "Résultat : casa et caza sonnent pareil."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Quiero cinco cervezas, por favor.", "translations": {"fr": "Je voudrais cinq bières, s'il vous plaît."}, "highlight": ["cinco", "cervezas"]},
+        {"es": "Muchas gracias por la cena.", "translations": {"fr": "Merci beaucoup pour le dîner."}, "highlight": ["gracias", "cena"]},
+        {"es": "En la plaza hay una casa azul.", "translations": {"fr": "Sur la place, il y a une maison bleue."}, "highlight": ["plaza", "casa", "azul"], "note": "En España: plaza y azul con «th»; casa con s.", "noteTranslations": {"fr": "En Espagne : plaza et azul avec « th » ; casa avec s."}}
+      ],
+      "trick": {"es": "Elige una forma y sé coherente: la de España (con «th») o la de América (todo con s). Las dos son correctas.", "translations": {"fr": "Choisis une façon et sois cohérente : celle d'Espagne (avec « th ») ou celle d'Amérique (tout en s). Les deux sont correctes."}},
+      "frenchTrap": {"es": "La z española nunca suena como la z francesa de «zéro». Y la s entre vocales tampoco: casa suena «cassa», nunca «caze».", "translations": {"fr": "Le z espagnol ne sonne jamais comme le z français de « zéro ». Et le s entre deux voyelles non plus : casa se dit « cassa », jamais « caze »."}},
+      "seeAlso": ["d_vez_ves", "tp_a1_pronunciacion"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «seseo»", "url": "https://www.rae.es/dpd/seseo"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «z»", "url": "https://www.rae.es/dpd/z"}
+      ],
+      "tags": ["seseo", "zeta", "pronunciación"]
+    },
+    {
+      "id": "d_pronunciar_r_rr",
+      "question": {"es": "¿Cómo se pronuncian la r y la rr?", "translations": {"fr": "Comment se prononcent le « r » et le « rr » ?"}},
+      "aliases": ["pronunciar la r", "erre doble", "r fuerte", "pero o perro", "rouler les r espagnol", "prononcer le r espagnol", "r roulé"],
+      "cefr": "A1",
+      "category": "pronunciation",
+      "emoji": "🐕",
+      "answer": {"es": "La r suave (pero, cara) es un golpecito rápido de la punta de la lengua detrás de los dientes de arriba. La rr fuerte (perro, Roma) es la misma, pero vibrando varias veces. ¡Nunca con la garganta, como en francés!", "translations": {"fr": "Le r doux (pero, cara) est une petite frappe rapide du bout de la langue derrière les dents du haut. Le rr fort (perro, Roma) est le même, mais qui vibre plusieurs fois. Jamais avec la gorge, comme en français !"}},
+      "compare": [
+        {"title": {"es": "R SUAVE (un golpe)", "translations": {"fr": "R DOUX (une frappe)"}}, "items": [
+          {"es": "Entre vocales: pero, cara, caro.", "translations": {"fr": "Entre voyelles : pero (mais), cara (visage), caro (cher)."}},
+          {"es": "Tras consonante: tres, brazo, padre.", "translations": {"fr": "Après une consonne : tres, brazo, padre."}},
+          {"es": "Al final: comer, hablar, mar.", "translations": {"fr": "En fin de mot : comer, hablar, mar."}}
+        ]},
+        {"title": {"es": "RR FUERTE (vibra)", "translations": {"fr": "RR FORT (vibre)"}}, "items": [
+          {"es": "rr entre vocales: perro, carro, tierra.", "translations": {"fr": "rr entre voyelles : perro (chien), carro (chariot), tierra (terre)."}},
+          {"es": "r al principio: Roma, rosa, rico.", "translations": {"fr": "r en début de mot : Roma, rosa, rico."}},
+          {"es": "Tras n, l, s: Enrique, alrededor, Israel.", "translations": {"fr": "Après n, l, s : Enrique, alrededor, Israel."}}
+        ]}
+      ],
+      "examples": [
+        {"es": "Pero, ¿quieres un perro?", "translations": {"fr": "Mais tu veux un chien ?"}, "highlight": ["Pero", "perro"]},
+        {"es": "El perro de Rosa es muy cariñoso.", "translations": {"fr": "Le chien de Rosa est très affectueux."}, "highlight": ["perro", "Rosa", "cariñoso"]},
+        {"es": "Voy a comprar arroz al mercado.", "translations": {"fr": "Je vais acheter du riz au marché."}, "highlight": ["comprar", "arroz", "mercado"]}
+      ],
+      "trick": {"es": "Di «cada» muy deprisa, con la lengua ligera: suena casi como «cara». Ese golpecito es la r suave.", "translations": {"fr": "Dis « cada » très vite, la langue légère : ça sonne presque comme « cara ». Cette petite frappe, c'est le r doux."}},
+      "frenchTrap": {"es": "La r francesa se hace en la garganta; la española, con la punta de la lengua. Cuidado con pero (mais) y perro (chien): una vibración cambia el sentido.", "translations": {"fr": "Le r français se fait dans la gorge ; l'espagnol, avec le bout de la langue. Attention à pero (mais) et perro (chien) : une vibration change le sens."}},
+      "seeAlso": ["tp_a1_pronunciacion", "d_acento_tonico"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «r»", "url": "https://www.rae.es/dpd/r"}],
+      "tags": ["erre", "pronunciación", "consonantes"]
+    },
+    {
+      "id": "d_pronunciar_b_v",
+      "question": {"es": "¿La b y la v suenan igual?", "translations": {"fr": "Le « b » et le « v » se prononcent-ils pareil ?"}},
+      "aliases": ["b y v", "be o uve", "pronunciar la v", "vino o bino", "prononcer le v espagnol", "b et v en espagnol", "con be o con uve"],
+      "cefr": "A1",
+      "category": "pronunciation",
+      "emoji": "👄",
+      "answer": {"es": "Sí, exactamente igual: las dos se dicen con los dos labios, como la b francesa. Vino, vaca y Valencia suenan con b. En español no existe el sonido de la v francesa (labio y dientes).", "translations": {"fr": "Oui, exactement pareil : les deux se disent avec les deux lèvres, comme le b français. Vino, vaca et Valencia se prononcent avec un b. L'espagnol n'a pas le son du v français (lèvre et dents)."}},
+      "points": [
+        {"es": "Entre vocales los labios casi no se cierran y suena más suave: uva, sábado, Cuba.", "translations": {"fr": "Entre deux voyelles, les lèvres se ferment à peine et le son est plus doux : uva, sábado, Cuba."}},
+        {"es": "Para deletrear se dice «be» y «uve»: ¿Álvarez con be o con uve? —Con uve.", "translations": {"fr": "Pour épeler, on dit « be » et « uve » : ¿Álvarez con be o con uve? — Con uve (avec un v)."}},
+        {"es": "Como suenan igual, la ortografía se aprende de memoria: vaca (vache) y baca (portaequipajes del coche).", "translations": {"fr": "Comme ils sonnent pareil, l'orthographe s'apprend par cœur : vaca (vache) et baca (galerie de voiture)."}}
+      ],
+      "examples": [
+        {"es": "¿Vamos a ver a la abuela el sábado?", "translations": {"fr": "On va voir mamie samedi ?"}, "highlight": ["Vamos", "ver", "abuela", "sábado"]},
+        {"es": "Un vaso de vino blanco, por favor.", "translations": {"fr": "Un verre de vin blanc, s'il vous plaît."}, "highlight": ["vaso", "vino", "blanco"]},
+        {"es": "Vivo en Valencia desde hace veinte años.", "translations": {"fr": "J'habite à Valence depuis vingt ans."}, "highlight": ["Vivo", "Valencia", "veinte"]}
+      ],
+      "trick": {"es": "Ante una v, pon los labios como para decir «bonjour».", "translations": {"fr": "Devant un v, mets les lèvres comme pour dire « bonjour »."}},
+      "frenchTrap": {"es": "Si dices «vino» con la v francesa, se te entiende, pero suena extranjero. Y al deletrear tu apellido, aclara: «con be» o «con uve».", "translations": {"fr": "Si tu dis « vino » avec le v français, on te comprend, mais ça sonne étranger. Et quand tu épelles ton nom, précise : « con be » ou « con uve »."}},
+      "seeAlso": ["d_haber_a_ver", "d_vaya_valla", "tp_a1_pronunciacion"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «v»", "url": "https://www.rae.es/dpd/v"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «b»", "url": "https://www.rae.es/dpd/b"}
+      ],
+      "tags": ["be", "uve", "pronunciación", "deletrear"]
+    },
+    {
+      "id": "d_pronunciar_h",
+      "question": {"es": "¿La h se pronuncia?", "translations": {"fr": "Le « h » se prononce-t-il ?"}},
+      "aliases": ["h muda", "pronunciar la h", "hola sin h", "la hache", "h muet espagnol", "prononcer le h espagnol"],
+      "cefr": "A1",
+      "category": "pronunciation",
+      "emoji": "🤫",
+      "answer": {"es": "No: la h es muda. Hola se dice «ola»; hotel, «otel»; ahora, «a-o-ra». Solo cuenta en ch, que suena «tch»: chico, mucho, chocolate.", "translations": {"fr": "Non : le h est muet. Hola se dit « ola » ; hotel, « otel » ; ahora, « a-o-ra ». Il ne compte que dans ch, qui se prononce « tch » : chico, mucho, chocolate."}},
+      "points": [
+        {"es": "Hue- suena «ue» y hie- suena «ye»: huevo = «uebo», hielo = «yelo».", "translations": {"fr": "Hue- se prononce « oué » et hie- « yé » : huevo (œuf) = « ouébo », hielo (glace) = « yélo »."}},
+        {"es": "En algunas palabras extranjeras suena como j: hámster, hachís.", "translations": {"fr": "Dans quelques mots étrangers, il sonne comme un j espagnol : hámster, hachís."}},
+        {"es": "En zonas de Andalucía, Extremadura o Canarias, algunas personas la aspiran en ciertas palabras: es un rasgo regional.", "translations": {"fr": "Dans certaines zones d'Andalousie, d'Estrémadure ou des Canaries, certaines personnes l'aspirent dans quelques mots : c'est un trait régional."}}
+      ],
+      "examples": [
+        {"es": "Hola, ¿a qué hora es la cena en el hotel?", "translations": {"fr": "Bonjour, à quelle heure est le dîner à l'hôtel ?"}, "highlight": ["Hola", "hora", "hotel"]},
+        {"es": "Ahora no puedo hablar, ¡hasta luego!", "translations": {"fr": "Je ne peux pas parler maintenant, à plus tard !"}, "highlight": ["Ahora", "hablar", "hasta"]},
+        {"es": "Mi nieto come mucho chocolate.", "translations": {"fr": "Mon petit-fils mange beaucoup de chocolat."}, "highlight": ["mucho", "chocolate"], "note": "ch = «tch», como en «tchèque».", "noteTranslations": {"fr": "ch = « tch », comme dans « tchèque »."}}
+      ],
+      "trick": {"es": "Haz como si la h no existiera… salvo en ch, que es «tch».", "translations": {"fr": "Fais comme si le h n'existait pas… sauf dans ch, qui se dit « tch »."}},
+      "frenchTrap": {"es": "La ch española no suena como la de «chat»: es «tch», como en «tchèque». Chile no se dice como «le Chili» francés.", "translations": {"fr": "Le ch espagnol ne sonne pas comme celui de « chat » : c'est « tch », comme dans « tchèque ». Chile ne se dit pas comme « le Chili » en français."}},
+      "seeAlso": ["d_haber_a_ver", "d_hay_ahi_ay", "tp_a1_pronunciacion"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «h»", "url": "https://www.rae.es/dpd/h"}],
+      "tags": ["hache", "ch", "pronunciación"]
+    },
+    {
+      "id": "d_pronunciar_u",
+      "question": {"es": "¿La u se dice como en francés?", "translations": {"fr": "Le « u » se prononce-t-il comme en français ?"}},
+      "aliases": ["pronunciar la u", "u como ou", "vocales en español", "pronunciar las vocales", "prononcer le u espagnol", "u se dit ou"],
+      "cefr": "A1",
+      "category": "pronunciation",
+      "emoji": "🔊",
+      "answer": {"es": "No: cuando suena, la u española es siempre «ou», como en «loup»: luna = «louna», mucho = «moutcho», Uruguay = «Ourougouaï». El sonido de la u francesa de «tu» no existe en español.", "translations": {"fr": "Non : quand il se prononce, le u espagnol fait toujours « ou », comme dans « loup » : luna = « louna », mucho = « moutcho », Uruguay = « Ourougouaï ». Le son du u français de « tu » n'existe pas en espagnol."}},
+      "points": [
+        {"es": "En que, qui, gue, gui la u no suena, igual que en francés: queso = «késo»; guitarra, como «guitare».", "translations": {"fr": "Dans que, qui, gue, gui, le u ne se prononce pas, comme en français : queso = « késo » ; guitarra, comme « guitare »."}},
+        {"es": "Con diéresis (ü) sí suena: pingüino = «pingouino», vergüenza.", "translations": {"fr": "Avec un tréma (ü), il se prononce : pingüino = « pingouino », vergüenza."}},
+        {"es": "Las cinco vocales se pronuncian siempre claras: la e final suena (noche = «notché») y no hay vocales nasales: un, con, tan, con la n bien dicha.", "translations": {"fr": "Les cinq voyelles se prononcent toujours clairement : le e final se dit (noche = « notché ») et il n'y a pas de voyelles nasales : un, con, tan, avec le n bien prononcé."}}
+      ],
+      "examples": [
+        {"es": "Tu música me gusta mucho.", "translations": {"fr": "J'aime beaucoup ta musique."}, "highlight": ["Tu", "música", "gusta", "mucho"]},
+        {"es": "¿Quieres más queso?", "translations": {"fr": "Tu veux encore du fromage ?"}, "highlight": ["Quieres", "queso"]},
+        {"es": "Mi nieto tiene un pingüino de peluche.", "translations": {"fr": "Mon petit-fils a un pingouin en peluche."}, "highlight": ["pingüino"]}
+      ],
+      "trick": {"es": "Ante una u española, pon la boca de «ou»: luna, Lucía, música.", "translations": {"fr": "Devant un u espagnol, fais la bouche de « ou » : luna, Lucía, música."}},
+      "frenchTrap": {"es": "«Tu música» no se dice como «tu musique»: es «tou moussica». Y «un» no es nasal: se dice «oun».", "translations": {"fr": "« Tu música » ne se dit pas comme « tu musique » : c'est « tou moussica ». Et « un » n'est pas nasal : on dit « oun »."}},
+      "seeAlso": ["d_pronunciar_g", "tp_a1_pronunciacion"],
+      "sources": [{"label": "RAE · Diccionario panhispánico de dudas: «u»", "url": "https://www.rae.es/dpd/u"}],
+      "tags": ["u", "vocales", "pronunciación"]
+    },
+    {
+      "id": "d_pronunciar_g",
+      "question": {"es": "¿Ge, gue, güe? ¿Cómo suena la g?", "translations": {"fr": "« Ge », « gue », « güe » ? Comment se prononce le g ?"}},
+      "aliases": ["pronunciar la g", "gue gui", "diéresis güe", "ge gi jota", "prononcer le g espagnol", "tréma sur le u espagnol", "pingüino prononciation"],
+      "cefr": "A1",
+      "category": "pronunciation",
+      "emoji": "🐧",
+      "answer": {"es": "Depende de la vocal: ga, go, gu = g dura (gato); gue, gui = g dura y la u no suena (guerra); güe, güi = se oye la u (pingüino); ge, gi = sonido de jota (gente).", "translations": {"fr": "Ça dépend de la voyelle : ga, go, gu = g dur (gato) ; gue, gui = g dur et le u ne se prononce pas (guerra) ; güe, güi = on entend le u (pingüino) ; ge, gi = son de la jota (gente)."}},
+      "points": [
+        {"es": "ga, go, gu: g dura, como en «gare». Gato, gota, gusto.", "translations": {"fr": "ga, go, gu : g dur, comme dans « gare ». Gato (chat), gota (goutte), gusto (goût)."}},
+        {"es": "gue, gui: g dura y u muda, como en «guerre». Guerra, guitarra, Miguel.", "translations": {"fr": "gue, gui : g dur et u muet, comme dans « guerre ». Guerra, guitarra, Miguel."}},
+        {"es": "güe, güi: la u suena «ou». Pingüino, vergüenza, cigüeña, bilingüe.", "translations": {"fr": "güe, güi : le u se prononce « ou ». Pingüino, vergüenza (honte), cigüeña (cigogne), bilingüe."}},
+        {"es": "ge, gi: suena como la jota, con aire fuerte. Gente, girasol, Argentina.", "translations": {"fr": "ge, gi : se prononce comme la jota, avec un souffle fort. Gente, girasol (tournesol), Argentina."}}
+      ],
+      "examples": [
+        {"es": "Miguel toca la guitarra en la playa.", "translations": {"fr": "Miguel joue de la guitare à la plage."}, "highlight": ["Miguel", "guitarra"]},
+        {"es": "Me da vergüenza cantar delante de la gente.", "translations": {"fr": "J'ai honte de chanter devant les gens."}, "highlight": ["vergüenza", "gente"]},
+        {"es": "Hay una cigüeña en el tejado de la iglesia.", "translations": {"fr": "Il y a une cigogne sur le toit de l'église."}, "highlight": ["cigüeña"]}
+      ],
+      "trick": {"es": "Los dos puntitos de la ü dicen: «¡pronúnciame!».", "translations": {"fr": "Les deux petits points du ü disent : « prononce-moi ! »."}},
+      "frenchTrap": {"es": "Ge y gi no suenan como en «gens» o «girafe», sino con jota: gente = «jente». Y la diéresis va sobre la u (pingüino), no sobre la e como en «aiguë».", "translations": {"fr": "Ge et gi ne se prononcent pas comme dans « gens » ou « girafe », mais avec la jota : gente = « jente » (j espagnol). Et le tréma se met sur le u (pingüino), pas sur le e comme dans « aiguë »."}},
+      "seeAlso": ["d_pronunciar_j", "d_pronunciar_u"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «g»", "url": "https://www.rae.es/dpd/g"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «u» (diéresis)", "url": "https://www.rae.es/dpd/u"}
+      ],
+      "tags": ["ge", "diéresis", "pronunciación"]
+    },
+    {
+      "id": "d_pronunciar_x",
+      "question": {"es": "¿Cómo se dice México: con «ks» o con jota?", "translations": {"fr": "Comment dit-on « México » : avec « ks » ou avec la jota ?"}},
+      "aliases": ["pronunciar México", "Méjico o México", "pronunciar la x", "Texas Oaxaca", "prononcer Mexique en espagnol", "le x espagnol"],
+      "cefr": "A1",
+      "category": "pronunciation",
+      "emoji": "🇲🇽",
+      "answer": {"es": "Con jota: México se dice «Méjico». Esa x antigua suena como j en México, mexicano, Oaxaca y Texas. En las demás palabras, la x suena «ks»: taxi, examen, éxito.", "translations": {"fr": "Avec la jota : México se dit « Méjico ». Ce x ancien sonne comme un j espagnol dans México, mexicano, Oaxaca et Texas. Dans les autres mots, le x se prononce « ks » : taxi, examen, éxito."}},
+      "points": [
+        {"es": "Se escribe México, con x, como en el propio país. «Méjico» también es correcto, pero hoy se usa menos.", "translations": {"fr": "On écrit México, avec x, comme dans le pays lui-même. « Méjico » est aussi correct, mais on l'utilise moins aujourd'hui."}},
+        {"es": "Al principio de palabra, la x suena s: xilófono = «silófono».", "translations": {"fr": "En début de mot, le x se prononce s : xilófono = « silófono »."}},
+        {"es": "Entre vocales suena «ks», nunca con la z francesa: examen = «ek-sa-men», no «eg-za-men».", "translations": {"fr": "Entre deux voyelles, il se prononce « ks », jamais avec le z français : examen = « ek-sa-men », pas « eg-za-men »."}}
+      ],
+      "examples": [
+        {"es": "Mi sobrino vive en Ciudad de México.", "translations": {"fr": "Mon neveu habite à Mexico."}, "highlight": ["México"]},
+        {"es": "La comida mexicana pica mucho.", "translations": {"fr": "La cuisine mexicaine est très épicée."}, "highlight": ["mexicana"]},
+        {"es": "Tomamos un taxi para llegar al examen.", "translations": {"fr": "Nous avons pris un taxi pour arriver à l'examen."}, "highlight": ["taxi", "examen"]}
+      ],
+      "trick": {"es": "Nombres de México con x antigua (México, Oaxaca, Texas): jota. El resto: «ks».", "translations": {"fr": "Les noms du Mexique avec un x ancien (México, Oaxaca, Texas) : jota. Le reste : « ks »."}},
+      "frenchTrap": {"es": "En francés se dice «Mexique» con «ks», pero en español es «Méjico», con jota. Y «examen» no suena «egzamen» como en francés, sino «eksamen».", "translations": {"fr": "En français, on dit « Mexique » avec « ks », mais en espagnol c'est « Méjico », avec la jota. Et « examen » ne se prononce pas « egzamen » comme en français, mais « eksamen »."}},
+      "seeAlso": ["d_pronunciar_j", "d_pronunciar_c_z"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «México»", "url": "https://www.rae.es/dpd/M%C3%A9xico"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «x»", "url": "https://www.rae.es/dpd/x"}
+      ],
+      "tags": ["equis", "méxico", "pronunciación"]
+    },
+    {
+      "id": "d_acento_tonico",
+      "question": {"es": "¿Qué sílaba se acentúa al hablar?", "translations": {"fr": "Quelle syllabe accentuer en parlant ?"}},
+      "aliases": ["sílaba tónica", "acento tónico", "dónde va el acento", "acento al hablar", "accent tonique espagnol", "quelle syllabe accentuer", "prononcer teléfono"],
+      "cefr": "A1",
+      "category": "pronunciation",
+      "emoji": "🥁",
+      "answer": {"es": "Cada palabra tiene una sílaba más fuerte. Sin tilde: si termina en vocal, n o s, la fuerza va en la penúltima (casa, hablan); si no, en la última (hablar, Madrid). Si hay tilde, la fuerza va ahí (café, médico).", "translations": {"fr": "Chaque mot a une syllabe plus forte. Sans accent écrit : s'il finit par une voyelle, n ou s, la force tombe sur l'avant-dernière (casa, hablan) ; sinon, sur la dernière (hablar, Madrid). S'il y a un accent écrit, la force est là (café, médico)."}},
+      "points": [
+        {"es": "La fuerza cambia el sentido: papa (patata) / papá (padre); hablo (yo, ahora) / habló (él, ayer).", "translations": {"fr": "La force change le sens : papa (pomme de terre) / papá (papa) ; hablo (je parle) / habló (il a parlé)."}},
+        {"es": "Palabras largas: te-LÉ-fo-no, MÉ-di-co, SÁ-ba-do. La tilde te dice dónde golpear.", "translations": {"fr": "Mots longs : te-LÉ-fo-no, MÉ-di-co, SÁ-ba-do. L'accent écrit te dit où frapper."}},
+        {"es": "Nombres de ciudades: Gra-NA-da, To-LE-do, Bar-ce-LO-na, Va-LEN-cia.", "translations": {"fr": "Noms de villes : Gra-NA-da, To-LE-do, Bar-ce-LO-na, Va-LEN-cia."}}
+      ],
+      "examples": [
+        {"es": "Ayer hablé con el médico; hoy hablo con la enfermera.", "translations": {"fr": "Hier, j'ai parlé avec le médecin ; aujourd'hui, je parle avec l'infirmière."}, "highlight": ["hablé", "médico", "hablo"]},
+        {"es": "Vivo en Granada, cerca de la Alhambra.", "translations": {"fr": "J'habite à Grenade, près de l'Alhambra."}, "highlight": ["Granada", "Alhambra"]},
+        {"es": "¿Me das tu número de teléfono?", "translations": {"fr": "Tu me donnes ton numéro de téléphone ?"}, "highlight": ["número", "teléfono"]}
+      ],
+      "trick": {"es": "Da una palmada en la sílaba fuerte: CA-sa, ha-BLAR, te-LÉ-fo-no. ¡El ritmo ayuda!", "translations": {"fr": "Frappe dans tes mains sur la syllabe forte : CA-sa, ha-BLAR, te-LÉ-fo-no. Le rythme aide !"}},
+      "frenchTrap": {"es": "En francés la fuerza va casi siempre al final; en español cambia de una palabra a otra. No digas «medi-CO» ni «Grana-DA»: MÉ-di-co, Gra-NA-da.", "translations": {"fr": "En français, la force tombe presque toujours à la fin ; en espagnol, elle change d'un mot à l'autre. Ne dis pas « medi-CO » ni « Grana-DA » : MÉ-di-co, Gra-NA-da."}},
+      "seeAlso": ["d_tilde_reglas", "d_hiatos", "tp_a1_pronunciacion"],
+      "sources": [
+        {"label": "RAE · Diccionario panhispánico de dudas: «acento»", "url": "https://www.rae.es/dpd/acento"},
+        {"label": "RAE · Diccionario panhispánico de dudas: «tilde»", "url": "https://www.rae.es/dpd/tilde"}
+      ],
+      "tags": ["acento", "sílaba", "pronunciación"]
+    }
+  ],
+  "author": "Claude",
+  "createdAt": "2026-10-11"
+}

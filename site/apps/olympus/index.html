@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Olympus fitness app · Sergio Adan Bermudez</title>
+<meta name="description" content="Olympus, my offline-first Flutter app for training, food and health, as a working web demo: workout logger, recovery map, race predictor, caffeine curve and a coach that shows its sources.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Roboto:wght@400;500;700&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0..1,0&icon_names=add,air,arrow_back,auto_awesome,battery_full,check,chevron_right,close,database,directions_run,emoji_events,event_note,fitness_center,info,landscape,local_cafe,person,play_arrow,remove,restaurant,settings,signal_cellular_alt,stop,timer,trending_up,warning,water_drop,wb_sunny,wifi&display=block">
+<link rel="stylesheet" href="../../site.css">
+<link rel="stylesheet" href="../../immersive.css">
+<link rel="stylesheet" href="olympus.css">
+</head>
+<body>
+<div class="top-wrap gutter">
+  <header class="top page">
+    <a class="brand" href="../../index.html">Sergio Adan Bermudez</a>
+    <nav aria-label="Site"><a href="../../index.html#apps">Apps</a><a href="../../index.html#worlds">Projects</a><a href="../../work/chess.html">Chess</a><a href="../../jarvis.html">Jarvis</a><a href="../../about.html">About</a><a href="../../index.html#contact">Contact</a></nav>
+  </header>
+</div>
+
+<main class="gutter">
+  <div class="page">
+    <section class="article-head">
+      <p class="label">Olympus · Flutter app · personal project</p>
+      <h1>Olympus: a fitness app where every number has a source</h1>
+      <p class="lede">My own app for training, food and health on Android. It plans lifting and running, logs workouts and meals, reads my watch through Health Connect, and has a coach that runs on the phone. It works offline, keeps health data encrypted on the device, and every figure it shows names the formula or dataset it came from.</p>
+      <ul class="ol-chips" aria-label="Technology">
+        <li>Flutter</li><li>Dart</li><li>Riverpod</li><li>go_router</li><li>Drift + SQLite3MultipleCiphers</li><li>ML Kit pose detection</li><li>On-device LLM (llama.cpp)</li><li>Health Connect</li><li>English and Spanish</li>
+      </ul>
+      <div class="readings">
+        <div><span class="label">Status</span><span class="value">v0.11</span><span class="note">Personal app, Android only, not on a store</span></div>
+        <div><span class="label">Code</span><span class="value">434</span><span class="note">Dart files in 26 feature modules</span></div>
+        <div><span class="label">Database</span><span class="value">66</span><span class="note">Drift tables on encrypted SQLite</span></div>
+        <div><span class="label">Coach</span><span class="value">2B</span><span class="note">Qwen3.5 on the phone, 18 app tools</span></div>
+      </div>
+      <p class="ol-note"><strong>Web demo:</strong> a recreation of the Flutter app's screens with sample data. The real app runs on Android.</p>
+    </section>
+
+    <section class="ol-demo" aria-labelledby="demo-h">
+      <h2 id="demo-h" class="sr">Interactive demo</h2>
+      <div class="ol-grid">
+        <div class="ol-phone-col">
+          <div class="ol-controls">
+            <div class="ol-toggle" role="group" aria-label="App language">
+              <button type="button" data-page-lang="en" aria-pressed="true">English</button><button type="button" data-page-lang="es" aria-pressed="false">Español</button>
+            </div>
+            <div class="ol-toggle" role="group" aria-label="App theme">
+              <button type="button" data-page-theme="light" aria-pressed="true">Light</button><button type="button" data-page-theme="dark" aria-pressed="false">Dark</button>
+            </div>
+          </div>
+          <div class="ol-caption" id="tour-caption">
+            <button type="button" data-tour="prev" aria-label="Previous tour step">←</button>
+            <p aria-live="polite"><span class="cap-count">Guided tour</span><span class="cap-title">Press Next to start, or use the app freely</span></p>
+            <button type="button" data-tour="next" aria-label="Next tour step">Next →</button>
+          </div>
+          <div class="phone">
+            <div id="olympus" class="m3" data-theme="light" lang="en" role="region" aria-label="Olympus app demo">
+              <div class="statusbar" aria-hidden="true"><span>13:45</span><span><span class="ms">signal_cellular_alt</span><span class="ms">wifi</span><span class="ms">battery_full</span></span></div>
+              <header class="appbar"></header>
+              <div class="screen" tabindex="0" aria-label="Screen content"></div>
+              <div class="restbar" hidden></div>
+              <div class="snackbar" role="status" aria-live="polite"></div>
+              <nav class="navbar"></nav>
+              <div class="scrim" hidden><div class="sheet" role="dialog" aria-modal="true"></div></div>
+            </div>
+          </div>
+        </div>
+        <aside class="ol-tour" aria-labelledby="tour-h">
+          <h2 id="tour-h">Guided tour</h2>
+          <p>Eight stops. Each one drives the app on the left; then keep tapping around.</p>
+          <ol id="tour-steps" class="ol-steps"></ol>
+          <p class="mono">The demo clock opens at 13:45 today. Profile, food log, workouts and watch readings are made up.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="side"><p class="label">How it's built</p></div>
+      <div class="main">
+        <h2>Architecture</h2>
+        <dl class="parts">
+          <div><dt>Flutter, Material 3, Riverpod 3</dt><dd>State lives in Riverpod providers. The theme is seeded from deep Aegean blue (#2A5BA8), light and dark, and takes the wallpaper colours on Android 12 and later.</dd></div>
+          <div><dt>go_router</dt><dd>Five tabs (Today, Train, Eat, Coach, Profile) in a shell route, with deep links into sessions, races and foods from widgets and notifications.</dd></div>
+          <div><dt>Drift on encrypted SQLite</dt><dd>66 tables on SQLite3MultipleCiphers with FTS5 search. The app refuses to open the database if the cipher is missing, and backups are re-keyed with a passphrase.</dd></div>
+          <div><dt>Pure-Dart domain engines</dt><dd>Lifting plans, progressive overload, recovery, VDOT paces, race prediction, nutrition targets, caffeine and readiness are plain Dart with no Flutter imports, so they are unit tested on their own. This page runs JavaScript ports of them.</dd></div>
+          <div><dt>Local coach with a number guard</dt><dd>Qwen3.5 2B (Q4_K_M) through llama.cpp, downloaded once and checked by SHA-256. It reads data through 18 app tools, and the guard flags any number in a reply that no tool returned.</dd></div>
+          <div><dt>Platform channels</dt><dd>Kotlin behind method channels: Health Connect for sleep, heart rate, HRV and steps; a foreground service that keeps GPS runs going with the screen off; and safety texts by SMS on outdoor outings.</dd></div>
+        </dl>
+        <h2>Principles</h2>
+        <ul class="ol-list">
+          <li><strong>Offline first.</strong> Every core feature works in airplane mode. The network is only for sync, weather and dataset updates.</li>
+          <li><strong>Every number has a source.</strong> Calories and macros come from bundled food datasets; everything else from a published formula, cited on the screen that shows it. Where the app uses its own rule, it says so.</li>
+          <li><strong>Health data stays encrypted on the device.</strong> Nothing leaves the phone without an explicit toggle.</li>
+          <li><strong>The engine decides, the model explains.</strong> Plans and adaptations come from deterministic code; the language model only explains them and turns free text into data.</li>
+        </ul>
+        <h2>What this demo cannot show</h2>
+        <dl class="parts">
+          <div><dt>Camera rep counter</dt><dd>ML Kit pose detection follows the joints on the camera feed and counts reps of a set.</dd></div>
+          <div><dt>Hands-free logging</dt><dd>Say "80 kilos, 8 reps" or "ochenta kilos, ocho repeticiones" after a set; a deterministic parser logs it, with no model involved.</dd></div>
+          <div><dt>GPS runs</dt><dd>Guided runs with spoken cues, interval paces adjusted for the heat, and the route recorded by a foreground service.</dd></div>
+          <div><dt>Barcode and label scanning</dt><dd>Scan a product's barcode, or read a nutrition label with on-device text recognition when the product is not in the catalogue.</dd></div>
+        </dl>
+        <h2>About this page</h2>
+        <p>The ported engines are tested against the values the Dart code gives (VDOT 49.8 from a 20-minute 5K, as in Daniels' tables). The exercise names, foods and nutrition values here are a small list written for this page, not the app's licensed datasets. The coach is a scripted replay; the number check on its replies is the real logic, ported.</p>
+        <div class="cta"><a class="btn primary" href="../../index.html#contact">Get in touch</a><a class="back" href="../../index.html#worlds">← All projects</a></div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="mono">Sample data only: a demo profile and made-up watch readings. Formulas ported from the app's Dart source, with the same citations. Built with Claude Code, directed and reviewed by me.</p>
+    </footer>
+  </div>
+</main>
+<script type="module" src="tour.js"></script>
+</body>
+</html>
