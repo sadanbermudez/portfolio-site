@@ -11,7 +11,9 @@ window.ChessViewer = (function () {
   var X = null;                       // explore state: { base, line: [{fen, san, uci}], sel, targets, promo, ev, token }
   var rules = null, engine = null, EXPLORE_MS = 800;
   var board = document.getElementById('board');
-  var bar = document.querySelector('.evalbar .black');
+  var barEl = document.querySelector('.evalbar'), bar = barEl && barEl.querySelector('.black'), barNum = barEl && barEl.querySelector('.evalnum');
+  var shownEval = null;               // last evaluation drawn on the bar, kept while the engine thinks
+  var teach = { key: null, res: null, tok: 0 };   // the move explanation on screen (chess-teach.js)
   var pos = document.getElementById('pos');
   var detail = document.getElementById('detail');
   var list = document.getElementById('movelist');
@@ -46,36 +48,57 @@ window.ChessViewer = (function () {
     var b = fenBoard(curFen()), html = '';
     var lastUci = X ? (X.line.length ? X.line[X.line.length - 1].uci : (ply >= 0 ? G.plies[ply].uci : null)) : (ply >= 0 ? G.plies[ply].uci : null);
     var hl = lastUci ? [lastUci.slice(0, 2), lastUci.slice(2, 4)] : [];
-    var tg = {};
+    var tg = {}, tm = teach.res && teach.key === viewKey() ? teach.res.marks : null;
     if (X && X.targets) X.targets.forEach(function (m) { tg[m.to] = m.captured ? 'ring' : 'dot'; });
     for (var y = 0; y < 8; y++) for (var x = 0; x < 8; x++) {
       var r = flip ? y : 7 - y, f = flip ? 7 - x : x;
       var c = b[7 - r][f], sq = String.fromCharCode(97 + f) + (r + 1);
-      var cls = 'sq ' + ((r + f) % 2 ? 'l' : 'd') + (hl.indexOf(sq) > -1 ? ' hl' : '') + (X && X.sel === sq ? ' sel' : '') + (X && X.lift === sq ? ' lifted' : '');
+      var cls = 'sq ' + ((r + f) % 2 ? 'l' : 'd') + (hl.indexOf(sq) > -1 ? ' hl' : '') + (X && X.sel === sq ? ' sel' : '') + (X && X.lift === sq ? ' lifted' : '') + (tm && !(X && X.sel) && tm.squares.indexOf(sq) > -1 ? ' mk' : '');
       var piece = c ? '<span class="' + (c === c.toUpperCase() ? 'pc-w' : 'pc-b') + '">' + GLYPH[c.toLowerCase()] + '︎</span>' : '';
       var mark = tg[sq] ? '<span class="' + tg[sq] + '" aria-hidden="true"></span>' : '';
       var coord = (y === 7 ? '<span class="coord f">' + String.fromCharCode(97 + f) + '</span>' : '') + (x === 0 ? '<span class="coord r">' + (r + 1) + '</span>' : '');
       html += '<div class="' + cls + '" data-sq="' + sq + '">' + piece + mark + coord + '</div>';
     }
-    var arrows = '', cp;
+    var arrows = '';
     if (X) {
       if (X.line.length) arrows += arrow(lastUci, '#ffae4a', 13);
       if (X.ev && X.ev.best_uci && !X.sel) arrows += arrow(X.ev.best_uci, '#7fb6ff', 13);
-      cp = X.ev ? X.ev.cp : (ply >= 0 && G.plies[ply].cp != null ? G.plies[ply].cp : 20);
     } else {
       var last = ply >= 0 ? G.plies[ply] : null;
       if (last) {
         arrows += arrow(last.uci, '#ffae4a', 13);
         if (last.grade && last.best_uci && last.best_uci !== last.uci) arrows += arrow(last.best_uci, '#7fb6ff', 13);
       }
-      cp = ply < 0 || G.plies[ply].cp == null ? 20 : G.plies[ply].cp;
     }
+    if (tm && !(X && X.sel)) tm.arrows.forEach(function (a) { arrows += arrow(a.uci, '#ff4a3d', a.kind === 'reply' ? 13 : 8); });
     var promo = X && X.promo ? promoPicker(X.promo) : '';
     board.innerHTML = html + '<svg class="arrows" viewBox="0 0 800 800" aria-hidden="true">' + arrows + '</svg>' + promo;
-    var whiteShare = (wc(cp) + 1) / 2;
-    bar.style.height = (100 * (flip ? whiteShare : 1 - whiteShare)) + '%';
-    bar.parentNode.style.background = flip ? '#14181e' : '#e9e4d8';
-    bar.style.background = flip ? '#e9e4d8' : '#14181e';
+    drawBar();
+  }
+
+  // ---------- evaluation bar: White's share of the winning chances, on Lichess's curve ----------
+  function currentEval() {
+    if (X && X.line.length) return X.ev ? X.ev : (shownEval ? { cp: shownEval.cp, mate: shownEval.mate, pending: true } : null);
+    if (ply < 0 || !G.plies[ply] || G.plies[ply].cp == null) return null;
+    return { cp: G.plies[ply].cp, mate: G.plies[ply].mate };
+  }
+  function drawBar() {
+    if (!barEl) return;
+    var ev = currentEval(), share = 0.5, label = '';
+    if (ev) {
+      var white = ev.mate != null ? ev.mate > 0 : ev.cp >= 0, a = Math.abs(ev.cp);
+      share = ev.mate != null ? (white ? 1 : 0) : (wc(ev.cp) + 1) / 2;
+      label = ev.mate != null ? 'M' + Math.abs(ev.mate) : a >= 1000 ? String(Math.round(a / 100)) : (a / 100).toFixed(1);
+      barNum.className = 'evalnum ' + (white !== flip ? 'bottom' : 'top') + (white ? ' on-light' : ' on-dark');
+      if (!ev.pending) shownEval = ev;
+    }
+    barEl.classList.toggle('idle', !ev);
+    barEl.classList.toggle('pending', !!(ev && ev.pending));
+    barEl.classList.toggle('flipped', flip);
+    bar.style.height = (100 * (flip ? share : 1 - share)) + '%';
+    barNum.textContent = label;
+    barEl.setAttribute('aria-label', ev ? 'Evaluation ' + evalText(ev) : 'Evaluation bar: no evaluation yet');
+    barEl.title = ev ? evalText(ev) : '';
   }
   function promoPicker(p) {
     var white = curFen().split(' ')[1] === 'w';
@@ -96,20 +119,71 @@ window.ChessViewer = (function () {
     return '<div class="facts">' + items.map(function (t) { return '<div class="f"><span class="ok">✓</span><span>' + t + '</span></div>'; }).join('') + '</div>';
   }
 
+  // ---------- move explanations: chess-teach.js reads the engine line in chess concepts ----------
+  var VERDICT = { best: 'Best move', good: 'Good', fine: 'OK', inaccuracy: 'Inaccuracy', mistake: 'Mistake', blunder: 'Blunder' }, gid = 0;
+  function viewKey() {
+    if (X) return X.line.length && X.ev ? 'x' + gid + ':' + X.base + ':' + X.line.map(function (m) { return m.uci; }).join(',') : null;
+    if (ply < 0 || !G.plies[ply] || G.plies[ply].cp == null) return null;
+    var next = G.plies[ply + 1];
+    return 'g' + gid + ':' + ply + (next && next.cp == null ? '?' : '');
+  }
+  function baseEval() {                                    // what the engine said about the position a line branches from
+    var cur = X.base >= 0 ? G.plies[X.base] : null, nx = G.plies[X.base + 1];
+    var ev = { cp: cur ? cur.cp : null, mate: cur ? cur.mate : null };
+    if (nx && nx.best_uci) { ev.best_uci = nx.best_uci; ev.pv = nx.best_line; }
+    return ev;
+  }
+  function teachOpts(Chess) {
+    if (X) {
+      var k = X.line.length - 1, cur = X.line[k], pe = k > 0 ? X.line[k - 1].ev : baseEval();
+      return { Chess: Chess, fen: k > 0 ? X.line[k - 1].fen : fenAt(X.base), played: cur.uci, best: pe && pe.best_uci, pvBest: pe && pe.pv, pvAfter: X.ev.pv || [],
+        cpBefore: pe ? pe.cp : null, cpAfter: X.ev.cp, mateBefore: pe ? pe.mate : null, mateAfter: X.ev.mate,
+        prev: k > 0 ? { fen: k > 1 ? X.line[k - 2].fen : fenAt(X.base), move: X.line[k - 1].uci } : (X.base >= 0 ? { fen: fenAt(X.base - 1), move: G.plies[X.base].uci } : null) };
+    }
+    var i = ply, p = G.plies[i], next = G.plies[i + 1], prev = i > 0 ? G.plies[i - 1] : null;
+    return { Chess: Chess, fen: fenAt(i - 1), played: p.uci, best: p.best_uci, pvBest: p.best_line, pvAfter: next && next.cp != null ? next.best_line : [],
+      cpBefore: prev ? prev.cp : null, cpAfter: p.cp, mateBefore: prev ? prev.mate : null, mateAfter: p.mate, drop: p.drop, grade: p.grade,
+      prev: prev ? { fen: fenAt(i - 2), move: prev.uci } : null };
+  }
+  function coachHtml() {
+    var key = viewKey();
+    if (!key) return X ? '' : '<div class="coach wait"><p class="mono">Stockfish has not reached this move yet.</p></div>';
+    if (teach.key !== key) return '<div class="coach wait"><p class="mono">Reading the engine line…</p></div>';
+    var r = teach.res;
+    if (!r.sentences.length) return '';
+    return '<div class="coach"' + (r.verdict ? ' data-v="' + r.verdict + '"' : '') + '>' + (r.verdict ? '<span class="verdict">' + VERDICT[r.verdict] + '</span>' : '') +
+      '<p>' + r.sentences.join(' ').replace(/</g, '&lt;') + '</p></div>';
+  }
+  function runTeach() {
+    var key = viewKey();
+    if (!key || teach.key === key || !window.ChessTeach) return;
+    var tok = ++teach.tok;
+    loadRules().then(function (mod) {
+      if (tok !== teach.tok || viewKey() !== key) return;
+      var res = null;
+      try { res = window.ChessTeach.explain(teachOpts(mod.Chess)); } catch (err) { res = null; }
+      teach.key = key; teach.res = res || { verdict: null, sentences: [], marks: { squares: [], arrows: [] } };
+      var el = detail.querySelector('.coach');
+      if (el) el.outerHTML = coachHtml() || '<span hidden></span>';
+      drawBoard();
+    }).catch(function () { /* no rules module: the panel keeps the facts */ });
+  }
+  function more(title, inner) { return '<details class="more"><summary>' + title + '</summary>' + inner + '</details>'; }
+
   function drawDetail() {
     if (X) { drawExploreDetail(); return; }
-    if (ply < 0) { detail.innerHTML = '<p class="mono">Start position. Use the arrows, the graph or a key moment, or click a piece to play your own moves.</p>'; return; }
+    if (ply < 0) { detail.innerHTML = '<p class="mono">Start position. Step through the game, or move a piece to try your own line.</p>'; return; }
     var p = G.plies[ply], km = (G.key_moments || []).filter(function (k) { return k.ply === ply + 1; })[0];
-    var html = '<p class="mono">' + moveLabel(ply) + ' · eval after ' + evalText(p) + (p.grade ? ' · <span class="pump">' + p.grade + '</span>' : '') + '</p>';
-    if (p.grade && p.best && p.best !== p.san) html += '<p>Stockfish preferred <strong>' + p.best + '</strong> (blue arrow)' + (p.best_line ? ': <span class="mono">' + p.best_line + '</span>' : '') + '</p>';
+    var html = '<p class="mono">' + moveLabel(ply) + ' · eval ' + evalText(p) + '</p>' + coachHtml();
+    if (p.grade && p.best_line) html += '<p class="mono pv">Engine line: ' + p.best_line + '</p>';
     if (p.grade) {
       var f = km && km.facts_before ? km.facts_before : window.ChessCore.facts(fenAt(ply - 1)), extra = [];
       if (km) extra.push('Evaluation before the move: ' + km.eval_before + ', after: ' + km.eval_after + '.');
       if (p.drop != null) extra.push('Winning chances given away: ' + Math.round(p.drop * 50) + ' percentage points.');
-      html += '<p class="label">Verified facts before the move · rules and engine, not the language model</p>' +
-        extra.map(function (t) { return '<div class="facts"><div class="f"><span class="ok">✓</span><span>' + t + '</span></div></div>'; }).join('') + factItems(f);
+      html += more('Rule facts before the move', extra.map(function (t) { return '<div class="facts"><div class="f"><span class="ok">✓</span><span>' + t + '</span></div></div>'; }).join('') + factItems(f));
     }
     detail.innerHTML = html;
+    runTeach();
   }
 
   function lineText() {
@@ -124,17 +198,19 @@ window.ChessViewer = (function () {
   function drawExploreDetail() {
     var from = X.base < 0 ? 'the start position' : 'after ' + moveLabel(X.base);
     var html = '<p class="label">Your line · from ' + from + '</p>';
-    html += '<p class="mono">' + (X.line.length ? lineText() : 'Click a piece, then one of the marked squares.') + '</p>';
-    var over = X.over;
-    if (over) html += '<p><strong>' + over + '</strong></p>';
-    else if (X.line.length) {
+    html += '<p class="mono">' + (X.line.length ? lineText() : 'Pick a piece, then a marked square.') + '</p>';
+    if (X.over) html += '<p><strong>' + X.over + '</strong></p>';
+    if (X.line.length) {
       if (!X.ev) html += '<p class="mono">Stockfish 19 is thinking…</p>';
-      else html += '<p class="mono">Eval ' + evalText(X.ev) + ' · depth ' + X.ev.depth + '</p>' +
-        (X.ev.best ? '<p>Best reply: <strong>' + X.ev.best + '</strong> (blue arrow)' + (X.ev.line ? ': <span class="mono">' + X.ev.line + '</span>' : '') + '</p>' : '');
+      else {
+        html += coachHtml();
+        if (!X.over) html += '<p class="mono">Eval ' + evalText(X.ev) + ' · depth ' + X.ev.depth + (X.ev.best ? ' · best reply <strong>' + X.ev.best + '</strong> (blue)' : '') + '</p>';
+      }
+      html += more('Rule facts in this position', factItems(window.ChessCore.facts(curFen())));
     }
-    if (X.line.length) html += '<p class="label">Verified facts in this position · rules, not the language model</p>' + factItems(window.ChessCore.facts(curFen()));
     html += '<div class="explore-actions"><button type="button" data-x="undo"' + (X.line.length ? '' : ' disabled') + '>Undo</button><button type="button" data-x="back">Back to the game</button></div>';
     detail.innerHTML = html;
+    runTeach();
   }
 
   function drawList() {
@@ -207,7 +283,12 @@ window.ChessViewer = (function () {
 
   function evaluate() {
     if (!X || !X.line.length || !window.ChessEngine) return;
-    var token = X.token = (X.token || 0) + 1, fen = curFen();
+    var token = X.token = (X.token || 0) + 1, fen = curFen(), here = X.line[X.line.length - 1];
+    if (here.ev) { X.ev = here.ev; redrawExplore(); return; }      // already searched (after an undo)
+    if (X.over) {                                         // game over on the board: no search needed
+      X.ev = here.ev = { cp: X.over === 'Checkmate.' ? (fen.split(' ')[1] === 'b' ? 1500 : -1500) : 0, mate: null, depth: 0, best_uci: null, best: null, line: '', pv: [] };
+      redrawExplore(); return;
+    }
     if (!engine) engine = window.ChessEngine.create();
     engine.stop();                                        // cut short any search for an older position
     engine.search(fen, EXPLORE_MS).then(function (res) {
@@ -218,7 +299,7 @@ window.ChessViewer = (function () {
           try { var mv = g.move({ from: u.slice(0, 2), to: u.slice(2, 4), promotion: u[4] }); if (k === 0) best = mv.san; line.push(mv.san); } catch (err) { /* stop at an illegal tail */ }
         });
         if (!X || X.token !== token) return;
-        X.ev = { cp: Math.max(-1500, Math.min(1500, res.cp)), mate: res.mate, depth: res.depth, best_uci: res.pv[0] || null, best: best, line: line.join(' ') };
+        X.ev = here.ev = { cp: Math.max(-1500, Math.min(1500, res.cp)), mate: res.mate, depth: res.depth, best_uci: res.pv[0] || null, best: best, line: line.join(' '), pv: res.pv.slice(0, 8) };
         redrawExplore();
       });
     }).catch(function () { if (X && X.token === token) { X.ev = null; X.over = 'The engine could not start in this browser.'; redrawExplore(); } });
@@ -355,7 +436,7 @@ window.ChessViewer = (function () {
 
   function load(game, startPly) {
     stop(); leaveExplore();
-    G = game; N = G.plies.length;
+    G = game; N = G.plies.length; gid++; shownEval = null;
     flip = (G.black || '').toLowerCase() === me.toLowerCase();
     if (meta) meta.textContent = G.white + (G.white_elo ? ' (' + G.white_elo + ')' : '') + ' vs ' + G.black + (G.black_elo ? ' (' + G.black_elo + ')' : '') + ', ' + G.result + (G.opening ? ' · ' + G.opening : '');
     drawMoments();

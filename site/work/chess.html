@@ -43,7 +43,7 @@
               <button type="button" data-view="3d" aria-pressed="false">3D · lines of force</button>
             </div>
             <div class="board-row">
-              <div class="evalbar" aria-hidden="true"><div class="black"></div></div>
+              <div class="evalbar idle" role="img" aria-label="Evaluation bar: no evaluation yet"><div class="black"></div><span class="evalnum"></span></div>
               <div class="board-stack">
                 <div class="board" id="board" role="img" aria-label="Chess board"></div>
                 <canvas id="board3d" class="board3d" hidden aria-label="3D board: every attack drawn as a beam, hanging pieces ringed in red. Drag to turn."></canvas>
@@ -57,8 +57,8 @@
               <button id="last" type="button" aria-label="End">⏭</button>
               <span class="pos" id="pos"></span>
             </div>
-            <p class="mono board-hint">Click or drag any piece to see its legal moves and play your own line from this point; Stockfish answers each move. Esc or "Back to the game" returns.</p>
-            <div class="legend-arrows"><span><i style="background:#ffae4a"></i>move played · White's lines (3D)</span><span><i style="background:#7fb6ff"></i>engine's choice · Black's lines (3D)</span><span><i style="background:#ff4a3d"></i>hanging piece (3D)</span></div>
+            <p class="mono board-hint">Move any piece to try your own line. Stockfish answers and explains; Esc returns.</p>
+            <div class="legend-arrows"><span><i style="background:#ffae4a"></i>played</span><span><i style="background:#7fb6ff"></i>engine's choice</span><span><i style="background:#ff4a3d"></i>engine's reply, key squares</span></div>
           </div>
           <div class="detail">
             <div class="panel graph" id="graph"></div>
@@ -81,7 +81,7 @@
               <button class="btn primary" id="import-go" type="submit">Analyse</button>
             </div>
             <progress id="import-progress" value="0" max="1"></progress>
-            <p class="mono" id="import-status" aria-live="polite">Shown above: my win over JoseGarciaMolina, reviewed by the jarvis-chess server. Load any game to replace it.</p>
+            <p class="mono" id="import-status" aria-live="polite">Shown: my win over JoseGarciaMolina, reviewed by the jarvis-chess server.</p>
           </div>
         </form>
         <form class="panel import account" id="account-form">
@@ -101,12 +101,11 @@
               <button class="btn" id="acct-clear" type="button" disabled>Clear log</button>
               <span class="mono" id="acct-summary"></span>
             </div>
-            <p class="mono" id="acct-status" aria-live="polite">Enter a username to log its latest games. Analyse opens a game on the board at the time per move set above; quick review runs every game at 0.15 s per move.</p>
+            <p class="mono" id="acct-status" aria-live="polite">Enter a username to log its latest games.</p>
             <div class="table-scroll game-log" id="acct-log" role="region" aria-label="Game log" tabindex="0"></div>
           </div>
         </form>
-        <p class="mono">Average centipawn loss (ACPL) counts each move's loss with evaluations capped at ±10 pawns, so a lost-anyway position does not swamp the average. Errors use the winning-chances grading below. The browser engine is Stockfish's lite network on one thread, so its counts are indicative: on the game shown above it finds 3 of my blunders at both 0.15 and 0.4 s per move, where full Stockfish 19 on 8 threads finds 6. Evaluations of the same positions differ by 50 to 150 centipawns, and grades sit on thresholds.</p>
-        <p class="mono">The shown game is Lichess blitz, 3+0. In a game this sharp both sides err; the review grades every move by the winning chances it gave away, using Lichess's method: on its −1 to 1 scale, a drop of 0.1 is an inaccuracy, 0.2 a mistake and 0.3 a blunder.</p>
+        <p class="mono">Grades follow Lichess: losing 0.1, 0.2 or 0.3 of winning chances (on a −1 to 1 scale) is an inaccuracy, mistake or blunder. ACPL caps evaluations at ±10 pawns. The browser engine is lighter, so its counts are indicative: on the game above it finds 3 of the 6 blunders full Stockfish 19 finds.</p>
       </div>
     </section>
 
@@ -120,8 +119,8 @@
           <li><strong>analyse_position</strong> gives top engine lines for any position.</li>
           <li><strong>check_claims</strong> verifies what a commentator says before it is said: "the knight on e5 is hanging", "Ra8 is mate", "White is better". Each claim comes back true, false, or uncheckable.</li>
         </ul>
-        <p>So I can ask Jarvis, by voice, to go through my last game, and every concrete statement it makes traces back to the engine or the rules.</p>
-        <p><strong>Next: a faithfulness score.</strong> Have a local model comment on key moments freely, run every checkable claim through check_claims, and label the rest myself. The result is one number per model: the share of its chess statements that are true. Many projects pair an LLM with Stockfish; I have not found one that publishes that number.</p>
+        <p>The board's coach notes work the same way: each one names a pattern (fork, pin, skewer, hanging piece, mate) that the rules find on the board and the engine's line plays out. No pattern found, no claim; the note gives the evaluation instead.</p>
+        <p><strong>Next: a faithfulness score.</strong> Run a local model's free commentary through check_claims and publish the share of its chess statements that are true.</p>
         <p class="mono">Python · python-chess · Stockfish 19 · FastMCP · Lichess and Chess.com public APIs · pytest</p>
         <div class="cta"><a class="btn" href="lab-agent.html">The same idea in a physics lab →</a><a class="back" href="../index.html#worlds">← All projects</a></div>
       </div>
@@ -134,6 +133,7 @@
 </main>
 <script src="../data/chess-game.js"></script>
 <script src="../chess-core.js"></script>
+<script src="../chess-teach.js"></script>
 <script src="../chess.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="../chess3d.js"></script>
