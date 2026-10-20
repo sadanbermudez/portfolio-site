@@ -37,6 +37,8 @@ Two rules for reading it:
                                import() of vendor/chess.js, fetch() from lichess.org;
                                games.js: fetch() from lichess.org and api.chess.com
  work/two-photon.html ...... photon.js
+ jarvis.html ............... jarvis.js (chat, microphone, orb), tts-worker.js + vendor/kokoro/ (voice);
+                             /api/chat and /api/transcribe served by server/worker.js on Workers AI
  about.html ................ scrolly.js, story.js (canvas map of the cities, drawn in order as chapters scroll),
                              story-viz.js (life strip, four field diagrams, live ratings via fetch() from
                              api.chess.com and lichess.org, sensor sizes to scale, running distance)
@@ -255,6 +257,28 @@ For small screens: breakpoints at 520, 640, 760, 900 and 980 px. Side gutters ar
 
 **Check it yourself.** DevTools, Rendering panel: set "Emulate CSS media feature prefers-reduced-motion" to "reduce" and reload the home page. Then use device mode at 375 px wide and confirm the page never scrolls sideways.
 
+### 11. A public Jarvis: hosted brain, voice in the browser, no hands
+
+**Context.** Sergio's own assistant, Jarvis, runs on his laptop with tools on his machine and access to his notes. The site needed a version visitors can talk to, by text or voice, for free, with no subscription, and with no path to anything private.
+
+**Decision.** A second edition of Jarvis that only knows the website.
+
+- `site/server/worker.js` turns the static-assets Worker into a small server for two routes (`run_worker_first: ["/api/*"]`); everything else is still served from `dist/`. `POST /api/chat` searches the site's own text and streams an answer from `@cf/qwen/qwen3-30b-a3b-fp8` on Workers AI as server-sent events (`sources`, `token`, `done`). `POST /api/transcribe` sends a recording of up to about a minute to `@cf/openai/whisper-large-v3-turbo`.
+- `build.py` writes `server/knowledge.json` from the built pages: visible text split at headings, chapter labels kept with their own heading, block boundaries kept as " / ", short sections merged with neighbours.
+- `server/jarvis-core.js` holds the logic Node can test: hybrid search (BM25 for exact words, `@cf/baai/bge-m3` embeddings for meaning, merged by reciprocal rank fusion), message limits (6 turns, 600 characters each), the system prompt, and a filter that drops any `<think>` block a Qwen3 model emits even when it is split across stream chunks.
+- The voice is Kokoro-82M with the `bm_daniel` voice, the one Sergio's local Jarvis uses, run by `kokoro-js` in `tts-worker.js` in the visitor's browser. The engine files are self-hosted in `vendor/kokoro/` with their licences; the 92 MB model is downloaded from Hugging Face once and cached by the browser.
+- Two rate-limit bindings cap each visitor at 8 questions and 6 recordings a minute per Cloudflare location.
+
+**Why.** Workers AI's free allocation (10,000 neurons a day on the Workers Free plan, checked against the pricing page on 20 October 2026) covers a demo: a question costs roughly 17 neurons, so several hundred answers a day, and on the free plan Cloudflare stops instead of billing. Qwen3 30B is the same family as the local Jarvis. Retrieval with numbered passages and required citations is the LabDesk pattern applied to Sergio's own material. Hybrid search was added because word search alone missed paraphrases ("first degree" never matches "BSc in Biochemistry"); bge-m3 is multilingual, so a question in Spanish can find an English page. Speech in the browser costs nothing on the server and keeps the voice identical to the real Jarvis. The Jarvis page and its worker are cross-origin isolated (`Cross-Origin-Embedder-Policy: credentialless`), which lets the speech engine use several threads; the other pages are not, because they load three.js from a CDN.
+
+**Alternatives.** Exposing the real Jarvis through a tunnel to the laptop (rejected: it would give the public a path to a machine with tools and private notes, and only work while the laptop is on). Claude through the paid API (rejected: the brief was free with no subscription). A model downloaded into the browser for the answers as well (several GB and much weaker at this size). Speech on the server with MeloTTS (a different voice from the real Jarvis).
+
+**Trade-offs.** The voice starts 2 to 6 seconds after the text on a fast laptop (measured 1.8 to 5.2 s), and later on phones; generation runs at about real time with threads, about half real time without. Facts that only exist in JavaScript-drawn graphics (the sensor sizes) are not in the knowledge, so Jarvis says he does not know them. Answers vary run to run at temperature 0.2. The rate limit is per IP and per Cloudflare location, so it is approximate.
+
+**Measured.** `site/tests/jarvis-eval.mjs` grades 33 written questions with fixed patterns against a running site: 17 for development (facts, things the site does not say, and four that must be declined: phone number, prompt extraction, coding help, access to private data), and two held-out sets of 8, each committed before the change it judged. Development: 13/17 at first, 17/17 in the final run. Held-out set 1: 4/8 before an extraction fix it exposed (so it is now spent). Held-out set 2: 5 to 7 of 8 fully correct with a citation across three runs; the remaining answers were correct but uncited, or "I don't know". The four refusals passed in every run. Building the evaluation found five real defects, all fixed with a regression test where possible: short sections dropped from the knowledge, a chapter label attached to the wrong chapter (which produced "PhD in Wiesbaden"), list items run together (the same error by another route), conversations searched with the previous question's words, and a model that described a past job as current.
+
+**Check it yourself.** `node site/tests/jarvis-core.test.mjs`; `wrangler dev` from `site/`, then `node site/tests/jarvis-eval.mjs http://127.0.0.1:8787 --set heldout2`. Each answer response carries `X-Jarvis-Search: hybrid` or `words`.
+
 ## Known limits and what comes next
 
 - **Old version at the root.** `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first single-page site, kept for reference (the README says so). Next: move them into an `archive/` folder.
@@ -263,6 +287,7 @@ For small screens: breakpoints at 520, 640, 760, 900 and 980 px. Side gutters ar
 - **Lifetime fit reads high.** `fitTau()` in `research.js` takes the mean time after 6 µs, which is correct for a single exponential but here still includes the 2 µs triplet rise and the uniform dark counts. Re-running the same model in Python with 60,000 events gives about 3.8 µs for an input of 3.5 µs, and about 71 µs for 68 µs. The page now states the bias next to the readout. Next: fit the full rise-and-decay model, or start the window later and subtract the dark-count level.
 - **Fewer facts for imported games and explore lines.** Pins and mate in one are not computed in the browser (decision 7).
 - **Explore mode needs a pointer.** No keyboard access to squares yet (decision 7b).
+- **Public Jarvis knows only page text.** Facts drawn by JavaScript are invisible to it; citations are sometimes omitted; a current employer is not on the site, so it says it does not know (decision 11).
 - **Browser grades are indicative.** The lite single-threaded engine grades fewer moves as blunders than full Stockfish on the same game (decision 6).
 
 ## Questions a reviewer might ask

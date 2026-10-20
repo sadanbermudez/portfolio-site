@@ -11,6 +11,7 @@ Source of my portfolio site, live at [sergioadan.dev](https://sergioadan.dev): s
 | `work/two-photon.html` | One- versus two-photon excitation: beam waist, focal volume, penetration, a photodynamic-therapy illustration |
 | `work/research.html` | My PhD and postdoc research: singlet oxygen detection, hollow-core fibres, photon counting |
 | `about.html` | My story: six cities, four fields, chess, and life away from the desk |
+| `jarvis.html` | Talk to a public Jarvis by text or voice: Qwen3 on Workers AI's free tier, answers cited from this site, Kokoro voice in the browser |
 
 ## How it is built and why
 
@@ -24,6 +25,6 @@ python build.py          # writes dist/ and the _headers file
 wrangler deploy          # static-assets Worker, see site/wrangler.jsonc
 ```
 
-The live site is built from `site/` only. The `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first, single-page version, kept for reference.
+The live site is built from `site/` only. `site/server/` is the small Worker behind `/api/chat` and `/api/transcribe`. The `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first, single-page version, kept for reference.
 
 Built with AI assistance (Claude Code), directed and reviewed by Sergio Adan Bermudez.

@@ -15,3 +15,5 @@ jobs:
         run: node site/tests/chess-core.test.js
       - name: Build, failing on any page that references a missing file
         run: python site/build.py
+      - name: Jarvis server logic (search, limits, prompt, stream filter, knowledge extraction)
+        run: node site/tests/jarvis-core.test.mjs
