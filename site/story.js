@@ -17,14 +17,16 @@
   ];
   var K = Math.cos(48 * Math.PI / 180), LON = [-9, 17], LAT = [37.5, 58.5];
   var target = 0, shown = reduce ? CITIES.length - 1 : 0, all = false, W = 0, H = 0, dpr = 1, box = null, visible = true;
+  var section = canvas.closest('.scrolly'), stacked = window.matchMedia('(max-width: 900px)'), stopScrolly = null;
   var stars = []; for (var i = 0; i < 140; i++) stars.push([((i * 7919) % 997) / 997, ((i * 104729) % 991) / 991, 0.3 + ((i * 31) % 7) / 10]);
 
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = canvas.clientWidth; H = canvas.clientHeight;
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
-    // the chapter cards cover the left on wide screens and the bottom on phones, so the map uses the rest
-    var area = W > 760 ? { x: W * 0.52, y: H * 0.12, w: W * 0.42, h: H * 0.76 } : { x: W * 0.08, y: H * 0.13, w: W * 0.84, h: H * 0.3 };
+    // wide screens: the chapter cards cover the left, so the map uses the right. Phones and tablets: the
+    // stage is a band of its own above the chapters (immersive.css), so the map fills it.
+    var area = stacked.matches ? { x: W * 0.06, y: H * 0.1, w: W * 0.88, h: H * 0.78 } : { x: W * 0.52, y: H * 0.12, w: W * 0.42, h: H * 0.76 };
     var spanX = (LON[1] - LON[0]) * K, spanY = LAT[1] - LAT[0], s = Math.min(area.w / spanX, area.h / spanY);
     box = { s: s, x0: area.x + (area.w - spanX * s) / 2, y0: area.y + (area.h - spanY * s) / 2 };
   }
@@ -68,7 +70,7 @@
       }
       ctx.beginPath(); ctx.arc(p[0], p[1], here ? 5.5 : 4, 0, 7);
       ctx.fillStyle = reached ? (here ? C.route : C.city) : C.dim; ctx.fill();
-      ctx.font = (here ? '600 ' : '500 ') + (W > 760 ? 15 : 13) + 'px Schibsted Grotesk, sans-serif';
+      ctx.font = (here ? '600 ' : '500 ') + (W > 760 && !stacked.matches ? 15 : 13) + 'px Schibsted Grotesk, sans-serif';
       var align = c.align, dx = c.dx, wd = ctx.measureText(c.name).width;
       if (align === 'left' && p[0] + dx + wd > W - 8) { align = 'right'; dx = -Math.abs(dx); }   // flip a label that would leave the screen
       if (align === 'right' && p[0] + dx - wd < 8) { align = 'left'; dx = Math.abs(dx); }
@@ -87,14 +89,32 @@
     requestAnimationFrame(loop);
   }
 
-  resize();
-  window.addEventListener('resize', function () { resize(); draw(0); });
+  // When stacked, the map sits just under whatever sticky header the page has; measure it rather than assume it.
+  function headerHeight() {
+    var hgt = 0;
+    Array.prototype.forEach.call(document.body.children, function (el) {
+      if (el.contains(canvas)) return;
+      var pos = getComputedStyle(el).position, r = el.getBoundingClientRect();
+      if ((pos === 'sticky' || pos === 'fixed') && r.top <= 1 && r.height < window.innerHeight / 3) hgt = Math.max(hgt, r.bottom);
+    });
+    return hgt;
+  }
+  function chapters() {   // the trigger band sits in the middle of the part of the screen where the chapters are read
+    if (stopScrolly) stopScrolly();
+    var band = stacked.matches ? '-74% 0px -20% 0px' : '-45% 0px -45% 0px';
+    stopScrolly = window.scrollyChapters(document.querySelectorAll('.chapter'), function (el) {
+      var stop = el.dataset.stop;
+      all = stop === 'all';
+      target = all ? CITIES.length - 1 : Math.max(0, +stop || 0);
+      if (reduce) { shown = Math.max(shown, target); draw(0); }
+    }, band);
+  }
+  function layout() { if (section) section.style.setProperty('--story-top', (stacked.matches ? headerHeight() : 0) + 'px'); resize(); }
+
+  layout();
+  window.addEventListener('resize', function () { layout(); draw(0); });
+  if (stacked.addEventListener) stacked.addEventListener('change', chapters); else if (stacked.addListener) stacked.addListener(chapters);
   if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }).observe(canvas);
-  window.scrollyChapters(document.querySelectorAll('.chapter'), function (el) {
-    var stop = el.dataset.stop;
-    all = stop === 'all';
-    target = all ? CITIES.length - 1 : Math.max(0, +stop || 0);
-    if (reduce) { shown = Math.max(shown, target); draw(0); }
-  });
+  chapters();
   if (reduce) { shown = CITIES.length - 1; draw(0); } else requestAnimationFrame(loop);
 })();

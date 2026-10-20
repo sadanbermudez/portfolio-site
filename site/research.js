@@ -24,15 +24,21 @@
     ctx.globalAlpha = a; ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); ctx.globalAlpha = 1;
   }
   function beamColor() { return mode === 2 ? C.pump : C.violet; }
+  // scene text stays readable on a phone: at least 11 screen pixels, kept inside the 1000-unit scene box
+  var zb = 1;
+  function tag(ctx, text, x, y, px, color) {
+    var size = Math.max(px, 11 / zb); ctx.font = size + 'px Martian Mono, monospace'; ctx.fillStyle = color || C.muted;
+    var w = ctx.measureText(text).width; ctx.fillText(text, Math.max(-495, Math.min(x, 495 - w)), y);
+  }
 
   // ---------------- 1. powers-of-ten zoom ----------------
   // each scene is drawn in a 1000 x 600 box centred on the origin; T is where the camera dives next
   var SCENES = [
     { scale: '3 cm', label: 'mouse with a tumour on its flank', T: [60, -60], draw: sceneMouse },
     { scale: '3 mm', label: 'skin, tissue and tumour', T: [0, 140], draw: sceneTissue },
-    { scale: '100 µm', label: 'tumour cells holding photosensitiser', T: [0, 0], draw: sceneCells },
-    { scale: '10 µm', label: 'one cell; singlet oxygen acts within about 1 µm', T: [120, 70], draw: sceneCell },
-    { scale: '1 nm', label: 'photosensitiser, oxygen and a lipid', T: [0, 0], draw: sceneMolecules },
+    { scale: '100 µm', label: 'tumour cells holding the drug', T: [0, 0], draw: sceneCells },
+    { scale: '10 µm', label: 'one cell', T: [120, 70], draw: sceneCell },
+    { scale: '1 nm', label: 'drug, oxygen and a lipid', T: [0, 0], draw: sceneMolecules },
     { scale: '10 µm', label: 'oxidative damage in the irradiated cell only', T: [0, 0], draw: sceneDamage }
   ];
   var R = rng(7), CELLS = [], PS = [], MITO = [];
@@ -73,7 +79,8 @@
   }
   function sceneTissue(ctx, t) {
     var bands = [[-300, -262, '#6d4b44', 'epidermis'], [-262, -140, '#4a3640', 'dermis'], [-140, -20, '#3d3a2c', 'fat'], [-20, 300, '#3a2a30', 'muscle and tumour']];
-    bands.forEach(function (b) { ctx.fillStyle = b[2]; ctx.fillRect(-500, b[0], 1000, b[1] - b[0]); ctx.fillStyle = C.muted; ctx.font = '13px Martian Mono, monospace'; ctx.fillText(b[3], -490, b[0] + 18); });
+    bands.forEach(function (b) { ctx.fillStyle = b[2]; ctx.fillRect(-500, b[0], 1000, b[1] - b[0]); });
+    bands.forEach(function (b) { tag(ctx, b[3], -490, b[0] + Math.max(18, 13 / zb), 13, '#b9c1cc'); });
     ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.lineWidth = 2;
     for (var k = 0; k < 14; k++) { ctx.beginPath(); ctx.moveTo(-500, -250 + k * 8); for (var x = -500; x < 500; x += 40) ctx.quadraticCurveTo(x + 20, -250 + k * 8 + (k % 2 ? 6 : -6), x + 40, -250 + k * 8); ctx.stroke(); }
     ctx.fillStyle = 'rgba(255,240,200,0.07)'; for (k = 0; k < 40; k++) { ctx.beginPath(); ctx.arc(-480 + (k * 97) % 960, -120 + (k * 37) % 90, 18, 0, 7); ctx.fill(); }
@@ -97,7 +104,6 @@
       var lit = mode === 1 ? (Math.abs(c[0]) < 200 ? 0.45 : 0) : (c[3] ? 1 : 0);
       if (lit) glow(ctx, c[0], c[1], c[2] * 1.4, mode === 1 ? C.amber : '#ffd9a8', lit * (0.5 + 0.2 * Math.sin(t * 5 + i)));
     });
-    ctx.fillStyle = C.muted; ctx.font = '13px Martian Mono, monospace'; ctx.fillText('amber dots: photosensitiser, concentrated in tumour cells', -490, -270);
   }
   function sceneCell(ctx, t, damage) {
     damage = damage || 0;
@@ -108,7 +114,7 @@
     for (var a = 0; a < 6.3; a += 0.15) { var r = 260 + 8 * Math.sin(a * 3 + t) + damage * 30 * Math.max(0, Math.sin(a * 7)); ctx.lineTo(Math.cos(a) * r * 1.25, Math.sin(a) * r); }
     ctx.closePath(); ctx.fill(); ctx.stroke();
     ctx.fillStyle = 'rgba(127,182,255,0.18)'; ctx.beginPath(); ctx.arc(-60, -30, 95, 0, 7); ctx.fill();
-    ctx.fillStyle = C.muted; ctx.font = '13px Martian Mono, monospace'; ctx.fillText('nucleus', -90, -25);
+    tag(ctx, 'nucleus', -100, -25, 13);
     MITO.forEach(function (m, i) {
       ctx.save(); ctx.translate(m[0], m[1]); ctx.rotate(m[2]);
       ctx.fillStyle = damage ? 'rgba(160,70,60,' + (0.9 - damage * 0.6) + ')' : '#6a3b2c'; ctx.beginPath(); ctx.ellipse(0, 0, 50 - damage * 15, 22, 0, 0, 7); ctx.fill();
@@ -119,8 +125,7 @@
       if (lit && !damage) { glow(ctx, m[0], m[1], 26 * 2.2, C.pump, 0.25 + 0.15 * Math.sin(t * 6 + i)); ctx.strokeStyle = 'rgba(255,74,61,0.6)'; ctx.setLineDash([3, 4]); ctx.beginPath(); ctx.arc(m[0], m[1], 26 * 2.2, 0, 7); ctx.stroke(); ctx.setLineDash([]); }
     });
     ctx.restore();
-    ctx.fillStyle = C.muted; ctx.font = '13px Martian Mono, monospace';
-    ctx.fillText(damage ? 'membrane blebbing, mitochondria failing' : 'dashed red: reach of singlet oxygen, about 1 µm', -490, -270);
+    if (damage) tag(ctx, 'membrane blebbing, mitochondria failing', -490, -270, 13);
   }
   function sceneDamage(ctx, t) { sceneCell(ctx, t, 1); }
   function sceneMolecules(ctx, t) {
@@ -131,7 +136,7 @@
     for (var k = 0; k < 4; k++) { ctx.save(); ctx.rotate(k * Math.PI / 2); ctx.fillStyle = trip ? '#7a5cff' : ex ? '#ffd28a' : '#4a5565'; ctx.beginPath(); for (var j = 0; j < 5; j++) { var a = j / 5 * 6.283 - 1.57; ctx.lineTo(70 + Math.cos(a) * 32, Math.sin(a) * 32); } ctx.fill(); ctx.restore(); }
     ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(0, 0, 70, 0, 7); ctx.stroke();
     if (ex) glow(ctx, 0, 0, 140, trip ? C.violet : C.amber, 0.45);
-    ctx.fillStyle = C.ink; ctx.font = '14px Martian Mono, monospace'; ctx.fillText(trip ? 'triplet state' : ex ? 'excited' : 'photosensitiser', -60, 130);
+    tag(ctx, trip ? 'triplet state' : ex ? 'excited' : 'drug', -60, 130, 14, C.ink);
     ctx.restore();
     // incoming photon(s)
     if (cyc < 0.12) {
@@ -145,24 +150,65 @@
     else { var g2 = (cyc - 0.45) / 0.4; ox = -130 + 450 * Math.min(1, g2); oy = -40 * Math.sin(g2 * 3); }
     [-16, 16].forEach(function (d) { ctx.fillStyle = singlet ? '#ff6a5a' : '#c9d1db'; ctx.beginPath(); ctx.arc(ox + d, oy, 18, 0, 7); ctx.fill(); });
     if (singlet) glow(ctx, ox, oy, 80, C.pump, 0.5);
-    ctx.fillStyle = C.ink; ctx.font = '14px Martian Mono, monospace'; ctx.fillText(singlet ? '¹O₂ singlet oxygen' : '³O₂ ground-state oxygen', ox - 70, oy - 34);
+    tag(ctx, singlet ? '¹O₂ singlet oxygen' : '³O₂ oxygen', ox - 70, oy - 34, 14, C.ink);
     // the lipid it oxidises
     var hit = cyc > 0.82;
     ctx.strokeStyle = hit ? '#ff8a5c' : '#b7bfcb'; ctx.lineWidth = 5; ctx.beginPath();
     for (k = 0; k < 9; k++) { var lx = 340 + k * 18, ly = -120 + k * 30 + (k % 2 ? 10 : -10); if (hit && k === 4) ly += 30; ctx.lineTo(lx, ly); }
     ctx.stroke();
-    ctx.fillStyle = C.muted; ctx.fillText(hit ? 'lipid oxidised' : 'membrane lipid', 360, 200);
+    tag(ctx, hit ? 'lipid oxidised' : 'lipid', 360, 200, 14);
     if (hit) glow(ctx, 412, 30, 60, '#ffffff', (1 - (cyc - 0.82) / 0.18) * 0.9);
     // the rare 1270 nm photon: drawn once every few loops
     if (singlet && Math.floor(t / 6) % 4 === 0 && cyc > 0.55 && cyc < 0.8) {
       var q = (cyc - 0.55) / 0.25; ctx.strokeStyle = C.amber; ctx.lineWidth = 2.5; ctx.beginPath();
       for (var xx = 0; xx < 120; xx += 3) ctx.lineTo(ox + 30 + q * 300 + xx, oy - 60 - q * 120 + Math.sin(xx / 6) * 7); ctx.stroke();
-      ctx.fillStyle = C.amber; ctx.fillText('1270 nm photon (about 1 in a million in water)', ox + 40 + q * 300, oy - 90 - q * 120);
+      tag(ctx, '1270 nm photon', ox + 40 + q * 300, oy - 90 - q * 120, 14, C.amber);
     }
   }
 
   var zoomCanvas = document.getElementById('zoom-canvas'), zoomSection = document.getElementById('zoom');
   var scaleEl = document.getElementById('zoom-scale'), labelEl = document.getElementById('zoom-label');
+  var captionEl = zoomSection && zoomSection.querySelector('.zoom-caption');
+  var chapters = zoomSection ? [].slice.call(zoomSection.querySelectorAll('.chapter')) : [];
+  // the same query as the stacked layout in immersive.css: controls, scene and caption one above the other
+  var stackedMQ = window.matchMedia('(max-width: 760px), (max-aspect-ratio: 4/5)');
+  var region = null;                                  // where the scene may draw, in canvas pixels
+  function layoutZoom() {
+    if (!zoomSection) return;
+    var top = document.querySelector('.top-wrap');
+    zoomSection.style.setProperty('--hdr', (top ? Math.round(top.getBoundingClientRect().height) : 64) + 'px');
+    region = null;
+  }
+  function zoomRegion(w, h) {
+    if (region && region.w === w && region.h === h) return region;
+    var r = { w: w, h: h, x: 0, y: 0, rw: w, rh: h };
+    if (!stackedMQ.matches) {                          // keep clear of the card column, the switch above and the scale bar below
+      var card = chapters.length > 1 && chapters[1].querySelector('.card-x'), cr = zoomCanvas.getBoundingClientRect();
+      var right = card ? card.getBoundingClientRect().right - cr.left + 24 : 0;
+      var sw = zoomSection.querySelector('.order-switch'), sb = zoomSection.querySelector('.scalebar');
+      var y0 = sw ? sw.getBoundingClientRect().bottom - cr.top + 12 : 0, y1 = sb ? sb.getBoundingClientRect().top - cr.top - 12 : h;
+      r.x = Math.min(Math.max(0, right), w * 0.5); r.rw = w - r.x - 16; r.y = Math.max(0, y0); r.rh = Math.max(h * 0.4, y1 - r.y);
+    }
+    return (region = r);
+  }
+  var activeChapter = -1;
+  function setChapter(i) {
+    if (i === activeChapter || !chapters[i]) return;
+    activeChapter = i;
+    chapters.forEach(function (c, k) { c.classList.toggle('on', k === i); });
+    if (captionEl) captionEl.innerHTML = chapters[i].querySelector('.card-x').innerHTML;
+  }
+  if (chapters.length) {
+    setChapter(0);
+    if ('IntersectionObserver' in window) {
+      var cio = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) setChapter(chapters.indexOf(e.target)); });
+      }, { rootMargin: '-45% 0px -45% 0px' });
+      chapters.forEach(function (c) { cio.observe(c); });
+    }
+  }
+  layoutZoom();
+  window.addEventListener('resize', layoutZoom);
   function zoomProgress() {
     if (!zoomSection) return 0;
     var r = zoomSection.getBoundingClientRect(), span = r.height - window.innerHeight;
@@ -173,9 +219,9 @@
     // hold each scene for most of its stretch, dive in the last 40%
     var dive = Math.max(0, (f - 0.6) / 0.4); dive = dive * dive * (3 - 2 * dive);
     ctx.fillStyle = C.bg; ctx.fillRect(0, 0, s.w, s.h);
-    var base = Math.min(s.w / 1000, s.h / 600);
+    var g = zoomRegion(s.w, s.h), base = zb = Math.min(g.rw / 1000, g.rh / 600);
     function paint(scene, k, alpha, T) {
-      ctx.save(); ctx.globalAlpha = alpha; ctx.translate(s.w / 2, s.h / 2); ctx.scale(base, base);
+      ctx.save(); ctx.globalAlpha = alpha; ctx.translate(g.x + g.rw / 2, g.y + g.rh / 2); ctx.scale(base, base);
       ctx.translate(T[0] * (1 - k), T[1] * (1 - k)); ctx.scale(k, k);
       scene.draw(ctx, t); ctx.restore(); ctx.globalAlpha = 1;
     }
@@ -250,7 +296,7 @@
   }
   function drawFibre(t) {
     if (!fibre) return;
-    var s = fit(fibre), ctx = s.ctx, W = s.w, H = s.h, cx = W / 2, cy = H / 2, k = Math.min(W, H) / 600;
+    var s = fit(fibre), ctx = s.ctx, W = s.w, H = s.h, cx = W / 2, cy = H / 2, k = Math.min(W, H) / 680;   // leaves room for the labels above and below
     ctx.fillStyle = '#0b0f14'; ctx.fillRect(0, 0, W, H);
     ctx.fillStyle = '#5f6b7c'; ctx.beginPath(); ctx.arc(cx, cy, 270 * k, 0, 7); ctx.fill();
     ctx.fillStyle = '#16314a'; ctx.beginPath(); ctx.arc(cx, cy, 235 * k, 0, 7); ctx.fill();      // water-filled cladding region
@@ -270,7 +316,7 @@
     var off = drawFibre.off || (drawFibre.off = document.createElement('canvas')); off.width = img.width; off.height = img.height;
     off.getContext('2d').putImageData(img, 0, 0); ctx.drawImage(off, cx - a, cy - a);
     ctx.fillStyle = C.muted; ctx.font = '11px Martian Mono, monospace';
-    ctx.fillText(Math.floor(t / 3) % 2 ? 'mode at 800 nm (two-photon pump)' : 'mode at 470 nm (probe)', 12, 20);
+    ctx.fillText(Math.floor(t / 3) % 2 ? 'mode at 800 nm (two-photon pump)' : 'mode at 470 nm (probe)', 12, 16);
     ctx.fillText('hollow core, water-filled', 12, H - 12);
   }
 
@@ -278,7 +324,7 @@
   var arCanvas = document.getElementById('ar-canvas'), tSlider = document.getElementById('ar-t'), tOut = document.getElementById('ar-t-out'), filled = true;
   function drawAR() {
     if (!arCanvas) return;
-    var s = fit(arCanvas), ctx = s.ctx, W = s.w, H = s.h, L = 40, B = 28, lo = 350, hi = 1000;
+    var s = fit(arCanvas), ctx = s.ctx, W = s.w, H = s.h, L = 40, B = 28, PT = 48, lo = 350, hi = 1000;   // PT: label band at the top
     var t = +tSlider.value, nCore = filled ? 1.33 : 1.0, fac = Math.sqrt(1.45 * 1.45 - nCore * nCore);
     tOut.textContent = (t * 1000).toFixed(0) + ' nm';
     ctx.fillStyle = '#0b0f14'; ctx.fillRect(0, 0, W, H);
@@ -287,19 +333,19 @@
     ctx.strokeStyle = C.ink; ctx.lineWidth = 1.6; ctx.beginPath();
     for (var l = lo; l <= hi; l += 1) {
       var T = 1; res.forEach(function (r) { var w = r[1] * 0.035; T *= 1 - 0.95 / (1 + Math.pow((l - r[1]) / w, 2)); });
-      var y = 12 + (1 - T) * (H - B - 24); if (l === lo) ctx.moveTo(X(l), y); else ctx.lineTo(X(l), y);
+      var y = PT + (1 - T) * (H - B - PT - 8); if (l === lo) ctx.moveTo(X(l), y); else ctx.lineTo(X(l), y);
     }
     ctx.stroke();
     res.forEach(function (r) { ctx.fillStyle = 'rgba(255,74,61,0.85)'; ctx.font = '10px Martian Mono, monospace'; ctx.fillText('m=' + r[0], X(r[1]) - 14, H - B - 4); });
     [[470, C.cool, 'probe'], [800, C.pump, 'pump']].forEach(function (q) {
       var bad = res.some(function (r) { return Math.abs(q[0] - r[1]) < r[1] * 0.06; });
-      ctx.strokeStyle = q[1]; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(X(q[0]), 6); ctx.lineTo(X(q[0]), H - B); ctx.stroke(); ctx.setLineDash([]);
+      ctx.strokeStyle = q[1]; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(X(q[0]), PT - 4); ctx.lineTo(X(q[0]), H - B); ctx.stroke(); ctx.setLineDash([]);
       ctx.fillStyle = q[1]; ctx.font = '11px Martian Mono, monospace'; var txt = q[0] + ' nm ' + q[2] + (bad ? ' ✗ leaks' : ' ✓ guided'), tw = ctx.measureText(txt).width;
-      ctx.fillText(txt, X(q[0]) + 6 + tw > W - 6 ? X(q[0]) - 6 - tw : X(q[0]) + 6, 34 + (q[0] === 800 ? 16 : 0));
+      ctx.fillText(txt, Math.max(6, Math.min(X(q[0]) - tw / 2, W - 6 - tw)), q[0] === 800 ? 36 : 18);
     });
     ctx.fillStyle = C.muted; ctx.font = '11px Martian Mono, monospace';
-    for (var g = 400; g <= 1000; g += 200) ctx.fillText(g + ' nm', X(g) - 18, H - 8);
-    ctx.fillText('transmission', L, 12);
+    for (var g = 400; g <= 1000; g += 200) { var gl = g + ' nm'; ctx.fillText(gl, Math.min(X(g) - 18, W - 4 - ctx.measureText(gl).width), H - 8); }
+    ctx.save(); ctx.translate(14, H - B); ctx.rotate(-Math.PI / 2); ctx.fillText('transmission', 0, 0); ctx.restore();
   }
   if (tSlider) tSlider.addEventListener('input', drawAR);
   document.querySelectorAll('[data-fill]').forEach(function (b) {

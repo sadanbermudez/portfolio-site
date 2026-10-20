@@ -1,5 +1,5 @@
 // Cloudflare deployment for sergioadan.dev: static files from dist/, plus a small Worker for the
-// public Jarvis demo (/api/chat and /api/transcribe on Workers AI's free daily allowance).
+// public Jarvis demo (/api/chat, /api/transcribe and /api/speak on Workers AI's free daily allowance).
 // Deploy:  python build.py  then  wrangler deploy   (from this folder)
 {
   "name": "sergioadan",
@@ -12,10 +12,11 @@
     "run_worker_first": ["/api/*"]
   },
   "ai": { "binding": "AI" },
-  // Per visitor and Cloudflare location: 8 questions and 6 recordings a minute
+  // Per visitor and Cloudflare location: 8 questions, 6 recordings and 60 spoken sentences a minute
   "ratelimits": [
     { "name": "CHAT_LIMIT", "namespace_id": "1001", "simple": { "limit": 8, "period": 60 } },
-    { "name": "STT_LIMIT", "namespace_id": "1002", "simple": { "limit": 6, "period": 60 } }
+    { "name": "STT_LIMIT", "namespace_id": "1002", "simple": { "limit": 6, "period": 60 } },
+    { "name": "SPEAK_LIMIT", "namespace_id": "1003", "simple": { "limit": 60, "period": 60 } }
   ],
   "workers_dev": false,
   "routes": [

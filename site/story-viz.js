@@ -25,10 +25,10 @@
   var canvas = document.getElementById('field-canvas'), caption = document.getElementById('field-caption');
   var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-field]'));
   var CAPTIONS = {
-    bio: 'Biochemistry · Designed protein modules wrap around a nanocluster and hold it stable, and the cluster fluoresces. My first paper: <em>Biomacromolecules</em>, 2015. Schematic.',
-    photo: 'Photophysics · Two 800 nm photons excite the photosensitiser together; it crosses to its triplet state and hands the energy to oxygen, making singlet oxygen, which glows at 1270 nm as it falls back to its ground state. Energies schematic, not to scale.',
-    eng: 'Engineering · A hollow-core fibre: a ring of thin glass capillaries confines light to the core, which holds the sample. Light and sample overlap over centimetres instead of a focal spot. Schematic.',
-    ai: 'AI · The loop my projects share: the model plans, tools act and measure, and the answer is checked against the measurement before it is trusted.'
+    bio: 'Protein modules hold a fluorescent nanocluster stable. My first paper: <em>Biomacromolecules</em>, 2015.',
+    photo: 'Two photons excite the photosensitiser, which passes the energy to oxygen: singlet oxygen, glowing at 1270 nm. Not to scale.',
+    eng: 'Fibres, lasers, photon counting. Capillaries keep light and sample together in the hollow core, over centimetres. Schematic.',
+    ai: 'Local models and tools with safety limits; every answer is checked against a measurement before it is trusted.'
   };
   var field = 'bio', chosen = false, fieldVisible = false, t0 = performance.now();
 
@@ -54,9 +54,10 @@
     var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 0.75); g.addColorStop(0, 'rgba(255,174,74,' + 0.85 * glow + ')'); g.addColorStop(0.35, 'rgba(255,120,60,' + 0.35 * glow + ')'); g.addColorStop(1, 'rgba(255,74,61,0)');
     ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, R * 0.75, 0, 7); ctx.fill();
     for (var j = 0; j < 9; j++) { var bb = j / 9 * 6.283 + spin * 2, rj = j % 3 ? 9 : 4; ctx.fillStyle = '#ffd38a'; ctx.beginPath(); ctx.arc(cx + Math.cos(bb) * rj, cy + Math.sin(bb) * rj, 4, 0, 7); ctx.fill(); }
-    label(ctx, 'protein modules', cx + R * 1.12, cy - R * 0.7, 'left', C.ink);
+    var tight = w < 480;                                 // narrow: labels go to the corners, clear of the ring
+    label(ctx, 'protein modules', tight ? w - 10 : cx + R * 1.12, tight ? 20 : cy - R * 0.7, tight ? 'right' : 'left', C.ink);
     label(ctx, 'nanocluster', cx, cy + 34, 'center', C.ink);
-    label(ctx, 'fluorescence', cx - R * 1.15, cy + R * 0.95, 'right', C.red);
+    label(ctx, 'fluorescence', tight ? 10 : cx - R * 1.15, tight ? h - 12 : cy + R * 0.95, tight ? 'left' : 'right', C.red);
   }
 
   function arrow(ctx, x1, y1, x2, y2, col, wavy) {
@@ -78,7 +79,7 @@
     var ph = reduce ? 9 : (t % 6), mid = (base + S1) / 2, x0 = L + (M - L) * 0.22;
     if (ph > 0) arrow(ctx, x0, base, x0, ph < 0.6 ? base - (base - mid) * ph / 0.6 : mid, C.red);                      // photon 1
     if (ph > 0.6) arrow(ctx, x0 + 12, mid, x0 + 12, ph < 1.2 ? mid - (mid - S1) * (ph - 0.6) / 0.6 : S1, C.red);        // photon 2
-    if (ph > 0.3) { ctx.font = '11px Martian Mono, monospace'; var tw = ctx.measureText('2 × 800 nm').width; if (x0 - 10 - tw > 4) label(ctx, '2 × 800 nm', x0 - 10, mid + 4, 'right', C.red); else label(ctx, '2 × 800 nm', x0 + 22, mid + 26, 'left', C.red); }
+    if (ph > 0.3) { ctx.font = '11px Martian Mono, monospace'; var tw = ctx.measureText('2 × 800 nm').width; if (x0 - 10 - tw > 4) label(ctx, '2 × 800 nm', x0 - 10, mid + 4, 'right', C.red); else label(ctx, '2 × 800 nm', L - 30, S1 - 14, 'left', C.red); }
     if (ph > 1.4) arrow(ctx, x0 + 30, S1, L + (M - L) * 0.6, T1, C.muted, true);                                       // intersystem crossing
     if (ph > 2.2) { ctx.setLineDash([5, 5]); arrow(ctx, M + 20, T1, R1 + 10, D - 6, C.amber); ctx.setLineDash([]); label(ctx, 'energy transfer', (M + R1) / 2 + 22, (T1 + D) / 2 - 16, 'left', C.amber); }
     if (ph > 2.6) arrow(ctx, R1 + 22, base, R1 + 22, D, C.amber);
@@ -93,6 +94,10 @@
 
   function drawEng(ctx, w, h, t) {
     var cx = Math.min(w * 0.28, h * 0.55), cy = h / 2, R = Math.min(h * 0.38, w * 0.22);
+    var x1 = cx + R + 30, x2 = w - 20, sy = cy, stackedView = x2 - x1 < 300;
+    if (stackedView) {                                   // narrow: cross-section on top, side view below it
+      cx = w / 2; cy = h * 0.27; R = Math.min(h * 0.22, w * 0.2); x1 = 20; x2 = w - 20; sy = h * 0.74;
+    }
     ctx.fillStyle = '#121820'; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.fill();
     ctx.strokeStyle = '#6b7684'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.stroke();
     var n = 8, r = R * 0.2;
@@ -100,23 +105,25 @@
     var pulse = reduce ? 0.8 : 0.7 + 0.3 * Math.sin(t * 2), core = R - 2 * r - 6;
     var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, core); g.addColorStop(0, 'rgba(255,74,61,' + 0.9 * pulse + ')'); g.addColorStop(0.6, 'rgba(255,74,61,0.25)'); g.addColorStop(1, 'rgba(255,74,61,0)');
     ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, core, 0, 7); ctx.fill();
-    label(ctx, 'cross-section', cx, cy + R + 22, 'center');
-    var x1 = cx + R + 30, x2 = w - 20, half = Math.max(8, core * 0.5);                              // side view: the core as a channel
+    label(ctx, 'cross-section', cx, cy + R + (stackedView ? 18 : 22), 'center');
+    var half = Math.max(8, core * 0.5);                                                             // side view: the core as a channel
     if (x2 - x1 > 80) {
-      ctx.fillStyle = '#121820'; ctx.fillRect(x1, cy - half * 2.4, x2 - x1, half * 4.8);
-      ctx.strokeStyle = '#6b7684'; ctx.lineWidth = 1.5; ctx.strokeRect(x1, cy - half * 2.4, x2 - x1, half * 4.8);
-      ctx.fillStyle = 'rgba(127,182,255,0.12)'; ctx.fillRect(x1, cy - half, x2 - x1, half * 2);
+      ctx.fillStyle = '#121820'; ctx.fillRect(x1, sy - half * 2.4, x2 - x1, half * 4.8);
+      ctx.strokeStyle = '#6b7684'; ctx.lineWidth = 1.5; ctx.strokeRect(x1, sy - half * 2.4, x2 - x1, half * 4.8);
+      ctx.fillStyle = 'rgba(127,182,255,0.12)'; ctx.fillRect(x1, sy - half, x2 - x1, half * 2);
       for (var p = 0; p < 5; p++) { var u = reduce ? p / 5 : ((t * 0.35 + p / 5) % 1), x = x1 + u * (x2 - x1);
-        var gg = ctx.createRadialGradient(x, cy, 0, x, cy, half * 1.6); gg.addColorStop(0, 'rgba(255,74,61,0.9)'); gg.addColorStop(1, 'rgba(255,74,61,0)');
-        ctx.fillStyle = gg; ctx.beginPath(); ctx.arc(x, cy, half * 1.6, 0, 7); ctx.fill(); }
-      label(ctx, 'light and sample together, centimetres long', (x1 + x2) / 2, cy + half * 2.4 + 20, 'center');
+        var gg = ctx.createRadialGradient(x, sy, 0, x, sy, half * 1.6); gg.addColorStop(0, 'rgba(255,74,61,0.9)'); gg.addColorStop(1, 'rgba(255,74,61,0)');
+        ctx.fillStyle = gg; ctx.beginPath(); ctx.arc(x, sy, half * 1.6, 0, 7); ctx.fill(); }
+      label(ctx, stackedView && w < 330 ? 'light and sample, centimetres long' : 'light and sample together, centimetres long', (x1 + x2) / 2, sy + half * 2.4 + 20, 'center');
     }
   }
 
+
   function drawAI(ctx, w, h, t) {
-    var cx = w / 2, cy = h / 2, R = Math.min(w * 0.36, h * 0.36);
     var nodes = ['question', 'model plans', 'tool acts', 'measurement', 'checked answer'];
     var notes = ['one photon or two?', 'local Qwen or Claude', 'laser, Stockfish, docs search', 'spectra, evaluations, citations', 'fits, claim checks, held-out set'];
+    if (w < 560) { drawAIColumn(ctx, w, h, t, nodes, notes); return; }
+    var cx = w / 2, cy = h / 2, R = Math.min(w * 0.36, h * 0.36);
     ctx.strokeStyle = C.rule; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(cx, cy, R * 1.25, R, 0, 0, 7); ctx.stroke();
     var u = reduce ? 0.1 : (t * 0.18) % 1, ang = -Math.PI / 2 + u * 6.283;
     var dx = cx + Math.cos(ang) * R * 1.25, dy = cy + Math.sin(ang) * R;
@@ -131,6 +138,25 @@
       ctx.font = '10px Martian Mono, monospace'; ctx.fillStyle = near ? C.amber : '#6b7684'; ctx.textAlign = al; ctx.fillText(notes[k], lx, ly + 14);
     });
     ctx.fillStyle = C.ink; ctx.font = '600 15px Schibsted Grotesk, sans-serif'; ctx.textAlign = 'center'; ctx.fillText('agent', cx, cy + 5);
+  }
+
+  function drawAIColumn(ctx, w, h, t, nodes, notes) {   // narrow screens: the same loop as a column, labels to the right
+    var n = nodes.length, x = 46, top = 30, step = (h - 60) / (n - 1), back = 26;
+    ctx.strokeStyle = C.rule; ctx.lineWidth = 2; ctx.beginPath();
+    ctx.moveTo(x, top); ctx.lineTo(x, top + step * (n - 1)); ctx.lineTo(back, top + step * (n - 1)); ctx.lineTo(back, top); ctx.lineTo(x, top); ctx.stroke();
+    var u = reduce ? 0.1 : (t * 0.18) % 1, pos = u * n, k0 = Math.floor(pos), f = pos - k0;
+    var py = k0 < n - 1 ? top + step * (k0 + f) : top + step * (n - 1) * (1 - f), px = k0 < n - 1 ? x : back;
+    var g = ctx.createRadialGradient(px, py, 0, px, py, 14); g.addColorStop(0, 'rgba(255,174,74,0.95)'); g.addColorStop(1, 'rgba(255,174,74,0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(px, py, 14, 0, 7); ctx.fill();
+    nodes.forEach(function (name, k) {
+      var y = top + step * k, near = k0 < n - 1 ? Math.round(k0 + f) === k : k === 0 && f > 0.5;
+      ctx.fillStyle = near ? C.amber : '#1a222c'; ctx.strokeStyle = near ? C.amber : '#3a4452'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(x, y, 7, 0, 7); ctx.fill(); ctx.stroke();
+      label(ctx, name, x + 18, y - 2, 'left', near ? C.ink : C.muted);
+      ctx.font = '10px Martian Mono, monospace'; ctx.fillStyle = near ? C.amber : '#6b7684'; ctx.textAlign = 'left'; ctx.fillText(notes[k], x + 18, y + 13);
+    });
+    ctx.save(); ctx.translate(back - 10, top + step * (n - 1) / 2); ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = C.ink; ctx.font = '600 13px Schibsted Grotesk, sans-serif'; ctx.textAlign = 'center'; ctx.fillText('agent', 0, 0); ctx.restore();
   }
 
   var DRAW = { bio: drawBio, photo: drawPhoto, eng: drawEng, ai: drawAI };
@@ -169,7 +195,7 @@
       return '<div class="rrow"><span class="rname">' + r.name + '</span><span class="rtrack"><span class="rfill" data-w="' + pct(r.now) + '"></span>' +
         (r.best ? '<span class="rbest" data-l="' + pct(r.best) + '" title="best ' + r.best + (r.when ? ', ' + r.when : '') + '"></span>' : '') +
         '</span><span class="rnum">' + r.now + (r.best && r.best !== r.now ? ' <em>best ' + r.best + '</em>' : '') + '</span></div>';
-    }).join('') + '<p class="mono rnote">Live from the Chess.com and Lichess public APIs when this page loaded; the marker is the best rating Chess.com has recorded. Scale 1400 to 3000.</p>';
+    }).join('') + '<p class="mono rnote">Red marker: best Chess.com rating. Scale 1400 to 3000.</p>';
     box.querySelectorAll('.rfill').forEach(function (e) { e.style.width = '0%'; });
     box.querySelectorAll('.rbest').forEach(function (e) { e.style.left = e.dataset.l + '%'; });
     onView(box, function (v) { if (v) box.querySelectorAll('.rfill').forEach(function (e) { e.style.width = e.dataset.w + '%'; }); }, true);
@@ -193,23 +219,27 @@
   // ---------- 4. sensor sizes, drawn to scale ----------
   var sensor = document.getElementById('sensor-svg'), sensorText = document.getElementById('sensor-text');
   var SENSORS = { phone: { name: '1-inch type (large phone sensors)', w: 13.2, h: 8.8 }, apsc: { name: 'APS-C', w: 23.5, h: 15.6 }, ff: { name: 'Full frame', w: 36, h: 24 }, x2d: { name: 'Hasselblad X2D, 100 MP', w: 43.8, h: 32.9 } };
+  var sensorSel = 'x2d';
   function drawSensors(sel) {
+    sensorSel = sel;
     var k = 9, ox = 20, oy = 20, html = '';
+    var scale = (sensor.clientWidth || 434) / 434, fs = Math.max(11, Math.round(10.5 / scale));   // keep labels near 10 px on phones
     Object.keys(SENSORS).reverse().forEach(function (key) {
       var s = SENSORS[key], on = key === sel, x2d = key === 'x2d';
       html += '<rect x="' + ox + '" y="' + (oy + (32.9 - s.h) * k) + '" width="' + s.w * k + '" height="' + s.h * k + '" fill="' + (on ? (x2d ? 'rgba(255,174,74,0.22)' : 'rgba(127,182,255,0.18)') : 'none') +
         '" stroke="' + (on ? (x2d ? '#ffae4a' : '#7fb6ff') : '#3a4452') + '" stroke-width="' + (on ? 2 : 1.2) + '"/>';
       var short = { phone: '1"', apsc: 'APS-C', ff: 'FF', x2d: 'X2D' }[key];
-      html += '<text x="' + (ox + s.w * k - 6) + '" y="' + (oy + (32.9 - s.h) * k + 15) + '" text-anchor="end" fill="' + (on ? '#e8ecf1' : '#6b7684') + '" font-family="Martian Mono, monospace" font-size="11">' + short + '</text>';
+      html += '<text x="' + (ox + s.w * k - 6) + '" y="' + (oy + (32.9 - s.h) * k + fs + 4) + '" text-anchor="end" fill="' + (on ? '#e8ecf1' : '#6b7684') + '" font-family="Martian Mono, monospace" font-size="' + fs + '">' + short + '</text>';
     });
-    sensor.innerHTML = html + '<text x="' + ox + '" y="' + (oy + 32.9 * k + 18) + '" fill="#8a94a2" font-family="Martian Mono, monospace" font-size="11">drawn to scale, 1 mm = 9 px</text>';
+    sensor.innerHTML = html + '<text x="' + ox + '" y="' + (oy + 32.9 * k + fs + 6) + '" fill="#8a94a2" font-family="Martian Mono, monospace" font-size="' + fs + '">drawn to scale</text>';
     var s = SENSORS[sel], area = s.w * s.h, x = SENSORS.x2d.w * SENSORS.x2d.h;
-    sensorText.textContent = s.name + ': ' + s.w + ' × ' + s.h + ' mm, ' + Math.round(area) + ' mm²' + (sel === 'x2d' ? ', ' + (x / (36 * 24)).toFixed(2) + ' times the area of full frame.' : '. The X2D sensor has ' + (x / area).toFixed(1) + ' times this area.');
+    sensorText.textContent = s.name + ' · ' + s.w + ' × ' + s.h + ' mm · ' + (sel === 'x2d' ? (x / (36 * 24)).toFixed(2) + ' × the area of full frame' : 'the X2D has ' + (x / area).toFixed(1) + ' × this area');
     document.querySelectorAll('[data-sensor]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.sensor === sel)); });
   }
   if (sensor) {
     document.querySelectorAll('[data-sensor]').forEach(function (b) { b.addEventListener('click', function () { drawSensors(b.dataset.sensor); }); });
     drawSensors('x2d');
+    window.addEventListener('resize', function () { drawSensors(sensorSel); });
   }
 
   // ---------- 5. seven half marathons ----------
