@@ -25,7 +25,7 @@ Two rules for reading it:
                                    Cloudflare Worker "sergioadan": static assets only, no Worker code
                                                                                 |
                                    sergioadan.dev and www.sergioadan.dev  (custom domains)
-                                   plus a workers.dev subdomain            (workers_dev: true)
+                                   (workers_dev: false, so no second hostname)
 
  Pages and the scripts each one loads  (every page: site.css, immersive.css, Google Fonts)
  index.html ................ three.js r128 (cdnjs), bench.js, hero.js, lab.js, inline script
@@ -61,7 +61,7 @@ The repo root also holds an earlier single-page version of the site (`index.html
 
 **Context.** `site/index.html` is written as a fragment, without `<html>`, `<head>` or `<body>`, because it is previewed in Claude's artifact viewer, which adds its own skeleton (docstring of `site/build.py`). A static host needs a full document. The work pages are already full documents.
 
-**Decision.** `site/build.py` uses only the Python standard library. It deletes `dist/`, copies `data/chess-game.js`, copies the `engine/` and `vendor/` folders with their licence files, copies the two stylesheets and the eleven scripts named in a tuple, and copies every `work/*.html`. It wraps the home page: it adds the doctype, `<html lang="en">`, the charset and a viewport meta with `viewport-fit=cover`; finds the end of the head by locating the last stylesheet link (`immersive.css`); drops the preview-only `claude:viewport-fit-sides` meta; and puts the rest inside `<body>`. Last, it writes `dist/_headers`:
+**Decision.** `site/build.py` uses only the Python standard library. It deletes `dist/`, copies the `data/`, `engine/` and `vendor/` folders (the last two with their licence files), copies every top-level script and stylesheet and `404.html`, and copies every `work/*.html`. It wraps the home page: it adds the doctype, `<html lang="en">`, the charset and a viewport meta with `viewport-fit=cover`; finds the end of the head by locating the last stylesheet link (`immersive.css`); drops the preview-only `claude:viewport-fit-sides` meta; and puts the rest inside `<body>`. It writes `dist/_headers`, and finally checks every local `src` and `href` in every built page and fails the build if one does not resolve to a file in `dist/`:
 
 ```
 /*
@@ -80,7 +80,7 @@ The repo root also holds an earlier single-page version of the site (`index.html
 
 **Alternatives.** Write `index.html` as a full document and stop previewing it as an artifact. Glob for `*.js` instead of naming the files.
 
-**Trade-offs.** The explicit list of scripts means a new script that is not added to the tuple is missing from `dist/` and returns 404 in production. The head detection depends on one literal string. There is no Content-Security-Policy (see "Known limits"). The comment in `build.py` still says "Cloudflare Pages", although the deploy target is now a Worker (decision 3).
+**Trade-offs.** The head detection depends on one literal string. The reference check reads attributes with a regular expression, so it sees `src` and `href` in markup but not URLs built in JavaScript (the engine worker path in `analyse.js`, for example). There is no Content-Security-Policy (see "Known limits").
 
 **Check it yourself.** From `site/`, run `python build.py`; it prints every file it wrote. Then `head -12 dist/index.html` shows the generated head. On the live site, `curl -sI https://sergioadan.dev/ | grep -iE "x-frame|nosniff|referrer|permissions"` shows whether the headers are served.
 
@@ -94,7 +94,7 @@ The repo root also holds an earlier single-page version of the site (`index.html
 
 **Alternatives.** Considered (from the notes): Porkbun static hosting, ruled out as paid only; GitHub Pages, ruled out while the repo was private without a paid plan; Cloudflare Pages, the free route the research found, which Wrangler now routes to Workers.
 
-**Trade-offs.** Deploys run by hand from a logged-in machine; there is no CI pipeline. `workers_dev: true` keeps a second public hostname that serves the same pages. `not_found_handling` asks for a 404 page, but `site/` has no `404.html`, so visitors to a bad URL get Cloudflare's bare 404 response.
+**Trade-offs.** Deploys run by hand from a logged-in machine; CI checks the build but does not deploy. `workers_dev` is off, so the site has exactly two hostnames, both on the domain. `not_found_handling: "404-page"` serves `site/404.html`, which uses root-relative links because it can be shown at any path.
 
 **Check it yourself.** `curl -sI https://sergioadan.dev/work/chess.html` shows the 307 to `/work/chess`. `curl -sI https://sergioadan.dev/no-such-page` shows the 404. `wrangler deploy --dry-run` from `site/` validates the config without publishing.
 
@@ -128,7 +128,7 @@ The repo root also holds an earlier single-page version of the site (`index.html
 
 **Alternatives.** Self-host three.js the way Stockfish is self-hosted (decision 6). Use a current release as an ES module.
 
-**Trade-offs.** A runtime dependency on a third-party CDN. The script tag has no `integrity` (Subresource Integrity) attribute, so the browser does not verify the file's hash. An old release gets no fixes. Decision 4 limits the damage if the file fails to load.
+**Trade-offs.** A runtime dependency on a third-party CDN, limited by an `integrity` (Subresource Integrity) attribute: the browser refuses the file unless its SHA-512 matches the hash cdnjs publishes for r128 (checked against a download before it went in). An old release gets no fixes. Decision 4 limits the damage if the file fails to load.
 
 **Check it yourself.** `grep -n "three.js/r128" site/index.html site/work/*.html` lists the three pages. In DevTools, the Network tab shows the file served from cdnjs.
 
@@ -225,22 +225,18 @@ For small screens: breakpoints at 520, 640, 760, 900 and 980 px. Side gutters ar
 
 **Alternatives.** A single "animations off" toggle on the site. A separate mobile layout.
 
-**Trade-offs.** In reduced-motion mode a few controls reset their simulation without redrawing it (see "Known limits"). The notes record browser checks at 1,037 and 1,440 px wide for the v5 design and at phone width for the roles section, with no horizontal overflow; there is no automated layout test.
+**Trade-offs.** In reduced-motion mode no animation loop runs, so every control that changes a simulation has to finish and redraw it in its own handler (the treatment switch in `photon.js` and the solvent switch in `research.js` do). The notes record browser checks at 1,037 and 1,440 px wide for the v5 design and at phone width for the roles section, with no horizontal overflow; there is no automated layout test.
 
 **Check it yourself.** DevTools, Rendering panel: set "Emulate CSS media feature prefers-reduced-motion" to "reduce" and reload the home page. Then use device mode at 375 px wide and confirm the page never scrolls sideways.
 
 ## Known limits and what comes next
 
-- **Stale README and old files.** The root `README.md` describes the earlier single page (GitHub Pages, "no other external dependency"). The root `index.html`, `index-v1.html`, `build.py` and `dist/` belong to that version. Next: point the README at `site/` and this file, and move or remove the old version.
-- **No Content-Security-Policy, no Subresource Integrity.** A CSP would have to allow cdnjs and Google Fonts, `connect-src` to lichess.org, the inline scripts on three pages (by hash), Workers from the site's own origin, and WebAssembly compilation (`'wasm-unsafe-eval'`). Adding an `integrity` hash to the three.js tag is the smaller first step.
-- **Build list by hand.** A new script missing from the tuple in `build.py` ships as a 404. Next: glob the scripts, or have the build fail when a page references a file that is not in `dist/`.
-- **No automated tests or CI for the site.** Deploys are manual. Next: a link and asset check over `dist/`, and a browser smoke test that loads each page and fails on console errors.
-- **No custom 404 page**, although `wrangler.jsonc` asks for one; `workers_dev: true` leaves a second hostname live.
+- **Old version at the root.** `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first single-page site, kept for reference (the README says so). Next: move them into an `archive/` folder.
+- **No Content-Security-Policy.** A CSP would have to allow cdnjs and Google Fonts, `connect-src` to lichess.org, the inline scripts on three pages (by hash), Workers from the site's own origin, and WebAssembly compilation (`'wasm-unsafe-eval'`).
+- **Thin automated checks.** CI (`.github/workflows/site.yml`) runs the rules-module tests in `site/tests/` and the build with its reference check. There is no browser test yet. Next: a smoke test that loads each page and fails on console errors. Deploys are manual.
 - **Numbers repeated across files** (decision 4).
-- **Reduced-motion redraw bug.** With reduced motion on, the treatment switch on `two-photon.html` (`[data-pdt]` handler in `photon.js`) and the solvent switch on `research.html` (`[data-solvent]` handler in `research.js`) reset their simulation but nothing redraws it, because no loop is running.
 - **Lifetime fit reads high.** `fitTau()` in `research.js` takes the mean time after 6 µs, which is correct for a single exponential but here still includes the 2 µs triplet rise and the uniform dark counts. Re-running the same model in Python with 60,000 events gives about 3.8 µs for an input of 3.5 µs, and about 71 µs for 68 µs. The page now states the bias next to the readout. Next: fit the full rise-and-decay model, or start the window later and subtract the dark-count level.
 - **Fewer facts for imported games.** Pins and mate in one are not computed in the browser (decision 7).
-- **Wording.** The analysis speed selector on the chess page is labelled "depth", but it sets time per move.
 
 ## Questions a reviewer might ask
 

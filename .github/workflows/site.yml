@@ -1,0 +1,17 @@
+name: site
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Rules module agrees with the jarvis-chess test positions
+        run: node site/tests/chess-core.test.js
+      - name: Build, failing on any page that references a missing file
+        run: python site/build.py
