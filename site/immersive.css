@@ -141,3 +141,34 @@
 .det-canvas { display: block; width: 100%; height: 260px; }
 .fibre-canvas { display: block; width: 100%; height: 320px; }
 @media (max-width: 760px) { .scalebar { bottom: auto; top: 120px; } }
+
+/* chess: click-to-move explore mode */
+.board .sq { cursor: pointer; }
+.board .sq.sel { box-shadow: inset 0 0 0 3px var(--emit), inset 0 0 0 999px rgba(255, 174, 74, 0.22); }
+.board .sq .dot { position: absolute; width: 28%; height: 28%; border-radius: 50%; background: rgba(12, 16, 22, 0.42); pointer-events: none; }
+.board .sq .ring { position: absolute; inset: 5%; border-radius: 50%; box-shadow: inset 0 0 0 5px rgba(12, 16, 22, 0.42); pointer-events: none; }
+.board .promo { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; gap: 4px; padding: 6px; background: var(--panel); border: 1px solid var(--muted); z-index: 2; }
+.board .promo button { font-family: "Noto Sans Symbols 2", "Segoe UI Symbol", serif; font-size: clamp(1.4rem, 5vw, 2.4rem); line-height: 1; width: 1.6em; height: 1.6em; background: #5f6b7c; border: 1px solid var(--rule); cursor: pointer; }
+.board .promo button:hover { border-color: var(--emit); }
+.board-hint { margin-top: 8px; }
+.explore-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.explore-actions button { font-family: var(--font-data); font-size: var(--step--2); background: var(--panel); color: var(--ink); border: 1px solid var(--rule); padding: 8px 12px; cursor: pointer; }
+.explore-actions button:hover:not([disabled]) { border-color: var(--muted); }
+.explore-actions button[disabled] { opacity: 0.45; cursor: default; }
+
+/* chess: account game log */
+.account { margin-top: 16px; }
+.import input[type="text"] { background: #0b0f14; color: var(--ink); border: 1px solid var(--rule); padding: 9px 10px; font-family: var(--font-data); font-size: var(--step--2); width: 14ch; }
+.import input[type="text"]:focus { outline: 2px solid var(--emit); outline-offset: 1px; }
+.game-log table { min-width: 760px; }
+.game-log td.op { color: var(--muted); max-width: 26ch; }
+.game-log tr.running td { background: rgba(255, 174, 74, 0.08); }
+.game-log .res.win { color: var(--emit); }
+.game-log .res.loss { color: var(--accent); }
+.game-log .bl { color: var(--accent); }
+.game-log .btn.small { padding: 4px 10px; font-size: var(--step--2); }
+.game-log a { color: var(--muted); font-size: var(--step--2); }
+@media (max-width: 640px) {
+  .game-log table { min-width: 520px; }
+  .game-log th:nth-child(4), .game-log td:nth-child(4), .game-log th:nth-child(5), .game-log td:nth-child(5) { display: none; }
+}

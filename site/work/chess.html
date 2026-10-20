@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Honest chess commentary · Sergio Adan Bermudez</title>
 <meta name="description" content="An MCP server that lets an AI assistant review chess games without inventing tactics: Stockfish and the rules supply every fact.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Noto+Sans+Symbols+2&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
@@ -56,6 +57,7 @@
               <button id="last" type="button" aria-label="End">⏭</button>
               <span class="pos" id="pos"></span>
             </div>
+            <p class="mono board-hint">Click any piece to see its legal moves and play your own line from this point; Stockfish answers each move. Esc or "Back to the game" returns.</p>
             <div class="legend-arrows"><span><i style="background:#ffae4a"></i>move played · White's lines (3D)</span><span><i style="background:#7fb6ff"></i>engine's choice · Black's lines (3D)</span><span><i style="background:#ff4a3d"></i>hanging piece (3D)</span></div>
           </div>
           <div class="detail">
@@ -68,7 +70,7 @@
           </div>
         </div>
         <form class="panel import" id="import-form">
-          <div class="panel-head"><span class="live">analyse your own game · Stockfish 19 in your browser</span><span>nothing is uploaded</span></div>
+          <div class="panel-head"><span class="live">analyse one game · Stockfish 19 in your browser</span><span>nothing is uploaded</span></div>
           <div class="import-body">
             <label for="pgn-input" class="label">Paste a PGN or a Lichess game link</label>
             <textarea id="pgn-input" rows="4" spellcheck="false" placeholder="https://lichess.org/dlymlJeF   or   1. e4 e5 2. Nf3 ..."></textarea>
@@ -82,6 +84,28 @@
             <p class="mono" id="import-status" aria-live="polite">Shown above: my win over JoseGarciaMolina, reviewed by the jarvis-chess server. Load any game to replace it.</p>
           </div>
         </form>
+        <form class="panel import account" id="account-form">
+          <div class="panel-head"><span class="live">your games · Lichess or Chess.com account</span><span>fetched by your browser from their public APIs · log kept only in this browser</span></div>
+          <div class="import-body">
+            <div class="import-row">
+              <label for="acct-site" class="mono">site</label>
+              <select id="acct-site"><option value="lichess">Lichess</option><option value="chesscom">Chess.com</option></select>
+              <label for="acct-user" class="mono">username</label>
+              <input id="acct-user" type="text" autocomplete="off" spellcheck="false" placeholder="dr_namer" maxlength="30">
+              <label for="acct-count" class="mono">games</label>
+              <select id="acct-count"><option value="5">5</option><option value="10" selected>10</option><option value="20">20</option></select>
+              <button class="btn primary" id="acct-load" type="submit">Load games</button>
+            </div>
+            <div class="import-row">
+              <button class="btn" id="acct-review-all" type="button" disabled>Quick-review all</button>
+              <button class="btn" id="acct-clear" type="button" disabled>Clear log</button>
+              <span class="mono" id="acct-summary"></span>
+            </div>
+            <p class="mono" id="acct-status" aria-live="polite">Enter a username to log its latest games. Analyse opens a game on the board at the time per move set above; quick review runs every game at 0.15 s per move.</p>
+            <div class="table-scroll game-log" id="acct-log" role="region" aria-label="Game log" tabindex="0"></div>
+          </div>
+        </form>
+        <p class="mono">Average centipawn loss (ACPL) counts each move's loss with evaluations capped at ±10 pawns, so a lost-anyway position does not swamp the average. Errors use the winning-chances grading below. The browser engine is Stockfish's lite network on one thread, so its counts are indicative: on the game shown above it finds 3 of my blunders at both 0.15 and 0.4 s per move, where full Stockfish 19 on 8 threads finds 6. Evaluations of the same positions differ by 50 to 150 centipawns, and grades sit on thresholds.</p>
         <p class="mono">The shown game is Lichess blitz, 3+0. In a game this sharp both sides err; the review grades every move by the winning chances it gave away, using Lichess's method: on its −1 to 1 scale, a drop of 0.1 is an inaccuracy, 0.2 a mistake and 0.3 a blunder.</p>
       </div>
     </section>
@@ -114,6 +138,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="../chess3d.js"></script>
 <script src="../analyse.js"></script>
+<script src="../games.js"></script>
 <script>
 (function () {
   var b2 = document.getElementById('board'), b3 = document.getElementById('board3d');
