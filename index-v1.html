@@ -1,0 +1,299 @@
+<title>Sergio Adan Bermudez</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="PhD engineer in sensing and measurement, building AI systems from the model runtime up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: a lab notebook. Narrow reading column, an instrument readout beside the hero, projects as numbered entries. */
+  :root {
+    --paper: #f5f7f8;
+    --panel: #ffffff;
+    --ink: #13212b;
+    --muted: #55656f;
+    --rule: #d5dde1;
+    --beam: #0a7f8c;          /* 488 nm, the argon line */
+    --beam-soft: #dff1f2;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0d161c; --panel: #13202a; --ink: #e3ebef; --muted: #96a7b1;
+      --rule: #263843; --beam: #45c4cf; --beam-soft: #123a40; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0d161c; --panel: #13202a; --ink: #e3ebef; --muted: #96a7b1;
+    --rule: #263843; --beam: #45c4cf; --beam-soft: #123a40; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font: 400 1rem/1.6 var(--body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 0 4rem;
+  }
+  .wrap { max-width: 68rem; margin: 0 auto; }
+  a { color: var(--beam); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--beam); outline-offset: 3px; border-radius: 2px; }
+  h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+  p { margin: 0; }
+  .label {
+    font: 500 0.72rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  }
+
+  /* top bar */
+  nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; align-items: baseline; justify-content: space-between; padding-block: 1.5rem; border-bottom: 1px solid var(--rule); }
+  nav .who { font: 600 0.95rem var(--body); }
+  nav ul { display: flex; flex-wrap: wrap; gap: 1.25rem; list-style: none; margin: 0; padding: 0; font-size: 0.9rem; }
+  nav ul a { color: var(--muted); text-decoration: none; }
+  nav ul a:hover { color: var(--ink); }
+
+  /* hero */
+  .hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 3rem; padding-block: 4rem 3.5rem; align-items: end; }
+  .hero h1 { font-size: clamp(2.3rem, 5.5vw, 4rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.02em; }
+  .hero h1 .beam { color: var(--beam); }
+  .hero .lede { margin-top: 1.5rem; max-width: 36rem; font-size: 1.12rem; color: var(--muted); }
+  .hero .lede strong { color: var(--ink); font-weight: 600; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .btn { display: inline-block; padding: 0.65rem 1.1rem; border: 1px solid var(--ink); border-radius: 4px; color: var(--ink); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+  .btn:hover { border-color: var(--beam); }
+
+  /* instrument readout */
+  .readout { background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 1.25rem 1.25rem 1rem; font-family: var(--mono); min-width: 0; }
+  .readout .head { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 0.75rem; border-bottom: 1px dashed var(--rule); }
+  .readout .live { color: var(--beam); }
+  .readout .live::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--beam); margin-right: 6px; vertical-align: 1px; }
+  .readout dl { margin: 0.5rem 0 0; display: grid; grid-template-columns: 1fr auto; gap: 0; }
+  .readout dt, .readout dd { margin: 0; padding: 0.55rem 0; border-bottom: 1px solid var(--rule); font-size: 0.82rem; }
+  .readout dt { color: var(--muted); }
+  .readout dd { text-align: right; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .readout dl > :nth-last-child(-n+2) { border-bottom: 0; }
+  .readout svg { display: block; width: 100%; height: 56px; margin-top: 0.75rem; }
+  .readout .cap { font-size: 0.7rem; color: var(--muted); margin-top: 0.35rem; }
+
+  /* sections */
+  section { padding-block: 3.5rem; border-top: 1px solid var(--rule); }
+  .sec-head { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 2rem; margin-bottom: 2rem; }
+  .sec-head h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 700; letter-spacing: -0.01em; }
+  .sec-head p { color: var(--muted); max-width: 40rem; margin-top: 0.5rem; }
+
+  /* projects: notebook entries */
+  .entries { display: grid; gap: 1.25rem; }
+  .entry { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 2rem; padding-block: 1.75rem; border-bottom: 1px solid var(--rule); }
+  .entry:last-child { border-bottom: 0; }
+  .entry .meta { display: grid; gap: 0.5rem; align-content: start; }
+  .status { justify-self: start; font: 500 0.72rem/1 var(--mono); padding: 0.35rem 0.55rem; border-radius: 3px; border: 1px solid var(--rule); color: var(--muted); }
+  .status.on { border-color: var(--beam); color: var(--beam); background: var(--beam-soft); }
+  .entry h3 { font-size: 1.45rem; font-weight: 700; }
+  .entry .sub { color: var(--muted); margin-top: 0.35rem; max-width: 42rem; }
+  .entry ul { margin: 1rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.4rem; max-width: 44rem; }
+  .entry ul li::marker { color: var(--beam); }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.1rem; }
+  .tags span { font: 400 0.75rem/1 var(--mono); padding: 0.35rem 0.5rem; background: var(--panel); border: 1px solid var(--rule); border-radius: 3px; }
+  .note { margin-top: 1rem; font-size: 0.88rem; color: var(--muted); max-width: 44rem; }
+  .flagship .entry-body { background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 1.5rem; }
+
+  /* path timeline */
+  .path { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  .path li { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 2rem; padding-block: 1.1rem; border-bottom: 1px solid var(--rule); }
+  .path li:last-child { border-bottom: 0; }
+  .path .when { font: 500 0.85rem var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+  .path h3 { font-size: 1.1rem; font-weight: 500; font-family: var(--body); }
+  .path p { color: var(--muted); margin-top: 0.25rem; max-width: 44rem; }
+
+  /* skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.5rem 2rem; }
+  .skills h3 { font: 600 0.95rem var(--body); margin-bottom: 0.5rem; }
+  .skills p { color: var(--muted); font-size: 0.95rem; }
+
+  /* contact */
+  .contact { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 2rem; }
+  .contact .big { font: 500 clamp(1.2rem, 3vw, 1.6rem) var(--display); }
+  .contact .row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-top: 1rem; }
+  .copy { font: 500 0.8rem var(--mono); padding: 0.45rem 0.7rem; background: transparent; color: var(--ink); border: 1px solid var(--rule); border-radius: 4px; cursor: pointer; }
+  .copy:hover { border-color: var(--beam); }
+  footer { padding-top: 2rem; color: var(--muted); font-size: 0.8rem; }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; gap: 2rem; padding-block: 2.5rem; }
+    .sec-head, .entry, .path li, .contact { grid-template-columns: 1fr; gap: 0.75rem; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .trace { stroke-dasharray: 900; stroke-dashoffset: 900; animation: draw 1.6s ease-out 0.2s forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+  }
+</style>
+
+<div class="wrap">
+  <nav aria-label="Main">
+    <span class="who">Sergio Adan Bermudez, PhD</span>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#path">Path</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <p class="label">AI engineer · Barcelona</p>
+      <h1 style="margin-top:1rem">I measured light for eight years. Now I measure <span class="beam">models</span>.</h1>
+      <p class="lede">PhD in intelligent sensing and measurement (Edinburgh). I build AI systems that run on real hardware: <strong>local LLMs, agents, voice and evals</strong>, and I care about where every millisecond goes.</p>
+      <div class="ctas">
+        <a class="btn primary" href="#work">See the work</a>
+        <a class="btn" href="https://www.linkedin.com/in/sadanbermudez" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <aside class="readout" aria-label="Measurements from Odysseus-Jarvis">
+      <div class="head label"><span>Odysseus-Jarvis</span><span class="live">running</span></div>
+      <dl>
+        <dt>Model, on one AMD GPU</dt><dd>35B MoE, Q4</dd>
+        <dt>Eval tasks passed</dt><dd>13 / 13</dd>
+        <dt>Reply time, thinking off</dt><dd>~2.5 s</dd>
+        <dt>Reply time, thinking on</dt><dd>~20 s</dd>
+        <dt>Prefill floor per turn</dt><dd>~2.4 s</dd>
+        <dt>Memory-server tests</dt><dd>29 passing</dd>
+      </dl>
+      <svg viewBox="0 0 300 56" role="img" aria-label="Decorative measurement trace">
+        <line x1="0" y1="50" x2="300" y2="50" stroke="var(--rule)" stroke-width="1"/>
+        <path class="trace" d="M0 50 L40 50 L60 48 L80 46 L100 40 L115 26 L125 8 L135 26 L150 40 L170 46 L200 48 L230 49 L300 50" fill="none" stroke="var(--beam)" stroke-width="1.6"/>
+      </svg>
+      <p class="cap">Eval harness results, measured on my own machine, 2026.</p>
+    </aside>
+  </header>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="sec-head">
+      <p class="label">Selected work</p>
+      <div>
+        <h2 id="work-h">Projects</h2>
+        <p>Each one started with a problem I actually had, and each one is measured.</p>
+      </div>
+    </div>
+
+    <div class="entries">
+      <article class="entry flagship">
+        <div class="meta">
+          <span class="label">2026 · personal</span>
+          <span class="status on">Running daily</span>
+        </div>
+        <div class="entry-body">
+          <h3>Odysseus-Jarvis: a local-first AI agent hub</h3>
+          <p class="sub">A personal AI assistant that runs on a local LLM inside a self-hosted AI hub, with Claude Code as a second brain for hard tasks.</p>
+          <ul>
+            <li>Runs Qwen3.6-35B-A3B with llama.cpp on an AMD Radeon GPU, served through an agent framework (Hermes Agent).</li>
+            <li>An MCP memory server over an Obsidian knowledge base: BM25 search, guarded writes, daily logs, 29 automated tests.</li>
+            <li>A delegation bridge that hands hard jobs to Claude Code with least-privilege tool modes.</li>
+            <li>A voice pipeline (Whisper in, Kokoro out, streaming replies) and an OpenAI-compatible speech service.</li>
+            <li>An eval harness of 13 real tasks with deterministic scoring. It picked the settings: thinking off scored 13/13 at about 2.5 s against 10/13 at about 20 s.</li>
+            <li>A tray supervisor that starts and watches eight services, and a system audit that checks health and configuration drift.</li>
+          </ul>
+          <div class="tags"><span>Python</span><span>llama.cpp</span><span>MCP</span><span>Docker</span><span>Whisper</span><span>Evals</span><span>Vulkan</span></div>
+          <p class="note">Designed and directed by me, built with AI coding agents (Claude Code). Code on GitHub soon.</p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="meta">
+          <span class="label">2026 · open source</span>
+          <span class="status">In progress</span>
+        </div>
+        <div>
+          <h3>C++ systems lab</h3>
+          <p class="sub">An 8-week sprint from Python to systems C++, written by hand: RAII, a thread pool, profiling, a matrix multiply tuned step by step, and pybind11 bindings.</p>
+          <div class="tags"><span>C++20</span><span>CMake</span><span>gdb</span><span>perf</span><span>Sanitizers</span><span>pybind11</span></div>
+          <p class="note">Results table and benchmarks added as each module ships.</p>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="meta">
+          <span class="label">2024 to now · Sensofar</span>
+          <span class="status on">In use</span>
+        </div>
+        <div>
+          <h3>LLM assistant for optical metrology</h3>
+          <p class="sub">An internal LLM-based assistant and a Python document database that put product and scientific documentation in one place, so technical answers come faster.</p>
+          <div class="tags"><span>Python</span><span>LLM</span><span>Knowledge base</span></div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="meta">
+          <span class="label">Writing</span>
+          <span class="status">Coming soon</span>
+        </div>
+        <div>
+          <h3>Where my local LLM spends its first 2.4 seconds</h3>
+          <p class="sub">Profiling prompt prefill on an AMD GPU: what is fixed cost, what scales with tokens, and what prompt caching changes.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="path" aria-labelledby="path-h">
+    <div class="sec-head">
+      <p class="label">Path</p>
+      <div>
+        <h2 id="path-h">From photons to tokens</h2>
+        <p>Instruments taught me to measure before I optimise. AI is where I use that now.</p>
+      </div>
+    </div>
+    <ol class="path">
+      <li><span class="when">2024 to now</span><div><h3>Key Account Manager and Product Specialist, Sensofar</h3><p>Optical metrology for semiconductors, aerospace and medical devices. Built the internal LLM assistant.</p></div></li>
+      <li><span class="when">2022 to 2024</span><div><h3>Postdoctoral Researcher, IQS (Universitat Ramon Llull)</h3><p>Biomedical photonics and sensing. EU project Light4Lungs; coordinated optics, biochemistry and modelling teams.</p></div></li>
+      <li><span class="when">2017 to 2022</span><div><h3>PhD, Intelligent Sensing and Measurement, University of Edinburgh</h3><p>Two-photon luminescence detection in hollow-core photonic crystal fibres; signal analysis and experimental validation.</p></div></li>
+      <li><span class="when">2014 to 2017</span><div><h3>MSc Nanoscience (Copenhagen) and MSc Engineering (Glasgow)</h3><p>Machine learning with Python and R, bioinformatics, engineering for photonics.</p></div></li>
+    </ol>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-h">
+    <div class="sec-head">
+      <p class="label">Toolkit</p>
+      <div><h2 id="skills-h">Skills</h2></div>
+    </div>
+    <div class="skills">
+      <div><h3>AI and LLM systems</h3><p>Local LLM deployment (llama.cpp, quantised MoE models), agents and tool use (MCP), retrieval and memory, speech (Whisper, TTS), evaluation.</p></div>
+      <div><h3>Software</h3><p>Python daily; C++ (actively deepening); Docker, Linux, Git; APIs and service integration.</p></div>
+      <div><h3>Measurement and hardware</h3><p>Photonics, optical sensors, spectroscopy, signal analysis, experimental design and validation.</p></div>
+      <div><h3>Working with people</h3><p>Technical training and workshops, cross-team R&amp;D coordination, customer needs into product input. Spanish native, English C2.</p></div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h">
+    <div class="contact">
+      <p class="label">Contact</p>
+      <div>
+        <h2 id="contact-h" class="big">Building something where models meet hardware? Let's talk.</h2>
+        <div class="row">
+          <span id="email" style="font-family:var(--mono)">sadanbermudez@gmail.com</span>
+          <button class="copy" id="copy-email" type="button">Copy email</button>
+          <a href="https://www.linkedin.com/in/sadanbermudez" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>Barcelona, Spain · Sergio Adan Bermudez</footer>
+</div>
+
+<script>
+  document.getElementById('copy-email').addEventListener('click', function () {
+    var btn = this, text = document.getElementById('email').textContent;
+    function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy email'; }, 1800); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); done('Selected');
+    }
+    try { navigator.clipboard.writeText(text).then(function () { done('Copied'); }, fallback); }
+    catch (e) { fallback(); }
+  });
+</script>

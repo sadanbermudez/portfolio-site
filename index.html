@@ -1,0 +1,495 @@
+<title>Sergio Adan Bermudez</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="PhD in sensing and measurement. I make AI systems fast and reliable on real hardware, and I measure every change.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a measurement report. A narrow label column (what was measured) beside a reading column (the result), stacking to one column on phones. */
+:root {
+  --paper: #f5f6f8;
+  --surface: #ffffff;
+  --ink: #141821;
+  --ink-soft: #4a5263;
+  --rule: #dde1e8;
+  --accent: #4b3fd6;        /* 405 nm violet: the laser line of the photonics years */
+  --accent-soft: rgba(75, 63, 214, 0.09);
+  --good: #11795c;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --step--1: 0.84rem;
+  --step-0: 1rem;
+  --step-1: 1.2rem;
+  --step-2: 1.6rem;
+  --step-3: 2.3rem;
+  --step-4: clamp(2.6rem, 6vw, 4.2rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f1218; --surface: #161a22; --ink: #e7eaf0; --ink-soft: #a3abba;
+    --rule: #2a303c; --accent: #9b92ff; --accent-soft: rgba(155, 146, 255, 0.12); --good: #4fc79f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f1218; --surface: #161a22; --ink: #e7eaf0; --ink-soft: #a3abba;
+  --rule: #2a303c; --accent: #9b92ff; --accent-soft: rgba(155, 146, 255, 0.12); --good: #4fc79f;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1080px; margin: 0 auto; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.12; }
+p { margin: 0; max-width: 65ch; }
+.label {
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.num { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+
+/* top bar */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; padding-block: 12px; }
+.brand { font-family: var(--font-display); font-weight: 700; color: var(--ink); text-decoration: none; }
+.top nav { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: var(--step--1); }
+.top nav a { color: var(--ink-soft); text-decoration: none; }
+.top nav a:hover { color: var(--accent); }
+
+/* hero */
+.hero { padding-block: 56px 40px; display: grid; gap: 28px; }
+.hero h1 { font-size: var(--step-4); font-weight: 700; letter-spacing: -0.02em; max-width: 18ch; }
+.hero .lede { font-size: var(--step-1); color: var(--ink-soft); max-width: 58ch; }
+.readout {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px;
+  background: var(--rule); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden;
+}
+.readout > div { background: var(--surface); padding: 18px 20px; display: grid; gap: 6px; min-width: 0; }
+.readout .value { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: var(--step-2); font-weight: 500; }
+.readout .value b { color: var(--accent); font-weight: 500; }
+.readout .note { font-size: var(--step--1); color: var(--ink-soft); }
+.hero .meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: var(--step--1); color: var(--ink-soft); }
+
+/* sections */
+section { border-top: 1px solid var(--rule); padding-block: 48px; }
+.row { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px 40px; }
+@media (max-width: 760px) { .row { grid-template-columns: 1fr; } }
+.row > .side { display: grid; gap: 8px; align-content: start; }
+.row > .main { display: grid; gap: 20px; min-width: 0; }
+h2 { font-size: var(--step-3); font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: var(--step-1); font-weight: 700; }
+.main p + p { margin-top: -6px; }
+
+/* case study steps */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: step; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; padding-block: 14px; border-top: 1px solid var(--rule); }
+.steps li::before { content: counter(step, decimal-leading-zero); font-family: var(--font-data); color: var(--ink-soft); padding-top: 2px; }
+.steps li.key::before { color: var(--accent); font-weight: 500; }
+.steps strong { font-weight: 600; }
+
+/* tables */
+.table-scroll { overflow-x: auto; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 0.94rem; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-family: var(--font-data); font-size: var(--step--1); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-soft); }
+tr:last-child td { border-bottom: 0; }
+td.n { font-family: var(--font-data); font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.after { color: var(--good); font-weight: 500; }
+
+/* code */
+pre {
+  margin: 0; overflow-x: auto; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px;
+  padding: 16px 18px; font-family: var(--font-data); font-size: 0.86rem; line-height: 1.55;
+}
+.add { color: var(--good); }
+.cmt { color: var(--ink-soft); }
+
+/* diagram */
+.figure { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; overflow-x: auto; }
+.figure svg { display: block; width: 100%; min-width: 620px; height: auto; }
+.figure figcaption { margin-top: 10px; font-size: var(--step--1); color: var(--ink-soft); }
+figure { margin: 0; }
+
+/* project and principle grids */
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.item { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.item .label { color: var(--accent); }
+.item ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.principles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 32px; }
+.principles li { padding-block: 14px; border-top: 1px solid var(--rule); display: grid; gap: 4px; }
+.principles strong { font-family: var(--font-display); font-size: var(--step-1); font-weight: 700; }
+
+/* roadmap */
+.phases { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.phase { border-top: 3px solid var(--rule); padding-top: 14px; display: grid; gap: 10px; align-content: start; }
+.phase.now { border-top-color: var(--accent); }
+.phase ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+
+/* skills */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.skills .item h3 { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.pill { font-family: var(--font-data); font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink-soft); white-space: nowrap; }
+.pill.strong { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* timeline */
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; }
+.timeline li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding-block: 14px; border-top: 1px solid var(--rule); }
+@media (max-width: 520px) { .timeline li { grid-template-columns: 1fr; gap: 4px; } }
+.timeline .when { font-family: var(--font-data); font-size: var(--step--1); color: var(--ink-soft); padding-top: 3px; }
+
+/* contact */
+.contact { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.copy { font: inherit; font-size: var(--step--1); padding: 6px 12px; border-radius: 6px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); cursor: pointer; }
+.copy:hover { border-color: var(--accent); }
+.email { font-family: var(--font-data); user-select: all; }
+footer { border-top: 1px solid var(--rule); padding-block: 28px 40px; font-size: var(--step--1); color: var(--ink-soft); display: grid; gap: 6px; }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Sergio Adan Bermudez</a>
+    <nav aria-label="Sections">
+      <a href="#work">Case study</a>
+      <a href="#system">System</a>
+      <a href="#projects">Projects</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#background">Background</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <div class="hero">
+    <p class="label">PhD, Intelligent Sensing and Measurement · Barcelona</p>
+    <h1>I make AI systems fast on real hardware, and I measure every change.</h1>
+    <p class="lede">Nine years of optical sensing and metrology taught me to distrust a number I have not measured. I now apply that to AI: local language models, voice agents and the engines underneath them.</p>
+    <div class="readout" aria-label="Headline measurements">
+      <div>
+        <span class="label">Voice: time to first word</span>
+        <span class="value">3.0 s → <b>0.7 s</b></span>
+        <span class="note">Mid-conversation, measured 20 Oct 2026</span>
+      </div>
+      <div>
+        <span class="label">Model state snapshot</span>
+        <span class="value">0.61 s → <b>0.03 s</b></span>
+        <span class="note">llama.cpp on an AMD integrated GPU</span>
+      </div>
+      <div>
+        <span class="label">Agent: each later turn</span>
+        <span class="value">3.5 s → <b>1.2 s</b></span>
+        <span class="note">Same model, same laptop, no cloud</span>
+      </div>
+    </div>
+    <div class="meta">
+      <span>Python · C++ (growing) · LLM inference · evals · MCP</span>
+      <span>Spanish · English (C2)</span>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="row">
+      <div class="side">
+        <p class="label">Case study</p>
+        <p class="label num">19 to 20 Oct 2026</p>
+      </div>
+      <div class="main">
+        <h2>Finding a 20x stall in a local LLM engine</h2>
+        <p>My voice assistant paused about 3 seconds before every answer. The model itself was fast, so the delay had to be somewhere else. I narrowed it down one measurement at a time:</p>
+        <ol class="steps">
+          <li><span><strong>Raw engine vs server.</strong> The engine alone read 16 prompt tokens in 0.11 s; the server took 1.4 to 2.5 s for the same work. The problem was server-side.</span></li>
+          <li><span><strong>Ruled out settings.</strong> Batch size, context size and slot count made no difference on a separate test server.</span></li>
+          <li><span><strong>Timestamped logs.</strong> Two snapshot saves of about 0.6 s each made up the delay. The model is a hybrid whose recurrent state must be snapshotted to resume conversations.</span></li>
+          <li><span><strong>Turned snapshots off.</strong> Voice became 15x faster, but the agent lost its cache and slowed to 21 s per turn. Reverted within half an hour.</span></li>
+          <li><span><strong>Newer build and four GPU switches.</strong> No change, so the cost was in the code, not the configuration.</span></li>
+          <li><span><strong>A first patch that failed.</strong> Skipping redundant GPU waits saved almost nothing (0.65 s to 0.61 s). Discarded.</span></li>
+          <li class="key"><span><strong>Timers on the read path.</strong> The waits took 14 ms in total. The CPU copy took 7,738 ms for 880 MB: about 114 MB/s, because the GPU memory it read is not CPU-cached.</span></li>
+          <li class="key"><span><strong>A one-condition fix.</strong> Read directly only from cached memory; otherwise let the GPU copy into a cached staging buffer first. 880 MB in 553 ms.</span></li>
+        </ol>
+        <pre aria-label="The fix in ggml-vulkan-buffers.cpp"><span class="cmt">// ggml_vk_buffer_read_2d(): take the direct host read only when it is fast</span>
+if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible &amp;&amp; src-&gt;device-&gt;uma <span class="add">&amp;&amp;
+    src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostCached</span>) {</pre>
+        <p><strong>Verified, not assumed.</strong> At temperature 0 with a fixed seed, the fixed build gave word-for-word identical answers to the stock build, including in a mode that forces snapshot restores (4 of 4). I rehearsed the exact deployment on a copy before touching production, and kept a one-step undo.</p>
+        <p><strong>Honest outcome.</strong> After deploying, I found that the Vulkan backend's maintainer had merged the same fix two weeks earlier (<a href="https://github.com/ggml-org/llama.cpp/pull/30049" rel="noopener" target="_blank">llama.cpp #30049</a>), prompted by a benchmark on the same GPU. My engine version predated it. This is an independent diagnosis, not an upstream contribution, and it taught me to check a file's recent history before patching it.</p>
+        <div class="table-scroll" role="region" aria-label="Measured results" tabindex="0">
+          <table>
+            <thead><tr><th>Measured</th><th>Before</th><th>After</th><th>Cause of the gain</th></tr></thead>
+            <tbody>
+              <tr><td>Voice, time to first word</td><td class="n">≈ 3 s</td><td class="n after">≈ 0.7 s</td><td>Engine fix, voice-only sampling setting</td></tr>
+              <tr><td>Agent, each later turn</td><td class="n">3.5 s</td><td class="n after">1.1 to 1.4 s</td><td>Engine fix, smaller prompt</td></tr>
+              <tr><td>Agent, task with code tool</td><td class="n">43.5 s</td><td class="n after">23.0 s</td><td>Engine fix</td></tr>
+              <tr><td>Agent, task with web search</td><td class="n">11.7 s</td><td class="n after">7.1 s</td><td>Engine fix</td></tr>
+              <tr><td>Agent prompt per request</td><td class="n">13,718 tok</td><td class="n after">11,560 tok</td><td>Removed two unused tools, chosen from usage data</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="system">
+    <div class="row">
+      <div class="side">
+        <p class="label">The system</p>
+        <p class="label">Odysseus-Jarvis</p>
+      </div>
+      <div class="main">
+        <h2>A private AI assistant that runs on one laptop</h2>
+        <p>Jarvis talks, remembers and uses tools. Voice, an agent and a chat hub share one local model server, so a single fix in that server sped up every local path. Claude handles typed work as a second brain on a subscription, with no paid API.</p>
+        <figure class="figure">
+          <svg viewBox="0 0 760 330" role="img" aria-label="Voice, Hermes and Odysseus share one local llama.cpp server">
+            <defs>
+              <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--ink-soft)"/></marker>
+            </defs>
+            <g fill="none" stroke="var(--ink-soft)" stroke-width="1.25">
+              <path d="M134 96V232" marker-end="url(#arr)"/>
+              <path d="M380 96V136" marker-end="url(#arr)"/>
+              <path d="M380 192V232" marker-end="url(#arr)"/>
+              <path d="M626 96V136" marker-end="url(#arr)"/>
+              <path d="M440 96V116H560V136" marker-end="url(#arr)"/>
+            </g>
+            <g font-family="IBM Plex Sans, Segoe UI, sans-serif" text-anchor="middle">
+              <rect x="24" y="24" width="220" height="72" rx="8" fill="var(--surface)" stroke="var(--rule)"/>
+              <text x="134" y="50" font-size="14" font-weight="600" fill="var(--ink)">Voice (backtalk)</text>
+              <text x="134" y="68" font-size="12" fill="var(--ink-soft)">Whisper in, Kokoro out</text>
+              <text x="134" y="84" font-size="12" fill="var(--ink-soft)">"Jarvis" wake word</text>
+              <rect x="270" y="24" width="220" height="72" rx="8" fill="var(--surface)" stroke="var(--rule)"/>
+              <text x="380" y="50" font-size="14" font-weight="600" fill="var(--ink)">Odysseus hub</text>
+              <text x="380" y="68" font-size="12" fill="var(--ink-soft)">chat, tools, agents</text>
+              <text x="380" y="84" font-size="12" fill="var(--ink-soft)">Docker, self-hosted</text>
+              <rect x="516" y="24" width="220" height="72" rx="8" fill="var(--surface)" stroke="var(--rule)"/>
+              <text x="626" y="50" font-size="14" font-weight="600" fill="var(--ink)">Claude Code</text>
+              <text x="626" y="68" font-size="12" fill="var(--ink-soft)">second brain, typed work</text>
+              <text x="626" y="84" font-size="12" fill="var(--ink-soft)">on the subscription</text>
+              <rect x="270" y="136" width="220" height="56" rx="8" fill="var(--surface)" stroke="var(--rule)"/>
+              <text x="380" y="160" font-size="14" font-weight="600" fill="var(--ink)">Hermes agent</text>
+              <text x="380" y="178" font-size="12" fill="var(--ink-soft)">web, code, files, terminal</text>
+              <rect x="516" y="136" width="220" height="56" rx="8" fill="var(--surface)" stroke="var(--rule)"/>
+              <text x="626" y="160" font-size="14" font-weight="600" fill="var(--ink)">Memory (MCP)</text>
+              <text x="626" y="178" font-size="12" fill="var(--ink-soft)">knowledge vault, 7 tools</text>
+              <rect x="24" y="232" width="712" height="72" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+              <text x="380" y="258" font-size="14" font-weight="600" fill="var(--ink)">llama.cpp server, Vulkan</text>
+              <text x="380" y="276" font-size="12" fill="var(--ink)">Qwen3.6-35B-A3B on a Radeon 8060S, 64 GB shared memory</text>
+              <text x="380" y="292" font-size="12" fill="var(--ink)">where the snapshot fix landed</text>
+            </g>
+          </svg>
+          <figcaption>Every component runs on the laptop except Claude Code. Memory is a plain-text vault the assistant reads and writes through MCP.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="principles">
+    <div class="row">
+      <div class="side"><p class="label">How I work</p></div>
+      <div class="main">
+        <h2>A lab notebook, applied to AI systems</h2>
+        <ul class="principles">
+          <li><strong>Measure first</strong><span>Same scripted requests before and after every change, on the real setup.</span></li>
+          <li><strong>Check behaviour, not only speed</strong><span>Deterministic A/B tests: a faster system that answers differently is a regression.</span></li>
+          <li><strong>Test away from production</strong><span>A separate server on a spare port; production changes only after approval.</span></li>
+          <li><strong>Keep changes reversible</strong><span>A backup and a one-step undo for every deployed change, written down.</span></li>
+          <li><strong>Record decisions</strong><span>What changed, the numbers, and what would change my mind, including the failures.</span></li>
+          <li><strong>Be open about AI help</strong><span>I design and direct; AI coding agents (Claude Code) write much of the code. I own every decision and can explain every line.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="row">
+      <div class="side"><p class="label">Projects</p></div>
+      <div class="main">
+        <h2>What I have built</h2>
+        <div class="grid2">
+          <article class="item">
+            <p class="label">2026 · Personal</p>
+            <h3>Odysseus-Jarvis</h3>
+            <p>A local-first AI assistant inside a self-hosted AI hub: local LLM, voice, persistent memory and tools.</p>
+            <ul>
+              <li>MCP memory server over a plain-text knowledge base, 29 automated tests</li>
+              <li>Voice pipeline: local speech-to-text and text-to-speech, streaming replies, wake word</li>
+              <li>Delegation bridge from the local model to Claude Code, least-privilege modes</li>
+              <li>Performance work above: voice reply 3 s to 0.7 s</li>
+            </ul>
+          </article>
+          <article class="item">
+            <p class="label">2026 · Personal</p>
+            <h3>Evaluation harness</h3>
+            <p>13 real tasks with deterministic scoring, used to choose model settings from evidence.</p>
+            <ul>
+              <li>Thinking off scored 13/13 at about 2.5 s; thinking on 10/13 at about 20 s</li>
+              <li>A 3x shorter system prompt kept 13/13</li>
+            </ul>
+          </article>
+          <article class="item">
+            <p class="label">2024 to now · Sensofar</p>
+            <h3>Internal LLM assistant</h3>
+            <p>Designed an LLM-based assistant and a Python document database to centralise technical knowledge on optical metrology products and speed up answers to customers and colleagues.</p>
+          </article>
+          <article class="item">
+            <p class="label">2026 · Learning in public</p>
+            <h3>C++ systems lab</h3>
+            <p>Six modules I work through by hand: RAII and move semantics, debugging with gdb and sanitizers, a thread pool, profiling, a tiled matrix multiply and Python bindings. Tests fail until I write the code.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <div class="row">
+      <div class="side">
+        <p class="label">Roadmap</p>
+        <p class="label">Direction</p>
+      </div>
+      <div class="main">
+        <h2>Where the project is going</h2>
+        <p>The aim: a private, measurable assistant for technical professionals that runs on consumer hardware. Its edge is engineering discipline: every capability comes with evals, and every speed claim comes with a measurement.</p>
+        <div class="phases">
+          <div class="phase now">
+            <p class="label">Now · Q4 2026</p>
+            <h3>Harden and show</h3>
+            <ul>
+              <li>Move to an official llama.cpp build with the upstream fix</li>
+              <li>Public evaluation dashboard: quality and latency per change</li>
+              <li>Live metrics from the model server (latency per turn, cache hits)</li>
+              <li>Two-minute demo video</li>
+            </ul>
+          </div>
+          <div class="phase">
+            <p class="label">Next · Q1 2027</p>
+            <h3>Capability</h3>
+            <ul>
+              <li>An MCP server that lets the assistant drive a lab instrument and analyse its signal</li>
+              <li>Compress tool output before it reaches the local model</li>
+              <li>A slow "think harder" mode for models larger than memory</li>
+              <li>A second machine as a fast voice brain</li>
+            </ul>
+          </div>
+          <div class="phase">
+            <p class="label">Later · 2027</p>
+            <h3>Share</h3>
+            <ul>
+              <li>A packaged installer others can run</li>
+              <li>Published benchmarks for AMD integrated GPUs</li>
+              <li>Write-ups of each investigation</li>
+              <li>Upstream contributions written by me</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="row">
+      <div class="side"><p class="label">Skills</p><p class="label">Self-assessed</p></div>
+      <div class="main">
+        <h2>What I bring</h2>
+        <div class="skills">
+          <div class="item">
+            <h3>Measurement and diagnosis <span class="pill strong">Strong</span></h3>
+            <p>Experimental design, signal analysis and validation from nine years in optical sensing; applied to profiling LLM systems.</p>
+          </div>
+          <div class="item">
+            <h3>LLM applications <span class="pill strong">Strong</span></h3>
+            <p>Local deployment (llama.cpp, quantised models), agents and tool use (MCP), retrieval and memory, speech, evaluation.</p>
+          </div>
+          <div class="item">
+            <h3>Python <span class="pill strong">Strong</span></h3>
+            <p>Daily use for LLM tools, data analysis and test harnesses.</p>
+          </div>
+          <div class="item">
+            <h3>C++ and GPU systems <span class="pill">Growing</span></h3>
+            <p>Reading and building llama.cpp and its Vulkan backend; working through a structured C++ lab.</p>
+          </div>
+          <div class="item">
+            <h3>Customers and teams <span class="pill strong">Strong</span></h3>
+            <p>Key accounts across Europe and Australia, technical workshops, multidisciplinary R&amp;D coordination.</p>
+          </div>
+          <div class="item">
+            <h3>Infrastructure <span class="pill">Working</span></h3>
+            <p>Docker, WSL and Linux, Git, Windows native builds (MSVC, CMake, Vulkan SDK).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="background">
+    <div class="row">
+      <div class="side"><p class="label">Background</p></div>
+      <div class="main">
+        <h2>From measuring light to measuring models</h2>
+        <ol class="timeline">
+          <li><span class="when">2024 to now</span><span><strong>Key Account Manager and Product Specialist, Sensofar.</strong> Optical metrology for semiconductors, medical devices and aerospace. Built an internal LLM assistant.</span></li>
+          <li><span class="when">2022 to 2024</span><span><strong>Postdoctoral Researcher, IQS, Universitat Ramon Llull.</strong> Biomedical photonics and sensing; EU project Light4Lungs.</span></li>
+          <li><span class="when">2017 to 2022</span><span><strong>PhD, Intelligent Sensing and Measurement, University of Edinburgh.</strong> Two-photon detection in hollow-core photonic crystal fibres.</span></li>
+          <li><span class="when">2014 to 2017</span><span><strong>MSc Nanoscience, University of Copenhagen; MSc Engineering, University of Glasgow.</strong> Machine learning with Python and R; photonics.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="row">
+      <div class="side"><p class="label">Contact</p></div>
+      <div class="main">
+        <h2>Open to AI engineering roles</h2>
+        <p>Applied AI, LLM systems, inference performance and evaluation. Based in Barcelona.</p>
+        <div class="contact">
+          <span class="email" id="email">sadanbermudez@gmail.com</span>
+          <button class="copy" id="copy-email" type="button">Copy email</button>
+          <a href="https://www.linkedin.com/in/sadanbermudez" rel="noopener" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>All measurements were taken on my own hardware, 19 to 20 October 2026. Numbers are reported as measured, including the failures.</span>
+    <span>Site designed with Claude Code and reviewed by me.</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy-email');
+  var email = document.getElementById('email');
+  btn.addEventListener('click', function () {
+    var text = email.textContent.trim();
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy email'; }, 1800); };
+    var fallback = function () {
+      var range = document.createRange(); range.selectNodeContents(email);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      btn.textContent = 'Selected, press Ctrl+C';
+    };
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
