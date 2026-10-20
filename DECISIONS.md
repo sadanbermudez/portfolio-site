@@ -37,6 +37,7 @@ Two rules for reading it:
                                import() of vendor/chess.js, fetch() from lichess.org;
                                games.js: fetch() from lichess.org and api.chess.com
  work/two-photon.html ...... photon.js
+ about.html ................ scrolly.js, story.js (canvas map of the cities, drawn in order as chapters scroll)
  work/research.html ........ research.js
 ```
 
