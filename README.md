@@ -10,6 +10,7 @@ Source of my portfolio site, live at [sergioadan.dev](https://sergioadan.dev): s
 | `work/chess.html` | A reviewed game replayed with engine-checked facts, PGN import and Stockfish running in the browser ([jarvis-chess](https://github.com/sadanbermudez/jarvis-chess)) |
 | `work/two-photon.html` | One- versus two-photon excitation: beam waist, focal volume, penetration, a photodynamic-therapy illustration |
 | `work/research.html` | My PhD and postdoc research: singlet oxygen detection, hollow-core fibres, photon counting |
+| `about.html` | My story: six cities, four fields, chess, and life away from the desk |
 
 ## How it is built and why
 
