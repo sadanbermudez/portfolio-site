@@ -21,7 +21,7 @@ page = ("<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n
         + src[:head_end].replace('<meta name="claude:viewport-fit-sides" content="cover">\n', "")
         + "\n</head>\n<body>\n" + src[head_end:].lstrip() + "</body>\n</html>\n")
 (dist / "index.html").write_text(page, encoding="utf-8")
-for name in ("site.css", "immersive.css", "bench.js", "hero.js", "lab.js", "scrolly.js", "engine.js", "chess.js", "photon.js", "chess-core.js", "chess3d.js", "analyse.js"):
+for name in ("site.css", "immersive.css", "bench.js", "hero.js", "lab.js", "scrolly.js", "engine.js", "chess.js", "photon.js", "chess-core.js", "chess3d.js", "analyse.js", "research.js"):
     shutil.copy2(here / name, dist / name)
 for f in (here / "work").glob("*.html"):
     shutil.copy2(f, dist / "work" / f.name)
