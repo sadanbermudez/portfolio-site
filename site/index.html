@@ -11,18 +11,7 @@
 <div class="top-wrap gutter">
   <header class="top page">
     <a class="brand" href="#top">Sergio Adan Bermudez</a>
-    <nav aria-label="Sections">
-      <a href="#worlds">Projects</a>
-      <a href="#apps">Apps</a>
-      <a href="work/chess.html">Chess</a>
-      <a href="work/research.html">Research</a>
-      <a href="#system">System</a>
-      <a href="#roles">Roles</a>
-      <a href="#log">Log</a>
-      <a href="jarvis.html">Jarvis</a>
-      <a href="about.html">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <nav aria-label="Site"><a href="#worlds">Projects</a><a href="#apps">Apps</a><a href="jarvis.html">Jarvis</a><a href="#roles">Roles</a><a href="about.html">About</a><a href="#contact">Contact</a></nav>
   </header>
 </div>
 
@@ -43,9 +32,6 @@
           <a class="btn primary" href="work/lab-agent.html">Enter the lab</a>
           <a class="btn" href="#worlds">All projects</a>
         </div>
-        <p class="path-legend" aria-label="The bench in the background">
-          <b>800 nm pulsed laser</b><span class="arrow">→</span><b>mirror</b><span class="arrow">→</span><b>objective</b><span class="arrow">→</span><b>sample</b><span class="arrow" style="color:var(--emit)">→</span><b>1270 nm emission</b><span class="arrow" style="color:var(--emit)">→</span><b>InGaAs spectrometer</b>
-        </p>
       </div>
     </div>
   </section>
@@ -60,9 +46,9 @@
   <div class="page">
 
     <section class="block" id="worlds">
-      <div class="side"><p class="label">Step inside</p><p class="mono">three projects</p></div>
+      <div class="side"><p class="label">Projects</p><p class="mono">four, all interactive</p></div>
       <div class="main wide">
-        <h2>Each project, as an experience</h2>
+        <h2>Step inside each project</h2>
         <div class="portals">
           <a class="portal" href="work/lab-agent.html">
             <div class="art" aria-hidden="true">
@@ -126,7 +112,7 @@
                 <text x="100" y="160" fill="#8a94a2" font-family="Martian Mono, monospace" font-size="10">35...Ba5? best 35...Bxc5+</text>
               </svg>
             </div>
-            <span class="label">jarvis-chess · new</span>
+            <span class="label">jarvis-chess</span>
             <h3>Chess commentary that cannot make things up</h3>
             <p>Replay one of my games with Stockfish's verdicts and the facts it verified at each turning point.</p>
             <span class="go">Open the board →</span>
@@ -139,154 +125,40 @@
       <div class="side"><p class="label">Apps</p><p class="mono">three, all Android</p></div>
       <div class="main wide">
         <h2>Apps I built, and you can try</h2>
-        <p class="kicker">Each one runs on Android. Here each is recreated for the browser from its own code and design, with its real logic and sample data, inside a phone you can use.</p>
+        <p class="kicker">Each is recreated for the browser from its own code, with its real logic and sample data, inside a phone you can use.</p>
         <div class="work apps-grid">
           <a class="card app-card" href="apps/la-pina/">
             <span class="app-swatch" style="background:#0B0F14;border-color:#4C8DFF"><span style="background:#3DD68C"></span><span style="background:#F5A524"></span><span style="background:#FF8A8A"></span></span>
             <span class="label">Kotlin · Jetpack Compose · trading education</span>
             <h3>La Piña Investments</h3>
-            <p>Applies a written breakout method to stocks, gold, silver and bitcoin and explains every verdict rule by rule. Change a stock's volume or strength and watch the verdict change.</p>
+            <p>Applies a written breakout method to stocks, gold, silver and bitcoin, and explains every verdict rule by rule.</p>
             <span class="go">Open the app →</span>
           </a>
           <a class="card app-card" href="apps/spanish-tutor/">
             <span class="app-swatch" style="background:#FAF7F2;border-color:#A8173F"><span style="background:#1565C0"></span><span style="background:#6A1B9A"></span><span style="background:#C2185B"></span></span>
             <span class="label">Kotlin · on-device LLM · language learning</span>
             <h3>Spanish Tutor</h3>
-            <p>An offline tutor that takes a French speaker from B2 to C1: lessons, quizzes, a bilingual search and an AI that corrects every sentence. Talk to the tutor live.</p>
+            <p>An offline tutor that takes a French speaker from B2 to C1, with an AI that corrects every sentence. The tutor answers live.</p>
             <span class="go">Open the app →</span>
           </a>
           <a class="card app-card" href="apps/olympus/">
             <span class="app-swatch" style="background:#2A5BA8;border-color:#2A5BA8"><span style="background:#43A047"></span><span style="background:#FFB300"></span><span style="background:#E53935"></span></span>
             <span class="label">Flutter · Dart · fitness and health</span>
             <h3>Olympus</h3>
-            <p>Training plans, a workout logger, nutrition, running and race prediction, with every number traced to a formula or dataset. Log a set and watch the plan respond.</p>
+            <p>Training, nutrition, running and race prediction, with every number traced to a formula or dataset.</p>
             <span class="go">Open the app →</span>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="block" id="lab">
-      <div class="side"><p class="label">Signature piece</p><p class="mono">photonics-lab-mcp</p></div>
-      <div class="main wide">
-        <h2>An AI agent runs a physics experiment, inside limits it cannot override</h2>
-        <p class="kicker" style="max-width:62ch">An MCP server gives a local 35B model an optics bench. One question, no procedure: is the 1270 nm emission excited by one photon or two? The answer is hidden in the server. Below is the agent's real run, call by call.</p>
-        <div class="lab-grid">
-          <div class="panel">
-            <div class="panel-head"><span class="live">agent · Qwen3.6-35B · local</span><button class="replay" id="replay" type="button">Replay run</button></div>
-            <div class="console" id="console" role="log" aria-label="Agent tool calls">
-              <div class="ln hot"><span class="t">#25</span><span class="call"><b>acquire_spectrum</b>({"label":"P160mW"})</span><span class="ret">max 6,636</span></div>
-              <div class="ln hot"><span class="t">#26</span><span class="call"><b>fit_power_dependence</b>({"run_ids":[6 runs],"center_nm":1270})</span><span class="ret">n = 2.004 ± 0.03</span></div>
-              <div class="ln"><span class="t">#27</span><span class="call"><b>laser_emission</b>({"on":false})</span><span class="ret"></span></div>
-              <div class="ln"><span class="t">#28</span><span class="call"><b>safe_state</b>({"reason":"measurement complete"})</span><span class="ret">safe</span></div>
-              <div class="ln final"><span class="t">→</span><span class="call">conclusion: two-photon, exponent 2.004 ± 0.03</span><span class="ret">correct</span></div>
-            </div>
-          </div>
-          <div class="panel chart" id="lab-chart">
-            <div class="panel-head"><span>peak area vs power · log-log</span><span id="lab-verdict" class="result" style="transition:opacity .5s">slope = photon order</span></div>
-            <svg viewBox="0 0 640 350" role="img" aria-labelledby="lab-fig-title">
-              <title id="lab-fig-title">Peak area against laser power on log-log axes. Two-photon sample: slope 2.004 plus or minus 0.03. One-photon control: slope 1.003 plus or minus 0.002.</title>
-              <g stroke="#1d242d" stroke-width="1" fill="none">
-                <line x1="70" y1="20" x2="70" y2="300"/><line x1="70" y1="300" x2="610" y2="300"/>
-                <line x1="70" y1="240.6" x2="610" y2="240.6" stroke-dasharray="2 4"/>
-                <line x1="70" y1="155.8" x2="610" y2="155.8" stroke-dasharray="2 4"/>
-                <line x1="70" y1="70.9" x2="610" y2="70.9" stroke-dasharray="2 4"/>
-              </g>
-              <g font-family="Martian Mono, monospace" font-size="10" fill="#8a94a2">
-                <text x="107.9" y="318" text-anchor="middle">10</text><text x="221.8" y="318" text-anchor="middle">20</text>
-                <text x="372.5" y="318" text-anchor="middle">50</text><text x="486.4" y="318" text-anchor="middle">100</text>
-                <text x="600.4" y="318" text-anchor="middle">200</text>
-                <text x="62" y="244.6" text-anchor="end">10³</text><text x="62" y="159.8" text-anchor="end">10⁴</text><text x="62" y="74.9" text-anchor="end">10⁵</text>
-                <text x="340" y="342" text-anchor="middle">Laser power at 800 nm (mW)</text>
-              </g>
-              <g stroke="#55606d" fill="#55606d">
-                <line x1="204.5" y1="114.3" x2="579.4" y2="30" stroke-width="1.2" stroke-dasharray="4 4"/>
-                <circle cx="221.8" cy="110.6" r="3"/><circle cx="372.5" cy="76.5" r="3"/><circle cx="449.7" cy="59.1" r="3"/>
-                <circle cx="516.4" cy="44.1" r="3"/><circle cx="563.7" cy="33.5" r="3"/>
-              </g>
-              <line class="fit two" x1="90.5" y1="288.3" x2="579.4" y2="68.7" stroke="#ffae4a" stroke-width="1.6" stroke-dasharray="600" stroke-dashoffset="0"/>
-              <g fill="#ffae4a" stroke="#ffae4a">
-                <line x1="107.9" y1="300" x2="107.9" y2="241.3"/><line x1="288.5" y1="208.4" x2="288.5" y2="198.5"/>
-                <circle class="pt two" cx="107.9" cy="261.3" r="4.5"/><circle class="pt two" cx="288.5" cy="203.1" r="4.5"/><circle class="pt two" cx="372.5" cy="158.3" r="4.5"/>
-                <circle class="pt two" cx="449.7" cy="127.4" r="4.5"/><circle class="pt two" cx="516.4" cy="97.3" r="4.5"/><circle class="pt two" cx="563.7" cy="75.5" r="4.5"/>
-              </g>
-              <g font-family="Source Serif 4, Georgia, serif" font-size="12.5">
-                <circle cx="392" cy="236" r="4" fill="#ffae4a"/><text x="402" y="240" fill="#e8ecf1">this run: n = 2.004 ± 0.03</text>
-                <circle cx="392" cy="258" r="3" fill="#55606d"/><text x="402" y="262" fill="#8a94a2">control run: n = 1.003 ± 0.002</text>
-              </g>
-            </svg>
-          </div>
-        </div>
-        <div class="grid-2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px 40px">
-          <p><strong>Right twice.</strong> The control run uses a one-photon sample under the same 800 nm question, and the agent measured 1.003. Reciting the textbook answer would have failed; it had to run a measurement good enough for the server's fit to reach the right verdict.</p>
-          <p><strong>Wrong twice, too.</strong> Both closing explanations got the photophysics wrong: the sensitiser absorbs, and its triplet state passes the energy to oxygen. So the server owns safety and statistics, and a person owns interpretation.</p>
-        </div>
-        <p><a class="btn" href="work/lab-agent.html">The full lab-agent write-up →</a></p>
-      </div>
-    </section>
-
-    <section class="block" id="engine">
-      <div class="side"><p class="label">Case study</p><p class="mono">llama.cpp · Vulkan</p></div>
-      <div class="main wide">
-        <h2>A 20x stall, found one measurement at a time</h2>
-        <p class="kicker" style="max-width:62ch">Every reply from my local assistant stalled for over a second. The cause: the CPU was reading model snapshots straight out of GPU memory it cannot cache. The animation runs at the measured speeds.</p>
-        <div class="panel diagram">
-          <div class="panel-head"><span>Reading 880 MB of model state on an integrated GPU</span><span>dots move at measured throughput (14 : 1)</span></div>
-          <svg viewBox="0 0 760 300" role="img" aria-labelledby="mem-title">
-            <title id="mem-title">Before: the CPU reads GPU memory directly at 114 megabytes per second, 7,738 milliseconds. After: the GPU first copies into a cached staging buffer, 553 milliseconds.</title>
-            <defs>
-              <linearGradient id="gpuG" x1="0" x2="1"><stop offset="0" stop-color="#16202c"/><stop offset="1" stop-color="#10151b"/></linearGradient>
-            </defs>
-            <rect x="20" y="40" width="170" height="220" fill="url(#gpuG)" stroke="#2a3542"/>
-            <text x="36" y="68" fill="#7fb6ff" font-size="12">GPU memory</text>
-            <text x="36" y="88" fill="#8a94a2" font-size="10">shared with the CPU,</text>
-            <text x="36" y="102" fill="#8a94a2" font-size="10">not CPU-cached</text>
-            <g fill="#1f2b38"><rect x="36" y="130" width="138" height="14"/><rect x="36" y="150" width="110" height="14"/><rect x="36" y="170" width="126" height="14"/></g>
-            <text x="36" y="214" fill="#8a94a2" font-size="10">63 MB per snapshot</text>
-            <text x="36" y="230" fill="#8a94a2" font-size="10">2 per request</text>
-
-            <rect x="570" y="40" width="170" height="220" fill="#10151b" stroke="#2a3542"/>
-            <text x="586" y="68" fill="#e8ecf1" font-size="12">CPU · host RAM</text>
-            <text x="586" y="88" fill="#8a94a2" font-size="10">llama.cpp server</text>
-            <text x="586" y="102" fill="#8a94a2" font-size="10">saves the snapshot</text>
-
-            <text x="206" y="84" fill="#ff4a3d" font-size="11">BEFORE · CPU reads directly · 114 MB/s</text>
-            <line x1="190" y1="100" x2="570" y2="100" stroke="#3a1f1d" stroke-width="10"/>
-            <line x1="190" y1="100" x2="570" y2="100" stroke="#ff4a3d" stroke-width="1" stroke-dasharray="2 6" opacity=".6"/>
-            <g fill="#ff4a3d">
-              <circle r="4"><animateMotion path="M190,100 L570,100" dur="14s" repeatCount="indefinite" begin="0s"/></circle>
-              <circle r="4"><animateMotion path="M190,100 L570,100" dur="14s" repeatCount="indefinite" begin="-3.5s"/></circle>
-              <circle r="4"><animateMotion path="M190,100 L570,100" dur="14s" repeatCount="indefinite" begin="-7s"/></circle>
-              <circle r="4"><animateMotion path="M190,100 L570,100" dur="14s" repeatCount="indefinite" begin="-10.5s"/></circle>
-            </g>
-            <text x="556" y="124" fill="#ff4a3d" font-size="11" text-anchor="end">7,738 ms</text>
-
-            <text x="206" y="168" fill="#ffae4a" font-size="11">AFTER · GPU copies to a cached buffer first</text>
-            <rect x="320" y="184" width="120" height="36" fill="#1d1710" stroke="#ffae4a" stroke-opacity=".6"/>
-            <text x="380" y="238" fill="#ffae4a" font-size="10" text-anchor="middle">cached staging buffer</text>
-            <path d="M190,202 L320,202 M440,202 L570,202" stroke="#3a2b14" stroke-width="10"/>
-            <g fill="#ffae4a">
-              <circle r="4"><animateMotion path="M190,202 L570,202" dur="1s" repeatCount="indefinite" begin="0s"/></circle>
-              <circle r="4"><animateMotion path="M190,202 L570,202" dur="1s" repeatCount="indefinite" begin="-0.25s"/></circle>
-              <circle r="4"><animateMotion path="M190,202 L570,202" dur="1s" repeatCount="indefinite" begin="-0.5s"/></circle>
-              <circle r="4"><animateMotion path="M190,202 L570,202" dur="1s" repeatCount="indefinite" begin="-0.75s"/></circle>
-            </g>
-            <text x="556" y="244" fill="#ffae4a" font-size="11" text-anchor="end">553 ms</text>
-            <text x="380" y="286" fill="#8a94a2" font-size="10" text-anchor="middle">one added condition: read directly only when the memory is CPU-cached</text>
-          </svg>
-          <p class="caption">Same output word for word at temperature 0, before and after. The same fix had been merged upstream two weeks earlier (llama.cpp #30049), so this is an independent diagnosis, not a contribution.</p>
-        </div>
-        <p><a class="btn" href="work/llama-cpp-stall.html">All eight steps, the code and the verification →</a></p>
-      </div>
-    </section>
-
     <section class="block" id="system">
-      <div class="side"><p class="label">The system</p><p class="mono">Odysseus-Jarvis</p><p class="mono">one laptop, 64 GB</p></div>
+      <div class="side"><p class="label">Jarvis</p><p class="mono">Odysseus-Jarvis</p><p class="mono">one laptop, 64 GB</p></div>
       <div class="main wide">
         <h2>A private assistant on one laptop, every path measured</h2>
-        <p class="kicker" style="max-width:62ch">Voice, an agent and a chat hub share one local model server, so one engine fix sped up every local path. Claude Code handles typed work.</p>
+        <p class="kicker" style="max-width:62ch">Voice, an agent and a chat hub share one local model server, so one engine fix sped up every local path.</p>
         <div class="panel diagram">
-          <div class="panel-head"><span class="live">requests in flight</span><span>no cloud inference on the local paths</span></div>
+          <div class="panel-head"><span class="live">requests in flight</span><span>no cloud inference on the local paths <span class="swipe">· swipe →</span></span></div>
           <svg viewBox="0 0 760 340" role="img" aria-labelledby="sys-title">
             <title id="sys-title">Voice loop, Hermes agent and Odysseus hub send requests to one llama.cpp server running Qwen3.6-35B on Vulkan. The agent runs code in a Docker sandbox; voice turns are traced in Phoenix; memory is an MCP server used by the agent and Claude Code.</title>
             <g font-size="11">
@@ -331,13 +203,20 @@
             <g fill="#7fb6ff"><circle r="3"><animateMotion dur="4s" repeatCount="indefinite"><mpath href="#l7"/></animateMotion></circle></g>
           </svg>
         </div>
-        <dl class="parts">
-          <div><dt>Observability</dt><dd>Live latency dashboard and OpenTelemetry traces for every voice turn</dd></div>
-          <div><dt>Evals</dt><dd>13 real tasks with deterministic scoring, used to pick settings from evidence</dd></div>
-          <div><dt>Think harder</dt><dd>A 284B model streamed from disk on demand, about 0.5 tokens per second</dd></div>
-          <div><dt>Brain choice</dt><dd>Code with Claude Code, or for free with OpenCode on the local model or free cloud models</dd></div>
-          <div><dt>Public Jarvis</dt><dd>A demo of him on this site, by text or voice, with no access to anything private: <a href="jarvis.html">talk to Jarvis</a></dd></div>
-        </dl>
+        <div class="cta"><a class="btn primary" href="jarvis.html">Talk to the public Jarvis</a><span class="mono cta-note">A demo by text or voice, with no access to anything private</span></div>
+        <h3 id="log">Every change, measured, including the ones I rejected</h3>
+        <div class="table-scroll" role="region" aria-labelledby="log" tabindex="0">
+          <table class="stack">
+            <thead><tr><th>Change, October 2026</th><th>Measured result</th><th>Decision</th></tr></thead>
+            <tbody>
+              <tr><td data-label="Change">Agent code tool moved into a Docker sandbox</td><td data-label="Result">Code task 7.9 s instead of blocked; host writes fail inside</td><td><span class="tag kept">Kept</span></td></tr>
+              <tr><td data-label="Change">A 284B model streamed from disk as a "think harder" mode</td><td data-label="Result">Correct on a reasoning test, 0.4 to 0.6 tokens/s on CPU</td><td><span class="tag kept">On demand</span></td></tr>
+              <tr><td data-label="Change">Context compression proxy in front of the model</td><td data-label="Result">0 tokens saved on real tool outputs, three test designs</td><td><span class="tag no">Rejected</span></td></tr>
+              <tr><td data-label="Change">Snapshots turned off entirely</td><td data-label="Result">Voice 0.5 s, but agent turns 21 s</td><td><span class="tag no">Reverted</span></td></tr>
+              <tr><td data-label="Change">Agent prompt trimmed by usage data</td><td data-label="Result">13,718 to 11,560 tokens, tools still work</td><td><span class="tag kept">Kept</span></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -345,11 +224,11 @@
       <div class="side"><p class="label">The day job</p><p class="mono">AI engineering roles</p></div>
       <div class="main wide">
         <h2>What these roles do every day, and where I have done it</h2>
-        <p class="kicker">To show I can do the daily work, not just describe it, I ran one engagement end to end, from client brief to handover. The client is simulated; the code, evaluation and numbers are real.</p>
+        <p class="kicker">I ran one engagement end to end, from client brief to handover. The client is simulated; the code, evaluation and numbers are real.</p>
         <a class="card flagship" href="https://github.com/sadanbermudez/labdesk-copilot">
           <span class="label">Flagship · simulated engagement</span>
           <h3>LabDesk: a support assistant that answers only from the docs</h3>
-          <p>A lab-automation team asked for PyVISA answers they could trust. Brief, testable requirements, BM25 retrieval with checked citations, a refusal rule, a read-only power-meter tool, FastAPI service with telemetry, ADRs and a handover runbook. Evaluated on a local model with a development set and a held-out set written as support tickets and committed before the system saw it. On the held-out set it misses the correctness target by one answer, and the report says why.</p>
+          <p>A lab-automation team asked for PyVISA answers they could trust. Testable requirements, BM25 retrieval with checked citations, a refusal rule, a read-only power-meter tool, a FastAPI service with telemetry and a handover runbook. The held-out set, written as support tickets, was committed before the system saw it; the system misses the correctness target by one answer, and the report says why.</p>
           <div class="stats">
             <div><span class="figure-num">26/31</span><span>correct on unseen questions</span></div>
             <div><span class="figure-num">27/31</span><span>cite the right section</span></div>
@@ -359,39 +238,15 @@
           <span class="go">Read the engagement on GitHub →</span>
         </a>
         <div class="table-scroll" role="region" aria-label="Roles and evidence" tabindex="0">
-          <table class="roles">
+          <table class="roles stack">
             <thead><tr><th>Role</th><th>What they do daily</th><th>Where I have done it</th><th>Fit</th></tr></thead>
             <tbody>
-              <tr><td><strong>AI engineer</strong></td><td>Build retrieval and agent systems, wire models to tools, write evals, ship them as services</td><td>LabDesk; the local Jarvis stack; <a href="https://github.com/sadanbermudez/photonics-lab-mcp">photonics-lab-mcp</a>; <a href="https://github.com/sadanbermudez/jarvis-chess">jarvis-chess</a></td><td><span class="tag kept">Shown</span></td></tr>
-              <tr><td><strong>Forward-deployed engineer</strong></td><td>Sit with a customer, turn a messy problem into requirements, deploy on their infrastructure, hand it over</td><td>LabDesk, brief to handover, on on-premises hardware; customer-facing technical work at Sensofar</td><td><span class="tag kept">Shown</span></td></tr>
-              <tr><td><strong>AI agent ops</strong></td><td>Monitor agents in production: traces, latency, cost, failures, incident runbooks</td><td>Tracing and latency dashboard for Jarvis; LabDesk telemetry, metrics endpoint and runbook</td><td><span class="tag kept">Shown</span></td></tr>
-              <tr><td><strong>AI requirements analyst</strong></td><td>Translate business needs into testable requirements and acceptance metrics</td><td>LabDesk requirements, each with a target and how it is verified</td><td><span class="tag kept">Partly shown</span></td></tr>
-              <tr><td><strong>Product engineer</strong></td><td>Own a feature end to end, including the interface people use</td><td>This site; the in-browser chess analysis board with Stockfish</td><td><span class="tag kept">Partly shown</span></td></tr>
-              <tr><td><strong>Experience design</strong></td><td>User research, interaction design, usability testing</td><td>No formal user research yet</td><td><span class="tag no">Gap</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="block" id="log">
-      <div class="side"><p class="label">Engineering log</p><p class="mono">October 2026</p></div>
-      <div class="main wide">
-        <h2>Every change, measured, including the ones I rejected</h2>
-        <div class="table-scroll" role="region" aria-label="Engineering log" tabindex="0">
-          <table>
-            <thead><tr><th>Date</th><th>Change</th><th>Measured result</th><th>Decision</th></tr></thead>
-            <tbody>
-              <tr><td class="n">20 Oct</td><td>LabDesk held-out test set, 42 unseen ticket-style questions</td><td>26/31 correct (target 0.85, got 0.84); retrieval recall 1.00 to 0.90 on reworded questions</td><td><span class="tag kept">Next: hybrid retrieval</span></td></tr>
-              <tr><td class="n">20 Oct</td><td>LabDesk docs assistant, 41-question eval on a local model</td><td>31/33 correct, 6/6 refusals, p95 5.6 s; 2 real failures left untuned</td><td><span class="tag kept">Shipped</span></td></tr>
-              <tr><td class="n">20 Oct</td><td>Instrument-control MCP server, agent runs an experiment</td><td>Hidden answer found in both runs; closing physics wrong both times</td><td><span class="tag kept">Kept</span></td></tr>
-              <tr><td class="n">20 Oct</td><td>Agent code tool moved into a Docker sandbox</td><td>Code task 7.9 s instead of blocked; host writes fail inside</td><td><span class="tag kept">Kept</span></td></tr>
-              <tr><td class="n">20 Oct</td><td>Tracing, latency dashboard, evals in Inspect AI</td><td>13/13 tasks in 45 s; one trace per voice turn</td><td><span class="tag kept">Kept</span></td></tr>
-              <tr><td class="n">20 Oct</td><td>A 284B model streamed from disk as a "think harder" mode</td><td>Correct on a reasoning test, 0.4 to 0.6 tokens/s on CPU</td><td><span class="tag kept">On demand</span></td></tr>
-              <tr><td class="n">20 Oct</td><td>Context compression proxy in front of the model</td><td>0 tokens saved on real tool outputs, three test designs</td><td><span class="tag no">Rejected</span></td></tr>
-              <tr><td class="n">20 Oct</td><td>Snapshot read fix in the Vulkan backend</td><td>0.61 s to 0.03 s, identical output</td><td><span class="tag kept">Kept</span></td></tr>
-              <tr><td class="n">20 Oct</td><td>Snapshots turned off entirely</td><td>Voice 0.5 s, but agent turns 21 s</td><td><span class="tag no">Reverted</span></td></tr>
-              <tr><td class="n">20 Oct</td><td>Agent prompt trimmed by usage data</td><td>13,718 to 11,560 tokens, tools still work</td><td><span class="tag kept">Kept</span></td></tr>
+              <tr><td><strong>AI engineer</strong></td><td data-label="Daily work">Build retrieval and agent systems, wire models to tools, write evals, ship them as services</td><td data-label="Where I have done it">LabDesk; the local Jarvis stack; <a href="https://github.com/sadanbermudez/photonics-lab-mcp">photonics-lab-mcp</a>; <a href="https://github.com/sadanbermudez/jarvis-chess">jarvis-chess</a></td><td><span class="tag kept">Shown</span></td></tr>
+              <tr><td><strong>Forward-deployed engineer</strong></td><td data-label="Daily work">Sit with a customer, turn a messy problem into requirements, deploy on their infrastructure, hand it over</td><td data-label="Where I have done it">LabDesk, brief to handover, on on-premises hardware; customer-facing technical work at Sensofar</td><td><span class="tag kept">Shown</span></td></tr>
+              <tr><td><strong>AI agent ops</strong></td><td data-label="Daily work">Monitor agents in production: traces, latency, cost, failures, incident runbooks</td><td data-label="Where I have done it">Tracing and latency dashboard for Jarvis; LabDesk telemetry, metrics endpoint and runbook</td><td><span class="tag kept">Shown</span></td></tr>
+              <tr><td><strong>AI requirements analyst</strong></td><td data-label="Daily work">Translate business needs into testable requirements and acceptance metrics</td><td data-label="Where I have done it">LabDesk requirements, each with a target and how it is verified</td><td><span class="tag kept">Partly shown</span></td></tr>
+              <tr><td><strong>Product engineer</strong></td><td data-label="Daily work">Own a feature end to end, including the interface people use</td><td data-label="Where I have done it">This site; the in-browser chess analysis board with Stockfish</td><td><span class="tag kept">Partly shown</span></td></tr>
+              <tr><td><strong>Experience design</strong></td><td data-label="Daily work">User research, interaction design, usability testing</td><td data-label="Where I have done it">No formal user research yet</td><td><span class="tag no">Gap</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -427,8 +282,7 @@
     </section>
 
     <footer>
-      <p class="mono">All measurements taken on my own hardware, October 2026, reported as measured. The lab bench is a simulator; the animations replay the recorded runs.</p>
-      <p class="mono">Built with Claude Code, directed and reviewed by me.</p>
+      <p class="mono">Measured on my own hardware, October 2026, and reported as measured. The lab bench is a simulator that replays the recorded runs. Built with Claude Code, directed and reviewed by me.</p>
     </footer>
   </div>
   </div>
@@ -437,5 +291,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="bench.js"></script>
 <script src="hero.js"></script>
-<script src="lab.js"></script>
 <script src="home.js"></script>
