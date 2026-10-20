@@ -32,9 +32,10 @@ Two rules for reading it:
  work/lab-agent.html ....... three.js r128, bench.js, lab.js, scrolly.js, inline script
  work/llama-cpp-stall.html . scrolly.js, engine.js
  work/chess.html ........... data/chess-game.js, chess-core.js, chess.js, three.js r128,
-                             chess3d.js, analyse.js, inline script
+                             chess3d.js, analyse.js, games.js, inline script
                                on "Analyse": Web Worker engine/stockfish-19-lite-single.js (+ .wasm),
-                               import() of vendor/chess.js, fetch() from lichess.org
+                               import() of vendor/chess.js, fetch() from lichess.org;
+                               games.js: fetch() from lichess.org and api.chess.com
  work/two-photon.html ...... photon.js
  work/research.html ........ research.js
 ```
@@ -136,7 +137,7 @@ The repo root also holds an earlier single-page version of the site (`index.html
 
 **Context.** The chess page lets a visitor paste a PGN or a Lichess link and have every move graded in the browser ("nothing is uploaded").
 
-**Decision.** `analyse.js`, function `startEngine()`, creates `new Worker('../engine/stockfish-19-lite-single.js')` and talks to it in UCI, the text protocol desktop chess engines use: `uci`, wait for `uciok`, `isready`, wait for `readyok`. `search(fen, ms)` sends `position fen ...` and `go movetime ms`, keeps the last `info ... score cp|mate ... pv` line and resolves when `bestmove` arrives. Scores are flipped when Black is to move, because the engine reports them from the side to move. The engine starts on the first "Analyse" click, not on page load. The files sit in `site/engine/` with `COPYING.txt` (GPLv3); the loader's header names Stockfish.js 19 by Chess.com, LLC.
+**Decision.** `analyse.js` defines `window.ChessEngine.create()`, which starts `new Worker('../engine/stockfish-19-lite-single.js')` on first use and talks to it in UCI, the text protocol desktop chess engines use: `uci`, wait for `uciok`, `isready`, wait for `readyok`. `search(fen, ms)` sends `position fen ...` and `go movetime ms`, keeps the last exact `info ... score cp|mate ... pv` line (lines marked `lowerbound` or `upperbound` are skipped, because they are provisional scores from a search window that failed) and resolves when `bestmove` arrives. Searches on one engine run one after another through a promise chain. Scores are flipped when Black is to move, because the engine reports them from the side to move. Game review uses one engine and the board's explore mode creates a second, so trying a move never waits for a review to finish. The engine starts on the first "Analyse" click, not on page load. The files sit in `site/engine/` with `COPYING.txt` (GPLv3); the loader's header names Stockfish.js 19 by Chess.com, LLC.
 
 **Why.**
 
@@ -148,7 +149,7 @@ The repo root also holds an earlier single-page version of the site (`index.html
 
 **Alternatives.** The multithreaded build with cross-origin isolation headers. The full-size network. Analysis on a server, such as the jarvis-chess MCP server that produced the reviewed game, which is not exposed publicly.
 
-**Trade-offs.** One thread and a smaller network give weaker analysis per second than desktop Stockfish. The engine runs for a fixed time per position (150, 400 or 1,000 ms), not to a fixed depth, so results vary with the visitor's hardware. Evaluations are clamped to ±1,500 centipawns for the graph.
+**Trade-offs.** One thread and a smaller network give weaker analysis per second than desktop Stockfish. Measured on the reviewed game, with the moves identical: the browser grades 3 of White's moves as blunders at both 0.15 and 0.4 s per move, where full Stockfish 19 on 8 threads at 0.4 s grades 6. The two engines' evaluations of the same positions differ by 50 to 150 centipawns, and a grade sits on a threshold, so the page labels browser counts as indicative. Two engines in one tab use two workers' worth of memory. The engine runs for a fixed time per position (150, 400 or 1,000 ms), not to a fixed depth, so results vary with the visitor's hardware. Evaluations are clamped to ±1,500 centipawns for the graph.
 
 **Check it yourself.** `grep -c SharedArrayBuffer site/engine/stockfish-19-lite-single.js` prints 0. Analyse a game with DevTools open: the Sources panel lists the worker thread, and the main thread stays idle.
 
@@ -165,6 +166,20 @@ The repo root also holds an earlier single-page version of the site (`index.html
 **Trade-offs.** "Hanging" here means attacked with zero defenders; it ignores pins, x-rays and whether the capture actually wins anything. `facts()` always returns empty lists for pinned pieces and mate in one, so games analysed in the browser show fewer kinds of fact than the server-reviewed game. Updating chess.js is a manual copy.
 
 **Check it yourself.** `grep -n "pinned_pieces" site/chess-core.js` shows the empty lists. `grep -n "import(" site/analyse.js` shows the on-demand load.
+
+### 7b. Play your own moves, and a log of an account's games
+
+**Context.** A chess player looking at a reviewed game wants to try the move they would have played, and to see their own recent games the same way.
+
+**Decision.** In `chess.js`, every square carries `data-sq`. Clicking a piece of the side to move asks chess.js (`moves({ square, verbose: true })`) for its legal moves; quiet moves are drawn as dots and captures as rings, and a pawn reaching the last rank opens a four-piece promotion picker. Playing a move starts an explore line that branches from the current game position (`X = { base, line }`); both sides can be moved, Undo pops a move, "Back to the game" or Esc returns. Each new position is searched for 0.8 s on the explore engine, a stale search is cut short with `stop`, and a token makes sure only the newest result is drawn. The rule facts from `ChessCore.facts()` are shown for every position reached. `games.js` loads the last 5, 10 or 20 standard games of a Lichess account (`/api/games/user/{name}` as NDJSON) or a Chess.com account (monthly archives, newest first), lists them with result and opening, and runs `ChessAnalysis.show()` (one game, on the board) or `ChessAnalysis.review()` (every game at 0.15 s per move, off the board). Per-side statistics are the winning-chances error counts and an average centipawn loss with evaluations capped at plus or minus 10 pawns. The log, including finished reviews, is saved in `localStorage` per site and username.
+
+**Why.** Legal-move generation is exactly the fiddly code chess.js already ships, so the board reuses it instead of a second implementation. The token and `stop` keep the board responsive when moves are played faster than the engine thinks. Capping the evaluation stops one collapsed position from dominating the average loss. Both sites' game APIs send `Access-Control-Allow-Origin: *`, so the browser fetches them directly and the site needs no server; `localStorage` keeps a visitor's log without anything leaving their machine. `ChessAnalysis.claim()` lets only one review run at a time, so the form, a log row and the batch never compete for the engine.
+
+**Alternatives.** Drag and drop as well as clicks. A server-side review through jarvis-chess for exact parity with the reviewed game. IndexedDB for larger logs.
+
+**Trade-offs.** Squares are clickable `div`s with no keyboard focus, so explore mode needs a mouse or touch. `localStorage` is per browser and can be cleared at any time; the page says the log lives only there. Lichess rejects requests without a browser-like user agent on the games endpoint, which browsers always send but plain `curl` does not.
+
+**Check it yourself.** On `work/chess.html`, go to the start, click the e2 pawn (dots on e3 and e4), play e4, and read the evaluation and best reply in the panel. Load a username in the "your games" panel and press "Quick-review all"; the summary line gives results, average centipawn loss and error counts.
 
 ### 8. Three kinds of numbers, each labelled for what it is
 
@@ -232,11 +247,13 @@ For small screens: breakpoints at 520, 640, 760, 900 and 980 px. Side gutters ar
 ## Known limits and what comes next
 
 - **Old version at the root.** `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first single-page site, kept for reference (the README says so). Next: move them into an `archive/` folder.
-- **No Content-Security-Policy.** A CSP would have to allow cdnjs and Google Fonts, `connect-src` to lichess.org, the inline scripts on three pages (by hash), Workers from the site's own origin, and WebAssembly compilation (`'wasm-unsafe-eval'`).
+- **No Content-Security-Policy.** A CSP would have to allow cdnjs and Google Fonts, `connect-src` to lichess.org and api.chess.com, the inline scripts on three pages (by hash), Workers from the site's own origin, and WebAssembly compilation (`'wasm-unsafe-eval'`).
 - **Thin automated checks.** CI (`.github/workflows/site.yml`) runs the rules-module tests in `site/tests/` and the build with its reference check. There is no browser test yet. Next: a smoke test that loads each page and fails on console errors. Deploys are manual.
 - **Numbers repeated across files** (decision 4).
 - **Lifetime fit reads high.** `fitTau()` in `research.js` takes the mean time after 6 µs, which is correct for a single exponential but here still includes the 2 µs triplet rise and the uniform dark counts. Re-running the same model in Python with 60,000 events gives about 3.8 µs for an input of 3.5 µs, and about 71 µs for 68 µs. The page now states the bias next to the readout. Next: fit the full rise-and-decay model, or start the window later and subtract the dark-count level.
-- **Fewer facts for imported games.** Pins and mate in one are not computed in the browser (decision 7).
+- **Fewer facts for imported games and explore lines.** Pins and mate in one are not computed in the browser (decision 7).
+- **Explore mode needs a pointer.** No keyboard access to squares yet, and no drag and drop (decision 7b).
+- **Browser grades are indicative.** The lite single-threaded engine grades fewer moves as blunders than full Stockfish on the same game (decision 6).
 
 ## Questions a reviewer might ask
 
