@@ -18,7 +18,7 @@
         { name: 'voice, snapshots off', segs: [[0.5, 'good', '']] },
         { name: 'agent turn, snapshots on (default)', segs: [[3.5, 'other', '3.5']] },
         { name: 'agent turn, snapshots off', segs: [[21, 'snap', 'reprocesses its 13,700-token prompt: 21 s']] }],
-      verdict: 'Voice 15 times faster, the agent 6 times slower. Reverted after 23 minutes.' },
+      verdict: 'Prompt time per turn 2.4 s to 0.15 s, but the agent re-read its whole prompt every turn: 3.5 s to 21 s. Reverted after 23 minutes.' },
     { scale: 3, unit: 's', rows: [
         { name: 'newer engine build', segs: [[0.11, 'prompt', ''], [0.6, 'snap', '0.6'], [0.6, 'snap', '0.6'], [0.2, 'other', '']] },
         { name: 'four Vulkan switches', segs: [[0.11, 'prompt', ''], [0.6, 'snap', '0.6'], [0.6, 'snap', '0.6'], [0.2, 'other', '']] }],

@@ -203,7 +203,7 @@
           <p class="caption">Run 1, the agent: the 3.1 eV "is consistent with the energy gap to the singlet oxygen emission". The emission is 0.98 eV. Run 2, the agent: singlet oxygen is "excited via one-photon absorption from the triplet state". Oxygen absorbs nothing here: the sensitiser absorbs, and its triplet passes the energy over. The photon order describes the sensitiser's excitation.</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px 40px">
-          <p><strong>Why the control run matters.</strong> At 800 nm the textbook guess is "two-photon". With a one-photon sample under the same question the agent measured 1.003. It read the slope instead of reciting the expected answer.</p>
+          <p><strong>Why the control run matters.</strong> At 800 nm the textbook guess is "two-photon". With a one-photon sample under the same question the agent measured 1.003. Reciting the expected answer would have failed; it had to run a measurement good enough for the server's fit to reach the right verdict. The verdict wording comes from the fit tool, and the agent repeated it.</p>
           <p><strong>Why the design is this way.</strong> A reliable operator and a careless interpreter. So the server owns the safety limits and the statistics, and a person owns the interpretation.</p>
         </div>
       </div>
