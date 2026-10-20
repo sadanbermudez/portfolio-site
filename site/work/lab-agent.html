@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lab agent · Sergio Adan Bermudez</title>
+<meta name="description" content="An MCP server that lets an AI agent run a photophysics experiment inside safety limits it cannot override, and what the agent got right and wrong.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<div class="page">
+  <header class="top">
+    <a class="brand" href="../index.html">Sergio Adan Bermudez</a>
+    <nav aria-label="Site"><a href="../index.html#work">Work</a><a href="llama-cpp-stall.html">llama.cpp stall</a><a href="../index.html#contact">Contact</a></nav>
+  </header>
+
+  <main>
+    <section class="article-head">
+      <p class="label">Signature piece · photonics-lab-mcp · October 2026</p>
+      <h1>An AI agent that runs a physics experiment</h1>
+      <p class="lede">An MCP server gives a local language model an optics bench, with safety limits it cannot override. I asked it one question with a hidden answer and no procedure.</p>
+      <div class="readings">
+        <div><span class="label">Two-photon sample</span><span class="value result">n = 2.004 ± 0.03</span></div>
+        <div><span class="label">One-photon control</span><span class="value result">n = 1.003 ± 0.002</span></div>
+        <div><span class="label">Tool calls per run</span><span class="value">28 and 32</span></div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="side"><p class="label">The question</p></div>
+      <div class="main prose">
+        <p>"The bench excites a photosensitiser with an 800 nm laser and records emission near 1270 nm. Determine experimentally whether this emission is excited by one-photon or two-photon absorption, and state your conclusion with its uncertainty."</p>
+        <p>Signal grows as P<sup>n</sup>, where n is the number of photons absorbed per excitation, so the slope on a log-log plot gives the answer. The agent had to work that out, choose powers and integration times that keep the detector out of saturation, take the spectra, fit the peaks, fit the power law and conclude. The photon order is a hidden server setting, so the same question has a different right answer in each run.</p>
+        <p>The bench is a physics simulator: Poisson shot noise, read noise, dark current and saturation on a 512-pixel InGaAs spectrometer. The tool surface, safety layer, analysis and notebook are the code a real bench would use. A Thorlabs PM100 power-meter driver (SCPI over VISA) is included and tested against a simulated instrument; it has not yet run on hardware.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="side"><p class="label">Result</p><p class="mono">Qwen3.6-35B, local</p></div>
+      <div class="main wide">
+        <figure>
+          <div class="plot">
+            <svg viewBox="0 0 640 350" role="img" aria-labelledby="lab-fig-title">
+              <title id="lab-fig-title">Peak area against laser power on log-log axes. The two-photon sample gives slope 2.004 plus or minus 0.03; the one-photon control gives 1.003 plus or minus 0.002.</title>
+              <g stroke="var(--rule)" stroke-width="1" fill="none">
+                <line x1="70" y1="20" x2="70" y2="300"/><line x1="70" y1="300" x2="610" y2="300"/>
+                <line x1="70" y1="240.6" x2="610" y2="240.6" stroke-dasharray="2 4"/>
+                <line x1="70" y1="155.8" x2="610" y2="155.8" stroke-dasharray="2 4"/>
+                <line x1="70" y1="70.9" x2="610" y2="70.9" stroke-dasharray="2 4"/>
+              </g>
+              <g font-family="Martian Mono, monospace" font-size="10" fill="var(--muted)">
+                <text x="107.9" y="318" text-anchor="middle">10</text><text x="221.8" y="318" text-anchor="middle">20</text>
+                <text x="372.5" y="318" text-anchor="middle">50</text><text x="486.4" y="318" text-anchor="middle">100</text>
+                <text x="600.4" y="318" text-anchor="middle">200</text>
+                <text x="62" y="244.6" text-anchor="end">10³</text><text x="62" y="159.8" text-anchor="end">10⁴</text><text x="62" y="74.9" text-anchor="end">10⁵</text>
+                <text x="340" y="342" text-anchor="middle">Laser power at 800 nm (mW)</text>
+                <text x="16" y="160" text-anchor="middle" transform="rotate(-90 16 160)">1270 nm peak area</text>
+              </g>
+              <g stroke="var(--muted)" fill="var(--muted)">
+                <line x1="204.5" y1="114.3" x2="579.4" y2="30" stroke-width="1.4"/>
+                <circle cx="221.8" cy="110.6" r="3.5"/><circle cx="372.5" cy="76.5" r="3.5"/><circle cx="449.7" cy="59.1" r="3.5"/>
+                <circle cx="516.4" cy="44.1" r="3.5"/><circle cx="563.7" cy="33.5" r="3.5"/>
+              </g>
+              <g stroke="var(--accent)" fill="var(--accent)">
+                <line x1="90.5" y1="288.3" x2="579.4" y2="68.7" stroke-width="1.4"/>
+                <line x1="107.9" y1="300" x2="107.9" y2="241.3"/><line x1="288.5" y1="208.4" x2="288.5" y2="198.5"/>
+                <circle cx="107.9" cy="261.3" r="3.5"/><circle cx="288.5" cy="203.1" r="3.5"/><circle cx="372.5" cy="158.3" r="3.5"/>
+                <circle cx="449.7" cy="127.4" r="3.5"/><circle cx="516.4" cy="97.3" r="3.5"/><circle cx="563.7" cy="75.5" r="3.5"/>
+              </g>
+              <g font-family="Source Serif 4, Georgia, serif" font-size="12.5">
+                <circle cx="392" cy="236" r="3.5" fill="var(--accent)"/><text x="402" y="240" fill="var(--ink)">two-photon sample, n = 2.004 ± 0.03</text>
+                <circle cx="392" cy="258" r="3.5" fill="var(--muted)"/><text x="402" y="262" fill="var(--ink)">one-photon control, n = 1.003 ± 0.002</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption>Every point was chosen, measured and fitted by the agent through the server's tools. Raw spectra and full transcripts are kept with the code.</figcaption>
+        </figure>
+        <div class="table-scroll" role="region" aria-label="Agent runs" tabindex="0">
+          <table>
+            <thead><tr><th>Hidden truth</th><th>Agent's result</th><th>Powers</th><th>Tool calls</th><th>Time</th><th>Verdict</th></tr></thead>
+            <tbody>
+              <tr><td>Two-photon</td><td class="n result">2.004 ± 0.03</td><td class="n">6, 10 to 160 mW</td><td class="n">28</td><td class="n">91 s</td><td><span class="tag kept">Correct</span></td></tr>
+              <tr><td>One-photon (control)</td><td class="n result">1.003 ± 0.002</td><td class="n">5, 20 to 160 mW</td><td class="n">32</td><td class="n">84 s</td><td><span class="tag kept">Correct</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="side"><p class="label">Reading it</p></div>
+      <div class="main prose">
+        <h2>A reliable operator, a careless interpreter</h2>
+        <p><strong>The control matters.</strong> At 800 nm the textbook guess is "two-photon". The control run uses the same setup with a one-photon sample, and the agent still measured 1. It read the slope instead of reciting the expected answer.</p>
+        <p><strong>What it got wrong.</strong> The measurements and fits were sound; the closing physics was not, in both runs. In the first it tied the 3.1 eV of two 800 nm photons to the singlet-oxygen emission, which is 0.98 eV. In the second it described singlet oxygen as excited by absorption from the triplet state. In fact the sensitiser absorbs the light, and its triplet state passes the energy to oxygen; the photon order describes the sensitiser.</p>
+        <p>That split is the case for the design: the server owns the safety limits and the statistics, and a person checks the interpretation.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="side"><p class="label">Design</p><p class="mono">10 tools · 22 tests</p></div>
+      <div class="main prose">
+        <h2>Safety lives in the server</h2>
+        <ul>
+          <li>A power cap (200 mW by default), an arm-then-emit interlock, and read-only, configure and full permission levels, so a read-only client cannot touch the laser.</li>
+          <li>Any unexpected error puts the bench in its safe state before the tool returns.</li>
+          <li>Every action, including every refused one, goes into a lab notebook the agent can read back.</li>
+          <li>Peak fits report the area with its uncertainty and flag saturation; the power-law fit weights each point by its error and scales the slope's uncertainty by the reduced chi-squared.</li>
+          <li>The PM100 driver refuses out-of-range wavelengths before sending a command, and is tested against a simulated SCPI instrument.</li>
+        </ul>
+        <p><strong>Next.</strong> Run the power-meter driver on hardware, add a spectrometer driver behind the same interface, and add a check that reviews the agent's closing physics against the measured numbers.</p>
+        <p class="mono">Python · FastMCP · NumPy · SciPy · PyVISA · pyvisa-sim · pytest · llama.cpp</p>
+        <a class="back" href="../index.html#work">← All work</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="mono">Agent runs on my own laptop, 20 October 2026. The bench is a simulator. Built with Claude Code, directed and reviewed by me.</p>
+  </footer>
+</div>
+</body>
+</html>
