@@ -2,9 +2,10 @@
    POST /api/chat        public Jarvis: retrieval over the site's own pages, then Qwen3 30B (Workers AI), streamed
    POST /api/tutor       Spanish Tutor demo: the app's tutor prompt (tutor-prompt.js), same model, streamed
    POST /api/transcribe  Whisper large-v3-turbo (Workers AI) turns a short recording into text
+   POST /api/speak       MeloTTS (Workers AI) reads a sentence of Jarvis's answer aloud, for devices too slow for the in-browser voice
    Everything else is served from dist/ by the assets binding. No access to anything outside this site. */
 import KNOWLEDGE from './knowledge.json';                     // written by build.py from the built pages
-import { buildIndex, hybrid, hashText, cleanMessages, buildMessages, thinkFilter, tokenOf, LIMITS } from './jarvis-core.js';
+import { buildIndex, hybrid, hashText, cleanMessages, buildMessages, thinkFilter, tokenOf, speakable, fromBase64, halveWav, LIMITS } from './jarvis-core.js';
 import { tutorSystemPrompt } from './tutor-prompt.js';
 
 const CHAT_MODEL = '@cf/qwen/qwen3-30b-a3b-fp8';
@@ -12,6 +13,8 @@ const CHAT_MODEL = '@cf/qwen/qwen3-30b-a3b-fp8';
 // and never showed wrong Spanish, where Qwen3 30B showed a wrong form as a correction in 6 of 20 ("Está morena").
 const TUTOR_MODEL = '@cf/google/gemma-4-26b-a4b-it';
 const STT_MODEL = '@cf/openai/whisper-large-v3-turbo';
+// About 19 neurons per minute of speech. Deepgram Aura has British male voices but costs about 1,400 neurons per 1,000 characters.
+const SPEAK_MODEL = '@cf/myshell-ai/melotts';
 const EMBED_MODEL = '@cf/baai/bge-m3';                // multilingual, so questions in Spanish find English pages
 const MAX_AUDIO = 1_500_000;                         // bytes, about a minute of compressed speech
 let INDEX = null, VECS = null;
@@ -145,12 +148,39 @@ async function transcribe(request, env) {
   }
 }
 
+// One sentence or two in, speech out, for devices too slow for the in-browser voice (decision 11).
+// MeloTTS returns a base64 WAV; halveWav turns it into a binary WAV a third of the size, for phone connections.
+// Answers repeat (the greeting, popular questions), so clips are cached by their text for a week.
+const SPEAK_MS = 12000;
+async function speak(request, env, ctx) {
+  if (await limited(env, 'SPEAK_LIMIT', request, 'speak')) return json({ error: 'Too many sentences in the last minute.' }, 429);
+  let body; try { body = await request.json(); } catch { return json({ error: 'Bad request.' }, 400); }
+  const text = speakable(body && body.text);
+  if (!text) return json({ error: 'Bad request.' }, 400);
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(SPEAK_MODEL + '|' + text));
+  const key = new Request('https://jarvis.cache/speak-' + [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, '0')).join(''));
+  const headers = { ...SECURE, 'Content-Type': 'audio/wav' };
+  const hit = await caches.default.match(key);
+  if (hit) return new Response(hit.body, { headers: { ...headers, 'X-Jarvis-Voice': 'cache' } });
+  let clip;
+  try {
+    const out = await within(SPEAK_MS, env.AI.run(SPEAK_MODEL, { prompt: text, lang: 'en' }));
+    clip = halveWav(fromBase64(out && out.audio || ''));
+  } catch (err) {
+    return json({ error: isQuota(err) ? "The voice has used up today's free allowance." : 'The voice is unavailable just now.' }, isQuota(err) ? 429 : 502);
+  }
+  if (clip.length < 100) return json({ error: 'The voice is unavailable just now.' }, 502);
+  ctx.waitUntil(caches.default.put(key, new Response(clip, { headers: { 'Content-Type': 'audio/wav', 'Cache-Control': 'public, max-age=604800' } })));
+  return new Response(clip, { headers: { ...headers, 'X-Jarvis-Voice': 'melotts' } });
+}
+
 export default {
   async fetch(request, env, ctx) {
     const { pathname } = new URL(request.url);
     if (pathname === '/api/chat' && request.method === 'POST') return chat(request, env, ctx);
     if (pathname === '/api/tutor' && request.method === 'POST') return tutor(request, env);
     if (pathname === '/api/transcribe' && request.method === 'POST') return transcribe(request, env);
+    if (pathname === '/api/speak' && request.method === 'POST') return speak(request, env, ctx);
     if (pathname.startsWith('/api/')) return json({ error: 'Not found.' }, 404);
     return env.ASSETS.fetch(request);
   }
