@@ -19,6 +19,8 @@ jobs:
         run: python site/build.py
       - name: Jarvis server logic (search, limits, prompt, stream filter, knowledge extraction)
         run: node site/tests/jarvis-core.test.mjs
+      - name: Jarvis voice (sentence chunking, voice choice, speak route text and audio)
+        run: node site/tests/jarvis-voice.test.mjs
       - name: La Piña demo (rules engine, indicators, verdicts, ported from the Kotlin tests)
         run: node site/tests/la-pina.test.mjs
       - name: Spanish Tutor demo (search, grading, goals, reply parser, tutor prompt)

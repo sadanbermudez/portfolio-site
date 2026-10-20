@@ -1,7 +1,8 @@
-/* Talk to Jarvis: text or voice in, streamed answer out, optionally spoken in Kokoro's "Daniel" voice.
+/* Talk to Jarvis: text or voice in, streamed answer out, optionally spoken aloud ("the voice" below).
    /api/chat streams server-sent events (sources, token, done, error); /api/transcribe takes a recording.
    The orb shows the state: breathing when idle, the microphone level when listening, a turning ring
    while thinking, and the voice's loudness while speaking. */
+import { chunker, planVoice, pickVoice, anyVoice } from './jarvis-voice-core.js';
 const $ = (s) => document.querySelector(s);
 const log = $('#chat-log'), form = $('#chat-form'), input = $('#chat-input'), micBtn = $('#mic'), voiceBtn = $('#voice'), statusEl = $('#j-status');
 const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -17,11 +18,12 @@ function drawOrb(t) {
   const dpr = Math.min(window.devicePixelRatio || 1, 2), w = orb.clientWidth, h = orb.clientHeight;
   if (orb.width !== Math.round(w * dpr)) { orb.width = Math.round(w * dpr); orb.height = Math.round(h * dpr); }
   octx.setTransform(dpr, 0, 0, dpr, 0, 0); octx.clearRect(0, 0, w, h);
-  if (analyser && (state === 'listening' || state === 'speaking')) {
+  if (analyser && !synthTalking && (state === 'listening' || state === 'speaking')) {
     analyser.getByteTimeDomainData(levelData);
     let peak = 0; for (let i = 0; i < levelData.length; i++) peak = Math.max(peak, Math.abs(levelData[i] - 128));
     level += (Math.min(1, peak / 60) - level) * 0.3;
-  } else level *= 0.9;
+  } else if (synthTalking) level += (0.3 + 0.2 * Math.sin(t / 90) - level) * 0.2;   // a device voice gives no signal to measure
+  else level *= 0.9;
   const cx = w / 2, cy = h / 2, R = Math.min(w, h) * 0.28, time = reduce ? 0 : t / 1000;
   const hue = state === 'listening' ? [127, 182, 255] : state === 'thinking' ? [255, 174, 74] : state === 'speaking' ? [255, 120, 80] : [255, 174, 74];
   const breathe = 1 + 0.03 * Math.sin(time * 1.6) + level * 0.35;
@@ -55,61 +57,175 @@ function audio() {
   return actx;
 }
 
-// ---------- the voice: Kokoro in a worker, sentences played in order ----------
-let voiceOn = false, tts = null, ttsReady = false, nextId = 0, playAt = 0, waiting = new Map(), playing = 0, fallback = false;
-const pendingText = [];
-let pendingVoice = 0;                                          // sentences sent to the voice worker and not yet playing
+// ---------- the voice ----------
+// Three voices, best first, chosen per answer (decision 11):
+//   daniel   Kokoro's "Daniel" in a Web Worker, only on computers that run it faster than real time (planVoice)
+//   device   the device's own British male voice (Apple's Daniel on iPhones and Macs), instant and offline
+//   server   MeloTTS on Workers AI through /api/speak, about a second a sentence, on any device
+// Each piece of an answer has a time limit; if its voice misses it, the next voice in line speaks that piece, and
+// any English voice on the device is the last resort. The status line always says what the voice is doing.
+const coarse = !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+const saveData = !!(navigator.connection && navigator.connection.saveData);
+const plan = planVoice({ isolated: self.crossOriginIsolated, cores: navigator.hardwareConcurrency, coarse, memory: navigator.deviceMemory,
+  saveData, mobile: /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) });
+const synth = 'speechSynthesis' in window ? window.speechSynthesis : null;
+const LIMIT = { daniel: 8000, server: 10000 };                   // ms to make one piece before the next voice takes over
+const FAST = 0.8;                                                // Daniel only if a sentence takes under 0.8x its own length to make
+let voiceOn = false, round = 0, browserMale = null, browserAny = null, note = '';
+let kokoro = null, kokoroReady = false, kokoroSlow = false, kokoroId = 0;
+const kokoroJobs = new Map();
+let queue = Promise.resolve(), making = Promise.resolve(), pending = 0, speaking = 0, synthTalking = false, current = null, answerVoice = null;
+
 function voiceLabel(t) { voiceBtn.textContent = t; }
-function startVoice() {
-  if (tts || fallback) return;
-  try { tts = new Worker('tts-worker.js', { type: 'module' }); } catch (err) { useFallback(); return; }
-  voiceLabel('Loading voice…');
-  tts.onmessage = (e) => {
+function loadVoices() { if (!synth) return; const list = synth.getVoices(); browserMale = pickVoice(list); browserAny = anyVoice(list); }
+if (synth) { loadVoices(); synth.addEventListener('voiceschanged', loadVoices); }
+function settle() {                                              // one place decides the orb and the status line
+  if (speaking) setState('speaking', 'Speaking');
+  else if (busy) setState('thinking', 'Thinking');
+  else if (pending) setState('thinking', 'Preparing voice…');
+  else { setState('idle', note || 'Ready'); note = ''; }
+}
+function describe() {
+  if (!voiceOn) return 'Voice off';
+  if (kokoroReady && !kokoroSlow) return 'Voice on · Daniel';
+  const quick = 'Voice on · ' + (browserMale ? 'device voice' : 'quick voice');
+  return plan === 'daniel' && !kokoroSlow ? quick + ' · Daniel loading' : quick;
+}
+
+function startKokoro() {                                         // strong computers only: download and warm up in the background
+  if (kokoro || kokoroSlow || plan !== 'daniel') return;
+  try { kokoro = new Worker('tts-worker.js', { type: 'module' }); } catch { kokoroSlow = true; return; }
+  kokoro.onmessage = (e) => {
     const m = e.data;
-    if (m.type === 'progress' && m.total) voiceLabel('Loading voice ' + Math.round(100 * m.loaded / m.total) + '%');
-    else if (m.type === 'ready') { ttsReady = true; voiceLabel('Voice on'); pendingText.splice(0).forEach(say); }
-    else if (m.type === 'audio') { const done = waiting.get(m.id); waiting.delete(m.id); if (done) done(m); }
-    else if (m.type === 'error') { if (!ttsReady) useFallback(); const done = waiting.get(m.id); waiting.delete(m.id); if (done) done(null); }
+    if (m.type === 'progress' && m.total) { if (voiceOn && !kokoroReady) voiceLabel(describe() + ' ' + Math.round(100 * m.loaded / m.total) + '%'); }
+    else if (m.type === 'ready') {                               // time one sentence before trusting it with an answer
+      const t0 = performance.now();
+      kokoroJobs.set(-1, (a) => {
+        const fast = a && (performance.now() - t0) / 1000 < FAST * (a.samples.length / a.rate);
+        if (fast) { kokoroReady = true; if (voiceOn) voiceLabel(describe()); } else dropKokoro();
+      });
+      kokoro.postMessage({ type: 'speak', id: -1, text: 'Good day, I am Jarvis.' });
+    }
+    else if (m.type === 'audio' || m.type === 'error') {
+      const job = kokoroJobs.get(m.id); kokoroJobs.delete(m.id);
+      if (job) job(m.type === 'audio' ? m : null);
+      if (m.type === 'error' && !kokoroReady) dropKokoro();
+    }
   };
-  tts.onerror = () => useFallback();
-  tts.postMessage({ type: 'load' });
+  kokoro.onerror = () => dropKokoro();
+  kokoro.postMessage({ type: 'load' });
 }
-function useFallback() {                                       // no module workers or the model failed: the browser's own voice
-  fallback = true; ttsReady = true; if (tts) { tts.terminate(); tts = null; }
-  voiceLabel('Voice on (browser voice)');
-  pendingText.splice(0).forEach(say);
+function dropKokoro() {                                          // failed or too slow here: the other voices carry on
+  if (!kokoroSlow && voiceOn) { note = 'Daniel is too slow on this device, so a quicker voice speaks.'; if (!busy && !speaking && !pending) settle(); }
+  kokoroSlow = true; kokoroReady = false;
+  if (kokoro) { kokoro.terminate(); kokoro = null; }
+  kokoroJobs.forEach(job => job(null)); kokoroJobs.clear();
+  if (voiceOn) voiceLabel(describe());
 }
-let chain = Promise.resolve();
-function say(text) {
-  text = text.replace(/\[\d+\]/g, '').replace(/\s+/g, ' ').trim();
-  if (!text || !voiceOn) return;
-  if (!ttsReady) { pendingText.push(text); return; }
-  if (fallback) {
-    if (!('speechSynthesis' in window)) return;
-    const u = new SpeechSynthesisUtterance(text); u.lang = 'en-GB';
-    const v = speechSynthesis.getVoices().find(x => /en-GB/i.test(x.lang) && /male|daniel|george|arthur/i.test(x.name)) || speechSynthesis.getVoices().find(x => /en-GB/i.test(x.lang));
-    if (v) u.voice = v;
-    playing++; setState('speaking', 'Speaking'); u.onend = () => { if (--playing === 0 && !busy) setState('idle', 'Ready'); };
-    speechSynthesis.speak(u); return;
+
+function timeout(ms, promise, onLate) {
+  let timer;
+  const late = new Promise(res => { timer = setTimeout(() => { if (onLate) onLate(); res(null); }, ms); });
+  return Promise.race([promise, late]).finally(() => clearTimeout(timer));
+}
+async function fromDaniel(text) {
+  if (!kokoro || !kokoroReady) return null;
+  const id = kokoroId++, t0 = performance.now();
+  const m = await timeout(LIMIT.daniel, new Promise(res => { kokoroJobs.set(id, res); kokoro.postMessage({ type: 'speak', id, text }); }), () => kokoroJobs.delete(id));
+  if (!m) { dropKokoro(); return null; }
+  const seconds = m.samples.length / m.rate;
+  if ((performance.now() - t0) / 1000 > FAST * seconds) kokoroSlow = true;   // fell behind: later answers use the other voices
+  const ctx = audio(), buf = ctx.createBuffer(1, m.samples.length, m.rate);
+  buf.copyToChannel(m.samples, 0);
+  return { buffer: buf };
+}
+function fromServer(text) {
+  const ctl = new AbortController();
+  const job = (async () => {
+    const res = await fetch('/api/speak', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text }), signal: ctl.signal });
+    if (!res.ok) return null;
+    return { buffer: await audio().decodeAudioData(await res.arrayBuffer()) };
+  })().catch(() => null);
+  return timeout(LIMIT.server, job, () => ctl.abort());
+}
+const fromDevice = (voice) => (text) => (synth && voice ? { text, voice } : null);
+
+// The voices to try for one piece, in order. A voice that fails once is skipped for the rest of that answer,
+// so a server that is down costs one time limit, not one per sentence.
+function lineUp(first) {
+  const line = first === 'daniel' ? [['daniel', fromDaniel]] : [];
+  if (browserMale) line.push(['device', fromDevice(browserMale)]);
+  line.push(['server', fromServer]);
+  if (browserAny && browserAny !== browserMale) line.push(['any', fromDevice(browserAny)]);
+  return line;
+}
+async function produce(text, line, broken) {
+  for (const [name, make] of line) {
+    if (broken.has(name)) continue;
+    const clip = await make(text);
+    if (clip) return clip;
+    broken.add(name);
   }
-  const id = nextId++, made = new Promise(res => waiting.set(id, res));
-  pendingVoice++; if (!playing) setState('thinking', 'Preparing voice…');
-  tts.postMessage({ type: 'speak', id, text });
-  chain = chain.then(() => made).then(m => {                  // keep sentences in order even if they finish out of order
-    pendingVoice--;
-    if (!m || !voiceOn) { if (!playing && !busy && !pendingVoice) setState('idle', 'Ready'); return; }
-    const ctx = audio(), buf = ctx.createBuffer(1, m.samples.length, m.rate);
-    buf.copyToChannel(m.samples, 0);
-    const src = ctx.createBufferSource(); src.buffer = buf; src.connect(analyser);
-    playAt = Math.max(playAt, ctx.currentTime + 0.05); src.start(playAt); playAt += buf.duration;
-    playing++; setState('speaking', 'Speaking');
-    src.onended = () => { if (--playing === 0 && !busy) setState(pendingVoice ? 'thinking' : 'idle', pendingVoice ? 'Preparing voice…' : 'Ready'); };
+  return null;
+}
+function play(clip, mine) {
+  return new Promise(done => {
+    if (!clip || mine !== round || !voiceOn) { done(false); return; }
+    let ended = false, guard = 0;
+    const end = () => { if (ended) return; ended = true; clearTimeout(guard); current = null; speaking--; synthTalking = false; settle(); done(true); };
+    speaking++; settle();
+    if (clip.buffer) {
+      if (navigator.audioSession) { try { navigator.audioSession.type = 'playback'; } catch { /* older iOS */ } }   // iOS: play with the silent switch on
+      const ctx = audio(), src = ctx.createBufferSource();
+      src.buffer = clip.buffer; src.connect(analyser); src.onended = end;
+      guard = setTimeout(end, clip.buffer.duration * 1000 + 3000);
+      current = () => { try { src.stop(); } catch { /* already stopped */ } end(); };
+      src.start();
+    } else {
+      const u = new SpeechSynthesisUtterance(clip.text);
+      u.voice = clip.voice; u.lang = clip.voice.lang; u.onend = end; u.onerror = end;
+      guard = setTimeout(() => { synth.cancel(); end(); }, 4000 + clip.text.length * 110);   // some engines never report the end
+      current = () => { synth.cancel(); end(); };
+      synthTalking = true; synth.speak(u);
+    }
   });
+}
+
+// One answer's speech: pieces are made one after another and played strictly in order.
+function beginSpeech() {
+  if (!voiceOn) return null;
+  stopSpeech();                                                  // a new question silences the last answer
+  const mine = round;
+  answerVoice = kokoroReady && !kokoroSlow ? 'daniel' : 'quick';
+  voiceLabel(describe());
+  let missed = 0;
+  const broken = new Set();
+  return (text) => {
+    if (!voiceOn || mine !== round) return;
+    const line = lineUp(answerVoice);
+    const made = making = making.then(() => (mine === round && voiceOn ? produce(text, line, broken) : null));
+    pending++; settle();
+    queue = queue.then(() => made).then(clip => {
+      if (mine !== round) return false;
+      pending--;
+      if (!clip && voiceOn && ++missed === 1) note = 'Voice unavailable just now. The text is all there.';
+      return play(clip, mine);
+    }).catch(() => false).finally(settle);
+  };
+}
+function stopSpeech() {
+  round++;
+  if (current) current();
+  if (synth) synth.cancel();
+  pending = 0; speaking = 0; answerVoice = null;
+  queue = Promise.resolve(); making = Promise.resolve(); settle();
 }
 voiceBtn.addEventListener('click', () => {
   voiceOn = !voiceOn; voiceBtn.setAttribute('aria-pressed', String(voiceOn)); audio();
-  if (voiceOn) { if (ttsReady) voiceLabel(fallback ? 'Voice on (browser voice)' : 'Voice on'); else startVoice(); }
-  else { voiceLabel('Voice off'); if (fallback && 'speechSynthesis' in window) speechSynthesis.cancel(); if (actx) { actx.close(); actx = null; analyser = null; playAt = 0; } }
+  if (voiceOn) {
+    if (synth) { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; synth.speak(u); }   // iOS speaks only after a tap: use this one
+    startKokoro(); voiceLabel(describe());
+  } else { stopSpeech(); voiceLabel('Voice off'); }
 });
 
 // ---------- the conversation ----------
@@ -130,16 +246,9 @@ async function ask(question) {
   bubble('you', esc(question));
   history.push({ role: 'user', content: question });
   const el = bubble('bot', '<span class="j-dots">…</span>');
-  let text = '', sources = [], spoken = 0;
-  const speakReady = (final) => {                             // speak each finished sentence as soon as it arrives
-    const rest = text.slice(spoken), m = final ? rest : (rest.match(/^[\s\S]*?[.!?](?=\s)/) || [''])[0];
-    if (!m || !m.trim()) return;
-    const first = spoken === 0 || !text.slice(0, spoken).trim();
-    spoken += m.length;
-    if (first && m.trim().length > 45) m.split(/(?<=[,;:])\s+/).forEach(part => say(part));   // a long first sentence starts sooner in pieces
-    else say(m);
-    if (!final) speakReady(false);
-  };
+  let text = '', sources = [];
+  const speakPiece = beginSpeech(), pieces = chunker();          // speak each finished sentence as soon as it arrives
+  const speakReady = (final) => { if (speakPiece) (final ? pieces.end(text) : pieces.push(text)).forEach(speakPiece); };
   try {
     const res = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: history }) });
     if (!res.ok || !res.body) { const j = await res.json().catch(() => ({})); throw new Error(j.error || 'Jarvis is unavailable just now.'); }
@@ -166,8 +275,7 @@ async function ask(question) {
     el.classList.add('err'); el.textContent = err.message || String(err);
     history.pop();
   } finally {
-    busy = false;
-    if (playing) setState('speaking', 'Speaking'); else if (pendingVoice || pendingText.length) setState('thinking', 'Preparing voice…'); else setState('idle', 'Ready');
+    busy = false; settle();
   }
 }
 form.addEventListener('submit', (e) => { e.preventDefault(); ask(input.value); });

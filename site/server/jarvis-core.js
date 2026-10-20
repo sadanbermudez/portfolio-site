@@ -59,6 +59,50 @@ export function hashText(text) {                            // FNV-1a: names the
   return (h >>> 0).toString(16);
 }
 
+// Text for /api/speak: one sentence or two of an answer, without citation marks or markdown, capped in length.
+// Returns null when nothing pronounceable is left, so the route never pays for an empty clip.
+export const SPEAK_CHARS = 260;
+export function speakable(raw) {
+  if (typeof raw !== 'string') return null;
+  const text = raw.replace(/\s*\[\d+\]/g, '').replace(/[*`~]+/g, '').replace(/[_#>|]+/g, ' ').replace(/\s+/g, ' ')
+    .replace(/\s+([.,;:!?])/g, '$1').trim().slice(0, SPEAK_CHARS).trim();
+  return /[\p{L}\p{N}]/u.test(text) ? text : null;
+}
+
+// MeloTTS sends base64 WAV at 44.1 kHz, 16-bit, mono: about 117 KB per second of speech, too much for a slow phone
+// connection. Speech needs far less, so the clip is decoded, low-passed ([1 2 1] / 4) and every second sample kept:
+// 22.05 kHz binary WAV, about 44 KB per second. Anything that is not that format is returned as it came.
+export function fromBase64(text) {
+  if (typeof Uint8Array.fromBase64 === 'function') return Uint8Array.fromBase64(text);
+  const bin = atob(text), out = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  return out;
+}
+export function halveWav(bytes) {
+  const tag = (o) => String.fromCharCode(bytes[o], bytes[o + 1], bytes[o + 2], bytes[o + 3]);
+  if (bytes.length < 44 || tag(0) !== 'RIFF' || tag(8) !== 'WAVE') return bytes;
+  const dv = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+  let o = 12, fmt = null, data = null;
+  while (o + 8 <= bytes.length) {
+    const id = tag(o), size = dv.getUint32(o + 4, true);
+    if (id === 'fmt ') fmt = { format: dv.getUint16(o + 8, true), channels: dv.getUint16(o + 10, true), rate: dv.getUint32(o + 12, true), bits: dv.getUint16(o + 22, true) };
+    else if (id === 'data') { data = { start: o + 8, size: Math.min(size, bytes.length - o - 8) }; break; }
+    o += 8 + size + (size & 1);
+  }
+  if (!fmt || !data || fmt.format !== 1 || fmt.channels !== 1 || fmt.bits !== 16 || fmt.rate < 32000) return bytes;
+  const n = data.size >> 1, m = n >> 1, rate = fmt.rate >> 1, out = new Uint8Array(44 + m * 2), w = new DataView(out.buffer);
+  [[0, 'RIFF'], [8, 'WAVE'], [12, 'fmt '], [36, 'data']].forEach(([at, s]) => { for (let k = 0; k < 4; k++) out[at + k] = s.charCodeAt(k); });
+  w.setUint32(4, 36 + m * 2, true); w.setUint32(16, 16, true); w.setUint16(20, 1, true); w.setUint16(22, 1, true);
+  w.setUint32(24, rate, true); w.setUint32(28, rate * 2, true); w.setUint16(32, 2, true); w.setUint16(34, 16, true); w.setUint32(40, m * 2, true);
+  if (m < 1) return bytes;
+  const start = bytes.byteOffset + data.start;                // typed arrays: a few milliseconds even for a long sentence
+  const src = start % 2 ? new Int16Array(bytes.slice(data.start, data.start + n * 2).buffer) : new Int16Array(bytes.buffer, start, n);
+  const dst = new Int16Array(out.buffer, 44, m);
+  dst[0] = (3 * src[0] + src[1]) >> 2;
+  for (let i = 1, j = 2; i < m; i++, j += 2) dst[i] = (src[j - 1] + 2 * src[j] + src[j + 1]) >> 2;
+  return out;
+}
+
 // Keep only well-formed turns, the most recent few, each cut to a fixed length; the last must be the visitor's.
 export function cleanMessages(raw) {
   if (!Array.isArray(raw)) return null;

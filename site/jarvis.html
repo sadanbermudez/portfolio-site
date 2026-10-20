@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
 <title>Talk to Jarvis · Sergio Adan Bermudez</title>
-<meta name="description" content="A public demo of Jarvis, my AI assistant: ask about my work by text or voice. Qwen3 30B on Cloudflare's free tier, a voice generated in your browser, and no access to anything private.">
+<meta name="description" content="A public demo of Jarvis, my AI assistant: ask about my work by text or voice. Qwen3 30B on Cloudflare's free tier, a voice that starts within seconds, and no access to anything private.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
           </button>
           <button type="button" class="btn" id="voice" aria-pressed="false">Voice off</button>
         </div>
-        <p class="mono j-note" id="voice-note">Voice uses Kokoro's "Daniel", the same voice as my Jarvis at home, generated on your device. The first time, your browser downloads the model (about 92 MB).</p>
+        <p class="mono j-note" id="voice-note">On a fast computer, Jarvis speaks with Kokoro's "Daniel", the voice of my Jarvis at home, made on your device after a one-time 92 MB download. Elsewhere he uses a quicker voice, so he speaks within seconds.</p>
       </div>
 
       <div class="j-chat panel">
@@ -63,9 +63,9 @@
           <div><dt>What he knows</dt><dd>The text of this website, and nothing else. Each question searches its pages (BM25), and the best passages go to the model, which must cite them.</dd></div>
           <div><dt>The brain</dt><dd>Qwen3 30B, the same family as the model my local Jarvis runs, on Cloudflare Workers AI's free daily allowance. When it runs out, Jarvis says so until midnight UTC.</dd></div>
           <div><dt>The ears</dt><dd>Your recording goes to Whisper large-v3-turbo on Cloudflare and comes back as text. Nothing is stored.</dd></div>
-          <div><dt>The voice</dt><dd>Kokoro-82M with the Daniel voice, running in your browser in a Web Worker. No server speaks for him.</dd></div>
+          <div><dt>The voice</dt><dd>Kokoro-82M with the Daniel voice, running in your browser, when the page measures that your computer makes speech faster than he speaks. On a phone that would take minutes, so he uses the device's own British voice if it has one, or MeloTTS on Cloudflare, one sentence at a time. If a voice is late, the next one takes over.</dd></div>
           <div><dt>What he cannot do</dt><dd>Read my files, email or calendar, run commands, or browse. At home Jarvis has tools on my laptop; this edition has none.</dd></div>
-          <div><dt>Measured</dt><dd>Graded against 33 written questions with fixed checks. Answers stream in under a second. On questions it had not seen during building, it answered 5 to 7 of 8 fully, with a citation, across three runs; the rest were a missing citation or an honest "I don't know", with no false statements in the final runs. The voice starts 2 to 6 seconds after the text on a fast laptop, and later on slower devices. It can still be wrong: the numbered links show where each answer came from.</dd></div>
+          <div><dt>Measured</dt><dd>Graded against 33 written questions with fixed checks. Answers stream in under a second. On questions it had not seen during building, it answered 5 to 7 of 8 fully, with a citation, across three runs; the rest were a missing citation or an honest "I don't know", with no false statements in the final runs. On a slowed-down phone over 4G, the voice started 1.9 to 2.5 seconds after the text, or 0.7 seconds with the phone's own voice. It can still be wrong: the numbered links show where each answer came from.</dd></div>
           <div><dt>Guard rails</dt><dd>A few questions a minute per visitor, short answers, a fixed persona that declines private or unrelated requests, and a strict security policy on every page.</dd></div>
         </dl>
       </div>
