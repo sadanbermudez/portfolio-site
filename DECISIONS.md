@@ -18,7 +18,7 @@ Two rules for reading it:
  data/chess-game.js  (reviewed game)           -->    copies          -->  data/
  engine/  Stockfish 19 WASM + GPLv3 licence    -->    copies tree     -->  engine/
  vendor/  chess.js + BSD-2-Clause licence      -->    copies tree     -->  vendor/
-                                                      writes          -->  _headers  (4 security headers)
+                                                      writes          -->  _headers  (CSP + 6 security headers)
                                                                                 |
                                                          wrangler deploy  (site/wrangler.jsonc)
                                                                                 v
@@ -62,10 +62,16 @@ The repo root also holds an earlier single-page version of the site (`index.html
 
 **Context.** `site/index.html` is written as a fragment, without `<html>`, `<head>` or `<body>`, because it is previewed in Claude's artifact viewer, which adds its own skeleton (docstring of `site/build.py`). A static host needs a full document. The work pages are already full documents.
 
-**Decision.** `site/build.py` uses only the Python standard library. It deletes `dist/`, copies the `data/`, `engine/` and `vendor/` folders (the last two with their licence files), copies every top-level script and stylesheet and `404.html`, and copies every `work/*.html`. It wraps the home page: it adds the doctype, `<html lang="en">`, the charset and a viewport meta with `viewport-fit=cover`; finds the end of the head by locating the last stylesheet link (`immersive.css`); drops the preview-only `claude:viewport-fit-sides` meta; and puts the rest inside `<body>`. It writes `dist/_headers`, and finally checks every local `src` and `href` in every built page and fails the build if one does not resolve to a file in `dist/`:
+**Decision.** `site/build.py` uses only the Python standard library. It deletes `dist/`, copies the `data/`, `engine/` and `vendor/` folders (the last two with their licence files), copies every top-level script, stylesheet and SVG and `404.html`, and copies every `work/*.html`. It wraps the home page: it adds the doctype, `<html lang="en">`, the charset and a viewport meta with `viewport-fit=cover`; finds the end of the head by locating the last stylesheet link (`immersive.css`); drops the preview-only `claude:viewport-fit-sides` meta; and puts the rest inside `<body>`. It writes `dist/_headers`, and finally checks every built page: every local `src` and `href` must resolve to a file in `dist/`, and no page may contain anything the Content-Security-Policy blocks (an inline `<script>`, a `<style>` block, an `on...=` handler or a `javascript:` URL). Either failure stops the build.
 
 ```
 /*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'wasm-unsafe-eval';
+    style-src 'self' https://fonts.googleapis.com; style-src-attr 'unsafe-inline'; font-src https://fonts.gstatic.com;
+    connect-src 'self' https://lichess.org https://api.chess.com; img-src 'self' data:; worker-src 'self';
+    object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Cross-Origin-Opener-Policy: same-origin
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
@@ -78,10 +84,12 @@ The repo root also holds an earlier single-page version of the site (`index.html
 - `strict-origin-when-cross-origin` means other sites the pages link or fetch from (Lichess, GitHub, LinkedIn) see only `https://sergioadan.dev`, not the full path, and nothing at all over plain HTTP.
 - `X-Frame-Options: DENY` stops any other site from loading these pages in an iframe, which is the setup for clickjacking.
 - The `Permissions-Policy` line means no script on the site, first-party or third-party, can even ask for the camera, microphone or location.
+- The **Content-Security-Policy** is an allow-list: the browser runs scripts only from the site's own files and cdnjs, loads fonts only from Google, and lets pages talk only to the site, Lichess and Chess.com. If an attacker ever got text onto a page, an injected `<script>` would not run. That is why the three pages' inline scripts moved into `home.js`, `lab-page.js` and `chess-page.js`. `'wasm-unsafe-eval'` is the one relaxation scripts need, to compile Stockfish's WebAssembly. `style-src-attr 'unsafe-inline'` allows the `style=""` attributes the pages use for layout tweaks; that is far less dangerous than inline scripts, and `<style>` blocks stay forbidden. `frame-ancestors 'none'` is the modern form of `X-Frame-Options`, kept for older browsers.
+- `Strict-Transport-Security` tells browsers to use HTTPS for a year without trying HTTP first. `Cross-Origin-Opener-Policy: same-origin` cuts the link between these pages and any window that opened them.
 
 **Alternatives.** Write `index.html` as a full document and stop previewing it as an artifact. Glob for `*.js` instead of naming the files.
 
-**Trade-offs.** The head detection depends on one literal string. The reference check reads attributes with a regular expression, so it sees `src` and `href` in markup but not URLs built in JavaScript (the engine worker path in `analyse.js`, for example). There is no Content-Security-Policy (see "Known limits").
+**Trade-offs.** The head detection depends on one literal string. The reference check reads attributes with a regular expression, so it sees `src` and `href` in markup but not URLs built in JavaScript (the engine worker path in `analyse.js`, for example). Changing what the site loads (a new CDN, an API, an embed) now needs a matching CSP entry in `build.py`, or the browser blocks it; checked by loading every page under the policy and watching for violations (zero), and by injecting an inline and a foreign script, both blocked.
 
 **Check it yourself.** From `site/`, run `python build.py`; it prints every file it wrote. Then `head -12 dist/index.html` shows the generated head. On the live site, `curl -sI https://sergioadan.dev/ | grep -iE "x-frame|nosniff|referrer|permissions"` shows whether the headers are served.
 
@@ -247,7 +255,6 @@ For small screens: breakpoints at 520, 640, 760, 900 and 980 px. Side gutters ar
 ## Known limits and what comes next
 
 - **Old version at the root.** `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first single-page site, kept for reference (the README says so). Next: move them into an `archive/` folder.
-- **No Content-Security-Policy.** A CSP would have to allow cdnjs and Google Fonts, `connect-src` to lichess.org and api.chess.com, the inline scripts on three pages (by hash), Workers from the site's own origin, and WebAssembly compilation (`'wasm-unsafe-eval'`).
 - **Thin automated checks.** CI (`.github/workflows/site.yml`) runs the rules-module tests in `site/tests/` and the build with its reference check. There is no browser test yet. Next: a smoke test that loads each page and fails on console errors. Deploys are manual.
 - **Numbers repeated across files** (decision 4).
 - **Lifetime fit reads high.** `fitTau()` in `research.js` takes the mean time after 6 µs, which is correct for a single exponential but here still includes the 2 µs triplet rise and the uniform dark counts. Re-running the same model in Python with 60,000 events gives about 3.8 µs for an input of 3.5 µs, and about 71 µs for 68 µs. The page now states the bias next to the readout. Next: fit the full rise-and-decay model, or start the window later and subtract the dark-count level.
@@ -267,7 +274,7 @@ Multithreaded WebAssembly shares memory through `SharedArrayBuffer`, which brows
 No code. It is a Worker with only static assets: Cloudflare serves the files `build.py` writes to `dist/`, plus the `_headers` file. The two hostnames are custom domains, so Cloudflare manages their DNS records and certificates, which is why the nameservers moved from Porkbun. Porkbun hosting was paid only and GitHub Pages needed a public repo or a paid plan at the time.
 
 **What do your security headers protect against, and what is missing?**
-`nosniff` stops content-type guessing, `X-Frame-Options: DENY` blocks clickjacking through iframes, the referrer policy sends other sites only the origin, and the permissions policy turns off camera, microphone and location for every script. The gap is a Content-Security-Policy. It is not hard in principle, but it has to account for cdnjs, Google Fonts, Lichess, the inline scripts and WebAssembly.
+`nosniff` stops content-type guessing, `X-Frame-Options: DENY` blocks clickjacking through iframes, the referrer policy sends other sites only the origin, and the permissions policy turns off camera, microphone and location for every script. The Content-Security-Policy is the main defence: an allow-list of where scripts, styles, fonts and network requests may come from, so an injected script does not run. Getting there meant moving three inline scripts into files and allowing WebAssembly compilation for Stockfish; the build now fails if inline script ever comes back.
 
 **How do you know the physics visuals are right?**
 Each one is computed from a formula printed on the page: the Gaussian waist w₀ = λ/(π·NA), the Rayleigh range z_R = π·w₀²·n/λ, excitation proportional to intensity to the power n. At NA 0.5 and 800 nm you can check the readout by hand: 0.51 µm and 1.35 µm. What is not computed, like the tumour dose model and the mouse zoom, is labelled as an illustration on the page.

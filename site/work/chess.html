@@ -139,17 +139,6 @@
 <script src="../chess3d.js"></script>
 <script src="../analyse.js"></script>
 <script src="../games.js"></script>
-<script>
-(function () {
-  var b2 = document.getElementById('board'), b3 = document.getElementById('board3d');
-  document.querySelectorAll('.view-switch button').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var three = btn.dataset.view === '3d';
-      document.querySelectorAll('.view-switch button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === btn)); });
-      b2.hidden = three; b3.hidden = !three; window.Chess3D.enable(three);
-    });
-  });
-})();
-</script>
+<script src="../chess-page.js"></script>
 </body>
 </html>
