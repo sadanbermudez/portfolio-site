@@ -172,6 +172,7 @@ footer { border-top: 1px solid var(--rule); padding-block: 28px 40px; font-size:
     <nav aria-label="Sections">
       <a href="#work">Case study</a>
       <a href="#system">System</a>
+      <a href="#log">Log</a>
       <a href="#projects">Projects</a>
       <a href="#roadmap">Roadmap</a>
       <a href="#background">Background</a>
@@ -318,6 +319,34 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
     </div>
   </section>
 
+  <section id="log">
+    <div class="row">
+      <div class="side">
+        <p class="label">Engineering log</p>
+        <p class="label num">Oct 2026</p>
+      </div>
+      <div class="main">
+        <h2>Every change, measured, including the ones I rejected</h2>
+        <p>Each line was tested on the live system with scripted requests. A "no" is a result too: it means the evidence did not justify the change.</p>
+        <div class="table-scroll" role="region" aria-label="Engineering log" tabindex="0">
+          <table>
+            <thead><tr><th>Date</th><th>Change</th><th>Measured result</th><th>Decision</th></tr></thead>
+            <tbody>
+              <tr><td class="n">20 Oct</td><td>Agent code tool moved into an isolated Docker sandbox</td><td>Code task 7.9 s instead of blocked; a write to a host path fails inside the container</td><td>Kept</td></tr>
+              <tr><td class="n">20 Oct</td><td>Observability: live latency dashboard, OpenTelemetry traces (Phoenix), evals in Inspect AI</td><td>13/13 eval tasks in 45 s; one trace per voice turn</td><td>Kept</td></tr>
+              <tr><td class="n">20 Oct</td><td>A 284B model streamed from disk (colibri, DeepSeek V4 Flash) as a "think harder" mode</td><td>Correct on a reasoning test, 0.6 tokens/s on CPU</td><td>Kept, on demand only</td></tr>
+              <tr><td class="n">20 Oct</td><td>Context compression proxy (headroom) in front of the local model</td><td>0 tokens saved on real tool outputs, three test designs</td><td>Rejected</td></tr>
+              <tr><td class="n">20 Oct</td><td>Snapshot read fix in the llama.cpp Vulkan backend</td><td>Snapshot 0.61 s to 0.03 s, identical output</td><td>Kept (same fix as upstream #30049)</td></tr>
+              <tr><td class="n">20 Oct</td><td>Snapshots turned off entirely</td><td>Voice 0.5 s, but agent turns 21 s</td><td>Reverted</td></tr>
+              <tr><td class="n">20 Oct</td><td>Agent prompt trimmed by usage data</td><td>13,718 to 11,560 tokens; tools still work</td><td>Kept</td></tr>
+              <tr><td class="n">20 Oct</td><td>Wake word, then fixes after a real-microphone session</td><td>Replay of real speech passes; silence hallucinations dropped</td><td>Kept</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="projects">
     <div class="row">
       <div class="side"><p class="label">Projects</p></div>
@@ -332,16 +361,19 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
               <li>MCP memory server over a plain-text knowledge base, 29 automated tests</li>
               <li>Voice pipeline: local speech-to-text and text-to-speech, streaming replies, wake word</li>
               <li>Delegation bridge from the local model to Claude Code, least-privilege modes</li>
+              <li>Agent code runs in an isolated Docker sandbox, with no host folders mounted</li>
+              <li>Observability: live latency dashboard and OpenTelemetry tracing</li>
               <li>Performance work above: voice reply 3 s to 0.7 s</li>
             </ul>
           </article>
           <article class="item">
             <p class="label">2026 · Personal</p>
             <h3>Evaluation harness</h3>
-            <p>13 real tasks with deterministic scoring, used to choose model settings from evidence.</p>
+            <p>13 real tasks with deterministic scoring, used to choose model settings from evidence. Runs under Inspect AI with the memory tools attached over MCP.</p>
             <ul>
               <li>Thinking off scored 13/13 at about 2.5 s; thinking on 10/13 at about 20 s</li>
               <li>A 3x shorter system prompt kept 13/13</li>
+              <li>Same 13/13 under Inspect AI, with full transcripts</li>
             </ul>
           </article>
           <article class="item">
@@ -373,9 +405,10 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
             <p class="label">Now · Q4 2026</p>
             <h3>Harden and show</h3>
             <ul>
+              <li>Done: live metrics from the model server (latency per turn, cache reuse)</li>
+              <li>Done: tracing and evals on standard tools</li>
               <li>Move to an official llama.cpp build with the upstream fix</li>
               <li>Public evaluation dashboard: quality and latency per change</li>
-              <li>Live metrics from the model server (latency per turn, cache hits)</li>
               <li>Two-minute demo video</li>
             </ul>
           </div>
@@ -384,8 +417,8 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
             <h3>Capability</h3>
             <ul>
               <li>An MCP server that lets the assistant drive a lab instrument and analyse its signal</li>
-              <li>Compress tool output before it reaches the local model</li>
-              <li>A slow "think harder" mode for models larger than memory</li>
+              <li>A free cloud tier between the local model and Claude, for harder text tasks</li>
+              <li>A one-click "think harder" mode (the 284B model already runs)</li>
               <li>A second machine as a fast voice brain</li>
             </ul>
           </div>
@@ -432,7 +465,7 @@ if (src-&gt;memory_property_flags &amp; vk::MemoryPropertyFlagBits::eHostVisible
           </div>
           <div class="item">
             <h3>Infrastructure <span class="pill">Working</span></h3>
-            <p>Docker, WSL and Linux, Git, Windows native builds (MSVC, CMake, Vulkan SDK).</p>
+            <p>Docker, WSL and Linux, Git, Windows native builds (MSVC, CMake, Vulkan SDK), OpenTelemetry, Inspect AI.</p>
           </div>
         </div>
       </div>
