@@ -270,7 +270,7 @@
     off.getContext('2d').putImageData(img, 0, 0); ctx.drawImage(off, cx - a, cy - a);
     ctx.fillStyle = C.muted; ctx.font = '11px Martian Mono, monospace';
     ctx.fillText(Math.floor(t / 3) % 2 ? 'mode at 800 nm (two-photon pump)' : 'mode at 470 nm (probe)', 12, 20);
-    ctx.fillText('60 µm hollow core, water-filled', 12, H - 12);
+    ctx.fillText('hollow core, water-filled', 12, H - 12);
   }
 
   // ---------------- 4. anti-resonance windows ----------------

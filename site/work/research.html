@@ -66,7 +66,7 @@
       <div class="chapter"><div class="card-x">
         <span class="chapter-num">10 µm · ONE CELL</span>
         <h2>A one-micrometre reach</h2>
-        <p>Singlet oxygen lives about 3.5 µs in water and a few hundred nanoseconds or less in cells, so it acts within roughly 1 to 1.5 µm of where it is made. Wherever the photosensitiser sits, mitochondria or membranes, is what gets destroyed.</p>
+        <p>Singlet oxygen lives about 3.5 µs in water, and in cells it acts within roughly 1 to 1.5 µm of where it is made. Wherever the photosensitiser sits, mitochondria or membranes, is what gets destroyed.</p>
       </div></div>
       <div class="chapter"><div class="card-x">
         <span class="chapter-num">1 NM · THE MOLECULES</span>
@@ -99,7 +99,7 @@
           <div style="background:none;padding:12px 0 0;border-top:1px solid var(--ink)"><span class="label">fitted lifetime</span><span class="value result" id="det-tau">collecting…</span></div>
         </div>
         <p>The rise is the photosensitiser's triplet handing over its energy; the decay is singlet oxygen's own lifetime, set by the solvent. Heavy water lets it live about twenty times longer, which is why many experiments use it, and why measuring in plain water, as cells require, is so much harder. In my postdoc in Light4Lungs I detected singlet oxygen inside bacteria with high-sensitivity photon detection, photodiodes and photomultipliers.</p>
-        <p class="mono">Simulation: emission time = triplet lifetime (2 µs, estimated for air-saturated water) + singlet-oxygen lifetime (thesis values), with 3% dark counts; lifetime fitted by maximum likelihood on the tail.</p>
+        <p class="mono">Simulation: emission time = triplet lifetime (2 µs, estimated for air-saturated water) + singlet-oxygen lifetime (thesis values), with 3% dark counts; lifetime fitted by maximum likelihood on the tail. The fit reads slightly long (about 3.8 µs and 71 µs against the thesis values of 3.5 and 68 µs) because the tail still carries some of the triplet rise and the dark counts; a real analysis would fit rise, decay and background together.</p>
       </div>
     </section>
 
@@ -121,7 +121,7 @@
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px 40px">
           <p><strong>How it guides.</strong> The thin glass walls of the ring of capillaries act as Fabry-Perot resonators. Away from their resonances they reflect light back into the core; at a resonance, λ = 2t·√(n<sub>glass</sub>² − n<sub>core</sub>²)/m, light leaks out. Filling the core with water moves every resonance to about 0.55 times its wavelength in air, which is how the fibre can carry both a 470 nm probe and an 800 nm pump in water.</p>
-          <p><strong>Why it wins.</strong> In the thesis's comparison for a 20 µm core and 15 cm length, the light-matter interaction figure is 4.18 for a 1 cm cuvette, 16.4 for a glass capillary and 14,720 for a hollow-core fibre. The 11 cm fibre I used held about 2.8 nL per cm, six orders of magnitude less sample than a cuvette.</p>
+          <p><strong>Why it wins.</strong> In the thesis's comparison for a 20 µm core and 15 cm length, the light-matter interaction figure is 4.18 for a 1 cm cuvette, 16.4 for a glass capillary and 14,720 for a hollow-core fibre. The fibre held about 2.8 nL per cm, around 30 nL in all: six orders of magnitude less sample than a cuvette.</p>
         </div>
         <p class="mono">Fibre drawing is schematic; the mode is the J₀² profile of a hollow waveguide. Membrane thickness is a free parameter here, not my fibre's measured value.</p>
       </div>
@@ -168,9 +168,9 @@
                 <text x="10" y="44">TPPS4</text><text x="10" y="78">Chlorin e6</text><text x="10" y="112">Ruth G1*</text><text x="10" y="146">Ruth G2*</text><text x="10" y="180">[Ru(bpy)3]²⁺</text><text x="10" y="214">AlPcS4</text><text x="10" y="248">Hypericin</text>
               </g>
               <g stroke="#55606d" stroke-width="2">
-                <line x1="463" y1="40" x2="502" y2="40"/><line x1="441" y1="74" x2="474" y2="74"/><line x1="301" y1="108" x2="312" y2="108"/><line x1="211" y1="142" x2="295" y2="142"/><line x1="284" y1="176" x2="284" y2="176"/><line x1="233" y1="210" x2="278" y2="210"/>
+                <line x1="463" y1="40" x2="502" y2="40"/><line x1="474" y1="74" x2="525" y2="74"/><line x1="301" y1="108" x2="312" y2="108"/><line x1="211" y1="142" x2="295" y2="142"/><line x1="284" y1="176" x2="284" y2="176"/><line x1="233" y1="210" x2="278" y2="210"/>
               </g>
-              <g fill="#8a94a2"><circle cx="502" cy="40" r="5"/><circle cx="441" cy="74" r="5"/><circle cx="301" cy="108" r="5"/><circle cx="211" cy="142" r="5"/><circle cx="284" cy="176" r="5"/><circle cx="278" cy="210" r="5"/><circle cx="161" cy="244" r="5"/></g>
+              <g fill="#8a94a2"><circle cx="502" cy="40" r="5"/><circle cx="525" cy="74" r="5"/><circle cx="301" cy="108" r="5"/><circle cx="211" cy="142" r="5"/><circle cx="284" cy="176" r="5"/><circle cx="278" cy="210" r="5"/><circle cx="161" cy="244" r="5"/></g>
               <g fill="#ffae4a"><circle cx="463" cy="40" r="6"/><circle cx="474" cy="74" r="6"/><circle cx="312" cy="108" r="6"/><circle cx="295" cy="142" r="6"/><circle cx="284" cy="176" r="6"/><circle cx="233" cy="210" r="6"/><circle cx="166" cy="244" r="6"/></g>
             </svg>
           </div>
