@@ -1,0 +1,3 @@
+# Reviewed false positives (security review, 21 October 2026). Both are the tokenizer field "unk_token" inside the
+# minified, vendored kokoro-js bundle, not a credential.
+df4fbb748f2f785303910849244e80af23431293:site/vendor/kokoro/kokoro.web.js:generic-api-key:1

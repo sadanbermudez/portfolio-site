@@ -1,3 +1,12 @@
 site/dist/
 site/.wrangler/
 site/server/knowledge.json
+# local secrets and tool state: never commit
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+node_modules/
+.wrangler/
+*.pem
+*.key
