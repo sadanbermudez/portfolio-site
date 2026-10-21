@@ -276,7 +276,7 @@ window.ChessPosition = (function () {
       if (lastMove > -1) { var lf = xy(seq[lastMove].from); if (!pawnAttacks(S[lastMove].bd, lf[0], lf[1], white)) continue; }
       var t = where(n), left = safeSquares(S[n].bd, S[n].att, t).length;
       add({ kind: 'shut', key: 'shut:' + s, w: 44, k: k, squares: [t], side: 'harm',
-        state: 'the ' + NAME[p.type] + ' on ' + t + (left ? ' has just one square not covered by a ' + col + ' pawn' : ' is shut in: a ' + col + ' pawn covers every square it can reach, or a ' + ocol + ' piece stands there') });
+        state: 'the ' + NAME[p.type] + ' on ' + t + (left ? ' has just one square not covered by a ' + col + ' pawn' : ' is shut in, with every square it can reach covered by a ' + col + ' pawn or taken by a ' + ocol + ' piece') });
     }
 
     // the enemy king boxed in: no free square next to it, and at least two of those squares covered by this side
@@ -364,7 +364,7 @@ window.ChessPosition = (function () {
       if (ps0.backward.indexOf(s) > -1) return;
       var k = first(function (j) { return S[j][op].pawns.backward.indexOf(s) > -1; });
       if (k) add({ kind: 'backward', key: 'backward:' + s, w: 32, k: k, squares: [s], side: 'harm',
-        state: 'the ' + ocol + ' pawn on ' + s + ' is backward: no pawn can guard it, and a ' + col + ' pawn covers the square in front' });
+        state: 'the ' + ocol + ' pawn on ' + s + ' is backward, with no pawn to guard it and a ' + col + ' pawn covering the square in front' });
     });
 
     // passed pawns created along the line

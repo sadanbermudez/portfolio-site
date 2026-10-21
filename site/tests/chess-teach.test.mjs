@@ -277,7 +277,7 @@ const text = (r) => r.sentences.join(' ');
   const fen = '1rb2rk1/2q2pbp/2n1p1p1/2ppPn1P/8/2PP1NP1/4QPB1/R1B1RNK1 b - - 0 17';
   const r = T.explain({ Chess, fen, played: 'd5d4', best: 'g6h5', pvBest: '17...gxh5 18. Ne3 Nfe7 19. d4 f6 20. exf6',
     pvAfter: '18. g4 Nfe7 19. h6 Bh8 20. cxd4 Nd5', cpBefore: 41, cpAfter: 325, grade: 'blunder' });
-  assert.equal(r.sentences[0], 'd4 allows g4 Nfe7 h6 Bh8: the bishop on h8 is shut in: a white pawn covers every square it can reach, or a black piece stands there.');
+  assert.equal(r.sentences[0], 'd4 allows g4 Nfe7 h6 Bh8: the bishop on h8 is shut in, with every square it can reach covered by a white pawn or taken by a black piece.');
   assert.equal(r.sentences[1], 'Stockfish prefers gxh5, which takes the pawn on h5 before it can go to h6.');
   assert.ok(r.marks.squares.includes('h8'));
   ok('game: 17...d4 shuts the bishop in on h8; gxh5 prevents h6');
