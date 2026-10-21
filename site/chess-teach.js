@@ -285,7 +285,8 @@ window.ChessTeach = (function () {
     var full = +(fen.split(' ')[5] || 1);
     if ((mv.piece === 'n' || mv.piece === 'b') && full <= 15 && pf[1] === (white ? 0 : 7))
       out.push({ k: 'develop', w: 26, say: 'develops the ' + NAME[mv.piece], marks: { squares: [mv.to] } });
-    if ('nbrq'.indexOf(mv.piece) > -1 && !mv.captured && !out.some(function (o) { return o.k === 'develop'; })) {
+    var takenAt = W.seq[1] && W.seq[1].captured && W.seq[1].to === mv.to;      // a piece taken at once is not "activated"
+    if ('nbrq'.indexOf(mv.piece) > -1 && !mv.captured && !takenAt && !out.some(function (o) { return o.k === 'develop'; })) {
       var r0 = reach(att0, b0, mv.from, white), r1 = reach(att1, b1, mv.to, white);
       if (r1 - r0 >= 4) out.push({ k: 'active', w: 24, say: 'activates the ' + NAME[mv.piece] + ': it now reaches ' + r1 + ' squares instead of ' + r0, marks: { squares: [mv.to] } });
     }
@@ -293,6 +294,77 @@ window.ChessTeach = (function () {
     return { W: W, list: rank(out) };
   }
   function rank(list) { return list.sort(function (a, b) { return b.w - a.w; }); }
+
+  // ---------- positional ideas along a line (chess-position.js) ----------
+  var PLIES = 6;                                           // the move and up to five more plies of its line
+  // Events in favour of side `white` along a walked line: { list, seq, mat }. Empty if chess-position.js
+  // is absent. The stretch never ends between a capture and the recapture on the same square, and an
+  // event is kept only if material is level with the start at the ply it appears: a positional point
+  // made in the middle of an exchange, or after one side has won material, is not the reason for anything.
+  function posEvents(W, white) {
+    var CP = window.ChessPosition;
+    if (!CP || !W) return { list: [], seq: [], mat: [] };
+    var n = Math.min(W.seq.length, PLIES);
+    while (n < W.seq.length && n < PLIES + 2 && W.seq[n].captured && W.seq[n].to === W.seq[n - 1].to) n++;
+    var seq = W.seq.slice(0, n), fens = W.fens.slice(0, n + 1);
+    var mat = fens.map(function (f) { return core().facts(f).material_white_minus_black; });
+    // captures before ply k that are not a capture and recapture on one square: a melee, not a plan
+    var melee = function (k) {
+      for (var i = 0; i < k; i++) {
+        if (!seq[i].captured) continue;
+        if (i + 1 < k && seq[i + 1].captured && seq[i + 1].to === seq[i].to) { i++; continue; }
+        return true;
+      }
+      return false;
+    };
+    return { list: CP.events(fens, seq, white).filter(function (e) { return mat[e.k] === mat[0] && !melee(e.k); }), seq: seq, mat: mat };
+  }
+  // Was the move at index i of a line forced: an answer to check, or a piece stepping away from a pawn's attack?
+  function forced(W, i) {
+    var m = W.seq[i], prev = W.seq[i - 1]; if (!m || !prev) return false;
+    if (/[+#]$/.test(prev.san)) return true;
+    var b = core().parse(W.fens[i]), p = sqXY(m.from), d = m.color === 'w' ? 1 : -1, row = b[p[1] + d];
+    return !!row && [-1, 1].some(function (df) { var q = row[p[0] + df]; return q && q.type === 'p' && q.white !== (m.color === 'w'); });
+  }
+  // Drop the events that the other line reaches too: they do not tell the two moves apart.
+  function only(E, other) {
+    var keys = {}; (other ? other.list : []).forEach(function (e) { keys[e.key] = 1; });
+    return E.list.filter(function (e) { return !keys[e.key]; });
+  }
+  // Up to two events for one sentence: the strongest, plus a second strong one the same stretch of line shows.
+  function pickTwo(list) {
+    if (!list.length) return [];
+    var top = list[0], two = list.filter(function (e, i) { return i > 0 && e.w >= 36 && e.k <= top.k && e.kind !== top.kind; })[0];
+    return two && (top.state + two.state).length <= 110 ? [top, two] : [top];      // two only while the sentence stays short
+  }
+  function sans(seq, a, b) { return seq.slice(a, b).map(function (m) { return m.san; }).join(' '); }
+  function states(es) { return es.map(function (e) { return e.state; }).join(', and '); }
+  // Prophylaxis: does the engine's move stop one of the opponent's moves on the way to `e`, by occupying
+  // its target square, taking the piece that would make it, or standing in its path? Only for a piece
+  // that has not moved since the played move (so the same move is meant), only when the move is illegal
+  // right after the engine's move, never when the engine's move gives check, and never for a move the
+  // engine's own line plays anyway.
+  function prevents(Chess, fen, best, BW, PW, e) {
+    var g = new Chess(fen), bm = apply(g, best);
+    if (!bm || /[+#]$/.test(bm.san)) return null;
+    var legal = g.moves({ verbose: true }), other = bm.color === 'w' ? 'Black' : 'White';
+    var between = function (a, b, s) {
+      var x = sqXY(a), y = sqXY(b), z = sqXY(s), df = Math.sign(y[0] - x[0]), dr = Math.sign(y[1] - x[1]);
+      if (x[0] !== y[0] && x[1] !== y[1] && Math.abs(y[0] - x[0]) !== Math.abs(y[1] - x[1])) return false;   // a knight's jump has no path
+      for (var f = x[0] + df, r = x[1] + dr; f !== y[0] || r !== y[1]; f += df, r += dr) if (f === z[0] && r === z[1]) return true;
+      return false;
+    };
+    for (var i = 1; i < e.k && i < PW.seq.length; i += 2) {
+      var t = PW.seq[i];
+      if (PW.seq.slice(1, i).some(function (m) { return m.to === t.from || m.from === t.from; })) continue;   // that piece moved in between
+      if (legal.some(function (m) { return m.from === t.from && m.to === t.to; })) continue;
+      if (BW.seq.some(function (m) { return m.from === t.from && m.to === t.to; })) continue;
+      if (bm.to === t.to) return 'puts ' + (bm.piece === 'p' ? 'a pawn' : 'the ' + NAME[bm.piece]) + ' on ' + t.to + ' before ' + other + '\'s ' + NAME[t.piece] + ' can get there';
+      if (bm.to === t.from) return 'takes the ' + NAME[t.piece] + ' on ' + t.from + ' before it can go to ' + t.to;
+      if (between(t.from, t.to, bm.to)) return 'blocks the ' + NAME[t.piece] + ' on ' + t.from + ' from reaching ' + t.to;
+    }
+    return null;
+  }
 
   // ---------- the explanation ----------
   function wc(cp) { return 2 / (1 + Math.exp(-0.00368208 * cp)) - 1; }
@@ -346,7 +418,23 @@ window.ChessTeach = (function () {
     var gap = (B ? B.W.net : 0) - P.W.net;              // material the engine's choice keeps that the move gives up
     var lossOk = !(o.cpBefore != null && o.cpAfter != null && sign * (o.cpBefore - o.cpAfter) < (-P.W.net - 1) * 100);
     var rm = R && R.W.mv, stays = !!(rm && rm.captured && persists(Chess, fen, o.best, rm));   // the engine's move would not have saved it either
-    var lost = gap >= 1 && lossOk && !stays ? P.list.filter(function (m) { return m.k === 'loses'; })[0] : null;
+    // material over the whole engine line: a piece "taken" that the line wins back was not lost
+    var matOf = function (f) { return core().facts(f).material_white_minus_black * sign; };
+    var fullNet = matOf(P.W.fens[P.W.fens.length - 1]) - matOf(fen) - (P.W.recapture ? VAL[prevCap.t] : 0);
+    var lost = gap >= 1 && lossOk && !stays && fullNet < 0 ? P.list.filter(function (m) { return m.k === 'loses'; })[0] : null;
+    // positional ideas: what the line after the move gives the opponent, and what the engine's line gives the side
+    // a swing of two pawns or more is not explained by a small factor (a bishop pair, a backward pawn):
+    // then only the strong ones count (an outpost, a shut-in piece, the king's cover, an open file ...)
+    var minW = o.cpBefore != null && o.cpAfter != null && Math.abs(o.cpBefore - o.cpAfter) >= 200 ? 36 : 0;
+    var PEopp = bad ? posEvents(P.W, !white) : null, BEopp = bad && B ? posEvents(B.W, !white) : null;
+
+    // positional praise, only for a move the engine rates best or good, that loses nothing over its line,
+    // and only for what the move itself does (the first ply) and still holds five plies later
+    var praise = [];
+    if ((verdict === 'best' || verdict === 'good') && P.W.net >= 0 && fullNet >= 0) {
+      var own = posEvents(P.W, white);
+      praise = pickTwo(own.list.filter(function (e) { return e.k === 1 && e.w >= 30; }));      // not the small ones (a central pawn, a little space)
+    }
 
     // 1. what the played move does
     if (P.W.mate && P.W.mater === P.W.mv.color && P.W.seq.length === 1) {
@@ -366,15 +454,30 @@ window.ChessTeach = (function () {
       var loose = r && r.captured && !defended(core().attacks(core().parse(fen1)), r.to, white);
       var big = r && r.captured && gap >= VAL[r.captured] && !persists(Chess, fen, o.best, r);
       if (rTac) { out.push(san + ' allows ' + rs + ', which ' + rTac.say + '.'); mark(rTac.marks); }
-      else if (ignored && big) { out.push(san + ' ignores the threat to ' + label(r.captured, r.to) + ': ' + rs + ' takes it.'); mark({ squares: [r.to] }); }
-      else if (loose && big && r.to === P.W.mv.to) { out.push(san + ' puts the ' + NAME[P.W.mv.piece] + ' on an undefended square, and ' + rs + ' takes it.'); mark({ squares: [r.to] }); }
-      else if (loose && big) { out.push(san + ' leaves ' + label(r.captured, r.to) + ' undefended, and ' + rs + ' takes it.'); mark({ squares: [r.to] }); }
+      else if (ignored && big && fullNet < 0) { out.push(san + ' ignores the threat to ' + label(r.captured, r.to) + ': ' + rs + ' takes it.'); mark({ squares: [r.to] }); }
+      else if (loose && big && fullNet < 0 && r.to === P.W.mv.to) { out.push(san + ' puts the ' + NAME[P.W.mv.piece] + ' on an undefended square, and ' + rs + ' takes it.'); mark({ squares: [r.to] }); }
+      else if (loose && big && fullNet < 0) { out.push(san + ' leaves ' + label(r.captured, r.to) + ' undefended, and ' + rs + ' takes it.'); mark({ squares: [r.to] }); }
       var sp = lost && spoils(P.W.loss, P.W.gain), named = r && out.length && sp === label(r.captured, r.to);
       if (lost && sp && !named) { out.push((out.length ? 'In the engine\'s line ' + other + ' wins ' : san + ' loses material: in the engine\'s line ' + other + ' wins ') + sp + '.'); mark(lost.marks); }
-    } else if (!bad && mine.length) {
+    } else if (!bad && (mine.length || praise.length)) {
       var top = mine.slice(0, 2);
       if (top.length === 2 && top[1].w < 30 && top[0].w >= 50) top = top.slice(0, 1);
-      out.push(san + ' ' + phrase(top) + '.'); top.forEach(function (m) { mark(m.marks); });
+      if (praise.length && (!top.length || praise[0].w > top[0].w)) { out.push('With ' + san + ', ' + states(praise) + '.'); praise.forEach(function (e) { mark({ squares: e.squares }); }); }
+      else { out.push(san + ' ' + phrase(top) + '.'); top.forEach(function (m) { mark(m.marks); }); }
+    }
+    // a bad move with no tactic to name: what the engine's line gives the opponent that the engine's choice does not
+    var allowed = [];
+    if (bad && !out.length && PEopp && mA == null && mB == null) {
+      // only what the move itself does (ply 1), what an answer of the opponent's brings (even plies) or
+      // what a forced reply leads to, and not if the side is ahead in material at the end of the stretch
+      var endMat = (PEopp.mat[PEopp.mat.length - 1] - PEopp.mat[0]) * sign;
+      allowed = endMat > 0 ? [] : pickTwo(only(PEopp, BEopp).filter(function (e) { return e.w >= minW && (e.k === 1 || e.k % 2 === 0 || forced(P.W, e.k - 1)); }));
+      if (allowed.length) {
+        var kk = Math.max.apply(null, allowed.map(function (e) { return e.k; }));
+        out.push(kk === 1 ? 'After ' + san + ', ' + states(allowed) + '.' : san + ' allows ' + sans(P.W.seq, 1, kk) + ': ' + states(allowed) + '.');
+        allowed.forEach(function (e) { mark({ squares: e.squares }); });
+        if (kk > 1) marks.arrows.push({ uci: P.W.seq[1].from + P.W.seq[1].to, kind: 'reply' });
+      }
     }
 
     // 2. the engine's choice, when it differs and the move cost something
@@ -382,7 +485,17 @@ window.ChessTeach = (function () {
       var bm = B.list.filter(function (m) { return m.k !== 'loses' && m.k !== 'cover' && m.k !== 'check' && m.k !== 'nocastle'; }).slice(0, 2);
       if (bm.length === 2 && bm[1].w < 30 && bm[0].w >= 50) bm = bm.slice(0, 1);
       var missed = (mB != null && mB > 0) || (B.W.net >= 2 && P.W.net <= B.W.net - 2 && bm.some(function (m) { return m.k === 'wins'; }));
-      if (bm.length) { out.push((missed ? 'Missed: ' + B.W.mv.san : 'Stockfish prefers ' + B.W.mv.san + ', which') + ' ' + phrase(bm) + '.'); bm.forEach(function (m) { mark(m.marks); }); }
+      var stop = allowed.length && !missed && mB == null ? prevents(Chess, fen, o.best, B.W, P.W, allowed[0]) : null;
+      // the plan: what the engine's line gives the side that the played line does not, on the side's own
+      // moves (odd plies) or on a forced reply of the opponent's, never on a free choice of the opponent's
+      var plan = !missed && mB == null ? pickTwo(only(posEvents(B.W, white), posEvents(P.W, white)).filter(function (e) { return e.w >= minW && (e.k % 2 === 1 || forced(B.W, e.k - 1)); })) : [];
+      var tactical = bm.length && bm[0].w >= 45;
+      if (!tactical && stop) out.push('Stockfish prefers ' + B.W.mv.san + ', which ' + stop + '.');
+      else if (!tactical && plan.length && (!bm.length || plan[0].w > bm[0].w)) {
+        var kp = Math.max.apply(null, plan.map(function (e) { return e.k; }));
+        out.push('Stockfish prefers ' + B.W.mv.san + ': ' + (kp > 1 ? 'after ' + sans(B.W.seq, 0, kp) + ' ' : '') + states(plan) + '.');
+        plan.forEach(function (e) { mark({ squares: e.squares }); });
+      } else if (bm.length) { out.push((missed ? 'Missed: ' + B.W.mv.san : 'Stockfish prefers ' + B.W.mv.san + ', which') + ' ' + phrase(bm) + '.'); bm.forEach(function (m) { mark(m.marks); }); }
       else out.push('Stockfish prefers ' + B.W.mv.san + (o.cpBefore != null && mB == null ? ', where ' + standing(o.cpBefore, null) : '') + '.');
     }
 

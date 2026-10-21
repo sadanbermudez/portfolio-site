@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Argus · Sergio Adan Bermudez</title>
+<meta name="description" content="Argus is my agent system, built on Odysseus, the open-source self-hosted AI hub: Jarvis on a local model, a vault memory server, Claude as a second brain, other agents plugged in, voice, and measured evaluations.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="immersive.css">
+<link rel="stylesheet" href="argus.css">
+</head>
+<body>
+<div class="top-wrap gutter">
+  <header class="top page">
+    <a class="brand" href="index.html">Sergio Adan Bermudez</a>
+    <nav aria-label="Site"><a href="index.html#worlds">Projects</a><a href="index.html#apps">Apps</a><a href="jarvis.html">Jarvis</a><a href="index.html#roles">Roles</a><a href="about.html">About</a><a href="index.html#contact">Contact</a></nav>
+  </header>
+</div>
+
+<main class="gutter">
+  <div class="page">
+    <section class="ag-hero" aria-labelledby="ag-title">
+      <div class="ag-mark" aria-hidden="true">
+        <svg class="ag-eye" viewBox="0 0 240 150">
+          <defs>
+            <radialGradient id="ag-iris" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#0a2a33"/>
+              <stop offset="0.42" stop-color="#1a7f8e"/>
+              <stop offset="0.72" stop-color="#35d0b4"/>
+              <stop offset="0.9" stop-color="#e2b85c"/>
+              <stop offset="1" stop-color="#8a6a2a"/>
+            </radialGradient>
+            <clipPath id="ag-lid"><path d="M30,75 C66,27 174,27 210,75 C174,123 66,123 30,75Z"/></clipPath>
+          </defs>
+          <g class="ag-ring" fill="#35d0b4">
+            <circle cx="120" cy="7" r="1.8"/><circle cx="137.6" cy="9.3" r="1.6"/><circle cx="154" cy="16.1" r="1.8"/><circle cx="168.1" cy="26.9" r="1.6"/><circle cx="178.9" cy="41" r="1.8"/><circle cx="185.7" cy="57.4" r="1.6"/><circle cx="188" cy="75" r="1.8"/><circle cx="185.7" cy="92.6" r="1.6"/><circle cx="178.9" cy="109" r="1.8"/><circle cx="168.1" cy="123.1" r="1.6"/><circle cx="154" cy="133.9" r="1.8"/><circle cx="137.6" cy="140.7" r="1.6"/><circle cx="120" cy="143" r="1.8"/><circle cx="102.4" cy="140.7" r="1.6"/><circle cx="86" cy="133.9" r="1.8"/><circle cx="71.9" cy="123.1" r="1.6"/><circle cx="61.1" cy="109" r="1.8"/><circle cx="54.3" cy="92.6" r="1.6"/><circle cx="52" cy="75" r="1.8"/><circle cx="54.3" cy="57.4" r="1.6"/><circle cx="61.1" cy="41" r="1.8"/><circle cx="71.9" cy="26.9" r="1.6"/><circle cx="86" cy="16.1" r="1.8"/><circle cx="102.4" cy="9.3" r="1.6"/>
+          </g>
+          <g class="ag-lidgroup">
+            <path d="M30,75 C66,27 174,27 210,75 C174,123 66,123 30,75Z" fill="#081115"/>
+            <g clip-path="url(#ag-lid)">
+              <g class="ag-iris" id="ag-iris-g">
+                <circle cx="120" cy="75" r="30" fill="url(#ag-iris)"/>
+                <circle cx="120" cy="75" r="30" fill="none" stroke="#e2b85c" stroke-opacity=".5" stroke-width="1"/>
+                <circle class="ag-pupil" cx="120" cy="75" r="12" fill="#03080a"/>
+                <circle cx="112" cy="67" r="4" fill="#e8ecf1" opacity=".85"/>
+              </g>
+            </g>
+            <path d="M30,75 C66,27 174,27 210,75 C174,123 66,123 30,75Z" fill="none" stroke="#35d0b4" stroke-width="2.2"/>
+          </g>
+        </svg>
+      </div>
+      <div class="ag-hero-copy">
+        <p class="label">My agent system · personal project</p>
+        <h1 id="ag-title" class="ag-word">Argus</h1>
+        <p class="ag-lede">Argus is the agent system I built on Odysseus: Jarvis on a local model, with his own memory, a second brain, other agents plugged in, and a voice. Named after the hundred-eyed watchman who never sleeps.</p>
+        <p class="ag-credit">Built on <a href="https://github.com/odysseus-dev/odysseus" rel="noopener" target="_blank">Odysseus</a>, the open-source self-hosted AI hub (AGPL-3.0).</p>
+      </div>
+    </section>
+
+    <div class="readings ag-readings" aria-label="Measured results">
+      <div><span class="label">Evaluations, local model</span><span class="value ag-teal">13/13</span><span class="note">Qwen3.6-35B-A3B, thinking off, median 2.6 s</span></div>
+      <div><span class="label">Voice, first word</span><span class="value ag-teal">0.7 s</span><span class="note">Mid-conversation, on the laptop's GPU</span></div>
+      <div><span class="label">Memory server</span><span class="value ag-teal">7 tools</span><span class="note">Over MCP, 29 tests</span></div>
+    </div>
+
+    <section class="ag-demo" aria-labelledby="demo-h">
+      <h2 id="demo-h" class="sr-only">The hub, recreated</h2>
+      <div class="ag-cap" id="tour-caption">
+        <button type="button" data-tour="prev" aria-label="Previous tour step">←</button>
+        <p aria-live="polite"><span class="cap-count">Guided tour · 6 stops</span><span class="cap-title">Press Next, or use the hub freely</span><span class="cap-text">A recreation of the hub in my own colours, playing sample conversations.</span></p>
+        <button type="button" data-tour="next" aria-label="Next tour step">Next →</button>
+      </div>
+
+      <div class="ag-window" id="hub" role="region" aria-label="Argus hub recreation with sample data">
+        <div class="ag-titlebar" aria-hidden="true"><span class="ag-dots"><i></i><i></i><i></i></span><span>Argus hub</span><span class="ag-badge">sample data</span></div>
+        <div class="ag-body">
+          <nav class="ag-side" aria-label="Hub sections">
+            <div class="ag-side-brand" aria-hidden="true">
+              <svg viewBox="0 0 48 30"><path d="M3,15 C10,4 38,4 45,15 C38,26 10,26 3,15Z" fill="#081115" stroke="#35d0b4" stroke-width="1.6"/><circle cx="24" cy="15" r="6.5" fill="#1a7f8e" stroke="#e2b85c" stroke-width="1"/><circle cx="24" cy="15" r="2.6" fill="#03080a"/></svg>
+              <span>Argus</span>
+            </div>
+            <div class="ag-tabs" role="group" aria-label="Views">
+              <button type="button" data-view="chat" aria-pressed="true"><span class="ic" aria-hidden="true">◐</span>Chat</button>
+              <button type="button" data-view="memory" aria-pressed="false"><span class="ic" aria-hidden="true">≣</span>Memory</button>
+              <button type="button" data-view="agents" aria-pressed="false"><span class="ic" aria-hidden="true">⌘</span>Agents</button>
+              <button type="button" data-view="voice" aria-pressed="false"><span class="ic" aria-hidden="true">◎</span>Voice</button>
+              <button type="button" data-view="evals" aria-pressed="false"><span class="ic" aria-hidden="true">✓</span>Evals</button>
+            </div>
+            <p class="ag-side-h">Sample chats</p>
+            <div class="ag-chats" role="group" aria-label="Sample chats">
+              <button type="button" data-script="persona">Why a local model</button>
+              <button type="button" data-script="memory">Recall from memory</button>
+              <button type="button" data-script="claude">A job for Claude</button>
+            </div>
+          </nav>
+
+          <div class="ag-main">
+            <div class="ag-view" data-view="chat">
+              <div class="ag-topbar">
+                <span class="ag-persona"><span class="ag-av" aria-hidden="true">J</span><span>Jarvis</span></span>
+                <div class="ag-route" aria-label="Model route">
+                  <span data-route="local" class="on">Local<span class="d"> · Qwen3.6</span></span><span data-route="claude">Claude<span class="d"> · bridge</span></span><span data-route="free">Free cloud</span>
+                </div>
+              </div>
+              <div class="ag-log" id="ag-log" role="log" aria-live="polite" tabindex="0">
+                <div class="msg user"><p>Explain in two lines why you run on a local model.</p></div>
+                <div class="msg bot"><span class="who">Jarvis · Qwen3.6-35B-A3B · local</span><p>Your notes stay on this machine, and routine answers come back in seconds. When a job needs more, I hand it to Claude and tell you I did.</p></div>
+              </div>
+              <div class="ag-composer">
+                <div class="ag-suggest" role="group" aria-label="Play a sample conversation">
+                  <button type="button" data-script="persona">Why local?</button>
+                  <button type="button" data-script="memory">What did we decide?</button>
+                  <button type="button" data-script="claude">Review the tests</button>
+                </div>
+                <div class="ag-input" aria-hidden="true"><span>Message Jarvis…</span><span class="ag-mode"><b>Agent</b> Chat</span></div>
+              </div>
+            </div>
+
+            <div class="ag-view" data-view="memory" hidden>
+              <div class="ag-viewhead"><h3>Memory</h3><span class="mono">sample vault, made up for this page</span></div>
+              <div class="ag-tools" aria-label="Memory tools"><code>memory_boot</code><code>memory_search</code><code>memory_read</code><code>memory_list</code><code>memory_write</code><code>memory_log_session</code><code>memory_log_decision</code></div>
+              <div class="ag-mem">
+                <div class="ag-mem-list">
+                  <label for="ag-mem-q" class="sr-only">Search the sample vault</label>
+                  <input id="ag-mem-q" type="search" placeholder="Search the sample vault" autocomplete="off">
+                  <ul id="ag-mem-results"></ul>
+                </div>
+                <article class="ag-mem-note" id="ag-mem-note" aria-live="polite"></article>
+              </div>
+              <p class="ag-guard">Plain-text notes · BM25 search · confined to the vault · no deletes · backup before every overwrite</p>
+            </div>
+
+            <div class="ag-view" data-view="agents" hidden>
+              <div class="ag-viewhead"><h3>Agents in the hub</h3><span class="mono">how each one plugs in</span></div>
+              <div class="ag-job" id="ag-job">
+                <div class="ag-job-head"><span>Sample job · Hermes</span><button type="button" id="ag-job-run">Run it</button></div>
+                <ol class="ag-job-log" id="ag-job-log"></ol>
+              </div>
+              <ul class="ag-agents">
+                <li data-agent="hermes"><b>Hermes Agent</b><span>Nous Research · agent on the shared local model; code and web search in a Docker sandbox with no host folders</span><em>model endpoint</em></li>
+                <li><b>REA</b><span>207 reverse-engineering tools</span><em>MCP, through my bridge</em></li>
+                <li><b>Scrapling</b><span>13 web-scraping tools</span><em>MCP, through my bridge</em></li>
+                <li><b>VoiceStudio</b><span>7 voice tools</span><em>MCP</em></li>
+                <li><b>Paperclip</b><span>runs in Docker; can manage Hermes</span><em>MCP</em></li>
+                <li class="mine"><b>Claude Code</b><span>second brain, on my subscription</span><em>claude-bridge</em></li>
+                <li class="mine"><b>Free cloud models</b><span>text-only fallback, never personal data</span><em>free-bridge</em></li>
+              </ul>
+            </div>
+
+            <div class="ag-view" data-view="voice" hidden>
+              <div class="ag-viewhead"><h3>Voice line</h3><span class="mono">say "Jarvis", then talk</span></div>
+              <div class="ag-voice">
+                <svg class="ag-states" viewBox="0 0 360 300" role="img" aria-labelledby="ag-states-t">
+                  <title id="ag-states-t">Voice states in a loop: listening on an open mic, wake word heard, transcribing with Whisper, thinking on the local model, speaking with the Daniel voice, then a 20-second follow-up window before listening again.</title>
+                  <circle cx="180" cy="150" r="104" fill="none" stroke="#1d242d" stroke-width="1.4"/>
+                  <circle class="ag-orbit" cx="180" cy="150" r="104" fill="none" stroke="#35d0b4" stroke-width="1.4" stroke-dasharray="6 10"/>
+                  <g class="ag-st" data-st="0"><circle cx="180" cy="46" r="27"/><text x="180" y="43">Listen</text><text x="180" y="56" class="s">open mic</text></g>
+                  <g class="ag-st" data-st="1"><circle cx="270" cy="98" r="27"/><text x="270" y="95">Wake</text><text x="270" y="108" class="s">"Jarvis"</text></g>
+                  <g class="ag-st" data-st="2"><circle cx="270" cy="202" r="27"/><text x="270" y="199">Hear</text><text x="270" y="212" class="s">Whisper</text></g>
+                  <g class="ag-st" data-st="3"><circle cx="180" cy="254" r="27"/><text x="180" y="251">Think</text><text x="180" y="264" class="s">local</text></g>
+                  <g class="ag-st" data-st="4"><circle cx="90" cy="202" r="27"/><text x="90" y="199">Speak</text><text x="90" y="212" class="s">Daniel</text></g>
+                  <g class="ag-st" data-st="5"><circle cx="90" cy="98" r="27"/><text x="90" y="95">Follow</text><text x="90" y="108" class="s">20 s</text></g>
+                  <text x="180" y="146" class="c" id="ag-st-now">ready</text>
+                  <text x="180" y="162" class="c s" id="ag-st-sub">press Run a turn</text>
+                </svg>
+                <div class="ag-voice-side">
+                  <p class="ag-said" id="ag-said" aria-live="polite"><span class="mono">sample turn</span></p>
+                  <button type="button" class="ag-run" id="ag-voice-run">Run a turn</button>
+                  <dl class="ag-facts">
+                    <div><dt>0.7 s</dt><dd>to the first word, mid-conversation</dd></div>
+                    <div><dt>3 s vs 69 to 190 s</dt><dd>talking to the model directly, against going through the hub's chat API</dd></div>
+                    <div><dt>Filtered</dt><dd>silence, noise and speech not addressed to Jarvis; "Goodbye, Jarvis" hangs up</dd></div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+
+            <div class="ag-view" data-view="evals" hidden>
+              <div class="ag-viewhead"><h3>Evaluations</h3><span class="mono">13 real tasks, deterministic checks</span></div>
+              <div class="ag-score">
+                <div class="ag-tile on"><span class="figure">13/13</span><span>thinking off · median 2.6 s</span></div>
+                <div class="ag-tile"><span class="figure">10/13</span><span>thinking on · median 19.8 s</span></div>
+                <div class="ag-tile"><span class="figure">13/13</span><span>under Inspect AI · 45 s run</span></div>
+              </div>
+              <div class="table-scroll">
+                <table class="ag-evals">
+                  <caption class="sr-only">Pass counts per category, Qwen3.6-35B-A3B, 19 October 2026</caption>
+                  <thead><tr><th scope="col">Category</th><th scope="col">Thinking off</th><th scope="col">Thinking on</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Memory recall</th><td><i data-p="2" data-n="2"></i>2/2</td><td><i data-p="2" data-n="2"></i>2/2</td></tr>
+                    <tr><th scope="row">Honesty</th><td><i data-p="1" data-n="1"></i>1/1</td><td><i data-p="0" data-n="1"></i>0/1</td></tr>
+                    <tr><th scope="row">Persona</th><td><i data-p="2" data-n="2"></i>2/2</td><td><i data-p="1" data-n="2"></i>1/2</td></tr>
+                    <tr><th scope="row">Writing rules</th><td><i data-p="2" data-n="2"></i>2/2</td><td><i data-p="2" data-n="2"></i>2/2</td></tr>
+                    <tr><th scope="row">Tool use</th><td><i data-p="3" data-n="3"></i>3/3</td><td><i data-p="2" data-n="3"></i>2/3</td></tr>
+                    <tr><th scope="row">Delegation</th><td><i data-p="1" data-n="1"></i>1/1</td><td><i data-p="1" data-n="1"></i>1/1</td></tr>
+                    <tr><th scope="row">Safety (injected instructions)</th><td><i data-p="1" data-n="1"></i>1/1</td><td><i data-p="1" data-n="1"></i>1/1</td></tr>
+                    <tr><th scope="row">Interview format</th><td><i data-p="1" data-n="1"></i>1/1</td><td><i data-p="1" data-n="1"></i>1/1</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="ag-guard">Thinking on emptied two replies: the reasoning used up the answer budget. So it stays off.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ol class="ag-steps" id="tour-steps" aria-label="Tour stops"></ol>
+    </section>
+
+    <section class="block" aria-labelledby="arch-h">
+      <div class="side"><p class="label">How it fits</p><p class="mono">capability level</p></div>
+      <div class="main wide">
+        <h2 id="arch-h">My layer on top of Odysseus</h2>
+        <div class="panel diagram ag-arch">
+          <div class="panel-head"><span><b class="ag-key mine"></b>Argus, my work <b class="ag-key ody"></b>Odysseus <b class="ag-key ext"></b>other projects</span><span class="swipe">swipe →</span></div>
+          <svg viewBox="0 0 960 480" role="img" aria-labelledby="arch-t">
+            <title id="arch-t">Three ways in (voice line, hub chat, Claude Code) reach the Odysseus hub, where Jarvis runs as a persona. Argus plugs into the hub: a memory server over MCP backed by a plain-text vault, a bridge to Claude Code, a bridge to free cloud models, a bridge that brings Windows tools such as REA and Scrapling into the hub, and a speech service with the Daniel voice and Whisper. Underneath, one local model server runs Qwen3.6-35B-A3B on the laptop's GPU, shared by Jarvis, Hermes and the voice line, which talks to it directly.</title>
+            <g font-size="11.5">
+              <g class="a-in">
+                <rect x="40" y="20" width="250" height="50"/><text x="58" y="42">Voice line</text><text x="58" y="58" class="s">wake word, my local brain</text>
+                <rect x="355" y="20" width="250" height="50"/><text x="373" y="42">Hub chat</text><text x="373" y="58" class="s">in the browser</text>
+                <rect x="670" y="20" width="250" height="50"/><text x="688" y="42">Claude Code</text><text x="688" y="58" class="s">in the terminal</text>
+              </g>
+              <g class="a-ody">
+                <rect x="40" y="110" width="880" height="96"/>
+                <text x="58" y="134">Odysseus hub</text>
+                <text x="58" y="152" class="s">chat · agent loop · MCP client · personas · skills · model endpoints · tool approvals</text>
+              </g>
+              <g class="a-mine">
+                <rect x="58" y="164" width="240" height="30"/><text x="72" y="184">Jarvis persona</text>
+                <rect x="314" y="164" width="200" height="30"/><text x="328" y="184">Jarvis skills</text>
+                <rect x="530" y="164" width="372" height="30"/><text x="544" y="184">Voice controls re-shown</text>
+              </g>
+              <g class="a-mine">
+                <rect x="40" y="248" width="160" height="62"/><text x="54" y="272">jarvis-memory</text><text x="54" y="290" class="s">MCP · 7 tools</text>
+                <rect x="216" y="248" width="160" height="62"/><text x="230" y="272">claude-bridge</text><text x="230" y="290" class="s">hard jobs</text>
+                <rect x="392" y="248" width="160" height="62"/><text x="406" y="272">free-bridge</text><text x="406" y="290" class="s">free fallback</text>
+                <rect x="568" y="248" width="160" height="62"/><text x="582" y="272">tool bridge</text><text x="582" y="290" class="s">Windows tools in</text>
+                <rect x="744" y="248" width="176" height="62"/><text x="758" y="272">jarvis-voice</text><text x="758" y="290" class="s">Daniel · Whisper</text>
+              </g>
+              <g class="a-store">
+                <rect x="40" y="340" width="160" height="40"/><text x="54" y="365">Vault, plain text</text>
+              </g>
+              <g class="a-ext">
+                <rect x="216" y="340" width="160" height="40"/><text x="230" y="365">Claude Code</text>
+                <rect x="392" y="340" width="160" height="40"/><text x="406" y="365">Free cloud models</text>
+                <rect x="568" y="340" width="160" height="40"/><text x="582" y="365">REA · Scrapling</text>
+                <rect x="40" y="410" width="250" height="52"/><text x="58" y="432">Hermes Agent</text><text x="58" y="450" class="s">agent, and the model server</text>
+              </g>
+              <g class="a-model">
+                <rect x="306" y="410" width="614" height="52"/>
+                <text x="324" y="432">llama.cpp · Qwen3.6-35B-A3B, one shared copy</text>
+                <text x="324" y="450" class="s">my Vulkan fix: snapshot 0.61 s to 0.03 s</text>
+              </g>
+            </g>
+            <g class="a-links" fill="none">
+              <path d="M165,70 V110"/><path d="M480,70 V110"/><path d="M795,70 V110"/>
+              <path d="M120,206 V248"/><path d="M296,206 V248"/><path d="M472,206 V248"/><path d="M648,206 V248"/><path d="M832,206 V248"/>
+              <path d="M120,310 V340"/><path d="M296,310 V340"/><path d="M472,310 V340"/><path d="M648,310 V340"/>
+              <path d="M290,436 H306"/>
+              <path class="dash" d="M40,45 H22 V470 H613 V462"/>
+            </g>
+            <g class="a-pulse">
+              <circle r="3.2"><animateMotion dur="2.6s" repeatCount="indefinite" path="M480,70 V110 M120,206 V248 V340"/></circle>
+              <circle r="3.2"><animateMotion dur="3.1s" repeatCount="indefinite" begin="-1s" path="M296,206 V248 V340"/></circle>
+              <circle r="3.2"><animateMotion dur="2.2s" repeatCount="indefinite" begin="-0.5s" path="M40,45 H22 V470 H613 V462"/></circle>
+            </g>
+          </svg>
+          <p class="caption">Jarvis is an Odysseus persona. Everything he remembers, every brain beyond the local model and every outside tool reaches him through my layer. The voice line skips the hub and talks to the model directly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="own-h">
+      <div class="side"><p class="label">Ownership</p><p class="mono">who built what</p></div>
+      <div class="main wide">
+        <h2 id="own-h">What is mine, what is Odysseus</h2>
+        <div class="ag-own">
+          <div class="ag-own-col mine">
+            <h3>Argus · mine</h3>
+            <ul>
+              <li><b>Jarvis in the hub</b> persona, skills and an import builder</li>
+              <li><b>jarvis-memory</b> vault memory over MCP, 7 tools, 29 tests</li>
+              <li><b>claude-bridge</b> hard jobs to Claude Code on a subscription, read-only by default, never a shell</li>
+              <li><b>free-bridge</b> free cloud models as a fallback, text only</li>
+              <li><b>Tool bridge</b> brings Windows-only MCP tools into the hub</li>
+              <li><b>Voice</b> the local brain and wake word for the voice line; Daniel's voice inside Odysseus</li>
+              <li><b>Routing</b> local model for routine work, Claude for hard multi-step jobs, free cloud as fallback</li>
+              <li><b>Measurement</b> 13-task evaluations, traces, a performance dashboard, a system audit</li>
+              <li><b>Supervisor</b> a tray app that runs every service and restarts crashed ones</li>
+              <li><b>Engine fix</b> llama.cpp Vulkan snapshot read, 0.61 s to 0.03 s</li>
+            </ul>
+          </div>
+          <div class="ag-own-col ody">
+            <h3>Odysseus · open source</h3>
+            <ul>
+              <li><b>The hub</b> a self-hosted app for chat, agents, deep research, documents, email, calendar, notes and tasks</li>
+              <li><b>Agent loop</b> native tool calling, plan mode and a tool-approval gate</li>
+              <li><b>MCP client</b> connects to the servers Argus provides</li>
+              <li><b>Personas and skills</b> where Jarvis's identity and jobs live</li>
+              <li><b>Model endpoints</b> local engines and API providers, swapped at runtime</li>
+              <li><b>Cookbook</b> downloads and serves local models</li>
+            </ul>
+          </div>
+        </div>
+        <p class="ag-fine">This page runs no Odysseus code: the hub above is a recreation in my own design, with sample conversations.</p>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="cred-h">
+      <div class="side"><p class="label">Credits</p><p class="mono">open source, thank you</p></div>
+      <div class="main wide">
+        <h2 id="cred-h">Built with</h2>
+        <div class="table-scroll" role="region" aria-labelledby="cred-h" tabindex="0">
+          <table class="stack ag-credits">
+            <thead><tr><th>Project</th><th>Role in Argus</th><th>Licence</th></tr></thead>
+            <tbody>
+              <tr><td><a href="https://github.com/odysseus-dev/odysseus" rel="noopener" target="_blank">Odysseus</a></td><td data-label="Role">The hub Argus is built on</td><td data-label="Licence">AGPL-3.0</td></tr>
+              <tr><td>Hermes Agent, Nous Research</td><td data-label="Role">Agent, and the shared local model server</td><td data-label="Licence">MIT</td></tr>
+              <tr><td>llama.cpp</td><td data-label="Role">Runs the local model</td><td data-label="Licence">MIT</td></tr>
+              <tr><td>Qwen3.6-35B-A3B</td><td data-label="Role">Jarvis's local brain</td><td data-label="Licence">see model card</td></tr>
+              <tr><td><a href="https://github.com/jaredrhod/backtalk" rel="noopener" target="_blank">backtalk</a></td><td data-label="Role">The voice line my local brain plugs into</td><td data-label="Licence">AGPL-3.0</td></tr>
+              <tr><td>Kokoro-82M</td><td data-label="Role">The Daniel voice</td><td data-label="Licence">Apache-2.0</td></tr>
+              <tr><td>faster-whisper</td><td data-label="Role">Speech to text</td><td data-label="Licence">MIT</td></tr>
+              <tr><td><a href="https://rea.tools/" rel="noopener" target="_blank">REA</a></td><td data-label="Role">Reverse-engineering tools</td><td data-label="Licence">MIT</td></tr>
+              <tr><td><a href="https://github.com/D4Vinci/Scrapling" rel="noopener" target="_blank">Scrapling</a></td><td data-label="Role">Web-scraping tools</td><td data-label="Licence">BSD-3-Clause</td></tr>
+              <tr><td><a href="https://github.com/debpalash/VoiceStudio" rel="noopener" target="_blank">VoiceStudio</a></td><td data-label="Role">Voice tools</td><td data-label="Licence">see project</td></tr>
+              <tr><td><a href="https://github.com/paperclipai/paperclip" rel="noopener" target="_blank">Paperclip</a></td><td data-label="Role">Plugged into the hub; can manage Hermes</td><td data-label="Licence">MIT</td></tr>
+              <tr><td><a href="https://inspect.aisi.org.uk/" rel="noopener" target="_blank">Inspect AI</a></td><td data-label="Role">Runs the evaluations</td><td data-label="Licence">MIT</td></tr>
+              <tr><td>Arize Phoenix</td><td data-label="Role">Trace viewer</td><td data-label="Licence">Elastic-2.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="ag-fine">Claude Code (Anthropic) is used through my own subscription, with the unmodified command-line tool.</p>
+        <div class="cta"><a class="btn primary" href="jarvis.html">Talk to the public Jarvis</a><a class="back" href="index.html#worlds">← All projects</a></div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="mono">The hub on this page is a recreation with sample conversations and a made-up vault; no real chats or notes. Numbers measured on my laptop, 19 to 20 October 2026. Odysseus is AGPL-3.0 and credited above. Built with Claude Code, directed and reviewed by me.</p>
+    </footer>
+  </div>
+</main>
+<script src="argus.js"></script>
+</body>
+</html>

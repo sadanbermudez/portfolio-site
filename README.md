@@ -11,14 +11,15 @@ Source of my portfolio site, live at [sergioadan.dev](https://sergioadan.dev): m
 | `work/two-photon.html` | One- versus two-photon excitation: beam waist, focal volume, penetration, a photodynamic-therapy illustration |
 | `work/research.html` | My PhD and postdoc research: singlet oxygen detection, hollow-core fibres, photon counting |
 | `about.html` | My story: six cities, four fields, chess, and life away from the desk |
-| `jarvis.html` | Talk to a public Jarvis by text or voice: Qwen3 on Workers AI's free tier, answers cited from this site, Kokoro voice in the browser |
+| `jarvis.html` | Talk to a public Jarvis by text or voice: Qwen3 on Workers AI's free tier, answers cited from this site, a voice chosen per device (Kokoro in the browser where it is fast, otherwise the device voice or MeloTTS) |
+| `argus.html` | Argus, my agent system built on Odysseus (AGPL-3.0, credited): a recreation of the hub with a guided tour on sample data, what is mine and what is Odysseus, and the credits |
 | `apps/la-pina/` | La Piña Investments (Kotlin, Android): the trading method's rules engine ported to JavaScript, on simulated markets |
 | `apps/spanish-tutor/` | Spanish Tutor (Kotlin, Android): one real topic of the course, the ported search and grading, and the AI tutor live through `/api/tutor` |
 | `apps/olympus/` | Olympus (Flutter, Android): training, nutrition and running screens with the app's formulas ported, on sample data |
 
 ## How it is built and why
 
-**[DECISIONS.md](DECISIONS.md)** records each design decision (static pages, the build script and security headers, Cloudflare hosting, three.js, Stockfish in a Web Worker, how every number on the site is sourced, the public Jarvis, the app demos), with alternatives, trade-offs and a way to check each one, plus the known limits.
+**[DECISIONS.md](DECISIONS.md)** records each design decision (static pages, the build script and security headers, Cloudflare hosting, three.js, Stockfish in a Web Worker, how every number on the site is sourced, the public Jarvis, the app demos, the Argus page), with alternatives, trade-offs and a way to check each one, plus the known limits.
 
 ## Build and deploy
 
