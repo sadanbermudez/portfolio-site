@@ -114,6 +114,10 @@
 .portal h3, .portal p, .portal .go, .portal .label { position: relative; }
 .portal p { color: var(--muted); font-size: var(--step--1); line-height: 1.5; }
 .portal .go { font-family: var(--font-data); font-size: var(--step--2); color: var(--emit); letter-spacing: 0.05em; }
+/* a fifth portal spans both columns, so the grid never ends with an orphan */
+.portal.feature { grid-column: 1 / -1; }
+.portal.feature .art { aspect-ratio: 32 / 9; }
+@media (max-width: 700px) { .portal.feature .art { aspect-ratio: 16 / 9; } }
 
 /* one/two-photon switch on the 3D stage */
 .order-switch { position: absolute; z-index: 5; top: 84px; right: max(16px, env(safe-area-inset-right, 0px)); display: flex; gap: 0; border: 1px solid var(--rule); background: rgba(13, 17, 22, 0.8); }
