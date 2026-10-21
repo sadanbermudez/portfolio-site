@@ -1,22 +1,31 @@
 name: site
 on: [push, pull_request]
+# Least privilege: the job only reads the repo. Third-party actions are pinned to a full commit SHA
+# (the tag it was taken from is in the comment), so a moved tag cannot change what runs here.
+permissions:
+  contents: read
 jobs:
   check:
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: "20"
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: "3.11"
       - name: Rules module agrees with the jarvis-chess test positions
         run: node site/tests/chess-core.test.js
       - name: Move explanations (fork, pin, skewer, discovered check, back-rank mate, hanging piece, honesty rules)
         run: node site/tests/chess-teach.test.mjs
-      - name: Build, failing on any page that references a missing file
+      - name: Build, failing on any page that references a missing file, breaks the CSP or loads a script without SRI
         run: python site/build.py
+      - name: API and header security (methods, origin, content types, body limits, rate limits, CSP, SRI)
+        run: node site/tests/api-security.test.mjs
       - name: Jarvis server logic (search, limits, prompt, stream filter, knowledge extraction)
         run: node site/tests/jarvis-core.test.mjs
       - name: Jarvis voice (sentence chunking, voice choice, speak route text and audio)
