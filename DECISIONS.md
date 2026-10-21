@@ -43,6 +43,7 @@ Two rules for reading it:
  jarvis.html ............... jarvis.js (chat, microphone, orb, voice), jarvis-voice-core.js (voice logic),
                              tts-worker.js + vendor/kokoro/ (Daniel voice, fast computers only);
                              /api/chat, /api/transcribe and /api/speak served by server/worker.js on Workers AI
+ argus.html ................ argus.css, argus.js (hub recreation, tour, eye; sample data only, no requests)
  about.html ................ scrolly.js, story.js (canvas map of the cities, drawn in order as chapters scroll),
                              story-viz.js (life strip, four field diagrams, live ratings via fetch() from
                              api.chess.com and lichess.org, sensor sizes to scale, running distance)
@@ -377,6 +378,29 @@ Even with those fixes, Qwen3 showed a wrong form as the correction in 6 of 20 tu
 
 **Check it yourself.** `node site/tests/la-pina.test.mjs`, `spanish-tutor.test.mjs` and `olympus.test.mjs` (all three run in CI). With `wrangler dev` running from `site/`, `node site/tests/tutor-eval.mjs http://127.0.0.1:8787` prints each reply and the score.
 
+### 13. Argus: the agent system shown as a recreation, built on Odysseus and credited
+
+**Context.** Sergio's own Jarvis runs inside Odysseus, an open-source self-hosted AI hub (AGPL-3.0, github.com/odysseus-dev/odysseus), with a layer he built around it: Jarvis as an Odysseus persona on a local model (Qwen3.6-35B-A3B on llama.cpp), a vault memory server over MCP, a bridge that hands hard jobs to Claude Code on his subscription, a free cloud fallback, a bridge that brings Windows-only MCP tools into the Dockerised hub, other agents (Hermes, REA, Scrapling, VoiceStudio, Paperclip), voice, and evaluations. He asked to show how it looks and what it can do, as with the app demos, in his own look and without appearing to have copied Odysseus.
+
+**Decision.** `site/argus.html` (with `argus.css` and `argus.js`) presents the whole system under its own name, **Argus**, "built on Odysseus", decided on 21 October 2026 (project notes). It is a top-level page like `jarvis.html`, not a folder under `apps/`, because Argus is a system on a laptop rather than an Android app and has no ported engine or tests of its own; it needs three files, and `/argus` is a clean address. The page has:
+
+- An identity of its own: a wordmark in the site's display face and an eye drawn for this page in inline SVG (almond lid, teal and gold iris, a ring of 24 small eyes that turns slowly, a blink every 7 s, an iris that follows the pointer). The accent is peacock teal `#35d0b4` with a gold rim `#e2b85c`: in the myth, Argus's hundred eyes end up on the peacock's tail. No Odysseus logo, name styling or image is used.
+- A recreation of the hub window (sidebar, chat with tool-call cards, a route indicator for local, Claude and free cloud, and views for memory, agents, voice and evaluations), laid out from Odysseus's own interface (`static/index.html`: sidebar, chat area, composer with an Agent or Chat switch) and restyled. On screens up to 760 px the sidebar becomes a row of five tabs.
+- A six-stop guided tour that drives it, as in decision 12: Jarvis on the local model, memory recall through MCP, a hard job routed to Claude, a sample Hermes job in the Docker sandbox, one voice turn round the wake-word state machine, and the evaluation scorecard.
+- An architecture diagram, a "what is mine, what is Odysseus" pair of columns, and a credits table with each project's licence.
+
+**What is shown and what stays private.** Shown: capabilities, the shape of the interface, and measured numbers from the project notes (13/13 evaluations with thinking off at a 2.6 s median against 10/13 at 19.8 s with it on, per category; 13/13 under Inspect AI in 45 s; voice first word about 0.7 s mid-conversation; 3 s direct against 69 to 190 s through the hub's chat API; 7 memory tools and 29 tests; REA's 207 and Scrapling's 13 tools; a 7.9 s sandboxed code task; the Vulkan snapshot fix, 0.61 s to 0.03 s). Kept out: setup steps, addresses, ports, file paths, environment variable names, keys, configuration, vault notes and real conversations. Every conversation, note and job on the page is sample data written for it and labelled "sample data"; the memory search runs BM25 over five made-up notes in the browser. The page makes no network requests beyond its own files and the site's fonts, and adds nothing server-side; there is no audio.
+
+**Credit and licence.** A credit line under the hero names Odysseus, links to its repository and states AGPL-3.0; the credits table lists Odysseus, Hermes Agent, llama.cpp, the Qwen model, backtalk, Kokoro, faster-whisper, REA, Scrapling, VoiceStudio, Paperclip, Inspect AI and Arize Phoenix. Licences were read from each project's licence file or package metadata on this machine; where none was available (VoiceStudio, the Qwen model) the table says "see project" or "see model card" instead of guessing. The page runs no Odysseus code and copies none of its markup, styles or assets, so AGPL obligations for distributing Odysseus do not arise from the site; the page says so in a line under the ownership columns.
+
+**Why.** A recreation lets anyone use the system's interface without a path to the real one, which has tools and private notes (the reasoning of decision 11). A straight rename of Odysseus would be recognised and read as copying; naming the layer Sergio actually built makes the ownership claim true, and the visible credit turns the open-source base into part of the story. Splitting "mine" from "Odysseus" lets a reader judge the work.
+
+**Alternatives.** Screenshots or a recording of the running hub (would expose private chats and notes). Calling the page Odysseus-Jarvis, as the project notes did. A fork of Odysseus renamed (ruled out in the project notes).
+
+**Trade-offs.** The recreation can drift from the real hub. Its conversations are scripted, so it shows what the system does, not live answers. The architecture diagram is drawn at capability level and leaves out the supervisor, tracing and dashboard, which appear in the ownership list instead. The diagram scrolls sideways inside its panel on phones, as the home page's diagram does.
+
+**Check it yourself.** Open `/argus` and press Next six times. `grep -nE "127\.0\.0\.1|:[0-9]{4,5}|C:/" site/argus.*` finds no addresses, ports or paths. Checked on 21 October 2026 at 360×780, 390×844, 414×896, 768×1024, 1280×800 and 1440×900 in Chrome DevTools: no sideways scroll, no text over the eye, the voice diagram or the architecture drawing (bounding boxes), every button and link at least 40 by 40 px, nothing on top of any control (`document.elementFromPoint`), and an empty console.
+
 ## Known limits and what comes next
 
 - **Old version at the root.** `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first single-page site, kept for reference (the README says so). Next: move them into an `archive/` folder.
@@ -388,6 +412,7 @@ Even with those fixes, Qwen3 showed a wrong form as the correction in 6 of 20 tu
 - **Explore mode needs a pointer.** No keyboard access to squares yet (decision 7b).
 - **Public Jarvis knows only page text.** Facts drawn by JavaScript are invisible to it; citations are sometimes omitted; a current employer is not on the site, so it says it does not know (decision 11).
 - **Jarvis's voice depends on the device.** Daniel only plays on computers fast enough to make him faster than he speaks; elsewhere it is the device's own voice or MeloTTS, a female voice. Not yet checked on a real iPhone or Android phone (decision 11). Next: test on both, and look again if Workers AI adds an affordable British male voice.
+- **Argus is a recreation.** The hub on `/argus` plays scripted sample conversations; it is not the running system (decision 13).
 - **App demos are recreations.** They run the apps' ported logic on sample data, with one Spanish Tutor topic of 68; device features such as the camera, GPS and Health Connect are described, not shown (decision 12).
 - **Browser grades are indicative.** The lite single-threaded engine grades fewer moves as blunders than full Stockfish on the same game (decision 6).
 
