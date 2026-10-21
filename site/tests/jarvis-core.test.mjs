@@ -1,7 +1,7 @@
 // Tests for the public Jarvis server logic: node site/tests/jarvis-core.test.mjs
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { buildIndex, search, hybrid, cosine, hashText, cleanMessages, buildMessages, thinkFilter, tokenOf, LIMITS } from '../server/jarvis-core.js';
+import { buildIndex, search, hybrid, cosine, hashText, cleanMessages, buildMessages, thinkFilter, tokenOf, scriptGuard, LIMITS } from '../server/jarvis-core.js';
 
 const ok = name => console.log('ok  ' + name);
 const chunks = [
@@ -55,3 +55,11 @@ ok('chapter labels stay with their own chapter');
 const legend = kn.find(c => c.text.includes('Wiesbaden') && c.text.includes('2 months'));
 assert.ok(legend && !/PhD\s+Wiesbaden/.test(legend.text), 'list items stay separate');
 ok('list items stay separate (no "PhD Wiesbaden")');
+
+// Regression (seen live 2026-10-21): Qwen3 slipped Chinese into an English answer ("among others.具体的 cities")
+let g = scriptGuard('Which cities has he lived in?');
+assert.equal(g('among others.具体的 cities are'), 'among others. cities are');
+assert.equal(g('Madrid, Copenhagen'), 'Madrid, Copenhagen');
+g = scriptGuard('他住过哪些城市？');                     // a visitor writing Chinese keeps Chinese answers
+assert.equal(g('马德里'), '马德里');
+ok('CJK characters are dropped from answers unless the visitor wrote in a CJK script');
