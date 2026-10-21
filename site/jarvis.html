@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
 <title>Talk to Jarvis · Sergio Adan Bermudez</title>
-<meta name="description" content="A public demo of Jarvis, my AI assistant: ask about my work by text or voice. Qwen3 30B on Cloudflare's free tier, a voice that starts within seconds, and no access to anything private.">
+<meta name="description" content="A public demo of Jarvis, my AI assistant: ask about my work by text or voice. Gemma 4 26B on Cloudflare's free tier, a voice that starts within seconds, and no access to anything private.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
       </div>
 
       <div class="j-chat panel">
-        <div class="panel-head"><span class="live">conversation</span><span id="j-model">Qwen3 30B · Cloudflare Workers AI</span></div>
+        <div class="panel-head"><span class="live">conversation</span><span id="j-model">Gemma 4 26B · Cloudflare Workers AI</span></div>
         <div class="j-log" id="chat-log" aria-live="polite"></div>
         <div class="j-suggest" id="suggest">
           <button type="button">Who is Sergio?</button>
@@ -60,8 +60,8 @@
       <div class="main wide">
         <h2>The same Jarvis, minus the hands</h2>
         <dl class="parts">
-          <div><dt>What he knows</dt><dd>The text of this website, and nothing else. Each question searches its pages (BM25), and the best passages go to the model, which must cite them.</dd></div>
-          <div><dt>The brain</dt><dd>Qwen3 30B, the same family as the model my local Jarvis runs, on Cloudflare Workers AI's free daily allowance. When it runs out, Jarvis says so until midnight UTC.</dd></div>
+          <div><dt>What he knows</dt><dd>The text of this website, and nothing else. Each question searches its pages by words (BM25) and by meaning (embeddings), and the best passages go to the model, which must cite them.</dd></div>
+          <div><dt>The brain</dt><dd>Gemma 4 26B on Cloudflare Workers AI's free daily allowance, chosen over Qwen3 30B (the family my local Jarvis runs) because it cited its sources and answered more completely in testing. When it runs out, Jarvis says so until midnight UTC.</dd></div>
           <div><dt>The ears</dt><dd>Your recording goes to Whisper large-v3-turbo on Cloudflare and comes back as text. Nothing is stored.</dd></div>
           <div><dt>The voice</dt><dd>Kokoro-82M with the Daniel voice, running in your browser, when the page measures that your computer makes speech faster than he speaks. On a phone that would take minutes, so he uses the device's own British voice if it has one, or MeloTTS on Cloudflare, one sentence at a time. If a voice is late, the next one takes over.</dd></div>
           <div><dt>What he cannot do</dt><dd>Read my files, email or calendar, run commands, or browse. At home Jarvis has tools on my laptop; this edition has none.</dd></div>

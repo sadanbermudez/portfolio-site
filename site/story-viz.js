@@ -201,6 +201,7 @@
     onView(box, function (v) { if (v) box.querySelectorAll('.rfill').forEach(function (e) { e.style.width = e.dataset.w + '%'; }); }, true);
   }
   if (box) {
+    var rating = function (v) { var n = Math.round(Number(v)); return n > 0 && n < 5000 ? n : 0; };   // a rating, or 0
     var NAMES = { chess_blitz: 'Chess.com blitz', chess_bullet: 'Chess.com bullet', chess_rapid: 'Chess.com rapid' };
     Promise.all([
       fetch('https://api.chess.com/pub/player/dr_namer/stats').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }),
@@ -208,10 +209,11 @@
     ]).then(function (res) {
       var cc = res[0], li = res[1], rows = [];
       Object.keys(NAMES).forEach(function (k) {
-        var s = cc[k]; if (!s || !s.last) return;
-        rows.push({ name: NAMES[k], now: s.last.rating, best: s.best && s.best.rating, when: s.best && s.best.date ? new Date(s.best.date * 1000).toISOString().slice(0, 7) : '' });
+        var s = cc[k]; if (!s || !s.last || !rating(s.last.rating)) return;   // third-party data: only numbers reach the markup
+        var best = s.best && rating(s.best.rating), date = s.best && Number(s.best.date);
+        rows.push({ name: NAMES[k], now: rating(s.last.rating), best: best, when: best && date > 0 && date < 1e10 ? new Date(date * 1000).toISOString().slice(0, 7) : '' });
       });
-      ['blitz', 'bullet'].forEach(function (k) { var p = li.perfs && li.perfs[k]; if (p && p.games) rows.push({ name: 'Lichess ' + k, now: p.rating }); });
+      ['blitz', 'bullet'].forEach(function (k) { var p = li.perfs && li.perfs[k]; if (p && p.games && rating(p.rating)) rows.push({ name: 'Lichess ' + k, now: rating(p.rating) }); });
       if (rows.length) bars(rows); else box.innerHTML = '<p class="mono">The live ratings could not be loaded right now. Chess.com blitz peak: 2830.</p>';
     });
   }

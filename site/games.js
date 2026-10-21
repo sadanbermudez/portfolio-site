@@ -16,6 +16,8 @@
   function save() { try { localStorage.setItem(key(log.site, log.user), JSON.stringify(log)); localStorage.setItem('chess-log:last', JSON.stringify({ site: log.site, user: log.user })); } catch (e) { /* storage off: the log still works for this visit */ } }
   function restore(site, user) { try { return JSON.parse(localStorage.getItem(key(site, user)) || 'null'); } catch (e) { return null; } }
   function header(pgn, name) { var m = pgn.match(new RegExp('\\[' + name + ' "([^"]*)"\\]')); return m ? m[1] : ''; }
+  function num(v) { var n = Number(v); return isFinite(n) ? n : 0; }          // saved reviews come from localStorage: numbers only
+  function gameUrl(u) { return /^https:\/\/(lichess\.org|www\.chess\.com)\//.test(String(u)) ? u : '#'; }   // links only to the two sites
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
   async function lichess(user, n) {
@@ -64,9 +66,9 @@
       var res = outcome(g);
       return '<tr' + (running === g.id ? ' class="running"' : '') + '><td class="n">' + esc(g.date) + '</td><td>' + esc(side ? (side === 'White' ? '○ ' : '● ') + opp : g.white + ' vs ' + g.black) + '</td>' +
         '<td><span class="res ' + esc(res) + '">' + esc(res) + '</span></td><td class="n">' + esc(g.speed || '') + '</td><td class="op">' + esc(g.opening || '') + '</td>' +
-        '<td class="n">' + (s && s.acpl != null ? s.acpl : (running === g.id ? '…' : '')) + '</td>' +
-        '<td class="n">' + (s ? s.inaccuracy + ' / ' + s.mistake + ' / ' + '<span class="bl">' + s.blunder + '</span>' : '') + (rv && !rv.complete ? ' <span class="mono">partial</span>' : '') + '</td>' +
-        '<td><button type="button" class="btn small" data-open="' + esc(g.id) + '">Analyse</button> <a href="' + esc(g.url) + '" target="_blank" rel="noopener">game</a></td></tr>';
+        '<td class="n">' + (s && s.acpl != null ? num(s.acpl) : (running === g.id ? '…' : '')) + '</td>' +
+        '<td class="n">' + (s ? num(s.inaccuracy) + ' / ' + num(s.mistake) + ' / ' + '<span class="bl">' + num(s.blunder) + '</span>' : '') + (rv && !rv.complete ? ' <span class="mono">partial</span>' : '') + '</td>' +
+        '<td><button type="button" class="btn small" data-open="' + esc(g.id) + '">Analyse</button> <a href="' + esc(gameUrl(g.url)) + '" target="_blank" rel="noopener">game</a></td></tr>';
     }).join('');
     table.innerHTML = '<table><thead><tr><th>Date</th><th>Opponent</th><th>Result</th><th>Speed</th><th>Opening</th><th>Your ACPL</th><th>Inacc. / mist. / bl.</th><th></th></tr></thead><tbody>' + rows + '</tbody></table>';
     var done = log.games.filter(function (g) { return log.reviews[g.id] && mySide(g); });

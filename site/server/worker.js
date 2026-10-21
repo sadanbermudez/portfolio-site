@@ -1,14 +1,17 @@
 /* sergioadan.dev on Cloudflare: static files, plus small endpoints for the site's live AI demos.
-   POST /api/chat        public Jarvis: retrieval over the site's own pages, then Qwen3 30B (Workers AI), streamed
+   POST /api/chat        public Jarvis: retrieval over the site's own pages, then Gemma 4 26B (Workers AI), streamed
    POST /api/tutor       Spanish Tutor demo: the app's tutor prompt (tutor-prompt.js), same model, streamed
    POST /api/transcribe  Whisper large-v3-turbo (Workers AI) turns a short recording into text
    POST /api/speak       MeloTTS (Workers AI) reads a sentence of Jarvis's answer aloud, for devices too slow for the in-browser voice
    Everything else is served from dist/ by the assets binding. No access to anything outside this site. */
 import KNOWLEDGE from './knowledge.json';                     // written by build.py from the built pages
-import { buildIndex, hybrid, hashText, cleanMessages, buildMessages, thinkFilter, tokenOf, speakable, fromBase64, halveWav, LIMITS } from './jarvis-core.js';
+import { buildIndex, hybrid, hashText, cleanMessages, buildMessages, thinkFilter, tokenOf, scriptGuard, speakable, fromBase64, halveWav, LIMITS,
+  API_HEADERS, API_ROUTES, BODY_LIMITS, checkRequest, readCapped, readJson } from './jarvis-core.js';
 import { tutorSystemPrompt } from './tutor-prompt.js';
 
-const CHAT_MODEL = '@cf/qwen/qwen3-30b-a3b-fp8';
+// Jarvis runs Gemma 4 since 21 October 2026: on the same pages, jarvis-eval dev 16/17 and held-out 2 7/8, against
+// 15/17 and 5/8 for Qwen3 30B, which also omitted citations, listed fewer facts and slipped into Chinese.
+const CHAT_MODEL = '@cf/google/gemma-4-26b-a4b-it';
 // The tutor runs Gemma 4: on site/tests/tutor-eval.mjs (20 turns each) it gave the right verdict and correction 20/20
 // and never showed wrong Spanish, where Qwen3 30B showed a wrong form as a correction in 6 of 20 ("Está morena").
 const TUTOR_MODEL = '@cf/google/gemma-4-26b-a4b-it';
@@ -16,11 +19,11 @@ const STT_MODEL = '@cf/openai/whisper-large-v3-turbo';
 // About 19 neurons per minute of speech. Deepgram Aura has British male voices but costs about 1,400 neurons per 1,000 characters.
 const SPEAK_MODEL = '@cf/myshell-ai/melotts';
 const EMBED_MODEL = '@cf/baai/bge-m3';                // multilingual, so questions in Spanish find English pages
-const MAX_AUDIO = 1_500_000;                         // bytes, about a minute of compressed speech
+const MAX_AUDIO = BODY_LIMITS.audio;                  // bytes, about a minute of compressed speech
 let INDEX = null, VECS = null;
 
-const SECURE = { 'X-Content-Type-Options': 'nosniff', 'Cache-Control': 'no-store', 'Referrer-Policy': 'strict-origin-when-cross-origin' };
-function json(body, status = 200) { return new Response(JSON.stringify(body), { status, headers: { ...SECURE, 'Content-Type': 'application/json' } }); }
+const SECURE = API_HEADERS;                          // nosniff, no-store, CSP default-src 'none', CORP same-origin, no CORS (jarvis-core.js)
+function json(body, status = 200, extra = {}) { return new Response(JSON.stringify(body), { status, headers: { ...SECURE, 'Content-Type': 'application/json', ...extra } }); }
 const isQuota = (err) => /limit|quota|neuron|capacity|429/i.test(String(err && err.message));
 
 async function limited(env, binding, request, route) {
@@ -66,8 +69,8 @@ async function startModel(env, messages, temperature, quotaMessage, model = CHAT
 }
 
 // Relay Workers AI's stream as our own server-sent events: optional leading events, then token, done or error.
-function relay(upstream, leading = [], headers = {}) {
-  const enc = new TextEncoder(), dec = new TextDecoder(), visible = thinkFilter();
+function relay(upstream, leading = [], headers = {}, guard = t => t) {
+  const enc = new TextEncoder(), dec = new TextDecoder(), filter = thinkFilter(), visible = (t, end) => guard(filter(t, end));
   const send = (ctrl, event, data) => ctrl.enqueue(enc.encode('event: ' + event + '\ndata: ' + JSON.stringify(data) + '\n\n'));
   const stream = new ReadableStream({
     async start(ctrl) {
@@ -101,7 +104,7 @@ function relay(upstream, leading = [], headers = {}) {
 
 async function chat(request, env, ctx) {
   if (await limited(env, 'CHAT_LIMIT', request, 'chat')) return json({ error: 'One moment, please: too many questions in the last minute.' }, 429);
-  let body; try { body = await request.json(); } catch { return json({ error: 'Bad request.' }, 400); }
+  const body = await readJson(request); if (!body) return json({ error: 'Bad request.' }, 400);
   const msgs = cleanMessages(body && body.messages);
   if (!msgs) return json({ error: 'Bad request.' }, 400);
   INDEX = INDEX || buildIndex(KNOWLEDGE);
@@ -112,16 +115,22 @@ async function chat(request, env, ctx) {
   try { vecs = await chunkVectors(env, ctx); qvec = (await env.AI.run(EMBED_MODEL, { text: [lastUsers] })).data[0]; }
   catch (err) { console.log('embedding failed, word search only:', String(err && err.message || err)); }
   const hits = hybrid(INDEX, lastUsers, qvec, vecs, LIMITS.topK);
-  const upstream = await startModel(env, buildMessages(msgs, hits), 0.2, 'I have used up today\'s free allowance, I am afraid. It resets at midnight UTC.');
+  const model = env.CHAT_MODEL || CHAT_MODEL;            // CHAT_MODEL var: only for comparing models locally (wrangler dev --var)
+  const messages = buildMessages(msgs, hits);
+  if (!/qwen3/.test(model)) {                              // "/no_think" is Qwen3's switch; other models would read it as text
+    const last = messages[messages.length - 1];
+    messages[messages.length - 1] = { ...last, content: last.content.replace(/\n\n\/no_think$/, '') };
+  }
+  const upstream = await startModel(env, messages, 0.2, 'I have used up today\'s free allowance, I am afraid. It resets at midnight UTC.', model);
   if (upstream instanceof Response) return upstream;
   const sources = hits.map((h, i) => ({ n: i + 1, title: h.title, url: h.url }));
-  return relay(upstream, [['sources', sources]], { 'X-Jarvis-Search': qvec ? 'hybrid' : 'words' });
+  return relay(upstream, [['sources', sources]], { 'X-Jarvis-Search': qvec ? 'hybrid' : 'words' }, scriptGuard(newest));
 }
 
 // The Spanish Tutor demo: the app's own system prompt and lesson context, the conversation, nothing else.
 async function tutor(request, env) {
   if (await limited(env, 'CHAT_LIMIT', request, 'tutor')) return json({ error: 'Un momento, por favor: demasiados mensajes en el último minuto.' }, 429);
-  let body; try { body = await request.json(); } catch { return json({ error: 'Bad request.' }, 400); }
+  const body = await readJson(request); if (!body) return json({ error: 'Bad request.' }, 400);
   const msgs = cleanMessages(body && body.messages);
   if (!msgs) return json({ error: 'Bad request.' }, 400);
   const lesson = typeof body.lesson === 'string' ? body.lesson.slice(0, 80) : 'free';
@@ -130,18 +139,18 @@ async function tutor(request, env) {
   if (/qwen3/.test(model)) messages[messages.length - 1] = { role: 'user', content: messages[messages.length - 1].content + '\n\n/no_think' };   // Qwen3's switch
   const upstream = await startModel(env, messages, 0.7, 'El tutor ha agotado la cuota gratuita de hoy. Vuelve después de medianoche (UTC).', model);   // the app samples at 0.7
   if (upstream instanceof Response) return upstream;
-  return relay(upstream);
+  return relay(upstream, [], {}, scriptGuard(msgs[msgs.length - 1].content));
 }
 
+const STT_MS = 30000;
 async function transcribe(request, env) {
   if (await limited(env, 'STT_LIMIT', request, 'stt')) return json({ error: 'Too many recordings in the last minute.' }, 429);
-  const size = +(request.headers.get('content-length') || 0);
-  if (size > MAX_AUDIO) return json({ error: 'That recording is too long. Please keep it under a minute.' }, 413);
-  const audio = new Uint8Array(await request.arrayBuffer());
-  if (!audio.length || audio.length > MAX_AUDIO) return json({ error: 'No usable audio received.' }, 400);
+  const audio = await readCapped(request, MAX_AUDIO);
+  if (!audio) return json({ error: 'That recording is too long. Please keep it under a minute.' }, 413);
+  if (!audio.length) return json({ error: 'No usable audio received.' }, 400);
   let bin = ''; for (let i = 0; i < audio.length; i += 0x8000) bin += String.fromCharCode.apply(null, audio.subarray(i, i + 0x8000));
   try {
-    const out = await env.AI.run(STT_MODEL, { audio: btoa(bin), vad_filter: true });
+    const out = await within(STT_MS, env.AI.run(STT_MODEL, { audio: btoa(bin), vad_filter: true }));
     return json({ text: ((out && out.text) || '').trim().slice(0, 600) });
   } catch (err) {
     return json({ error: isQuota(err) ? 'Today\'s free allowance is used up. Please type instead.' : 'I could not make that out. Please try again or type.' }, isQuota(err) ? 429 : 502);
@@ -154,7 +163,7 @@ async function transcribe(request, env) {
 const SPEAK_MS = 12000;
 async function speak(request, env, ctx) {
   if (await limited(env, 'SPEAK_LIMIT', request, 'speak')) return json({ error: 'Too many sentences in the last minute.' }, 429);
-  let body; try { body = await request.json(); } catch { return json({ error: 'Bad request.' }, 400); }
+  const body = await readJson(request); if (!body) return json({ error: 'Bad request.' }, 400);
   const text = speakable(body && body.text);
   if (!text) return json({ error: 'Bad request.' }, 400);
   const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(SPEAK_MODEL + '|' + text));
@@ -177,11 +186,19 @@ async function speak(request, env, ctx) {
 export default {
   async fetch(request, env, ctx) {
     const { pathname } = new URL(request.url);
-    if (pathname === '/api/chat' && request.method === 'POST') return chat(request, env, ctx);
-    if (pathname === '/api/tutor' && request.method === 'POST') return tutor(request, env);
-    if (pathname === '/api/transcribe' && request.method === 'POST') return transcribe(request, env);
-    if (pathname === '/api/speak' && request.method === 'POST') return speak(request, env, ctx);
-    if (pathname.startsWith('/api/')) return json({ error: 'Not found.' }, 404);
-    return env.ASSETS.fetch(request);
+    if (!pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
+    const kind = API_ROUTES[pathname];
+    if (!kind) return json({ error: 'Not found.' }, 404);
+    const refused = checkRequest(request, kind);
+    if (refused) return json({ error: refused.error }, refused.status, refused.headers);
+    try {
+      if (pathname === '/api/chat') return await chat(request, env, ctx);
+      if (pathname === '/api/tutor') return await tutor(request, env);
+      if (pathname === '/api/transcribe') return await transcribe(request, env);
+      return await speak(request, env, ctx);
+    } catch (err) {                                  // never a stack trace or a Cloudflare error page to the visitor
+      console.log('api error', pathname, String(err && err.message || err));
+      return json({ error: 'Something went wrong. Please try again.' }, 500);
+    }
   }
 };

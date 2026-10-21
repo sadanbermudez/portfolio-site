@@ -31,13 +31,16 @@ for f in [*here.glob("*.js"), *here.glob("*.css"), *here.glob("*.svg"), *pages]:
 for f in (here / "work").glob("*.html"):
     shutil.copy2(f, dist / "work" / f.name)
 # Content-Security-Policy: every source the site loads from, and nothing else.
-#   scripts: own files, three.js from cdnjs (also pinned by SRI), WebAssembly for Stockfish
+#   scripts: own files, the one three.js file from cdnjs (also pinned by SRI), WebAssembly for Stockfish.
+#            The full file path, not the cdnjs host: the host serves thousands of libraries, some of which can be
+#            used to run attacker-chosen code on a page that allows them (a known CSP bypass).
 #   styles:  own files and Google Fonts; style="" attributes allowed, <style> blocks are not
 #   connect: own origin (engines load their .wasm; Jarvis's /api), Lichess and Chess.com game APIs,
 #            and Hugging Face for the Kokoro voice model, which the browser downloads as data
+THREE_JS = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
 CSP = "; ".join([
     "default-src 'self'",
-    "script-src 'self' https://cdnjs.cloudflare.com 'wasm-unsafe-eval'",
+    f"script-src 'self' {THREE_JS} 'wasm-unsafe-eval'",
     "style-src 'self' https://fonts.googleapis.com",
     "style-src-attr 'unsafe-inline'",
     "font-src https://fonts.gstatic.com",
@@ -111,6 +114,8 @@ knowledge = [c for html in sorted(dist.rglob("*.html")) if html.name != "404.htm
 
 # Every local src/href in every page must resolve to a file in dist/ (pages may be linked without .html),
 # and no page may contain what the CSP blocks: inline <script>, <style> blocks, on*="" handlers, javascript: URLs.
+# A script from another site must be the one the CSP names and carry an integrity hash (SRI), so a changed file
+# on the CDN is refused by the browser.
 BLOCKED = ((r"<script(?![^>]*\bsrc=)[^>]*>", "inline script"), (r"<style[\s>]", "style block"),
            (r"\son[a-z]+\s*=\s*[\"']", "inline event handler"), (r"javascript:", "javascript: URL"))
 missing = []
@@ -119,6 +124,12 @@ for html in dist.rglob("*.html"):
     for pattern, what in BLOCKED:
         if re.search(pattern, text, re.I):
             missing.append(f"{html.relative_to(dist)} -> {what} (blocked by the CSP)")
+    for tag in re.findall(r"<script\b[^>]*\bsrc=\"(?:https?:)?//[^>]*>", text, re.I):
+        url = re.search(r'src="([^"]*)"', tag).group(1)
+        if url != THREE_JS:
+            missing.append(f"{html.relative_to(dist)} -> {url} (script host not in the CSP)")
+        if not re.search(r'\bintegrity="sha(256|384|512)-[A-Za-z0-9+/=]+"', tag) or 'crossorigin="anonymous"' not in tag:
+            missing.append(f"{html.relative_to(dist)} -> {url} (external script without integrity and crossorigin)")
     for ref in re.findall(r'(?:src|href)="([^"#?]*)', text):
         if not ref or re.match(r"(https?:|mailto:|data:|//)", ref):
             continue
