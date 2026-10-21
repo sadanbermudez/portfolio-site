@@ -103,6 +103,73 @@ export function halveWav(bytes) {
   return out;
 }
 
+// Request checks for the /api routes, before any body is read or any model is called.
+// JSON bodies: the newest 6 turns of 600 characters fit in well under 16 KB; 64 KB leaves room for escaped
+// non-Latin text and a longer history (the server keeps only the newest turns anyway).
+export const BODY_LIMITS = { json: 65_536, audio: 1_500_000 };
+// Headers on every /api response. _headers covers only the static files, so the Worker sets its own: the responses
+// are data, never pages, so nothing may run in them, frame them or read them from another site. No
+// Access-Control-Allow-Origin is ever sent: the API is for this site's own pages.
+export const API_HEADERS = Object.freeze({
+  'X-Content-Type-Options': 'nosniff', 'Cache-Control': 'no-store', 'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Content-Security-Policy': "default-src 'none'; frame-ancestors 'none'", 'X-Frame-Options': 'DENY',
+  'Cross-Origin-Resource-Policy': 'same-origin', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+});
+export const API_ROUTES = { '/api/chat': 'json', '/api/tutor': 'json', '/api/speak': 'json', '/api/transcribe': 'audio' };
+
+// Returns null when the request may go on, or { status, error, headers? } to send back instead.
+// - only POST;
+// - a browser on another site is refused: browsers always send Origin on a POST, so a page elsewhere cannot spend
+//   this site's free allowance through its visitors (requests without Origin come from scripts, which the rate
+//   limits cover);
+// - the content type must match the route, which also means a cross-site browser request needs a CORS preflight
+//   that this Worker never grants;
+// - a declared length over the limit is refused before reading (readCapped also stops at the limit, for
+//   bodies sent without a length).
+export function checkRequest(request, kind) {
+  if (request.method !== 'POST') return { status: 405, error: 'Method not allowed.', headers: { Allow: 'POST' } };
+  const origin = request.headers.get('origin');
+  if (origin && origin !== new URL(request.url).origin) return { status: 403, error: 'Forbidden.' };
+  const type = (request.headers.get('content-type') || '').toLowerCase();
+  if (kind === 'json' ? !/^application\/json\s*(;|$)/.test(type) : !/^audio\/[a-z0-9.+-]+\s*(;|$)/.test(type)) {
+    return { status: 415, error: 'Unsupported content type.' };
+  }
+  const max = BODY_LIMITS[kind], declared = request.headers.get('content-length');
+  if (declared !== null && !(+declared <= max)) {
+    return { status: 413, error: kind === 'audio' ? 'That recording is too long. Please keep it under a minute.' : 'Request too large.' };
+  }
+  return null;
+}
+
+// Read a request body, giving up (null) as soon as it passes max bytes, so a body sent in chunks without a
+// Content-Length cannot make the Worker buffer more than the limit.
+export async function readCapped(request, max) {
+  if (!request.body) return new Uint8Array(0);
+  const reader = request.body.getReader(), parts = [];
+  let size = 0;
+  for (;;) {
+    const { value, done } = await reader.read();
+    if (done) break;
+    size += value.byteLength;
+    if (size > max) { reader.cancel().catch(() => {}); return null; }
+    parts.push(value);
+  }
+  const out = new Uint8Array(size);
+  let at = 0;
+  for (const p of parts) { out.set(p, at); at += p.byteLength; }
+  return out;
+}
+
+// Parse a capped JSON body: the object, or undefined when it is too large, unreadable or not an object.
+export async function readJson(request, max = BODY_LIMITS.json) {
+  const bytes = await readCapped(request, max);
+  if (!bytes) return undefined;
+  try {
+    const value = JSON.parse(new TextDecoder().decode(bytes));
+    return value && typeof value === 'object' && !Array.isArray(value) ? value : undefined;
+  } catch { return undefined; }
+}
+
 // Keep only well-formed turns, the most recent few, each cut to a fixed length; the last must be the visitor's.
 export function cleanMessages(raw) {
   if (!Array.isArray(raw)) return null;

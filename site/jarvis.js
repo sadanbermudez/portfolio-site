@@ -250,7 +250,7 @@ async function ask(question) {
   const speakPiece = beginSpeech(), pieces = chunker();          // speak each finished sentence as soon as it arrives
   const speakReady = (final) => { if (speakPiece) (final ? pieces.end(text) : pieces.push(text)).forEach(speakPiece); };
   try {
-    const res = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: history }) });
+    const res = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: history.slice(-6) }) });   // the server reads the newest 6 turns only
     if (!res.ok || !res.body) { const j = await res.json().catch(() => ({})); throw new Error(j.error || 'Jarvis is unavailable just now.'); }
     const reader = res.body.getReader(), dec = new TextDecoder(); let buf = '';
     for (;;) {

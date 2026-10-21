@@ -82,7 +82,7 @@ async function send(text, { countAsTurn = true, report = false } = {}) {
   C.abort = ctrl;
   try {
     const res = await fetch('/api/tutor', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: payload, lesson: C.lessonId === 'free' ? 'free' : C.lessonId }), signal: ctrl.signal });
+      body: JSON.stringify({ messages: payload.slice(-6), lesson: C.lessonId === 'free' ? 'free' : C.lessonId }), signal: ctrl.signal });
     if ([404, 405, 501].includes(res.status)) throw Object.assign(new Error('offline'), { offline: true });
     if (!res.ok || !res.body) { const j = await res.json().catch(() => ({})); throw new Error(j.error || `Error ${res.status}`); }
     const reader = res.body.getReader(), dec = new TextDecoder();
