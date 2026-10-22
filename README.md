@@ -29,6 +29,6 @@ python build.py          # writes dist/ and the _headers file
 wrangler deploy          # static-assets Worker, see site/wrangler.jsonc
 ```
 
-The live site is built from `site/` only. `site/server/` is the small Worker behind `/api/chat`, `/api/tutor`, `/api/transcribe` and `/api/speak`. Tests: `node site/tests/<name>.test.mjs` for each part; `site/tests/jarvis-eval.mjs` and `site/tests/tutor-eval.mjs` grade the live models against a running site. The `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first, single-page version, kept for reference.
+The live site is built from `site/` only. `site/server/` is the small Worker behind `/api/chat`, `/api/fit`, `/api/tutor`, `/api/transcribe` and `/api/speak`. Tests: `node site/tests/<name>.test.mjs` for each part, and `node site/tests/smoke.mjs` loads every built page in Chromium on a laptop and a phone (needs Playwright); `site/tests/jarvis-eval.mjs`, `site/tests/fit-eval.mjs` and `site/tests/tutor-eval.mjs` grade the live models against a running site. The CV PDFs in `site/data/` are printed from `site/cv.html` by `python tools/make_cv_pdfs.py`. The `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first, single-page version, kept for reference.
 
 Built with AI assistance (Claude Code), directed and reviewed by Sergio Adan Bermudez.
