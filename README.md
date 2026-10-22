@@ -5,7 +5,7 @@ Source of my portfolio site, live at [sergioadan.dev](https://sergioadan.dev): m
 | Page | What it shows |
 |---|---|
 | Home | Projects, the system behind my local assistant, an engineering log, and the AI-engineering roles mapped to evidence |
-| `work/lab-agent.html` | An AI agent running a simulated photophysics experiment through an MCP server ([photonics-lab-mcp](https://github.com/sadanbermudez/photonics-lab-mcp)) |
+| `work/lab-agent.html` | An AI agent running a simulated photophysics experiment through an MCP server ([photonics-lab-mcp](https://github.com/sadanbermudez/photonics-lab-mcp)), and a live run any visitor can start, graded against a hidden sample with a public score (`lab-sim.js`, `lab-live.js`, `server/lab-agent.js`, `POST /api/lab`) |
 | `work/llama-cpp-stall.html` | A latency investigation in llama.cpp, step by step, with every measured value |
 | `work/moe.html`, `moe.js` | One token through a 284B mixture-of-experts model on a laptop: the measured engine builds, a real-time race of the tokens it wrote, and the drive-bound arithmetic |
 | `work/chess.html` | A reviewed game replayed with engine-checked facts, PGN import and Stockfish running in the browser ([jarvis-chess](https://github.com/sadanbermudez/jarvis-chess)) |

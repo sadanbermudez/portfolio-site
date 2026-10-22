@@ -539,3 +539,13 @@ details.more[open] summary { margin-bottom: 8px; }
 .calc-bar i.ceil { background: var(--emit); }
 .calc-bar i.meas { background: var(--cool); }
 @media (prefers-reduced-motion: reduce) { .race .lane-bar i, .calc-bar i { transition: none; } }
+
+/* Live lab-agent run (work/lab-agent.html#live, lab-live.js) */
+.live-intro { max-width: var(--measure); color: #c3cad4; }
+.live-rules { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+.live-plots canvas { display: block; width: 100%; height: 170px; }
+.live-plots .panel-head.mid { border-top: 1px solid var(--rule); }
+.console .ln.note .call { color: var(--muted); }
+.console .ln.note .call i { font-style: normal; }
+.live-score .note { font-size: var(--step--2); color: var(--muted); }
+#live-go[disabled] { opacity: 0.6; cursor: progress; }

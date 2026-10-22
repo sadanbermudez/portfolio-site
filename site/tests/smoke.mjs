@@ -32,6 +32,9 @@ async function resolve(url) {
   return null;
 }
 const server = http.createServer(async (req, res) => {
+  // No Worker here: /api answers as the Worker does when a live feature is off, and pages must cope with that.
+  // The API itself is tested by api-security.test.mjs, lab-agent.test.mjs and the live checks.
+  if (req.url.startsWith('/api/')) { res.writeHead(503, { 'Content-Type': 'application/json' }); return res.end('{"error":"off in the smoke test","fallback":true}'); }
   const hit = await resolve(req.url);
   if (!hit) { res.writeHead(404, headersFor(req.url)); return res.end('not found'); }
   res.writeHead(200, { 'Content-Type': TYPES[extname(hit.file)] || 'application/octet-stream', ...headersFor(req.url.split('?')[0]) });
@@ -63,9 +66,10 @@ for (const [view, opts] of Object.entries(VIEWS)) {
     page.on('pageerror', e => problems.push(`script error: ${e.message}`));
     page.on('console', m => {
       // a third-party host being unreachable from CI is not a site bug; everything else is
+      if (m.type() === 'error' && (m.location().url || '').includes('/api/')) return;      // the 503 above, handled by the page
       if (m.type() === 'error' && !/lichess|chess\.com|huggingface|hf\.co|fonts\.g|cdnjs|ERR_(NAME|INTERNET|CONNECTION)/i.test(m.text())) problems.push(`console: ${m.text()}`);
     });
-    page.on('response', r => { if (r.url().startsWith(origin) && r.status() >= 400) problems.push(`HTTP ${r.status()} ${r.url().slice(origin.length)}`); });
+    page.on('response', r => { if (r.url().startsWith(origin) && !r.url().startsWith(origin + '/api/') && r.status() >= 400) problems.push(`HTTP ${r.status()} ${r.url().slice(origin.length)}`); });
     await page.goto(origin + path, { waitUntil: 'load', timeout: 30000 });
     await page.waitForTimeout(800);
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));      // wake scroll-driven scripts

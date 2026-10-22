@@ -507,6 +507,40 @@ Loops stop off screen and in hidden tabs. With reduced motion, the canvas is a s
 - The like-for-like runs were on battery, so speeds are lower than on mains (0.49 tok/s shipped). The page says so next to the numbers.
 - The calculator's ceiling assumes perfect overlap, so it is an upper bound.
 
+### 18. A live lab agent, graded against a hidden sample, with a public score
+
+**Context.** The lab-agent page replayed two recorded runs. A replay shows that an agent once worked; it cannot show how often one does.
+
+**Decision.** `POST /api/lab` runs a fresh experiment.
+- **The hidden sample:** the Worker picks a photon order (1 or 2) and a noise seed with `crypto.getRandomValues`.
+- **The model:** Gemma 4 26B works the bench in `lab-sim.js` through the same ten tools as the MCP server.
+- **The bench:** `lab-sim.js` is the photonics-lab-mcp physics, safety layer and analysis, ported to JavaScript.
+- **The protocol:** one JSON reply per turn (`{"calls": [...]}` or `{"answer": {...}}`), so it works with any model, not only ones with native tool calling.
+- **Budgets:** 7 replies, 48 tool calls and 12 per reply.
+- **Grading:** done by the server. An answer counts only if it names the hidden order. No answer counts as wrong. A run that fails on Cloudflare's side is stored but not graded.
+- **Safety at the end:** if the agent leaves the laser armed or on, that is recorded, and the Worker puts the bench in its safe state.
+- **The record:** every run is a row in D1 (`LAB_DB`). The page shows graded runs, the share correct with a Wilson 95% interval, how many finished in a safe state, the average neurons a run cost, and how many live runs are left today.
+- **Streaming:** each call goes to the page as it happens, with a thinned spectrum (128 points) and the fit. `lab-live.js` draws the console, the spectra and the log-log fit.
+
+**Port check.** The port was checked against the Python before anything else was built:
+- **Expected counts:** identical to 1e-11.
+- **Peak fit:** a Levenberg–Marquardt written for the port, instead of SciPy's `curve_fit`. Its areas and errors are within 0.1% of SciPy's on five seeded spectra, including a saturated one. Those values are frozen in `site/tests/lab-sim.test.mjs`.
+- **Poisson draws:** the one intended difference. Above 30 counts they use the normal approximation.
+
+**Cost and limits.**
+- **Measured cost:** the first local runs cost about 75 neurons each and took about 10 s, with 4 to 5 replies and 16 to 24 calls.
+- **Caps:** 40 runs a day, about 30% of the free 10,000 neurons Jarvis also uses, and 2 a minute per visitor (`LAB_LIMIT`).
+- **The cap holds under concurrency:** the row is inserted before the run starts.
+- **Leaving early:** the run finishes and is recorded even if the visitor leaves, because it runs under `ctx.waitUntil`.
+- **Past the cap:** the page says so and points to the recorded run.
+
+**Measured.** Three local runs, all correct, n = 1.97, 1.97 and about 1. None of the three called `safe_state` before answering, although the prompt asks for it. The page reports this as a finding rather than prompting it away.
+
+**Trade-offs.**
+- The score measures this model on this simulated bench, not agents in general.
+- A determined visitor can only add runs at 2 a minute within the daily cap, and cannot change the grading.
+- The smoke test's static server answers `/api` with the Worker's 503, so the page's unavailable path is what CI checks. The live path is checked by hand against `wrangler dev`.
+
 ## Known limits and what comes next
 
 - **Old version at the root.** `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first single-page site, kept for reference (the README says so). Next: move them into an `archive/` folder.
