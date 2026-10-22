@@ -62,6 +62,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .top nav { display: flex; flex-wrap: wrap; gap: 0 22px; font-family: var(--font-data); font-size: var(--step--2); letter-spacing: 0.05em; }
 .top nav a { text-decoration: none; color: var(--muted); display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 40px; }
 .top nav a:hover, .top nav a[aria-current="page"] { color: var(--ink); }
+.top nav a.nav-cv { color: var(--ink); }   /* the one link a recruiter looks for */
 @media (max-width: 640px) {
   .top-wrap { position: relative; top: auto; }
   .top { padding-block: 2px 0; }
@@ -94,11 +95,12 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 @media (max-width: 760px) { .hud { display: none; } }
 @media (max-width: 1000px) { .hero .hud { display: none; } }   /* it would sit on the hero copy */
 /* Phones and portrait tablets: the bench gets its own band above the copy, so no text sits on the
-   animation (hero.js passes narrowAt: 900 so the scene is centred in that band). */
+   animation (hero.js passes narrowAt: 900 so the scene is centred in that band). The band is kept short so
+   the role line and the headline land on the first screen of a phone. */
 @media (max-width: 900px) {
   .hero { display: block; min-height: 0; }
-  .hero canvas.bench { position: relative; height: 34svh; min-height: 200px; max-height: 360px; }
-  .hero::after { inset: 0 0 auto; height: 34svh; min-height: 200px; max-height: 360px; background: linear-gradient(0deg, rgba(7, 9, 12, 1) 0%, rgba(7, 9, 12, 0) 35%); }
+  .hero canvas.bench { position: relative; height: 22svh; min-height: 150px; max-height: 240px; }
+  .hero::after { inset: 0 0 auto; height: 22svh; min-height: 150px; max-height: 240px; background: linear-gradient(0deg, rgba(7, 9, 12, 1) 0%, rgba(7, 9, 12, 0) 35%); }
   .hero-copy { padding-block: 4px 36px; gap: 18px; }
 }
 
