@@ -12,7 +12,7 @@ import { chromium } from 'playwright';
 const dist = fileURLToPath(new URL('../dist/', import.meta.url));
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css',
   '.svg': 'image/svg+xml', '.png': 'image/png', '.json': 'application/json', '.wasm': 'application/wasm', '.pdf': 'application/pdf',
-  '.mp4': 'video/mp4', '.onnx': 'application/octet-stream', '.txt': 'text/plain' };
+  '.mp4': 'video/mp4', '.jpg': 'image/jpeg', '.vtt': 'text/vtt', '.onnx': 'application/octet-stream', '.txt': 'text/plain' };
 
 // The _headers file the build writes: "/*" applies everywhere, other blocks to their path.
 const rules = [];

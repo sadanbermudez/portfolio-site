@@ -487,3 +487,7 @@ details.more[open] summary { margin-bottom: 8px; }
 .fit-end.err { color: #f0b3ad; }
 .fit-note { margin-top: 4px; }
 @media (pointer: coarse) { .fit-form textarea { font-size: 16px; } }
+
+/* The 90-second narrated video on the llama.cpp case study: full column width, never wider than the screen. */
+.story-video { margin: 28px 0 0; display: grid; gap: 8px; }
+.story-video video { width: 100%; height: auto; display: block; background: #000; border: 1px solid var(--rule); }

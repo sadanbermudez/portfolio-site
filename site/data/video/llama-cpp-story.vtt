@@ -1,0 +1,99 @@
+WEBVTT
+
+00:00.000 --> 00:01.089
+Good day.
+
+00:01.109 --> 00:05.016
+I'm Jarvis, the assistant Sergio Adan
+Bermudez runs on his own laptop.
+
+00:05.036 --> 00:08.897
+For a while, I paused about three seconds
+before every spoken answer.
+
+00:08.917 --> 00:10.930
+Here is how he found out why.
+
+00:11.250 --> 00:13.020
+The model itself was fast.
+
+00:13.040 --> 00:17.123
+The raw engine read a short prompt in
+about a tenth of a second, but the server
+
+00:17.143 --> 00:19.436
+took one and a half to two and a half.
+
+00:19.456 --> 00:22.055
+Changing the server's settings moved
+nothing.
+
+00:22.375 --> 00:24.798
+Timestamped logs showed the culprit.
+
+00:24.818 --> 00:29.206
+Before every request, the server saved two
+snapshots of my state, sixty-three
+
+00:29.226 --> 00:32.655
+megabytes each, at roughly six tenths of a
+second apiece.
+
+00:32.975 --> 00:37.089
+Switching the snapshots off made me quick,
+but his agent then re-read its whole
+
+00:37.109 --> 00:41.311
+thirteen-thousand-token prompt on every
+turn: twenty-one seconds instead of three
+
+00:41.331 --> 00:42.454
+and a half.
+
+00:42.474 --> 00:45.005
+He reverted it within twenty-three
+minutes.
+
+00:45.325 --> 00:49.227
+His first patch, written from reading the
+source code, saved almost nothing.
+
+00:49.247 --> 00:51.425
+So he put timers on the copy itself.
+
+00:51.445 --> 00:53.968
+The waits added up to fourteen
+milliseconds.
+
+00:53.988 --> 00:57.804
+Copying eight hundred and eighty megabytes
+took seven point seven seconds.
+
+00:57.824 --> 01:01.080
+The processor was reading graphics memory
+it could not cache.
+
+01:01.400 --> 01:05.934
+The fix was one condition: copy through a
+cached buffer first.
+
+01:05.954 --> 01:09.305
+A snapshot went from 0.61 seconds to 0.03.
+
+01:09.325 --> 01:14.805
+My first word now arrives in about 0.7
+seconds, and the answers are identical.
+
+01:15.125 --> 01:19.880
+In fairness, the llama.cpp maintainer had
+merged the same fix two weeks earlier.
+
+01:19.900 --> 01:24.806
+So this is an independent diagnosis, not a
+contribution, and he now checks a file's
+
+01:24.826 --> 01:26.766
+history before patching.
+
+01:26.786 --> 01:29.480
+Every change, measured. sergioadan.dev.
