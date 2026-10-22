@@ -235,7 +235,8 @@ function bubble(role, html) {
 }
 function render(text, sources) {
   const byN = new Map((sources || []).map(s => [s.n, s]));
-  return esc(text).replace(/\[(\d+)\]/g, (m, n) => { const s = byN.get(+n); return s ? `<a class="cite" href="${esc(s.url)}" title="${esc(s.title)}">${n}</a>` : ''; }).replace(/\n/g, '<br>');
+  // "[2]" and the grouped form some answers use, "[1, 2]": every number that is a real source becomes a link
+  return esc(text).replace(/\[(\d+(?:\s*,\s*\d+)*)\]/g, (m, list) => list.split(',').map(n => { const s = byN.get(+n); return s ? `<a class="cite" href="${esc(s.url)}" title="${esc(s.title)}">${+n}</a>` : ''; }).join('')).replace(/\n/g, '<br>');
 }
 bubble('bot', 'Good day. I am Jarvis, Dr. Adan Bermudez\'s assistant, or rather the public edition: I know his website and nothing private. Ask me about his work, his research or his chess, by typing or with the microphone.');
 
@@ -267,7 +268,7 @@ async function ask(question) {
     }
     speakReady(true);                                         // speak the remainder before trimming changes the offsets
     text = text.trim() || 'I am afraid I have no answer to that.';
-    const used = sources.filter(s => new RegExp('\\[' + s.n + '\\]').test(text));
+    const used = sources.filter(s => new RegExp('\\[[\\d,\\s]*\\b' + s.n + '\\b[\\d,\\s]*\\]').test(text));
     const chips = (list, label) => '<div class="j-src">' + (label ? '<span>' + label + '</span>' : '') + list.map(s => `<a href="${esc(s.url)}">${s.n} · ${esc(s.title)}</a>`).join('') + '</div>';
     el.innerHTML = render(text, sources) + (used.length ? chips(used) : sources.length ? chips(sources.slice(0, 2), 'Pages consulted') : '');
     history.push({ role: 'assistant', content: text });

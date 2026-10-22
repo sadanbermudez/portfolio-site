@@ -458,10 +458,38 @@ A review of the whole site against the question "is it secure?", on branch `secu
 
 **Check it yourself.** `node site/tests/api-security.test.mjs` after `python site/build.py`. With `wrangler dev` running, `curl -X POST -H "Origin: https://example.com" -H "Content-Type: application/json" --data "{}" http://127.0.0.1:8787/api/speak` returns 403, and the same with `-H "Content-Type: text/plain"` and no Origin returns 415.
 
+### 14. The CV as a page, with the PDF printed from it
+
+**Context.** A walkthrough of the live site as a recruiter would make it, on 22 October 2026, found no CV anywhere, no preview image when the link is shared, and, on a 390 px phone, a first screen taken up by the 3D bench with the role and headline below it. Sergio asked for a CV tailored to AI engineer and software engineer roles, interactive and linked to what he built.
+
+**Decision.** `site/cv.html` (with `cv.css` and `cv.js`) is the CV. A switch tailors it for AI engineer or software engineer roles; both versions hold the same claims, and only the profile, the title and the order of projects and skills change. Every project links to its demo, repository or case study; "How it was measured" opens the method; selecting a skill lights the work that shows it. The two PDFs in `site/data/` are printed from the page itself by `tools/make_cv_pdfs.py` (headless Chrome, the page's print stylesheet), so the PDF a recruiter downloads is the same text as the page: one column, standard headings, black on white, the links written out, two A4 pages. The build's reference check fails if a PDF is missing. Every page's nav gains a CV link, the home hero a CV button, the contact section GitHub and CV links, and every page Open Graph tags with one preview image (`site/data/og.png`, made from `tools/og-image.html`).
+
+**What the CV says.** Only facts from Sergio's own CV and the project records, in his voice: no em-dashes, no invented numbers, the Sensofar assistant described without a stack or outcomes he has not confirmed. The projects heading says the code was written with AI coding agents and designed, directed and reviewed by him, as every repository does. The two months in Wiesbaden between the PhD and the postdoc are described as he gave them: analysing his PhD results and looking for postdoc positions (also on the story page).
+
+**Alternatives.** A separate hand-made PDF (two texts that drift apart). A CV generator or template service (a dependency, and a layout that screening software may read worse).
+
+**Trade-offs.** Any CV edit means running the PDF script again. The skill words on screen are buttons, which the knowledge extraction drops, so the page also carries the same skills as plain text for print, which Jarvis then reads.
+
+**Check it yourself.** `python tools/make_cv_pdfs.py` after a build, then open both PDFs: two pages each, selectable text.
+
+### 15. Fit check: a job description against the site's evidence
+
+**Context.** Recruiters read a job description against a candidate; the public Jarvis already answers only from the site's pages with citations (decision 11).
+
+**Decision.** `POST /api/fit` takes a pasted job description (80 to 4,000 characters), pulls out its requirements (bullet lines when there are at least three, otherwise sentences with a requirement word; `requirementLines()` in `jarvis-core.js`), searches the site separately for each one (hybrid search, two passages per requirement, eight in all), and asks Gemma 4 for one line per requirement: what the passages show, cited, or exactly "not shown on the site". The prompt treats the job description as data, forbids stating skills, years or employers the passages do not state ("a related skill is not the same skill"), and forbids any score or verdict. The page (`fit.js`, a section of `jarvis.html`) marks gaps as gaps instead of hiding them. Same checks, rate limit and stream format as the chat; temperature 0.1; up to 700 tokens.
+
+**Measured.** `site/tests/fit-eval.mjs`: seven job descriptions (AI engineer, forward-deployed, React frontend, ML inference, data scientist, a prompt injection inside the description, one in Spanish), each with the evidence a right answer cites, the gaps it must name on their own line, and patterns it must never contain. Committed (`afbbc3f`) before the first run. First run 6/7; the failure was the checker's (it counted a measured "55%" quoted from a page as a score) and was corrected in the checker, logged in the file; second run 7/7. The injection case passed: the gaps were named and "10 years" never appeared.
+
+**Trade-offs.** It often cites the CV page's own lists, which are claims, before the project pages that prove them. Seven cases is small, and a long description loses requirements after the tenth.
+
+### 16. A browser smoke test in CI
+
+**Decision.** `site/tests/smoke.mjs` serves `dist/` with the headers from `_headers` (so the CSP is enforced), opens every page in Chromium at 1280×800 and as a 390×844 phone, scrolls it, and fails on a script error, a console error, a missing local file or a page wider than the phone screen. Third-party hosts being unreachable is not counted. CI installs Playwright 1.63.0 without saving it to the repository and runs the test after the unit tests. First run: 13 pages, both sizes, no errors.
+
 ## Known limits and what comes next
 
 - **Old version at the root.** `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first single-page site, kept for reference (the README says so). Next: move them into an `archive/` folder.
-- **Thin automated checks.** CI (`.github/workflows/site.yml`) runs the unit tests in `site/tests/` (chess rules, Jarvis server logic, the three app engines) and the build with its reference and CSP checks. The two model evaluations need a running site and Workers AI, so they run by hand. There is no browser test yet. Next: a smoke test that loads each page and fails on console errors. Deploys are manual.
+- **Thin automated checks.** CI (`.github/workflows/site.yml`) runs the unit tests in `site/tests/` (chess rules, Jarvis server logic, the three app engines) and the build with its reference and CSP checks. The three model evaluations (Jarvis, tutor, Fit check) need a running site and Workers AI, so they run by hand. The browser smoke test (decision 16) checks for errors, not for how a page looks. Deploys are manual.
 - **Numbers repeated across files** (decision 4).
 - **Lifetime fit reads high.** `fitTau()` in `research.js` takes the mean time after 6 µs, which is correct for a single exponential but here still includes the 2 µs triplet rise and the uniform dark counts. Re-running the same model in Python with 60,000 events gives about 3.8 µs for an input of 3.5 µs, and about 71 µs for 68 µs. The page now states the bias next to the readout. Next: fit the full rise-and-decay model, or start the window later and subtract the dark-count level.
 - **Fewer facts for imported games and explore lines.** The rule-facts list does not compute pins or mate in one in the browser (decision 7); the coach notes do find pins and mates, from the board and the engine line (decision 7c).

@@ -471,3 +471,23 @@ figure.panel:has(> .look) { gap: 0; }
 .detail .pv { overflow-wrap: anywhere; }
 details.more summary { cursor: pointer; font-family: var(--font-data); font-size: var(--step--2); letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
 details.more[open] summary { margin-bottom: 8px; }
+
+/* Fit check (jarvis.html): a pasted job description, answered requirement by requirement. Gaps stay visible. */
+.fit-form { display: grid; gap: 10px; padding: 14px; margin-top: 18px; }
+.fit-form textarea { width: 100%; min-height: 180px; resize: vertical; background: #0b0f14; color: var(--ink); border: 1px solid var(--rule); padding: 12px; font-family: var(--font-data); font-size: var(--step--2); line-height: 1.6; }
+.fit-form textarea:focus { outline: 2px solid var(--emit); outline-offset: 1px; }
+.fit-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.fit-out { margin-top: 14px; padding: 16px; display: grid; gap: 10px; font-size: var(--step--1); line-height: 1.55; }
+.fit-line { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 8px; }
+.fit-mark { color: var(--emit); }
+.fit-line.gap { color: var(--muted); }
+.fit-line.gap .fit-mark { color: var(--muted); }
+.fit-out .cite { display: inline-grid; place-items: center; min-width: 1.4em; height: 1.4em; margin: 0 2px; font-family: var(--font-data); font-size: 0.7rem; color: #07090c; background: var(--emit); text-decoration: none; vertical-align: 2px; }
+.fit-end { color: var(--muted); }
+.fit-end.err { color: #f0b3ad; }
+.fit-note { margin-top: 4px; }
+@media (pointer: coarse) { .fit-form textarea { font-size: 16px; } }
+
+/* The 90-second narrated video on the llama.cpp case study: full column width, never wider than the screen. */
+.story-video { margin: 28px 0 0; display: grid; gap: 8px; }
+.story-video video { width: 100%; height: auto; display: block; background: #000; border: 1px solid var(--rule); }

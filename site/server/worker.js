@@ -3,9 +3,11 @@
    POST /api/tutor       Spanish Tutor demo: the app's tutor prompt (tutor-prompt.js), same model, streamed
    POST /api/transcribe  Whisper large-v3-turbo (Workers AI) turns a short recording into text
    POST /api/speak       MeloTTS (Workers AI) reads a sentence of Jarvis's answer aloud, for devices too slow for the in-browser voice
+   POST /api/fit         Fit check: a pasted job description, each requirement matched to the site's pages, streamed
    Everything else is served from dist/ by the assets binding. No access to anything outside this site. */
 import KNOWLEDGE from './knowledge.json';                     // written by build.py from the built pages
 import { buildIndex, hybrid, hashText, cleanMessages, buildMessages, thinkFilter, tokenOf, scriptGuard, speakable, fromBase64, halveWav, LIMITS,
+  FIT, requirementLines, pickFitPassages, buildFitMessages,
   API_HEADERS, API_ROUTES, BODY_LIMITS, checkRequest, readCapped, readJson } from './jarvis-core.js';
 import { tutorSystemPrompt } from './tutor-prompt.js';
 
@@ -55,11 +57,11 @@ function within(ms, promise) {
 }
 
 // Start a streamed completion, with one retry for a transient error or a silent start. Returns the stream or an error Response.
-async function startModel(env, messages, temperature, quotaMessage, model = CHAT_MODEL) {
+async function startModel(env, messages, temperature, quotaMessage, model = CHAT_MODEL, maxTokens = LIMITS.maxTokens) {
   // Qwen3 is switched off thinking by "/no_think" in the message. Gemma 4 thinks by default and takes this flag instead
   // (without it, the whole token budget went to reasoning and the answer was empty); Mistral rejects the flag.
   const extra = /gemma-4/.test(model) ? { chat_template_kwargs: { enable_thinking: false } } : {};
-  const run = () => within(START_MS, env.AI.run(model, { messages, stream: true, max_tokens: LIMITS.maxTokens, temperature, ...extra }));
+  const run = () => within(START_MS, env.AI.run(model, { messages, stream: true, max_tokens: maxTokens, temperature, ...extra }));
   try {
     try { return await run(); }
     catch (first) { if (isQuota(first)) throw first; return await run(); }
@@ -125,6 +127,26 @@ async function chat(request, env, ctx) {
   if (upstream instanceof Response) return upstream;
   const sources = hits.map((h, i) => ({ n: i + 1, title: h.title, url: h.url }));
   return relay(upstream, [['sources', sources]], { 'X-Jarvis-Search': qvec ? 'hybrid' : 'words' }, scriptGuard(newest));
+}
+
+// Fit check (FIT in jarvis-core.js): one search per requirement, so a long job description does not drown its
+// rarer requirements, then one answer that goes through them line by line. Shares the chat rate limit.
+async function fit(request, env, ctx) {
+  if (await limited(env, 'CHAT_LIMIT', request, 'fit')) return json({ error: 'One moment, please: too many requests in the last minute.' }, 429);
+  const body = await readJson(request); if (!body) return json({ error: 'Bad request.' }, 400);
+  const jd = typeof body.jd === 'string' ? body.jd.trim() : '';
+  if (jd.length < FIT.minChars) return json({ error: 'Please paste the job description: a few lines at least.' }, 400);
+  const reqs = requirementLines(jd);
+  if (!reqs.length) return json({ error: 'I could not find any requirements in that text.' }, 400);
+  INDEX = INDEX || buildIndex(KNOWLEDGE);
+  let qvecs = null, vecs = null;
+  try { vecs = await chunkVectors(env, ctx); qvecs = (await env.AI.run(EMBED_MODEL, { text: reqs })).data; }
+  catch (err) { console.log('embedding failed, word search only:', String(err && err.message || err)); }
+  const hits = pickFitPassages(reqs.map((r, k) => hybrid(INDEX, r, qvecs ? qvecs[k] : null, vecs, FIT.perLine)));
+  const upstream = await startModel(env, buildFitMessages(reqs, hits), 0.1, 'I have used up today\'s free allowance, I am afraid. It resets at midnight UTC.', CHAT_MODEL, FIT.maxTokens);
+  if (upstream instanceof Response) return upstream;
+  const sources = hits.map((h, i) => ({ n: i + 1, title: h.title, url: h.url }));
+  return relay(upstream, [['sources', sources], ['requirements', reqs]], { 'X-Jarvis-Search': qvecs ? 'hybrid' : 'words' }, scriptGuard(jd));
 }
 
 // The Spanish Tutor demo: the app's own system prompt and lesson context, the conversation, nothing else.
@@ -195,6 +217,7 @@ export default {
       if (pathname === '/api/chat') return await chat(request, env, ctx);
       if (pathname === '/api/tutor') return await tutor(request, env);
       if (pathname === '/api/transcribe') return await transcribe(request, env);
+      if (pathname === '/api/fit') return await fit(request, env, ctx);
       return await speak(request, env, ctx);
     } catch (err) {                                  // never a stack trace or a Cloudflare error page to the visitor
       console.log('api error', pathname, String(err && err.message || err));

@@ -7,7 +7,7 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
@@ -36,3 +36,7 @@ jobs:
         run: node site/tests/spanish-tutor.test.mjs
       - name: Olympus demo (training, nutrition and running formulas)
         run: node site/tests/olympus.test.mjs
+      - name: Install the browser for the smoke test (Playwright pinned, not saved to the repo)
+        run: npm install --no-save --no-package-lock playwright@1.63.0 && npx playwright install --with-deps chromium
+      - name: Every page in Chromium, laptop and phone, under the real headers (script errors, CSP, missing files, overflow)
+        run: node site/tests/smoke.mjs
