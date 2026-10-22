@@ -21,7 +21,7 @@
   ],
   // The live lab agent's runs and public score (server/lab-agent.js). Created with: wrangler d1 create sergioadan-lab
   "d1_databases": [
-    { "binding": "LAB_DB", "database_name": "sergioadan-lab", "database_id": "00000000-0000-0000-0000-000000000000" }
+    { "binding": "LAB_DB", "database_name": "sergioadan-lab", "database_id": "5d80a04c-5cea-465a-87a8-0a03e41421fa" }
   ],
   "workers_dev": false,
   "routes": [
