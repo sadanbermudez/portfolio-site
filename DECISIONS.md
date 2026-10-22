@@ -486,6 +486,27 @@ A review of the whole site against the question "is it secure?", on branch `secu
 
 **Decision.** `site/tests/smoke.mjs` serves `dist/` with the headers from `_headers` (so the CSP is enforced), opens every page in Chromium at 1280×800 and as a 390×844 phone, scrolls it, and fails on a script error, a console error, a missing local file or a page wider than the phone screen. Third-party hosts being unreachable is not counted. CI installs Playwright 1.63.0 without saving it to the repository and runs the test after the unit tests. First run: 13 pages, both sizes, no errors.
 
+### 17. The MoE case study as a token's journey
+
+**Context.** The moe-offload-lab results lived only in a GitHub README. The finding is about time inside a layer: threads sleeping at about 500 barriers per token cost the shipped engine a third of its speed. A table states that but does not show it.
+
+**Decision.** `work/moe.html` and `moe.js`: a canvas that follows one token through the 43 layers. At each layer, 6 of 256 experts light up (amber in RAM, blue streaming from the SSD), and twelve thread lanes draw router, compute, spinning and sleeping. The story's chapters switch between the measured builds, and the buttons do the same.
+- **Measured:** token time and CPU use, the means of the 21 October runs (on battery, like for like).
+- **From colibri's source:** the order of the steps inside a layer.
+- **Modelled:** the lengths of those steps, scaled to the measured token time.
+- **Random:** the expert picks, seeded, because the routing was not recorded.
+- **Projection:** "what if", labelled and outlined on the canvas.
+
+The page says all of this. It also has two smaller pieces:
+- a race that writes the 24 tokens every run produced, at each build's measured speed, in real time;
+- a calculator for the drive-bound ceiling: 43 × 6 × 13.4 MB × the share not cached, divided by drive speed.
+
+Loops stop off screen and in hidden tabs. With reduced motion, the canvas is a still frame and the race shows its result.
+
+**Trade-offs.**
+- The like-for-like runs were on battery, so speeds are lower than on mains (0.49 tok/s shipped). The page says so next to the numbers.
+- The calculator's ceiling assumes perfect overlap, so it is an upper bound.
+
 ## Known limits and what comes next
 
 - **Old version at the root.** `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first single-page site, kept for reference (the README says so). Next: move them into an `archive/` folder.
