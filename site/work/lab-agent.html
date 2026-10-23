@@ -170,6 +170,42 @@
       </div>
     </section>
 
+    <section class="block" id="live">
+      <div class="side"><p class="label">Run it live</p><p class="mono">a new sample every time</p></div>
+      <div class="main wide">
+        <h2>Your turn: start a run and watch it work</h2>
+        <p class="live-intro">Press run and the server prepares a fresh sample, one-photon or two-photon, chosen at random and kept hidden. A model on Cloudflare (Gemma 4 26B) then works the same bench through the same tools and safety layer, ported from the MCP server. Every call appears as it happens, and the answer is revealed and graded at the end. Every graded run counts in the public score below.</p>
+        <div class="lab-grid">
+          <div class="panel">
+            <div class="panel-head"><span class="live">agent · Gemma 4 26B · Workers AI</span><button class="replay" id="live-go" type="button">Run the experiment</button></div>
+            <div class="console" id="live-console" role="log" aria-live="polite" aria-label="Live agent tool calls">
+              <div class="ln"><span class="t">→</span><span class="call">waiting for a run</span><span class="ret"></span></div>
+            </div>
+          </div>
+          <div class="panel live-plots">
+            <div class="panel-head"><span>spectra as measured</span><span id="live-truth">hidden sample: ?</span></div>
+            <canvas id="live-spectra" aria-label="Each spectrum the agent records, brighter for higher laser power"></canvas>
+            <div class="panel-head mid"><span>peak area vs power · log-log</span><span id="live-fit" class="result"></span></div>
+            <canvas id="live-loglog" aria-label="Peak area against laser power with the agent's fit"></canvas>
+          </div>
+        </div>
+        <div class="readings flat live-score" id="live-score" aria-live="polite">
+          <div><span class="label">Visitor runs, graded</span><span class="value" id="s-runs">–</span></div>
+          <div><span class="label">Correct</span><span class="value" id="s-correct">–</span><span class="note" id="s-ci"></span></div>
+          <div><span class="label">Finished in safe state</span><span class="value" id="s-safe">–</span><span class="note">laser off and disarmed by the agent itself</span></div>
+          <div><span class="label">Live runs left today</span><span class="value" id="s-today">–</span><span class="note" id="s-cost"></span></div>
+        </div>
+        <p class="mono">How runs are graded:</p>
+        <ul class="mono live-rules">
+          <li>The server grades every run: the answer counts only if the photon order matches the hidden sample.</li>
+          <li>No answer within 7 replies counts as wrong.</li>
+          <li>A run that fails on Cloudflare's side is recorded but not graded.</li>
+          <li>The safe-state figure is a real finding: models often forget the last safety step, so the bench switches the laser off itself.</li>
+          <li>Live runs share a free daily allowance with Jarvis, so they are capped at 40 a day and 2 a minute per visitor.</li>
+        </ul>
+      </div>
+    </section>
+
     <section class="block" id="physics">
       <div class="side"><p class="label">What it got wrong</p><p class="mono">the photophysics</p></div>
       <div class="main wide">
@@ -246,5 +282,6 @@
 <script src="../lab.js"></script>
 <script src="../scrolly.js"></script>
 <script src="../lab-page.js"></script>
+<script src="../lab-live.js"></script>
 </body>
 </html>

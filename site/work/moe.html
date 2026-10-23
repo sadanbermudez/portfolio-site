@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>One token through 284B parameters · Sergio Adan Bermudez</title>
+<meta name="description" content="Follow one token through the 43 layers of a 284-billion-parameter model running on a laptop, switch between the engine builds I measured, and see where the time goes.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sergio Adan Bermudez">
+<meta property="og:title" content="One token through 284B parameters · Sergio Adan Bermudez">
+<meta property="og:description" content="Follow one token through the 43 layers of a 284-billion-parameter model running on a laptop, switch between the engine builds I measured, and see where the time goes.">
+<meta property="og:image" content="https://sergioadan.dev/data/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sergio Adan Bermudez, AI engineer: I make AI systems fast on real hardware, and I measure every change.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../immersive.css">
+</head>
+<body>
+<div class="top-wrap gutter">
+  <header class="top page">
+    <a class="brand" href="../index.html">Sergio Adan Bermudez</a>
+    <nav aria-label="Site"><a href="../index.html#worlds">Projects</a><a href="../index.html#apps">Apps</a><a href="../jarvis.html">Jarvis</a><a href="../index.html#roles">Roles</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a><a class="nav-cv" href="../cv.html">CV</a></nav>
+  </header>
+</div>
+
+<main class="gutter">
+  <div class="page">
+    <section class="article-head">
+      <p class="label">Case study · inference performance · DeepSeek V4 Flash on colibri · 21 October 2026</p>
+      <h1>One token through 284 billion parameters</h1>
+      <p class="lede">A 284-billion-parameter model runs on my laptop at about half a word per second, while its drive and its cores sit mostly idle. Follow one token through the model's 43 layers, switch between the engine builds I measured, and watch where the time goes.</p>
+      <div class="readings">
+        <div><span class="label">Model on disk</span><span class="value">167 GB <span class="mono">· 64 GB RAM</span></span></div>
+        <div><span class="label">Weights read per token</span><span class="value">3.45 GB</span></div>
+        <div><span class="label">Same text, same machine</span><span class="value">0.21 → <span class="result">0.35 tok/s</span></span></div>
+      </div>
+    </section>
+
+    <section class="split" aria-label="Where a token's time goes, step by step">
+      <div class="stepper">
+        <div class="st on" data-config="shipped"><span class="chapter-num">01 · THE WORKLOAD</span><h3>Six experts out of 256, 43 times</h3><p>DeepSeek V4 Flash is a mixture of experts. At each of its 43 layers a small router picks 6 of 256 experts for the current token, so a token touches 258 experts: 3.45 GB of 4-bit weights. 64 GB of RAM cannot hold 167 GB, so colibri keeps the rest of the model in RAM and streams experts from the SSD. Popular experts stay cached: 37% of the experts in my runs were already in RAM (amber); the rest came from the drive (blue).</p></div>
+        <div class="st" data-config="shipped"><span class="chapter-num">02 · THE DRIVE</span><h3>The drive is not the limit</h3><p>My storage benchmark reads expert-sized blocks at random with the OS cache bypassed: 4.8 GB/s with two to four reads in flight. During decoding the engine reads 0.72 GB/s. At full speed the drive alone would allow about 1.5 to 2 tokens per second, three to four times what the engine reaches.</p></div>
+        <div class="st" data-config="shipped"><span class="chapter-num">03 · A CHAIN OF 43 STEPS</span><h3>Cores busy a third of the time</h3><p>Each router must finish before the engine knows which experts to load, so a token is a chain of 43 dependent load-then-compute steps. More threads made it faster, so compute is on the critical path, yet the cores were busy only about a third of the time. Watch the twelve thread lanes in the panel: most of each layer is waiting.</p></div>
+        <div class="st" data-config="avx512"><span class="chapter-num">04 · THE MISSING INSTRUCTIONS</span><h3>AVX-512 never runs</h3><p>The Windows release is compiled for AVX2 with no runtime dispatch. In the shipped engine I counted 0 instructions on AVX-512 registers and 6,224 on AVX2 ones, so its AVX-512 4-bit kernel never runs. My own AVX-512 kernel does a token's 258 experts in 0.08 s on 12 cores. Rebuilt for Zen 5, the engine was 9% faster.</p></div>
+        <div class="st" data-config="spin"><span class="chapter-num">05 · THREADS THAT FALL ASLEEP</span><h3>The big gap: 500 wake-ups a token</h3><p>A second build with a different compiler and OpenMP runtime, same instruction set, was 50 to 55% faster. In GCC's OpenMP on Windows, threads waiting at a barrier go to sleep straight away; there is no spin loop, and the settings that ask for one have no effect there. colibri crosses about 500 barriers per token. LLVM's runtime spins instead: CPU use rises from 9% to 46%, and the waits disappear.</p></div>
+        <div class="st" data-config="passive"><span class="chapter-num">06 · THE CONTROL</span><h3>Told to sleep, the fast build loses it all</h3><p>One variable at a time: the fast build with <code>OMP_WAIT_POLICY=passive</code> fell back to the shipped engine's speed and CPU use. Asking the shipped engine to spin changed nothing. Wake-ups explain the whole gap, not the generated code. Every run wrote the same 24 tokens (same hash).</p></div>
+        <div class="st" data-config="overlap"><span class="chapter-num">07 · WHAT IF</span><h3>Let the drive set the pace</h3><p>A projection, not a measurement: guess the next layer's experts from the current hidden state, load them while this layer computes, and cut the barriers to one per layer. Then the drive would set the pace, three to four times today's speed. These are the next experiments, and the panel marks this mode as a projection.</p></div>
+      </div>
+      <div class="pin">
+        <div class="panel moe-panel">
+          <div class="panel-head"><span class="live" id="moe-where">token 1 · layer 1 of 43</span><button type="button" class="replay" id="moe-speed" title="Switch between slow motion and real time">slow ×10 ⇄</button></div>
+          <canvas id="moe" class="moe-canvas" role="img" aria-label="One token passing through 43 layers: at each layer a router picks 6 of 256 experts, cached experts light up amber, the others stream in from the SSD in blue, and twelve thread lanes show compute, spinning and sleeping."></canvas>
+          <div class="moe-controls">
+            <div class="moe-switch" role="group" aria-label="Engine build">
+              <button type="button" data-config="shipped" aria-pressed="true">shipped</button>
+              <button type="button" data-config="avx512" aria-pressed="false">+ AVX-512</button>
+              <button type="button" data-config="spin" aria-pressed="false">threads spin</button>
+              <button type="button" data-config="passive" aria-pressed="false">told to sleep</button>
+              <button type="button" data-config="overlap" aria-pressed="false">what if</button>
+            </div>
+          </div>
+          <div class="moe-read" aria-live="polite">
+            <div><span class="label">Build</span><span id="moe-build"></span></div>
+            <div><span class="label">Speed</span><span class="num" id="moe-tok"></span></div>
+            <div><span class="label">CPU</span><span class="num" id="moe-cpu"></span></div>
+          </div>
+          <p class="mono moe-note" id="moe-note"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="race">
+      <div class="side"><p class="label">The race</p><p class="mono">real time</p></div>
+      <div class="main wide">
+        <div class="panel">
+          <div class="panel-head"><span>The 24 tokens it wrote, at each build's measured speed</span><button type="button" class="replay" id="race-go">restart</button></div>
+          <div class="race" id="race-lanes"></div>
+        </div>
+        <p class="mono">The prompt: "Explain in three sentences why a mixture-of-experts model needs less compute per token than a dense model of the same size." Every run stopped at 24 tokens, all with the same output. Token boundaries are approximate. The last lane is a projection.</p>
+      </div>
+    </section>
+
+    <section class="block" id="calc">
+      <div class="side"><p class="label">Try it</p><p class="mono">the arithmetic, live</p></div>
+      <div class="main wide">
+        <div class="panel moe-calc">
+          <div class="panel-head"><span>How fast could the drive go?</span><span>43 layers × 6 experts × 13.4 MB</span></div>
+          <div class="calc-body">
+            <label class="calc-row"><span class="label">Experts found in RAM</span><input type="range" id="c-hit" min="0" max="90" step="1" value="37"><output class="num" id="c-hit-v" for="c-hit"></output></label>
+            <label class="calc-row"><span class="label">Drive, GB/s</span><input type="range" id="c-bw" min="0.5" max="14" step="0.1" value="4.8"><output class="num" id="c-bw-v" for="c-bw"></output></label>
+            <div class="calc-presets"><button type="button" class="replay" data-hit="37" data-bw="4.8">my laptop</button><button type="button" class="replay" data-hit="37" data-bw="12">PCIe 5 drive</button><button type="button" class="replay" data-hit="8" data-bw="4.8">colibri's 8% plan</button></div>
+            <div class="calc-out" id="c-out" aria-live="polite"></div>
+          </div>
+        </div>
+        <p class="mono">An upper bound: it assumes loads and compute overlap perfectly. The measured line is the shipped engine on mains power (0.49 tok/s).</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="side"><p class="label">Results</p></div>
+      <div class="main wide">
+        <div class="table-scroll" role="region" aria-label="Measured engine runs" tabindex="0">
+          <table class="stack cols">
+            <thead><tr><th>Engine build, one variable changed</th><th>Decode tok/s</th><th>CPU</th><th>What it shows</th></tr></thead>
+            <tbody>
+              <tr><td>Shipped (GCC, libgomp, AVX2)</td><td class="n" data-label="Decode tok/s">0.197 to 0.227 (4 runs)</td><td class="n" data-label="CPU">9%</td><td data-label="What it shows">The baseline</td></tr>
+              <tr><td>Shipped, told to spin</td><td class="n" data-label="Decode tok/s">0.221, 0.225</td><td class="n" data-label="CPU">9%</td><td data-label="What it shows">The setting has no effect on Windows</td></tr>
+              <tr><td>clang, libomp, AVX2</td><td class="n result" data-label="Decode tok/s">0.321 to 0.326 (4 runs)</td><td class="n" data-label="CPU">46%</td><td data-label="What it shows">Threads spin: about 50% faster</td></tr>
+              <tr><td>clang, libomp, AVX2, told to sleep</td><td class="n" data-label="Decode tok/s">0.215, 0.212</td><td class="n" data-label="CPU">10%</td><td data-label="What it shows">Back to the baseline: the waits are the gap</td></tr>
+              <tr><td>clang, libomp, AVX-512 (Zen 5)</td><td class="n result" data-label="Decode tok/s">0.349, 0.357</td><td class="n" data-label="CPU">46%</td><td data-label="What it shows">AVX-512 adds about 9%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mono">These 14 runs were on battery, so compare them with each other: on mains the shipped engine does 0.49 tok/s. Each run restored the same expert-usage snapshot first, every run found 37% of its experts in RAM, and all 14 produced the same text. Rerunning on mains power is the next experiment.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="side"><p class="label">Method</p></div>
+      <div class="main prose">
+        <h2>How it was measured</h2>
+        <ul>
+          <li><strong>A model of the workload</strong> from the model's config: bytes per token, expert sizes, what the cache saves.</li>
+          <li><strong>A storage benchmark</strong> in C++20 that reads expert-sized blocks at random, bypassing the OS cache. Clean under ThreadSanitizer and AddressSanitizer.</li>
+          <li><strong>An AVX-512 kernel</strong> for 4-bit weights that decodes 16 weights per permute instruction, checked against a scalar version on every run.</li>
+          <li><strong>Profiled runs</strong> of the engine, and two engine builds from the same source, so one variable changes at a time.</li>
+        </ul>
+        <p>In the panel, the order of the steps inside a layer comes from colibri's source. Their lengths are a model, scaled so each token takes the measured time. Which experts light up is random: the routing itself was not recorded.</p>
+        <p>I designed and directed this work; the code, builds and measurements were carried out by Claude Code running as my agent, with every change to a running system approved by me first.</p>
+        <p class="mono">C++20 · AVX-512 · OpenMP (libgomp, libomp) · clang, llvm-mingw · GCC · PowerShell · Python</p>
+        <div class="cta"><a class="btn" href="https://github.com/sadanbermudez/moe-offload-lab" rel="noopener" target="_blank">The code and every run on GitHub →</a><a class="btn" href="llama-cpp-stall.html">Another stall, taken apart →</a><a class="back" href="../index.html#worlds">← All projects</a></div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="mono">Measured on an AMD Ryzen AI Max+ 392 laptop, 64 GB, Windows 11, 21 October 2026.</p>
+    </footer>
+  </div>
+</main>
+<script src="../scrolly.js"></script>
+<script src="../moe.js"></script>
+</body>
+</html>

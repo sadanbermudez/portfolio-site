@@ -12,11 +12,16 @@
     "run_worker_first": ["/api/*"]
   },
   "ai": { "binding": "AI" },
-  // Per visitor and Cloudflare location: 8 questions, 6 recordings and 60 spoken sentences a minute
+  // Per visitor and Cloudflare location: 8 questions, 6 recordings, 60 spoken sentences and 2 lab runs a minute
   "ratelimits": [
     { "name": "CHAT_LIMIT", "namespace_id": "1001", "simple": { "limit": 8, "period": 60 } },
     { "name": "STT_LIMIT", "namespace_id": "1002", "simple": { "limit": 6, "period": 60 } },
-    { "name": "SPEAK_LIMIT", "namespace_id": "1003", "simple": { "limit": 60, "period": 60 } }
+    { "name": "SPEAK_LIMIT", "namespace_id": "1003", "simple": { "limit": 60, "period": 60 } },
+    { "name": "LAB_LIMIT", "namespace_id": "1004", "simple": { "limit": 2, "period": 60 } }     // live lab-agent runs
+  ],
+  // The live lab agent's runs and public score (server/lab-agent.js). Created with: wrangler d1 create sergioadan-lab
+  "d1_databases": [
+    { "binding": "LAB_DB", "database_name": "sergioadan-lab", "database_id": "5d80a04c-5cea-465a-87a8-0a03e41421fa" }
   ],
   "workers_dev": false,
   "routes": [

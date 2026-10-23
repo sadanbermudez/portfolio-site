@@ -491,3 +491,61 @@ details.more[open] summary { margin-bottom: 8px; }
 /* The 90-second narrated video on the llama.cpp case study: full column width, never wider than the screen. */
 .story-video { margin: 28px 0 0; display: grid; gap: 8px; }
 .story-video video { width: 100%; height: auto; display: block; background: #000; border: 1px solid var(--rule); }
+
+/* MoE case study (work/moe.html): the token-journey canvas, the build switch, the race and the calculator. */
+.moe-canvas { display: block; width: 100%; height: 330px; }
+.moe-controls { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; padding: 10px 14px; border-top: 1px solid var(--rule); }
+.moe-switch { display: flex; flex-wrap: wrap; border: 1px solid var(--rule); }
+.moe-switch button { font-family: var(--font-data); font-size: var(--step--2); letter-spacing: 0.04em; padding: 8px 10px; background: transparent; color: var(--muted); border: 0; cursor: pointer; }
+.moe-switch button:hover { color: var(--ink); }
+.moe-switch button[aria-pressed="true"] { color: var(--bg); background: var(--ink); }
+.moe-switch button[data-config="overlap"][aria-pressed="true"] { background: none; color: var(--emit); box-shadow: inset 0 0 0 1px var(--emit); }
+@media (pointer: coarse) { .moe-switch button { min-height: 40px; } }
+.moe-read { display: grid; grid-template-columns: 1.3fr 1.2fr 0.5fr; gap: 1px; background: var(--rule); border-top: 1px solid var(--rule); }
+.moe-read > div { background: var(--panel); padding: 8px 14px; display: grid; gap: 2px; font-family: var(--font-data); font-size: var(--step--2); color: var(--ink); min-width: 0; }
+.moe-note { padding: 8px 14px 12px; min-height: 3.4em; }
+.moe-panel.projection .moe-canvas { outline: 1px dashed var(--emit); outline-offset: -1px; }
+.split > * { min-width: 0; }   /* a wide child (the build row) must not widen the column */
+.moe-panel .panel-head { align-items: center; }
+.moe-panel .panel-head .replay { padding-block: 2px; }
+@media (max-width: 640px) {   /* pinned above the story on phones: one row of builds, one row of readings */
+  .moe-panel .panel-head { padding: 6px 12px; flex-wrap: nowrap; }
+  .moe-controls { padding: 6px 12px; }
+  .moe-switch { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+  .moe-switch button { padding: 8px 9px; white-space: nowrap; flex: none; }
+  .moe-read { grid-template-columns: 1.4fr 0.6fr; }
+  .moe-read > div { padding: 6px 12px; }
+  .moe-read > div:first-child { display: none; }
+}
+@media (max-width: 900px) { .split .pin .moe-note { display: none; } }   /* pinned above the story, keep the panel short */
+.race { display: grid; gap: 1px; background: var(--rule); }
+.race .lane { background: var(--panel); padding: 12px 14px; display: grid; gap: 6px; }
+.race .lane-head { display: flex; justify-content: space-between; gap: 12px; font-family: var(--font-data); font-size: var(--step--2); color: var(--muted); }
+.race .lane-text { font-family: var(--font-data); font-size: var(--step--1); color: var(--ink); min-height: 1.6em; overflow-wrap: anywhere; }
+.race .lane-bar { height: 3px; background: #0b0f14; }
+.race .lane-bar i { display: block; height: 100%; width: 0; background: var(--cool); transition: width 0.3s; }
+.race .lane.projection .lane-bar i { background: var(--emit); }
+.race .lane.projection .lane-head span:first-child { color: var(--emit); }
+.calc-body { padding: 16px 14px; display: grid; gap: 14px; }
+.calc-row { display: grid; grid-template-columns: 190px minmax(0, 1fr) 56px; gap: 12px; align-items: center; }
+.calc-row input { width: 100%; accent-color: var(--emit); }
+.calc-row output { text-align: right; }
+@media (max-width: 640px) { .calc-row { grid-template-columns: minmax(0, 1fr) 56px; } .calc-row input { grid-column: 1 / -1; grid-row: 2; min-height: 32px; } }
+.calc-presets { display: flex; flex-wrap: wrap; gap: 8px; }
+.calc-out { display: grid; gap: 10px; border-top: 1px solid var(--rule); padding-top: 14px; font-size: var(--step--1); }
+.calc-bar { display: grid; gap: 4px; }
+.calc-bar .track { height: 14px; background: #0b0f14; border: 1px solid var(--rule); }
+.calc-bar i { display: block; height: 100%; transition: width 0.25s; }
+.calc-bar i.ceil { background: var(--emit); }
+.calc-bar i.meas { background: var(--cool); }
+@media (prefers-reduced-motion: reduce) { .race .lane-bar i, .calc-bar i { transition: none; } }
+
+/* Live lab-agent run (work/lab-agent.html#live, lab-live.js) */
+.live-intro { max-width: var(--measure); color: #c3cad4; }
+.live-rules { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+.live-plots canvas { display: block; width: 100%; height: 170px; }
+.live-plots .panel-head.mid { border-top: 1px solid var(--rule); }
+.console .ln.note .call { color: var(--muted); }
+.console .ln.note .call i { font-style: normal; }
+.live-score .note { font-size: var(--step--2); color: var(--muted); }
+#live-go[disabled] { opacity: 0.6; cursor: progress; }

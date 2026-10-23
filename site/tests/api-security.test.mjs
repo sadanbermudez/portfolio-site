@@ -59,7 +59,7 @@ ok('JSON bodies: only an object under the size limit is accepted');
 
 // ---------- the Worker: every route is rate-limited, responses carry no CORS and their own headers ----------
 const worker = readFileSync(join(here, 'server', 'worker.js'), 'utf8');
-const handler = { '/api/chat': 'chat', '/api/tutor': 'tutor', '/api/transcribe': 'transcribe', '/api/speak': 'speak', '/api/fit': 'fit' };
+const handler = { '/api/chat': 'chat', '/api/tutor': 'tutor', '/api/transcribe': 'transcribe', '/api/speak': 'speak', '/api/fit': 'fit', '/api/lab': 'lab' };
 assert.deepEqual(Object.keys(API_ROUTES).sort(), Object.keys(handler).sort());
 for (const [route, fn] of Object.entries(handler)) {
   const body = worker.slice(worker.indexOf('async function ' + fn + '('));
