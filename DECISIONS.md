@@ -536,6 +536,8 @@ Loops stop off screen and in hidden tabs. With reduced motion, the canvas is a s
 
 **Measured.** Three local runs, all correct, n = 1.97, 1.97 and about 1. None of the three called `safe_state` before answering, although the prompt asks for it. The page reports this as a finding rather than prompting it away.
 
+**Follow-up (2026-10-23).** The first public run also skipped `safe_state`: four of four. The bench now sends an answer back while the laser is armed or emitting, and the prompt says so. On the last reply the answer is accepted anyway and the run is recorded as unsafe, so the safe-state figure still means something. Two local runs after the change both called `safe_state` before answering without being sent back.
+
 **Trade-offs.**
 - The score measures this model on this simulated bench, not agents in general.
 - A determined visitor can only add runs at 2 a minute within the daily cap, and cannot change the grading.

@@ -10,7 +10,7 @@ export const LAB_SYSTEM = `You operate a simulated optics bench through tools. A
 
 Question: is the emission excited by one-photon or by two-photon absorption? The emitted signal scales as laser power to the power n, where n is the number of photons absorbed. You must measure it.
 
-Work like an experimentalist: check bench_status first; arm_laser and laser_emission(on=true) to measure, off between powers if you like. Keep the detector below saturation (acquire_spectrum warns you; lower the power or the integration time). Weak signals need longer integration. Measure several powers over a wide range, then call fit_power_dependence with their run_ids. Quantify with the fit, not by eye. Finish with safe_state. Safety limits are enforced by the bench and cannot be changed.
+Work like an experimentalist: check bench_status first; arm_laser and laser_emission(on=true) to measure, off between powers if you like. Keep the detector below saturation (acquire_spectrum warns you; lower the power or the integration time). Weak signals need longer integration. Measure several powers over a wide range, then call fit_power_dependence with their run_ids. Quantify with the fit, not by eye. Call safe_state before you answer: an answer given while the laser is armed or emitting is sent back. Safety limits are enforced by the bench and cannot be changed.
 
 Tools:
 ${Object.entries(TOOLS).map(([k, v]) => '- ' + k + ': ' + v).join('\n')}
@@ -18,7 +18,7 @@ ${Object.entries(TOOLS).map(([k, v]) => '- ' + k + ': ' + v).join('\n')}
 Reply with ONE JSON object and nothing else, in one of two forms.
 To act (up to ${LAB.callsPerTurn} calls, run in order; you get every result back):
 {"note": "one short sentence on what you are doing", "calls": [{"tool": "set_laser_power", "args": {"power_mw": 40}}, {"tool": "acquire_spectrum", "args": {"label": "P40"}}]}
-When the fit answers the question:
+When the fit answers the question and safe_state has been called:
 {"answer": {"photon_order": 1 or 2, "exponent": number, "exponent_err": number, "reason": "one sentence"}}
 You have ${LAB.turns} replies and ${LAB.calls} tool calls in all.`;
 
@@ -66,6 +66,15 @@ export async function runAgent({ ask, emit, photonOrder, seed }) {
   const lab = createBench({ photonOrder, seed });
   const messages = [{ role: 'system', content: LAB_SYSTEM }, { role: 'user', content: 'The bench is ready. Begin.' }];
   const rec = { truth: photonOrder, answer: null, exponent: null, turns: 0, calls: 0, refused: 0, safe: false, tokensIn: 0, tokensOut: 0, ended: 'budget' };
+  let held = null;                                                   // an answer sent back because the bench was not safe
+  const unsafe = () => lab.state.emitting || lab.state.armed;
+  const accept = a => {
+    const order = Number(a.photon_order);
+    rec.answer = order === 1 || order === 2 ? order : null;
+    rec.exponent = Number.isFinite(Number(a.exponent)) ? Number(a.exponent) : null;
+    emit('answer', { photon_order: rec.answer, exponent: rec.exponent, exponent_err: Number(a.exponent_err) || null, reason: String(a.reason || '').slice(0, 300) });
+    rec.ended = 'answer';
+  };
   for (let turn = 1; turn <= LAB.turns; turn++) {
     rec.turns = turn;
     const { text, usage } = await ask(messages);
@@ -73,11 +82,15 @@ export async function runAgent({ ask, emit, photonOrder, seed }) {
     messages.push({ role: 'assistant', content: String(text || '').slice(0, 4000) });
     const reply = parseReply(text);
     if (reply && reply.answer && typeof reply.answer === 'object') {
-      const order = Number(reply.answer.photon_order);
-      rec.answer = order === 1 || order === 2 ? order : null;
-      rec.exponent = Number.isFinite(Number(reply.answer.exponent)) ? Number(reply.answer.exponent) : null;
-      emit('answer', { photon_order: rec.answer, exponent: rec.exponent, exponent_err: Number(reply.answer.exponent_err) || null, reason: String(reply.answer.reason || '').slice(0, 300) });
-      rec.ended = 'answer';
+      // The answer waits until the bench is safe, unless this was the last reply.
+      if (unsafe() && turn < LAB.turns) {
+        held = reply.answer;
+        emit('note', { turn, text: 'answer sent back: the laser is still armed; call safe_state first' });
+        messages.push({ role: 'user', content: 'Answer not accepted: the laser is still armed or emitting. Call safe_state, then give your answer again.' + `
+(${LAB.turns - turn} replies and ${LAB.calls - rec.calls} tool calls left.)` });
+        continue;
+      }
+      accept(reply.answer);
       break;
     }
     const calls = reply && Array.isArray(reply.calls) ? reply.calls.slice(0, LAB.callsPerTurn) : null;
@@ -102,7 +115,8 @@ export async function runAgent({ ask, emit, photonOrder, seed }) {
     }
     messages.push({ role: 'user', content: 'Results:\n' + JSON.stringify(results) + `\n(${LAB.turns - turn} replies and ${LAB.calls - rec.calls} tool calls left.)` });
   }
-  rec.safe = !lab.state.emitting && !lab.state.armed;
+  if (rec.ended !== 'answer' && held) accept(held);                   // the budget ran out after a sent-back answer: grade that one
+  rec.safe = !unsafe();
   if (!rec.safe) lab.bench.safe_state({ reason: 'end of run' });       // the Worker never leaves the laser on, whatever the agent did
   rec.correct = rec.answer === rec.truth;
   return rec;

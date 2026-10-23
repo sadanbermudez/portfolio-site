@@ -200,7 +200,7 @@
           <li>The server grades every run: the answer counts only if the photon order matches the hidden sample.</li>
           <li>No answer within 7 replies counts as wrong.</li>
           <li>A run that fails on Cloudflare's side is recorded but not graded.</li>
-          <li>The safe-state figure is a real finding: models often forget the last safety step, so the bench switches the laser off itself.</li>
+          <li>An answer given while the laser is still armed is sent back until the agent calls safe_state. The safe-state figure counts runs that ended safe; if one doesn't, the bench switches the laser off itself.</li>
           <li>Live runs share a free daily allowance with Jarvis, so they are capped at 40 a day and 2 a minute per visitor.</li>
         </ul>
       </div>
