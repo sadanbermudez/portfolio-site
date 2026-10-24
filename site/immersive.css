@@ -641,3 +641,18 @@ details.more[open] summary { margin-bottom: 8px; }
   .masters { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
   .master { flex: 0 0 70%; scroll-snap-align: start; }
 }
+
+/* Argus page: the router demo (router-demo.js). */
+.rt-panel { padding: 14px 16px; display: grid; gap: 10px; margin: 14px 0 20px; }
+.rt-examples { display: flex; flex-wrap: wrap; gap: 8px; }
+.rt-panel textarea { width: 100%; font: var(--step--1) var(--font-data); background: var(--bg); color: var(--ink); border: 1px solid var(--rule); padding: 10px; resize: vertical; }
+.rt-out { display: grid; gap: 6px; }
+.rt-row { display: grid; grid-template-columns: 11rem minmax(0, 1fr) 3.5rem; gap: 10px; align-items: center; font-family: var(--font-data); font-size: var(--step--2); color: var(--muted); }
+.rt-row.on { color: var(--ink); }
+.rt-bar { height: 10px; background: var(--rule); position: relative; }
+.rt-bar i { position: absolute; inset: 0 auto 0 0; background: var(--muted); transition: width .2s; }
+.rt-row.on .rt-bar i { background: var(--c-soft); }
+.rt-pct { text-align: right; font-variant-numeric: tabular-nums; }
+.rt-verdict { margin: 0; min-height: 3em; }
+@media (max-width: 520px) { .rt-row { grid-template-columns: 7.5rem minmax(0, 1fr) 3rem; } }
+@media (prefers-reduced-motion: reduce) { .rt-bar i { transition: none; } }

@@ -245,6 +245,30 @@
       <ol class="ag-steps" id="tour-steps" aria-label="Tour stops"></ol>
     </section>
 
+    <section class="block" id="router" aria-labelledby="rt-h">
+      <div class="side"><p class="label">Try it</p><p class="mono">runs in your browser · nothing is sent</p></div>
+      <div class="main wide">
+        <h2 class="h-block" id="rt-h">Which brain would Argus use?</h2>
+        <p class="kicker">Argus has three brains: the local model, free cloud models and Claude. A small learned router decides which one takes each request before any model runs, and personal data never goes to a free model. This is that router, in your browser.</p>
+        <div class="panel rt-panel">
+          <div class="rt-examples" role="group" aria-label="Examples">
+            <button type="button" class="btn" data-rt="What's 15% of 240?">a quick sum</button>
+            <button type="button" class="btn" data-rt="Have a stronger model write a 300-word explainer of how vaccines work, for a public blog.">a public explainer</button>
+            <button type="button" class="btn" data-rt="Fix the failing test in memory-server/tests/test_vault.py and update vault.py.">a code fix</button>
+            <button type="button" class="btn" data-rt="Ask a bigger model to polish my email to the bank about my overdraft on my current account.">a private email</button>
+          </div>
+          <label class="label" for="rt-text">Your request</label>
+          <textarea id="rt-text" rows="3" maxlength="2000" spellcheck="false" placeholder="e.g. Refactor the hub so services start in parallel"></textarea>
+          <div class="rt-out" id="rt-out" aria-hidden="true"></div>
+          <p class="rt-verdict" id="rt-verdict" aria-live="polite"></p>
+        </div>
+        <div class="prose">
+          <p><strong>Why a router, not the model's own judgement:</strong> on 16 routing tasks it never saw in training, the local model routing itself passed 7. With this router choosing which tools it is offered, it passed 13. Advice alone, written into its instructions, passed 8: a small model follows a hint less reliably than a narrower choice.</p>
+          <p class="mono">A logistic regression over word and character patterns, trained on 160 hand-written examples, 175 KB here; about 40 ms per decision in Argus (Python). In Argus a personal-data screen (emails, phone, card and ID numbers, addresses, health and money) also overrides it; that screen is not on this page.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="block" aria-labelledby="arch-h">
       <div class="side"><p class="label">How it fits</p><p class="mono">capability level</p></div>
       <div class="main wide">
@@ -380,5 +404,8 @@
   </div>
 </main>
 <script src="argus.js"></script>
+<script src="data/router-model.js"></script>
+<script src="router-core.js"></script>
+<script src="router-demo.js"></script>
 </body>
 </html>
