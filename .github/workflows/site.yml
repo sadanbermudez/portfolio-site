@@ -36,6 +36,8 @@ jobs:
         run: node site/tests/lab-agent.test.mjs
       - name: Visitor statistics (no IP or browser string stored, daily visitor code, bots skipped, key check)
         run: node site/tests/stats.test.mjs
+      - name: Router demo (the browser router decides as Argus's Python router on every routing eval prompt)
+        run: node site/tests/router.test.mjs
       - name: La Piña demo (rules engine, indicators, verdicts, ported from the Kotlin tests)
         run: node site/tests/la-pina.test.mjs
       - name: Spanish Tutor demo (search, grading, goals, reply parser, tutor prompt)
