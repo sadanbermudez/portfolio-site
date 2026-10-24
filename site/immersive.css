@@ -618,3 +618,26 @@ details.more[open] summary { margin-bottom: 8px; }
 .fw-mem .moe-read { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 640px) { .fw-mem .moe-read > div:first-child { display: grid; } }
 @media (prefers-reduced-motion: reduce) { .fw-cell, .fw-level i { transition: none; } }
+
+/* Chess: the master-games picker (masters.js) and the lesson notes and board ideas in the viewer (chess.js). */
+.masters { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; margin: 14px 0; }
+.master { text-align: left; font: inherit; color: var(--ink); background: var(--panel); border: 1px solid var(--rule); padding: 10px 12px; cursor: pointer; display: grid; gap: 2px; min-width: 0; }
+.master:hover { border-color: var(--muted); }
+.master[aria-pressed="true"] { border-color: var(--c-soft); box-shadow: inset 3px 0 0 var(--c-soft); }
+.master .t { font-family: var(--font-display); font-weight: 600; }
+.master .s { font-family: var(--font-data); font-size: var(--step--2); color: var(--muted); }
+.master.mine .t { color: var(--muted); }
+.master-lesson { padding: 14px 16px; display: grid; gap: 8px; }
+.master-lesson h3 { margin: 0; }
+.master-lesson p { margin: 0; }
+.lesson-note { display: grid; gap: 4px; padding: 10px 12px; margin-bottom: 8px; border-left: 3px solid var(--c-soft); background: rgba(53, 208, 180, 0.05); }
+.lesson-note p { margin: 0; font-size: var(--step--1); line-height: 1.5; }
+.lesson-note .verdict { font-family: var(--font-data); font-size: var(--step--2); letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-soft); }
+.ideas { margin: 10px 0; display: grid; gap: 4px; }
+.ideas p { margin: 0; font-size: var(--step--1); }
+.ideas p:not(.label)::before { content: "◆ "; color: var(--c-soft); }
+@media (pointer: coarse) { .master { min-height: 44px; } }
+@media (max-width: 640px) {   /* phones: one row of games to swipe, so the board stays close */
+  .masters { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+  .master { flex: 0 0 70%; scroll-snap-align: start; }
+}

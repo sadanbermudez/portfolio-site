@@ -46,7 +46,7 @@
       <p class="label plain-where">The short version · part of <a href="../index.html#software">Software</a></p>
       <h2 id="plain-h">This page in under a minute</h2>
       <dl class="plain-grid">
-        <div><dt>In plain words</dt><dd>AI chess coaches often invent tactics that are not on the board. Here a chess engine and the rules of chess supply every fact, and the language model only puts them into words. You can replay one of my games, try your own moves, or paste a game of yours.</dd></div>
+        <div><dt>In plain words</dt><dd>AI chess coaches often invent tactics that are not on the board. Here a chess engine and the rules of chess supply every fact, and the language model only puts them into words. You can study twelve classic master games, each chosen for one idea, try your own moves, or paste a game of yours.</dd></div>
         <div><dt>Why it matters</dt><dd>The same problem appears wherever AI explains something: fluent text that is not true. Letting trusted tools own the facts, and checking each claim before it is said, is one way to stop it.</dd></div>
         <div><dt>What I built</dt><dd>jarvis-chess, an MCP server with four tools: fetch recent games, review a game with Stockfish, analyse a position, and check a commentator's claims as true, false or uncheckable. On this page, Stockfish 19 also runs in your browser.</dd></div>
         <div><dt>What I measured</dt><dd>The server reviews a 39-ply game in 6.5 s and checks 8 types of claim. The lighter engine in the browser finds 3 of the 6 blunders full Stockfish 19 finds on the game shown, so its counts are indicative.</dd></div>
@@ -64,6 +64,16 @@
           <div><dt>ACPL</dt><dd>Average centipawn loss: how far a player's moves fell short of the engine's, in hundredths of a pawn.</dd></div>
         </dl>
       </details>
+    </section>
+
+    <section class="block" id="masters-block" aria-labelledby="masters-h">
+      <div class="side"><p class="label">Learn from the masters</p><p class="mono">12 classic games · checked move by move</p></div>
+      <div class="main wide">
+        <h2 class="h-block" id="masters-h">Learn from the masters</h2>
+        <p class="kicker">Twelve games chosen for one idea each, from Morphy in 1858 to Kasparov in 1999. The moves are the games' own, checked by the rules; Stockfish finds the key moments, and the rules name what each move changed: an open file taken, an outpost, a passed pawn, a king left without cover.</p>
+        <div class="masters" id="masters" role="group" aria-label="Choose a game"></div>
+        <div class="panel master-lesson" id="master-lesson" aria-live="polite"></div>
+      </div>
     </section>
 
     <section class="block" id="game">
@@ -114,7 +124,7 @@
               <button class="btn primary" id="import-go" type="submit">Analyse</button>
             </div>
             <progress id="import-progress" value="0" max="1"></progress>
-            <p class="mono" id="import-status" aria-live="polite">Shown: my win over JoseGarciaMolina, reviewed by the jarvis-chess server.</p>
+            <p class="mono" id="import-status" aria-live="polite">Paste a game to have Stockfish review it in this browser.</p>
           </div>
         </form>
         <form class="panel import account" id="account-form">
@@ -138,7 +148,7 @@
             <div class="table-scroll game-log" id="acct-log" role="region" aria-label="Game log" tabindex="0"></div>
           </div>
         </form>
-        <p class="mono">Grades follow Lichess: losing 0.1, 0.2 or 0.3 of winning chances (on a −1 to 1 scale) is an inaccuracy, mistake or blunder. ACPL caps evaluations at ±10 pawns. The browser engine is lighter, so its counts are indicative: on the game above it finds 3 of the 6 blunders full Stockfish 19 finds.</p>
+        <p class="mono">Grades follow Lichess: losing 0.1, 0.2 or 0.3 of winning chances (on a −1 to 1 scale) is an inaccuracy, mistake or blunder. ACPL caps evaluations at ±10 pawns. The browser engine is lighter, so its counts are indicative: on my game (under "My game") it finds 3 of the 6 blunders full Stockfish 19 finds.</p>
       </div>
     </section>
 
@@ -174,5 +184,7 @@
 <script src="../analyse.js"></script>
 <script src="../games.js"></script>
 <script src="../chess-page.js"></script>
+<script src="../data/master-games.js"></script>
+<script src="../masters.js"></script>
 </body>
 </html>

@@ -23,6 +23,7 @@ window.ChessViewer = (function () {
   if (!board) return { load: function () {}, onPly: function () {} };
 
   function wc(cp) { return 2 / (1 + Math.exp(-0.00368208 * cp)) - 1; }
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
   function fenAt(i) { return i < 0 ? G.start_fen : G.plies[i].fen; }
   function curFen() { return X && X.line.length ? X.line[X.line.length - 1].fen : fenAt(ply); }
   function fenBoard(fen) {
@@ -116,6 +117,9 @@ window.ChessViewer = (function () {
     if (f.pinned_pieces && f.pinned_pieces.length) items.push('Pinned to the king: ' + f.pinned_pieces.join(', ') + '.');
     if (f.mate_in_one_for_side_to_move && f.mate_in_one_for_side_to_move.length) items.push('Mate in one available: ' + f.mate_in_one_for_side_to_move.join(', ') + '.');
     items.push('Material (White minus Black): ' + (f.material_white_minus_black > 0 ? '+' : '') + f.material_white_minus_black + '.');
+    if (f.strategy) ['White', 'Black'].forEach(function (side) {       // master games: the strategic picture (jarvis-chess strategy.py)
+      if (f.strategy[side] && f.strategy[side].length) items.push(side + ': ' + f.strategy[side].join('; ') + '.');
+    });
     return '<div class="facts">' + items.map(function (t) { return '<div class="f"><span class="ok">✓</span><span>' + t + '</span></div>'; }).join('') + '</div>';
   }
 
@@ -174,9 +178,13 @@ window.ChessViewer = (function () {
     if (X) { drawExploreDetail(); return; }
     if (ply < 0) { detail.innerHTML = '<p class="mono">Start position. Step through the game, or move a piece to try your own line.</p>'; return; }
     var p = G.plies[ply], km = (G.key_moments || []).filter(function (k) { return k.ply === ply + 1; })[0];
-    var html = '<p class="mono">' + moveLabel(ply) + ' · eval ' + evalText(p) + '</p>' + coachHtml();
+    var html = '<p class="mono">' + moveLabel(ply) + ' · eval ' + evalText(p) + '</p>';
+    if (km && km.note) html += '<div class="lesson-note"><span class="verdict">' + esc(km.grade) + '</span><p>' + esc(km.note) + '</p></div>';
+    html += coachHtml();
+    if (p.ideas && p.ideas.length) html += '<div class="ideas"><p class="label">Ideas on the board</p>' +
+      p.ideas.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') + '</div>';
     if (p.grade && p.best_line) html += '<p class="mono pv">Engine line: ' + p.best_line + '</p>';
-    if (p.grade) {
+    if (p.grade || (km && km.facts_before)) {
       var f = km && km.facts_before ? km.facts_before : window.ChessCore.facts(fenAt(ply - 1)), extra = [];
       if (km) extra.push('Evaluation before the move: ' + km.eval_before + ', after: ' + km.eval_after + '.');
       if (p.drop != null) extra.push('Winning chances given away: ' + Math.round(p.drop * 50) + ' percentage points.');
@@ -246,7 +254,7 @@ window.ChessViewer = (function () {
     momentsEl.innerHTML = (G.key_moments || []).map(function (k) {
       var i = k.ply - 1;
       return '<button class="moment" type="button" data-ply="' + i + '"><span class="mv">' + moveLabel(i) + ' <span class="pump">' + k.grade + '</span></span>' +
-        '<span class="why">' + k.side + ' · ' + k.eval_before + ' → ' + k.eval_after + ' · best ' + k.best + '</span></button>';
+        '<span class="why">' + k.side + ' · ' + k.eval_before + ' → ' + k.eval_after + (k.best && k.best !== k.played ? ' · best ' + k.best : '') + '</span></button>';
     }).join('') || '<p class="mono">No graded mistakes yet.</p>';
   }
 
