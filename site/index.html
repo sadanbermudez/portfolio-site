@@ -57,7 +57,7 @@
     <div class="gutter">
       <nav class="page compass" aria-label="The four parts of this page">
         <a class="c-ai" href="#ai"><span class="comp-num">01</span><strong>AI engineering</strong><span>Agents, evals and fast local models. Start here.</span></a>
-        <a class="c-next" href="#cutting-edge"><span class="comp-num">02</span><strong>Cutting edge</strong><span>A model bigger than the laptop's memory, running anyway.</span></a>
+        <a class="c-next" href="#cutting-edge"><span class="comp-num">02</span><strong>Cutting edge</strong><span>New ways to write an answer, and a model bigger than the laptop's memory.</span></a>
         <a class="c-soft" href="#software"><span class="comp-num">03</span><strong>Software</strong><span>Three Android apps and a chess board you can use.</span></a>
         <a class="c-res" href="#research"><span class="comp-num">04</span><strong>Research background</strong><span>The photonics PhD behind the measuring habit.</span></a>
       </nav>
@@ -209,7 +209,7 @@
           <p class="comp-num">02 · Next generation</p>
           <h2 id="next-h">Cutting edge</h2>
           <p class="comp-find"><span class="label">What you'll find here</span>Where AI models are heading, tested on my own hardware: models that write in parallel instead of word by word, and models far bigger than the laptop's memory, running anyway.</p>
-          <div class="cta"><a class="btn primary" href="work/ncm.html">A 25M model against the chat leaders</a><a class="btn" href="work/moe.html">Follow one token through the model</a></div>
+          <div class="cta"><a class="btn primary" href="work/four-ways.html">Start here: four ways to run a model</a><a class="btn" href="work/ncm.html">A 25M model against the chat leaders</a></div>
         </header>
 
         <section class="block" aria-labelledby="next-what">
@@ -222,10 +222,25 @@
         </section>
 
         <section class="block" aria-label="Cutting-edge projects">
-          <div class="side"><p class="label">Projects</p><p class="mono">three</p></div>
+          <div class="side"><p class="label">Projects</p><p class="mono">a map, then three</p></div>
           <div class="main wide">
             <div class="portals">
-              <a class="portal feature" href="work/moe.html">
+              <a class="portal feature" href="work/four-ways.html">
+                <div class="art" aria-hidden="true">
+                  <svg viewBox="0 0 640 180" preserveAspectRatio="xMidYMid meet">
+                    <rect width="640" height="180" fill="#0b0f14"/>
+                    <g font-family="Martian Mono, monospace" font-size="12" fill="#8a94a2"><text x="40" y="40">word by word · 89 passes</text><text x="40" y="92">diffusion · 24 passes</text><text x="40" y="144">next-concept · 12 passes</text></g>
+                    <rect x="40" y="50" width="560" height="14" fill="#0d1116" stroke="#1d242d"/><rect x="40" y="50" width="0" height="14" fill="#7fb6ff"><animate attributeName="width" values="0;560;560" keyTimes="0;.89;1" dur="5s" repeatCount="indefinite"/></rect>
+                    <rect x="40" y="102" width="560" height="14" fill="#0d1116" stroke="#1d242d"/><rect x="40" y="102" width="0" height="14" fill="#ffae4a"><animate attributeName="width" values="0;151;151" keyTimes="0;.24;1" dur="5s" repeatCount="indefinite"/></rect>
+                    <rect x="40" y="154" width="560" height="14" fill="#0d1116" stroke="#1d242d"/><rect x="40" y="154" width="0" height="14" fill="#35d0b4"><animate attributeName="width" values="0;76;76" keyTimes="0;.12;1" dur="5s" repeatCount="indefinite"/></rect>
+                  </svg>
+                </div>
+                <span class="label">Interactive · start here</span>
+                <h3>Four ways to run a model</h3>
+                <p>Race an ordinary chat model, a diffusion model and Stanford's next-concept model on the same Sudoku board, pass by pass. Then drag a memory slider and watch a model bigger than memory run anyway: the colibri idea, at the speeds I measured.</p>
+                <span class="go">Play the race →</span>
+              </a>
+              <a class="portal" href="work/moe.html">
                 <div class="art" aria-hidden="true">
                   <svg viewBox="0 0 640 180" preserveAspectRatio="xMidYMid meet">
                     <rect width="640" height="180" fill="#0b0f14"/>
@@ -238,7 +253,7 @@
                     <text x="40" y="160" fill="#8a94a2" font-family="Martian Mono, monospace" font-size="12">284B model · about 0.5 tokens/s · where does the time go?</text>
                   </svg>
                 </div>
-                <span class="label">Repo · inference performance</span>
+                <span class="label">colibri · a model bigger than memory</span>
                 <h3>Why a 284B model runs at half a word per second</h3>
                 <p>A storage benchmark, an AVX-512 kernel and profiled runs show the drive and the CPU mostly idle. Changing one variable at a time traced most of the gap to how the engine's threads wait on Windows. Reported upstream.</p>
                 <span class="go">Follow one token through the model →</span>
@@ -250,7 +265,7 @@
                 <span class="go">See the comparison →</span>
               </a>
               <a class="portal" href="work/moe-stream.html">
-                <span class="label">Built from scratch · inference engine</span>
+                <span class="label">Built from scratch · the colibri idea, rebuilt</span>
                 <h3>My own expert-offloading engine</h3>
                 <p>A mixture-of-experts model with its experts on the SSD and a fixed-size cache in memory, checked token for token against the reference, then measured: cache size, eviction rule, prefetch.</p>
                 <span class="go">Speed against memory →</span>
