@@ -208,8 +208,8 @@
         <header class="comp-head">
           <p class="comp-num">02 · Next generation</p>
           <h2 id="next-h">Cutting edge</h2>
-          <p class="comp-find"><span class="label">What you'll find here</span>Where AI models are heading, tested on my own hardware. For now, one piece: a model far too big for the laptop's memory, running anyway.</p>
-          <div class="cta"><a class="btn primary" href="work/moe.html">Follow one token through the model</a></div>
+          <p class="comp-find"><span class="label">What you'll find here</span>Where AI models are heading, tested on my own hardware: models that write in parallel instead of word by word, and models far bigger than the laptop's memory, running anyway.</p>
+          <div class="cta"><a class="btn primary" href="work/ncm.html">A 25M model against the chat leaders</a><a class="btn" href="work/moe.html">Follow one token through the model</a></div>
         </header>
 
         <section class="block" aria-labelledby="next-what">
@@ -217,12 +217,12 @@
           <div class="main prose">
             <h3 class="h-block" id="next-what">What "next generation" means here</h3>
             <p>Today's chat models write one word-piece at a time, and each one waits for the last. Two ideas push past that. One is models that generate many words in parallel instead of one at a time. The other is running models far bigger than the computer's memory, by keeping the most-used parts in memory and reading the rest from the drive as they are needed.</p>
-            <p>The piece below is the second kind: a 284-billion-parameter model, 167 GB on disk, on a laptop with 64 GB of memory.</p>
+            <p>Below, one of each, tested here: Stanford's next-concept model and two diffusion models, against chat models and an ordinary model; and a 284-billion-parameter model on a 64 GB laptop, then my own engine built to measure why it is slow.</p>
           </div>
         </section>
 
         <section class="block" aria-label="Cutting-edge projects">
-          <div class="side"><p class="label">Projects</p><p class="mono">one so far</p></div>
+          <div class="side"><p class="label">Projects</p><p class="mono">three</p></div>
           <div class="main wide">
             <div class="portals">
               <a class="portal feature" href="work/moe.html">
@@ -243,10 +243,18 @@
                 <p>A storage benchmark, an AVX-512 kernel and profiled runs show the drive and the CPU mostly idle. Changing one variable at a time traced most of the gap to how the engine's threads wait on Windows. Reported upstream.</p>
                 <span class="go">Follow one token through the model →</span>
               </a>
-              <!-- UPCOMING CARDS SLOT · cutting edge
-                   Planned: NCM (next-concept modelling) and diffusion language models.
-                   Add one <a class="portal"> card per item here, in the same pattern as the card above,
-                   only once its page and measured results are published. No claims or cards until then. -->
+              <a class="portal" href="work/ncm.html">
+                <span class="label">Reproduced · parallel generation</span>
+                <h3>A 25M model against the chat leaders</h3>
+                <p>Stanford's next-concept model writes a whole answer coarse to fine in 12 parallel steps. On the same 50 hard Sudoku boards it solved 40, Claude Sonnet 5.5 solved 32. Plus diffusion models, and why they need so many steps.</p>
+                <span class="go">See the comparison →</span>
+              </a>
+              <a class="portal" href="work/moe-stream.html">
+                <span class="label">Built from scratch · inference engine</span>
+                <h3>My own expert-offloading engine</h3>
+                <p>A mixture-of-experts model with its experts on the SSD and a fixed-size cache in memory, checked token for token against the reference, then measured: cache size, eviction rule, prefetch.</p>
+                <span class="go">Speed against memory →</span>
+              </a>
             </div>
           </div>
         </section>

@@ -569,6 +569,22 @@ Loops stop off screen and in hidden tabs. With reduced motion, the canvas is a s
 
 **Check it yourself.** `cd site && python build.py && node tests/smoke.mjs` loads every page on a laptop and a 390-pixel phone and fails on any error or sideways scroll. `grep -c 'class="plain ' site/work/*.html site/argus.html site/jarvis.html` shows one block per page.
 
+### 20. Cutting edge: reproduce, compare fairly, and say what the comparison does not show
+
+**Context.** The Cutting edge compartment should show next-generation methods tested on my own hardware, not summaries of other people's papers.
+
+**Decision.** Two pages.
+- `work/ncm.html`: Stanford's released next-concept model, run on the laptop's CPU, against chat models on the same 50 hard Sudoku boards, with diffusion language models (Dream 7B, LLaDA 8B) against an ordinary model (Qwen2.5 7B) on one prompt.
+- `work/moe-stream.html`: my own expert-offloading engine, checked against the reference implementation before any speed number counts, with a chart of speed against cache size.
+
+**Rules the pages follow.**
+- Like for like: NCM's time is measured one board per request, as the chat models' is (0.47 s; the batched 0.26 s is stated separately).
+- Every timing ran on mains power. A first engine pass that crossed from battery to mains was discarded; the engine records the power state per row.
+- Each page says what its comparison does not show. NCM is a Sudoku specialist and the chat models are generalists without tools. llama.cpp's diffusion code is a reference implementation, not optimised serving.
+- Chat-model rows appear only for completed runs.
+
+**Trade-offs.** 50 boards is a small sample, and the free-tier models are slow (minutes per board), so their rows arrive later than the rest.
+
 ## Known limits and what comes next
 
 - **Old version at the root.** `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first single-page site, kept for reference (the README says so). Next: move them into an `archive/` folder.
