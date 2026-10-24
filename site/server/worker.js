@@ -5,11 +5,14 @@
    POST /api/speak       MeloTTS (Workers AI) reads a sentence of Jarvis's answer aloud, for devices too slow for the in-browser voice
    POST /api/fit         Fit check: a pasted job description, each requirement matched to the site's pages, streamed
    POST /api/lab         The live lab agent: Gemma 4 works the simulated bench, graded against a hidden answer, streamed; and its public score
+   POST /api/hit         Counts a page view for my own statistics (stats.js): no cookies, no IP stored
+   POST /api/stats       The private statistics report, only with the STATS_KEY secret
    Everything else is served from dist/ by the assets binding. No access to anything outside this site. */
 import KNOWLEDGE from './knowledge.json';                     // written by build.py from the built pages
 import { buildIndex, hybrid, hashText, cleanMessages, buildMessages, thinkFilter, tokenOf, scriptGuard, speakable, fromBase64, halveWav, LIMITS,
   FIT, requirementLines, pickFitPassages, buildFitMessages,
   API_HEADERS, API_ROUTES, BODY_LIMITS, checkRequest, readCapped, readJson } from './jarvis-core.js';
+import { HITS_TABLE, cleanHit, sameKey, statsReport } from './stats.js';
 import { tutorSystemPrompt } from './tutor-prompt.js';
 import { runAgent, wilson, LAB } from './lab-agent.js';
 
@@ -267,6 +270,32 @@ async function lab(request, env, ctx) {
   return new Response(readable, { headers: { ...SECURE, 'Content-Type': 'text/event-stream; charset=utf-8' } });
 }
 
+// Visitor statistics (stats.js): the beacon on every page posts one page view; the row is written after the
+// response, so a visitor never waits on the database. The report needs STATS_KEY (a Worker secret), and wrong
+// keys are rate-limited like everything else.
+let hitsReady = false;
+async function hit(request, env, ctx) {
+  if (await limited(env, 'HIT_LIMIT', request, 'hit')) return new Response(null, { status: 204, headers: SECURE });
+  const body = await readJson(request);
+  if (!env.STATS_DB || !env.STATS_SALT) return new Response(null, { status: 204, headers: SECURE });
+  const row = await cleanHit(body, request, env.STATS_SALT);
+  if (row) ctx.waitUntil((async () => {
+    if (!hitsReady) { await env.STATS_DB.prepare(HITS_TABLE).run(); hitsReady = true; }
+    await env.STATS_DB.prepare('INSERT INTO hits (at, day, path, ref, tag, country, network, device, visitor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)')
+      .bind(row.at, row.day, row.path, row.ref, row.tag, row.country, row.network, row.device, row.visitor).run();
+  })().catch(err => console.log('hit not stored', String(err && err.message || err))));
+  return new Response(null, { status: 204, headers: SECURE });
+}
+async function stats(request, env) {
+  if (await limited(env, 'STATS_LIMIT', request, 'stats')) return json({ error: 'Too many tries: wait a minute.' }, 429);
+  const body = await readJson(request);
+  if (!body || !sameKey(body.key, env.STATS_KEY)) return json({ error: 'Wrong key.' }, 403);
+  if (!env.STATS_DB) return json({ error: 'No statistics database is configured.' }, 503);
+  if (!hitsReady) { await env.STATS_DB.prepare(HITS_TABLE).run(); hitsReady = true; }
+  const days = Math.max(1, Math.min(365, parseInt(body.days, 10) || 30));
+  return json(await statsReport(env.STATS_DB, days));
+}
+
 export default {
   async fetch(request, env, ctx) {
     const { pathname } = new URL(request.url);
@@ -281,6 +310,8 @@ export default {
       if (pathname === '/api/transcribe') return await transcribe(request, env);
       if (pathname === '/api/fit') return await fit(request, env, ctx);
       if (pathname === '/api/lab') return await lab(request, env, ctx);
+      if (pathname === '/api/hit') return await hit(request, env, ctx);
+      if (pathname === '/api/stats') return await stats(request, env);
       return await speak(request, env, ctx);
     } catch (err) {                                  // never a stack trace or a Cloudflare error page to the visitor
       console.log('api error', pathname, String(err && err.message || err));

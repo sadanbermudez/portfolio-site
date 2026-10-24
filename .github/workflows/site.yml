@@ -34,6 +34,8 @@ jobs:
         run: node site/tests/lab-sim.test.mjs
       - name: Live lab agent loop (scripted models, grading, budgets, laser left on)
         run: node site/tests/lab-agent.test.mjs
+      - name: Visitor statistics (no IP or browser string stored, daily visitor code, bots skipped, key check)
+        run: node site/tests/stats.test.mjs
       - name: La Piña demo (rules engine, indicators, verdicts, ported from the Kotlin tests)
         run: node site/tests/la-pina.test.mjs
       - name: Spanish Tutor demo (search, grading, goals, reply parser, tutor prompt)

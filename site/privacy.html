@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy · Sergio Adan Bermudez</title>
+<meta name="description" content="What this site records about visits, and what it does not.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="immersive.css">
+</head>
+<body>
+<div class="top-wrap gutter">
+  <header class="top page">
+    <a class="brand" href="index.html">Sergio Adan Bermudez</a>
+    <nav aria-label="Site"><a href="index.html#ai">AI engineering</a><a href="index.html#cutting-edge">Cutting edge</a><a href="index.html#software">Software</a><a href="index.html#research">Research</a><a href="jarvis.html">Jarvis</a><a href="about.html">About</a><a class="nav-cv" href="cv.html">CV</a></nav>
+  </header>
+</div>
+
+<main class="gutter">
+  <div class="page">
+    <section class="article-head">
+      <p class="label">Privacy</p>
+      <h1>What this site records</h1>
+      <p class="lede">I count visits so I know which pages people read and whether a link I sent was opened. No cookies, no advertising or third-party trackers, and no IP addresses are stored.</p>
+    </section>
+    <section class="block">
+      <div class="side"><p class="label">Each page view</p></div>
+      <div class="main prose">
+        <ul>
+          <li><strong>The page</strong> you opened, and the time.</li>
+          <li><strong>The site you came from</strong>, its name only (for example linkedin.com), never the full address.</li>
+          <li><strong>A short tag</strong> if you followed a link I sent, such as one in a job application, so I know the link was opened. It is removed from the address bar straight away.</li>
+          <li><strong>Your country</strong> and <strong>the name of your network operator</strong>, as Cloudflare reports them, and whether you are on a phone or a computer.</li>
+          <li><strong>A daily visitor code</strong>, so one person reading five pages counts once. It is a one-way hash of your connection, your browser and the date with a secret value. It changes every day, so visits on different days cannot be linked, and it cannot be turned back into an address.</li>
+        </ul>
+        <p>If your browser sends Do Not Track or Global Privacy Control, nothing is recorded. The records are kept in Cloudflare's database for this site, are seen only by me, and are not shared or sold.</p>
+        <p>The live demos send what you type to the model that answers it (Cloudflare Workers AI); this site does not store your messages. Two things are kept: the audio of sentences Jarvis speaks is cached by Cloudflare for up to a week, named by a hash of the sentence, so the same sentence is not made twice; and the lab agent's runs keep the agent's actions and score, nothing about you.</p>
+        <p>Questions or a request to delete anything: <a href="mailto:sadanbermudez@gmail.com">sadanbermudez@gmail.com</a>.</p>
+        <div class="cta"><a class="back" href="index.html">← Home</a></div>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

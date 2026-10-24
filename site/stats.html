@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visitor statistics · Sergio Adan Bermudez</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="immersive.css">
+</head>
+<body>
+<div class="top-wrap gutter">
+  <header class="top page">
+    <a class="brand" href="index.html">Sergio Adan Bermudez</a>
+    <nav aria-label="Site"><a href="index.html#ai">AI engineering</a><a href="index.html#cutting-edge">Cutting edge</a><a href="index.html#software">Software</a><a href="index.html#research">Research</a><a href="jarvis.html">Jarvis</a><a href="about.html">About</a><a class="nav-cv" href="cv.html">CV</a></nav>
+  </header>
+</div>
+
+<main class="gutter">
+  <div class="page">
+    <section class="article-head">
+      <p class="label">Private</p>
+      <h1>Visitor statistics</h1>
+      <p class="lede">Visits recorded as described on the <a href="privacy.html">privacy page</a>. The key never leaves this tab except to ask for the report.</p>
+    </section>
+    <section class="block">
+      <div class="side"><p class="label">Key</p></div>
+      <div class="main">
+        <form id="st-form" class="cta" autocomplete="off">
+          <label class="label" for="st-key">Key</label>
+          <input id="st-key" type="password" required>
+          <label class="label" for="st-days">Days</label>
+          <input id="st-days" type="number" min="1" max="365" value="30">
+          <button class="btn primary" type="submit">Show</button>
+        </form>
+        <p class="mono" id="st-msg" aria-live="polite"></p>
+        <div id="st-out" class="prose"></div>
+      </div>
+    </section>
+  </div>
+</main>
+<script src="stats.js"></script>
+</body>
+</html>
