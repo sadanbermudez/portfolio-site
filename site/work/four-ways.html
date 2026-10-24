@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Four ways to run a model · Sergio Adan Bermudez</title>
+<meta name="description" content="How an ordinary chat model, a diffusion model and a next-concept model write the same answer, and how a model bigger than memory runs anyway. Interactive, with the numbers measured on my laptop.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sergio Adan Bermudez">
+<meta property="og:title" content="Four ways to run a model · Sergio Adan Bermudez">
+<meta property="og:description" content="How an ordinary chat model, a diffusion model and a next-concept model write the same answer, and how a model bigger than memory runs anyway. Interactive, with the numbers measured on my laptop.">
+<meta property="og:image" content="https://sergioadan.dev/data/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sergio Adan Bermudez, AI engineer: I make AI systems fast on real hardware, and I measure every change.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../immersive.css">
+</head>
+<body>
+<div class="top-wrap gutter">
+  <header class="top page">
+    <a class="brand" href="../index.html">Sergio Adan Bermudez</a>
+    <nav aria-label="Site"><a href="../index.html#ai">AI engineering</a><a href="../index.html#cutting-edge">Cutting edge</a><a href="../index.html#software">Software</a><a href="../index.html#research">Research</a><a href="../jarvis.html">Jarvis</a><a href="../about.html">About</a><a class="nav-cv" href="../cv.html">CV</a></nav>
+  </header>
+</div>
+
+<main class="gutter">
+  <div class="page">
+    <section class="article-head">
+      <p class="label">Cutting edge · the map · interactive</p>
+      <h1>Four ways to run a model</h1>
+      <p class="lede">Three ways a model can write an answer, raced on the same Sudoku board, and one way to run a model that is bigger than the computer's memory. Press play: everything you see moves at the pace the real thing does.</p>
+      <div class="readings">
+        <div><span class="label">Passes to write one board</span><span class="value">89 · 12 <span class="mono">word by word · NCM</span></span></div>
+        <div><span class="label">Model on this laptop</span><span class="value result">284B <span class="mono">in 64 GB</span></span></div>
+        <div><span class="label">Same text, every condition</span><span class="value">27 / 27</span></div>
+      </div>
+    </section>
+
+    <section class="plain c-next" id="plain" aria-labelledby="plain-h">
+      <p class="label plain-where">The short version · part of <a href="../index.html#cutting-edge">Cutting edge</a></p>
+      <h2 id="plain-h">This page in under a minute</h2>
+      <dl class="plain-grid">
+        <div><dt>Two different questions</dt><dd>New AI approaches attack two separate costs. Some change <strong>how the answer is written</strong>, so it takes fewer trips through the model. Others change <strong>where the model lives</strong>, so a model too big for memory runs anyway. The race below is the first; the memory slider is the second.</dd></div>
+        <div><dt>Word by word</dt><dd>Today's chat models. One trip through the model per piece of text, each waiting for the last. Reliable, and the slowest when the answer is long.</dd></div>
+        <div><dt>All at once</dt><dd>Diffusion models fill the whole answer over a number of rounds; next-concept models (NCM) sketch a compact plan of the answer and refine it level by level. Fewer trips, but each idea has a catch, which the race shows.</dd></div>
+        <div><dt>Bigger than memory</dt><dd>The colibri idea: a mixture-of-experts model uses only a few of its parts per word, so the rest can stay on the drive. I ran a 284-billion-parameter model that way on this laptop, then built my own small engine to measure why it is slow.</dd></div>
+      </dl>
+    </section>
+
+    <section class="block" id="race" aria-labelledby="race-h">
+      <div class="side"><p class="label">1 · How the answer is written</p><p class="mono">one tick = one pass through the model</p></div>
+      <div class="main wide">
+        <h2 class="h-block" id="race-h">The same board, three ways</h2>
+        <p class="kicker">A real hard board from Stanford's test set. Dim digits are given; the rest must be written. Each tick is one pass through a model, the thing that costs time.</p>
+        <div class="fw-race panel">
+          <div class="moe-controls">
+            <button type="button" class="btn primary" id="fw-play">Play the race</button>
+            <div class="moe-switch" role="group" aria-label="Diffusion steps">
+              <span class="fw-switch-label">Diffusion steps</span>
+              <button type="button" data-steps="8" aria-pressed="false">8</button>
+              <button type="button" data-steps="24" aria-pressed="true">24</button>
+              <button type="button" data-steps="89" aria-pressed="false">89</button>
+            </div>
+          </div>
+          <div class="fw-lanes">
+            <div class="fw-lane" id="fw-ar">
+              <div class="fw-lane-head"><strong>Word by word</strong><span class="mono">chat models</span><span class="fw-count" aria-live="off">0 passes</span></div>
+              <div class="fw-grid" role="img" aria-label="Board written one cell at a time, left to right"></div>
+              <p class="fw-cap">One digit per pass, in reading order, each waiting for the one before. 81 digits and 8 line breaks: 89 passes.</p>
+            </div>
+            <div class="fw-lane" id="fw-diff">
+              <div class="fw-lane-head"><strong>Diffusion</strong><span class="mono">Dream, LLaDA</span><span class="fw-count" aria-live="off">0 passes</span></div>
+              <div class="fw-grid" role="img" aria-label="Board filled in rounds, several cells per round"></div>
+              <p class="fw-cap" id="fw-diff-cap">Several cells are committed per round. Cells committed in the same round cannot see each other: <span class="fw-key clash">amber</span> marks a cell fixed beside a neighbour in its row, column or box that it could not take into account.</p>
+            </div>
+            <div class="fw-lane" id="fw-ncm">
+              <div class="fw-lane-head"><strong>Next-concept</strong><span class="mono">NCM, Stanford</span><span class="fw-count" aria-live="off">0 passes</span></div>
+              <div class="fw-stack" aria-hidden="true"></div>
+              <div class="fw-grid" role="img" aria-label="Board produced at once after the last of 12 levels"></div>
+              <p class="fw-cap" id="fw-ncm-cap">Each pass writes a whole level of codes at once: 1 code, then 2, 4, 6 … 89. The board is decoded from all 12.</p>
+            </div>
+          </div>
+          <p class="mono fw-note" id="fw-note">Press play. Ticks are passes, not seconds: what a pass costs depends on the model, and the measured times are in the table further down.</p>
+        </div>
+        <div class="prose">
+          <h3>What the NCM lane is not</h3>
+          <p>I expected the coarse levels to be a blurred version of the board that sharpens. They are not. I decoded this board from the model's codes after each level: the cells right, out of 81, go 0, 0, 1, 2, 1, 2, 0, 4, 6, 5, 5, and then <strong>81</strong> after the last level. A random guess gets about 9. On eight test boards the pattern was the same: the early levels are a plan in the model's own code, and the board only exists once the plan is complete. That is the "concept" in next-concept modelling.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="memory" aria-labelledby="mem-h">
+      <div class="side"><p class="label">2 · Where the model lives</p><p class="mono">OLMoE-1B-7B · 1,024 experts · 13 GB</p></div>
+      <div class="main wide">
+        <h2 class="h-block" id="mem-h">A big model in small memory: the colibri idea</h2>
+        <p class="kicker">A mixture-of-experts model has many small parts, the experts, and each word uses only 8 of the 64 in every layer. So the experts can live on the drive, with the most used kept in memory. Drag the memory and watch a word go through the 16 layers.</p>
+        <div class="fw-mem panel">
+          <div class="moe-controls">
+            <label class="fw-range"><span class="fw-switch-label">Memory for experts</span><input type="range" id="fw-gb" min="0" max="5" step="1" value="4" aria-describedby="fw-gb-out"><output id="fw-gb-out" class="mono">8 GB</output></label>
+            <div class="moe-switch" role="group" aria-label="Prefetch">
+              <button type="button" data-pf="0" aria-pressed="false">Prefetch off</button>
+              <button type="button" data-pf="1" aria-pressed="true">Prefetch on</button>
+            </div>
+          </div>
+          <canvas id="fw-canvas" role="img" aria-label="16 layers of 64 experts. Experts held in memory are blue; as a word passes, each layer's 8 chosen experts flash teal if already in memory or orange if read from the drive."></canvas>
+          <div class="fw-legend mono"><span class="fw-key ram">in memory</span><span class="fw-key ssd">on the drive</span><span class="fw-key hit">used, already in memory</span><span class="fw-key miss">used, read from the drive</span></div>
+          <div class="moe-read">
+            <div><span class="label">Measured speed</span><span id="fw-speed">4.82 tokens/s</span></div>
+            <div><span class="label">Of full speed</span><span id="fw-share">56%</span></div>
+            <div><span class="label">Experts in memory</span><span id="fw-held">650 / 1,024</span></div>
+          </div>
+          <p class="fw-stream" aria-live="off"><span class="label">Output at the measured speed, in real time</span><span id="fw-text"></span></p>
+          <p class="mono fw-note" id="fw-mem-note">Which experts light up is a simulation with a realistic spread of popular and rare experts. The speed and the streaming text are the measured result for that memory size, from my engine on this laptop.</p>
+        </div>
+        <div class="prose">
+          <p>The same idea at full scale is <a href="moe.html">colibri running a 284-billion-parameter model</a> on this 64 GB laptop, at about half a word per second. To see where that time goes I built <a href="moe-stream.html">my own small engine</a> and measured it: with no memory for experts it writes 1.0 words per second, guessing the next layer's experts early (prefetch) makes that 58% faster, and 8 GB of the 13 GB gets 57% of full speed. The answer was the same text in all 27 conditions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="compare" aria-labelledby="cmp-h">
+      <div class="side"><p class="label">Side by side</p><p class="mono">measured on this laptop</p></div>
+      <div class="main wide">
+        <h2 class="h-block" id="cmp-h">What each one buys, and what it costs</h2>
+        <div class="table-scroll" role="region" aria-label="Four approaches compared" tabindex="0">
+          <table class="stack cols">
+            <thead><tr><th>Approach</th><th>What it changes</th><th>What I measured</th><th>The catch</th></tr></thead>
+            <tbody>
+              <tr><td>Word by word (chat models)</td><td data-label="What it changes">Nothing: the baseline. One pass per token.</td><td data-label="What I measured">Qwen2.5 7B: a correct, fluent answer in 3.8 s. Claude Opus 5.5: 46 of 50 hard boards, 53 s each.</td><td data-label="The catch">Long answers and long reasoning cost one pass per token.</td></tr>
+              <tr><td>Diffusion (Dream 7B, LLaDA 8B)</td><td data-label="What it changes">Fills the whole answer over a set number of rounds.</td><td data-label="What I measured">32 rounds: word salad in 11 s. Fluent took about one round per word: 64 to 124 s.</td><td data-label="The catch">Few rounds means words chosen together that cannot see each other.</td></tr>
+              <tr><td>Next-concept (NCM, 25M)</td><td data-label="What it changes">A plan in 12 levels, each level written at once.</td><td data-label="What I measured">85.2% of 500 hard boards, 0.47 s each on the laptop CPU. My own 3.3M training run: 77% of cells, no full board yet.</td><td data-label="The catch">A specialist: trained for one kind of answer.</td></tr>
+              <tr><td>Experts off the drive (colibri, moe-stream)</td><td data-label="What it changes">Where the weights live, not how text is written.</td><td data-label="What I measured">A 284B model in 64 GB at about 0.5 tokens/s. My engine: 1.0 to 8.6 tokens/s with 0 to 13 GB of memory.</td><td data-label="The catch">Speed falls fast when the drive has to serve every word.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mono">They combine: the first three are ways of writing and the fourth is a way of storing, so a next-concept or diffusion model could also stream its experts from the drive.</p>
+        <div class="cta"><a class="btn" href="ncm.html">NCM against the chat leaders →</a><a class="btn" href="moe-stream.html">My offloading engine →</a><a class="btn" href="moe.html">The 284B model →</a><a class="back" href="../index.html#cutting-edge">← Cutting edge</a></div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="mono">Board and level decoding: Stanford's released NCM Sudoku-hard model, test board 1. Speeds: moe-stream on an AMD Ryzen AI Max+ 392 laptop, 64 GB, on mains power, 24 October 2026. I designed and directed this work; the code was written by Claude Code running as my agent.</p>
+    </footer>
+  </div>
+</main>
+<script src="../four-ways.js"></script>
+</body>
+</html>
