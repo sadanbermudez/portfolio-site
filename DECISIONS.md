@@ -67,7 +67,7 @@ The repo root also holds an earlier single-page version of the site (`index.html
 
 **Alternatives.** A component framework with a bundler, which would share the header and footer across pages and add type checks. A static site generator, which would template the six page headers instead of repeating them.
 
-**Trade-offs.** The header is written out by hand on every page. Since October 2026 it is the same block everywhere (the brand plus six links: Projects, Apps, Jarvis, Roles, About, Contact; paths differ by folder depth, and the current page's link carries `aria-current`), so a change to the navigation means editing every page's `<header>`. Globals could collide if the site grew, and a wrong script order fails at runtime, not at build time. Nothing is minified.
+**Trade-offs.** The header is written out by hand on every page. Since October 2026 it is the same block everywhere (the brand plus seven links since decision 19: AI engineering, Cutting edge, Software, Research, Jarvis, About and CV; paths differ by folder depth, and the current page's link carries `aria-current`), so a change to the navigation means editing every page's `<header>`. Globals could collide if the site grew, and a wrong script order fails at runtime, not at build time. Nothing is minified.
 
 **Check it yourself.** `grep -n "^window\.[A-Za-z0-9_]* = " site/*.js` lists every global the site defines. Open `site/work/chess.html` and read the script tags at the bottom in order.
 
@@ -542,6 +542,32 @@ Loops stop off screen and in hidden tabs. With reduced motion, the canvas is a s
 - The score measures this model on this simulated bench, not agents in general.
 - A determined visitor can only add runs at 2 a minute within the daily cap, and cannot change the grading.
 - The smoke test's static server answers `/api` with the Worker's 503, so the page's unavailable path is what CI checks. The live path is checked by hand against `wrangler dev`.
+
+### 19. AI engineering first: four compartments, and a plain-language block on every project page
+
+**Context.** The home page listed six projects in one grid, then the apps, then the Jarvis system, in the order they were built. The site is meant to convince AI-engineering recruiters, but a reader had to know which cards were AI work, and the case studies opened in specialist language (snapshots, OpenMP barriers, two-photon cross-sections) that a recruiter without that background cannot judge.
+
+**Decision.**
+- **Four compartments on the home page, in this order** (`site/index.html`), each a full-width band with its own colour, a numbered head, a one-line "what you'll find here" and one entry button:
+  1. **AI engineering**, the lead: Argus, the lab agent, the llama.cpp stall, and the Jarvis system with its change log and the public Jarvis.
+  2. **Cutting edge**: a plain intro to what "next generation" means here, and the MoE offload work. An HTML comment marks where cards for next-concept modelling and diffusion language models will go; nothing is published about them until their pages and measured results exist.
+  3. **Software**: the three app demos and chess.
+  4. **Research background**: the PhD and postdoc work and the two-photon page, framed as where the measuring habit comes from.
+  Roles, About and Contact follow. A strip under the headline readings maps the four parts.
+- **The colours** are tokens in `site.css` (`--c-ai` amber, `--c-next` blue, `--c-soft` the Argus teal, `--c-res` the pump red), applied through `.c-ai`, `.c-next`, `.c-soft` and `.c-res`, which set `--c`. The compartment styles are in `immersive.css`.
+- **The nav** on every page names the compartments: AI engineering, Cutting edge, Software, Research, Jarvis, About, and a framed CV link. On phones it wraps to two rows instead of scrolling sideways. Back links on case studies go to their own compartment.
+- **A plain-language block** (`.plain` in `site.css`) near the top of every `work/*.html` page, `argus.html` and `jarvis.html`: four short answers (in plain words, why it matters, what I built, what I measured), then a `<details>` glossary of the page's terms. The markup is the same on every page and its colour follows the compartment. On the lab-agent page the block follows the scrolling bench, and the title card links to it.
+
+**Why.** The order puts the strongest evidence for the target role first, and the compartments let a reader skip what they do not need. The block lets a non-specialist judge each page in under a minute without losing the detail below it. Old anchors still work: `#worlds` wraps the four compartments, and `#apps`, `#system`, `#roles`, `#about` and `#contact` are unchanged.
+
+**Facts.** The block uses only facts and numbers already on the page it sits on. Where a page computes rather than measures (the two-photon page), "What I measured" says so. Nothing was added about the private projects.
+
+**Trade-offs.**
+- Some numbers now appear twice on a page, in the block and in the detail (decision 4's limit grows a little).
+- The research page's four-card brief and the new block overlap; the block was kept for consistency across pages.
+- The block's text goes into the public Jarvis's knowledge with the rest of the page (decision 11), so its glossary can be cited.
+
+**Check it yourself.** `cd site && python build.py && node tests/smoke.mjs` loads every page on a laptop and a 390-pixel phone and fails on any error or sideways scroll. `grep -c 'class="plain ' site/work/*.html site/argus.html site/jarvis.html` shows one block per page.
 
 ## Known limits and what comes next
 
