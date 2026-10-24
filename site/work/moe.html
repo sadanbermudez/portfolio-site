@@ -42,6 +42,31 @@
       </div>
     </section>
 
+    <section class="plain c-next" id="plain" aria-labelledby="plain-h">
+      <p class="label plain-where">The short version · part of <a href="../index.html#cutting-edge">Cutting edge</a></p>
+      <h2 id="plain-h">This page in under a minute</h2>
+      <dl class="plain-grid">
+        <div><dt>In plain words</dt><dd>A very large AI model, 167 GB, runs on my laptop, which has only 64 GB of memory. The engine, colibri, keeps the most-used parts in memory and reads the rest from the drive as it needs them. It writes about half a word per second, and I measured where the time goes: mostly waiting.</dd></div>
+        <div><dt>Why it matters</dt><dd>Running big models on ordinary hardware, with no data sent to the cloud, depends on knowing what really limits the speed. Here it was neither the drive nor the processor's raw power, but how the engine's threads wait for each other on Windows.</dd></div>
+        <div><dt>What I built</dt><dd>A storage benchmark, an AVX-512 kernel for 4-bit weights, profiled runs, and two engine builds from the same source, so that one thing changed at a time. The code and every run are on GitHub.</dd></div>
+        <div><dt>What I measured</dt><dd>Each token needs 3.45 GB of weights. The drive can deliver 4.8 GB/s; the engine read 0.72 GB/s. On the same text and machine, speed rose from 0.21 to 0.35 tokens per second: about 50% from letting threads spin instead of sleep, and about 9% more from AVX-512. All 14 runs wrote the same text.</dd></div>
+      </dl>
+      <details class="glossary">
+        <summary>Glossary: the technical words on this page</summary>
+        <dl>
+          <div><dt>Parameters</dt><dd>The numbers a model learns. 284 billion of them make this model 167 GB on disk.</dd></div>
+          <div><dt>Mixture of experts (MoE)</dt><dd>A model split into many small sub-networks, the experts. For each token a small router picks a few, here 6 of 256 at each of 43 layers, so most of the model sits idle.</dd></div>
+          <div><dt>Token</dt><dd>A piece of text a model reads or writes, often part of a word. Prompts and speeds are counted in tokens.</dd></div>
+          <div><dt>Offloading</dt><dd>Keeping part of a model outside memory, here on the SSD, and loading each piece when it is needed.</dd></div>
+          <div><dt>Quantisation</dt><dd>Storing a model's numbers with fewer bits, here 4, so it needs less memory and less reading.</dd></div>
+          <div><dt>Thread</dt><dd>One line of work on a processor core. The panel shows twelve, one per lane.</dd></div>
+          <div><dt>OpenMP barrier</dt><dd>A point where every thread waits until all have arrived. colibri crosses about 500 of them per token.</dd></div>
+          <div><dt>Spin or sleep</dt><dd>Two ways to wait at a barrier: keep checking (spin: quick to resume, uses the CPU) or sleep (frees the CPU, slow to wake).</dd></div>
+          <div><dt>AVX-512 and AVX2</dt><dd>Instruction sets that let one CPU instruction work on many numbers at once. AVX-512 handles twice as many as AVX2.</dd></div>
+        </dl>
+      </details>
+    </section>
+
     <section class="split" aria-label="Where a token's time goes, step by step">
       <div class="stepper">
         <div class="st on" data-config="shipped"><span class="chapter-num">01 · THE WORKLOAD</span><h3>Six experts out of 256, 43 times</h3><p>DeepSeek V4 Flash is a mixture of experts. At each of its 43 layers a small router picks 6 of 256 experts for the current token, so a token touches 258 experts: 3.45 GB of 4-bit weights. 64 GB of RAM cannot hold 167 GB, so colibri keeps the rest of the model in RAM and streams experts from the SSD. Popular experts stay cached: 37% of the experts in my runs were already in RAM (amber); the rest came from the drive (blue).</p></div>
