@@ -49,6 +49,31 @@
       </figure>
     </section>
 
+    <section class="plain c-ai" id="plain" aria-labelledby="plain-h">
+      <p class="label plain-where">The short version · part of <a href="../index.html#ai">AI engineering</a></p>
+      <h2 id="plain-h">This page in under a minute</h2>
+      <dl class="plain-grid">
+        <div><dt>In plain words</dt><dd>My voice assistant, which runs on my own laptop, waited about 3 seconds before every answer. The model itself was fast, so I measured each step until I found where the time went: saving the model's working state was slow on this kind of laptop chip. One extra condition in the engine's code fixed it.</dd></div>
+        <div><dt>Why it matters</dt><dd>Speed decides whether people keep talking to a voice assistant. The method matters as much as the fix: change one thing at a time, measure, and test every service before shipping. My first fix made voice faster but broke the agent, and I reverted it.</dd></div>
+        <div><dt>What I built</dt><dd>Eight measurements on test servers kept apart from the running system, a patched build of llama.cpp, and a check that the fixed build gives the same replies word for word. The deployment was rehearsed on a copy first, with a backup and a one-step undo.</dd></div>
+        <div><dt>What I measured</dt><dd>Time to the first spoken word: about 3 s to 0.7 s. One state snapshot: 0.61 s to 0.03 s. Reading 880 MB of state: 7,738 ms to 553 ms. The same fix had been merged upstream two weeks earlier; mine is an independent diagnosis.</dd></div>
+      </dl>
+      <details class="glossary">
+        <summary>Glossary: the technical words on this page</summary>
+        <dl>
+          <div><dt>llama.cpp</dt><dd>An open-source engine that runs language models on ordinary computers.</dd></div>
+          <div><dt>Token</dt><dd>A piece of text a model reads or writes, often part of a word. Prompts and speeds are counted in tokens.</dd></div>
+          <div><dt>State snapshot</dt><dd>A saved copy of the model's running state, so a conversation can resume without re-reading everything.</dd></div>
+          <div><dt>Hybrid model</dt><dd>A model in which part of the network keeps a running state instead of the usual attention cache. It cannot step that state back without a snapshot.</dd></div>
+          <div><dt>Integrated GPU</dt><dd>A graphics processor built into the same chip as the CPU, sharing its memory.</dd></div>
+          <div><dt>Cached memory</dt><dd>Memory the CPU keeps fast copies of. Reading memory that is not cached is slow: here 114 MB per second.</dd></div>
+          <div><dt>Staging buffer</dt><dd>A temporary copy in fast memory: the GPU copies the data there first, then the CPU reads it.</dd></div>
+          <div><dt>Vulkan</dt><dd>A programming interface for GPUs. The engine uses it to run the model on the laptop's Radeon graphics.</dd></div>
+          <div><dt>Temperature 0</dt><dd>A setting that makes the model always pick its most likely next word, so two runs can be compared word for word.</dd></div>
+        </dl>
+      </details>
+    </section>
+
     <section class="split" aria-label="The diagnosis, step by step">
       <div class="stepper">
         <div class="st on"><span class="chapter-num">01 · ENGINE AGAINST SERVER</span><h3>The model is not the problem</h3><p>llama-bench read 16 prompt tokens in 0.11 s. The server took 1.4 to 2.5 s for the same work. The model is a hybrid, Qwen3.6-35B-A3B: part of it keeps a running state instead of a normal attention cache.</p></div>

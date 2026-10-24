@@ -50,6 +50,7 @@
             <p class="label">Signature piece · photonics-lab-mcp</p>
             <h1>An AI agent runs a physics experiment</h1>
             <p class="lede">A local language model gets an optics bench through an MCP server, one question, and no procedure. The safety limits live in the server, where it cannot override them.</p>
+            <p><a class="go" href="#plain" style="color:var(--emit)">New to this? The short version ↓</a></p>
             <p class="scroll-hint">Scroll to walk the bench · drag to look around</p>
           </div>
         </div>
@@ -110,6 +111,30 @@
 
   <div class="gutter">
   <div class="page">
+    <section class="plain c-ai" id="plain" aria-labelledby="plain-h">
+      <p class="label plain-where">The short version · part of <a href="../index.html#ai">AI engineering</a></p>
+      <h2 id="plain-h">This page in under a minute</h2>
+      <dl class="plain-grid">
+        <div><dt>In plain words</dt><dd>I gave an AI model the controls of a simulated optics experiment and one question: is this faint glow caused by one particle of light, or by two at once? Nobody told it the steps. It had to plan the measurements, run them and answer with an uncertainty, and the right answer is hidden and changes from run to run.</dd></div>
+        <div><dt>Why it matters</dt><dd>Companies want AI agents that operate real tools, and an agent that can act can also do harm. Here the safety limits live in the server the agent talks to, so the model cannot override them. Every live run is graded and counted in a public score, so you see how often it is right, not one good demo.</dd></div>
+        <div><dt>What I built</dt><dd>An MCP server with 10 tools for the bench (laser, detector, analysis), a 200 mW power cap, an arm-then-emit interlock, a lab notebook of every action and 22 tests. On this page, a live version: any visitor can start a run on a fresh hidden sample, and the server grades it.</dd></div>
+        <div><dt>What I measured</dt><dd>Both recorded runs were right: 2.004 ± 0.03 on the two-photon sample (28 tool calls, 91 s) and 1.003 ± 0.002 on the one-photon control (32 calls, 84 s). The numbers were right but the agent's explanations of the physics were wrong, so a person owns the interpretation.</dd></div>
+      </dl>
+      <details class="glossary">
+        <summary>Glossary: the technical words on this page</summary>
+        <dl>
+          <div><dt>Agent</dt><dd>A language model that works in a loop: it calls a tool, reads the result and decides the next step.</dd></div>
+          <div><dt>Tool call</dt><dd>One request from the model to run a function, such as setting the laser power or recording a spectrum.</dd></div>
+          <div><dt>MCP</dt><dd>Model Context Protocol, an open standard for connecting AI models to tools. A server lists its tools; the model calls them.</dd></div>
+          <div><dt>Local model</dt><dd>A language model running on my own laptop rather than in the cloud. The recorded runs used Qwen3.6-35B; the live runs use Gemma 4 26B on Cloudflare.</dd></div>
+          <div><dt>One- and two-photon absorption</dt><dd>A molecule is excited by one particle of light, or by two arriving together. With two, the signal grows with the square of the laser power.</dd></div>
+          <div><dt>Photon order</dt><dd>The slope of signal against laser power on log-log axes: about 1 for one photon, about 2 for two.</dd></div>
+          <div><dt>Safe state</dt><dd>Laser off and disarmed. While the laser is still armed, the bench sends the agent's answer back.</dd></div>
+          <div><dt>Hidden sample</dt><dd>The server picks one-photon or two-photon at random and keeps it secret until the run is graded.</dd></div>
+        </dl>
+      </details>
+    </section>
+
     <section class="block" id="run">
       <div class="side"><p class="label">The run</p><p class="mono">28 tool calls · 91 s</p></div>
       <div class="main wide">

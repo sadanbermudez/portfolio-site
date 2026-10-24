@@ -577,3 +577,4 @@ details.more[open] summary { margin-bottom: 8px; }
 .compartment .portal:hover, .compartment .card:hover { border-color: var(--c); }
 @media (max-width: 760px) { .comp-head { padding-block: 52px 0; } .compartment .comp-head + .block { padding-top: 28px; } }
 .portal .art { background: #0b0f14; }   /* a "meet" drawing letterboxes on its own colour */
+.compartment, #worlds { scroll-margin-top: 56px; }

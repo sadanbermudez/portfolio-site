@@ -251,3 +251,32 @@ table.roles td a { color: var(--ink); }
 }
 @media (max-width: 400px) { .top nav { font-size: 0.68rem; letter-spacing: 0; } }
 
+
+/* Plain-language summary, the same block near the top of every project page: four short answers a
+   non-specialist can read in under a minute, then a glossary of the page's technical words. The
+   compartment class on the block (c-ai, c-next, c-soft, c-res) sets its colour. Markup:
+   <section class="plain c-ai" id="plain" aria-labelledby="plain-h">
+     <p class="label plain-where">…</p><h2 id="plain-h">…</h2>
+     <dl class="plain-grid"><div><dt>In plain words</dt><dd>…</dd></div> … </dl>
+     <details class="glossary"><summary>…</summary><dl><div><dt>…</dt><dd>…</dd></div> … </dl></details>
+   </section> */
+.plain { --c: var(--emit); background: var(--panel); border: 1px solid var(--rule); border-left: 3px solid var(--c); padding: 22px 24px 14px; margin-block: 0 56px; display: grid; gap: 16px; max-width: 980px; min-width: 0; }
+.plain.c-ai { --c: var(--c-ai); } .plain.c-next { --c: var(--c-next); } .plain.c-soft { --c: var(--c-soft); } .plain.c-res { --c: var(--c-res); }
+.plain h2 { font-size: var(--step-1); }
+.plain-where a { color: var(--ink); }
+.plain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px 36px; margin: 0; }
+.plain-grid dt { font-family: var(--font-data); font-size: var(--step--2); letter-spacing: 0.05em; text-transform: uppercase; color: var(--c); }
+.plain-grid dd { margin: 4px 0 0; line-height: 1.55; }
+.glossary { border-top: 1px solid var(--rule); }
+.glossary summary { cursor: pointer; display: flex; align-items: center; min-height: 44px; font-family: var(--font-data); font-size: var(--step--2); letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink); }
+.glossary summary:hover { color: var(--c); }
+.glossary summary { list-style: none; gap: 10px; }
+.glossary summary::-webkit-details-marker { display: none; }
+.glossary summary::before { content: "+"; color: var(--c); font-size: var(--step-0); width: 1ch; }
+.glossary[open] summary::before { content: "−"; }
+.glossary summary:focus-visible { outline: 2px solid var(--emit); outline-offset: 3px; }
+.glossary dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px 36px; margin: 4px 0 12px; }
+.glossary dt { font-family: var(--font-display); font-weight: 600; }
+.glossary dd { margin: 2px 0 0; color: var(--muted); font-size: var(--step--1); line-height: 1.5; }
+.plain { scroll-margin-top: 72px; }   /* clear of the sticky header when reached by #plain */
+@media (max-width: 640px) { .plain { padding: 18px 16px 10px; margin-bottom: 40px; } }

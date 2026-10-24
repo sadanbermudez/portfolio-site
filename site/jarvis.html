@@ -64,6 +64,30 @@
       </div>
     </section>
 
+    <section class="plain c-ai" id="plain" aria-labelledby="plain-h">
+      <p class="label plain-where">The short version · part of <a href="index.html#ai">AI engineering</a></p>
+      <h2 id="plain-h">This page in under a minute</h2>
+      <dl class="plain-grid">
+        <div><dt>In plain words</dt><dd>This is a public version of my assistant, Jarvis. Ask about my work by typing or by voice, and he answers from the text of this website, with numbered links showing where each answer came from. He cannot see anything private.</dd></div>
+        <div><dt>Why it matters</dt><dd>A recruiter can question the site instead of reading all of it, and the Fit check below compares a job description with what the site shows. Answering only from sources, and saying "I don't know" otherwise, is what makes an assistant worth trusting.</dd></div>
+        <div><dt>What I built</dt><dd>Search over this site's pages by words and by meaning, a hosted model that must cite the passages it uses, speech to text, a voice chosen to suit each device, rate limits and a fixed persona, and a set of graded questions.</dd></div>
+        <div><dt>What I measured</dt><dd>Graded against 33 written questions with fixed checks. On questions it had not seen during building, it answered 5 to 7 of 8 fully, with a citation, across three runs, with no false statements in the final runs. Answers start to stream in under a second.</dd></div>
+      </dl>
+      <details class="glossary">
+        <summary>Glossary: the technical words on this page</summary>
+        <dl>
+          <div><dt>Language model</dt><dd>The AI that writes the answers: here Gemma 4 26B, hosted on Cloudflare.</dd></div>
+          <div><dt>Retrieval</dt><dd>Finding the passages that answer a question before the model writes anything.</dd></div>
+          <div><dt>BM25</dt><dd>A classic search method that ranks passages by the words they share with the question.</dd></div>
+          <div><dt>Embeddings</dt><dd>Numbers that capture what a passage means, so a search can match meaning rather than exact words.</dd></div>
+          <div><dt>Citation</dt><dd>A numbered link to the passage an answer came from, so you can check it.</dd></div>
+          <div><dt>Speech to text</dt><dd>Whisper large-v3-turbo turns your recording into text.</dd></div>
+          <div><dt>Text to speech</dt><dd>Kokoro, the device's own voice or MeloTTS, depending on the device, turns the answer into speech.</dd></div>
+          <div><dt>Workers AI</dt><dd>Cloudflare's service for running AI models, used here on its free daily allowance.</dd></div>
+        </dl>
+      </details>
+    </section>
+
     <section class="block" id="fit">
       <div class="side"><p class="label">Fit check</p><p class="mono">for recruiters</p></div>
       <div class="main wide">
