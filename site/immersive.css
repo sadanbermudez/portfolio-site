@@ -656,3 +656,7 @@ details.more[open] summary { margin-bottom: 8px; }
 .rt-verdict { margin: 0; min-height: 3em; }
 @media (max-width: 520px) { .rt-row { grid-template-columns: 7.5rem minmax(0, 1fr) 3rem; } }
 @media (prefers-reduced-motion: reduce) { .rt-bar i { transition: none; } }
+/* Chess: "Ask Jarvis" (chess.js askJarvis, server/coach.js). */
+.ask { margin: 10px 0; display: grid; gap: 6px; }
+.ask .btn { justify-self: start; }
+.ask-out p { margin: 0 0 4px; font-size: var(--step--1); }

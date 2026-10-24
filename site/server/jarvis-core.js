@@ -115,7 +115,7 @@ export const API_HEADERS = Object.freeze({
   'Content-Security-Policy': "default-src 'none'; frame-ancestors 'none'", 'X-Frame-Options': 'DENY',
   'Cross-Origin-Resource-Policy': 'same-origin', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
 });
-export const API_ROUTES = { '/api/chat': 'json', '/api/tutor': 'json', '/api/speak': 'json', '/api/transcribe': 'audio', '/api/fit': 'json', '/api/lab': 'json', '/api/hit': 'json', '/api/stats': 'json' };
+export const API_ROUTES = { '/api/chat': 'json', '/api/tutor': 'json', '/api/speak': 'json', '/api/transcribe': 'audio', '/api/fit': 'json', '/api/coach': 'json', '/api/lab': 'json', '/api/hit': 'json', '/api/stats': 'json' };
 
 // Returns null when the request may go on, or { status, error, headers? } to send back instead.
 // - only POST;

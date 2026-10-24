@@ -183,6 +183,7 @@ window.ChessViewer = (function () {
     html += coachHtml();
     if (p.ideas && p.ideas.length) html += '<div class="ideas"><p class="label">Ideas on the board</p>' +
       p.ideas.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') + '</div>';
+    html += '<div class="ask"><button type="button" class="btn" data-ask>Ask Jarvis to explain this move</button><div class="ask-out" aria-live="polite">' + (asked[gid + ':' + ply] || '') + '</div></div>';
     if (p.grade && p.best_line) html += '<p class="mono pv">Engine line: ' + p.best_line + '</p>';
     if (p.grade || (km && km.facts_before)) {
       var f = km && km.facts_before ? km.facts_before : window.ChessCore.facts(fenAt(ply - 1)), extra = [];
@@ -410,7 +411,36 @@ window.ChessViewer = (function () {
   });
   board.addEventListener('pointercancel', function () { if (drag) { endDrag(); if (X) redrawExplore(); } });
 
+  // ---------- "Ask Jarvis": the facts on screen go to /api/coach (server/coach.js); only checked sentences come back ----------
+  var asked = {};
+  function sanList(line) {
+    return String(line || '').split(/\s+/).filter(function (t) { return t && !/^\d+\.+$/.test(t); }).map(function (t) { return t.replace(/^\d+\.+/, ''); }).slice(0, 10);
+  }
+  function askJarvis(btn) {
+    var i = ply, p = G.plies[i], prev = i > 0 ? G.plies[i - 1] : null, key = gid + ':' + i;
+    var km = (G.key_moments || []).filter(function (k) { return k.ply === i + 1; })[0];
+    var out = btn.parentNode.querySelector('.ask-out');
+    btn.disabled = true; out.innerHTML = '<p class="mono">Jarvis is reading the facts…</p>';
+    var body = { fen: fenAt(i - 1), played: p.san, side: p.side || (i % 2 ? 'Black' : 'White'), best: p.best || '', line: sanList(p.best_line),
+      evalBefore: prev && prev.cp != null ? evalText(prev) : '', evalAfter: p.cp != null ? evalText(p) : '',
+      tactics: teach.res && teach.key === viewKey() ? teach.res.sentences : [], ideas: p.ideas || [], note: km && km.note || '',
+      title: G.title || (G.white + ' vs ' + G.black) };
+    fetch('/api/coach', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        var html;
+        if (!res.ok) html = '<p class="mono">' + esc(res.j.error || 'Jarvis could not answer just now.') + '</p>';
+        else {
+          html = (res.j.sentences.length ? '<p>' + esc(res.j.sentences.join(' ')) + '</p>' : '<p class="mono">Nothing Jarvis wrote survived the check.</p>') +
+            '<p class="mono">Checked against the facts: ' + res.j.sentences.length + ' kept' +
+            (res.j.removed ? ', ' + res.j.removed + ' removed for naming ' + esc(res.j.unsupported.join(', ')) + ', which the facts do not contain' : ', none removed') + '.</p>';
+        }
+        asked[key] = html; out.innerHTML = html; btn.disabled = false;
+      })
+      .catch(function () { out.innerHTML = '<p class="mono">Jarvis could not be reached.</p>'; btn.disabled = false; });
+  }
   detail.addEventListener('click', function (e) {
+    var ask = e.target.closest('[data-ask]'); if (ask && !X) { askJarvis(ask); return; }
     var b = e.target.closest('[data-x]'); if (!b || !X) return;
     if (b.dataset.x === 'back') { go(X.base); return; }
     X.line.pop(); X.sel = null; X.targets = null; X.promo = null; X.ev = null; X.over = null;

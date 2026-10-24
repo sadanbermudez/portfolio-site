@@ -38,6 +38,8 @@ jobs:
         run: node site/tests/stats.test.mjs
       - name: Router demo (the browser router decides as Argus's Python router on every routing eval prompt)
         run: node site/tests/router.test.mjs
+      - name: Ask Jarvis chess coach (input cleaning, and the checker that removes unsupported moves, squares and evaluations)
+        run: node site/tests/coach.test.mjs
       - name: La Piña demo (rules engine, indicators, verdicts, ported from the Kotlin tests)
         run: node site/tests/la-pina.test.mjs
       - name: Spanish Tutor demo (search, grading, goals, reply parser, tutor prompt)
