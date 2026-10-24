@@ -25,7 +25,7 @@
 <div class="top-wrap gutter">
   <header class="top page">
     <a class="brand" href="../index.html">Sergio Adan Bermudez</a>
-    <nav aria-label="Site"><a href="../index.html#worlds">Projects</a><a href="../index.html#apps">Apps</a><a href="../jarvis.html">Jarvis</a><a href="../index.html#roles">Roles</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a><a class="nav-cv" href="../cv.html">CV</a></nav>
+    <nav aria-label="Site"><a href="../index.html#ai">AI engineering</a><a href="../index.html#cutting-edge">Cutting edge</a><a href="../index.html#software">Software</a><a href="../index.html#research">Research</a><a href="../jarvis.html">Jarvis</a><a href="../about.html">About</a><a class="nav-cv" href="../cv.html">CV</a></nav>
   </header>
 </div>
 
@@ -40,6 +40,31 @@
         <div><span class="label">Weights read per token</span><span class="value">3.45 GB</span></div>
         <div><span class="label">Same text, same machine</span><span class="value">0.21 → <span class="result">0.35 tok/s</span></span></div>
       </div>
+    </section>
+
+    <section class="plain c-next" id="plain" aria-labelledby="plain-h">
+      <p class="label plain-where">The short version · part of <a href="../index.html#cutting-edge">Cutting edge</a></p>
+      <h2 id="plain-h">This page in under a minute</h2>
+      <dl class="plain-grid">
+        <div><dt>In plain words</dt><dd>A very large AI model, 167 GB, runs on my laptop, which has only 64 GB of memory. The engine, colibri, keeps the most-used parts in memory and reads the rest from the drive as it needs them. It writes about half a word per second, and I measured where the time goes: mostly waiting.</dd></div>
+        <div><dt>Why it matters</dt><dd>Running big models on ordinary hardware, with no data sent to the cloud, depends on knowing what really limits the speed. Here it was neither the drive nor the processor's raw power, but how the engine's threads wait for each other on Windows.</dd></div>
+        <div><dt>What I built</dt><dd>A storage benchmark, an AVX-512 kernel for 4-bit weights, profiled runs, and two engine builds from the same source, so that one thing changed at a time. The code and every run are on GitHub.</dd></div>
+        <div><dt>What I measured</dt><dd>Each token needs 3.45 GB of weights. The drive can deliver 4.8 GB/s; the engine read 0.72 GB/s. On the same text and machine, speed rose from 0.21 to 0.35 tokens per second: about 50% from letting threads spin instead of sleep, and about 9% more from AVX-512. All 14 runs wrote the same text.</dd></div>
+      </dl>
+      <details class="glossary">
+        <summary>Glossary: the technical words on this page</summary>
+        <dl>
+          <div><dt>Parameters</dt><dd>The numbers a model learns. 284 billion of them make this model 167 GB on disk.</dd></div>
+          <div><dt>Mixture of experts (MoE)</dt><dd>A model split into many small sub-networks, the experts. For each token a small router picks a few, here 6 of 256 at each of 43 layers, so most of the model sits idle.</dd></div>
+          <div><dt>Token</dt><dd>A piece of text a model reads or writes, often part of a word. Prompts and speeds are counted in tokens.</dd></div>
+          <div><dt>Offloading</dt><dd>Keeping part of a model outside memory, here on the SSD, and loading each piece when it is needed.</dd></div>
+          <div><dt>Quantisation</dt><dd>Storing a model's numbers with fewer bits, here 4, so it needs less memory and less reading.</dd></div>
+          <div><dt>Thread</dt><dd>One line of work on a processor core. The panel shows twelve, one per lane.</dd></div>
+          <div><dt>OpenMP barrier</dt><dd>A point where every thread waits until all have arrived. colibri crosses about 500 of them per token.</dd></div>
+          <div><dt>Spin or sleep</dt><dd>Two ways to wait at a barrier: keep checking (spin: quick to resume, uses the CPU) or sleep (frees the CPU, slow to wake).</dd></div>
+          <div><dt>AVX-512 and AVX2</dt><dd>Instruction sets that let one CPU instruction work on many numbers at once. AVX-512 handles twice as many as AVX2.</dd></div>
+        </dl>
+      </details>
     </section>
 
     <section class="split" aria-label="Where a token's time goes, step by step">
@@ -134,7 +159,7 @@
         <p>In the panel, the order of the steps inside a layer comes from colibri's source. Their lengths are a model, scaled so each token takes the measured time. Which experts light up is random: the routing itself was not recorded.</p>
         <p>I designed and directed this work; the code, builds and measurements were carried out by Claude Code running as my agent, with every change to a running system approved by me first.</p>
         <p class="mono">C++20 · AVX-512 · OpenMP (libgomp, libomp) · clang, llvm-mingw · GCC · PowerShell · Python</p>
-        <div class="cta"><a class="btn" href="https://github.com/sadanbermudez/moe-offload-lab" rel="noopener" target="_blank">The code and every run on GitHub →</a><a class="btn" href="llama-cpp-stall.html">Another stall, taken apart →</a><a class="back" href="../index.html#worlds">← All projects</a></div>
+        <div class="cta"><a class="btn" href="https://github.com/sadanbermudez/moe-offload-lab" rel="noopener" target="_blank">The code and every run on GitHub →</a><a class="btn" href="llama-cpp-stall.html">Another stall, taken apart →</a><a class="back" href="../index.html#cutting-edge">← Cutting edge</a></div>
       </div>
     </section>
 

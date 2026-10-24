@@ -4,7 +4,7 @@ Source of my portfolio site, live at [sergioadan.dev](https://sergioadan.dev): m
 
 | Page | What it shows |
 |---|---|
-| Home | Projects, the system behind my local assistant, an engineering log, and the AI-engineering roles mapped to evidence |
+| Home | Four compartments, AI engineering first: AI engineering (agents, evals, local models, Jarvis), Cutting edge (the MoE offload work), Software (the apps and chess) and Research background (the PhD work); then the AI-engineering roles mapped to evidence. Every project page opens with a plain-language summary and a glossary |
 | `work/lab-agent.html` | An AI agent running a simulated photophysics experiment through an MCP server ([photonics-lab-mcp](https://github.com/sadanbermudez/photonics-lab-mcp)), and a live run any visitor can start, graded against a hidden sample with a public score (`lab-sim.js`, `lab-live.js`, `server/lab-agent.js`, `POST /api/lab`) |
 | `work/llama-cpp-stall.html` | A latency investigation in llama.cpp, step by step, with every measured value |
 | `work/moe.html`, `moe.js` | One token through a 284B mixture-of-experts model on a laptop: the measured engine builds, a real-time race of the tokens it wrote, and the drive-bound arithmetic |
@@ -20,7 +20,7 @@ Source of my portfolio site, live at [sergioadan.dev](https://sergioadan.dev): m
 
 ## How it is built and why
 
-**[DECISIONS.md](DECISIONS.md)** records each design decision (static pages, the build script and security headers, Cloudflare hosting, three.js, Stockfish in a Web Worker, how every number on the site is sourced, the public Jarvis, the app demos, the Argus page), with alternatives, trade-offs and a way to check each one, plus the known limits.
+**[DECISIONS.md](DECISIONS.md)** records each design decision (static pages, the build script and security headers, Cloudflare hosting, three.js, Stockfish in a Web Worker, how every number on the site is sourced, the public Jarvis, the app demos, the Argus page, the AI-first home page), with alternatives, trade-offs and a way to check each one, plus the known limits.
 
 ## Build and deploy
 

@@ -25,7 +25,7 @@
 <div class="top-wrap gutter">
   <header class="top page">
     <a class="brand" href="../index.html">Sergio Adan Bermudez</a>
-    <nav aria-label="Site"><a href="../index.html#worlds">Projects</a><a href="../index.html#apps">Apps</a><a href="../jarvis.html">Jarvis</a><a href="../index.html#roles">Roles</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a><a class="nav-cv" href="../cv.html">CV</a></nav>
+    <nav aria-label="Site"><a href="../index.html#ai">AI engineering</a><a href="../index.html#cutting-edge">Cutting edge</a><a href="../index.html#software">Software</a><a href="../index.html#research">Research</a><a href="../jarvis.html">Jarvis</a><a href="../about.html">About</a><a class="nav-cv" href="../cv.html">CV</a></nav>
   </header>
 </div>
 
@@ -36,6 +36,31 @@
       <h1>One photon or two</h1>
       <p class="lede">Two-photon excitation grows with the square of the light's intensity. That one square decides where light acts and how precisely it can treat tissue. Move the slider; the optics are computed live.</p>
       <p class="mono">Why it mattered for my PhD: <a href="research.html">the research in four steps</a>.</p>
+    </section>
+
+    <section class="plain c-res" id="plain" aria-labelledby="plain-h">
+      <p class="label plain-where">The short version · part of <a href="../index.html#research">Research background</a></p>
+      <h2 id="plain-h">This page in under a minute</h2>
+      <dl class="plain-grid">
+        <div><dt>In plain words</dt><dd>A molecule can be excited by one particle of light, or by two arriving at the same moment. With two, the effect grows with the square of the light's brightness, so it happens only at the focus of a lens. Move the slider and watch it, with the optics computed live in your browser.</dd></div>
+        <div><dt>Why it matters</dt><dd>That confinement is what lets two-photon microscopes see in 3D, and what could let light treat a tumour without harming the tissue above it. It is the physics of my PhD, and of the experiment the AI agent runs on the lab-agent page.</dd></div>
+        <div><dt>What I built</dt><dd>Three interactive simulations: the glow of one- and two-photon light at any lens aperture, how deep red and near-infrared light reach into tissue, and an illustrated model of photodynamic therapy.</dd></div>
+        <div><dt>What I measured</dt><dd>This page computes rather than measures. At an aperture of 0.5 and 800 nm the beam waist is 0.51 µm and the Rayleigh range 1.35 µm, which you can check by hand. Two-photon excitation fades with depth twice as fast as the 800 nm light itself (about 3.3 mm against 6.6 mm), so its advantage is confinement, not depth. The therapy panel is an illustration, not a dose calculation.</dd></div>
+      </dl>
+      <details class="glossary">
+        <summary>Glossary: the technical words on this page</summary>
+        <dl>
+          <div><dt>Photon</dt><dd>A single particle of light. Shorter wavelengths carry more energy: one 400 nm photon carries as much as two 800 nm photons.</dd></div>
+          <div><dt>One- and two-photon excitation</dt><dd>With one photon, excitation grows in proportion to intensity (∝ I); with two, with its square (∝ I²).</dd></div>
+          <div><dt>Numerical aperture (NA)</dt><dd>How steeply a lens focuses light. The higher the NA, the smaller the focus.</dd></div>
+          <div><dt>Beam waist (w₀)</dt><dd>The radius of the beam at its narrowest point, the focus.</dd></div>
+          <div><dt>Rayleigh range (z_R)</dt><dd>How far from the focus, along the beam, it stays nearly as narrow.</dd></div>
+          <div><dt>Penetration depth (δ)</dt><dd>The depth at which light in tissue has fallen to about a third (1/e) of its strength.</dd></div>
+          <div><dt>Optical window</dt><dd>Roughly 600 to 1300 nm, where blood and tissue absorb and scatter least, so light reaches deepest.</dd></div>
+          <div><dt>Photodynamic therapy</dt><dd>Treatment with light, a light-sensitive drug and oxygen. The light switches the drug on only where it shines.</dd></div>
+          <div><dt>Femtosecond laser</dt><dd>A laser that fires pulses a millionth of a billionth of a second long, packing enough photons together for two to be absorbed at once.</dd></div>
+        </dl>
+      </details>
     </section>
 
     <section class="block" id="focus">
@@ -112,7 +137,7 @@
           <li>630 nm penetration in brain-tumour phantoms: <a href="https://doaj.org/article/1186ec0269364f99821db3d0e384d7b1" rel="noopener" target="_blank">Proc. Estonian Acad. Sci. (2022)</a>.</li>
           <li>Two-photon PDT confinement and photosensitiser cross-sections: <a href="https://pubs.rsc.org/en/content/articlehtml/2019/an/c9an00068b" rel="noopener" target="_blank">Analyst (2019)</a>; <a href="https://photonics.com/Articles/Photodynamic_Therapy_Studied/a8559" rel="noopener" target="_blank">Photonics.com</a>.</li>
         </ul>
-        <div class="cta"><a class="btn" href="research.html">My PhD and postdoc on singlet oxygen →</a><a class="btn" href="lab-agent.html">See the agent run the experiment →</a><a class="back" href="../index.html#worlds">← All projects</a></div>
+        <div class="cta"><a class="btn" href="research.html">My PhD and postdoc on singlet oxygen →</a><a class="btn" href="lab-agent.html">See the agent run the experiment →</a><a class="back" href="../index.html#research">← Research</a></div>
       </div>
     </section>
 

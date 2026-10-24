@@ -26,7 +26,7 @@
 <div class="top-wrap gutter">
   <header class="top page">
     <a class="brand" href="index.html">Sergio Adan Bermudez</a>
-    <nav aria-label="Site"><a href="index.html#worlds">Projects</a><a href="index.html#apps">Apps</a><a href="jarvis.html">Jarvis</a><a href="index.html#roles">Roles</a><a href="about.html">About</a><a href="index.html#contact">Contact</a><a class="nav-cv" href="cv.html">CV</a></nav>
+    <nav aria-label="Site"><a href="index.html#ai">AI engineering</a><a href="index.html#cutting-edge">Cutting edge</a><a href="index.html#software">Software</a><a href="index.html#research">Research</a><a href="jarvis.html">Jarvis</a><a href="about.html">About</a><a class="nav-cv" href="cv.html">CV</a></nav>
   </header>
 </div>
 
@@ -75,6 +75,31 @@
       <div><span class="label">Voice, first word</span><span class="value ag-teal">0.7 s</span><span class="note">Mid-conversation, on the laptop's GPU</span></div>
       <div><span class="label">Memory server</span><span class="value ag-teal">7 tools</span><span class="note">Over MCP, 29 tests</span></div>
     </div>
+
+    <section class="plain c-ai" id="plain" aria-labelledby="plain-h">
+      <p class="label plain-where">The short version · part of <a href="index.html#ai">AI engineering</a></p>
+      <h2 id="plain-h">This page in under a minute</h2>
+      <dl class="plain-grid">
+        <div><dt>In plain words</dt><dd>Argus is my own AI assistant system. Jarvis, the assistant, runs on a language model on my laptop, keeps notes in a memory he can search, can hand hard jobs to Claude, and talks by voice. It is built on Odysseus, an open-source hub, and the hub below is a recreation with sample conversations.</dd></div>
+        <div><dt>Why it matters</dt><dd>A private assistant keeps your notes on your own machine and answers routine questions in seconds. Building one well takes the everyday work of AI teams: connect a model to tools and memory, send each job to the right model, and test it.</dd></div>
+        <div><dt>What I built</dt><dd>My layer on top of Odysseus: a memory server over MCP (7 tools, 29 tests), bridges to Claude Code and to free cloud models, a bridge for Windows-only tools, the voice line's local brain, routing, a 13-task evaluation, traces, a supervisor that restarts crashed services, and the llama.cpp engine fix.</dd></div>
+        <div><dt>What I measured</dt><dd>13 of 13 evaluation tasks passed on the local model with thinking off (median 2.6 s), against 10 of 13 with thinking on (median 19.8 s), so thinking stays off. Mid-conversation, the voice starts speaking in 0.7 s.</dd></div>
+      </dl>
+      <details class="glossary">
+        <summary>Glossary: the technical words on this page</summary>
+        <dl>
+          <div><dt>Agent</dt><dd>A language model that works in a loop: it calls a tool, reads the result and decides the next step.</dd></div>
+          <div><dt>Local model</dt><dd>A language model running on my own laptop rather than in the cloud: here Qwen3.6-35B-A3B on the laptop's GPU.</dd></div>
+          <div><dt>MCP</dt><dd>Model Context Protocol, an open standard for connecting AI models to tools. A server lists its tools; the model calls them.</dd></div>
+          <div><dt>Evaluation (eval)</dt><dd>A fixed set of tasks with automatic checks, run again after a change to see whether the system still works.</dd></div>
+          <div><dt>Persona</dt><dd>The identity and rules a model is given. Jarvis is an Odysseus persona.</dd></div>
+          <div><dt>Routing</dt><dd>Choosing which model gets each job: local for routine work, Claude for hard multi-step jobs, free cloud models as a fallback.</dd></div>
+          <div><dt>Thinking mode</dt><dd>A setting where the model reasons at length before answering. Slower, and here it used up the answer budget twice.</dd></div>
+          <div><dt>Trace</dt><dd>A record of each step of a request, with its timing, for finding what is slow or broken.</dd></div>
+          <div><dt>Wake word</dt><dd>The word, "Jarvis", that tells the voice line to start listening.</dd></div>
+        </dl>
+      </details>
+    </section>
 
     <section class="ag-demo" aria-labelledby="demo-h">
       <h2 id="demo-h" class="sr-only">The hub, recreated</h2>
@@ -345,7 +370,7 @@
           </table>
         </div>
         <p class="ag-fine">Claude Code (Anthropic) is used through my own subscription, with the unmodified command-line tool.</p>
-        <div class="cta"><a class="btn primary" href="jarvis.html">Talk to the public Jarvis</a><a class="back" href="index.html#worlds">← All projects</a></div>
+        <div class="cta"><a class="btn primary" href="jarvis.html">Talk to the public Jarvis</a><a class="back" href="index.html#ai">← AI engineering</a></div>
       </div>
     </section>
 

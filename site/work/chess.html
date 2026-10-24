@@ -25,7 +25,7 @@
 <div class="top-wrap gutter">
   <header class="top page">
     <a class="brand" href="../index.html">Sergio Adan Bermudez</a>
-    <nav aria-label="Site"><a href="../index.html#worlds">Projects</a><a href="../index.html#apps">Apps</a><a href="../jarvis.html">Jarvis</a><a href="../index.html#roles">Roles</a><a href="../about.html">About</a><a href="../index.html#contact">Contact</a><a class="nav-cv" href="../cv.html">CV</a></nav>
+    <nav aria-label="Site"><a href="../index.html#ai">AI engineering</a><a href="../index.html#cutting-edge">Cutting edge</a><a href="../index.html#software">Software</a><a href="../index.html#research">Research</a><a href="../jarvis.html">Jarvis</a><a href="../about.html">About</a><a class="nav-cv" href="../cv.html">CV</a></nav>
   </header>
 </div>
 
@@ -40,6 +40,30 @@
         <div><span class="label">Server review of a 39-ply game</span><span class="value result">6.5 s</span></div>
         <div><span class="label">Claim types checked</span><span class="value">8</span></div>
       </div>
+    </section>
+
+    <section class="plain c-soft" id="plain" aria-labelledby="plain-h">
+      <p class="label plain-where">The short version · part of <a href="../index.html#software">Software</a></p>
+      <h2 id="plain-h">This page in under a minute</h2>
+      <dl class="plain-grid">
+        <div><dt>In plain words</dt><dd>AI chess coaches often invent tactics that are not on the board. Here a chess engine and the rules of chess supply every fact, and the language model only puts them into words. You can replay one of my games, try your own moves, or paste a game of yours.</dd></div>
+        <div><dt>Why it matters</dt><dd>The same problem appears wherever AI explains something: fluent text that is not true. Letting trusted tools own the facts, and checking each claim before it is said, is one way to stop it.</dd></div>
+        <div><dt>What I built</dt><dd>jarvis-chess, an MCP server with four tools: fetch recent games, review a game with Stockfish, analyse a position, and check a commentator's claims as true, false or uncheckable. On this page, Stockfish 19 also runs in your browser.</dd></div>
+        <div><dt>What I measured</dt><dd>The server reviews a 39-ply game in 6.5 s and checks 8 types of claim. The lighter engine in the browser finds 3 of the 6 blunders full Stockfish 19 finds on the game shown, so its counts are indicative.</dd></div>
+      </dl>
+      <details class="glossary">
+        <summary>Glossary: the technical words on this page</summary>
+        <dl>
+          <div><dt>Stockfish</dt><dd>The strongest open-source chess engine. It scores positions and finds the best moves.</dd></div>
+          <div><dt>Ply</dt><dd>One move by one side. A 39-ply game has 39 single moves.</dd></div>
+          <div><dt>MCP</dt><dd>Model Context Protocol, an open standard for connecting AI models to tools. A server lists its tools; the model calls them.</dd></div>
+          <div><dt>Language model</dt><dd>The AI that writes the commentary. Here it narrates facts it is given; it does not decide them.</dd></div>
+          <div><dt>Claim check</dt><dd>A test of one statement, such as "the knight on e5 is hanging", against the board and the engine.</dd></div>
+          <div><dt>PGN</dt><dd>Portable Game Notation, the standard text format for a chess game.</dd></div>
+          <div><dt>Inaccuracy, mistake, blunder</dt><dd>A move that loses 0.1, 0.2 or 0.3 of the winning chances, on a −1 to 1 scale, as Lichess grades them.</dd></div>
+          <div><dt>ACPL</dt><dd>Average centipawn loss: how far a player's moves fell short of the engine's, in hundredths of a pawn.</dd></div>
+        </dl>
+      </details>
     </section>
 
     <section class="block" id="game">
@@ -131,7 +155,7 @@
         <p>The board's coach notes work the same way: each one names a pattern (fork, pin, skewer, hanging piece, mate) that the rules find on the board and the engine's line plays out. No pattern found, no claim; the note gives the evaluation instead.</p>
         <p><strong>Next: a faithfulness score.</strong> Run a local model's free commentary through check_claims and publish the share of its chess statements that are true.</p>
         <p class="mono">Python · python-chess · Stockfish 19 · FastMCP · Lichess and Chess.com public APIs · pytest</p>
-        <div class="cta"><a class="btn" href="lab-agent.html">The same idea in a physics lab →</a><a class="back" href="../index.html#worlds">← All projects</a></div>
+        <div class="cta"><a class="btn" href="lab-agent.html">The same idea in a physics lab →</a><a class="back" href="../index.html#software">← Software</a></div>
       </div>
     </section>
 

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A 25M model against the chat leaders · Sergio Adan Bermudez</title>
+<meta name="description" content="Next-concept modelling writes a whole answer coarse to fine in a few parallel steps. I ran Stanford's released model on my laptop's CPU and put it against chat models on the same hard Sudoku boards.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sergio Adan Bermudez">
+<meta property="og:title" content="A 25M model against the chat leaders · Sergio Adan Bermudez">
+<meta property="og:description" content="Next-concept modelling writes a whole answer coarse to fine in a few parallel steps. I ran Stanford's released model on my laptop's CPU and put it against chat models on the same hard Sudoku boards.">
+<meta property="og:image" content="https://sergioadan.dev/data/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sergio Adan Bermudez, AI engineer: I make AI systems fast on real hardware, and I measure every change.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../immersive.css">
+</head>
+<body>
+<div class="top-wrap gutter">
+  <header class="top page">
+    <a class="brand" href="../index.html">Sergio Adan Bermudez</a>
+    <nav aria-label="Site"><a href="../index.html#ai">AI engineering</a><a href="../index.html#cutting-edge">Cutting edge</a><a href="../index.html#software">Software</a><a href="../index.html#research">Research</a><a href="../jarvis.html">Jarvis</a><a href="../about.html">About</a><a class="nav-cv" href="../cv.html">CV</a></nav>
+  </header>
+</div>
+
+<main class="gutter">
+  <div class="page">
+    <section class="article-head">
+      <p class="label">Cutting edge · next-concept modelling · Stanford / Hazy Research, October 2026 · reproduced 24 October 2026</p>
+      <h1>A 25-million-parameter model against the chat leaders</h1>
+      <p class="lede">Chat models write one word-piece at a time. Next-concept modelling sketches the whole answer first and sharpens it in a dozen parallel steps. I ran Stanford's released model on my laptop's CPU and gave it the same hard Sudoku boards as the chat models.</p>
+      <div class="readings">
+        <div><span class="label">Model size</span><span class="value">25M <span class="mono">parameters</span></span></div>
+        <div><span class="label">Hard boards solved</span><span class="value result">85.2% <span class="mono">of 500</span></span></div>
+        <div><span class="label">Time per board</span><span class="value">0.47 s <span class="mono">· laptop CPU</span></span></div>
+      </div>
+    </section>
+
+    <section class="plain c-next" id="plain" aria-labelledby="plain-h">
+      <p class="label plain-where">The short version · part of <a href="../index.html#cutting-edge">Cutting edge</a></p>
+      <h2 id="plain-h">This page in under a minute</h2>
+      <dl class="plain-grid">
+        <div><dt>In plain words</dt><dd>Normal AI models write an answer one piece at a time, left to right. A new approach from Stanford, next-concept modelling (NCM), first writes a rough outline of the whole answer, then fills in detail in a few rounds, working on every position at once. I ran their small Sudoku model on my laptop and compared it with large chat models on the same puzzles.</dd></div>
+        <div><dt>Why it matters</dt><dd>For tasks with a clear structure, a small model that works on the whole answer at once can come close to the best general chat model at a hundredth of the time, on a laptop. Knowing when that trade is worth it is a design decision companies face every time they choose a model.</dd></div>
+        <div><dt>What I built</dt><dd>A port of the released code from NVIDIA GPUs to an ordinary CPU, with safe loading of the model files, and a benchmark harness that gives every chat model the same prompt and checks each answer against the solution.</dd></div>
+        <div><dt>What I measured</dt><dd>NCM solved 85.2% of 500 hard boards on the laptop's CPU, in about half a second per board. On the same 50 boards it solved 40. Claude Opus 5.5 solved 46 and Claude Sonnet 5.5 solved 32, each taking about 53 to 54 seconds per board.</dd></div>
+      </dl>
+      <details class="glossary">
+        <summary>Glossary: the technical words on this page</summary>
+        <dl>
+          <div><dt>Parameters</dt><dd>The numbers a model learns. More parameters usually means a more capable but slower and costlier model.</dd></div>
+          <div><dt>Token</dt><dd>A piece of text a model reads or writes, often part of a word. A Sudoku board here is 89 tokens.</dd></div>
+          <div><dt>Autoregressive</dt><dd>Writing one token at a time, each one depending on the last. How today's chat models generate.</dd></div>
+          <div><dt>Diffusion language model</dt><dd>A model that starts from a blank or noisy answer and improves the whole of it over many rounds.</dd></div>
+          <div><dt>Next-concept modelling (NCM)</dt><dd>Generating coarse to fine: a short, rough code for the whole answer first, then longer, more detailed codes level by level, every position in a level at once.</dd></div>
+          <div><dt>Function evaluation (NFE)</dt><dd>One pass through the model. NCM solves a board in 12, one per level; a chat model needs at least one per token it writes.</dd></div>
+          <div><dt>Reasoning model</dt><dd>A chat model that writes a long hidden chain of thought before answering, which helps on puzzles but costs time.</dd></div>
+        </dl>
+      </details>
+    </section>
+
+    <section class="block">
+      <div class="side"><p class="label">The idea</p></div>
+      <div class="main prose">
+        <h2>Coarse to fine, in parallel</h2>
+        <p>A tokenizer, trained first and then frozen, turns a whole answer into a stack of codes: one code at the top, then 2, 4, 6 and so on up to 89 at the bottom, one per cell and row break. Each level adds detail to the one above. The generator predicts the stack top-down. Inside a level every position is predicted at once, so a board takes 12 passes through the model however many cells are empty.</p>
+        <p>A chat model does the opposite: one token per pass, left to right, and a reasoning model writes thousands of hidden tokens before the 81 digits it is asked for. That is where the minute per board goes.</p>
+      </div>
+    </section>
+
+    <section class="block" id="race">
+      <div class="side"><p class="label">Same 50 boards</p><p class="mono">hard set, boards 1 to 50</p></div>
+      <div class="main wide">
+        <div class="table-scroll" role="region" aria-label="Hard Sudoku: NCM against chat models" tabindex="0">
+          <table class="stack cols">
+            <thead><tr><th>Model</th><th>Where it ran</th><th>Solved</th><th>Time per board</th></tr></thead>
+            <tbody>
+              <tr><td>NCM, Sudoku hard (25M parameters)</td><td data-label="Where it ran">my laptop's CPU</td><td class="n result" data-label="Solved">40 of 50</td><td class="n result" data-label="Time per board">0.47 s</td></tr>
+              <tr><td>Claude Opus 5.5</td><td data-label="Where it ran">Anthropic, through my subscription</td><td class="n" data-label="Solved">46 of 50</td><td class="n" data-label="Time per board">53 s (median)</td></tr>
+              <tr><td>Claude Sonnet 5.5</td><td data-label="Where it ran">Anthropic, through my subscription</td><td class="n" data-label="Solved">32 of 50</td><td class="n" data-label="Time per board">54 s (median)</td></tr>
+              <!-- RESULTS PENDING: Nemotron 3 Ultra 550B, Inkling, Gemma 4 31B (free tier, runs in progress) -->
+            </tbody>
+          </table>
+        </div>
+        <p class="mono">Every chat model got the same prompt: the board as nine rows with dots for blanks, and a request for the nine completed rows between ANSWER and END. An answer counts only if it matches the reference solution exactly. Times are wall-clock per board, one board per request; the chat models' include the network. NCM's is measured the same way, one board at a time, after an 11-second one-off model load; in batches of 100 it does 0.26 s per board.</p>
+      </div>
+    </section>
+
+    <section class="block" id="diffusion">
+      <div class="side"><p class="label">The other parallel idea</p><p class="mono">diffusion language models</p></div>
+      <div class="main wide">
+        <div class="prose">
+          <h2>Diffusion models: parallel, but only with many steps</h2>
+          <p>Diffusion language models also write the whole answer at once: they start from a blank answer and improve all of it over a number of rounds, called steps. Fewer steps should mean faster answers. I ran two open ones, Dream 7B and LLaDA 8B, on the laptop's GPU and compared them with Qwen2.5 7B, the ordinary model Dream was built from, on the same question.</p>
+        </div>
+        <div class="table-scroll" role="region" aria-label="Diffusion models against a normal model" tabindex="0">
+          <table class="stack cols">
+            <thead><tr><th>Model</th><th>Steps</th><th>Time</th><th>The answer</th></tr></thead>
+            <tbody>
+              <tr><td>Qwen2.5 7B, one token at a time</td><td class="n" data-label="Steps">105 tokens</td><td class="n result" data-label="Time">3.8 s</td><td data-label="The answer">Correct and fluent</td></tr>
+              <tr><td>Dream 7B, diffusion</td><td class="n" data-label="Steps">32</td><td class="n" data-label="Time">11 s</td><td data-label="The answer">Word salad: "token number is token a smaller of is…"</td></tr>
+              <tr><td>Dream 7B, diffusion</td><td class="n" data-label="Steps">128</td><td class="n" data-label="Time">48 s</td><td data-label="The answer">Mostly readable, with stutters</td></tr>
+              <tr><td>Dream 7B, diffusion</td><td class="n" data-label="Steps">256</td><td class="n" data-label="Time">124 s</td><td data-label="The answer">Fluent, partly wrong</td></tr>
+              <tr><td>LLaDA 8B, diffusion in 32-token blocks</td><td class="n" data-label="Steps">64</td><td class="n" data-label="Time">16 s</td><td data-label="The answer">Readable, drifts off topic</td></tr>
+              <tr><td>LLaDA 8B, diffusion in 32-token blocks</td><td class="n" data-label="Steps">256</td><td class="n" data-label="Time">64 s</td><td data-label="The answer">Fluent, partly wrong</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="prose">
+          <p>The pattern is clear: with fewer steps than the answer has words, the text falls apart, and fluent text needed about one step per word, which removes the speed advantage. On this laptop the ordinary model gave a better answer 17 to 33 times sooner. One caution: llama.cpp's diffusion code is a reference implementation that redoes the whole answer at every step, so optimised diffusion serving on datacenter GPUs is much faster than this. The trade-off between steps and quality is the part that holds.</p>
+          <p>That trade-off is what next-concept modelling attacks: instead of hundreds of rounds over the full answer, a dozen levels from a one-code sketch to the full board, each level cheap because the early ones are short.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="side"><p class="label">Read this fairly</p></div>
+      <div class="main prose">
+        <h2>What this comparison does and does not show</h2>
+        <ul>
+          <li><strong>NCM is a specialist.</strong> This model was trained only on Sudoku and can do nothing else. The chat models were never trained for this task and can do almost anything.</li>
+          <li><strong>So the lesson is about fit, not about which model is "better".</strong> The strongest general model was the most accurate: Opus solved 46, NCM 40, Sonnet 32. But NCM got there in half a second on a laptop CPU with 25 million parameters, against about a minute per board on a datacenter model. When a task has a fixed structure and enough examples, that is often the better trade.</li>
+          <li><strong>The chat models had no tools.</strong> Given a code interpreter, any of them could write a solver. I measured what each model does on its own.</li>
+          <li><strong>50 boards is a small sample.</strong> The gaps (46, 40 and 32 of 50) are real, but the exact percentages would move with more boards. NCM's own 500-board figure is 85.2%.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="side"><p class="label">Method</p></div>
+      <div class="main prose">
+        <h2>How it was run</h2>
+        <ul>
+          <li><strong>Released weights and code</strong> from Hazy Research (MIT licence), the Sudoku easy, medium and hard checkpoints and their test boards.</li>
+          <li><strong>Ported off NVIDIA GPUs.</strong> The evaluation script assumed CUDA; I made the device selectable and ran on the laptop's CPU (AMD Ryzen AI Max+ 392). The model's own results are unchanged: 99.2% easy, 97.6% medium, 85.2% hard on 500 boards each. Timings were taken on mains power.</li>
+          <li><strong>Loaded safely.</strong> The original code loads model files in a mode that can run code hidden in them. I checked that every file loads in PyTorch's safe mode, switched the code to it, and confirmed that the data files contain only plain data.</li>
+          <li><strong>Diffusion runs</strong> with llama.cpp's diffusion example, built with Vulkan for the laptop's Radeon 8060S: Dream 7B and LLaDA 8B against Qwen2.5 7B, all at 8-bit, greedy, same prompt and seed. Every output is kept.</li>
+          <li><strong>A benchmark harness</strong> in Python that sends each board to each model, retries on rate limits, checks every answer against the solution and saves each result as it arrives.</li>
+        </ul>
+        <p>I designed and directed this work; the port, the harness and the runs were carried out by Claude Code running as my agent.</p>
+        <p class="mono">PyTorch · Python · Hugging Face · OpenRouter · Claude Code</p>
+        <div class="cta"><a class="btn" href="https://github.com/sadanbermudez/next-gen-lab" rel="noopener" target="_blank">My harness, port and every answer →</a><a class="btn" href="https://github.com/HazyResearch/ncm" rel="noopener" target="_blank">NCM code (Hazy Research) →</a><a class="btn" href="https://arxiv.org/abs/2610.14162" rel="noopener" target="_blank">The paper →</a><a class="back" href="../index.html#cutting-edge">← Cutting edge</a></div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="mono">NCM: Kumbong, Khare et al., "Next-Concept Modeling: Fast, Parallel Coarse-to-Fine Text Generation", Stanford, 2026. Run on an AMD Ryzen AI Max+ 392 laptop, 64 GB, Windows 11, 24 October 2026.</p>
+    </footer>
+  </div>
+</main>
+</body>
+</html>

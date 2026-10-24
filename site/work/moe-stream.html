@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My own expert-offloading engine · Sergio Adan Bermudez</title>
+<meta name="description" content="moe-stream runs a mixture-of-experts model with its experts on the SSD and a cache of fixed size in memory. Built from scratch, checked against the reference implementation, and measured: cache size, policy, prefetch.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sergio Adan Bermudez">
+<meta property="og:title" content="My own expert-offloading engine · Sergio Adan Bermudez">
+<meta property="og:description" content="moe-stream runs a mixture-of-experts model with its experts on the SSD and a cache of fixed size in memory. Built from scratch, checked against the reference implementation, and measured: cache size, policy, prefetch.">
+<meta property="og:image" content="https://sergioadan.dev/data/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sergio Adan Bermudez, AI engineer: I make AI systems fast on real hardware, and I measure every change.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&family=Schibsted+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../immersive.css">
+</head>
+<body>
+<div class="top-wrap gutter">
+  <header class="top page">
+    <a class="brand" href="../index.html">Sergio Adan Bermudez</a>
+    <nav aria-label="Site"><a href="../index.html#ai">AI engineering</a><a href="../index.html#cutting-edge">Cutting edge</a><a href="../index.html#software">Software</a><a href="../index.html#research">Research</a><a href="../jarvis.html">Jarvis</a><a href="../about.html">About</a><a class="nav-cv" href="../cv.html">CV</a></nav>
+  </header>
+</div>
+
+<main class="gutter">
+  <div class="page">
+    <section class="article-head">
+      <p class="label">Cutting edge · inference engine · OLMoE-1B-7B · 24 October 2026</p>
+      <h1>My own expert-offloading engine</h1>
+      <p class="lede">After measuring colibri from the outside, I built the same idea from scratch, small enough to check every byte: a mixture-of-experts model with its experts on the SSD and a fixed-size cache in memory. Then I measured what the speed depends on.</p>
+      <div class="readings">
+        <div><span class="label">Matches the reference</span><span class="value">48 / 48 <span class="mono">tokens</span></span></div>
+        <div><span class="label">Prefetch, no cache</span><span class="value result">+58%</span></div>
+        <div><span class="label">8 GB cache vs all in RAM</span><span class="value">4.93 <span class="mono">/ 8.64 tok/s</span></span></div>
+      </div>
+    </section>
+
+    <section class="plain c-next" id="plain" aria-labelledby="plain-h">
+      <p class="label plain-where">The short version · part of <a href="../index.html#cutting-edge">Cutting edge</a></p>
+      <h2 id="plain-h">This page in under a minute</h2>
+      <dl class="plain-grid">
+        <div><dt>In plain words</dt><dd>Some AI models are made of many small parts, the experts, and use only a few for each word. I wrote a program that keeps those parts on the drive and loads each one when it is needed, with a limited amount of memory for the most useful ones. Then I measured how fast it writes with more or less memory and with different rules for what to keep.</dd></div>
+        <div><dt>Why it matters</dt><dd>Memory is the most expensive part of running AI. Knowing exactly how speed falls when a model does not fit, and which tricks win it back, decides what hardware a company needs to buy or whether a model can run on a laptop at all.</dd></div>
+        <div><dt>What I built</dt><dd>An inference engine in Python and PyTorch: the model split into 1,024 expert files, a cache with four policies, prefetching that guesses the next layer's experts, and reads that bypass the operating system's cache so the drive itself is measured. It is checked against the reference implementation before any number counts.</dd></div>
+        <div><dt>What I measured</dt><dd>All in memory: 8.6 word-pieces per second. Nothing cached: 1.0. Guessing the next experts early: +58%. With 8 GB of 13 GB in memory: 4.9, about 57% of full speed. The text was identical in every one of 27 conditions.</dd></div>
+      </dl>
+      <details class="glossary">
+        <summary>Glossary: the technical words on this page</summary>
+        <dl>
+          <div><dt>Mixture of experts (MoE)</dt><dd>A model split into many small sub-networks, the experts. A router picks a few for each token: here 8 of 64 at each of 16 layers.</dd></div>
+          <div><dt>Token</dt><dd>A piece of text a model reads or writes, often part of a word. Speed is counted in tokens per second.</dd></div>
+          <div><dt>Offloading</dt><dd>Keeping part of a model outside memory, here on the SSD, and loading each piece when it is needed.</dd></div>
+          <div><dt>Cache</dt><dd>The experts kept in memory. A hit means the expert was already there; a miss means reading it from the drive.</dd></div>
+          <div><dt>LRU and LFU</dt><dd>Two rules for which expert to throw out when the cache is full: the least recently used, or the least frequently used.</dd></div>
+          <div><dt>Prefetch</dt><dd>Starting to read an expert before it is asked for, from a guess, so the read overlaps with computing.</dd></div>
+          <div><dt>Reference implementation</dt><dd>Hugging Face transformers' version of the same model, used as the ground truth for correctness.</dd></div>
+          <div><dt>bfloat16 and float32</dt><dd>Two ways to store numbers: 16 bits (fast, less precise) and 32 bits (exact enough to compare two programs bit for bit).</dd></div>
+        </dl>
+      </details>
+    </section>
+
+    <section class="block" id="curve">
+      <div class="side"><p class="label">Speed against memory</p><p class="mono">OLMoE-1B-7B · 13 GB of experts</p></div>
+      <div class="main wide">
+        <div class="moe-switch ms-switch" role="group" aria-label="Prefetch">
+          <button type="button" data-pf="0" aria-pressed="false">Prefetch off</button>
+          <button type="button" data-pf="1" aria-pressed="true">Prefetch on</button>
+        </div>
+        <canvas id="ms-chart" role="img" aria-label="Tokens per second against cache size for LRU, LFU and a static hot set, with the all-in-RAM ceiling"></canvas>
+        <p class="mono" id="ms-note">Tokens per second against the memory given to the expert cache. The dashed line is every expert in memory.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="side"><p class="label">Findings</p></div>
+      <div class="main prose">
+        <h2>What the numbers say</h2>
+        <ul>
+          <li><strong>The ceiling is compute.</strong> With every expert in memory the CPU writes 8.6 tokens per second. Everything below that is time waiting for the drive.</li>
+          <li><strong>Prefetching pays at every size.</strong> Running the next layer's router on the current state guesses its experts early; 82% of the guesses are then used. With no cache at all, that alone is 58% faster.</li>
+          <li><strong>The obvious rule fails on small caches.</strong> A token walks through 128 experts in a fixed order. When fewer than that fit, least-recently-used always throws out the one needed next: 1 GB of LRU got no hits at all. Least-frequently-used keeps the popular experts and got 26%.</li>
+          <li><strong>A saved "hot set" does not transfer.</strong> The most-used experts, measured on a story prompt, did worse than LFU at every size on a technical question: routing depends on the text. colibri relies on exactly such a saved file, so its benefit depends on how similar the next prompt is to past use.</li>
+          <li><strong>The drive is not yet the limit.</strong> Reads peaked at 3.1 GB/s with prefetch, against 4.8 GB/s measured for this SSD. More reads in flight is the next lever.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="side"><p class="label">Correct first</p></div>
+      <div class="main prose">
+        <h2>Checked against the reference before any speed counts</h2>
+        <p>A fast engine that writes different text is a bug, not a result. In 32-bit numbers, my engine and Hugging Face transformers give the same scores for every next word (largest difference 0.0000) and the same 48 words in a row. In 16-bit numbers the two drift apart at word 19, which is rounding order: the same sums added in a different order. Every one of the 27 conditions below produced exactly the same text, so caching and prefetching never change the answer.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="side"><p class="label">Method</p></div>
+      <div class="main prose">
+        <h2>How it was built and measured</h2>
+        <ul>
+          <li><strong>The model:</strong> OLMoE-1B-7B (AllenAI, fully open): 16 layers, 64 experts each, 8 per token; 6.9B parameters, 1.3B used per token.</li>
+          <li><strong>The split:</strong> each of the 1,024 experts in its own 12.6 MB file, laid out so one read brings everything it needs.</li>
+          <li><strong>Reads past the file cache:</strong> Windows keeps recently read files in memory, which would turn "reads from disk" into memory copies on a 64 GB laptop. Every read uses <code>FILE_FLAG_NO_BUFFERING</code>, so the SSD itself is measured.</li>
+          <li><strong>The runs:</strong> 32 generated tokens per condition, the same prompt, and statistics counted over generated tokens only. The static hot set was calibrated on a different prompt. Every row records whether the laptop was on mains power before and after it; all 27 were. A first pass that crossed from battery to mains mid-run was discarded.</li>
+        </ul>
+        <p>I designed and directed this work; the code and the runs were carried out by Claude Code running as my agent.</p>
+        <p class="mono">Python · PyTorch · Hugging Face · Windows I/O · OLMoE</p>
+        <div class="cta"><a class="btn" href="https://github.com/sadanbermudez/moe-stream" rel="noopener" target="_blank">The engine and every run on GitHub →</a><a class="btn" href="moe.html">The 284B model it is modelled on →</a><a class="back" href="../index.html#cutting-edge">← Cutting edge</a></div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="mono">Measured on an AMD Ryzen AI Max+ 392 laptop, 64 GB, Windows 11, on mains power, 24 October 2026.</p>
+    </footer>
+  </div>
+</main>
+<script src="../moe-stream.js"></script>
+</body>
+</html>
