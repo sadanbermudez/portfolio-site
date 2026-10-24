@@ -15,6 +15,7 @@ import { buildIndex, hybrid, hashText, cleanMessages, buildMessages, thinkFilter
 import { HITS_TABLE, cleanHit, sameKey, statsReport } from './stats.js';
 import { tutorSystemPrompt } from './tutor-prompt.js';
 import { runAgent, wilson, LAB } from './lab-agent.js';
+import { cleanCoachInput, buildCoachMessages, checkCoach, COACH } from './coach.js';
 
 // Jarvis runs Gemma 4 since 21 October 2026: on the same pages, jarvis-eval dev 16/17 and held-out 2 7/8, against
 // 15/17 and 5/8 for Qwen3 30B, which also omitted citations, listed fewer facts and slipped into Chinese.
@@ -169,6 +170,25 @@ async function tutor(request, env) {
   return relay(upstream, [], {}, scriptGuard(msgs[msgs.length - 1].content));
 }
 
+// "Ask Jarvis" on the chess page (coach.js): the page sends the facts it has for one move; the model explains them in
+// two or three sentences, and every sentence naming a move, square or evaluation not in the facts is removed.
+async function coach(request, env) {
+  if (await limited(env, 'CHAT_LIMIT', request, 'coach')) return json({ error: 'One moment, please: too many questions in the last minute.' }, 429);
+  const body = await readJson(request); if (!body) return json({ error: 'Bad request.' }, 400);
+  const facts = cleanCoachInput(body);
+  if (!facts) return json({ error: 'That position or move could not be read.' }, 400);
+  const model = env.CHAT_MODEL || CHAT_MODEL;
+  const extra = /gemma-4/.test(model) ? { chat_template_kwargs: { enable_thinking: false } } : {};
+  let out;
+  try { out = await within(START_MS, env.AI.run(model, { messages: buildCoachMessages(facts), max_tokens: COACH.maxTokens, temperature: 0.2, ...extra })); }
+  catch (err) {
+    return json({ error: isQuota(err) ? "I have used up today's free allowance, I am afraid. It resets at midnight UTC." : 'The model is unavailable just now. Please try again shortly.' }, isQuota(err) ? 429 : 502);
+  }
+  const text = typeof out === 'string' ? out : (out && (out.response || (out.choices && out.choices[0] && out.choices[0].message && out.choices[0].message.content))) || '';
+  const { kept, removed } = checkCoach(text, facts);
+  return json({ sentences: kept, removed: removed.length, unsupported: [...new Set(removed.flatMap(r => r.unsupported))].slice(0, 8) });
+}
+
 const STT_MS = 30000;
 async function transcribe(request, env) {
   if (await limited(env, 'STT_LIMIT', request, 'stt')) return json({ error: 'Too many recordings in the last minute.' }, 429);
@@ -309,6 +329,7 @@ export default {
       if (pathname === '/api/tutor') return await tutor(request, env);
       if (pathname === '/api/transcribe') return await transcribe(request, env);
       if (pathname === '/api/fit') return await fit(request, env, ctx);
+      if (pathname === '/api/coach') return await coach(request, env);
       if (pathname === '/api/lab') return await lab(request, env, ctx);
       if (pathname === '/api/hit') return await hit(request, env, ctx);
       if (pathname === '/api/stats') return await stats(request, env);
