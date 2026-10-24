@@ -47,9 +47,9 @@
       <h2 id="plain-h">This page in under a minute</h2>
       <dl class="plain-grid">
         <div><dt>In plain words</dt><dd>Normal AI models write an answer one piece at a time, left to right. A new approach from Stanford, next-concept modelling (NCM), first writes a rough outline of the whole answer, then fills in detail in a few rounds, working on every position at once. I ran their small Sudoku model on my laptop and compared it with large chat models on the same puzzles.</dd></div>
-        <div><dt>Why it matters</dt><dd>For tasks with a clear structure, a small model that works on the whole answer at once can be faster, cheaper and more accurate than a general chat model thousands of times its size. Knowing when that is true is a design decision companies face every time they choose a model.</dd></div>
+        <div><dt>Why it matters</dt><dd>For tasks with a clear structure, a small model that works on the whole answer at once can come close to the best general chat model at a hundredth of the time, on a laptop. Knowing when that trade is worth it is a design decision companies face every time they choose a model.</dd></div>
         <div><dt>What I built</dt><dd>A port of the released code from NVIDIA GPUs to an ordinary CPU, with safe loading of the model files, and a benchmark harness that gives every chat model the same prompt and checks each answer against the solution.</dd></div>
-        <div><dt>What I measured</dt><dd>NCM solved 85.2% of 500 hard boards on the laptop's CPU, in about half a second per board. On the same 50 boards it solved 40; Claude Sonnet 5.5 solved 32, taking about 54 s per board.</dd></div>
+        <div><dt>What I measured</dt><dd>NCM solved 85.2% of 500 hard boards on the laptop's CPU, in about half a second per board. On the same 50 boards it solved 40. Claude Opus 5.5 solved 46 and Claude Sonnet 5.5 solved 32, each taking about 53 to 54 seconds per board.</dd></div>
       </dl>
       <details class="glossary">
         <summary>Glossary: the technical words on this page</summary>
@@ -82,8 +82,9 @@
             <thead><tr><th>Model</th><th>Where it ran</th><th>Solved</th><th>Time per board</th></tr></thead>
             <tbody>
               <tr><td>NCM, Sudoku hard (25M parameters)</td><td data-label="Where it ran">my laptop's CPU</td><td class="n result" data-label="Solved">40 of 50</td><td class="n result" data-label="Time per board">0.47 s</td></tr>
+              <tr><td>Claude Opus 5.5</td><td data-label="Where it ran">Anthropic, through my subscription</td><td class="n" data-label="Solved">46 of 50</td><td class="n" data-label="Time per board">53 s (median)</td></tr>
               <tr><td>Claude Sonnet 5.5</td><td data-label="Where it ran">Anthropic, through my subscription</td><td class="n" data-label="Solved">32 of 50</td><td class="n" data-label="Time per board">54 s (median)</td></tr>
-              <!-- RESULTS PENDING: Claude Opus 5.5, Nemotron 3 Ultra 550B, Inkling, Gemma 4 31B (runs in progress) -->
+              <!-- RESULTS PENDING: Nemotron 3 Ultra 550B, Inkling, Gemma 4 31B (free tier, runs in progress) -->
             </tbody>
           </table>
         </div>
@@ -124,9 +125,9 @@
         <h2>What this comparison does and does not show</h2>
         <ul>
           <li><strong>NCM is a specialist.</strong> This model was trained only on Sudoku and can do nothing else. The chat models were never trained for this task and can do almost anything.</li>
-          <li><strong>So the lesson is about fit, not about which model is "better".</strong> When a task has a fixed structure and enough examples, a small model that generates the whole answer in parallel beats a general model on accuracy, speed and cost at once.</li>
+          <li><strong>So the lesson is about fit, not about which model is "better".</strong> The strongest general model was the most accurate: Opus solved 46, NCM 40, Sonnet 32. But NCM got there in half a second on a laptop CPU with 25 million parameters, against about a minute per board on a datacenter model. When a task has a fixed structure and enough examples, that is often the better trade.</li>
           <li><strong>The chat models had no tools.</strong> Given a code interpreter, any of them could write a solver. I measured what each model does on its own.</li>
-          <li><strong>50 boards is a small sample.</strong> 40 of 50 against 32 of 50 is a real gap, but the exact percentages would move with more boards. NCM's own 500-board figure is 85.2%.</li>
+          <li><strong>50 boards is a small sample.</strong> The gaps (46, 40 and 32 of 50) are real, but the exact percentages would move with more boards. NCM's own 500-board figure is 85.2%.</li>
         </ul>
       </div>
     </section>
@@ -144,7 +145,7 @@
         </ul>
         <p>I designed and directed this work; the port, the harness and the runs were carried out by Claude Code running as my agent.</p>
         <p class="mono">PyTorch · Python · Hugging Face · OpenRouter · Claude Code</p>
-        <div class="cta"><a class="btn" href="https://github.com/HazyResearch/ncm" rel="noopener" target="_blank">NCM code (Hazy Research) →</a><a class="btn" href="https://arxiv.org/abs/2610.14162" rel="noopener" target="_blank">The paper →</a><a class="back" href="../index.html#cutting-edge">← Cutting edge</a></div>
+        <div class="cta"><a class="btn" href="https://github.com/sadanbermudez/next-gen-lab" rel="noopener" target="_blank">My harness, port and every answer →</a><a class="btn" href="https://github.com/HazyResearch/ncm" rel="noopener" target="_blank">NCM code (Hazy Research) →</a><a class="btn" href="https://arxiv.org/abs/2610.14162" rel="noopener" target="_blank">The paper →</a><a class="back" href="../index.html#cutting-edge">← Cutting edge</a></div>
       </div>
     </section>
 
