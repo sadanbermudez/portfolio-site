@@ -549,3 +549,31 @@ details.more[open] summary { margin-bottom: 8px; }
 .console .ln.note .call i { font-style: normal; }
 .live-score .note { font-size: var(--step--2); color: var(--muted); }
 #live-go[disabled] { opacity: 0.6; cursor: progress; }
+
+/* Home page: four compartments (decision 19). A strip that maps them, then one full-width band per
+   compartment, each with its own colour (--c, from the .c-* classes in site.css), a numbered head,
+   a one-line "what you'll find here" and one clear entry point. */
+.compass { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding-block: 28px; }
+@media (max-width: 900px) { .compass { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .compass { grid-template-columns: 1fr; gap: 8px; padding-block: 20px; } }
+.compass a { display: grid; gap: 4px; align-content: start; padding: 14px 16px 16px; background: var(--panel); border: 1px solid var(--rule); border-top: 3px solid var(--c); text-decoration: none; transition: border-color 0.2s; }
+.compass a:hover { border-color: var(--c); }
+.compass strong { font-family: var(--font-display); font-weight: 600; font-size: var(--step-0); }
+.compass a > span:last-child { color: var(--muted); font-size: var(--step--1); line-height: 1.45; }
+.comp-num { font-family: var(--font-data); font-size: var(--step--2); letter-spacing: 0.08em; text-transform: uppercase; color: var(--c); }
+.comp-head .comp-num { display: flex; align-items: center; gap: 10px; }
+.comp-head .comp-num::before { content: ""; width: 28px; height: 3px; background: var(--c); }
+.compartment { border-top: 1px solid var(--rule); background: var(--bg); background: linear-gradient(180deg, color-mix(in srgb, var(--c) 8%, var(--bg)) 0, var(--bg) 360px); }
+#worlds { border-bottom: 1px solid var(--rule); }
+.comp-head { padding-block: 72px 8px; display: grid; gap: 16px; max-width: 780px; }
+.comp-head h2 { font-size: clamp(2rem, 4.6vw, 3.2rem); }
+.comp-find { color: #b9c1cc; font-size: var(--step-1); line-height: 1.5; }
+.comp-find .label { display: block; color: var(--c); margin-bottom: 4px; }
+.comp-head .btn.primary { background: var(--c); border-color: var(--c); color: var(--bg); }
+.comp-head .btn.primary:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.compartment .comp-head + .block { border-top: 0; padding-top: 40px; }
+.compartment .block > .side .label { color: var(--c); }
+.compartment .portal .go { color: var(--c); }
+.compartment .portal:hover, .compartment .card:hover { border-color: var(--c); }
+@media (max-width: 760px) { .comp-head { padding-block: 52px 0; } .compartment .comp-head + .block { padding-top: 28px; } }
+.portal .art { background: #0b0f14; }   /* a "meet" drawing letterboxes on its own colour */

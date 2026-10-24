@@ -12,6 +12,11 @@
   --accent: #ff4a3d;        /* 800 nm pump, drawn visible */
   --emit: #ffae4a;          /* 1270 nm singlet-oxygen emission */
   --cool: #7fb6ff;          /* data highlights, the GPU */
+  /* The home page's four compartments, one colour each (decision 19). Pages set --c through the classes below. */
+  --c-ai: var(--emit);      /* 1. AI engineering, the lead */
+  --c-next: var(--cool);    /* 2. Cutting edge */
+  --c-soft: #35d0b4;        /* 3. Software (Argus teal) */
+  --c-res: var(--accent);   /* 4. Research background: the 800 nm pump */
   --font-display: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
   --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
   --font-data: "Martian Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
@@ -42,7 +47,7 @@ body {
 a { color: inherit; text-decoration-color: var(--rule); text-decoration-thickness: 1px; text-underline-offset: 4px; }
 a:hover { text-decoration-color: var(--accent); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--emit); outline-offset: 3px; border-radius: 2px; }
-h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; line-height: 1.08; margin: 0; text-wrap: balance; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; line-height: 1.08; margin: 0; text-wrap: balance; }
 p, ul, ol { margin: 0; }
 sup { line-height: 0; }
 .mono, .label { font-family: var(--font-data); font-size: var(--step--2); letter-spacing: 0.05em; color: var(--muted); }
@@ -57,18 +62,20 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0 24px; padding-block: 6px; }
 .brand { font-family: var(--font-display); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; }
 .brand::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px 2px rgba(255, 74, 61, 0.7); }
-/* Six links, the same on every page. On phones the header scrolls away with the page instead of
+/* Seven links, the same on every page: the four compartments, Jarvis, About and the CV. On phones the header scrolls away with the page instead of
    staying pinned, so it never covers a sticky stage, and each link is a 44px tap target. */
 .top nav { display: flex; flex-wrap: wrap; gap: 0 22px; font-family: var(--font-data); font-size: var(--step--2); letter-spacing: 0.05em; }
 .top nav a { text-decoration: none; color: var(--muted); display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 40px; }
 .top nav a:hover, .top nav a[aria-current="page"] { color: var(--ink); }
-.top nav a.nav-cv { color: var(--ink); }   /* the one link a recruiter looks for */
+.top nav a.nav-cv { color: var(--ink); border: 1px solid var(--muted); padding-inline: 12px; align-self: center; min-height: 36px; }   /* the one link a recruiter looks for */
+.top nav a.nav-cv:hover { border-color: var(--emit); }
 @media (max-width: 640px) {
   .top-wrap { position: relative; top: auto; }
   .top { padding-block: 2px 0; }
-  .top nav { width: 100%; flex-wrap: nowrap; justify-content: space-between; gap: 0 4px; letter-spacing: 0.02em; overflow-x: auto; scrollbar-width: none; }
-  .top nav::-webkit-scrollbar { display: none; }
-  .top nav a { flex: none; padding-inline: 2px; min-width: 40px; justify-content: center; }
+  /* seven links do not fit one row at 390px without shrinking past legibility, so they wrap to two */
+  .top nav { width: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 0 16px; letter-spacing: 0.02em; }
+  .top nav a { flex: none; padding-inline: 2px; min-width: 0; justify-content: center; }
+  .top nav a.nav-cv { padding-inline: 12px; }
 }
 
 /* hero: 3D bench behind, copy in front */
@@ -122,6 +129,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 @media (max-width: 760px) { .block { grid-template-columns: 1fr; padding-block: 56px; } }
 h2 { font-size: var(--step-2); }
 h3 { font-size: var(--step-1); }
+h4 { font-size: var(--step-1); }
+h3.h-block { font-size: var(--step-2); }   /* a section heading one level down, inside a home-page compartment */
+h4.h-sub { font-size: var(--step-1); }
+.c-ai { --c: var(--c-ai); } .c-next { --c: var(--c-next); } .c-soft { --c: var(--c-soft); } .c-res { --c: var(--c-res); }
 .kicker { color: #b9c1cc; font-size: var(--step-1); line-height: 1.5; }
 
 /* instrument panel: framed, dark, full width of the content column */
@@ -239,3 +250,4 @@ table.roles td a { color: var(--ink); }
   table.stack.cols td:first-child, table.stack.cols td:last-child { grid-column: 1 / -1; }
 }
 @media (max-width: 400px) { .top nav { font-size: 0.68rem; letter-spacing: 0; } }
+
