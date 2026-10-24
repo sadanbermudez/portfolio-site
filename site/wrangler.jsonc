@@ -17,11 +17,15 @@
     { "name": "CHAT_LIMIT", "namespace_id": "1001", "simple": { "limit": 8, "period": 60 } },
     { "name": "STT_LIMIT", "namespace_id": "1002", "simple": { "limit": 6, "period": 60 } },
     { "name": "SPEAK_LIMIT", "namespace_id": "1003", "simple": { "limit": 60, "period": 60 } },
-    { "name": "LAB_LIMIT", "namespace_id": "1004", "simple": { "limit": 2, "period": 60 } }     // live lab-agent runs
+    { "name": "LAB_LIMIT", "namespace_id": "1004", "simple": { "limit": 2, "period": 60 } },    // live lab-agent runs
+    { "name": "STATS_LIMIT", "namespace_id": "1006", "simple": { "limit": 10, "period": 60 } }, // tries at the private stats key
+    { "name": "HIT_LIMIT", "namespace_id": "1005", "simple": { "limit": 30, "period": 60 } }    // page views counted per visitor
   ],
   // The live lab agent's runs and public score (server/lab-agent.js). Created with: wrangler d1 create sergioadan-lab
   "d1_databases": [
-    { "binding": "LAB_DB", "database_name": "sergioadan-lab", "database_id": "5d80a04c-5cea-465a-87a8-0a03e41421fa" }
+    { "binding": "LAB_DB", "database_name": "sergioadan-lab", "database_id": "5d80a04c-5cea-465a-87a8-0a03e41421fa" },
+    // Visitor statistics (server/stats.js), table hits in the same database. Secrets: STATS_SALT, STATS_KEY (wrangler secret put).
+    { "binding": "STATS_DB", "database_name": "sergioadan-lab", "database_id": "5d80a04c-5cea-465a-87a8-0a03e41421fa" }
   ],
   "workers_dev": false,
   "routes": [

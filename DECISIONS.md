@@ -585,6 +585,21 @@ Loops stop off screen and in hidden tabs. With reduced motion, the canvas is a s
 
 **Trade-offs.** 50 boards is a small sample, and the free-tier models are slow (minutes per board), so their rows arrive later than the rest.
 
+### 21. First-party visitor statistics, with no cookies and no stored IP addresses
+
+**Context.** I want to know which pages people read, how much traffic the site gets, and whether a link I sent with an application was opened.
+
+**Decision.** A same-site beacon (`hit.js`, added to every page by `build.py`) posts one page view to `/api/hit`, and the Worker writes it to D1 (`server/stats.js`).
+- Kept: the page, the referring site's host, a `?r=` tag from a link I sent, country, network operator, phone or desktop.
+- A visitor is counted per day by a SHA-256 hash of IP, browser and date with a secret salt. The IP and the browser string are never stored.
+- No cookies. Do Not Track and Global Privacy Control are respected. Bots and link previews are skipped. The tag is removed from the address bar so a shared link does not carry it on.
+- The report is at `/stats`, a noindex page that asks `/api/stats` with a secret key: constant-time compare, rate-limited.
+- `privacy.html` says all of this, including what the demos cache.
+
+**Why not a third-party tracker.** No cookie banner, no data leaves Cloudflare, and the tags tell me something no generic tool can: which application's link was opened.
+
+**Trade-offs.** A visitor cannot be identified, by design; the network operator only sometimes reveals a company. Visitors without JavaScript, or blocking the beacon, are not counted.
+
 ## Known limits and what comes next
 
 - **Old version at the root.** `index.html`, `index-v1.html`, `build.py` and `dist/` at the repository root are the first single-page site, kept for reference (the README says so). Next: move them into an `archive/` folder.

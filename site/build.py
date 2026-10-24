@@ -30,6 +30,13 @@ for f in [*here.glob("*.js"), *here.glob("*.css"), *here.glob("*.svg"), *pages]:
     shutil.copy2(f, dist / f.name)
 for f in (here / "work").glob("*.html"):
     shutil.copy2(f, dist / "work" / f.name)
+# The visit counter (hit.js, server/stats.js) on every page but the private stats page itself.
+for html in dist.rglob("*.html"):
+    if html.name == "stats.html":
+        continue
+    text = html.read_text(encoding="utf-8")
+    if "/hit.js" not in text and "</head>" in text:
+        html.write_text(text.replace("</head>", '<script src="/hit.js" defer></script>\n</head>', 1), encoding="utf-8")
 # Content-Security-Policy: every source the site loads from, and nothing else.
 #   scripts: own files, the one three.js file from cdnjs (also pinned by SRI), WebAssembly for Stockfish.
 #            The full file path, not the cdnjs host: the host serves thousands of libraries, some of which can be
